@@ -1636,13 +1636,6 @@ h2.ml-title{
     position:sticky;
     top:0;
     z-index:100;
-    transition:transform .22s ease, opacity .22s ease;
-  }
-  #rnav.nav-hidden{
-    transform:translateY(-100%);
-    opacity:0;
-    pointer-events:none;
-  }
 }
 
 /* 5. Footer — remove the stray gap entity spacing */
@@ -2566,24 +2559,7 @@ function mlSubmit(e){
   inp.value='';
 }
 
-/* ── Scroll-hide nav on mobile ── */
-(function(){
-  if(window.innerWidth > 680) return;
-  const nav = document.getElementById('rnav');
-  if(!nav) return;
-  let lastY = window.scrollY, ticking = false;
-  window.addEventListener('scroll', function(){
-    if(ticking) return;
-    ticking = true;
-    requestAnimationFrame(function(){
-      const y = window.scrollY;
-      if(y > lastY && y > 80){ nav.classList.add('nav-hidden'); }
-      else { nav.classList.remove('nav-hidden'); }
-      lastY = y;
-      ticking = false;
-    });
-  }, {passive:true});
-})();
+
 </script>
 
 </body>
