@@ -1580,6 +1580,72 @@ h2.ml-title{
 }
 .nav-cta a:hover{ background:var(--rdk); }
 
+
+/* ══ v64 MOBILE POLISH ══════════════════════════════════════════════ */
+
+/* 1. What We're Watching — stack timestamp below headline on mobile */
+@media(max-width:680px){
+  .hn-bar-item{ flex-wrap:wrap; align-items:flex-start; }
+  .hn-bar-tag{ margin-top:3px; order:3; flex-basis:100%; flex-shrink:1; white-space:normal; }
+  .hn-bar-text{ order:2; flex:1 1 auto; min-width:0; }
+}
+
+/* 2. Meetings — tighter, cleaner mobile layout */
+@media(max-width:680px){
+  .ev-date{
+    flex-direction:row;
+    align-items:baseline;
+    gap:6px;
+    flex-wrap:wrap;
+    padding-bottom:4px;
+    border-bottom:1px solid rgba(0,0,0,.07);
+    margin-bottom:6px;
+  }
+  .ev-day{ font-size:15px; }
+  .ev-time{ font-size:13px; }
+  .ev-date-short{ font-size:11px; margin-top:0; }
+  .ev-body{ padding-left:0; }
+  .ev-name{
+    font-size:14px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    display:block;
+  }
+  .ev-loc{ font-size:12px; margin-bottom:2px; }
+  .ev-actions{ margin-top:10px; gap:8px; }
+  .ev-list li{ padding:14px 16px; }
+}
+
+/* 3. Sponsor CTA — fill solid on mobile */
+@media(max-width:680px){
+  .sponsor-cta-btn{
+    background:var(--red) !important;
+    color:#fff !important;
+    border-color:var(--red) !important;
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:14px 20px;
+  }
+}
+
+/* 4. Scroll-hide nav on mobile */
+@media(max-width:680px){
+  #rnav{
+    transition:transform .22s ease, opacity .22s ease;
+  }
+  #rnav.nav-hidden{
+    transform:translateY(-100%);
+    opacity:0;
+    pointer-events:none;
+  }
+}
+
+/* 5. Footer — remove the stray gap entity spacing */
+@media(max-width:680px){
+  .ft-links{ gap:14px 22px; }
+}
 </style>
 </head>
 <body>
@@ -2339,7 +2405,7 @@ h2.ml-title{
     <nav class="ft-links" aria-label="Footer navigation">
     <a href="map.html">Live Map</a>
       <a href="/records">Public Records</a>
-      <a href="mailto:michigandatacentertracker@gmail.com">Tip Line</a>>
+      <a href="mailto:michigandatacentertracker@gmail.com">Tip Line</a>
       <a href="#nl">Newsletter</a>
       <a href="/advertise">Advertise</a>
       <a href="/about">About</a>
@@ -2496,6 +2562,25 @@ function mlSubmit(e){
   msg.style.display='block';
   inp.value='';
 }
+
+/* ── Scroll-hide nav on mobile ── */
+(function(){
+  if(window.innerWidth > 680) return;
+  const nav = document.getElementById('rnav');
+  if(!nav) return;
+  let lastY = window.scrollY, ticking = false;
+  window.addEventListener('scroll', function(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      const y = window.scrollY;
+      if(y > lastY && y > 80){ nav.classList.add('nav-hidden'); }
+      else { nav.classList.remove('nav-hidden'); }
+      lastY = y;
+      ticking = false;
+    });
+  }, {passive:true});
+})();
 </script>
 
 </body>
