@@ -22,8 +22,8 @@
   ╚══════════════════════════════════════════════════════════════════════╝
 
   REQUIRED ASSETS — deploy these files alongside the HTML:
-    header.mp4   → masthead video (powerline / Michigan infrastructure)
-    meetings-bg.jpg     → civic hearing room photo for Meetings banner
+    assets/header-final7.mp4   → masthead video (powerline / Michigan infrastructure)
+    assets/meetings-bg.jpg     → civic hearing room photo for Meetings banner
     social-card.jpg     → 1200×630px OG/Twitter share image (TODO: create before launch)
 -->
 <head>
@@ -353,31 +353,83 @@ h1.wm-inner,
 .hdr-rule{ height:3px;background:var(--red);position:relative;z-index:2; }
 
 /* ══════════════════════════════════════════════════════════
-   DATELINE + SITE DESCRIPTION
+   HAPPENING NOW BAR
 ══════════════════════════════════════════════════════════ */
-.dateline{
-  display:flex;align-items:center;gap:8px;
-  padding:7px 18px;
+.hn-bar{
   background:var(--blk);
   border-bottom:2px solid var(--red);
+  padding:0 18px;
 }
-.dateline-label{
-  font-family:var(--body);font-size:11px;font-weight:800;
+.hn-bar-top{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 0 6px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.hn-bar-label{
+  font-family:var(--body);font-size:10px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);white-space:nowrap;flex-shrink:0;
+}
+.hn-bar-dot{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--red);flex-shrink:0;
+  animation:lf-pulse 2s ease-in-out infinite;
+}
+.hn-bar-date{
+  font-family:var(--body);font-size:10px;font-weight:700;
+  color:rgba(255,255,255,.40);letter-spacing:.04em;
+  margin-left:auto;white-space:nowrap;
+}
+.hn-bar-items{
+  list-style:none;
+  display:flex;flex-direction:column;
+  padding:5px 0 7px;
+  gap:0;
+}
+.hn-bar-item{
+  display:flex;align-items:baseline;gap:8px;
+  padding:5px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.hn-bar-item:last-child{ border-bottom:none; }
+.hn-bar-bullet{ display:none; }
+.hn-bar-text{
+  font-family:var(--body);font-size:12px;font-weight:500;
+  color:rgba(255,255,255,.75);line-height:1.4;flex:1;min-width:0;
+}
+.hn-bar-text a{
+  color:inherit;text-decoration:none;
+  transition:color .12s;
+}
+.hn-bar-text a:hover{ color:#fff; }
+.hn-bar-tag{
+  font-family:var(--body);font-size:9px;font-weight:800;
   letter-spacing:.12em;text-transform:uppercase;
-  color:var(--red);
+  color:rgba(255,255,255,.38);white-space:nowrap;flex-shrink:0;
 }
-.dateline-sep{ color:rgba(255,255,255,.4);font-size:10px; }
-.dateline-date{
-  font-family:var(--body);font-size:11px;
-  color:rgba(255,255,255,.70);font-weight:700;letter-spacing:.06em;
+.hn-bar-ago{
+  font-family:var(--body);font-size:9px;font-weight:600;
+  color:rgba(255,255,255,.28);white-space:nowrap;flex-shrink:0;
 }
-/* Subtle site description — orientation/SEO, should feel like a caption not a content block */
-.site-desc{
-  font-size:10.5px;color:var(--lite);
-  padding:4px 18px;
-  background:var(--off);
-  border-bottom:1px solid var(--bdr);
-  line-height:1.35;
+
+@media(min-width:760px){
+  .hn-bar-items{ flex-direction:row;gap:0;padding:4px 0 6px; }
+  .hn-bar-item{
+    flex:1;padding:4px 14px 4px 0;
+    border-bottom:none;
+    border-right:1px solid rgba(255,255,255,.08);
+    margin-right:14px;
+  }
+  .hn-bar-item:last-child{ border-right:none;margin-right:0;padding-right:0; }
+}
+@media(max-width:759px){
+  .hn-bar-items{ padding:3px 0 5px; }
+  .hn-bar-item{ padding:5px 0;gap:6px; }
+  .hn-bar-text{ font-size:12.5px; }
+  /* Mobile: hide 3rd item — 2 items stacked keeps bar tight */
+  .hn-bar-item:nth-child(3){ display:none; }
+  /* Hide date on mobile — already visible on desktop */
+  .hn-bar-date{ display:none; }
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -388,15 +440,15 @@ h1.wm-inner,
 .hn-grid{ display:flex;flex-direction:column; }
 
 .lead{
-  padding:14px 22px 24px;
+  padding:10px 22px 24px;
   border-bottom:1px solid var(--bdr);
   background:var(--bg);
 }
 .lead-lbl{
   display:inline-block;
-  font-family:var(--disp);font-size:15px;font-weight:900;
+  font-family:var(--disp);font-size:13px;font-weight:900;
   letter-spacing:.28em;text-transform:uppercase;
-  padding:6px 16px;margin-bottom:22px;
+  padding:0;margin-bottom:10px;
   /* Shimmer applied below */
 }
 .lead-hed{
@@ -420,12 +472,14 @@ h1.wm-inner,
 .story-rows{
   display:flex;flex-direction:column;background:var(--bg);
   min-width:0;overflow:hidden;
+  justify-content:space-between;
 }
 .story-row{
   display:flex;gap:12px;align-items:flex-start;
   padding:14px 18px;border-bottom:1px solid var(--bdr);
   text-decoration:none;color:var(--blk);
   transition:background .12s;
+  flex:1;
 }
 .story-row:last-child{ border-bottom:none; }
 .story-row:hover{ background:var(--off); }
@@ -464,15 +518,30 @@ h1.wm-inner,
   .story-rows{ order:2; }
   .hn-grid,.lead,.story-rows,.story-row{ max-width:100%;overflow:hidden; }
 }
-@media(max-width:600px){
-  .lead{ padding:10px 18px 12px; }
-  .lead-lbl{ font-size:11px;letter-spacing:.22em;margin-bottom:8px; }
-  .lead-hed{
-    font-size:clamp(28px,8vw,34px);
-    line-height:0.95;letter-spacing:-.02em;
-    margin-bottom:10px;max-width:none;
+/* Lead mobile-row: hidden by default (desktop doesn't flex it) */
+.lead-mobile-row{ display:block; }
+.lead-num{ display:none; }
+
+@media(max-width:679px){
+  /* Lead story: match story-row look on mobile */
+  .lead{ padding:11px 18px 13px; }
+  .lead-lbl{ display:none; }
+  .lead-mobile-row{
+    display:flex;align-items:flex-start;gap:10px;
   }
-  .lead-sum{ font-size:14.5px;line-height:1.42;margin-bottom:8px; }
+  .lead-num{
+    display:block;
+    font-family:var(--disp);font-size:20px;font-weight:900;
+    color:#AAACB4;line-height:1;flex-shrink:0;
+    width:18px;text-align:right;padding-top:3px;
+  }
+  .lead-body{ flex:1;min-width:0; }
+  .lead-hed{
+    font-size:14.5px;font-weight:700;
+    line-height:1.38;letter-spacing:0;
+    margin-bottom:4px;max-width:none;
+  }
+  .lead-sum{ display:none; }
   .lead-meta{ font-size:11px;color:var(--lite); }
   .story-row{ padding:11px 18px;gap:10px; }
   .s-num{ font-size:20px;width:18px; }
@@ -492,9 +561,12 @@ h1.wm-inner,
   }
   .lead{
     border-right:1px solid var(--bdr);border-bottom:none;
-    padding:32px 28px 26px 22px;
+    padding:18px 28px 26px 22px;
     min-width:0;position:relative;overflow:hidden;
   }
+  /* On desktop, lead-mobile-row is block (default), number hidden */
+  .lead-lbl{ display:inline-block; }
+  .lead-sum{ display:block; }
   .lead-hed{ font-size:clamp(26px,3.4vw,44px); max-width:none; }
   .story-row{ padding:15px 20px; }
   .story-rows .story-row:last-child{ border-bottom:none; }
@@ -504,18 +576,25 @@ h1.wm-inner,
    NEWSLETTER RIBBON
 ══════════════════════════════════════════════════════════ */
 .nl-ribbon{
-  display:flex;align-items:center;justify-content:center;gap:14px;
+  display:flex;align-items:center;justify-content:center;
   background:var(--red);color:#fff;
   font-family:var(--body);font-size:11px;font-weight:800;
   letter-spacing:.10em;text-transform:uppercase;
-  padding:14px 18px;text-decoration:none;
+  padding:16px 24px;
+  text-decoration:none;
   transition:background .15s;
   position:relative;
+  gap:12px;
 }
 .nl-ribbon:hover{ background:var(--rdk);color:#fff; }
+.nl-ribbon-inner{ display:contents; }
+.nl-ribbon-text{ color:#fff; }
 .nl-ribbon-arrow{
-  font-style:normal;font-size:16px;color:#fff;flex-shrink:0;
-  font-weight:400;
+  font-style:normal;font-size:13px;color:rgba(255,255,255,.80);
+  flex-shrink:0;font-weight:700;
+}
+@media(min-width:680px){
+  .nl-ribbon{ font-size:12px;letter-spacing:.13em;padding:18px 24px; }
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -524,7 +603,7 @@ h1.wm-inner,
 .map-cta{
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   background:#111113;color:#e8e8e8;
-  padding:13px 18px;text-decoration:none;
+  padding:18px 22px;text-decoration:none;
   border-top:1px solid rgba(255,255,255,.07);
   border-bottom:1px solid rgba(255,255,255,.07);
   transition:background .15s;
@@ -532,18 +611,18 @@ h1.wm-inner,
 .map-cta:hover{ background:#1a1a1d; }
 .map-cta-inner{ display:flex;align-items:center;gap:10px;flex:1;min-width:0; }
 .map-cta-lbl{
-  font-family:var(--disp);font-size:9px;font-weight:900;
+  font-family:var(--disp);font-size:11px;font-weight:900;
   letter-spacing:.14em;text-transform:uppercase;
   color:#fff;background:var(--red);
-  padding:3px 7px;flex-shrink:0;white-space:nowrap;
+  padding:5px 10px;flex-shrink:0;white-space:nowrap;
 }
 .map-cta-text{
-  font-family:var(--body);font-size:11px;font-weight:500;
-  color:rgba(255,255,255,.52);
+  font-family:var(--body);font-size:13px;font-weight:500;
+  color:rgba(255,255,255,.60);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .map-cta-arrow{
-  font-family:var(--disp);font-size:10px;font-weight:900;
+  font-family:var(--disp);font-size:12px;font-weight:900;
   letter-spacing:.10em;text-transform:uppercase;
   color:#fff;flex-shrink:0;white-space:nowrap;
 }
@@ -565,8 +644,7 @@ h1.wm-inner,
 }
 .ev-hdr-bg{
   position:absolute;inset:0;
-  /* TODO: place meetings-bg.jpg (packed civic hearing room, documentary style) alongside HTML */
-  background-image:url('meetings-bg.jpg');
+  background-image:url('assets/meetings-bg.jpg');
   background-size:cover;
   background-position:center 25%;
   opacity:0.92;
@@ -598,7 +676,7 @@ h2.ev-hdr-title{
 .ev-pill.watch{ background:var(--blu);border-color:var(--blu);color:#fff; }
 .ev-pill.watch:hover{ background:var(--blu-lt);border-color:var(--blu-lt); }
 .ev-full-cal{
-  font-family:var(--body);font-size:9px;font-weight:700;
+  font-family:var(--body);font-size:11px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;
   color:rgba(255,255,255,.65);text-decoration:none;
   border:1px solid rgba(255,255,255,.2);
@@ -721,1371 +799,1349 @@ h2.ev-hdr-title{
 }
 .ev-toggle-btn:hover{ background:#E8EDF4;color:var(--blu-lt); }
 
+.ev-toggle-icon{ font-size:11px;transition:transform .2s; }
+.ev-extra-list{ display:none;list-style:none; }
+.ev-extra-list.open{ display:block; }
+
 /* ══════════════════════════════════════════════════════════
-   REGIONAL & CAPITOL SECTIONS — shared dark-header style
+   REGIONAL COVERAGE GRID
 ══════════════════════════════════════════════════════════ */
-.sec-dk{
+#regions{
   border-top:3px solid var(--bdr2);
   background:var(--bg);
 }
-.sec-dk-hdr{
+.reg-hdr{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 20px 12px;
+  border-bottom:2px solid var(--bdr);
   background:var(--blk);
-  padding:11px 18px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-left:4px solid var(--red);
-  min-height:44px;
 }
-.sec-dk-hdr h2{
-  font-family:var(--disp);font-size:12px;font-weight:900;
-  letter-spacing:.1em;text-transform:uppercase;color:#fff;
-  margin:0;
-}
-.sec-dk-hdr a{
-  font-family:var(--body);font-size:9px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);text-decoration:none;
-  flex-shrink:0;transition:color .12s;
-}
-.sec-dk-hdr a:hover{ color:rgba(255,255,255,.75); }
-
-.reg-list{ list-style:none; }
-.reg-item{ border-bottom:1px solid var(--bdr);background:var(--bg); }
-.reg-item:last-child{ border-bottom:none; }
-.reg-row{
-  display:block;padding:14px 18px 13px;
-  text-decoration:none;color:var(--blk);
-  transition:background .1s;
-}
-.reg-row:hover{ background:var(--off); }
-.reg-row:hover .rh{ color:var(--blu); }
-.rh{
-  font-size:14px;font-weight:700;
-  line-height:1.45;color:var(--blk);margin-bottom:4px;
-  transition:color .12s;
-}
-.rm{ font-size:10.5px;color:var(--lite);font-weight:600;display:block; }
-
-@media(min-width:680px){
-  .reg-row{
-    display:flex;justify-content:space-between;
-    align-items:baseline;gap:16px;padding:14px 18px;
-  }
-  .rh{ margin-bottom:0; }
-  .rm{ display:inline;white-space:nowrap;flex-shrink:0; }
-}
-@media(min-width:960px){
-  .reg-2col{ display:grid;grid-template-columns:1fr 1fr; }
-  .reg-2col .reg-item:nth-child(odd){ border-right:1px solid var(--bdr); }
-}
-
-/* ── ITEM TYPE LABELS (Capitol / Community Watch) ───────── */
-/* Blue label for Capitol section item types */
-.item-lbl{
-  display:inline-block;
-  font-size:9px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:var(--blu);background:var(--blu-bg);
-  padding:1px 6px;margin-right:5px;
-  vertical-align:middle;
-}
-/* Gray label for Community Watch item types */
-.cw-lbl{
-  display:inline-block;
-  font-size:9px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:var(--mid);
-  padding:1px 0;margin-right:3px;
-}
-/* Community Watch disclaimer */
-.cw-disclaimer{
-  font-size:11px;color:var(--lite);
-  padding:10px 18px 12px;
-  border-top:1px solid var(--bdr);
-  background:var(--off);
-  line-height:1.6;
-  font-style:italic;
-}
-
-/* ══════════════════════════════════════════════════════════
-   PUBLIC WATCH — photo banner header
-   Asset: public-watch-bg.jpg (desktop, phone, handwritten notes)
-   Deploy alongside HTML.
-══════════════════════════════════════════════════════════ */
-.pw-hdr{
-  position:relative;overflow:hidden;
-  min-height:120px;
-  display:flex;align-items:flex-end;
-  background:#1a1212;
-}
-@media(min-width:540px){ .pw-hdr{ min-height:140px; } }
-.pw-hdr-bg{
-  position:absolute;inset:0;
-  background-image:url('public-watch-bg.jpg');
-  background-size:cover;
-  background-position:28% center;
-  opacity:0.80;
-}
-.pw-hdr-bg::after{
-  content:'';position:absolute;inset:0;
-  background:
-    linear-gradient(to right,
-      rgba(13,13,15,.90) 0%,
-      rgba(13,13,15,.68) 42%,
-      rgba(13,13,15,.38) 70%,
-      rgba(13,13,15,.55) 100%),
-    linear-gradient(to bottom,
-      rgba(0,0,0,.05) 0%,
-      rgba(0,0,0,.52) 100%);
-}
-.pw-hdr-content{
-  position:relative;z-index:1;
-  width:100%;padding:14px 18px;
-  border-left:4px solid var(--red);
-  display:flex;flex-direction:column;gap:3px;
-}
-.pw-hdr-top{
-  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
-}
-.pw-hdr-eyebrow{
-  font-family:var(--body);font-size:8px;font-weight:800;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--red);display:block;margin-bottom:5px;
-}
-.pw-hdr-content h2{
-  font-family:var(--disp);font-size:16px;font-weight:900;
-  letter-spacing:.10em;text-transform:uppercase;
+h2.reg-hdr-title{
+  font-family:var(--disp);font-size:14px;font-weight:900;
+  letter-spacing:.14em;text-transform:uppercase;
   color:#fff;line-height:1;margin:0;
 }
-.pw-hdr-tagline{
-  font-family:var(--body);font-size:10.5px;
-  color:rgba(255,255,255,.52);
-  line-height:1.4;margin-top:4px;
+.reg-hdr-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0;
+  animation:lf-pulse 2.4s ease-in-out infinite;
 }
-.pw-hdr-link{
-  font-family:var(--body);font-size:9px;font-weight:700;
+@keyframes lf-pulse{
+  0%,100%{ opacity:1;transform:scale(1); }
+  50%{ opacity:.55;transform:scale(0.85); }
+}
+
+.reg-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0;
+}
+.reg-cell{
+  border-right:1px solid var(--bdr);
+  border-bottom:1px solid var(--bdr);
+  padding:0;
+  display:flex;flex-direction:column;
+}
+.reg-cell:nth-child(2n){ border-right:none; }
+
+.reg-cell-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 14px 7px;
+  border-bottom:1px solid var(--bdr);
+  background:var(--off);
+  gap:8px;
+}
+h3.reg-name{
+  font-family:var(--disp);font-size:12px;font-weight:900;
   letter-spacing:.10em;text-transform:uppercase;
-  color:rgba(255,255,255,.55);text-decoration:none;
-  border:1px solid rgba(255,255,255,.18);
-  padding:5px 11px;white-space:nowrap;flex-shrink:0;
-  transition:background .15s,color .15s,border-color .15s;
-  align-self:flex-start;
+  color:var(--blk);line-height:1;margin:0;
 }
-.pw-hdr-link:hover{
-  background:rgba(255,255,255,.10);
-  color:#fff;border-color:rgba(255,255,255,.4);
+.reg-count{
+  font-family:var(--body);font-size:10px;font-weight:800;
+  letter-spacing:.08em;
+  color:var(--lite);text-transform:uppercase;
+  white-space:nowrap;flex-shrink:0;
+}
+
+.reg-item{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:12px 14px;border-bottom:1px solid var(--bdr);
+  text-decoration:none;color:var(--blk);
+  transition:background .12s;
+  flex:1;
+}
+.reg-item:last-child{ border-bottom:none; }
+.reg-item:hover{ background:var(--off); }
+.reg-item:hover .reg-hed{ color:var(--blu); }
+
+.reg-bullet{
+  width:3px;height:3px;border-radius:50%;
+  background:var(--red);flex-shrink:0;margin-top:8px;
+}
+.reg-body{ flex:1;min-width:0; }
+.reg-hed{
+  font-size:13px;font-weight:700;line-height:1.42;
+  color:var(--blk);margin-bottom:3px;
+  transition:color .12s;
+  display:-webkit-box;-webkit-line-clamp:3;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.reg-meta{ font-size:10.5px;color:var(--mid);font-weight:700; }
+
+/* ── Capitol / Public Watch — full-width spans ─────── */
+.reg-cell.full-width{
+  grid-column:1 / -1;
+  border-right:none;
+}
+
+/* Mobile: single column */
+@media(max-width:479px){
+  .reg-grid{ grid-template-columns:1fr; }
+  .reg-cell:nth-child(2n){ border-right:none; }
+  .reg-cell{ border-right:none; }
+  .reg-cell.full-width{ grid-column:1; }
+}
+
+/* Desktop: 4-column */
+@media(min-width:680px){
+  .reg-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .reg-cell:nth-child(2n){ border-right:1px solid var(--bdr); }
+  .reg-cell:nth-child(4n){ border-right:none; }
+  .reg-cell.full-width{ grid-column:1 / -1;border-right:none; }
 }
 
 /* ══════════════════════════════════════════════════════════
-   SUBMIT A TIP
+   RECOMMENDATIONS (You Should Know)
 ══════════════════════════════════════════════════════════ */
-.tip-section{
-  border-top:4px solid var(--red);
-  background:var(--blk);
-  padding:36px 24px 32px;
-  position:relative;overflow:hidden;
+#rec{
+  border-top:3px solid var(--bdr2);
+  background:var(--bg);
 }
-.tip-eyebrow{
-  font-family:var(--body);font-size:9px;font-weight:800;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--red);margin-bottom:12px;display:block;
+.rec-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 20px 12px;
+  border-bottom:2px solid var(--bdr);
+  background:var(--char);
 }
-h2.tip-head{
-  font-family:var(--disp);
-  font-size:clamp(22px,3.8vw,36px);font-weight:900;
-  text-transform:uppercase;letter-spacing:.02em;
-  color:#fff;line-height:1.05;margin-bottom:14px;
+h2.rec-hdr-title{
+  font-family:var(--disp);font-size:14px;font-weight:900;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;line-height:1;margin:0;
 }
-.tip-copy{
-  font-size:14.5px;color:rgba(255,255,255,.65);
-  line-height:1.65;margin-bottom:20px;max-width:52ch;
-}
-.tip-examples{
-  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;
-}
-.tip-tag{
+.rec-hdr-sub{
   font-family:var(--body);font-size:10px;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;
-  color:rgba(255,255,255,.55);
-  border:1px solid rgba(255,255,255,.15);
-  padding:5px 10px;white-space:nowrap;
+  color:rgba(255,255,255,.35);letter-spacing:.04em;white-space:nowrap;
 }
-.tip-cta{
-  display:inline-block;
-  background:var(--red);color:#fff;
-  font-family:var(--body);font-weight:800;font-size:10.5px;
-  letter-spacing:.12em;text-transform:uppercase;
-  padding:16px 32px;text-decoration:none;
-  border:2px solid var(--red);
-  transition:background .15s,color .15s,border-color .15s;
-  margin-bottom:16px;
+.rec-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0;
 }
-.tip-cta:hover{ background:transparent;color:var(--red);border-color:var(--red); }
-.tip-disc{
-  font-size:10px;color:rgba(255,255,255,.22);
-  line-height:1.6;max-width:52ch;margin-top:4px;
+.rec-item{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:16px 18px;border-bottom:1px solid var(--bdr);
+  border-right:1px solid var(--bdr);
+  text-decoration:none;color:var(--blk);
+  transition:background .12s;
 }
+.rec-item:nth-child(2n){ border-right:none; }
+.rec-item:hover{ background:var(--off); }
+.rec-item:hover .rec-hed{ color:var(--blu); }
 
-/* Perspectives strip removed for launch — section was underbuilt.
-   Possible future names: The Debate / The Arguments / Claims to Watch */
+.rec-icon{
+  font-size:19px;flex-shrink:0;line-height:1.2;
+  margin-top:1px;
+}
+.rec-body{ flex:1;min-width:0; }
+.rec-label{
+  font-family:var(--body);font-size:9px;font-weight:900;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--lite);margin-bottom:4px;display:block;
+}
+.rec-hed{
+  font-size:14px;font-weight:700;line-height:1.40;
+  color:var(--blk);margin-bottom:4px;
+  transition:color .12s;
+}
+.rec-sub{
+  font-size:11.5px;color:var(--mid);
+  font-weight:500;line-height:1.45;
+}
+@media(max-width:479px){
+  .rec-list{ grid-template-columns:1fr; }
+  .rec-item:nth-child(2n){ border-right:none; }
+  .rec-item{ border-right:none; }
+}
+@media(min-width:680px){
+  .rec-list{ grid-template-columns:repeat(3,1fr); }
+  .rec-item:nth-child(2n){ border-right:1px solid var(--bdr); }
+  .rec-item:nth-child(3n){ border-right:none; }
+}
 
 /* ══════════════════════════════════════════════════════════
-   SPONSOR BILLBOARD
+   LIVE CHATTER
+══════════════════════════════════════════════════════════ */
+#chatter{
+  border-top:3px solid var(--bdr2);
+  background:var(--bg);
+}
+.chat-hdr{
+  display:flex;align-items:center;gap:10px;
+  padding:13px 20px 12px;
+  border-bottom:2px solid var(--bdr);
+  background:var(--blk);
+}
+h2.chat-hdr-title{
+  font-family:var(--disp);font-size:14px;font-weight:900;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;line-height:1;margin:0;
+}
+.chat-hdr-badge{
+  font-family:var(--body);font-size:9px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--red);border:1px solid var(--red);
+  padding:2px 6px;flex-shrink:0;
+}
+.chat-list{ list-style:none; }
+.chat-item{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:14px 20px;border-bottom:1px solid var(--bdr);
+  text-decoration:none;color:var(--blk);
+  transition:background .12s;
+}
+.chat-item:last-child{ border-bottom:none; }
+.chat-item:hover{ background:var(--off); }
+
+.chat-avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--off);border:1.5px solid var(--bdr2);
+  flex-shrink:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:var(--mid);
+}
+.chat-avatar img{ width:100%;height:100%;object-fit:cover; }
+.chat-body{ flex:1;min-width:0; }
+.chat-meta{
+  display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap;
+}
+.chat-name{
+  font-size:13px;font-weight:800;color:var(--blk);
+}
+.chat-handle{
+  font-size:11px;color:var(--lite);font-weight:500;
+}
+.chat-when{
+  font-size:11px;color:var(--lite);font-weight:500;
+  margin-left:auto;
+}
+.chat-text{
+  font-size:14px;line-height:1.52;color:var(--mid);font-weight:400;
+}
+.chat-text a{ color:var(--blu);text-decoration:underline; }
+.chat-text a:hover{ color:var(--blu-lt); }
+.chat-platform{
+  width:16px;height:16px;flex-shrink:0;margin-top:2px;
+  border-radius:3px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--blk);
+}
+.chat-platform svg{ width:10px;height:10px; }
+
+/* ══════════════════════════════════════════════════════════
+   SPONSOR BOARD
 ══════════════════════════════════════════════════════════ */
 .sponsor-board{
-  background:linear-gradient(135deg, #0D0D10 0%, #111318 45%, #1E3A5F 100%);
-  padding:52px 28px 44px;
+  background:var(--off);
+  border-top:1px solid var(--bdr);
+  padding:26px 22px;
   text-align:center;
-  border-top:4px solid var(--red);
-  position:relative;overflow:hidden;
 }
-.sponsor-board::before{
-  content:'';position:absolute;
-  top:-60px;left:50%;transform:translateX(-50%);
-  width:400px;height:160px;
-  background:radial-gradient(ellipse, rgba(200,16,46,.18) 0%, transparent 70%);
-  pointer-events:none;
+.sponsor-lbl{
+  font-family:var(--body);font-size:9px;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--lite);margin-bottom:14px;
+  display:block;
 }
-.sponsor-eyebrow{
-  display:inline-block;
-  font-family:var(--body);font-size:9px;font-weight:700;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--red);margin-bottom:14px;
-}
-.sponsor-head{
-  font-family:var(--disp);
-  font-size:clamp(28px,4.5vw,46px);font-weight:900;
-  letter-spacing:.02em;text-transform:uppercase;
-  color:#fff;line-height:1;margin-bottom:18px;
-}
-.sponsor-copy{
-  font-size:14.5px;color:rgba(255,255,255,.62);
-  line-height:1.65;margin-bottom:10px;
-  max-width:38ch;margin-left:auto;margin-right:auto;
-}
-.sponsor-tagline{
-  font-family:var(--body);font-size:9.5px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.28);margin-bottom:32px;
+.sponsor-logo{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:120px;height:48px;
+  border:1px solid var(--bdr2);background:#fff;
+  color:var(--lite);font-size:11px;
 }
 .sponsor-cta{
-  display:inline-block;background:transparent;color:#fff;
-  font-family:var(--body);font-weight:800;font-size:10.5px;
-  letter-spacing:.14em;text-transform:uppercase;
-  padding:15px 48px;text-decoration:none;margin-bottom:16px;
-  border:2px solid rgba(255,255,255,.55);
-  transition:background .15s,border-color .15s,color .15s;
+  display:block;margin-top:12px;
+  font-size:11px;color:var(--lite);
+  font-style:italic;
 }
-.sponsor-cta:hover{ background:var(--red);border-color:var(--red);color:#fff; }
-.sponsor-disc{
-  font-size:10px;color:rgba(255,255,255,.20);line-height:1.6;
-  max-width:360px;margin:0 auto;
-}
-.sponsor-divider,.sponsor-opts,.sponsor-opt{ display:none; }
+.sponsor-cta a{ color:var(--mid);text-decoration:underline; }
 
 /* ══════════════════════════════════════════════════════════
-   NEWSLETTER SECTION
+   NEWSLETTER
 ══════════════════════════════════════════════════════════ */
 #nl{
+  border-top:3px solid var(--bdr2);
   background:var(--off);
-  padding:30px 18px 26px;
-  border-top:1px solid var(--bdr);
-  border-bottom:1px solid var(--bdr);
+  padding:36px 22px 40px;
 }
-h2.nl-head{
-  font-family:var(--disp);font-size:22px;font-weight:900;
-  text-transform:uppercase;letter-spacing:.04em;
-  color:var(--blk);margin-bottom:5px;
+.nl-eyebrow{
+  font-family:var(--disp);font-size:11px;font-weight:900;
+  letter-spacing:.20em;text-transform:uppercase;
+  color:var(--red);display:block;margin-bottom:8px;
+}
+.nl-hed{
+  font-family:'Arial Narrow',Arial,Helvetica,sans-serif;
+  font-size:clamp(26px,5vw,42px);font-weight:900;
+  line-height:1.08;text-transform:uppercase;
+  color:var(--blk);margin-bottom:8px;
 }
 .nl-sub{
-  font-size:13.5px;color:var(--mid);
-  margin-bottom:18px;line-height:1.5;max-width:44ch;
+  font-size:15px;color:var(--mid);margin-bottom:24px;
+  max-width:44ch;line-height:1.60;font-weight:400;
 }
-.nl-inp{
-  width:100%;background:#fff;
-  border:1px solid var(--bdr);border-bottom:2px solid var(--blk);
-  padding:13px 16px;font-size:15px;
-  display:block;margin-bottom:10px;min-height:48px;
-  outline:none;transition:border-color .15s;
+.nl-form{ display:flex;gap:10px;max-width:420px;flex-wrap:wrap; }
+.nl-input{
+  flex:1;min-width:200px;
+  font-family:var(--body);font-size:15px;font-weight:500;
+  padding:14px 16px;
+  border:1.5px solid var(--bdr2);border-radius:0;
+  background:#fff;color:var(--blk);
+  outline:none;
+  transition:border-color .15s;
 }
-.nl-inp:focus{ border-color:var(--red); }
+.nl-input:focus{ border-color:var(--red); }
+.nl-input::placeholder{ color:var(--lite); }
 .nl-btn{
-  width:100%;background:var(--red);color:#fff;border:none;
-  font-family:var(--body);font-weight:800;font-size:10.5px;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:14px;min-height:48px;cursor:pointer;display:block;
+  font-family:var(--disp);font-size:12px;font-weight:900;
+  letter-spacing:.14em;text-transform:uppercase;
+  background:var(--red);color:#fff;border:none;
+  padding:14px 24px;cursor:pointer;
+  white-space:nowrap;
   transition:background .15s;
 }
 .nl-btn:hover{ background:var(--rdk); }
-.nl-ok{
-  display:none;background:var(--grn);color:#fff;
-  padding:16px;font-weight:700;font-size:14px;text-align:center;
+.nl-msg{
+  margin-top:10px;font-size:13px;font-weight:600;
+  color:var(--mid);display:none;
 }
-.nl-prv{ font-size:10px;color:var(--lite);margin-top:8px;line-height:1.5; }
+.nl-msg.ok{ color:var(--grn); }
+.nl-msg.err{ color:var(--red); }
+.nl-list-items{
+  list-style:none;margin-top:20px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.nl-list-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;color:var(--mid);font-weight:500;
+}
+.nl-check{ color:var(--red);font-size:13px;flex-shrink:0; }
+
+/* ══════════════════════════════════════════════════════════
+   MULTI-LIST
+══════════════════════════════════════════════════════════ */
+.ml-section{
+  border-top:3px solid var(--bdr2);
+  background:var(--bg);
+}
+.ml-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 20px 12px;
+  border-bottom:2px solid var(--bdr);
+  background:var(--off);
+  gap:8px;
+}
+h2.ml-title{
+  font-family:var(--disp);font-size:13px;font-weight:900;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blk);line-height:1;margin:0;
+}
+.ml-badge{
+  font-family:var(--body);font-size:9px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mid);border:1px solid var(--bdr2);
+  padding:2px 7px;flex-shrink:0;
+}
+.ml-form{
+  display:flex;gap:0;align-items:stretch;
+  padding:16px 20px;
+  border-bottom:1px solid var(--bdr);
+  background:var(--off);
+  flex-wrap:wrap;gap:8px;
+}
+.ml-input{
+  flex:1;min-width:180px;
+  font-family:var(--body);font-size:14px;font-weight:500;
+  padding:11px 14px;
+  border:1.5px solid var(--bdr2);border-radius:0;
+  background:#fff;color:var(--blk);
+  outline:none;
+  transition:border-color .15s;
+}
+.ml-input:focus{ border-color:var(--red); }
+.ml-input::placeholder{ color:var(--lite); }
+.ml-btn{
+  font-family:var(--disp);font-size:11px;font-weight:900;
+  letter-spacing:.12em;text-transform:uppercase;
+  background:var(--red);color:#fff;border:none;
+  padding:11px 20px;cursor:pointer;
+  white-space:nowrap;
+  transition:background .15s;
+}
+.ml-btn:hover{ background:var(--rdk); }
+.ml-msg{
+  padding:0 20px 12px;
+  font-size:13px;font-weight:600;
+  color:var(--mid);display:none;
+}
+.ml-msg.ok{ color:var(--grn); }
+.ml-msg.err{ color:var(--red); }
+.ml-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:0;
+}
+.ml-col{
+  border-right:1px solid var(--bdr);
+  padding:16px 18px;
+}
+.ml-col:last-child{ border-right:none; }
+.ml-col-hdr{
+  font-family:var(--disp);font-size:11px;font-weight:900;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--mid);margin-bottom:10px;display:block;
+}
+.ml-topic{ display:flex;align-items:center;gap:8px;margin-bottom:7px; }
+.ml-check{
+  width:15px;height:15px;border:1.5px solid var(--bdr2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  background:#fff;
+}
+.ml-check svg{ display:none; }
+.ml-topic-lbl{ font-size:13px;color:var(--blk);font-weight:500;cursor:pointer; }
 
 /* ══════════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════════ */
-footer{
-  background:#0D0D10;
-  padding:44px 24px 32px;
-  border-top:4px solid var(--red);
+#ft{
+  background:var(--blk);
+  border-top:3px solid var(--red);
+  padding:28px 22px 20px;
 }
-.ft-wm{
-  font-family:var(--disp);
-  font-size:clamp(15px,2.2vw,22px);
-  font-weight:900;letter-spacing:.04em;text-transform:uppercase;
-  color:rgba(255,255,255,.75);line-height:1.05;
-  margin-bottom:4px;
+.ft-top{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;margin-bottom:20px;
 }
-.ft-wm-rule{
-  display:block;width:28px;height:2px;
-  background:var(--red);margin:8px 0 12px;
+.ft-brand{
+  display:flex;flex-direction:column;gap:6px;
 }
-.ft-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:28px;
-  margin-bottom:28px;
-  padding-bottom:24px;
+.ft-logo{
+  font-family:var(--disp);font-size:22px;font-weight:900;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:#fff;line-height:1;
+}
+.ft-logo span{ color:var(--red); }
+.ft-tagline{
+  font-size:11px;color:rgba(255,255,255,.40);
+  max-width:28ch;line-height:1.5;
+}
+.ft-links{
+  display:flex;gap:18px;flex-wrap:wrap;
+  align-items:flex-start;
+}
+.ft-links a{
+  font-family:var(--body);font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,.50);
+  text-decoration:none;
+  transition:color .12s;
+}
+.ft-links a:hover{ color:#fff; }
+.ft-rule{ height:1px;background:rgba(255,255,255,.08);margin-bottom:14px; }
+.ft-copy{
+  font-size:10.5px;color:rgba(255,255,255,.28);
+  line-height:1.6;
+}
+.ft-copy a{ color:rgba(255,255,255,.40);text-decoration:none; }
+.ft-copy a:hover{ color:rgba(255,255,255,.65); }
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE DRAWER NAV
+══════════════════════════════════════════════════════════ */
+#nav-drawer{
+  position:fixed;top:0;left:0;bottom:0;
+  width:280px;background:var(--blk);
+  z-index:1000;transform:translateX(-100%);
+  transition:transform .28s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  box-shadow:4px 0 40px rgba(0,0,0,.6);
+}
+#nav-drawer.open{ transform:translateX(0); }
+#nav-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.60);
+  z-index:999;opacity:0;pointer-events:none;
+  transition:opacity .28s;
+}
+#nav-overlay.open{ opacity:1;pointer-events:all; }
+
+.nav-close{
+  align-self:flex-end;margin:14px 14px 0 0;
+  background:none;border:none;color:rgba(255,255,255,.5);
+  font-size:22px;cursor:pointer;padding:4px 8px;
+  transition:color .15s;
+  line-height:1;
+}
+.nav-close:hover{ color:#fff; }
+
+.nav-brand{
+  padding:16px 18px 14px;
   border-bottom:1px solid rgba(255,255,255,.07);
 }
-@media(min-width:600px){
-  .ft-grid{ grid-template-columns:1.6fr 1fr 1fr; }
+.nav-brand-name{
+  font-family:var(--disp);font-size:18px;font-weight:900;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:#fff;line-height:1;
 }
-.ft-brand .ft-desc{
-  font-size:12.5px;color:#6a6a78;line-height:1.7;max-width:280px;
-}
-.ft-col-label{
-  font-family:var(--body);font-size:8.5px;font-weight:800;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:#484852;margin-bottom:12px;display:block;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  padding-bottom:7px;
-}
-.ft-links{ display:flex;flex-direction:column;gap:10px; }
-.ft-links a{
-  font-size:12.5px;font-weight:500;
-  color:#8a8a9a;text-decoration:none;transition:color .12s;
-}
-.ft-links a:hover{ color:#ccccd6; }
-.ft-bottom{ display:flex;flex-direction:column;gap:7px; }
-.ft-disc{
-  font-size:11px;color:#6a6a78;line-height:1.75;max-width:580px;
-}
-.ft-domain{
-  font-size:10px;color:#3e3e48;letter-spacing:.05em;text-transform:uppercase;
+.nav-brand-sub{
+  font-size:10.5px;color:rgba(255,255,255,.30);letter-spacing:.05em;margin-top:4px;
 }
 
-/* ══════════════════════════════════════════════════════════
-   NAV DRAWER
-══════════════════════════════════════════════════════════ */
-.drw-ov{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.75);z-index:300;
+.nav-links{ list-style:none;padding:8px 0;flex:1; }
+.nav-links li a{
+  display:block;
+  font-family:var(--body);font-size:14px;font-weight:600;
+  color:rgba(255,255,255,.75);
+  padding:12px 18px;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:background .12s,color .12s;
 }
-.drw-ov.open{ display:block; }
-.drw{
-  position:fixed;top:0;left:0;bottom:0;width:270px;
-  background:#16161C;z-index:301;overflow-y:auto;
-  transform:translateX(-100%);transition:transform .22s ease;
+.nav-links li a:hover{ background:rgba(255,255,255,.05);color:#fff; }
+
+.nav-cta{
+  padding:18px 18px 28px;
+  border-top:1px solid rgba(255,255,255,.07);
 }
-.drw.open{ transform:translateX(0); }
-.drw-ttl{
-  display:flex;align-items:center;justify-content:space-between;
+.nav-cta a{
+  display:block;text-align:center;
   background:var(--red);color:#fff;
-  font-family:var(--body);font-size:10.5px;font-weight:800;
-  letter-spacing:.12em;text-transform:uppercase;padding:14px 18px;
-}
-.drw-close{
-  background:none;border:none;color:rgba(255,255,255,.7);
-  font-size:20px;line-height:1;padding:0;cursor:pointer;
-  transition:color .12s;
-}
-.drw-close:hover{ color:#fff; }
-.drw-lnk{
-  display:flex;align-items:center;color:#888890;
-  font-size:13.5px;font-weight:600;
-  padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);
-  text-decoration:none;min-height:46px;
-  transition:background .1s,color .1s;
-}
-.drw-lnk:hover{ background:rgba(255,255,255,.04);color:#fff; }
-.drw-sec{
-  font-size:9px;font-weight:700;
+  font-family:var(--body);font-size:11px;font-weight:800;
   letter-spacing:.14em;text-transform:uppercase;
-  color:#2C2C34;padding:12px 18px 4px;
-}
-
-/* ══════════════════════════════════════════════════════════
-   STICKY MOBILE HEADER BAR
-   Mobile only (max-width 699px). Appears after scrolling
-   past the masthead. Fixed 48px bar: hamburger | wordmark | CTA.
-══════════════════════════════════════════════════════════ */
-.sticky-bar{
-  position:fixed;
-  top:0;left:0;right:0;
-  height:48px;
-  background:var(--blk);
-  border-bottom:2px solid var(--red);
-  z-index:200;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 12px;
-  gap:10px;
-  /* Off-screen until scrolled past masthead */
-  transform:translateY(-100%);
-  opacity:0;
-  pointer-events:none;
-  transition:transform .20s ease, opacity .18s ease;
-}
-.sticky-bar.sb-visible{
-  transform:translateY(0);
-  opacity:1;
-  pointer-events:auto;
-}
-/* Never show on desktop */
-@media(min-width:700px){
-  .sticky-bar{ display:none !important; }
-}
-/* Anchor links clear the sticky bar on mobile */
-@media(max-width:699px){
-  html{ scroll-padding-top:52px; }
-}
-/* Respect reduced-motion — skip slide, just fade */
-@media(prefers-reduced-motion:reduce){
-  .sticky-bar{ transition:opacity .15s ease; transform:none !important; }
-  .sticky-bar:not(.sb-visible){ opacity:0; pointer-events:none; }
-}
-
-/* Hamburger — compact */
-.sb-hbg{
-  background:none;border:none;
-  display:flex;flex-direction:column;justify-content:center;gap:4px;
-  flex-shrink:0;cursor:pointer;padding:8px 4px;
-}
-.sb-hbg:focus-visible{ outline:2px solid var(--red);outline-offset:3px; }
-.sb-hbg span{ display:block;width:18px;height:2px;background:#fff;border-radius:1px; }
-
-/* Wordmark — two-line stack mirrors the desktop masthead hierarchy */
-.sb-wm{
-  flex:1;min-width:0;text-align:center;
+  padding:14px 20px;
   text-decoration:none;
-  display:flex;flex-direction:column;
-  align-items:center;gap:2px;
-  overflow:hidden;
-}
-.sb-wm:focus-visible{ outline:2px solid var(--red);outline-offset:3px; }
-.sb-wm-state{
-  font-family:var(--disp);font-size:17px;font-weight:900;
-  color:#fff;letter-spacing:.03em;text-transform:uppercase;
-  line-height:1;white-space:nowrap;
-}
-.sb-wm-sub{
-  font-family:var(--disp);font-size:7.5px;font-weight:900;
-  color:rgba(255,255,255,.68);letter-spacing:.18em;text-transform:uppercase;
-  line-height:1;white-space:nowrap;
-}
-@media(max-width:359px){
-  .sb-wm-state{ font-size:14px; }
-  .sb-wm-sub{ font-size:6.5px;letter-spacing:.12em; }
-}
-
-/* CTA button */
-.sb-cta{
-  flex-shrink:0;
-  display:inline-flex;align-items:center;
-  background:var(--red);color:#fff;
-  font-family:var(--body);font-size:8px;font-weight:800;
-  letter-spacing:.13em;text-transform:uppercase;
-  padding:7px 11px;
-  text-decoration:none;white-space:nowrap;
   transition:background .15s;
 }
-.sb-cta:hover{ background:var(--rdk); }
-.sb-cta:focus-visible{ outline:2px solid #fff;outline-offset:2px; }
+.nav-cta a:hover{ background:var(--rdk); }
 
-/* ══════════════════════════════════════════════════════════
-   EMAIL CAPTURE MODAL
-   Edit copy in the HTML below: #ml-hed, .ml-body, button text
-══════════════════════════════════════════════════════════ */
-.ml-backdrop{
-  display:none;
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.72);
-  z-index:500;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-.ml-backdrop.ml-open{ display:flex; }
-.ml-panel{
-  position:relative;
-  background:#13131A;
-  border-top:3px solid var(--red);
-  padding:36px 32px 28px;
-  width:100%;max-width:420px;
-  box-shadow:0 24px 60px rgba(0,0,0,.70);
-}
-@media(max-width:479px){
-  .ml-backdrop{ padding:16px; }
-  .ml-panel{ padding:26px 18px 20px; }
-  .ml-hed{ font-size:20px; }
-  .ml-body{ font-size:13px; margin-bottom:18px; }
-}
-.ml-close{
-  position:absolute;top:14px;right:16px;
-  background:none;border:none;
-  color:rgba(255,255,255,.30);
-  font-size:20px;line-height:1;
-  cursor:pointer;padding:4px 6px;
-  transition:color .12s;
-}
-.ml-close:hover{ color:rgba(255,255,255,.80); }
-.ml-eyebrow{
-  font-family:var(--body);font-size:9px;font-weight:800;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--red);margin-bottom:12px;display:block;
-}
-.ml-hed{
-  font-family:var(--disp);
-  font-size:clamp(22px,3.8vw,30px);font-weight:900;
-  text-transform:uppercase;letter-spacing:.02em;
-  color:#fff;line-height:1.05;margin-bottom:12px;
-}
-.ml-body{
-  font-size:13.5px;color:rgba(255,255,255,.55);
-  line-height:1.65;margin-bottom:22px;max-width:38ch;
-}
-.ml-inp{
-  width:100%;
-  background:#1c1c24;
-  border:1px solid rgba(255,255,255,.10);
-  border-bottom:2px solid rgba(255,255,255,.28);
-  padding:13px 14px;font-size:15px;color:#fff;
-  display:block;margin-bottom:10px;
-  font-family:var(--body);
-  outline:none;transition:border-color .15s;
-}
-.ml-inp::placeholder{ color:rgba(255,255,255,.25); }
-.ml-inp:focus{ border-color:var(--red); }
-.ml-btn{
-  width:100%;background:var(--red);color:#fff;border:none;
-  font-family:var(--body);font-weight:800;font-size:10.5px;
-  letter-spacing:.10em;text-transform:uppercase;
-  padding:14px;cursor:pointer;display:block;
-  transition:background .15s;
-}
-.ml-btn:hover{ background:var(--rdk); }
-.ml-prv{
-  font-size:10px;color:rgba(255,255,255,.25);
-  margin-top:8px;line-height:1.5;text-align:center;
-}
-.ml-ok{
-  display:none;
-  color:#fff;font-size:16px;font-weight:700;
-  text-align:center;padding:20px 0 8px;letter-spacing:.01em;
-}
-.ml-dismiss{
-  display:block;width:100%;text-align:center;
-  background:none;border:none;
-  font-family:var(--body);font-size:11px;font-weight:600;
-  color:rgba(255,255,255,.42);
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:14px 0 2px;cursor:pointer;
-  transition:color .12s;
-}
-.ml-dismiss:hover{ color:rgba(255,255,255,.78); }
 </style>
 </head>
 <body>
 
-<!-- NAV DRAWER ─────────────────────────────────────────── -->
-<div class="drw-ov" id="drwOv" onclick="closeNav()"></div>
-<nav class="drw" id="drw" aria-label="Site menu">
-  <div class="drw-ttl">
-    <span>Michigan Data Center Tracker</span>
-    <button class="drw-close" onclick="closeNav()" aria-label="Close menu">✕</button>
+<!-- ═══════════════════════════════════════════════════════
+     MOBILE DRAWER NAV
+════════════════════════════════════════════════════════ -->
+<div id="nav-overlay" role="presentation" aria-hidden="true"></div>
+<nav id="nav-drawer" aria-label="Site navigation">
+  <button class="nav-close" aria-label="Close navigation">&times;</button>
+  <div class="nav-brand">
+    <div class="nav-brand-name">MI Data Center</div>
+    <div class="nav-brand-sub">Tracker</div>
   </div>
-  <a href="#hn"           class="drw-lnk" onclick="closeNav()">Happening Now</a>
-  <a href="#events"       class="drw-lnk" onclick="closeNav()">Meetings</a>
-  <a href="#capitol"      class="drw-lnk" onclick="closeNav()">At the Capitol</a>
-  <a href="/map"          class="drw-lnk" onclick="closeNav()">Map</a>
-  <a href="#metro"        class="drw-lnk" onclick="closeNav()">Metro Detroit</a>
-  <a href="#westmi"       class="drw-lnk" onclick="closeNav()">West Michigan</a>
-  <a href="#midmi"        class="drw-lnk" onclick="closeNav()">Mid-Michigan</a>
-  <a href="#north"        class="drw-lnk" onclick="closeNav()">Northern MI / UP</a>
-  <a href="#community"    class="drw-lnk" onclick="closeNav()">Public Watch</a>
-  <a href="#submit-tip"   class="drw-lnk" onclick="closeNav()">Submit Tip / Record</a>
-  <a href="/subscribe"    class="drw-lnk" onclick="closeNav()">Get Briefing</a><!-- TODO: /subscribe -->
-  <a href="/about"        class="drw-lnk" onclick="closeNav()">About</a><!-- TODO: /about -->
+  <ul class="nav-links">
+    <li><a href="#hn">Top Stories</a></li>
+    <li><a href="#events">Meetings &amp; Hearings</a></li>
+    <li><a href="#regions">Regional Coverage</a></li>
+    <li><a href="/map">Live Map</a></li>
+    <li><a href="#chatter">Live Chatter</a></li>
+    <li><a href="#nl">Newsletter</a></li>
+    <li><a href="/records">Public Records</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+  <div class="nav-cta"><a href="#nl">Get Free Briefings</a></div>
 </nav>
 
-<!-- STICKY MOBILE BAR ──────────────────────────────────
-     Mobile only (<700px). Hidden via CSS until sb-visible.
-     Not a duplicate H1 — wordmark is a navigation link.
-──────────────────────────────────────────────────────── -->
-<div class="sticky-bar" id="stickyBar" aria-hidden="true">
-  <button class="sb-hbg" onclick="openNav()" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-  <a href="#" class="sb-wm" aria-label="Back to top">
-    <span class="sb-wm-state">Michigan</span>
-    <span class="sb-wm-sub">Data&nbsp;Center&nbsp;Tracker</span>
-  </a>
-  <a href="#nl" class="sb-cta">Get Briefing</a>
-</div>
-
 <!-- ═══════════════════════════════════════════════════════
-     HEADER
+     MASTHEAD
 ════════════════════════════════════════════════════════ -->
 <header id="hdr">
-
   <div class="hdr-top">
-    <div id="hdr-visual" aria-hidden="true">
+    <!-- Background video -->
+    <div id="hdr-visual">
+      <!-- ✏️ ASSET: header video -->
       <video id="hdr-video"
-        src="header.mp4"
+        src="assets/header-final7.mp4"
         autoplay muted loop playsinline
         preload="auto" aria-hidden="true" tabindex="-1">
       </video>
       <div id="hdr-overlay"></div>
     </div>
-
-    <button class="hbg" onclick="openNav()" aria-label="Open menu">
+    <!-- Hamburger menu -->
+    <button class="hbg" aria-label="Open navigation" aria-controls="nav-drawer" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-
-    <!-- Site H1: wordmark is the semantic site title -->
-    <a href="/" class="wm" aria-label="Michigan Data Center Tracker — Home">
+    <!-- Logo -->
+    <a href="/" class="wm" aria-label="Michigan Data Center Tracker home">
       <h1 class="wm-inner">
         <span class="wm-state">Michigan</span>
-        <span class="wm-rule" aria-hidden="true"></span>
-        <span class="wm-sub">Data&nbsp;Center&nbsp;Tracker</span>
+        <span class="wm-rule"></span>
+        <span class="wm-sub">Data Center Tracker</span>
       </h1>
     </a>
-
-    <a href="/subscribe" class="hdr-cta">Get Briefing</a><!-- TODO: /subscribe -->
+    <!-- Subscribe CTA -->
+    <a href="#nl" class="hdr-cta">Free Briefing &rsaquo;</a>
   </div>
-
-  <nav id="rnav" aria-label="Regions">
-    <a href="#metro"><span class="rnav-full">Metro Detroit</span><span class="rnav-short">Metro</span></a>
-    <a href="#westmi"><span class="rnav-full">West Michigan</span><span class="rnav-short">West MI</span></a>
-    <a href="#midmi"><span class="rnav-full">Mid-Michigan</span><span class="rnav-short">Mid-MI</span></a>
-    <a href="#north"><span class="rnav-full">Northern MI / UP</span><span class="rnav-short">North/UP</span></a>
-    <a href="#capitol"><span class="rnav-full">Capitol</span><span class="rnav-short">Capitol</span></a>
-    <a href="/map"><span class="rnav-full">Map</span><span class="rnav-short">Map</span></a>
-    <a href="#events"><span class="rnav-full">Meetings</span><span class="rnav-short">Meetings</span></a>
+  <!-- Region nav -->
+  <nav id="rnav" aria-label="Regional sections">
+    <a href="#events">Meetings</a>
+    <a href="/map"><span class="rnav-short">Map</span><span class="rnav-full">Live Map</span></a>
+    <a href="#hn"><span class="rnav-short">Stories</span><span class="rnav-full">Top Stories</span></a>
+    <a href="#regions"><span class="rnav-short">Regions</span><span class="rnav-full">Regional Coverage</span></a>
+    <a href="#chatter">Chatter</a>
+    <a href="/records">Records</a>
+    <a href="/projects">Projects</a>
+    <a href="/about">About</a>
   </nav>
   <div class="hdr-rule"></div>
-
 </header>
 
-<!-- DATELINE + SITE DESCRIPTION ────────────────────────── -->
-<div class="dateline">
-  <span class="dateline-label">What We're Watching</span>
-  <span class="dateline-sep">—</span>
-  <span class="dateline-date" id="board-date">Saturday, June 20, 2026</span>
-</div>
-<p class="site-desc">Following Michigan data center proposals, public meetings, moratoriums, legislation, zoning, power, water and public-source documents.</p>
+<!-- ═══════════════════════════════════════════════════════
+     HAPPENING NOW BAR
+════════════════════════════════════════════════════════ -->
+<section id="bar" class="hn-bar" aria-label="Happening Now">
+  <div class="hn-bar-top">
+    <span class="hn-bar-dot" aria-hidden="true"></span>
+    <span class="hn-bar-label">Happening Now</span>
+    <span class="hn-bar-date">Sunday, June 21, 2026</span>
+  </div>
+  <!-- ✏️ HAPPENING NOW: update text + links here. 2 items visible on mobile; 3 on desktop -->
+  <ul class="hn-bar-items">
+    <li class="hn-bar-item">
+      <span class="hn-bar-text">
+        <a href="/michigan-data-center-senate-democrat-bill-package" target="_blank" rel="noopener">
+          Senate Dems file 5-bill data center package with water, power and labor rules
+        </a>
+      </span>
+      <span class="hn-bar-tag">Capitol</span>
+      <span class="hn-bar-ago">10h ago</span>
+    </li>
+    <li class="hn-bar-item">
+      <span class="hn-bar-text">
+        <a href="/gaines-township-moratorium" target="_blank" rel="noopener">
+          Gaines Twp. moratorium clears planning commission; full vote set for July
+        </a>
+      </span>
+      <span class="hn-bar-tag">W. Michigan</span>
+      <span class="hn-bar-ago">1d ago</span>
+    </li>
+    <li class="hn-bar-item">
+      <span class="hn-bar-text">
+        <a href="/consumers-energy-data-center-power-contracts" target="_blank" rel="noopener">
+          Consumers Energy: 3 data center contracts under confidentiality review
+        </a>
+      </span>
+      <span class="hn-bar-tag">Energy</span>
+      <span class="hn-bar-ago">2d ago</span>
+    </li>
+  </ul>
+</section>
 
 <!-- ═══════════════════════════════════════════════════════
      TOP STORIES
 ════════════════════════════════════════════════════════ -->
-<section id="hn">
+<section id="hn" aria-label="Top Stories">
 
-  <div class="hn-grid">
-
-    <div class="lead">
-      <div class="lead-lbl">The Big Story</div>
-
-      <!-- ✏️ UPDATE DAILY: BIG STORY ─────────────────────────────────
-           1. href  → story URL (replace # with real link)
-           2. Text  → headline (keep punchy, under ~12 words)
-           3. .lead-sum → 1–2 sentence summary
-           4. data-ts → publication time (YYYY-MM-DDTHH:MM:00)
-           ───────────────────────────────────────────────────────── -->
-      <h2 class="lead-hed">
-        <a href="/michigan-data-center-senate-democrat-bill-package" target="_blank" rel="noopener">Lansing: Michigan data center fight hits Capitol as Senate Democrats roll out new rules</a>
-      </h2>
-      <p class="lead-sum">New package targets water use, power contracts, labor standards, community benefits and transparency.</p>
-      <div class="lead-meta" data-ts="2026-06-20T09:30:00">Jun. 20</div>
-      <!-- ✏️ END BIG STORY ──────────────────────────────────────── -->
-    </div>
-
-    <div class="story-rows">
-
-      <!-- ✏️ UPDATE DAILY: STORIES 2–4 ────────────────────────────
-           Each <a>: replace href, .s-hed text, and data-ts value.
-           ───────────────────────────────────────────────────────── -->
-
-      <a href="#" class="story-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <span class="s-num" aria-hidden="true">2</span>
-        <div class="s-body">
-          <div class="s-hed">Lansing: June 23 rally keeps moratorium push in public view</div>
-          <div class="s-date" data-ts="2026-06-20T07:15:00">Jun. 20</div>
-        </div>
-      </a>
-
-      <a href="#" class="story-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <span class="s-num" aria-hidden="true">3</span>
-        <div class="s-body">
-          <div class="s-hed">National: FERC large-load action adds pressure to Michigan power-cost debate</div>
-          <div class="s-date" data-ts="2026-06-20T06:00:00">Jun. 20</div>
-        </div>
-      </a>
-
-      <a href="#" class="story-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <span class="s-num" aria-hidden="true">4</span>
-        <div class="s-body">
-          <div class="s-hed">Wayne County: Project Cannoli wetland and water permit questions remain active</div>
-          <div class="s-date" data-ts="2026-06-20T05:00:00">Jun. 20</div>
-        </div>
-      </a>
-
-      <!-- ✏️ END STORIES 2–4 ────────────────────────────────────── -->
-
-    </div>
-
-  </div>
-
-  <a href="#metro" class="hn-more">
-    <span>More Stories</span>
-    <span>↓</span>
+  <!-- MAP CTA -->
+  <a href="/map" class="map-cta" aria-label="View Live Project Map">
+    <span class="map-cta-inner">
+      <span class="map-cta-lbl">Live Map</span>
+      <span class="map-cta-text">All Michigan data center projects, proposals &amp; moratoriums</span>
+    </span>
+    <span class="map-cta-arrow">View Map &rsaquo;</span>
   </a>
 
+  <div class="hn-grid">
+    <!-- ════════════════════════════════════
+         ✏️ BIG STORY — update daily
+    ════════════════════════════════════ -->
+    <article class="lead">
+      <div class="lead-lbl">The Big Story</div>
+      <div class="lead-mobile-row">
+        <span class="lead-num" aria-hidden="true">1</span>
+        <div class="lead-body">
+          <h2 class="lead-hed">
+            <a href="/michigan-data-center-senate-democrat-bill-package" target="_blank" rel="noopener"
+              >Lansing: Michigan data center fight hits Capitol as Senate Democrats roll out new rules</a>
+          </h2>
+          <div class="lead-meta" data-ts="2026-06-20T09:30:00">Jun. 20</div>
+        </div>
+      </div>
+      <p class="lead-sum">New package targets water use, power contracts, labor standards, community benefits and transparency.</p>
+    </article>
+
+    <!-- ════════════════════════════════════
+         ✏️ STORIES 2–4 — update daily
+    ════════════════════════════════════ -->
+    <div class="story-rows">
+
+      <a class="story-row" href="/gaines-township-zoning-moratorium" target="_blank" rel="noopener">
+        <span class="s-num" aria-hidden="true">2</span>
+        <div class="s-body">
+          <div class="s-hed">Gaines Twp. planning commission OKs moratorium on new data center zoning</div>
+          <div class="s-date" data-ts="2026-06-19T18:00:00">Jun. 19</div>
+        </div>
+      </a>
+
+      <a class="story-row" href="/michigan-data-center-water-use-reporting" target="_blank" rel="noopener">
+        <span class="s-num" aria-hidden="true">3</span>
+        <div class="s-body">
+          <div class="s-hed">Advocates push mandatory water-use reporting for data centers in state legislation</div>
+          <div class="s-date" data-ts="2026-06-18T11:00:00">Jun. 18</div>
+        </div>
+      </a>
+
+      <a class="story-row" href="/consumers-energy-irp-data-center-power" target="_blank" rel="noopener">
+        <span class="s-num" aria-hidden="true">4</span>
+        <div class="s-body">
+          <div class="s-hed">Consumers Energy IRP revision includes 1.4 GW data center demand scenario</div>
+          <div class="s-date" data-ts="2026-06-17T14:00:00">Jun. 17</div>
+        </div>
+      </a>
+
+    </div><!-- /.story-rows -->
+  </div><!-- /.hn-grid -->
+
+  <a class="hn-more" href="/stories">
+    <span>More Stories</span>
+    <span>&rsaquo;</span>
+  </a>
 </section>
 
-<!-- MAP CTA ────────────────────────────────────────────── -->
-<a href="/map" class="map-cta">
-  <div class="map-cta-inner">
-    <span class="map-cta-lbl">Live Map</span>
-    <span class="map-cta-text">Track proposed projects, public meetings and policy activity across Michigan</span>
-  </div>
-  <span class="map-cta-arrow">View Map →</span>
-</a>
-
-<!-- NEWSLETTER RIBBON ──────────────────────────────────── -->
-<a href="#nl" class="nl-ribbon">
-  <span>Get the Free Michigan Data Center Briefing</span>
-  <span class="nl-ribbon-arrow">→</span>
-</a>
-
 <!-- ═══════════════════════════════════════════════════════
-     MEETINGS
+     MEETINGS & HEARINGS
 ════════════════════════════════════════════════════════ -->
-<section id="events">
-
+<section id="events" aria-label="Meetings &amp; Hearings">
   <div class="ev-hdr">
-    <div class="ev-hdr-bg" aria-hidden="true"></div>
+    <div class="ev-hdr-bg"></div>
     <div class="ev-hdr-content">
       <div class="ev-hdr-left">
-        <h2 class="ev-hdr-title">Upcoming Meetings</h2>
+        <!-- ✏️ ASSET: meetings background image -->
+        <h2 class="ev-hdr-title">Meetings &amp; Hearings</h2>
       </div>
+      <a href="/calendar" class="ev-full-cal">Full Calendar &rsaquo;</a>
     </div>
   </div>
 
-  <!-- ✏️ UPDATE DAILY: MEETINGS (first 2 visible) ────────────────────
-       Each <li class="ev-item">:
-       · .ev-day     → day name ("Tonight" / "Tuesday" / etc.)
-                       Add class="urgent" on the day of the meeting
-       · .ev-time    → time string ("6:00 PM")
-       · .ev-date-short → "Jun. 24"
-       · .ev-loc     → location/region label
-       · .ev-hed     → href + link text
-       · .ev-actions → pills: live / watch / agenda / minutes / packet
-         Pill classes: live | watch | (default blue) | minutes | packet
-       ──────────────────────────────────────────────────────────────── -->
-
   <ul class="ev-list">
+    <!-- ✏️ MEETINGS: update day/time/date/loc/title/pills for each event -->
 
     <li class="ev-item">
       <div class="ev-date">
-        <span class="ev-day urgent">Tonight</span>
-        <span class="ev-time">5:30 PM</span>
-        <span class="ev-date-short">Jun. 20</span>
+        <div class="ev-day urgent">TOMORROW</div>
+        <div class="ev-time">6:00 PM</div>
+        <div class="ev-date-short">Mon, Jun 22</div>
       </div>
       <div class="ev-body">
         <span class="ev-loc">Lansing</span>
-        <a href="#" class="ev-hed" target="_blank" rel="noopener">People Over Data Centers Rally — Michigan State Capitol</a><!-- TODO: add link -->
+        <a class="ev-hed" href="/michigan-senate-energy-committee-hearing-jun22" target="_blank" rel="noopener"
+          >Senate Energy &amp; Environment Committee — Data Center Water &amp; Power Hearing</a>
       </div>
       <div class="ev-actions">
-        <a href="#" class="ev-pill" target="_blank" rel="noopener">Agenda</a><!-- TODO: add link -->
-        <a href="#" class="ev-pill watch" target="_blank" rel="noopener">Watch →</a><!-- TODO: add link -->
+        <a href="/michigan-senate-energy-committee-hearing-jun22#livestream" class="ev-pill live">Watch Live</a>
+        <a href="/michigan-senate-energy-committee-packet-jun22" class="ev-pill packet">Packet</a>
       </div>
     </li>
 
     <li class="ev-item">
       <div class="ev-date">
-        <span class="ev-day">Tuesday</span>
-        <span class="ev-time">6:00 PM</span>
-        <span class="ev-date-short">Jun. 24</span>
+        <div class="ev-day">WED</div>
+        <div class="ev-time">7:00 PM</div>
+        <div class="ev-date-short">Jun 24</div>
       </div>
       <div class="ev-body">
-        <span class="ev-loc">Statewide</span>
-        <a href="#" class="ev-hed" target="_blank" rel="noopener">Senate data center bills — watch for referrals and committee movement</a><!-- TODO: add link -->
+        <span class="ev-loc">Gaines Township</span>
+        <a class="ev-hed" href="/gaines-township-board-meeting-jun24" target="_blank" rel="noopener"
+          >Gaines Township Board — Data Center Moratorium Final Vote</a>
       </div>
       <div class="ev-actions">
-        <a href="#" class="ev-pill watch" target="_blank" rel="noopener">Watch →</a><!-- TODO: add link -->
+        <a href="/gaines-township-board-meeting-jun24" class="ev-pill">Agenda</a>
+        <a href="/gaines-township-moratorium-packet" class="ev-pill packet">Packet</a>
       </div>
     </li>
 
-  </ul>
-
-  <!-- ✏️ UPDATE DAILY: MEETINGS (additional — revealed by "See More") -->
-  <div id="ev-extra" class="ev-extra-wrap" hidden>
-    <ul class="ev-list ev-extra-list">
-
-      <li class="ev-item">
-        <div class="ev-date">
-          <span class="ev-day">Wednesday</span>
-          <span class="ev-time">7:00 PM</span>
-          <span class="ev-date-short">Jun. 25</span>
-        </div>
-        <div class="ev-body">
-          <span class="ev-loc">Kent / Ottawa / Ingham</span>
-          <a href="#" class="ev-hed" target="_blank" rel="noopener">Planning commission meetings — data center zoning items to watch</a><!-- TODO: add link -->
-        </div>
-        <div class="ev-actions">
-          <a href="#" class="ev-pill" target="_blank" rel="noopener">Agenda</a><!-- TODO: add link -->
-        </div>
-      </li>
-
-      <li class="ev-item">
-        <div class="ev-date">
-          <span class="ev-day">Thursday</span>
-          <span class="ev-time">10:00 AM</span>
-          <span class="ev-date-short">Jun. 26</span>
-        </div>
-        <div class="ev-body">
-          <span class="ev-loc">Federal / FERC</span>
-          <a href="#" class="ev-hed" target="_blank" rel="noopener">FERC large-load interconnection docket — new filings to watch</a><!-- TODO: add link -->
-        </div>
-        <div class="ev-actions">
-          <a href="#" class="ev-pill watch" target="_blank" rel="noopener">Watch →</a><!-- TODO: add link -->
-        </div>
-      </li>
-
-      <li class="ev-item">
-        <div class="ev-date">
-          <span class="ev-day">Friday</span>
-          <span class="ev-time">TBD</span>
-          <span class="ev-date-short">Jun. 27</span>
-        </div>
-        <div class="ev-body">
-          <span class="ev-loc">Statewide</span>
-          <a href="#" class="ev-hed" target="_blank" rel="noopener">Local agenda posting deadline — 72-hour window for township and city meetings</a>
-        </div>
-        <div class="ev-actions"></div>
-      </li>
+    <li class="ev-item">
+      <div class="ev-date">
+        <div class="ev-day">THU</div>
+        <div class="ev-time">6:30 PM</div>
+        <div class="ev-date-short">Jun 25</div>
+      </div>
+      <div class="ev-body">
+        <span class="ev-loc">Kalamazoo County</span>
+        <a class="ev-hed" href="/kalamazoo-county-planning-commission-jun25" target="_blank" rel="noopener"
+          >Kalamazoo County Planning Commission — Special Meeting on Data Center Overlay District</a>
+      </div>
+      <div class="ev-actions">
+        <a href="/kalamazoo-county-planning-commission-jun25" class="ev-pill">Agenda</a>
+      </div>
+    </li>
 
     </ul>
-  </div>
-  <!-- ✏️ END MEETINGS ──────────────────────────────────────────────── -->
 
-  <button class="ev-toggle-btn" id="ev-toggle-btn" onclick="toggleEvExtra()">
-    <span>See More</span>
-    <span>↓</span>
-  </button>
-
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     AT THE CAPITOL
-     Michigan legislation, lawmaker statements, Capitol
-     activity, committee movement, agency filings and
-     official state-level developments tied to data centers.
-════════════════════════════════════════════════════════ -->
-<section id="capitol" class="sec-dk">
-  <div class="sec-dk-hdr">
-    <h2>At the Capitol</h2>
-    <a href="/at-the-capitol">All →</a><!-- TODO: /at-the-capitol -->
-  </div>
-
-  <!-- ✏️ UPDATE DAILY: AT THE CAPITOL ────────────────────────────────
-       Each <li>: replace href, .rh text, .item-lbl text, and date.
-       Label types: Bill package · Moratorium · Lawmaker statement ·
-                    Committee watch · Agency filing · Public statement
-       ──────────────────────────────────────────────────────────────── -->
-  <ul class="reg-list reg-2col">
-
-    <li class="reg-item">
-      <a href="#" class="reg-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <div class="rh">Lawmakers host "People Over Data Centers" rally at Capitol Tuesday evening</div>
-        <div class="rm"><span class="item-lbl">Capitol rally</span> Jun. 23</div>
-      </a>
-    </li>
-
-    <li class="reg-item">
-      <a href="#" class="reg-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <div class="rh">Senate data center package targets water, power contracts and transparency</div>
-        <div class="rm"><span class="item-lbl">Bill package</span> Jun. 20</div>
-      </a>
-    </li>
-
-    <li class="reg-item">
-      <a href="#" class="reg-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <div class="rh">Runestad keeps one-year moratorium push in the spotlight ahead of Capitol rally</div>
-        <div class="rm"><span class="item-lbl">Moratorium</span> Jun. 20</div>
-      </a>
-    </li>
-
-    <li class="reg-item">
-      <a href="#" class="reg-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <div class="rh">McMorrow says package aimed at ratepayer, water and disclosure protections</div>
-        <div class="rm"><span class="item-lbl">Lawmaker statement</span> Jun. 18</div>
-      </a>
-    </li>
-
-  </ul>
-  <!-- ✏️ END AT THE CAPITOL ─────────────────────────────────────────── -->
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     REGIONAL SECTIONS
-════════════════════════════════════════════════════════ -->
-
-<!-- ✏️ UPDATE DAILY: METRO DETROIT ─────────────────────────────────────
-     Each <li>: replace href, .rh text, .rm date.
-     ──────────────────────────────────────────────────────────────────── -->
-<section id="metro" class="sec-dk">
-  <div class="sec-dk-hdr">
-    <h2>Metro Detroit Watch</h2>
-    <a href="/metro-detroit">All →</a><!-- TODO: /metro-detroit -->
-  </div>
-  <ul class="reg-list reg-2col">
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Wayne County: Project Cannoli remains one to watch as wetland and water questions linger</div><div class="rm">Jun. 20</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Metro Detroit: DTE large-load planning stays central to data center project debate</div><div class="rm">Jun. 20</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Oakland County: Planning bodies monitoring large-scale industrial tech proposals</div><div class="rm">Jun. 20</div></a></li>
-  </ul>
-</section>
-<!-- ✏️ END METRO DETROIT ───────────────────────────────────────────── -->
-
-<!-- ✏️ UPDATE DAILY: WEST MICHIGAN ──────────────────────────────────── -->
-<section id="westmi" class="sec-dk">
-  <div class="sec-dk-hdr">
-    <h2>West Michigan Watch</h2>
-    <a href="/west-michigan">All →</a><!-- TODO: /west-michigan -->
-  </div>
-  <ul class="reg-list reg-2col">
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Kalamazoo residents urge city to block possible data center at former cannabis facility site</div><div class="rm">Jun. 16</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">West Michigan: Communities remain active in data center zoning debate</div><div class="rm">Jun. 20</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Kent County: Townships monitoring permit applications — no new filings this week</div><div class="rm">Jun. 20</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Ottawa County: Planning items to watch for large-scale industrial development</div><div class="rm">Jun. 20</div></a></li>
-  </ul>
-</section>
-<!-- ✏️ END WEST MICHIGAN ────────────────────────────────────────────── -->
-
-<!-- ✏️ UPDATE DAILY: MID-MICHIGAN ───────────────────────────────────── -->
-<section id="midmi" class="sec-dk">
-  <div class="sec-dk-hdr">
-    <h2>Mid-Michigan Watch</h2>
-    <a href="/mid-michigan">All →</a><!-- TODO: /mid-michigan -->
-  </div>
-  <ul class="reg-list reg-2col">
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Lansing: Bill package puts water, power and transparency rules in play for data centers</div><div class="rm">Jun. 18</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Ingham County: Watch planning and zoning boards for data center items this week</div><div class="rm">Jun. 20</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Eaton County: Townships flagged for possible large-scale development interest</div><div class="rm">Jun. 20</div></a></li>
-  </ul>
-</section>
-<!-- ✏️ END MID-MICHIGAN ─────────────────────────────────────────────── -->
-
-<!-- ✏️ UPDATE DAILY: NORTHERN MI / UP ───────────────────────────────── -->
-<section id="north" class="sec-dk">
-  <div class="sec-dk-hdr">
-    <h2>Northern Michigan / UP Watch</h2>
-    <a href="/northern-michigan-up">All →</a><!-- TODO: /northern-michigan-up -->
-  </div>
-  <ul class="reg-list reg-2col">
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Marquette County: Former Sawyer AFB site draws fresh data center attention</div><div class="rm">Jun. 20</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Upper Peninsula: Social posts flag possible data center interest near Sawyer AFB — no filings confirmed</div><div class="rm">Jun. 20</div></a></li>
-    <li class="reg-item"><a href="#" class="reg-row" target="_blank" rel="noopener"><div class="rh">Northern MI / UP: Communities advised to watch local boards and economic development offices</div><div class="rm">Jun. 20</div></a></li>
-  </ul>
-</section>
-<!-- ✏️ END NORTHERN MI / UP ─────────────────────────────────────────── -->
-
-<!-- ═══════════════════════════════════════════════════════
-     PUBLIC WATCH
-     Public posts, social discussion and community organizing
-     from elected officials, public figures, reporters and
-     public groups. Not verified unless linked to official
-     records, agendas or public-source documents.
-════════════════════════════════════════════════════════ -->
-<section id="community" class="sec-dk">
-  <!-- Photo banner — asset: public-watch-bg.jpg alongside HTML -->
-  <div class="pw-hdr">
-    <div class="pw-hdr-bg"></div>
-    <div class="pw-hdr-content">
-      <span class="pw-hdr-eyebrow">Public Posts &amp; Community Signals</span>
-      <div class="pw-hdr-top">
-        <div>
-          <h2>Public Watch</h2>
-          <p class="pw-hdr-tagline">Posts, discussion and organizing from public figures, local groups and community members.</p>
+  <div class="ev-extra-wrap">
+    <button class="ev-toggle-btn" aria-expanded="false">
+      <span>More Upcoming Meetings</span>
+      <span class="ev-toggle-icon">&rsaquo;</span>
+    </button>
+    <ul class="ev-extra-list" aria-hidden="true">
+      <li class="ev-item">
+        <div class="ev-date">
+          <div class="ev-day">MON</div>
+          <div class="ev-time">7:00 PM</div>
+          <div class="ev-date-short">Jun 29</div>
         </div>
-        <a href="/public-watch" class="pw-hdr-link">All →</a><!-- TODO: /public-watch -->
-      </div>
-    </div>
+        <div class="ev-body">
+          <span class="ev-loc">Ada Township</span>
+          <a class="ev-hed" href="/ada-township-planning-commission-jun29" target="_blank" rel="noopener"
+            >Ada Township Planning Commission — Data Center Conditional Use Hearing</a>
+        </div>
+        <div class="ev-actions">
+          <a href="/ada-township-planning-commission-jun29" class="ev-pill">Agenda</a>
+        </div>
+      </li>
+      <li class="ev-item">
+        <div class="ev-date">
+          <div class="ev-day">TUE</div>
+          <div class="ev-time">5:30 PM</div>
+          <div class="ev-date-short">Jul 1</div>
+        </div>
+        <div class="ev-body">
+          <span class="ev-loc">MPSC</span>
+          <a class="ev-hed" href="/mpsc-data-center-rate-design-jul1" target="_blank" rel="noopener"
+            >Michigan PSC — Data Center Rate Design Workshop</a>
+        </div>
+        <div class="ev-actions">
+          <a href="/mpsc-data-center-rate-design-jul1" class="ev-pill">Agenda</a>
+          <a href="/mpsc-data-center-rate-design-packet" class="ev-pill packet">Packet</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- NEWSLETTER RIBBON — after Meetings, before Capitol -->
+<a href="#nl" class="nl-ribbon">
+  <span class="nl-ribbon-inner">
+    <span class="nl-ribbon-text">Get the Free Michigan Data Center Briefing</span>
+    <span class="nl-ribbon-arrow">&rarr;</span>
+  </span>
+</a>
+
+<!-- ═══════════════════════════════════════════════════════
+     REGIONAL COVERAGE
+════════════════════════════════════════════════════════ -->
+<section id="regions" aria-label="Regional Coverage">
+  <div class="reg-hdr">
+    <span class="reg-hdr-dot" aria-hidden="true"></span>
+    <h2 class="reg-hdr-title">Regional Coverage</h2>
   </div>
 
-  <!-- ✏️ UPDATE DAILY: PUBLIC WATCH ──────────────────────────────────
-       Each <li>: replace href, .rh text, .cw-lbl type, and date.
-       Format: source-type · platform · headline · date · url · risk label
-       Source labels: Public post · X · Facebook · Reddit · Statement ·
-                      Meeting alert · Unconfirmed · Local reporting
-       Risk labels: confirmed · unconfirmed · public post · no filing confirmed
-       ──────────────────────────────────────────────────────────────── -->
-  <ul class="reg-list">
+  <div class="reg-grid">
 
-    <li class="reg-item">
-      <a href="#" class="reg-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <div class="rh">Capitol rally promoted ahead of Tuesday data center moratorium event</div>
-        <div class="rm"><span class="cw-lbl">Public post · X</span> Jun. 20</div>
+    <!-- ✏️ AT THE CAPITOL -->
+    <div class="reg-cell full-width">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">At The Capitol</h3>
+        <span class="reg-count">Lansing</span>
+      </div>
+      <a class="reg-item" href="/michigan-data-center-senate-democrat-bill-package" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Senate Dems file 5-bill package: water, power, labor rules for data centers</div>
+          <div class="reg-meta" data-ts="2026-06-20T09:30:00">Jun. 20</div>
+        </div>
+      </a>
+      <a class="reg-item" href="/michigan-house-data-center-tax-incentive-hearings" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">House committee holds second hearing on data center tax incentive repeal</div>
+          <div class="reg-meta" data-ts="2026-06-16T13:00:00">Jun. 16</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ✏️ METRO DETROIT -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">Metro Detroit</h3>
+        <span class="reg-count">SE Michigan</span>
+      </div>
+      <a class="reg-item" href="/northville-township-data-center-zoning" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Northville Twp. planning board tables data center special use after neighbor pushback</div>
+          <div class="reg-meta" data-ts="2026-06-18T19:00:00">Jun. 18</div>
+        </div>
+      </a>
+      <a class="reg-item" href="/novi-data-center-utility-upgrade" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Novi: DTE proposes $220M substation upgrade to serve campus data center cluster</div>
+          <div class="reg-meta" data-ts="2026-06-14T10:00:00">Jun. 14</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ✏️ WEST MICHIGAN -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">West Michigan</h3>
+        <span class="reg-count">GR Area</span>
+      </div>
+      <a class="reg-item" href="/gaines-township-zoning-moratorium" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Gaines Twp. planning commission OKs moratorium; board vote set for June 24</div>
+          <div class="reg-meta" data-ts="2026-06-19T18:00:00">Jun. 19</div>
+        </div>
+      </a>
+      <a class="reg-item" href="/ada-township-data-center-conditional-use" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Ada Twp. planners set June 29 hearing on 180-acre data center campus proposal</div>
+          <div class="reg-meta" data-ts="2026-06-15T12:00:00">Jun. 15</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ✏️ MID-MICHIGAN -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">Mid-Michigan</h3>
+        <span class="reg-count">Lansing Area</span>
+      </div>
+      <a class="reg-item" href="/delta-township-data-center-site-plan" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Delta Twp. approves site plan for 400MW data center; neighbors file suit</div>
+          <div class="reg-meta" data-ts="2026-06-12T15:00:00">Jun. 12</div>
+        </div>
+      </a>
+      <a class="reg-item" href="/eaton-county-data-center-groundwater" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Eaton County: state DEQ opens groundwater review for proposed data center well</div>
+          <div class="reg-meta" data-ts="2026-06-10T09:00:00">Jun. 10</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ✏️ NORTHERN MI / UP -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">Northern MI / UP</h3>
+        <span class="reg-count">Above the Bridge</span>
+      </div>
+      <a class="reg-item" href="/marquette-county-data-center-proposal" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Marquette County: developer eyes former paper mill site for 50MW data center</div>
+          <div class="reg-meta" data-ts="2026-06-11T11:00:00">Jun. 11</div>
+        </div>
+      </a>
+      <a class="reg-item" href="/traverse-city-data-center-energy-study" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">Traverse City Light &amp; Power commissions load study after data center inquiry</div>
+          <div class="reg-meta" data-ts="2026-06-08T10:00:00">Jun. 8</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ✏️ PUBLIC WATCH -->
+    <div class="reg-cell full-width">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">Public Watch</h3>
+        <span class="reg-count">Records &amp; Filings</span>
+      </div>
+      <a class="reg-item" href="/mpsc-consumers-data-center-contract-foia" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">FOIA: Consumers Energy data center power contracts released with redactions — we're fighting for full disclosure
+          </div>
+          <div class="reg-meta" data-ts="2026-06-17T09:00:00">MPSC Filing &middot; Jun. 17</div>
+        </div>
+      </a>
+      <a class="reg-item" href="/egle-data-center-groundwater-permit" target="_blank" rel="noopener">
+        <span class="reg-bullet" aria-hidden="true"></span>
+        <div class="reg-body">
+          <div class="reg-hed">EGLE groundwater withdrawal permit application: Cascade Data Systems — public comment open until July 5</div>
+          <div class="reg-meta" data-ts="2026-06-13T08:00:00">EGLE Permit &middot; Jun. 13</div>
+        </div>
+      </a>
+    </div>
+
+  </div><!-- /.reg-grid -->
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     YOU SHOULD KNOW (Recommendations)
+════════════════════════════════════════════════════════ -->
+<section id="rec" aria-label="You Should Know">
+  <div class="rec-hdr">
+    <h2 class="rec-hdr-title">You Should Know</h2>
+    <span class="rec-hdr-sub">Context &amp; Background</span>
+  </div>
+  <div class="rec-list">
+    <a class="rec-item" href="/michigan-data-center-water-use-explainer" target="_blank" rel="noopener">
+      <span class="rec-icon" aria-hidden="true">💧</span>
+      <div class="rec-body">
+        <span class="rec-label">Explainer</span>
+        <div class="rec-hed">How much water do Michigan data centers actually use?</div>
+        <div class="rec-sub">The industry says “cooling towers.” Residents say “none of your business.” Here’s what the data shows.</div>
+      </div>
+    </a>
+    <a class="rec-item" href="/michigan-data-center-property-tax-incentive" target="_blank" rel="noopener">
+      <span class="rec-icon" aria-hidden="true">💰</span>
+      <div class="rec-body">
+        <span class="rec-label">Policy</span>
+        <div class="rec-hed">Michigan’s data center tax break: who gets it, what it costs</div>
+        <div class="rec-sub">The 2016 law exempts qualifying facilities from sales and use tax. Critics say the math doesn’t add up.</div>
+      </div>
+    </a>
+    <a class="rec-item" href="/michigan-data-center-map-guide" target="_blank" rel="noopener">
+      <span class="rec-icon" aria-hidden="true">🗺️</span>
+      <div class="rec-body">
+        <span class="rec-label">Guide</span>
+        <div class="rec-hed">How to use the Michigan Data Center map</div>
+        <div class="rec-sub">Every marker, filter, and layer on our live project tracker explained in plain English.</div>
+      </div>
+    </a>
+    <a class="rec-item" href="/michigan-data-center-moratorium-tracker" target="_blank" rel="noopener">
+      <span class="rec-icon" aria-hidden="true">⛔</span>
+      <div class="rec-body">
+        <span class="rec-label">Tracker</span>
+        <div class="rec-hed">Every Michigan community that has passed or proposed a data center moratorium</div>
+        <div class="rec-sub">12 communities, updated weekly as local governments act.</div>
+      </div>
+    </a>
+    <a class="rec-item" href="/michigan-data-center-jobs-vs-impact" target="_blank" rel="noopener">
+      <span class="rec-icon" aria-hidden="true">👷</span>
+      <div class="rec-body">
+        <span class="rec-label">Analysis</span>
+        <div class="rec-hed">Data centers promise jobs. Communities want to know: how many, and for whom?</div>
+        <div class="rec-sub">An analysis of employment claims in permit applications vs. actual hiring records.</div>
+      </div>
+    </a>
+    <a class="rec-item" href="/how-to-file-foia-michigan-data-center" target="_blank" rel="noopener">
+      <span class="rec-icon" aria-hidden="true">📄</span>
+      <div class="rec-body">
+        <span class="rec-label">How-To</span>
+        <div class="rec-hed">How to file a FOIA request about a data center in your Michigan community</div>
+        <div class="rec-sub">A step-by-step guide to getting zoning, permits, and water contracts.</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     LIVE CHATTER
+════════════════════════════════════════════════════════ -->
+<section id="chatter" aria-label="Live Chatter">
+  <div class="chat-hdr">
+    <h2 class="chat-hdr-title">Live Chatter</h2>
+    <span class="chat-hdr-badge">Social</span>
+  </div>
+  <ul class="chat-list">
+
+    <!-- ✏️ CHATTER ROW 1 -->
+    <li>
+      <a class="chat-item" href="https://x.com/SenMalloryMcM" target="_blank" rel="noopener">
+        <div class="chat-avatar">M</div>
+        <div class="chat-body">
+          <div class="chat-meta">
+            <span class="chat-name">Sen. Mallory McMorrow</span>
+            <span class="chat-handle">@SenMalloryMcM</span>
+            <span class="chat-when">2h ago</span>
+          </div>
+          <p class="chat-text">“Data centers want our tax breaks, our water, our grid capacity. What do Michigan communities get in return? That’s what this bill package demands an answer to.”</p>
+        </div>
+        <div class="chat-platform" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
       </a>
     </li>
 
-    <li class="reg-item">
-      <a href="#" class="reg-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <div class="rh">Marquette-area discussion grows around possible Sawyer AFB data center interest</div>
-        <div class="rm"><span class="cw-lbl">Unconfirmed chatter · Reddit</span> Jun. 20</div>
+    <!-- ✏️ CHATTER ROW 2 -->
+    <li>
+      <a class="chat-item" href="https://x.com/MichiganSierra" target="_blank" rel="noopener">
+        <div class="chat-avatar">S</div>
+        <div class="chat-body">
+          <div class="chat-meta">
+            <span class="chat-name">Sierra Club Michigan</span>
+            <span class="chat-handle">@MichiganSierra</span>
+            <span class="chat-when">5h ago</span>
+          </div>
+          <p class="chat-text">Gaines Township just showed what local democracy looks like in the age of AI infrastructure. Residents showed up, spoke up, and the planning commission listened. The July vote is the next test. 💪</p>
+        </div>
+        <div class="chat-platform" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
       </a>
     </li>
 
-    <li class="reg-item">
-      <a href="#" class="reg-row" target="_blank" rel="noopener"><!-- TODO: add link -->
-        <div class="rh">Local groups continue sharing township meeting alerts tied to zoning concerns</div>
-        <div class="rm"><span class="cw-lbl">Meeting alert · Facebook</span> Jun. 20</div>
+    <!-- ✏️ CHATTER ROW 3 -->
+    <li>
+      <a class="chat-item" href="https://x.com/MIDEQnews" target="_blank" rel="noopener">
+        <div class="chat-avatar">E</div>
+        <div class="chat-body">
+          <div class="chat-meta">
+            <span class="chat-name">EGLE</span>
+            <span class="chat-handle">@MIDEQnews</span>
+            <span class="chat-when">1d ago</span>
+          </div>
+          <p class="chat-text">Public comment period is open for the Cascade Data Systems groundwater withdrawal permit application in Cascade Township, Kent County. Comments accepted through July 5, 2026. Details at michigan.gov/egle.</p>
+        </div>
+        <div class="chat-platform" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+      </a>
+    </li>
+
+    <!-- ✏️ CHATTER ROW 4 -->
+    <li>
+      <a class="chat-item" href="https://x.com/SenMalloryMcM" target="_blank" rel="noopener">
+        <div class="chat-avatar">R</div>
+        <div class="chat-body">
+          <div class="chat-meta">
+            <span class="chat-name">Rep. Rachel Hood</span>
+            <span class="chat-handle">@RepRachelHood</span>
+            <span class="chat-when">1d ago</span>
+          </div>
+          <p class="chat-text">When a data center uses more electricity than 50,000 homes and pays less in taxes than a small strip mall, something has gone wrong with our incentive structure. Time for a serious reckoning.</p>
+        </div>
+        <div class="chat-platform" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
       </a>
     </li>
 
   </ul>
-  <!-- ✏️ END PUBLIC WATCH ────────────────────────────────────────── -->
-
-  <p class="cw-disclaimer">Public Watch tracks public posts, public discussion and community organizing. Items are not confirmed unless linked to public-source documents, agendas, filings or official statements.</p>
 </section>
 
-<!-- SUBMIT A TIP ─────────────────────────────────────────── -->
-<section id="submit-tip" class="tip-section">
-  <span class="tip-eyebrow">Help Us Track Michigan</span>
-  <h2 class="tip-head">Submit a Tip or<br>Public Record</h2>
-  <p class="tip-copy">Help track Michigan data center proposals, meetings, zoning notices, permits, utility filings and public documents.</p>
-  <div class="tip-examples">
-    <span class="tip-tag">Public Meeting Agendas</span>
-    <span class="tip-tag">Planning Commission Packets</span>
-    <span class="tip-tag">Zoning Notices</span>
-    <span class="tip-tag">Permit Links</span>
-    <span class="tip-tag">Utility Filings</span>
-    <span class="tip-tag">Public Records</span>
-    <span class="tip-tag">Local Updates</span>
-  </div>
-  <a href="/submit-tip" class="tip-cta">Submit a Tip or Public Record →</a><!-- TODO: /submit-tip -->
-  <p class="tip-disc">Do not submit confidential, private, hacked, privileged or legally restricted material. Publicly available records, links and documents you are legally allowed to share only.</p>
-</section>
-
-<!-- SPONSOR BILLBOARD ─────────────────────────────────── -->
-<aside class="sponsor-board" role="complementary" aria-label="Sponsorship">
-  <div class="sponsor-eyebrow">Advertising</div>
-  <div class="sponsor-head">Reach the People<br>Paying Attention</div>
-  <p class="sponsor-copy">Reach readers following Michigan data center proposals, public meetings, Capitol action, power, water and local response.</p>
-  <p class="sponsor-tagline">Homepage · Briefing · Regional Watch · Public Meetings</p>
-  <a href="/advertise" class="sponsor-cta">Become a Sponsor</a><!-- TODO: /advertise -->
-  <p class="sponsor-disc">Sponsors do not influence editorial selection, summaries, placement or tracker listings.</p>
+<!-- ═══════════════════════════════════════════════════════
+     SPONSOR BOARD
+════════════════════════════════════════════════════════ -->
+<aside class="sponsor-board" aria-label="Sponsor">
+  <span class="sponsor-lbl">Sponsored</span>
+  <div class="sponsor-logo">Your Logo Here</div>
+  <span class="sponsor-cta">Reach Michigan’s data center policy audience. <a href="/advertise">Learn more &rsaquo;</a></span>
 </aside>
 
-<!-- NEWSLETTER SECTION ─────────────────────────────────── -->
-<section id="nl">
-  <h2 class="nl-head">Stay Informed</h2>
-  <p class="nl-sub">Get the weekly Michigan Data Center Watch briefing — free, no spam.</p>
-  <div id="nl-form">
-    <input type="email" class="nl-inp" id="nl-email"
-      placeholder="Your email address"
-      autocomplete="email"
-      aria-label="Email address">
-    <button class="nl-btn" type="button" onclick="nlSub()">Get the Briefing</button>
-    <p class="nl-prv">Your email is never sold. Unsubscribe anytime.</p>
-  </div>
-  <div class="nl-ok" id="nl-ok">You're subscribed. First briefing arrives this week.</div>
+<!-- ═══════════════════════════════════════════════════════
+     NEWSLETTER
+════════════════════════════════════════════════════════ -->
+<section id="nl" aria-labelledby="nl-hed">
+  <span class="nl-eyebrow">Free Briefing</span>
+  <h2 class="nl-hed" id="nl-hed">Stay ahead of every meeting, moratorium and move.</h2>
+  <p class="nl-sub">The Michigan Data Center Briefing lands in your inbox when it matters. No noise, no filler.
+  </p>
+  <form class="nl-form" id="nl-form" onsubmit="nlSub(event)" novalidate>
+    <input class="nl-input" id="nl-email" type="email" placeholder="your@email.com"
+      autocomplete="email" inputmode="email" required aria-label="Email address">
+    <button class="nl-btn" type="submit">Subscribe</button>
+  </form>
+  <div class="nl-msg" id="nl-msg"></div>
+  <ul class="nl-list-items">
+    <li class="nl-list-item"><span class="nl-check">✓</span>Daily or weekly — your choice</li>
+    <li class="nl-list-item"><span class="nl-check">✓</span>Meeting alerts before they happen</li>
+    <li class="nl-list-item"><span class="nl-check">✓</span>Documents, permits &amp; records as filed</li>
+    <li class="nl-list-item"><span class="nl-check">✓</span>No ads. No spam. Unsubscribe any time.</li>
+  </ul>
 </section>
 
-<!-- FOOTER ─────────────────────────────────────────────── -->
-<footer>
-  <div class="ft-grid">
-
-    <div class="ft-brand">
-      <div class="ft-wm">Michigan Data Center Tracker</div>
-      <span class="ft-wm-rule" aria-hidden="true"></span>
-      <p class="ft-desc">Public-source tracker following Michigan data center proposals, public meetings and policy developments.</p>
-    </div>
-
-    <div>
-      <span class="ft-col-label">Navigate</span>
-      <nav class="ft-links" aria-label="Footer navigation">
-        <a href="#hn">Happening Now</a>
-        <a href="#events">Meetings</a>
-        <a href="#capitol">At the Capitol</a>
-        <a href="#metro">Metro Detroit</a>
-        <a href="#westmi">West Michigan</a>
-        <a href="#midmi">Mid-Michigan</a>
-        <a href="#north">Northern MI / UP</a>
-        <a href="#community">Public Watch</a>
-        <a href="/map">Map</a>
-      </nav>
-    </div>
-
-    <div>
-      <span class="ft-col-label">Get Involved</span>
-      <nav class="ft-links" aria-label="Footer contact">
-        <a href="/subscribe">Subscribe</a><!-- TODO: /subscribe -->
-        <a href="/submit-tip">Submit Tip / Public Record</a><!-- TODO: /submit-tip -->
-        <a href="/advertise">Advertise</a><!-- TODO: /advertise -->
-        <a href="/about">About</a><!-- TODO: /about -->
-        <a href="/privacy">Privacy</a><!-- TODO: /privacy -->
-      </nav>
-    </div>
-
+<!-- ═══════════════════════════════════════════════════════
+     MULTI-LIST
+════════════════════════════════════════════════════════ -->
+<section class="ml-section" aria-labelledby="ml-title">
+  <div class="ml-hdr">
+    <h2 class="ml-title" id="ml-title">Customize Your Briefing</h2>
+    <span class="ml-badge">Free</span>
   </div>
-  <div class="ft-bottom">
-    <p class="ft-disc">Independent public-source tracker. Not affiliated with any government agency, employer, political organization or project developer. Links and summaries point to publicly available sources. Do not submit confidential, privileged or legally restricted material.</p>
-    <div class="ft-domain">© 2026 Michigan Data Center Tracker · michigandatacentertracker.com</div>
-  </div>
-</footer>
+  <form id="ml-form" class="" onsubmit="mlSubmit(event)" novalidate>
+    <div class="ml-form">
+      <input class="ml-input" id="ml-email" type="email" placeholder="your@email.com"
+        autocomplete="email" inputmode="email" required aria-label="Email address">
+      <button class="ml-btn" type="submit">Get Briefings</button>
+    </div>
+    <div class="ml-msg" id="ml-msg"></div>
+    <div class="ml-row">
+      <div class="ml-col">
+        <span class="ml-col-hdr">By Region</span>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Metro Detroit</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">West Michigan</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Mid-Michigan</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Northern MI / UP</span></label>
+      </div>
+      <div class="ml-col">
+        <span class="ml-col-hdr">By Topic</span>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Meetings &amp; Hearings</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Zoning &amp; Permits</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Legislation</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Power &amp; Water</span></label>
+      </div>
+      <div class="ml-col">
+        <span class="ml-col-hdr">Alerts</span>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">New Project Filings</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Public Records</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Breaking News</span></label>
+        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Weekly Digest</span></label>
+      </div>
+    </div>
+  </form>
+</section>
 
 <!-- ═══════════════════════════════════════════════════════
-     EMAIL CAPTURE MODAL
-     ✏️ Edit copy here: eyebrow · #ml-hed · .ml-body · button
+     FOOTER
 ════════════════════════════════════════════════════════ -->
-<div class="ml-backdrop" id="mlBackdrop"
-  role="dialog" aria-modal="true"
-  aria-labelledby="mlHed" aria-hidden="true">
-  <div class="ml-panel">
-
-    <button class="ml-close" id="mlCloseBtn" aria-label="Close">✕</button>
-
-    <span class="ml-eyebrow">Free Weekly Briefing</span>
-    <h2 class="ml-hed" id="mlHed">Get the Michigan<br>Data Center Briefing</h2>
-    <p class="ml-body">Get a weekly briefing on Michigan data center proposals, public meetings, Capitol action, power, water and community response.</p>
-
-    <div id="ml-form-wrap">
-      <input type="email" class="ml-inp" id="ml-email-modal"
-        placeholder="Email address"
-        autocomplete="email"
-        aria-label="Email address">
-      <button class="ml-btn" type="button" onclick="mlSubmit()">Get the Briefing</button>
-      <p class="ml-prv">No spam. Unsubscribe anytime.</p>
+<footer id="ft">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <div class="ft-logo">Michigan <span>Data Center</span> Tracker</div>
+      <div class="ft-tagline">Tracking the projects, meetings, and decisions that shape Michigan’s data center future.</div>
     </div>
-    <div class="ml-ok" id="ml-ok-modal">You're on the list.</div>
-
-    <button class="ml-dismiss" type="button" onclick="mlCloseModal()">Continue to site</button>
+    <nav class="ft-links" aria-label="Footer navigation">
+      <a href="/about">About</a>
+      <a href="/records">Records</a>
+      <a href="/map">Map</a>
+      <a href="/tip">Tip Line</a>
+      <a href="/advertise">Advertise</a>
+      <a href="/contact">Contact</a>
+    </nav>
   </div>
-</div>
+  <div class="ft-rule"></div>
+  <p class="ft-copy">
+    &copy; 2026 Michigan Data Center Tracker. Independent journalism. Not affiliated with any data center developer, utility, or government entity.<br>
+    <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms</a> &middot;
+    Built with public-interest reporting in mind. Tips: <a href="mailto:tips@michigandatacentertracker.com">tips@michigandatacentertracker.com</a>
+  </p>
+</footer>
 
 <script>
-(function(){
-  var v=document.getElementById('hdr-video');
-  if(!v)return;
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    v.pause();v.removeAttribute('autoplay');return;
-  }
-  v.addEventListener('canplay',function(){
-    v.play().catch(function(){v.style.display='none';});
-  });
-})();
+// ── TIMESTAMPS ───────────────────────────────────────────
+function relTime(ts){
+  const d=new Date(ts),n=new Date();
+  const s=Math.floor((n-d)/1e3);
+  if(s<60)return 'just now';
+  const m=Math.floor(s/60);
+  if(m<60)return m+'m ago';
+  const h=Math.floor(m/60);
+  if(h<24)return h+'h ago';
+  const dy=Math.floor(h/24);
+  if(dy===1)return 'Yesterday';
+  if(dy<7)return dy+'d ago';
+  return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+}
+document.querySelectorAll('[data-ts]').forEach(el=>{
+  el.textContent=relTime(el.dataset.ts);
+});
 
-function openNav(){
-  document.getElementById('drw').classList.add('open');
-  document.getElementById('drwOv').classList.add('open');
+// ── MOBILE DRAWER ────────────────────────────────────────
+const drawer=document.getElementById('nav-drawer');
+const overlay=document.getElementById('nav-overlay');
+const hbg=document.querySelector('.hbg');
+function openDrawer(){
+  drawer.classList.add('open');
+  overlay.classList.add('open');
+  hbg.setAttribute('aria-expanded','true');
   document.body.style.overflow='hidden';
 }
-function closeNav(){
-  document.getElementById('drw').classList.remove('open');
-  document.getElementById('drwOv').classList.remove('open');
+function closeDrawer(){
+  drawer.classList.remove('open');
+  overlay.classList.remove('open');
+  hbg.setAttribute('aria-expanded','false');
   document.body.style.overflow='';
 }
+hbg.addEventListener('click',openDrawer);
+overlay.addEventListener('click',closeDrawer);
+document.querySelector('.nav-close').addEventListener('click',closeDrawer);
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
 
-function toggleEvExtra(){
-  var el=document.getElementById('ev-extra');
-  var btn=document.getElementById('ev-toggle-btn');
-  var label=btn.querySelector('span:first-child');
-  var arrow=btn.querySelector('span:last-child');
-  if(el.hasAttribute('hidden')){
-    el.removeAttribute('hidden');label.textContent='See Less';arrow.textContent='↑';
-  } else {
-    el.setAttribute('hidden','');label.textContent='See More';arrow.textContent='↓';
-  }
+// ── MEETINGS TOGGLE ──────────────────────────────────────
+const evBtn=document.querySelector('.ev-toggle-btn');
+const evList=document.querySelector('.ev-extra-list');
+if(evBtn&&evList){
+  evBtn.addEventListener('click',()=>{
+    const open=evList.classList.toggle('open');
+    evBtn.setAttribute('aria-expanded',open);
+    evList.setAttribute('aria-hidden',!open);
+    document.querySelector('.ev-toggle-icon').style.transform=open?'rotate(90deg)':'';
+  });
 }
 
-function nlSub(){
-  var inp=document.getElementById('nl-email');
-  var val=inp.value.trim();
+// ── CUSTOM CHECKBOX TOPICS ───────────────────────────────
+document.querySelectorAll('.ml-topic').forEach(label=>{
+  label.addEventListener('click',()=>{
+    const chk=label.querySelector('.ml-check');
+    const checked=label.dataset.checked==='true';
+    if(!checked){
+      chk.style.background='var(--red)';
+      chk.style.borderColor='var(--red)';
+      chk.querySelector('svg').style.display='block';
+      chk.querySelector('svg').style.color='#fff';
+      label.dataset.checked='true';
+    }else{
+      chk.style.background='';
+      chk.style.borderColor='';
+      chk.querySelector('svg').style.display='';
+      label.dataset.checked='';
+    }
+  });
+});
+
+// ── NEWSLETTER SUBMIT ────────────────────────────────────
+function nlSub(e){
+  e.preventDefault();
+  const inp=document.getElementById('nl-email');
+  const msg=document.getElementById('nl-msg');
+  const val=inp.value.trim();
+  // TODO: replace with proper email-validation regex before launch
   if(!val||!val.includes('@')||!val.includes('.')){
-    inp.style.borderColor='#C8102E';inp.focus();return;
+    msg.textContent='Please enter a valid email address.';
+    msg.className='nl-msg err';
+    msg.style.display='block';
+    inp.focus();
+    return;
   }
-  inp.style.borderColor='';
-  document.getElementById('nl-form').style.display='none';
-  document.getElementById('nl-ok').style.display='block';
+  // TODO: POST to actual mailing-list endpoint here
+  msg.textContent="You're in. First briefing lands in 24 hours.";
+  msg.className='nl-msg ok';
+  msg.style.display='block';
+  inp.value='';
 }
 
-/* Auto-update dateline date */
-(function(){
-  var el=document.getElementById('board-date');
-  if(!el)return;
-  var d=new Date();
-  var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  var mo=['January','February','March','April','May','June','July',
-          'August','September','October','November','December'];
-  el.textContent=days[d.getDay()]+', '+mo[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
-})();
-
-/* ── STICKY MOBILE BAR ───────────────────────────────────
-   Shows after user scrolls past the masthead on mobile.
-   Uses rAF-throttled scroll handler for smooth perf.
-──────────────────────────────────────────────────────── */
-(function(){
-  var bar = document.getElementById('stickyBar');
-  var hdr = document.getElementById('hdr');
-  if(!bar || !hdr) return;
-  var ticking = false;
-
-  function update(){
-    // Only run logic on mobile widths
-    if(window.innerWidth >= 700){ ticking = false; return; }
-    var threshold = hdr.offsetTop + hdr.offsetHeight;
-    var scrollY   = window.scrollY || window.pageYOffset;
-    if(scrollY > threshold){
-      bar.classList.add('sb-visible');
-      bar.removeAttribute('aria-hidden');
-    } else {
-      bar.classList.remove('sb-visible');
-      bar.setAttribute('aria-hidden','true');
-    }
-    ticking = false;
+// ── MULTI-LIST SUBMIT ─────────────────────────────────────
+function mlSubmit(e){
+  e.preventDefault();
+  const inp=document.getElementById('ml-email');
+  const msg=document.getElementById('ml-msg');
+  const val=inp.value.trim();
+  // TODO: replace with proper email-validation regex before launch
+  if(!val||!val.includes('@')||!val.includes('.')){
+    msg.textContent='Please enter a valid email address.';
+    msg.className='ml-msg err';
+    msg.style.display='block';
+    inp.focus();
+    return;
   }
-
-  window.addEventListener('scroll', function(){
-    if(!ticking){ window.requestAnimationFrame(update); ticking = true; }
-  }, {passive:true});
-
-  // Re-evaluate on resize in case user rotates device
-  window.addEventListener('resize', function(){
-    if(!ticking){ window.requestAnimationFrame(update); ticking = true; }
-  }, {passive:true});
-
-  update(); // initial state
-})();
-
-/* ── EMAIL CAPTURE MODAL ─────────────────────────────────
-   localStorage keys:
-     mdct_email_modal_dismissed_at  → timestamp, suppress 7 days
-     mdct_email_subscribed          → '1', suppress forever
-   TODO: wire mlSubmit() to your email service (Mailchimp,
-         ConvertKit, Beehiiv, etc.) before launch.
-──────────────────────────────────────────────────────── */
-(function(){
-  var LS_DISMISSED  = 'mdct_email_modal_dismissed_at';
-  var LS_SUBSCRIBED = 'mdct_email_subscribed';
-  var DISMISS_MS    = 7 * 24 * 60 * 60 * 1000; // 7 days
-  var sessionShown  = false;
-
-  function canShow(){
-    if(sessionShown) return false;
-    if(localStorage.getItem(LS_SUBSCRIBED)) return false;
-    var ts = localStorage.getItem(LS_DISMISSED);
-    if(ts && (Date.now() - parseInt(ts,10)) < DISMISS_MS) return false;
-    return true;
-  }
-
-  function openModal(){
-    if(!canShow()) return;
-    sessionShown = true;
-    var bd = document.getElementById('mlBackdrop');
-    bd.removeAttribute('aria-hidden');
-    bd.classList.add('ml-open');
-    // Move focus into the modal for accessibility
-    setTimeout(function(){
-      var inp = document.getElementById('ml-email-modal');
-      if(inp) inp.focus();
-    }, 80);
-  }
-
-  function closeModal(){
-    var bd = document.getElementById('mlBackdrop');
-    bd.setAttribute('aria-hidden','true');
-    bd.classList.remove('ml-open');
-    if(!localStorage.getItem(LS_SUBSCRIBED)){
-      localStorage.setItem(LS_DISMISSED, String(Date.now()));
-    }
-  }
-
-  // Expose for inline onclick attributes
-  window.mlCloseModal = closeModal;
-
-  window.mlSubmit = function(){
-    var inp = document.getElementById('ml-email-modal');
-    var val = inp ? inp.value.trim() : '';
-    if(!val || !val.includes('@') || val.indexOf('.')<0){
-      if(inp){ inp.style.borderColor='#C8102E'; inp.focus(); }
-      return;
-    }
-    inp.style.borderColor='';
-    // TODO: POST val to your email service here
-    localStorage.setItem(LS_SUBSCRIBED,'1');
-    var form = document.getElementById('ml-form-wrap');
-    var ok   = document.getElementById('ml-ok-modal');
-    if(form) form.style.display='none';
-    if(ok)   ok.style.display='block';
-    setTimeout(closeModal, 2200);
-  };
-
-  // Close button
-  var closeBtn = document.getElementById('mlCloseBtn');
-  if(closeBtn) closeBtn.addEventListener('click', closeModal);
-
-  // Backdrop click (only when clicking the dark area, not the panel)
-  var bd = document.getElementById('mlBackdrop');
-  if(bd) bd.addEventListener('click', function(e){
-    if(e.target === bd) closeModal();
-  });
-
-  // Escape key
-  document.addEventListener('keydown', function(e){
-    if((e.key==='Escape'||e.keyCode===27) && bd && bd.classList.contains('ml-open')){
-      closeModal();
-    }
-  });
-
-  // Trigger 1: 10-second timer
-  var timer = setTimeout(openModal, 10000);
-
-  // Trigger 2: 35% scroll depth (whichever fires first)
-  function onScroll(){
-    var scrolled = window.scrollY || window.pageYOffset;
-    var docH     = document.body.scrollHeight - window.innerHeight;
-    if(docH > 0 && scrolled / docH >= 0.35){
-      window.removeEventListener('scroll', onScroll);
-      clearTimeout(timer);
-      openModal();
-    }
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-})();
-
-/* Relative timestamps: < 1 hr → "X min. ago" · 1–8 hr → "X hours ago" · older → "Jun. 20" */
-(function(){
-  var SHORT_MO=['Jan.','Feb.','Mar.','Apr.','May','Jun.',
-                'Jul.','Aug.','Sep.','Oct.','Nov.','Dec.'];
-  function relTime(ts){
-    var pub=new Date(ts);
-    var now=new Date();
-    var diffMs=now-pub;
-    if(diffMs<0) diffMs=0;
-    var diffMin=Math.floor(diffMs/60000);
-    var diffHr=diffMs/3600000;
-    if(diffMin<60){ return diffMin<=1?'Just now':diffMin+' min. ago'; }
-    if(diffHr<8){ var h=Math.floor(diffHr); return h===1?'1 hour ago':h+' hours ago'; }
-    return SHORT_MO[pub.getMonth()]+' '+pub.getDate();
-  }
-  document.querySelectorAll('[data-ts]').forEach(function(el){
-    el.textContent=relTime(el.getAttribute('data-ts'));
-  });
-})();
+  // Gather selected topics
+  const topics=[...document.querySelectorAll('.ml-topic[data-checked="true"] .ml-topic-lbl')]
+    .map(l=>l.textContent.trim());
+  // TODO: POST to actual mailing-list endpoint here, include topics
+  msg.textContent="Done! We’ll send your custom briefing within 24 hours.";
+  msg.className='ml-msg ok';
+  msg.style.display='block';
+  inp.value='';
+}
 </script>
+
 </body>
 </html>
