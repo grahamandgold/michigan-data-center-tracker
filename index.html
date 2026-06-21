@@ -1943,178 +1943,297 @@ h2.ml-title{
 <!-- ═══════════════════════════════════════════════════════
      REGIONAL COVERAGE
 ════════════════════════════════════════════════════════ -->
-<section id="regions" aria-labelledby="regions-hed">
-  <div class="reg-hdr">
-    <h2 class="reg-hdr-title" id="regions-hed">Regional Coverage</h2>
+<section class="hn-section" id="learning-library" style="padding:0 0 56px 0;">
+  <div class="hn-inner" style="max-width:1100px;margin:0 auto;padding:0 18px;">
+
+    <!-- HEADER -->
+    <div style="display:flex;align-items:baseline;gap:12px;padding:40px 0 8px 0;border-top:3px solid var(--red);">
+      <span style="font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--red);text-transform:uppercase;">Learning Library</span>
+    </div>
+    <h2 style="font-size:clamp(22px,4vw,34px);font-weight:900;color:var(--fg);margin:0 0 6px 0;line-height:1.15;">What Every Michigander Should Know</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,.60);margin:0 0 12px 0;max-width:640px;">Data centers are reshaping Michigan's land, water, power grid, and tax base. These resources help you understand what's at stake — and what you can do about it.</p>
+
+    <!-- QUIZ WIDGET -->
+    <div id="ll-quiz" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:20px 22px;margin:0 0 44px 0;max-width:680px;">
+      <p style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 8px 0;">Quick Guide</p>
+      <p style="font-size:15px;font-weight:700;color:var(--fg);margin:0 0 14px 0;">What matters most to you?</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;" id="ll-quiz-btns">
+        <button onclick="llQuiz('water')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;color:var(--fg);font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">💧 Water &amp; the Great Lakes</button>
+        <button onclick="llQuiz('jobs')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;color:var(--fg);font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">⚡ Jobs &amp; Economic Impact</button>
+        <button onclick="llQuiz('tax')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;color:var(--fg);font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">💰 Tax Breaks &amp; Incentives</button>
+        <button onclick="llQuiz('foia')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;color:var(--fg);font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">📋 FOIA &amp; Transparency</button>
+        <button onclick="llQuiz('community')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;color:var(--fg);font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">🏘️ My Community</button>
+      </div>
+      <div id="ll-quiz-result" style="display:none;margin-top:14px;padding:12px 16px;background:rgba(var(--red-rgb, 180,20,20),.12);border-left:3px solid var(--red);border-radius:4px;font-size:13px;color:rgba(255,255,255,.85);line-height:1.55;"></div>
+    </div>
+    <script>
+    function llQuiz(topic) {
+      const msgs = {
+        water: 'Start with <strong>Section 1: Water &amp; the Great Lakes</strong> below. The PBS Terra investigation and the Chicago Tonight report are the most important 20 minutes you can spend on this issue.',
+        jobs: 'Jump to <strong>Section 2: Jobs, Power &amp; Economic Impact</strong>. The Anderson Economic Group analysis and the WOOD TV ground report give you both sides of the jobs argument.',
+        tax: 'Go straight to <strong>Section 3: Tax Breaks &amp; Incentives</strong>. Michigan communities are signing away millions — the Good Jobs First tracker shows exactly where.',
+        foia: 'Head to <strong>Section 4: Community Power &amp; Transparency</strong>. We have four ready-to-send FOIA templates and a direct link to the EGLE request portal.',
+        community: 'Check <strong>Section 5: What's Happening in Your Community</strong> for the Michigan-specific tracker and local context.'
+      };
+      const el = document.getElementById('ll-quiz-result');
+      el.innerHTML = msgs[topic];
+      el.style.display = 'block';
+      // highlight chosen button
+      document.querySelectorAll('#ll-quiz-btns button').forEach(b => b.style.borderColor = 'rgba(255,255,255,.15)');
+      event.target.style.borderColor = 'var(--red)';
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════
+         SECTION 1: WATER & THE GREAT LAKES
+    ═══════════════════════════════════════════════ -->
+    <div id="ll-water" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.10);">
+        <span style="font-size:20px;">💧</span>
+        <div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0;">Section 1</p>
+          <h3 style="font-size:20px;font-weight:800;color:var(--fg);margin:0;">Water &amp; the Great Lakes</h3>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+
+        <!-- Card 1: PBS Terra video -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+            <iframe src="https://www.youtube.com/embed/5p426fSlYH4" title="We Saw What AI Data Centers Don't Want You to See — PBS Terra" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          </div>
+          <div style="padding:14px 16px;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📹 Video · PBS Terra</span>
+            <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:6px 0 6px 0;line-height:1.3;">Inside the Water Footprint AI Companies Don't Advertise</h4>
+            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0;line-height:1.5;">An on-the-ground investigation into how large-scale data centers consume and discharge water — and what that means for watersheds downstream.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: PBS Chicago Tonight -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+            <iframe src="https://player.pbs.org/viralplayer/3095614773/" title="Massive Data Centers Could Endanger Great Lakes Water Supply — PBS Chicago Tonight" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          </div>
+          <div style="padding:14px 16px;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📹 Video · PBS Chicago Tonight</span>
+            <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:6px 0 6px 0;line-height:1.3;">Could the Data Center Boom Drain the Great Lakes?</h4>
+            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0;line-height:1.5;">Reporters examine growing concerns from water scientists and Great Lakes advocates about the cumulative withdrawal demands of the region's data center expansion.</p>
+            <a href="https://www.pbs.org/video/massive-data-centers-could-endanger-great-lakes-water-supply-report-yqm6gr/" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Watch on PBS →</a>
+          </div>
+        </div>
+
+        <!-- Card 3: WRI article -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📄 Report · World Resources Institute</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">Seven Ways Data Centers Are Reshaping U.S. Communities</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">WRI's deep analysis covers water stress, energy load, land use, and community displacement — a foundational read for understanding the full footprint of the industry.</p>
+          <a href="https://www.wri.org/insights/us-data-center-growth-impacts" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Report →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SECTION 2: JOBS, POWER & ECONOMIC IMPACT
+    ═══════════════════════════════════════════════ -->
+    <div id="ll-jobs" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.10);">
+        <span style="font-size:20px;">⚡</span>
+        <div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0;">Section 2</p>
+          <h3 style="font-size:20px;font-weight:800;color:var(--fg);margin:0;">Jobs, Power &amp; Economic Impact</h3>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+
+        <!-- Card 1: WOOD TV video -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+            <iframe src="https://www.youtube.com/embed/XKMencCCLgU" title="Michigan Data Center Reality Check — WOOD TV" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          </div>
+          <div style="padding:14px 16px;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📹 Video · WOOD TV Grand Rapids</span>
+            <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:6px 0 6px 0;line-height:1.3;">Michigan's Data Center Jobs: Promise vs. Reality</h4>
+            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0;line-height:1.5;">A West Michigan news team investigates the gap between the job numbers companies promise and what communities actually see once facilities are built and operating.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Anderson Economic Group -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📄 Analysis · Anderson Economic Group</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">The Economic Case for Data Centers — and Its Fine Print</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">A 2026 Michigan-specific economic analysis estimates construction spending, tax revenue, and indirect job creation. Read it alongside the industry critics to get the full picture.</p>
+          <a href="https://www.andersoneconomicgroup.com/data-centers-could-deliver-significant-economic-benefits-for-michigan-communities/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Analysis →</a>
+        </div>
+
+        <!-- Card 3: Cleanview tracker -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📊 Data · Cleanview</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">Michigan by the Numbers: How Big Is This Industry Already?</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Cleanview's Michigan data center tracker aggregates facility counts, power capacity, and operator profiles statewide — a quick way to see the industry's existing footprint before evaluating new proposals.</p>
+          <a href="https://cleanview.co/data-centers/michigan" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Explore the Data →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SECTION 3: TAX BREAKS & INCENTIVES
+    ═══════════════════════════════════════════════ -->
+    <div id="ll-tax" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.10);">
+        <span style="font-size:20px;">💰</span>
+        <div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0;">Section 3</p>
+          <h3 style="font-size:20px;font-weight:800;color:var(--fg);margin:0;">Tax Breaks &amp; Incentives</h3>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+
+        <!-- Card 1: Good Jobs First -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📄 Report · Good Jobs First</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">States Are Starting to Say No: The Rise of Data Center Moratorium Bills</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">In 2026, more than a dozen states introduced legislation to pause or restrict data center subsidies. This tracker from the leading corporate accountability watchdog documents who, where, and why.</p>
+          <a href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Tracker →</a>
+        </div>
+
+        <!-- Card 2: What to Ask explainer -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">💡 Explainer</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">Five Questions Your Township Should Ask Before Approving a Tax Abatement</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Michigan's PA 198 and MEGA incentive tools can exempt data centers from property taxes for up to 12 years. Before your board votes, get answers on clawback provisions, job thresholds, and what happens if the company leaves early.</p>
+          <a href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">See the Full Analysis →</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SECTION 4: COMMUNITY POWER & TRANSPARENCY
+    ═══════════════════════════════════════════════ -->
+    <div id="ll-foia" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.10);">
+        <span style="font-size:20px;">📋</span>
+        <div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0;">Section 4</p>
+          <h3 style="font-size:20px;font-weight:800;color:var(--fg);margin:0;">Community Power &amp; Transparency</h3>
+        </div>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,.55);margin:0 0 20px 0;max-width:680px;">Michigan's Freedom of Information Act gives residents and journalists a legal right to government records. Use these ready-to-send templates to request the documents your local officials may not be advertising.</p>
+
+      <!-- FOIA Templates Grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:24px;">
+
+        <!-- Template 1: Groundwater permits -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="font-size:18px;">💧</span>
+            <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);">FOIA Template #1</span>
+          </div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:0 0 8px 0;line-height:1.3;">Groundwater Withdrawal Permits</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,.50);margin:0 0 12px 0;line-height:1.5;">Send to: Michigan EGLE Water Resources Division</p>
+          <div style="background:rgba(0,0,0,.30);border-radius:6px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,.70);line-height:1.65;font-family:monospace;">
+            Pursuant to the Michigan Freedom of Information Act (MCL 15.231 et seq.), I request all records related to groundwater withdrawal permits, applications, and approvals issued to [FACILITY NAME / ADDRESS] including: permit applications, approved quantities, monitoring reports, and any correspondence between EGLE and the applicant since [DATE].
+          </div>
+          <a href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Submit via EGLE FOIA Portal →</a>
+        </div>
+
+        <!-- Template 2: Tax abatements -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="font-size:18px;">💰</span>
+            <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);">FOIA Template #2</span>
+          </div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:0 0 8px 0;line-height:1.3;">Tax Abatement Agreements</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,.50);margin:0 0 12px 0;line-height:1.5;">Send to: Your township/county clerk or assessor's office</p>
+          <div style="background:rgba(0,0,0,.30);border-radius:6px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,.70);line-height:1.65;font-family:monospace;">
+            Pursuant to the Michigan FOIA, I request all records related to Industrial Facilities Tax (PA 198) exemptions or any other tax abatement, incentive agreement, or MEGA credit granted to [COMPANY NAME] for facilities located at [ADDRESS], including: the original application, resolution approving the exemption, the full abatement agreement, projected vs. actual job creation reports, and any clawback provisions invoked.
+          </div>
+          <a href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">EGLE FOIA Portal (or send to local clerk) →</a>
+        </div>
+
+        <!-- Template 3: Site plans & zoning -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="font-size:18px;">🗺️</span>
+            <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);">FOIA Template #3</span>
+          </div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:0 0 8px 0;line-height:1.3;">Site Plans &amp; Zoning Approvals</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,.50);margin:0 0 12px 0;line-height:1.5;">Send to: Your local planning commission or township office</p>
+          <div style="background:rgba(0,0,0,.30);border-radius:6px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,.70);line-height:1.65;font-family:monospace;">
+            Pursuant to the Michigan FOIA, I request all records pertaining to the proposed or approved data center development at [ADDRESS / PARCEL NUMBER], including: site plan applications and approved drawings, environmental impact assessments, planning commission meeting minutes and votes, any special use permit or variance granted, and all written communications between township officials and the applicant or their representatives.
+          </div>
+          <a href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Submit via EGLE FOIA Portal →</a>
+        </div>
+
+        <!-- Template 4: Utility agreements -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <span style="font-size:18px;">🔌</span>
+            <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);">FOIA Template #4</span>
+          </div>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:0 0 8px 0;line-height:1.3;">Utility &amp; Power Agreements</h4>
+          <p style="font-size:12px;color:rgba(255,255,255,.50);margin:0 0 12px 0;line-height:1.5;">Send to: Michigan Public Service Commission or local utility</p>
+          <div style="background:rgba(0,0,0,.30);border-radius:6px;padding:12px 14px;font-size:12px;color:rgba(255,255,255,.70);line-height:1.65;font-family:monospace;">
+            Pursuant to the Michigan FOIA, I request all records related to power service agreements, grid interconnection requests, and load growth plans associated with the data center facility at [ADDRESS], including: utility agreements and rate schedules, MPSC filings, any grid upgrade cost-allocation documents, and projected megawatt demand figures provided by the applicant to utility or regulatory bodies.
+          </div>
+          <a href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Submit via EGLE FOIA Portal →</a>
+        </div>
+
+      </div>
+
+      <!-- FOIA portal CTA -->
+      <div style="background:rgba(180,20,20,.10);border:1px solid rgba(180,20,20,.30);border-radius:8px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div>
+          <p style="font-size:13px;font-weight:700;color:var(--fg);margin:0 0 3px 0;">Michigan EGLE Official FOIA Portal</p>
+          <p style="font-size:12px;color:rgba(255,255,255,.55);margin:0;">Submit requests for environmental permits, water withdrawal data, and agency records directly to the state.</p>
+        </div>
+        <a href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener" style="display:inline-block;background:var(--red);color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;">Open EGLE FOIA Portal →</a>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SECTION 5: WHAT'S HAPPENING IN YOUR COMMUNITY
+    ═══════════════════════════════════════════════ -->
+    <div id="ll-community" style="margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.10);">
+        <span style="font-size:20px;">🏘️</span>
+        <div>
+          <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0;">Section 5</p>
+          <h3 style="font-size:20px;font-weight:800;color:var(--fg);margin:0;">What's Happening in Your Community</h3>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+
+        <!-- Card 1: Cleanview Michigan -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📊 Data Tool · Cleanview</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">Find Data Centers Already Operating Near You</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Cleanview's Michigan tracker maps existing and planned facilities by county, city, and operator. Before you engage your local officials, see what's already been approved in your area.</p>
+          <a href="https://cleanview.co/data-centers/michigan" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Explore the Michigan Map →</a>
+        </div>
+
+        <!-- Card 2: Resident action tips -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">💡 Action Guide</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">How to Show Up at a Planning Commission Meeting and Be Heard</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Michigan townships hold public comment periods before major zoning decisions. Requesting documents in advance, citing specific ordinances, and submitting written comments all carry legal weight — especially if the decision is later appealed.</p>
+          <a href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">See How Other Communities Have Pushed Back →</a>
+        </div>
+
+        <!-- Card 3: WRI community impacts -->
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;padding:18px 16px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.40);">📄 Report · World Resources Institute</span>
+          <h4 style="font-size:15px;font-weight:700;color:var(--fg);margin:8px 0 6px 0;line-height:1.3;">The Neighborhood-Level Impacts Other Reports Leave Out</h4>
+          <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">WRI's community impact research covers noise, light pollution, road damage from heavy construction traffic, and the displacement of smaller industrial tenants — the costs rarely mentioned in company press releases.</p>
+          <a href="https://www.wri.org/insights/us-data-center-growth-impacts" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Full Report →</a>
+        </div>
+
+      </div>
+    </div>
+
   </div>
-  <div class="reg-grid">
-
-    <!-- METRO DETROIT -->
-    <div class="reg-cell">
-      <div class="reg-cell-hdr">
-        <h3 class="reg-name">Metro Detroit / SE Michigan</h3>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a class="reg-item" href="/northville-township-data-center-zoning" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Northville Twp. planning board tables data center special use after neighbor pushback</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 18</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/novi-data-center-utility-upgrade" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Novi: DTE proposes $220M substation upgrade to serve campus data center cluster</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 14</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/wayne-county-data-center-zoning-review" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Wayne County opens zoning review after three data center applications filed in 60 days</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 10</span></span>
-        </a></li>
-      </ul>
-    </div>
-
-    <!-- WEST MICHIGAN -->
-    <div class="reg-cell">
-      <div class="reg-cell-hdr">
-        <h3 class="reg-name">West Michigan</h3>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a class="reg-item" href="/gaines-township-zoning-moratorium" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Gaines Twp. planning commission OKs moratorium; board vote set for June 24</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 19</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/ada-township-data-center-conditional-use" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Ada Twp. planners set June 29 hearing on 180-acre data center campus proposal</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 15</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/kent-county-data-center-groundwater" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Kent County: EGLE opens groundwater review for data center campus well proposal</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 11</span></span>
-        </a></li>
-      </ul>
-    </div>
-
-    <!-- MID-MICHIGAN -->
-    <div class="reg-cell">
-      <div class="reg-cell-hdr">
-        <h3 class="reg-name">Mid-Michigan / Tri-Cities</h3>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a class="reg-item" href="/delta-township-data-center-site-plan" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Delta Twp. approves site plan for 400MW data center; neighbors file suit</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 12</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/eaton-county-data-center-groundwater" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Eaton County: state DEQ opens groundwater review for proposed data center well</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 10</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/lansing-data-center-energy-infrastructure" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Consumers Energy IRP revision includes 1.4 GW data center demand scenario</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 17</span></span>
-        </a></li>
-      </ul>
-    </div>
-
-    <!-- NORTHERN MI -->
-    <div class="reg-cell">
-      <div class="reg-cell-hdr">
-        <h3 class="reg-name">Northern MI</h3>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a class="reg-item" href="/marquette-county-data-center-proposal" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Marquette County: developer eyes former paper mill site for 50MW data center</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 11</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/traverse-city-data-center-energy-study" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Traverse City Light &amp; Power commissions load study after data center inquiry</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 8</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/northern-michigan-data-center-broadband" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Northern Michigan tribal council raises concerns over data center water and land use proposals</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 5</span></span>
-        </a></li>
-      </ul>
-    </div>
-    <!-- AT THE CAPITOL -->
-    <div class="reg-cell full-width">
-      <div class="reg-cell-hdr">
-        <h3 class="reg-name">At The Capitol</h3>
-      </div>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a class="reg-item" href="/michigan-data-center-senate-democrat-bill-package" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Senate Dems file 5-bill package: water, power, labor rules for data centers</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 20</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/michigan-house-data-center-tax-incentive-hearings" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">House committee holds second hearing on data center tax incentive repeal</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 16</span></span>
-        </a></li>
-        <li><a class="reg-item" href="/michigan-data-center-water-use-reporting" target="_blank" rel="noopener">
-          <span class="reg-bullet"></span>
-          <span class="reg-body" style="flex:1;min-width:0;"><span class="reg-hed">Advocates push mandatory water-use reporting for data centers in state legislation</span><span class="reg-meta" style="display:block;font-size:10.5px;color:var(--mid);font-weight:700;margin-top:3px;">Jun. 18</span></span>
-        </a></li>
-      </ul>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     YOU SHOULD KNOW (Recommendations)
-════════════════════════════════════════════════════════ -->
-<span id="capitol" style="position:absolute;margin-top:-60px;visibility:hidden;" aria-hidden="true"></span>
-<section id="rec" aria-labelledby="rec-hed"><!-- id="capitol" alias -->
-  <div class="rec-hdr">
-    <h2 class="rec-hdr-title" id="rec-hed">You Should Know</h2>
-  </div>
-  <ul class="rec-list">
-    <li><a class="rec-item" href="/michigan-data-center-water-use-explainer" target="_blank" rel="noopener">
-      <span class="rec-icon" style="color:var(--blu)">◈</span>
-      <span class="rec-body">
-        <span class="rec-label">Explainer</span>
-        <span class="rec-hed">How much water do Michigan data centers actually use?</span>
-        <span class="rec-sub">The industry says "cooling towers." Residents say "none of your business." Here's what the data shows.</span>
-      </span>
-    </a></li>
-    <li><a class="rec-item" href="/michigan-data-center-property-tax-incentive" target="_blank" rel="noopener">
-      <span class="rec-icon" style="color:var(--red)">◈</span>
-      <span class="rec-body">
-        <span class="rec-label">Policy</span>
-        <span class="rec-hed">Michigan's data center tax break: who gets it, what it costs</span>
-        <span class="rec-sub">The 2016 law exempts qualifying facilities from sales and use tax. Critics say the math doesn't add up.</span>
-      </span>
-    </a></li>
-    <li><a class="rec-item" href="/michigan-data-center-map-guide" target="_blank" rel="noopener">
-      <span class="rec-icon" style="color:var(--blu)">◈</span>
-      <span class="rec-body">
-        <span class="rec-label">Guide</span>
-        <span class="rec-hed">How to use the Michigan Data Center map</span>
-        <span class="rec-sub">Every marker, filter, and layer on our live project tracker explained in plain English.</span>
-      </span>
-    </a></li>
-    <li><a class="rec-item" href="/michigan-data-center-moratorium-tracker" target="_blank" rel="noopener">
-      <span class="rec-icon" style="color:var(--red)">◈</span>
-      <span class="rec-body">
-        <span class="rec-label">Tracker</span>
-        <span class="rec-hed">Every Michigan community that has passed or proposed a data center moratorium</span>
-        <span class="rec-sub">12 communities, updated weekly as local governments act.</span>
-      </span>
-    </a></li>
-    <li><a class="rec-item" href="/michigan-data-center-jobs-vs-impact" target="_blank" rel="noopener">
-      <span class="rec-icon" style="color:var(--blu)">◈</span>
-      <span class="rec-body">
-        <span class="rec-label">Analysis</span>
-        <span class="rec-hed">Data centers promise jobs. Communities want to know: how many, and for whom?</span>
-        <span class="rec-sub">An analysis of employment claims in permit applications vs. actual hiring records.</span>
-      </span>
-    </a></li>
-    <li><a class="rec-item" href="/how-to-file-foia-michigan-data-center" target="_blank" rel="noopener">
-      <span class="rec-icon" style="color:var(--red)">◈</span>
-      <span class="rec-body">
-        <span class="rec-label">How-To</span>
-        <span class="rec-hed">How to file a FOIA request about a data center in your Michigan community</span>
-        <span class="rec-sub">A step-by-step guide to getting zoning, permits, and water contracts.</span>
-      </span>
-    </a></li>
-  </ul>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
