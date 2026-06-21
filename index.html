@@ -378,6 +378,7 @@ h1.wm-inner,
   display:flex;align-items:center;gap:10px;
   padding:7px 0 6px;
   border-bottom:1px solid rgba(255,255,255,.07);
+  overflow:hidden;
 }
 .hn-bar-label{
   font-family:var(--body);font-size:10px;font-weight:800;
@@ -403,10 +404,11 @@ h1.wm-inner,
 }
 .hn-bar-date{
   font-family:var(--mono,'Courier New',monospace);font-size:9px;font-weight:400;
-  color:rgba(255,255,255,.45);letter-spacing:.05em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);letter-spacing:.05em;text-transform:uppercase;
   margin-left:auto;white-space:nowrap;
   border:1px solid rgba(255,255,255,.12);
   padding:1px 5px;border-radius:2px;
+  background:rgba(0,0,0,.35);
 }
 .hn-bar-items{
   list-style:none;
@@ -2057,12 +2059,12 @@ h2.ml-title{
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
-     LIVE CHATTER
+     PUBLIC WATCH
 ════════════════════════════════════════════════════════ -->
 <span id="public-watch" style="position:absolute;margin-top:-60px;visibility:hidden;" aria-hidden="true"></span>
-<section id="chatter" aria-label="Live Chatter"><!-- id="public-watch" alias -->
+<section id="chatter" aria-label="Public Watch"><!-- id="public-watch" alias -->
   <div class="chat-hdr">
-    <h2 class="chat-hdr-title">Live Chatter</h2>
+    <h2 class="chat-hdr-title">Public Watch</h2>
     
   </div>
   <ul class="chat-list">
@@ -2403,6 +2405,7 @@ if(chatBtn&&chatExtra){
   chatBtn.addEventListener('click',()=>{
     const open=chatExtra.classList.toggle('open');
     chatBtn.setAttribute('aria-expanded',open);
+    chatBtn.querySelector('span').textContent=open?'Show Less':'More Chatter';
     chatExtra.setAttribute('aria-hidden',!open);
     chatIcon.textContent=open?'−':'+';
   });
