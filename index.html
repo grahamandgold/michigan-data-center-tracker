@@ -1943,231 +1943,219 @@ h2.ml-title{
 <!-- ═══════════════════════════════════════════════════════
      REGIONAL COVERAGE
 ════════════════════════════════════════════════════════ -->
-<section class="hn-sect<section id="learning-library" style="background:#0f0f0f;padding:0 0 56px 0;border-top:3px solid var(--red);">
+<section class="hn-sect<section id="learning-library" style="background:#0f0f0f;padding:0 0 64px 0;border-top:3px solid var(--red);">
   <div style="max-width:1100px;margin:0 auto;padding:0 18px;">
 
-    <!-- HEADER -->
-    <div style="padding:36px 0 6px 0;">
-      <span style="font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--red);text-transform:uppercase;">Learning Library</span>
+    <div style="padding:40px 0 32px 0;">
+      <span style="font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--red);text-transform:uppercase;">Learning Library</span>
+      <h2 style="font-size:clamp(20px,3.5vw,30px);font-weight:800;color:#fff;margin:10px 0 10px 0;line-height:1.2;">What Every Michigander Should Know</h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.50);margin:0;max-width:560px;line-height:1.6;">Curated reporting, research, and tools to help residents, journalists, and local officials understand the data center expansion reshaping Michigan.</p>
     </div>
-    <h2 style="font-size:clamp(22px,4vw,34px);font-weight:900;color:#fff;margin:0 0 6px 0;line-height:1.15;">What Every Michigander Should Know</h2>
-    <p style="font-size:14px;color:rgba(255,255,255,.55);margin:0 0 28px 0;max-width:640px;">Data centers are reshaping Michigan's land, water, power grid, and tax base. These resources help you understand what's at stake — and what you can do about it.</p>
 
-    <!-- QUIZ WIDGET -->
-    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:10px;padding:20px 22px;margin:0 0 36px 0;max-width:680px;">
-      <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 6px 0;">Quick Guide</p>
-      <p style="font-size:15px;font-weight:700;color:#fff;margin:0 0 14px 0;">What matters most to you?</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;" id="ll-quiz-btns">
-        <button onclick="llQuiz('water')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:20px;color:#fff;font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">&#128167; Water &amp; the Great Lakes</button>
-        <button onclick="llQuiz('jobs')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:20px;color:#fff;font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">&#9889; Jobs &amp; Economic Impact</button>
-        <button onclick="llQuiz('tax')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:20px;color:#fff;font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">&#128176; Tax Breaks &amp; Incentives</button>
-        <button onclick="llQuiz('foia')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:20px;color:#fff;font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">&#128203; FOIA &amp; Transparency</button>
-        <button onclick="llQuiz('community')" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:20px;color:#fff;font-size:13px;font-weight:600;padding:7px 16px;cursor:pointer;">&#127960; My Community</button>
-      </div>
-      <div id="ll-quiz-result" style="display:none;margin-top:14px;padding:12px 16px;background:rgba(180,20,20,.18);border-left:3px solid var(--red);border-radius:4px;font-size:13px;color:rgba(255,255,255,.88);line-height:1.55;"></div>
-    </div>
+    <style>
+      .ll-row { border:1px solid rgba(255,255,255,.09); border-radius:8px; margin-bottom:6px; overflow:hidden; }
+      .ll-row + .ll-row { }
+      .ll-btn { width:100%; background:rgba(255,255,255,.03); border:none; padding:17px 20px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; text-align:left; gap:12px; }
+      .ll-btn:hover { background:rgba(255,255,255,.06); }
+      .ll-btn-title { font-size:15px; font-weight:700; color:#fff; letter-spacing:.01em; }
+      .ll-btn-chevron { color:rgba(255,255,255,.35); font-size:16px; flex-shrink:0; transition:transform .2s; line-height:1; }
+      .ll-body { display:none; padding:20px; border-top:1px solid rgba(255,255,255,.08); }
+      .ll-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+      .ll-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:7px; padding:16px; }
+      .ll-card-label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin:0 0 8px 0; }
+      .ll-card-title { font-size:14px; font-weight:700; color:#fff; margin:0 0 7px 0; line-height:1.35; }
+      .ll-card-desc { font-size:13px; color:rgba(255,255,255,.55); margin:0 0 12px 0; line-height:1.55; }
+      .ll-card-link { font-size:12px; font-weight:700; color:var(--red); text-decoration:none; letter-spacing:.01em; }
+      .ll-card-link:hover { text-decoration:underline; }
+      .ll-video-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:5px; margin-bottom:14px; }
+      .ll-video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+      .ll-foia-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+      .ll-foia-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:7px; padding:16px; display:flex; flex-direction:column; }
+      .ll-foia-card-label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin:0 0 8px 0; }
+      .ll-foia-card-title { font-size:13px; font-weight:700; color:#fff; margin:0 0 6px 0; line-height:1.3; }
+      .ll-foia-card-desc { font-size:12px; color:rgba(255,255,255,.50); margin:0 0 12px 0; line-height:1.5; flex:1; }
+      .ll-foia-btn { display:inline-block; background:var(--red); color:#fff; font-size:11px; font-weight:700; padding:7px 13px; border-radius:5px; text-decoration:none; letter-spacing:.02em; align-self:flex-start; }
+      .ll-foia-link { font-size:12px; font-weight:700; color:var(--red); text-decoration:none; }
+    </style>
     <script>
-    function llQuiz(topic) {
-      var msgs = {
-        water: 'Start with <strong>Water &amp; the Great Lakes</strong> below — click to expand. The PBS Terra investigation is the most important 15 minutes you can spend on this issue.',
-        jobs: 'Expand <strong>Jobs, Power &amp; Economic Impact</strong> below. The Anderson Economic Group analysis and the WOOD TV ground report give you both sides of the jobs argument.',
-        tax: 'Open <strong>Tax Breaks &amp; Incentives</strong> below. Michigan communities are signing away millions — the Good Jobs First tracker shows exactly where.',
-        foia: 'Head to <strong>Community Power &amp; Transparency</strong> below. Four ready-to-send FOIA templates and a direct link to the EGLE request portal.',
-        community: 'Check <strong>What’s Happening in Your Community</strong> at the bottom for the Michigan-specific tracker and local context.'
-      };
-      var el = document.getElementById('ll-quiz-result');
-      el.innerHTML = msgs[topic];
-      el.style.display = 'block';
-      document.querySelectorAll('#ll-quiz-btns button').forEach(function(b){ b.style.borderColor='rgba(255,255,255,.18)'; });
-      event.target.style.borderColor = 'var(--red)';
-    }
-    function llToggle(id) {
-      var body = document.getElementById('ll-body-' + id);
-      var arrow = document.getElementById('ll-arrow-' + id);
-      var isOpen = body.style.display !== 'none';
-      body.style.display = isOpen ? 'none' : 'block';
-      arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    function llOpen(id) {
+      var body = document.getElementById('llb-' + id);
+      var chev = document.getElementById('llc-' + id);
+      var open = body.style.display === 'block';
+      body.style.display = open ? 'none' : 'block';
+      chev.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
     }
     </script>
 
-    <!-- ═══ SECTION 1: WATER ═══ -->
-    <div style="margin-bottom:4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;overflow:hidden;">
-      <button onclick="llToggle('water')" style="width:100%;background:rgba(255,255,255,.04);border:none;padding:18px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;">
-        <span style="font-size:20px;">&#128167;</span>
-        <span style="flex:1;font-size:17px;font-weight:800;color:#fff;">Water &amp; the Great Lakes</span>
-        <span id="ll-arrow-water" style="color:rgba(255,255,255,.5);font-size:18px;transition:transform .2s;transform:rotate(180deg);">&#8964;</span>
+    <!-- 1. WATER -->
+    <div class="ll-row">
+      <button class="ll-btn" onclick="llOpen('water')">
+        <span class="ll-btn-title">Water &amp; the Great Lakes</span>
+        <span class="ll-btn-chevron" id="llc-water">&#8964;</span>
       </button>
-      <div id="ll-body-water" style="display:block;padding:20px;border-top:1px solid rgba(255,255,255,.08);">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;">
+      <div class="ll-body" id="llb-water">
+        <div class="ll-grid">
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;">
-            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/5p426fSlYH4" title="We Saw What AI Data Centers Don't Want You to See" frameborder="0" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          <div class="ll-card">
+            <div class="ll-video-wrap">
+              <iframe src="https://www.youtube.com/embed/5p426fSlYH4" title="We Saw What AI Data Centers Don't Want You to See — PBS Terra" allowfullscreen></iframe>
             </div>
-            <div style="padding:14px 16px;">
-              <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128249; Video &middot; PBS Terra</span>
-              <h4 style="font-size:15px;font-weight:700;color:#fff;margin:6px 0;line-height:1.3;">Inside the Water Footprint AI Companies Don't Advertise</h4>
-              <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0;line-height:1.5;">An on-the-ground investigation into how large-scale data centers consume and discharge water — and what that means for watersheds downstream.</p>
-            </div>
+            <p class="ll-card-label">Video &middot; PBS Terra</p>
+            <p class="ll-card-title">Inside the Water Footprint AI Companies Don't Publicize</p>
+            <p class="ll-card-desc">An investigative look at how large-scale data centers consume and discharge water — and what that means for downstream communities and watersheds.</p>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128249; Video &middot; PBS Chicago Tonight</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">Could the Data Center Boom Drain the Great Lakes?</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Reporters examine growing concerns from water scientists and Great Lakes advocates about the cumulative withdrawal demands of the region's data center expansion.</p>
-            <a href="https://www.pbs.org/video/massive-data-centers-could-endanger-great-lakes-water-supply-report-yqm6gr/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Watch on PBS &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Reporting &middot; Bridge Michigan</p>
+            <p class="ll-card-title">Michigan's Data Center Water Demands, Explained</p>
+            <p class="ll-card-desc">Bridge Michigan's coverage examines state permitting, withdrawal volumes, and what regulators are — and aren't — requiring of facilities before they break ground.</p>
+            <a class="ll-card-link" href="https://www.bridgemi.com/michigan-environment-watch" target="_blank" rel="noopener">Read Bridge Michigan's coverage &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128196; Report &middot; World Resources Institute</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">Seven Ways Data Centers Are Reshaping U.S. Communities</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">WRI's deep analysis covers water stress, energy load, land use, and community displacement — a foundational read for understanding the full footprint of the industry.</p>
-            <a href="https://www.wri.org/insights/us-data-center-growth-impacts" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Report &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Report &middot; World Resources Institute</p>
+            <p class="ll-card-title">Seven Ways Data Centers Are Reshaping U.S. Communities</p>
+            <p class="ll-card-desc">WRI's analysis covers water stress, energy load, land use, and community displacement — a foundational reference for anyone tracking the industry's full footprint.</p>
+            <a class="ll-card-link" href="https://www.wri.org/insights/us-data-center-growth-impacts" target="_blank" rel="noopener">Read the report &rarr;</a>
           </div>
 
         </div>
       </div>
     </div>
 
-    <!-- ═══ SECTION 2: JOBS ═══ -->
-    <div style="margin-bottom:4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;overflow:hidden;">
-      <button onclick="llToggle('jobs')" style="width:100%;background:rgba(255,255,255,.04);border:none;padding:18px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;">
-        <span style="font-size:20px;">&#9889;</span>
-        <span style="flex:1;font-size:17px;font-weight:800;color:#fff;">Jobs, Power &amp; Economic Impact</span>
-        <span id="ll-arrow-jobs" style="color:rgba(255,255,255,.5);font-size:18px;transition:transform .2s;transform:rotate(0deg);">&#8964;</span>
+    <!-- 2. JOBS & ECONOMIC IMPACT -->
+    <div class="ll-row">
+      <button class="ll-btn" onclick="llOpen('jobs')">
+        <span class="ll-btn-title">Jobs, Power &amp; Economic Impact</span>
+        <span class="ll-btn-chevron" id="llc-jobs">&#8964;</span>
       </button>
-      <div id="ll-body-jobs" style="display:none;padding:20px;border-top:1px solid rgba(255,255,255,.08);">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;">
+      <div class="ll-body" id="llb-jobs">
+        <div class="ll-grid">
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden;">
-            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-              <iframe src="https://www.youtube.com/embed/XKMencCCLgU" title="Michigan Data Center Reality — WOOD TV" frameborder="0" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+          <div class="ll-card">
+            <div class="ll-video-wrap">
+              <iframe src="https://www.youtube.com/embed/XKMencCCLgU" title="Michigan Data Center Jobs Report — WOOD TV" allowfullscreen></iframe>
             </div>
-            <div style="padding:14px 16px;">
-              <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128249; Video &middot; WOOD TV Grand Rapids</span>
-              <h4 style="font-size:15px;font-weight:700;color:#fff;margin:6px 0;line-height:1.3;">Michigan's Data Center Jobs: Promise vs. Reality</h4>
-              <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0;line-height:1.5;">A West Michigan news team investigates the gap between the job numbers companies promise and what communities actually see once facilities open.</p>
-            </div>
+            <p class="ll-card-label">Video &middot; WOOD TV &middot; Grand Rapids</p>
+            <p class="ll-card-title">The Jobs Argument: What West Michigan Communities Are Actually Getting</p>
+            <p class="ll-card-desc">A West Michigan television investigation into the gap between the job numbers companies advertise and what materializes once a facility opens and construction crews leave.</p>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128196; Analysis &middot; Anderson Economic Group</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">The Economic Case for Data Centers — and Its Fine Print</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">A 2026 Michigan-specific analysis estimates construction spending, tax revenue, and indirect job creation. Read alongside the critics for the full picture.</p>
-            <a href="https://www.andersoneconomicgroup.com/data-centers-could-deliver-significant-economic-benefits-for-michigan-communities/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Analysis &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Analysis &middot; Anderson Economic Group</p>
+            <p class="ll-card-title">Michigan Data Centers: The Economic Case and Its Conditions</p>
+            <p class="ll-card-desc">A 2026 Michigan-specific analysis projecting construction-phase spending, longer-term tax contributions, and indirect employment. Read alongside independent critics for a balanced assessment.</p>
+            <a class="ll-card-link" href="https://www.andersoneconomicgroup.com/data-centers-could-deliver-significant-economic-benefits-for-michigan-communities/" target="_blank" rel="noopener">Read the analysis &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128202; Data &middot; Cleanview</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">Michigan by the Numbers: How Big Is This Industry Already?</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Cleanview's Michigan tracker aggregates facility counts, power capacity, and operator profiles statewide — see the existing footprint before evaluating new proposals.</p>
-            <a href="https://cleanview.co/data-centers/michigan" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Explore the Data &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Reporting &middot; Planet Detroit</p>
+            <p class="ll-card-title">Energy Demand and the Grid: What Utilities Aren't Saying Out Loud</p>
+            <p class="ll-card-desc">Planet Detroit's environmental journalism tracks how accelerating data center power demands are intersecting with Michigan's clean energy transition — and who bears the cost of grid upgrades.</p>
+            <a class="ll-card-link" href="https://planetdetroit.org" target="_blank" rel="noopener">Read Planet Detroit's coverage &rarr;</a>
           </div>
 
         </div>
       </div>
     </div>
 
-    <!-- ═══ SECTION 3: TAX ═══ -->
-    <div style="margin-bottom:4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;overflow:hidden;">
-      <button onclick="llToggle('tax')" style="width:100%;background:rgba(255,255,255,.04);border:none;padding:18px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;">
-        <span style="font-size:20px;">&#128176;</span>
-        <span style="flex:1;font-size:17px;font-weight:800;color:#fff;">Tax Breaks &amp; Incentives</span>
-        <span id="ll-arrow-tax" style="color:rgba(255,255,255,.5);font-size:18px;transition:transform .2s;transform:rotate(0deg);">&#8964;</span>
+    <!-- 3. TAX BREAKS -->
+    <div class="ll-row">
+      <button class="ll-btn" onclick="llOpen('tax')">
+        <span class="ll-btn-title">Tax Breaks &amp; Incentives</span>
+        <span class="ll-btn-chevron" id="llc-tax">&#8964;</span>
       </button>
-      <div id="ll-body-tax" style="display:none;padding:20px;border-top:1px solid rgba(255,255,255,.08);">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;">
+      <div class="ll-body" id="llb-tax">
+        <div class="ll-grid">
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128196; Report &middot; Good Jobs First</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">States Are Starting to Say No: The Rise of Data Center Moratorium Bills</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">In 2026, more than a dozen states introduced legislation to pause or restrict data center subsidies. This tracker from the leading corporate accountability watchdog documents who, where, and why.</p>
-            <a href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Tracker &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Tracker &middot; Good Jobs First</p>
+            <p class="ll-card-title">States Reconsidering Data Center Subsidies: A 2026 Tracker</p>
+            <p class="ll-card-desc">The leading corporate subsidy accountability organization tracks moratorium legislation spreading across more than a dozen states in 2026 — documenting which communities are pushing back and why.</p>
+            <a class="ll-card-link" href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener">View the tracker &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128161; Explainer</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">Five Questions Your Township Should Ask Before Approving a Tax Abatement</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Michigan's PA 198 and MEGA tools can exempt data centers from property taxes for up to 12 years. Get answers on clawback provisions, job thresholds, and what happens if the company leaves early.</p>
-            <a href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">See the Full Analysis &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Reporting &middot; Bridge Michigan</p>
+            <p class="ll-card-title">Michigan's Data Center Tax Breaks: What Townships Are Agreeing To</p>
+            <p class="ll-card-desc">Bridge Michigan's accountability reporting examines the PA 198 industrial tax exemptions and MEGA credits being offered to data center operators — and the clawback provisions, or lack thereof, in those agreements.</p>
+            <a class="ll-card-link" href="https://www.bridgemi.com/business-watch" target="_blank" rel="noopener">Read Bridge Michigan's coverage &rarr;</a>
           </div>
 
         </div>
       </div>
     </div>
 
-    <!-- ═══ SECTION 4: FOIA ═══ -->
-    <div style="margin-bottom:4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;overflow:hidden;">
-      <button onclick="llToggle('foia')" style="width:100%;background:rgba(255,255,255,.04);border:none;padding:18px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;">
-        <span style="font-size:20px;">&#128203;</span>
-        <span style="flex:1;font-size:17px;font-weight:800;color:#fff;">Community Power &amp; Transparency</span>
-        <span id="ll-arrow-foia" style="color:rgba(255,255,255,.5);font-size:18px;transition:transform .2s;transform:rotate(0deg);">&#8964;</span>
+    <!-- 4. FOIA & TRANSPARENCY -->
+    <div class="ll-row">
+      <button class="ll-btn" onclick="llOpen('foia')">
+        <span class="ll-btn-title">Community Power &amp; Transparency</span>
+        <span class="ll-btn-chevron" id="llc-foia">&#8964;</span>
       </button>
-      <div id="ll-body-foia" style="display:none;padding:20px;border-top:1px solid rgba(255,255,255,.08);">
-        <p style="font-size:13px;color:rgba(255,255,255,.55);margin:0 0 20px 0;max-width:680px;">Michigan's Freedom of Information Act gives residents and journalists a legal right to government records. Start with these resources, then file directly through the EGLE portal.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:20px;">
+      <div class="ll-body" id="llb-foia">
+        <p style="font-size:13px;color:rgba(255,255,255,.50);margin:0 0 18px 0;max-width:620px;line-height:1.6;">Michigan's Freedom of Information Act gives residents and journalists a legal right to government records. The resources below will help you identify what to request, where to send it, and how to track the response.</p>
+        <div class="ll-foia-grid">
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#127975; Official Portal</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">Michigan EGLE FOIA Portal</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">The official state portal for requesting environmental permits, groundwater withdrawal records, and agency correspondence directly from EGLE.</p>
-            <a href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener" style="display:inline-block;background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:8px 14px;border-radius:6px;text-decoration:none;">Open EGLE Portal &#8594;</a>
+          <div class="ll-foia-card">
+            <p class="ll-foia-card-label">Official Portal</p>
+            <p class="ll-foia-card-title">Michigan EGLE FOIA Request Portal</p>
+            <p class="ll-foia-card-desc">Submit requests for environmental permits, groundwater withdrawal approvals, and agency correspondence directly to the Michigan Department of Environment, Great Lakes, and Energy.</p>
+            <a class="ll-foia-btn" href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener">Open EGLE Portal &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128196; Guide &middot; Michigan Press Association</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">How to File a Michigan FOIA Request</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Step-by-step guidance on filing public records requests in Michigan — what you can ask for, required timelines, and what to do if a request is denied.</p>
-            <a href="https://www.michigan.gov/ag/consumer-protection/your-rights/foia" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Guide &#8594;</a>
+          <div class="ll-foia-card">
+            <p class="ll-foia-card-label">Guide &middot; Michigan Attorney General</p>
+            <p class="ll-foia-card-title">How to File a FOIA Request in Michigan</p>
+            <p class="ll-foia-card-desc">The Attorney General's official guidance on filing public records requests — including what agencies must provide, response timelines, fee rules, and how to appeal a denial.</p>
+            <a class="ll-foia-link" href="https://www.michigan.gov/ag/consumer-protection/your-rights/foia" target="_blank" rel="noopener">Read the guide &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128196; Report &middot; Good Jobs First</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">What to Ask For: Data Center Subsidy Records</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Good Jobs First's subsidy tracker identifies the specific documents — tax abatement agreements, job creation reports, clawback clauses — that reveal what your community actually agreed to.</p>
-            <a href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">See the Tracker &#8594;</a>
+          <div class="ll-foia-card">
+            <p class="ll-foia-card-label">Tool &middot; MuckRock</p>
+            <p class="ll-foia-card-title">Draft, File, and Track FOIA Requests Online</p>
+            <p class="ll-foia-card-desc">MuckRock is a nonprofit platform used by journalists and residents to send public records requests to state and local agencies — and to publish the results so others can benefit.</p>
+            <a class="ll-foia-link" href="https://www.muckrock.com" target="_blank" rel="noopener">Go to MuckRock &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128202; Tool &middot; MuckRock</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">MuckRock: File &amp; Track FOIA Requests Online</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">MuckRock is a free platform that helps you draft, send, and track public records requests to Michigan state and local agencies — and publishes results publicly so others can benefit.</p>
-            <a href="https://www.muckrock.com" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Go to MuckRock &#8594;</a>
+          <div class="ll-foia-card">
+            <p class="ll-foia-card-label">Tracker &middot; Good Jobs First</p>
+            <p class="ll-foia-card-title">What to Request: Data Center Subsidy Records</p>
+            <p class="ll-foia-card-desc">Good Jobs First identifies the specific documents — tax abatement agreements, job creation certifications, clawback clauses — that reveal the real terms of your community's deal with an operator.</p>
+            <a class="ll-foia-link" href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener">See the research &rarr;</a>
           </div>
 
         </div>
-      </div></div>
+      </div>
     </div>
 
-    <!-- ═══ SECTION 5: COMMUNITY ═══ -->
-    <div style="margin-bottom:4px;border:1px solid rgba(255,255,255,.10);border-radius:10px;overflow:hidden;">
-      <button onclick="llToggle('community')" style="width:100%;background:rgba(255,255,255,.04);border:none;padding:18px 20px;display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;">
-        <span style="font-size:20px;">&#127960;</span>
-        <span style="flex:1;font-size:17px;font-weight:800;color:#fff;">What's Happening in Your Community</span>
-        <span id="ll-arrow-community" style="color:rgba(255,255,255,.5);font-size:18px;transition:transform .2s;transform:rotate(0deg);">&#8964;</span>
+    <!-- 5. YOUR COMMUNITY -->
+    <div class="ll-row">
+      <button class="ll-btn" onclick="llOpen('community')">
+        <span class="ll-btn-title">What's Happening in Your Community</span>
+        <span class="ll-btn-chevron" id="llc-community">&#8964;</span>
       </button>
-      <div id="ll-body-community" style="display:none;padding:20px;border-top:1px solid rgba(255,255,255,.08);">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;">
+      <div class="ll-body" id="llb-community">
+        <div class="ll-grid">
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128202; Data Tool &middot; Cleanview</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">Find Data Centers Already Operating Near You</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Cleanview's Michigan tracker maps existing and planned facilities by county, city, and operator. See what's already been approved in your area before engaging your local officials.</p>
-            <a href="https://cleanview.co/data-centers/michigan" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Explore the Michigan Map &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Reporting &middot; Bridge Michigan</p>
+            <p class="ll-card-title">Tracking Local Opposition: Communities Pushing Back Across the State</p>
+            <p class="ll-card-desc">Bridge Michigan has tracked moratorium efforts, planning commission votes, and township-level organizing across Michigan — the most comprehensive local record of community response available.</p>
+            <a class="ll-card-link" href="https://www.bridgemi.com" target="_blank" rel="noopener">Read Bridge Michigan &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128161; Action Guide</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">How to Show Up at a Planning Commission Meeting and Be Heard</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">Michigan townships hold public comment periods before major zoning decisions. Requesting documents in advance, citing specific ordinances, and submitting written comments all carry legal weight — especially if the decision is later appealed.</p>
-            <a href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">See How Other Communities Have Pushed Back &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Data &middot; Cleanview</p>
+            <p class="ll-card-title">Michigan Data Centers: A Statewide Facilities Map</p>
+            <p class="ll-card-desc">Cleanview's Michigan tracker maps existing and planned facilities by county, city, and operator — a useful starting point before engaging your local planning commission or filing a FOIA request.</p>
+            <a class="ll-card-link" href="https://cleanview.co/data-centers/michigan" target="_blank" rel="noopener">Explore the map &rarr;</a>
           </div>
 
-          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:18px 16px;">
-            <span style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.45);">&#128196; Report &middot; World Resources Institute</span>
-            <h4 style="font-size:15px;font-weight:700;color:#fff;margin:8px 0 6px 0;line-height:1.3;">The Neighborhood-Level Impacts Other Reports Leave Out</h4>
-            <p style="font-size:13px;color:rgba(255,255,255,.60);margin:0 0 12px 0;line-height:1.5;">WRI's community impact research covers noise, light pollution, road damage from heavy construction traffic, and the displacement of smaller industrial tenants — costs rarely mentioned in company press releases.</p>
-            <a href="https://www.wri.org/insights/us-data-center-growth-impacts" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:700;color:var(--red);text-decoration:none;">Read the Full Report &#8594;</a>
+          <div class="ll-card">
+            <p class="ll-card-label">Reporting &middot; Planet Detroit</p>
+            <p class="ll-card-title">Southeast Michigan's Environmental Frontlines</p>
+            <p class="ll-card-desc">Planet Detroit covers the environmental and community dimensions of data center siting in southeast Michigan — including air permitting, environmental justice concerns, and local organizing efforts.</p>
+            <a class="ll-card-link" href="https://planetdetroit.org" target="_blank" rel="noopener">Read Planet Detroit &rarr;</a>
           </div>
 
         </div>
