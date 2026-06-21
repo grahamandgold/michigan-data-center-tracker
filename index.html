@@ -334,6 +334,21 @@ h1.wm-inner,
   transition:color .15s,border-color .15s;
 }
 #rnav a:hover,#rnav a:focus{ color:#fff;border-bottom-color:var(--red); }
+#rnav .rnav-livemap{
+  margin-left:auto;
+  padding:5px 12px;
+  background:var(--red);
+  color:#fff !important;
+  border-bottom:none !important;
+  border-radius:2px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+#rnav .rnav-livemap:hover{ background:#a00;border-bottom:none !important; }
 
 .rnav-short{ display:none; }
 .rnav-full{ display:inline; }
@@ -1579,12 +1594,12 @@ h2.ml-title{
   </div>
   <ul class="nav-links">
     <li><a href="#hn">Top Stories</a></li>
-    <li><a href="#events">Meetings &amp; Hearings</a></li>
-    <li><a href="#regions">Your Area</a></li>
-    <li><a href="/map">Live Map</a></li>
-    <li><a href="#chatter">Live Chatter</a></li>
+    <li><a href="#events">Meetings</a></li>
+    <li><a href="#rec">Capitol</a></li>
+    <li><a href="#regions">Regions</a></li>
+    <li><a href="#chatter">Public Watch</a></li>
     <li><a href="#nl">Newsletter</a></li>
-    <li><a href="/records">Public Learn</a></li>
+    <li><a href="map.html" style="color:var(--red);font-weight:800;">Live Map</a></li>
     <li></li>
   </ul>
   <div class="nav-cta"><a href="#nl">Get Free Briefings</a></div>
@@ -1618,15 +1633,15 @@ h2.ml-title{
       </h1>
     </a>
     <!-- Subscribe CTA -->
-    <a href="#nl" class="hdr-cta">Subscribe Free &rsaquo;</a>
+    <a href="#nl" class="hdr-cta">Get Briefing ›</a>
   </div>
   <!-- Region nav -->
   <nav id="rnav" aria-label="Regional sections">
     <a href="#events">Meetings</a>
-    <a href="/map"><span class="rnav-short">Map</span><span class="rnav-full">Live Map</span></a>
-    <a href="#regions"><span class="rnav-short">Your Area</span><span class="rnav-full">Your Area</span></a>
-    <a href="#chatter">Chatter</a>
-    <a href="#rec">Learn</a>
+    <a href="#rec">Capitol</a>
+    <a href="#regions">Regions</a>
+    <a href="#chatter">Public Watch</a>
+    <a href="map.html" class="rnav-livemap">Live Map</a>
   </nav>
   <div class="hdr-rule"></div>
 </header>
@@ -1674,13 +1689,13 @@ h2.ml-title{
 ════════════════════════════════════════════════════════ -->
 <section id="hn" class="lead-section" aria-label="Top Stories">
 
-  <!-- MAP CTA -->
-  <a href="/map" class="map-cta" aria-label="View Live Project Map">
-    <span class="map-cta-inner">
-      <span class="map-cta-lbl">Live Map</span>
-      <span class="map-cta-text">All Michigan data center projects, proposals &amp; moratoriums</span>
-    </span>
-  </a>
+
+
+
+
+
+
+
 
   <div class="hn-grid">
     <!-- ════════════════════════════════════
@@ -1984,7 +1999,8 @@ h2.ml-title{
 <!-- ═══════════════════════════════════════════════════════
      YOU SHOULD KNOW (Recommendations)
 ════════════════════════════════════════════════════════ -->
-<section id="rec" aria-labelledby="rec-hed">
+<span id="capitol" style="position:absolute;margin-top:-60px;visibility:hidden;" aria-hidden="true"></span>
+<section id="rec" aria-labelledby="rec-hed"><!-- id="capitol" alias -->
   <div class="rec-hdr">
     <h2 class="rec-hdr-title" id="rec-hed">You Should Know</h2>
   </div>
@@ -2043,7 +2059,8 @@ h2.ml-title{
 <!-- ═══════════════════════════════════════════════════════
      LIVE CHATTER
 ════════════════════════════════════════════════════════ -->
-<section id="chatter" aria-label="Live Chatter">
+<span id="public-watch" style="position:absolute;margin-top:-60px;visibility:hidden;" aria-hidden="true"></span>
+<section id="chatter" aria-label="Live Chatter"><!-- id="public-watch" alias -->
   <div class="chat-hdr">
     <h2 class="chat-hdr-title">Live Chatter</h2>
     
@@ -2318,7 +2335,7 @@ h2.ml-title{
       <div class="ft-tagline">Independent coverage of data center projects, meetings, permits &amp; policy in Michigan.</div>
     </div>
     <nav class="ft-links" aria-label="Footer navigation">
-      <a href="/map">Live Map</a>
+    <a href="map.html">Live Map</a>
       <a href="/records">Public Records</a>
       <a href="mailto:michigandatacentertracker@gmail.com">Tip Line</a>>
       <a href="#nl">Newsletter</a>
