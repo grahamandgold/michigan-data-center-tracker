@@ -524,7 +524,7 @@ h1.wm-inner,
 
 @media(max-width:679px){
   /* Lead story: match story-row look on mobile */
-  .lead{ padding:11px 18px 13px; }
+  .lead{ padding:11px 18px 13px;border-left:3px solid var(--red); }
   .lead-lbl{ display:none; }
   .lead-mobile-row{
     display:flex;align-items:flex-start;gap:10px;
@@ -717,7 +717,7 @@ h2.ev-hdr-title{
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:shimmer 12s linear infinite;
+  animation:shimmer 4s linear infinite;
 }
 /* THE BIG STORY label shimmer */
 .lead-lbl{
@@ -729,7 +729,7 @@ h2.ev-hdr-title{
   background-clip:text !important;
   -webkit-text-fill-color:transparent !important;
   color:transparent !important;
-  animation:shimmer 12s linear infinite;
+  animation:shimmer 4s linear infinite;
 }
 @keyframes shimmer{
   0%{ background-position:300% center; }
@@ -787,6 +787,7 @@ h2.ev-hdr-title{
   .ev-date{ flex-direction:row;align-items:baseline;gap:10px; }
   .ev-actions{ justify-content:flex-start;margin-top:6px; }
   .ev-hed{ font-size:16px; }
+  .ev-pill{ padding:9px 14px;font-size:11px; }
 }
 
 .ev-extra-wrap{ border-top:1px solid var(--bdr); }
@@ -900,7 +901,7 @@ h3.reg-name{
 }
 
 /* Mobile: single column */
-@media(max-width:479px){
+@media(max-width:639px){
   .reg-grid{ grid-template-columns:1fr; }
   .reg-cell:nth-child(2n){ border-right:none; }
   .reg-cell{ border-right:none; }
@@ -1218,7 +1219,7 @@ h2.ml-title{
 .ml-msg.err{ color:var(--red); }
 .ml-row{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
   gap:0;
 }
 .ml-col{
@@ -1421,7 +1422,6 @@ h2.ml-title{
     <a href="#regions"><span class="rnav-short">Regions</span><span class="rnav-full">Regional Coverage</span></a>
     <a href="#chatter">Chatter</a>
     <a href="/records">Records</a>
-    <a href="/about">About</a>
   </nav>
   <div class="hdr-rule"></div>
 </header>
@@ -1807,7 +1807,7 @@ h2.ml-title{
   </div>
   <div class="rec-list">
     <a class="rec-item" href="/michigan-data-center-water-use-explainer" target="_blank" rel="noopener">
-      <span class="rec-icon" aria-hidden="true">💧</span>
+      <span class="rec-icon" aria-hidden="true" style="font-size:15px;color:var(--blu);">◈</span>
       <div class="rec-body">
         <span class="rec-label">Explainer</span>
         <div class="rec-hed">How much water do Michigan data centers actually use?</div>
@@ -1815,7 +1815,7 @@ h2.ml-title{
       </div>
     </a>
     <a class="rec-item" href="/michigan-data-center-property-tax-incentive" target="_blank" rel="noopener">
-      <span class="rec-icon" aria-hidden="true">💰</span>
+      <span class="rec-icon" aria-hidden="true" style="font-size:15px;color:var(--blu);">◈</span>
       <div class="rec-body">
         <span class="rec-label">Policy</span>
         <div class="rec-hed">Michigan’s data center tax break: who gets it, what it costs</div>
@@ -1823,7 +1823,7 @@ h2.ml-title{
       </div>
     </a>
     <a class="rec-item" href="/michigan-data-center-map-guide" target="_blank" rel="noopener">
-      <span class="rec-icon" aria-hidden="true">🗺️</span>
+      <span class="rec-icon" aria-hidden="true" style="font-size:15px;color:var(--blu);">◈</span>
       <div class="rec-body">
         <span class="rec-label">Guide</span>
         <div class="rec-hed">How to use the Michigan Data Center map</div>
@@ -1831,7 +1831,7 @@ h2.ml-title{
       </div>
     </a>
     <a class="rec-item" href="/michigan-data-center-moratorium-tracker" target="_blank" rel="noopener">
-      <span class="rec-icon" aria-hidden="true">⛔</span>
+      <span class="rec-icon" aria-hidden="true" style="font-size:15px;color:var(--red);">◈</span>
       <div class="rec-body">
         <span class="rec-label">Tracker</span>
         <div class="rec-hed">Every Michigan community that has passed or proposed a data center moratorium</div>
@@ -1839,7 +1839,7 @@ h2.ml-title{
       </div>
     </a>
     <a class="rec-item" href="/michigan-data-center-jobs-vs-impact" target="_blank" rel="noopener">
-      <span class="rec-icon" aria-hidden="true">👷</span>
+      <span class="rec-icon" aria-hidden="true" style="font-size:15px;color:var(--blu);">◈</span>
       <div class="rec-body">
         <span class="rec-label">Analysis</span>
         <div class="rec-hed">Data centers promise jobs. Communities want to know: how many, and for whom?</div>
@@ -1847,7 +1847,7 @@ h2.ml-title{
       </div>
     </a>
     <a class="rec-item" href="/how-to-file-foia-michigan-data-center" target="_blank" rel="noopener">
-      <span class="rec-icon" aria-hidden="true">📄</span>
+      <span class="rec-icon" aria-hidden="true" style="font-size:15px;color:var(--blu);">◈</span>
       <div class="rec-body">
         <span class="rec-label">How-To</span>
         <div class="rec-hed">How to file a FOIA request about a data center in your Michigan community</div>
@@ -2112,7 +2112,7 @@ h2.ml-title{
 ════════════════════════════════════════════════════════ -->
 <aside class="sponsor-board" aria-label="Sponsor">
   <span class="sponsor-lbl">Sponsored</span>
-  <div class="sponsor-logo">Your Logo Here</div>
+  <div class="sponsor-logo" style="background:#f0f2f5;color:#aaa;font-family:var(--body);font-size:9px;letter-spacing:.14em;text-transform:uppercase;border:none;">Sponsor</div>
   <span class="sponsor-cta">Reach Michigan’s data center policy audience. <a href="/advertise">Learn more &rsaquo;</a></span>
 </aside>
 
@@ -2139,47 +2139,6 @@ h2.ml-title{
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
-     MULTI-LIST
-════════════════════════════════════════════════════════ -->
-<section class="ml-section" aria-labelledby="ml-title">
-  <div class="ml-hdr">
-    <h2 class="ml-title" id="ml-title">Customize Your Briefing</h2>
-    <span class="ml-badge">Free</span>
-  </div>
-  <form id="ml-form" class="" onsubmit="mlSubmit(event)" novalidate>
-    <div class="ml-form">
-      <input class="ml-input" id="ml-email" type="email" placeholder="your@email.com"
-        autocomplete="email" inputmode="email" required aria-label="Email address">
-      <button class="ml-btn" type="submit">Get Briefings</button>
-    </div>
-    <div class="ml-msg" id="ml-msg"></div>
-    <div class="ml-row">
-      <div class="ml-col">
-        <span class="ml-col-hdr">By Region</span>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Metro Detroit</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">West Michigan</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Mid-Michigan</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Northern MI / UP</span></label>
-      </div>
-      <div class="ml-col">
-        <span class="ml-col-hdr">By Topic</span>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Meetings &amp; Hearings</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Zoning &amp; Permits</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Legislation</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Power &amp; Water</span></label>
-      </div>
-      <div class="ml-col">
-        <span class="ml-col-hdr">Alerts</span>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">New Project Filings</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Public Records</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Breaking News</span></label>
-        <label class="ml-topic"><span class="ml-check"><svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ml-topic-lbl">Weekly Digest</span></label>
-      </div>
-    </div>
-  </form>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════════════════ -->
 <footer id="ft">
@@ -2189,7 +2148,6 @@ h2.ml-title{
       <div class="ft-tagline">Tracking the projects, meetings, and decisions that shape Michigan’s data center future.</div>
     </div>
     <nav class="ft-links" aria-label="Footer navigation">
-      <a href="/about">About</a>
       <a href="/records">Records</a>
       <a href="/map">Map</a>
       <a href="/tip">Tip Line</a>
@@ -2201,7 +2159,7 @@ h2.ml-title{
   <p class="ft-copy">
     &copy; 2026 Michigan Data Center Tracker. Independent journalism. Not affiliated with any data center developer, utility, or government entity.<br>
     <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms</a> &middot;
-    Built with public-interest reporting in mind. Tips: <a href="mailto:michigandatacentertracker@gmail.com">tips@michigandatacentertracker.com</a>
+    Built with public-interest reporting in mind. Tips: <a href="mailto:michigandatacentertracker@gmail.com">michigandatacentertracker@gmail.com</a>
   </p>
 </footer>
 
