@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-  MICHIGAN DATA CENTER TRACKER — v54
+  MICHIGAN DATA CENTER TRACKER — v55
   michigandatacentertracker.comndatacentertracker.com
   Brand: black / white / red primary · slate-blue (#1E3A5F) secondary utility accent
 
@@ -781,7 +781,7 @@ h2.ev-hdr-title{
 }
 /* Bullseye — Big Story */
 .lead{ position:relative;overflow:hidden; }
-.lead-bullseye{ position:absolute;left:-210px;top:40%;transform:translateY(-40%);width:760px;height:760px;pointer-events:none;opacity:.065;z-index:0; }
+.lead-bullseye{ position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:center top;pointer-events:none;opacity:.12;z-index:0; }
 .lead-bullseye ~ * { position:relative;z-index:1; }
 @media(max-width:680px){ .lead-bullseye{ display:none; } }
 /* THE BIG STORY label shimmer */
@@ -862,13 +862,14 @@ h2.ev-hdr-title{
 .ev-toggle-btn{
   display:flex;align-items:center;justify-content:space-between;
   width:100%;background:var(--off);border:none;
-  border-top:1px solid var(--bdr);
+  border-top:2px solid var(--red);
+  border-left:3px solid var(--red);
   font-family:var(--body);font-size:11px;font-weight:800;
   letter-spacing:.12em;text-transform:uppercase;
-  color:var(--blu);padding:10px 18px;cursor:pointer;
-  transition:background .12s,color .12s;
+  color:var(--red);padding:10px 18px;cursor:pointer;
+  transition:background .15s,box-shadow .15s,color .15s;
 }
-.ev-toggle-btn:hover{ background:#EAEDF2;color:var(--blu-lt); }ppercase;
+.ev-toggle-btn:hover{ background:#fff0f0;color:#a00; }ppercase;
   color:#fff;padding:16px 20px;cursor:pointer;
   transition:background .15s;
 }
@@ -1154,13 +1155,14 @@ h2.chat-hdr-title{
 .chat-toggle-btn{
   display:flex;align-items:center;justify-content:space-between;
   width:100%;background:var(--off);border:none;
-  border-top:1px solid var(--bdr);
+  border-top:2px solid var(--red);
+  border-left:3px solid var(--red);
   font-family:var(--body);font-size:11px;font-weight:800;
   letter-spacing:.12em;text-transform:uppercase;
-  color:var(--blu);padding:10px 18px;cursor:pointer;
-  transition:background .12s,color .12s;
+  color:var(--red);padding:10px 18px;cursor:pointer;
+  transition:background .15s,box-shadow .15s,color .15s;
 }
-.chat-toggle-btn:hover{ background:#EAEDF2;color:var(--blu-lt); }-sans);font-size:14px;font-weight:900;
+.chat-toggle-btn:hover{ background:#fff0f0;color:#a00; }-sans);font-size:14px;font-weight:900;
   letter-spacing:.16em;text-transform:uppercase;
   color:#fff;padding:16px 20px;cursor:pointer;
   transition:background .15s;
@@ -1582,7 +1584,7 @@ h2.ml-title{
          ✏️ BIG STORY — update daily
     ════════════════════════════════════ -->
     <article class="lead">
-      <img class="lead-bullseye" src="bullseye.png" alt="" aria-hidden="true">
+      <img class="lead-bullseye" src="michigan-night-view.jpg" alt="" aria-hidden="true">
       <div class="lead-lbl">The Big Story</div>
       <div class="lead-mobile-row">
         <span class="lead-num" aria-hidden="true">1</span>
@@ -1754,7 +1756,7 @@ h2.ml-title{
 <!-- NEWSLETTER RIBBON — after Meetings, before Capitol -->
 <a href="#nl" class="nl-ribbon">
   <span class="nl-ribbon-inner">
-    <span class="nl-ribbon-text">Subscribe Free — Michigan Data Center Briefingg</span>
+    <span class="nl-ribbon-text">Subscribe Free — Michigan Data Center Briefing</span>
     <span class="nl-ribbon-arrow">&rarr;</span>
   </span>
 </a>
