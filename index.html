@@ -353,7 +353,7 @@ h1.wm-inner,
 .hdr-rule{ height:3px;background:var(--red);position:relative;z-index:2; }
 
 /* ══════════════════════════════════════════════════════════
-   HAPPENING NOW BAR
+   WHAT WE'RE WATCHING BAR
 ══════════════════════════════════════════════════════════ */
 .hn-bar{
   background:var(--blk);
@@ -807,8 +807,8 @@ h2.ev-hdr-title{
 .ev-extra-list{ display:none;list-style:none; }
 .ev-extra-list.open{ display:block; }
 .ev-toggle-wrap{ display:flex;flex-direction:column; }
-.ev-toggle-wrap .ev-toggle-btn{ order:1; }
-.ev-toggle-wrap .ev-extra-list{ order:2; }
+.ev-toggle-wrap .ev-extra-list{ order:1; }
+.ev-toggle-wrap .ev-toggle-btn{ order:2; }
 
 /* ══════════════════════════════════════════════════════════
    REGIONAL COVERAGE GRID
@@ -852,15 +852,16 @@ h2.reg-hdr-title{
 
 .reg-cell-hdr{
   display:flex;align-items:center;justify-content:space-between;
-  padding:8px 14px 7px;
-  border-bottom:1px solid var(--bdr);
-  background:var(--off);
+  padding:9px 14px 8px;
+  border-bottom:2px solid var(--bdr);
+  border-left:3px solid var(--red);
+  background:var(--char);
   gap:8px;
 }
 h3.reg-name{
   font-family:var(--sans);font-size:13px;font-weight:900;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:var(--blk);line-height:1;margin:0;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:#fff;line-height:1;margin:0;
 }
 .reg-count{
   font-family:var(--body);font-size:10px;font-weight:800;
@@ -1421,15 +1422,15 @@ h2.ml-title{
 </header>
 
 <!-- ═══════════════════════════════════════════════════════
-     HAPPENING NOW BAR
+     WHAT WE'RE WATCHING BAR
 ════════════════════════════════════════════════════════ -->
-<section id="bar" class="hn-bar" aria-label="Happening Now">
+<section id="bar" class="hn-bar" aria-label="What We're Watching">
   <div class="hn-bar-top">
     <span class="hn-bar-dot" aria-hidden="true"></span>
-    <span class="hn-bar-label">Happening Now</span>
+    <span class="hn-bar-label">What We're Watching</span>
     <span class="hn-bar-date">Sunday, June 21, 2026</span>
   </div>
-  <!-- ✏️ HAPPENING NOW: update text + links here. 2 items visible on mobile; 3 on desktop -->
+  <!-- ✏️ WHAT WE'RE WATCHING: update text + links here. 2 items visible on mobile; 3 on desktop -->
   <ul class="hn-bar-items">
     <li class="hn-bar-item">
       <span class="hn-bar-text">
@@ -1647,12 +1648,166 @@ h2.ml-title{
 <!-- ═══════════════════════════════════════════════════════
      REGIONAL COVERAGE
 ════════════════════════════════════════════════════════ -->
+<section id="regions" aria-labelledby="regions-hed">
+  <div class="sec-hdr">
+    <h2 class="sec-title" id="regions-hed">Regional Coverage</h2>
+  </div>
+  <div class="reg-grid">
 
+    <!-- AT THE CAPITOL -->
+    <div class="reg-cell full-width">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">At The Capitol</h3>
+      </div>
+      <ul class="reg-list">
+        <li><a class="reg-item" href="/michigan-data-center-senate-democrat-bill-package" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Senate Dems file 5-bill package: water, power, labor rules for data centers</span><span class="reg-meta">Jun. 20</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/michigan-house-data-center-tax-incentive-hearings" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">House committee holds second hearing on data center tax incentive repeal</span><span class="reg-meta">Jun. 16</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/michigan-data-center-water-use-reporting" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Advocates push mandatory water-use reporting for data centers in state legislation</span><span class="reg-meta">Jun. 18</span></span>
+        </a></li>
+      </ul>
+    </div>
+
+    <!-- METRO DETROIT -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">Metro Detroit</h3>
+      </div>
+      <ul class="reg-list">
+        <li><a class="reg-item" href="/northville-township-data-center-zoning" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Northville Twp. planning board tables data center special use after neighbor pushback</span><span class="reg-meta">Jun. 18</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/novi-data-center-utility-upgrade" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Novi: DTE proposes $220M substation upgrade to serve campus data center cluster</span><span class="reg-meta">Jun. 14</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/wayne-county-data-center-zoning-review" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Wayne County opens zoning review after three data center applications filed in 60 days</span><span class="reg-meta">Jun. 10</span></span>
+        </a></li>
+      </ul>
+    </div>
+
+    <!-- WEST MICHIGAN -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">West Michigan</h3>
+      </div>
+      <ul class="reg-list">
+        <li><a class="reg-item" href="/gaines-township-zoning-moratorium" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Gaines Twp. planning commission OKs moratorium; board vote set for June 24</span><span class="reg-meta">Jun. 19</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/ada-township-data-center-conditional-use" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Ada Twp. planners set June 29 hearing on 180-acre data center campus proposal</span><span class="reg-meta">Jun. 15</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/kent-county-data-center-groundwater" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Kent County: EGLE opens groundwater review for data center campus well proposal</span><span class="reg-meta">Jun. 11</span></span>
+        </a></li>
+      </ul>
+    </div>
+
+    <!-- MID-MICHIGAN -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">Mid-Michigan</h3>
+      </div>
+      <ul class="reg-list">
+        <li><a class="reg-item" href="/delta-township-data-center-site-plan" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Delta Twp. approves site plan for 400MW data center; neighbors file suit</span><span class="reg-meta">Jun. 12</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/eaton-county-data-center-groundwater" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Eaton County: state DEQ opens groundwater review for proposed data center well</span><span class="reg-meta">Jun. 10</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/lansing-data-center-energy-infrastructure" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Consumers Energy IRP revision includes 1.4 GW data center demand scenario</span><span class="reg-meta">Jun. 17</span></span>
+        </a></li>
+      </ul>
+    </div>
+
+    <!-- NORTHERN MI / UP -->
+    <div class="reg-cell">
+      <div class="reg-cell-hdr">
+        <h3 class="reg-name">Northern MI / UP</h3>
+      </div>
+      <ul class="reg-list">
+        <li><a class="reg-item" href="/marquette-county-data-center-proposal" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Marquette County: developer eyes former paper mill site for 50MW data center</span><span class="reg-meta">Jun. 11</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/traverse-city-data-center-energy-study" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Traverse City Light &amp; Power commissions load study after data center inquiry</span><span class="reg-meta">Jun. 8</span></span>
+        </a></li>
+        <li><a class="reg-item" href="/northern-michigan-data-center-broadband" target="_blank" rel="noopener">
+          <span class="reg-bullet"></span>
+          <span class="reg-body"><span class="reg-hed">Northern Michigan tribal council raises concerns over data center water and land use proposals</span><span class="reg-meta">Jun. 5</span></span>
+        </a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════════════════════
      YOU SHOULD KNOW (Recommendations)
 ════════════════════════════════════════════════════════ -->
-
+<section id="rec" aria-labelledby="rec-hed">
+  <div class="rec-hdr">
+    <h2 class="rec-title" id="rec-hed">You Should Know</h2>
+  </div>
+  <div class="rec-grid">
+    <a class="rec-card" href="/michigan-data-center-water-use-explainer" target="_blank" rel="noopener">
+      <span class="rec-icon" style="color:var(--blu)">◈</span>
+      <span class="rec-label">Explainer</span>
+      <h3 class="rec-hed">How much water do Michigan data centers actually use?</h3>
+      <p class="rec-dek">The industry says "cooling towers." Residents say "none of your business." Here's what the data shows.</p>
+    </a>
+    <a class="rec-card" href="/michigan-data-center-property-tax-incentive" target="_blank" rel="noopener">
+      <span class="rec-icon" style="color:var(--red)">◈</span>
+      <span class="rec-label">Policy</span>
+      <h3 class="rec-hed">Michigan's data center tax break: who gets it, what it costs</h3>
+      <p class="rec-dek">The 2016 law exempts qualifying facilities from sales and use tax. Critics say the math doesn't add up.</p>
+    </a>
+    <a class="rec-card" href="/michigan-data-center-map-guide" target="_blank" rel="noopener">
+      <span class="rec-icon" style="color:var(--blu)">◈</span>
+      <span class="rec-label">Guide</span>
+      <h3 class="rec-hed">How to use the Michigan Data Center map</h3>
+      <p class="rec-dek">Every marker, filter, and layer on our live project tracker explained in plain English.</p>
+    </a>
+    <a class="rec-card" href="/michigan-data-center-moratorium-tracker" target="_blank" rel="noopener">
+      <span class="rec-icon" style="color:var(--red)">◈</span>
+      <span class="rec-label">Tracker</span>
+      <h3 class="rec-hed">Every Michigan community that has passed or proposed a data center moratorium</h3>
+      <p class="rec-dek">12 communities, updated weekly as local governments act.</p>
+    </a>
+    <a class="rec-card" href="/michigan-data-center-jobs-vs-impact" target="_blank" rel="noopener">
+      <span class="rec-icon" style="color:var(--blu)">◈</span>
+      <span class="rec-label">Analysis</span>
+      <h3 class="rec-hed">Data centers promise jobs. Communities want to know: how many, and for whom?</h3>
+      <p class="rec-dek">An analysis of employment claims in permit applications vs. actual hiring records.</p>
+    </a>
+    <a class="rec-card" href="/how-to-file-foia-michigan-data-center" target="_blank" rel="noopener">
+      <span class="rec-icon" style="color:var(--red)">◈</span>
+      <span class="rec-label">How-To</span>
+      <h3 class="rec-hed">How to file a FOIA request about a data center in your Michigan community</h3>
+      <p class="rec-dek">A step-by-step guide to getting zoning, permits, and water contracts.</p>
+    </a>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════════════════════
      LIVE CHATTER
@@ -1922,10 +2077,7 @@ h2.ml-title{
       <div class="ft-tagline">Tracking the projects, meetings, and decisions that shape Michigan’s data center future.</div>
     </div>
     <nav class="ft-links" aria-label="Footer navigation">
-      <a href="/records">Records</a>
       <a href="/map">Map</a>
-      <a href="/tip">Tip Line</a>
-      <a href="/advertise">Advertise</a>
       <a href="/contact">Contact</a>
     </nav>
   </div>
