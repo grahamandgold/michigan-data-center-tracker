@@ -1949,41 +1949,34 @@ h2.ml-title{
     <div style="padding:40px 0 32px 0;">
       <span style="font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--red);text-transform:uppercase;">Learning Library</span>
       <h2 style="font-size:clamp(20px,3.5vw,30px);font-weight:800;color:#fff;margin:10px 0 10px 0;line-height:1.2;">What Every Michigander Should Know</h2>
-      <p style="font-size:14px;color:rgba(255,255,255,.50);margin:0;max-width:560px;line-height:1.6;">Curated reporting, research, and tools to help residents, journalists, and local officials understand the data center expansion reshaping Michigan.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,.50);margin:0;max-width:560px;line-height:1.6;">Curated reporting, research, and tools for residents, journalists, and local officials tracking the data center expansion reshaping Michigan.</p>
     </div>
 
     <style>
-      .ll-row { border:1px solid rgba(255,255,255,.09); border-radius:8px; margin-bottom:6px; overflow:hidden; }
-      .ll-row + .ll-row { }
-      .ll-btn { width:100%; background:rgba(255,255,255,.03); border:none; padding:17px 20px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; text-align:left; gap:12px; }
-      .ll-btn:hover { background:rgba(255,255,255,.06); }
-      .ll-btn-title { font-size:15px; font-weight:700; color:#fff; letter-spacing:.01em; }
-      .ll-btn-chevron { color:rgba(255,255,255,.35); font-size:16px; flex-shrink:0; transition:transform .2s; line-height:1; }
-      .ll-body { display:none; padding:20px; border-top:1px solid rgba(255,255,255,.08); }
-      .ll-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
-      .ll-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:7px; padding:16px; }
-      .ll-card-label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin:0 0 8px 0; }
-      .ll-card-title { font-size:14px; font-weight:700; color:#fff; margin:0 0 7px 0; line-height:1.35; }
-      .ll-card-desc { font-size:13px; color:rgba(255,255,255,.55); margin:0 0 12px 0; line-height:1.55; }
-      .ll-card-link { font-size:12px; font-weight:700; color:var(--red); text-decoration:none; letter-spacing:.01em; }
-      .ll-card-link:hover { text-decoration:underline; }
-      .ll-video-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:5px; margin-bottom:14px; }
-      .ll-video-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
-      .ll-foia-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
-      .ll-foia-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:7px; padding:16px; display:flex; flex-direction:column; }
-      .ll-foia-card-label { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin:0 0 8px 0; }
-      .ll-foia-card-title { font-size:13px; font-weight:700; color:#fff; margin:0 0 6px 0; line-height:1.3; }
-      .ll-foia-card-desc { font-size:12px; color:rgba(255,255,255,.50); margin:0 0 12px 0; line-height:1.5; flex:1; }
-      .ll-foia-btn { display:inline-block; background:var(--red); color:#fff; font-size:11px; font-weight:700; padding:7px 13px; border-radius:5px; text-decoration:none; letter-spacing:.02em; align-self:flex-start; }
-      .ll-foia-link { font-size:12px; font-weight:700; color:var(--red); text-decoration:none; }
+      .ll-row{border:1px solid rgba(255,255,255,.09);border-radius:8px;margin-bottom:6px;overflow:hidden;}
+      .ll-btn{width:100%;background:rgba(255,255,255,.03);border:none;padding:17px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;gap:12px;}
+      .ll-btn:hover{background:rgba(255,255,255,.06);}
+      .ll-btn-title{font-size:15px;font-weight:700;color:#fff;letter-spacing:.01em;}
+      .ll-chev{color:rgba(255,255,255,.35);font-size:16px;flex-shrink:0;transition:transform .2s;line-height:1;}
+      .ll-body{display:none;padding:20px;border-top:1px solid rgba(255,255,255,.08);}
+      .ll-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-items:start;}
+      .ll-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:16px;display:flex;flex-direction:column;}
+      .ll-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin:0 0 9px 0;line-height:1;}
+      .ll-title{font-size:14px;font-weight:700;color:#fff;margin:0 0 8px 0;line-height:1.35;}
+      .ll-desc{font-size:13px;color:rgba(255,255,255,.52);margin:0 0 14px 0;line-height:1.6;flex:1;}
+      .ll-link{font-size:12px;font-weight:700;color:var(--red);text-decoration:none;letter-spacing:.01em;margin-top:auto;}
+      .ll-link:hover{text-decoration:underline;}
+      .ll-vid{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:5px;margin-bottom:14px;}
+      .ll-vid iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+      .ll-foia-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+      .ll-foia-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:16px;display:flex;flex-direction:column;}
+      .ll-foia-btn{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:700;padding:7px 13px;border-radius:5px;text-decoration:none;letter-spacing:.02em;margin-top:auto;align-self:flex-start;}
     </style>
     <script>
-    function llOpen(id) {
-      var body = document.getElementById('llb-' + id);
-      var chev = document.getElementById('llc-' + id);
-      var open = body.style.display === 'block';
-      body.style.display = open ? 'none' : 'block';
-      chev.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    function llOpen(id){
+      var b=document.getElementById('llb-'+id),c=document.getElementById('llc-'+id),o=b.style.display==='block';
+      b.style.display=o?'none':'block';
+      c.style.transform=o?'rotate(0deg)':'rotate(180deg)';
     }
     </script>
 
@@ -1991,173 +1984,155 @@ h2.ml-title{
     <div class="ll-row">
       <button class="ll-btn" onclick="llOpen('water')">
         <span class="ll-btn-title">Water &amp; the Great Lakes</span>
-        <span class="ll-btn-chevron" id="llc-water">&#8964;</span>
+        <span class="ll-chev" id="llc-water">&#8964;</span>
       </button>
       <div class="ll-body" id="llb-water">
         <div class="ll-grid">
-
           <div class="ll-card">
-            <div class="ll-video-wrap">
-              <iframe src="https://www.youtube.com/embed/5p426fSlYH4" title="We Saw What AI Data Centers Don't Want You to See — PBS Terra" allowfullscreen></iframe>
-            </div>
-            <p class="ll-card-label">Video &middot; PBS Terra</p>
-            <p class="ll-card-title">Inside the Water Footprint AI Companies Don't Publicize</p>
-            <p class="ll-card-desc">An investigative look at how large-scale data centers consume and discharge water — and what that means for downstream communities and watersheds.</p>
+            <p class="ll-label">Video &middot; PBS Terra</p>
+            <div class="ll-vid"><iframe src="https://www.youtube.com/embed/5p426fSlYH4" title="PBS Terra — AI data center water investigation" allowfullscreen></iframe></div>
+            <p class="ll-title">Inside the Water Footprint AI Companies Don't Publicize</p>
+            <p class="ll-desc">An on-the-ground investigation into how large-scale data centers consume and discharge water — and what communities downstream are left to manage.</p>
           </div>
-
           <div class="ll-card">
-            <p class="ll-card-label">Reporting &middot; Bridge Michigan</p>
-            <p class="ll-card-title">Michigan's Data Center Water Demands, Explained</p>
-            <p class="ll-card-desc">Bridge Michigan's coverage examines state permitting, withdrawal volumes, and what regulators are — and aren't — requiring of facilities before they break ground.</p>
-            <a class="ll-card-link" href="https://www.bridgemi.com/michigan-environment-watch" target="_blank" rel="noopener">Read Bridge Michigan's coverage &rarr;</a>
+            <p class="ll-label">Bridge Michigan &middot; Aug. 20, 2025</p>
+            <p class="ll-title">Michigan Among States Unprepared for Data Center Water Demands</p>
+            <p class="ll-desc">An Alliance for the Great Lakes study found Michigan and its neighbors are ill-equipped to regulate the scale of water withdrawals that hyperscale facilities — most using evaporative cooling systems — now require.</p>
+            <a class="ll-link" href="https://bridgemi.com/michigan-environment-watch/report-states-like-michigan-simply-not-prepared-for-data-center-water-demand/" target="_blank" rel="noopener">Read the report &rarr;</a>
           </div>
-
           <div class="ll-card">
-            <p class="ll-card-label">Report &middot; World Resources Institute</p>
-            <p class="ll-card-title">Seven Ways Data Centers Are Reshaping U.S. Communities</p>
-            <p class="ll-card-desc">WRI's analysis covers water stress, energy load, land use, and community displacement — a foundational reference for anyone tracking the industry's full footprint.</p>
-            <a class="ll-card-link" href="https://www.wri.org/insights/us-data-center-growth-impacts" target="_blank" rel="noopener">Read the report &rarr;</a>
+            <p class="ll-label">Bridge Michigan &middot; May 20, 2025</p>
+            <p class="ll-title">Data Centers and the Great Lakes: A Water System Under New Pressure</p>
+            <p class="ll-desc">Bridge Michigan examines how growing facility clusters could stress groundwater supplies and aging municipal infrastructure in communities being targeted for data center development across the region.</p>
+            <a class="ll-link" href="https://bridgemi.com/michigan-environment-watch/are-data-centers-threat-great-lakes/" target="_blank" rel="noopener">Read the story &rarr;</a>
           </div>
-
         </div>
       </div>
     </div>
 
-    <!-- 2. JOBS & ECONOMIC IMPACT -->
+    <!-- 2. JOBS -->
     <div class="ll-row">
       <button class="ll-btn" onclick="llOpen('jobs')">
         <span class="ll-btn-title">Jobs, Power &amp; Economic Impact</span>
-        <span class="ll-btn-chevron" id="llc-jobs">&#8964;</span>
+        <span class="ll-chev" id="llc-jobs">&#8964;</span>
       </button>
       <div class="ll-body" id="llb-jobs">
         <div class="ll-grid">
-
           <div class="ll-card">
-            <div class="ll-video-wrap">
-              <iframe src="https://www.youtube.com/embed/XKMencCCLgU" title="Michigan Data Center Jobs Report — WOOD TV" allowfullscreen></iframe>
-            </div>
-            <p class="ll-card-label">Video &middot; WOOD TV &middot; Grand Rapids</p>
-            <p class="ll-card-title">The Jobs Argument: What West Michigan Communities Are Actually Getting</p>
-            <p class="ll-card-desc">A West Michigan television investigation into the gap between the job numbers companies advertise and what materializes once a facility opens and construction crews leave.</p>
+            <p class="ll-label">Video &middot; WOOD TV &middot; Grand Rapids</p>
+            <div class="ll-vid"><iframe src="https://www.youtube.com/embed/XKMencCCLgU" title="WOOD TV — Michigan data center jobs investigation" allowfullscreen></iframe></div>
+            <p class="ll-title">The Jobs Argument: What West Michigan Communities Actually Received</p>
+            <p class="ll-desc">A West Michigan television investigation into the distance between the employment figures data center operators advertise during approval proceedings and what communities see after construction crews leave.</p>
           </div>
-
           <div class="ll-card">
-            <p class="ll-card-label">Analysis &middot; Anderson Economic Group</p>
-            <p class="ll-card-title">Michigan Data Centers: The Economic Case and Its Conditions</p>
-            <p class="ll-card-desc">A 2026 Michigan-specific analysis projecting construction-phase spending, longer-term tax contributions, and indirect employment. Read alongside independent critics for a balanced assessment.</p>
-            <a class="ll-card-link" href="https://www.andersoneconomicgroup.com/data-centers-could-deliver-significant-economic-benefits-for-michigan-communities/" target="_blank" rel="noopener">Read the analysis &rarr;</a>
+            <p class="ll-label">Planet Detroit &middot; Nov. 10, 2025</p>
+            <p class="ll-title">What Data Centers Mean for Michigan's Grid and Its Clean Energy Goals</p>
+            <p class="ll-desc">Planet Detroit maps the collision between accelerating data center power demands and Michigan's transition to renewable energy — including utility load projections and questions about who pays for grid upgrades.</p>
+            <a class="ll-link" href="https://planetdetroit.org/2025/11/data-centers-water-energy-impact/" target="_blank" rel="noopener">Read the story &rarr;</a>
           </div>
-
           <div class="ll-card">
-            <p class="ll-card-label">Reporting &middot; Planet Detroit</p>
-            <p class="ll-card-title">Energy Demand and the Grid: What Utilities Aren't Saying Out Loud</p>
-            <p class="ll-card-desc">Planet Detroit's environmental journalism tracks how accelerating data center power demands are intersecting with Michigan's clean energy transition — and who bears the cost of grid upgrades.</p>
-            <a class="ll-card-link" href="https://planetdetroit.org" target="_blank" rel="noopener">Read Planet Detroit's coverage &rarr;</a>
+            <p class="ll-label">Analysis &middot; Anderson Economic Group &middot; Feb. 2026</p>
+            <p class="ll-title">The Economic Case for Michigan Data Centers — and Its Assumptions</p>
+            <p class="ll-desc">Commissioned by Consumers Energy, this 2026 analysis models construction-phase spending, long-run tax contributions, and indirect job creation from data center development. Worth reading alongside independent assessments.</p>
+            <a class="ll-link" href="https://www.andersoneconomicgroup.com/data-centers-could-deliver-significant-economic-benefits-for-michigan-communities/" target="_blank" rel="noopener">Read the analysis &rarr;</a>
           </div>
-
         </div>
       </div>
     </div>
 
-    <!-- 3. TAX BREAKS -->
+    <!-- 3. TAX -->
     <div class="ll-row">
       <button class="ll-btn" onclick="llOpen('tax')">
         <span class="ll-btn-title">Tax Breaks &amp; Incentives</span>
-        <span class="ll-btn-chevron" id="llc-tax">&#8964;</span>
+        <span class="ll-chev" id="llc-tax">&#8964;</span>
       </button>
       <div class="ll-body" id="llb-tax">
         <div class="ll-grid">
-
           <div class="ll-card">
-            <p class="ll-card-label">Tracker &middot; Good Jobs First</p>
-            <p class="ll-card-title">States Reconsidering Data Center Subsidies: A 2026 Tracker</p>
-            <p class="ll-card-desc">The leading corporate subsidy accountability organization tracks moratorium legislation spreading across more than a dozen states in 2026 — documenting which communities are pushing back and why.</p>
-            <a class="ll-card-link" href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener">View the tracker &rarr;</a>
+            <p class="ll-label">Bridge Michigan &middot; Dec. 13, 2024</p>
+            <p class="ll-title">Michigan Approved $90 Million in Data Center Tax Relief. Here's What That Means.</p>
+            <p class="ll-desc">State lawmakers passed a package of sales and use tax exemptions for large data center operators, with fiscal analysts estimating the cost to state and local governments at more than $90 million through 2065.</p>
+            <a class="ll-link" href="https://bridgemi.com/michigan-environment-watch/90m-data-center-tax-break-plan-headed-gov-whitmer-after-final-passage/" target="_blank" rel="noopener">Read the story &rarr;</a>
           </div>
-
           <div class="ll-card">
-            <p class="ll-card-label">Reporting &middot; Bridge Michigan</p>
-            <p class="ll-card-title">Michigan's Data Center Tax Breaks: What Townships Are Agreeing To</p>
-            <p class="ll-card-desc">Bridge Michigan's accountability reporting examines the PA 198 industrial tax exemptions and MEGA credits being offered to data center operators — and the clawback provisions, or lack thereof, in those agreements.</p>
-            <a class="ll-card-link" href="https://www.bridgemi.com/business-watch" target="_blank" rel="noopener">Read Bridge Michigan's coverage &rarr;</a>
+            <p class="ll-label">Bridge Michigan &middot; Dec. 18, 2025</p>
+            <p class="ll-title">A Year Later, Michigan Lawmakers Move to Undo the Data Center Tax Break</p>
+            <p class="ll-desc">Bipartisan legislation introduced in late 2025 would repeal the 2024 incentive package, reflecting growing skepticism in Lansing about the terms under which the state is competing for data center investment.</p>
+            <a class="ll-link" href="https://bridgemi.com/michigan-environment-watch/michigan-lawmakers-unveil-plan-to-repeal-data-center-tax-breaks/" target="_blank" rel="noopener">Read the story &rarr;</a>
           </div>
-
+          <div class="ll-card">
+            <p class="ll-label">Tracker &middot; Good Jobs First &middot; 2026</p>
+            <p class="ll-title">States Reconsidering Data Center Subsidies: A National Tracker</p>
+            <p class="ll-desc">Good Jobs First — the leading corporate subsidy accountability organization — tracks moratorium legislation and incentive rollback efforts spreading across more than a dozen states, including Michigan, in 2026.</p>
+            <a class="ll-link" href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener">View the tracker &rarr;</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- 4. FOIA & TRANSPARENCY -->
+    <!-- 4. FOIA -->
     <div class="ll-row">
       <button class="ll-btn" onclick="llOpen('foia')">
         <span class="ll-btn-title">Community Power &amp; Transparency</span>
-        <span class="ll-btn-chevron" id="llc-foia">&#8964;</span>
+        <span class="ll-chev" id="llc-foia">&#8964;</span>
       </button>
       <div class="ll-body" id="llb-foia">
-        <p style="font-size:13px;color:rgba(255,255,255,.50);margin:0 0 18px 0;max-width:620px;line-height:1.6;">Michigan's Freedom of Information Act gives residents and journalists a legal right to government records. The resources below will help you identify what to request, where to send it, and how to track the response.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.45);margin:0 0 18px 0;max-width:600px;line-height:1.6;">Michigan's Freedom of Information Act gives residents and journalists a legal right to government records. These resources will help you identify what to request, where to send it, and how to track the response.</p>
         <div class="ll-foia-grid">
-
           <div class="ll-foia-card">
-            <p class="ll-foia-card-label">Official Portal</p>
-            <p class="ll-foia-card-title">Michigan EGLE FOIA Request Portal</p>
-            <p class="ll-foia-card-desc">Submit requests for environmental permits, groundwater withdrawal approvals, and agency correspondence directly to the Michigan Department of Environment, Great Lakes, and Energy.</p>
+            <p class="ll-label">Official Portal &middot; EGLE</p>
+            <p style="font-size:13px;font-weight:700;color:#fff;margin:0 0 7px 0;line-height:1.3;">Michigan EGLE FOIA Request Portal</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.45);margin:0 0 14px 0;line-height:1.5;flex:1;">The official submission point for environmental permit records, groundwater withdrawal approvals, and agency correspondence from the Department of Environment, Great Lakes, and Energy.</p>
             <a class="ll-foia-btn" href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener">Open EGLE Portal &rarr;</a>
           </div>
-
           <div class="ll-foia-card">
-            <p class="ll-foia-card-label">Guide &middot; Michigan Attorney General</p>
-            <p class="ll-foia-card-title">How to File a FOIA Request in Michigan</p>
-            <p class="ll-foia-card-desc">The Attorney General's official guidance on filing public records requests — including what agencies must provide, response timelines, fee rules, and how to appeal a denial.</p>
-            <a class="ll-foia-link" href="https://www.michigan.gov/ag/consumer-protection/your-rights/foia" target="_blank" rel="noopener">Read the guide &rarr;</a>
+            <p class="ll-label">Guide &middot; Michigan Attorney General</p>
+            <p style="font-size:13px;font-weight:700;color:#fff;margin:0 0 7px 0;line-height:1.3;">How to File a FOIA Request in Michigan</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.45);margin:0 0 14px 0;line-height:1.5;flex:1;">The AG's official guidance on what public bodies must disclose, legal response timelines, allowable fees, and how to challenge a denial or incomplete response.</p>
+            <a class="ll-link" href="https://www.michigan.gov/ag/foia" target="_blank" rel="noopener">Read the guide &rarr;</a>
           </div>
-
           <div class="ll-foia-card">
-            <p class="ll-foia-card-label">Tool &middot; MuckRock</p>
-            <p class="ll-foia-card-title">Draft, File, and Track FOIA Requests Online</p>
-            <p class="ll-foia-card-desc">MuckRock is a nonprofit platform used by journalists and residents to send public records requests to state and local agencies — and to publish the results so others can benefit.</p>
-            <a class="ll-foia-link" href="https://www.muckrock.com" target="_blank" rel="noopener">Go to MuckRock &rarr;</a>
+            <p class="ll-label">Tool &middot; MuckRock</p>
+            <p style="font-size:13px;font-weight:700;color:#fff;margin:0 0 7px 0;line-height:1.3;">Draft, File, and Track Public Records Requests</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.45);margin:0 0 14px 0;line-height:1.5;flex:1;">MuckRock is a nonprofit platform used by journalists and residents to send FOIA requests to state and local agencies — and to publish results publicly so others can build on them.</p>
+            <a class="ll-link" href="https://www.muckrock.com" target="_blank" rel="noopener">Go to MuckRock &rarr;</a>
           </div>
-
           <div class="ll-foia-card">
-            <p class="ll-foia-card-label">Tracker &middot; Good Jobs First</p>
-            <p class="ll-foia-card-title">What to Request: Data Center Subsidy Records</p>
-            <p class="ll-foia-card-desc">Good Jobs First identifies the specific documents — tax abatement agreements, job creation certifications, clawback clauses — that reveal the real terms of your community's deal with an operator.</p>
-            <a class="ll-foia-link" href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener">See the research &rarr;</a>
+            <p class="ll-label">Tracker &middot; Good Jobs First</p>
+            <p style="font-size:13px;font-weight:700;color:#fff;margin:0 0 7px 0;line-height:1.3;">What to Request: Subsidy Agreement Records</p>
+            <p style="font-size:12px;color:rgba(255,255,255,.45);margin:0 0 14px 0;line-height:1.5;flex:1;">Good Jobs First identifies the specific documents — tax abatement agreements, job creation certifications, clawback clauses — that reveal the actual terms of your community's deal with an operator.</p>
+            <a class="ll-link" href="https://goodjobsfirst.org/data-center-moratorium-bills-are-spreading-in-2026/" target="_blank" rel="noopener">See the research &rarr;</a>
           </div>
-
         </div>
       </div>
     </div>
 
-    <!-- 5. YOUR COMMUNITY -->
+    <!-- 5. COMMUNITY -->
     <div class="ll-row">
       <button class="ll-btn" onclick="llOpen('community')">
         <span class="ll-btn-title">What's Happening in Your Community</span>
-        <span class="ll-btn-chevron" id="llc-community">&#8964;</span>
+        <span class="ll-chev" id="llc-community">&#8964;</span>
       </button>
       <div class="ll-body" id="llb-community">
         <div class="ll-grid">
-
           <div class="ll-card">
-            <p class="ll-card-label">Reporting &middot; Bridge Michigan</p>
-            <p class="ll-card-title">Tracking Local Opposition: Communities Pushing Back Across the State</p>
-            <p class="ll-card-desc">Bridge Michigan has tracked moratorium efforts, planning commission votes, and township-level organizing across Michigan — the most comprehensive local record of community response available.</p>
-            <a class="ll-card-link" href="https://www.bridgemi.com" target="_blank" rel="noopener">Read Bridge Michigan &rarr;</a>
+            <p class="ll-label">Planet Detroit &middot; Mar. 17, 2026</p>
+            <p class="ll-title">Google and DTE Plan a 1-Gigawatt Data Center in Van Buren Township</p>
+            <p class="ll-desc">Planet Detroit reports on the scale of energy commitments behind one of Michigan's largest announced data center projects — and what the associated grid contracts mean for DTE ratepayers.</p>
+            <a class="ll-link" href="https://planetdetroit.org/2026/03/google-dte-data-center-van-buren/" target="_blank" rel="noopener">Read the story &rarr;</a>
           </div>
-
           <div class="ll-card">
-            <p class="ll-card-label">Data &middot; Cleanview</p>
-            <p class="ll-card-title">Michigan Data Centers: A Statewide Facilities Map</p>
-            <p class="ll-card-desc">Cleanview's Michigan tracker maps existing and planned facilities by county, city, and operator — a useful starting point before engaging your local planning commission or filing a FOIA request.</p>
-            <a class="ll-card-link" href="https://cleanview.co/data-centers/michigan" target="_blank" rel="noopener">Explore the map &rarr;</a>
+            <p class="ll-label">Data &middot; Cleanview &middot; Updated June 2026</p>
+            <p class="ll-title">Michigan Data Centers: A Statewide Facilities Map</p>
+            <p class="ll-desc">Cleanview's Michigan tracker maps operating and planned facilities by county, city, and operator — a useful starting point before filing a FOIA request or attending a planning commission meeting.</p>
+            <a class="ll-link" href="https://cleanview.co/data-centers/michigan" target="_blank" rel="noopener">Explore the map &rarr;</a>
           </div>
-
           <div class="ll-card">
-            <p class="ll-card-label">Reporting &middot; Planet Detroit</p>
-            <p class="ll-card-title">Southeast Michigan's Environmental Frontlines</p>
-            <p class="ll-card-desc">Planet Detroit covers the environmental and community dimensions of data center siting in southeast Michigan — including air permitting, environmental justice concerns, and local organizing efforts.</p>
-            <a class="ll-card-link" href="https://planetdetroit.org" target="_blank" rel="noopener">Read Planet Detroit &rarr;</a>
+            <p class="ll-label">Bridge Michigan &middot; Ongoing</p>
+            <p class="ll-title">Bridge Michigan's Full Data Center Coverage</p>
+            <p class="ll-desc">Michigan's most comprehensive nonprofit news organization has tracked township-level organizing, legislative developments, and regulatory gaps across the state since the industry's rapid expansion began.</p>
+            <a class="ll-link" href="https://bridgemi.com/michigan-environment-watch" target="_blank" rel="noopener">Read Bridge Michigan &rarr;</a>
           </div>
-
         </div>
       </div>
     </div>
