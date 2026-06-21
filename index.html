@@ -736,17 +736,33 @@ h2.ev-hdr-title{
 .ev-list::before{
   content:'';
   position:absolute;
-  left:50%;top:50%;
+  left:55%;top:50%;
   transform:translate(-50%,-50%);
-  width:480px;height:480px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='%23c40000' stroke-width='8' opacity='1'/%3E%3Ccircle cx='100' cy='100' r='68' fill='none' stroke='%23c40000' stroke-width='6' opacity='1'/%3E%3Ccircle cx='100' cy='100' r='46' fill='none' stroke='%23c40000' stroke-width='5' opacity='1'/%3E%3Ccircle cx='100' cy='100' r='24' fill='none' stroke='%23c40000' stroke-width='4' opacity='1'/%3E%3Ccircle cx='100' cy='100' r='5' fill='%23c40000' opacity='1'/%3E%3C/svg%3E");
+  width:600px;height:600px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Ccircle cx='150' cy='150' r='138' fill='none' stroke='%23c40000' stroke-width='3' opacity='.5'/%3E%3Ccircle cx='150' cy='150' r='108' fill='none' stroke='%23c40000' stroke-width='2.5' opacity='.5'/%3E%3Ccircle cx='150' cy='150' r='78' fill='none' stroke='%23c40000' stroke-width='2' opacity='.5'/%3E%3Ccircle cx='150' cy='150' r='48' fill='none' stroke='%23c40000' stroke-width='2' opacity='.5'/%3E%3Ccircle cx='150' cy='150' r='18' fill='none' stroke='%23c40000' stroke-width='1.5' opacity='.5'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
   background-position:center;
   background-size:contain;
-  opacity:.08;
+  opacity:.04;
   pointer-events:none;
   z-index:0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .ev-item{
   display:grid;
   grid-template-columns:116px 1fr auto;
@@ -1190,31 +1206,101 @@ h2.chat-hdr-title{
    SPONSOR BOARD
 ══════════════════════════════════════════════════════════ */
 .sponsor-board{
-  background:var(--char);
+  position:relative;
+  overflow:hidden;
+  background:#0a0a0c;
   border-top:3px solid var(--red);
   border-bottom:3px solid var(--red);
-  padding:24px 22px;
-  text-align:center;
   margin:28px 0;
-}sponsor-lbl{
-  font-family:var(--body);font-size:9px;font-weight:800;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.40);margin-bottom:14px;
+  padding:48px 32px;
+  text-align:left;
+}
+.sponsor-board::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url("michigan%20night%20view.jpg");
+  background-size:cover;
+  background-position:right 40%;
+  opacity:.18;
+  z-index:0;
+  pointer-events:none;
+}
+.sponsor-board::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right,rgba(10,10,12,.97) 0%,rgba(10,10,12,.85) 55%,rgba(10,10,12,.45) 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.sponsor-inner{
+  position:relative;
+  z-index:2;
+  max-width:640px;
+}
+.sponsor-eyebrow{
   display:block;
+  font-family:var(--body);font-size:9px;font-weight:800;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
 }
-.sponsor-logo{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:200px;height:64px;
-  border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);
-  color:rgba(255,255,255,.35);font-size:11px;letter-spacing:.08em;
+.sponsor-hed{
+  font-family:var(--disp);font-size:clamp(20px,2.6vw,30px);font-weight:900;
+  letter-spacing:-.01em;line-height:1.1;text-transform:uppercase;
+  color:#fff;margin-bottom:14px;
 }
-.sponsor-cta{
-  display:block;margin-top:14px;
-  font-size:11px;color:rgba(255,255,255,.35);
-  font-style:italic;
+.sponsor-body{
+  font-family:var(--body);font-size:13.5px;line-height:1.6;
+  color:rgba(255,255,255,.60);margin-bottom:14px;max-width:52ch;
 }
-.sponsor-cta a{ color:rgba(255,255,255,.55);text-decoration:underline; }
-.sponsor-cta a:hover{ color:#fff; }
+.sponsor-tags{
+  font-family:var(--body);font-size:9px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.30);margin-bottom:22px;
+}
+.sponsor-cta-btn{
+  display:inline-block;
+  font-family:var(--body);font-size:11px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;
+  border:2px solid var(--red);
+  padding:9px 22px;
+  text-decoration:none;
+  transition:background .15s,color .15s;
+}
+.sponsor-cta-btn:hover{ background:var(--red);color:#fff; }
+.sponsor-disclaimer{
+  display:block;margin-top:16px;
+  font-family:var(--body);font-size:10px;
+  color:rgba(255,255,255,.22);font-style:italic;
+  max-width:52ch;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ══════════════════════════════════════════════════════════
    NEWSLETTER
@@ -2185,11 +2271,20 @@ h2.ml-title{
 <!-- ═══════════════════════════════════════════════════════
      SPONSOR BOARD
 ════════════════════════════════════════════════════════ -->
-<aside class="sponsor-board" aria-label="Sponsor">
-  <span class="sponsor-lbl">Sponsored</span>
-  <div class="sponsor-logo" style="font-family:var(--body);font-size:9px;letter-spacing:.16em;text-transform:uppercase;">YOUR LOGO HERE</div>
-  <span class="sponsor-cta">Reach Michigan’s data center policy audience. <a href="/advertise">Learn more &rsaquo;</a></span>
+<aside class="sponsor-board" aria-label="Advertising">
+  <div class="sponsor-inner">
+    <span class="sponsor-eyebrow">Advertising</span>
+    <p class="sponsor-hed">Reach the people watching Michigan's data center build-out</p>
+    <p class="sponsor-body">Reach readers following Michigan data center proposals, public meetings, Capitol action, power, water and local response.</p>
+    <p class="sponsor-tags">Homepage &middot; Briefing &middot; Live Map &middot; Regional Watch &middot; Public Meetings</p>
+    <a class="sponsor-cta-btn" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20Sponsorship">Become a Sponsor</a>
+    <span class="sponsor-disclaimer">Sponsors do not influence editorial selection, summaries, placement or tracker listings.</span>
+  </div>
 </aside>
+
+
+
+
 
 <!-- ═══════════════════════════════════════════════════════
      NEWSLETTER
