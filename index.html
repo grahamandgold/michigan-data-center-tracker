@@ -1635,6 +1635,87 @@ h2.ml-title{
 @media(max-width:680px){
   .ft-links{ gap:14px 22px; }
 }
+
+/* ── TRACKER STATUS FLIPPER ─────────────────────────────────────────────── */
+#tracker-status{
+  background:#0d0d0f;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:0;
+  width:100%;
+}
+.ts-inner{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:6px 18px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.ts-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--red);
+  flex-shrink:0;
+  opacity:.85;
+}
+.ts-label{
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.ts-divider{
+  width:1px;height:11px;
+  background:rgba(255,255,255,.12);
+  flex-shrink:0;
+}
+.ts-flip-wrap{
+  flex:1;
+  overflow:hidden;
+  position:relative;
+  height:18px;
+}
+.ts-flip-item{
+  position:absolute;
+  top:0;left:0;width:100%;
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.60);
+  white-space:nowrap;
+  opacity:0;
+  transition:opacity .5s ease;
+  line-height:18px;
+}
+.ts-flip-item.ts-active{
+  opacity:1;
+}
+.ts-methodology{
+  font-family:var(--sans);
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.22);
+  text-decoration:none;
+  white-space:nowrap;
+  flex-shrink:0;
+  transition:color .15s;
+}
+.ts-methodology:hover{ color:rgba(255,255,255,.50); }
+@media(max-width:539px){
+  .ts-label,.ts-divider{ display:none; }
+  .ts-inner{ padding:5px 14px; }
+}
+@media(prefers-reduced-motion:reduce){
+  .ts-flip-item{ transition:none; }
+}
 </style>
 </head>
 <body>
@@ -1709,6 +1790,25 @@ h2.ml-title{
 ════════════════════════════════════════════════════════ -->
 <main id="main-content">
 <main id="main-content">
+<!-- ═══════════════════════════════════════════════════════
+     TRACKER STATUS FLIPPER
+     Update stats below only when backed by current source tracking.
+════════════════════════════════════════════════════════ -->
+<div id="tracker-status" role="region" aria-label="Tracker status">
+  <div class="ts-inner">
+    <span class="ts-dot" aria-hidden="true"></span>
+    <span class="ts-label">Tracker Status</span>
+    <span class="ts-divider" aria-hidden="true"></span>
+    <div class="ts-flip-wrap" aria-live="off">
+      <span class="ts-flip-item ts-active">Independent · Aggregated · Nonpartisan</span>
+      <span class="ts-flip-item">14 planned projects · nearly 3 GW proposed capacity</span>
+      <span class="ts-flip-item">At least 25 active local moratoria</span>
+      <span class="ts-flip-item">Upcoming hearings, boards and zoning votes tracked</span>
+    </div>
+    <a class="ts-methodology" href="#methodology">Methodology</a>
+  </div>
+</div>
+
 <section id="bar" class="hn-bar" aria-label="What We're Watching">
   <div class="hn-bar-top">
     <svg class="hn-bar-dot" aria-hidden="true" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="14" r="1.8" fill="currentColor"/><path d="M6.8 11.2C7.7 9.6 8.8 8.8 10 8.8C11.2 8.8 12.3 9.6 13.2 11.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><path d="M4.2 8.8C5.7 6.2 7.7 4.8 10 4.8C12.3 4.8 14.3 6.2 15.8 8.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/><path d="M1.5 6.2C3.8 2.8 6.7 1 10 1C13.3 1 16.2 2.8 18.5 6.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
@@ -2397,10 +2497,11 @@ h2.ml-title{
     </nav>
   </div>
   <div class="ft-rule"></div>
-  <p class="ft-copy">
-    &copy; 2026 Michigan Data Center Tracker. Independent journalism. Not affiliated with any data center developer, utility, or government entity.<br>
+  <p class="ft-copy" id="methodology">
+    <strong style="color:rgba(255,255,255,.45);letter-spacing:.06em;font-size:9px;text-transform:uppercase;">About This Tracker</strong><br>
+    Michigan Data Center Tracker is an independent, nonpartisan public-source tracker. It aggregates links, summaries, public meeting notices, local government documents, news reports and public posts. It is not an official database, does not claim to be complete, and is not affiliated with any data center developer, utility, government entity or political organization.<br>
     <a href="#">Privacy Policy</a> &middot; <a href="#">Terms</a> &middot;
-    Built with public-interest reporting in mind. Tips: <a href="mailto:michigandatacentertracker@gmail.com">michigandatacentertracker@gmail.com</a>
+    Tips: <a href="mailto:michigandatacentertracker@gmail.com">michigandatacentertracker@gmail.com</a>
   </p>
 </footer>
 
@@ -2551,6 +2652,30 @@ function mlSubmit(e){
   var a = e.target.closest('a[href="#"]');
   if(a){ e.preventDefault(); }
 });
+
+
+// ── TRACKER STATUS FLIPPER ───────────────────────────────
+(function(){
+  var items = document.querySelectorAll('.ts-flip-item');
+  if(!items.length) return;
+  var cur = 0;
+  var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduced) return; // show first item only
+  var wrap = document.querySelector('.ts-flip-wrap');
+  var paused = false;
+  if(wrap){
+    wrap.addEventListener('mouseenter',function(){ paused=true; });
+    wrap.addEventListener('mouseleave',function(){ paused=false; });
+    wrap.addEventListener('focusin',function(){ paused=true; });
+    wrap.addEventListener('focusout',function(){ paused=false; });
+  }
+  setInterval(function(){
+    if(paused) return;
+    items[cur].classList.remove('ts-active');
+    cur = (cur+1) % items.length;
+    items[cur].classList.add('ts-active');
+  }, 5000);
+})();
 
 </script>
 
