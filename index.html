@@ -429,12 +429,12 @@ h1.wm-inner,
   color:rgba(255,255,255,.75);line-height:1.4;flex:1;min-width:0;
 }
 @keyframes hn-glow{
-  0%,100%{ color:rgba(255,255,255,.50); }
-  50%{ color:#fff; text-shadow:0 0 10px rgba(255,255,255,.55); }
+  0%,100%{ color:rgba(255,255,255,.55); text-shadow:none; }
+  50%{ color:rgba(255,255,255,.92); text-shadow:0 0 6px rgba(255,255,255,.25); }
 }
-.hn-bar-item:nth-child(1) .hn-bar-text a{ animation:hn-glow 6s ease-in-out 0s infinite; }
-.hn-bar-item:nth-child(2) .hn-bar-text a{ animation:hn-glow 6s ease-in-out 2s infinite; }
-.hn-bar-item:nth-child(3) .hn-bar-text a{ animation:hn-glow 6s ease-in-out 4s infinite; }
+.hn-bar-item:nth-child(1) .hn-bar-text a{ animation:hn-glow 9s ease-in-out 0s infinite; }
+.hn-bar-item:nth-child(2) .hn-bar-text a{ animation:hn-glow 9s ease-in-out 3s infinite; }
+.hn-bar-item:nth-child(3) .hn-bar-text a{ animation:hn-glow 9s ease-in-out 6s infinite; }
 .hn-bar-text a{
   color:inherit;text-decoration:none;
   transition:color .12s;
