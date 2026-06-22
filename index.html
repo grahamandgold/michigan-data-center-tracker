@@ -117,6 +117,8 @@
 html{font-size:16px;scroll-behavior:smooth;}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
 .skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:8px 16px;background:#fff;color:var(--blk);font-size:14px;font-weight:700;z-index:9999;border:2px solid var(--red);border-radius:0 0 4px 0;overflow:visible;}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:8px 16px;background:#fff;color:var(--blk);font-size:14px;font-weight:700;z-index:9999;border:2px solid var(--red);border-radius:0 0 4px 0;overflow:visible;}
 body{
   font-family:var(--body);
   background:linear-gradient(
@@ -1637,6 +1639,7 @@ h2.ml-title{
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ═══════════════════════════════════════════════════════
      MOBILE DRAWER NAV
@@ -1705,6 +1708,7 @@ h2.ml-title{
 <!-- ═══════════════════════════════════════════════════════
      WHAT WE'RE WATCHING BAR
 ════════════════════════════════════════════════════════ -->
+<main id="main-content">
 <main id="main-content">
 <section id="bar" class="hn-bar" aria-label="What We're Watching">
   <div class="hn-bar-top">
@@ -1842,7 +1846,7 @@ h2.ml-title{
       </div>
       <div class="ev-actions">
         <a href="#" class="ev-pill">Agenda</a>
-        <a href="/michigan-senate-energy-committee-hearing-jun22#livestream" class="ev-pill live">Watch Live</a>
+        <a href="#" class="ev-pill live">Watch Live</a>
         </div>
     </li>
 
@@ -1859,7 +1863,7 @@ h2.ml-title{
       </div>
       <div class="ev-actions">
         <a href="#" class="ev-pill">Agenda</a>
-        <a href="/gaines-township-board-meeting-jun24#livestream" class="ev-pill live">Watch Live</a>
+        <a href="#" class="ev-pill live">Watch Live</a>
         </div>
     </li>
 
@@ -1876,7 +1880,7 @@ h2.ml-title{
       </div>
       <div class="ev-actions">
         <a href="#" class="ev-pill">Agenda</a>
-        <a href="/kalamazoo-county-planning-commission-jun25#livestream" class="ev-pill live">Watch Live</a>
+        <a href="#" class="ev-pill live">Watch Live</a>
       </div>
     </li>
 
@@ -1901,7 +1905,7 @@ h2.ml-title{
         </div>
         <div class="ev-actions">
           <a href="#" class="ev-pill">Agenda</a>
-        <a href="/ada-township-planning-commission-jun29#livestream" class="ev-pill live">Watch Live</a>
+        <a href="#" class="ev-pill live">Watch Live</a>
         </div>
       </li>
       <li class="ev-item">
@@ -1917,7 +1921,7 @@ h2.ml-title{
         </div>
         <div class="ev-actions">
           <a href="#" class="ev-pill">Agenda</a>
-          <a href="/mpsc-data-center-rate-design-jul1#livestream" class="ev-pill live">Watch Live</a>
+          <a href="#" class="ev-pill live">Watch Live</a>
           </div>
       </li>
     </ul>
@@ -2256,6 +2260,8 @@ h2.ml-title{
 
 </main><!-- /main-content -->
 
+</main><!-- /main-content -->
+
 <!-- ═══════════════════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════════════════ -->
@@ -2426,8 +2432,7 @@ function mlSubmit(e){
   inp.value='';
 }
 
-// Prevent placeholder #-links from jumping to top of page
-document.addEventListener('click', function(e){
+// already added('click', function(e){
   var a = e.target.closest('a[href="#"]');
   if(a){ e.preventDefault(); }
 });
