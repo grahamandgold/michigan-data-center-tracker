@@ -433,10 +433,12 @@ h1.wm-inner,
 .hn-bar-date{
   font-family:var(--body,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif);font-size:11px;font-weight:500;
   color:rgba(255,255,255,.65);letter-spacing:0;text-transform:none;
-  margin-left:auto;white-space:nowrap;
+  margin-left:auto;white-space:nowrap;flex-shrink:0;
   border:1px solid rgba(255,255,255,.15);
   padding:2px 7px;border-radius:3px;
   background:rgba(255,255,255,.07);
+  align-self:center;
+  margin-right:18px;
 }
 .hn-bar-items{
   list-style:none;
@@ -1856,7 +1858,6 @@ h2.ml-title{
   <div class="hn-bar-top">
     <span class="hn-bar-dot" aria-hidden="true"></span>
     <span class="hn-bar-label">The Latest</span>
-    <span class="hn-bar-date">Sunday, June 21, 2026</span>
   </div>
   <!-- ✏️ WHAT WE'RE WATCHING: update text + links here. 2 items visible on mobile; 3 on desktop -->
   <ul class="hn-bar-items">
@@ -1885,6 +1886,7 @@ h2.ml-title{
       <span class="hn-bar-ago">2d ago</span>
     </li>
   </ul>
+  <span class="hn-bar-date" id="hn-date"></span>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════
