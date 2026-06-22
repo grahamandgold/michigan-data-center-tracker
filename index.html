@@ -199,16 +199,27 @@ button{font-family:inherit;cursor:pointer;}
 @media(max-width:479px){ #hdr-visual{ width:100%; } }
 
 #hdr-video{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:50% 30%;
-  opacity:1.0;
-  filter:brightness(1.05) contrast(1.05) saturate(1.15);
-  z-index:0;
+  /* Video lives in the .hdr-vidbox, not as full-bleed background */
+  display:none;
 }
-@media(min-width:540px){ #hdr-video{ object-position:50% 25%; } }
-@media(min-width:960px){ #hdr-video{ object-position:50% 20%; } }
+/* Video box — small 16:9 player on right side of header */
+.hdr-vidbox{
+  flex-shrink:0;
+  width:clamp(160px,28vw,300px);
+  aspect-ratio:16/9;
+  border-radius:6px;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.15);
+  box-shadow:0 4px 24px rgba(0,0,0,.5);
+  position:relative;z-index:5;
+  background:#000;
+}
+.hdr-vidbox video{
+  width:100%;height:100%;
+  object-fit:contain;
+  display:block;
+}
+@media(max-width:479px){ .hdr-vidbox{ width:130px; } }
 
 #hdr-visual::before{ content:''; display:none; }
 #hdr-overlay{
@@ -289,9 +300,10 @@ button{font-family:inherit;cursor:pointer;}
   flex:1;min-width:0;
   line-height:1;text-decoration:none;
   position:relative;z-index:5;
-  padding-right:90px;
+  padding-right:0;
 }
-@media(min-width:400px){ .wm{ padding-right:100px; } }@media(min-width:680px){ .wm{ max-width:520px; padding-right:110px; } }
+@media(min-width:400px){ .wm{ padding-right:0; } }
+@media(min-width:680px){ .wm{ max-width:none; padding-right:0; } }
 
 h1.wm-inner,
 .wm-inner{
@@ -1698,6 +1710,10 @@ h2.ml-title{
     </a>
     <!-- Subscribe CTA -->
     <a href="#nl" class="hdr-cta">Get Briefing ›</a>
+    <!-- Video box -->
+    <div class="hdr-vidbox">
+      <video src="fields lake header.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+    </div>
   </div>
   <!-- Region nav -->
   <nav id="rnav" aria-label="Regional sections">
