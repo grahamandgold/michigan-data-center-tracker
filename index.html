@@ -205,7 +205,7 @@ button{font-family:inherit;cursor:pointer;}
   object-fit:cover;
   object-position:75% 43%;
   opacity:1.0;
-  filter:brightness(1.55) contrast(1.0) saturate(1.1);
+  filter:brightness(1.15) contrast(1.05) saturate(1.1);
   z-index:0;
 }
 @media(min-width:540px){ #hdr-video{ object-position:60% 43%; } }
@@ -403,15 +403,16 @@ h1.wm-inner,
 }
 .hn-bar-top{
   display:flex;align-items:center;gap:10px;
-  padding:8px 0 7px;
-  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:7px 0;
   overflow:hidden;
 }
 .hn-bar-label{
-  font-family:var(--body);font-size:10px;font-weight:800;
-  letter-spacing:.14em;text-transform:uppercase;
+  font-family:var(--body);font-size:9px;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;
   color:var(--red);white-space:nowrap;flex-shrink:0;
   display:flex;align-items:center;gap:6px;
+  padding:0 14px 0 18px;
+  border-right:1px solid rgba(255,255,255,.08);
 }
 
 
@@ -439,14 +440,17 @@ h1.wm-inner,
 }
 .hn-bar-items{
   list-style:none;
-  display:flex;flex-direction:column;
-  padding:5px 0 7px;
+  display:flex;flex-direction:row;
+  padding:0;
   gap:0;
+  flex:1;min-width:0;
+  overflow:hidden;
 }
 .hn-bar-item{
-  display:flex;align-items:flex-start;gap:8px;
-  padding:5px 0;
-  border-bottom:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;gap:6px;
+  padding:0;
+  border-bottom:none;
+  min-width:0;overflow:hidden;
 }
 .hn-bar-item:last-child{ border-bottom:none; }
 .hn-bar-bullet{ display:none; }
@@ -619,6 +623,7 @@ h1.wm-inner,
   /* THE LATEST: slim on mobile, show only 1 item */
   .hn-bar{ padding:0 14px; }
   .hn-bar-item:nth-child(n+2){ display:none; }
+  .hn-bar-date{ display:none; }
   .hn-bar-top{ padding:6px 0 5px; }
   /* Lead story: match story-row look on mobile */
   .lead{ padding:11px 18px 13px;border-left:3px solid var(--red); }
@@ -1677,6 +1682,15 @@ h2.ml-title{
   margin:0 auto;
   overflow:hidden;
 }
+.ts-inner-left{
+  display:flex;align-items:center;gap:10px;flex:1;min-width:0;
+}
+.ts-inner-right{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:auto;
+}
+.ts-right{
+  display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0;overflow:hidden;
+}
 .ts-dot{
   width:7px;height:7px;
   border-radius:50%;
@@ -1686,11 +1700,11 @@ h2.ml-title{
 }
 .ts-label{
   font-family:var(--sans);
-  font-size:12px;
-  font-weight:800;
+  font-size:10px;
+  font-weight:700;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.35);
+  color:rgba(255,255,255,.28);
   white-space:nowrap;
   flex-shrink:0;
 }
@@ -1725,11 +1739,11 @@ h2.ml-title{
 }
 .ts-slogan{
   font-family:var(--sans);
-  font-size:11px;
+  font-size:12px;
   font-weight:800;
   letter-spacing:.10em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.90);
+  color:rgba(255,255,255,.92);
   white-space:nowrap;
   flex-shrink:0;
 }
@@ -1822,15 +1836,17 @@ h2.ml-title{
 ════════════════════════════════════════════════════════ -->
 <a id="tracker-status" href="#methodology" role="region" aria-label="Tracker status">
   <div class="ts-inner">
-    <span class="ts-dot" aria-hidden="true"></span>
-    <span class="ts-label">Tracker Status</span>
-    <span class="ts-divider" aria-hidden="true"></span>
     <span class="ts-slogan">Independent · Aggregated · Nonpartisan</span>
-    <span class="ts-divider" aria-hidden="true"></span>
-    <div class="ts-flip-wrap" aria-live="off">
-      <span class="ts-flip-item ts-active">14 planned projects tracked statewide</span>
-      <span class="ts-flip-item">Nearly 3 GW of proposed capacity</span>
-      <span class="ts-flip-item">At least 25 active local moratoria</span>
+    <div class="ts-right">
+      <span class="ts-divider" aria-hidden="true"></span>
+      <span class="ts-dot" aria-hidden="true"></span>
+      <span class="ts-label">Tracker Status</span>
+      <span class="ts-divider" aria-hidden="true"></span>
+      <div class="ts-flip-wrap" aria-live="off">
+        <span class="ts-flip-item ts-active">14 planned projects tracked statewide</span>
+        <span class="ts-flip-item">Nearly 3 GW of proposed capacity</span>
+        <span class="ts-flip-item">At least 25 active local moratoria</span>
+      </div>
     </div>
   </div>
 </a>
