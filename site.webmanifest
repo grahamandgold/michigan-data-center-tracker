@@ -1,0 +1,21 @@
+{
+  "name": "Michigan Data Center Tracker",
+  "short_name": "MI DC Tracker",
+  "description": "Independent public-source tracking of Michigan data center projects, public meetings, moratoria, energy, water and policy.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0b0d",
+  "theme_color": "#0b0b0d",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

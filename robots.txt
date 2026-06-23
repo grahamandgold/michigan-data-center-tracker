@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://midatacentertracker.github.io/mi-data-center-tracker/sitemap.xml
