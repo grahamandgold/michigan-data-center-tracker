@@ -380,25 +380,26 @@ h1.wm-inner,
   padding:3px 8px;white-space:nowrap;
   flex-shrink:0;margin-left:auto;
   align-self:center;
+  /* Replaced by wm-slogan under logo on both desktop and mobile */
 }
 /* Slogan badge under wordmark — mobile only */
 .wm-slogan{
-  display:none;
+  display:inline-block;
+  font-family:var(--sans);font-size:8px;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  margin-top:7px;
+  white-space:nowrap;
 }
 @media(max-width:679px){
   .wm-slogan{
-    display:inline-block;
-    font-family:var(--sans);font-size:7.5px;font-weight:900;
-    letter-spacing:.16em;text-transform:uppercase;
+    font-size:7.5px;font-weight:900;
     color:#fff;background:var(--red);
-    padding:3px 8px 3px;
+    padding:3px 8px;
     margin-top:6px;
-    white-space:nowrap;
   }
 }
-@media(max-width:679px){
-  .rnav-slogan{ display:flex;align-items:center; }
-}
+/* rnav-slogan hidden — slogan lives under logo (wm-slogan) on all viewports */
 
 /* ── WHAT WE'RE WATCHING — mobile upgrade ───────────────────────────────── */
 @media(max-width:679px){
@@ -1634,7 +1635,7 @@ h2.ml-title{
 /* 1. The Latest — headline · timestamp inline on mobile */
 @media(max-width:680px){
   .hn-bar-item{ flex-wrap:nowrap; align-items:center; gap:8px; }
-  .hn-bar-text{ flex:1 1 auto; min-width:0; -webkit-line-clamp:2; }
+  .hn-bar-text{ flex:1 1 auto; min-width:0; -webkit-line-clamp:1; -webkit-box-orient:vertical; display:-webkit-box; overflow:hidden; }
   .hn-bar-ago{ flex-shrink:0; }
   .hn-bar-tag{ display:none; }
 }
@@ -1865,7 +1866,7 @@ a:hover .ext-arrow{ opacity:.85; }
         <span class="wm-state">Michigan</span>
         <span class="wm-rule"></span>
         <span class="wm-sub">Data Center Tracker</span>
-        <span class="wm-slogan">Independent · Aggregated · Nonpartisan</span>
+        <span class="wm-slogan">Independent · Aggregated · Statewide</span>
       </h1>
     </a>
     <!-- Subscribe CTA -->
