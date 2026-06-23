@@ -123,17 +123,17 @@
 
   const regionNames = {
     statewide: "Statewide",
-    metro_detroit: "Metro Detroit",
+    metro_detroit: "Metro Detroit / SE Michigan",
     west_michigan: "West Michigan",
     mid_michigan: "Mid-Michigan",
     northern_michigan: "Northern Michigan"
   };
   const regionVisuals = {
     statewide: { image: "pictured-rocks.jpg", label: "Statewide", caption: "One state, many local decisions" },
-    metro_detroit: { image: "detroit.jpg", label: "Metro Detroit", caption: "Wayne, Oakland, Macomb and surrounding communities" },
-    west_michigan: { image: "grand-rapids.jpg", label: "West Michigan", caption: "Grand Rapids and the western counties" },
-    mid_michigan: { image: "michigan night view.jpg", label: "Mid-Michigan", caption: "Lansing, Ingham County and the central corridor" },
-    northern_michigan: { image: "mackinac-bridge.jpg", label: "Northern Michigan", caption: "Northern communities and Great Lakes infrastructure" }
+    metro_detroit: { image: "detroit.jpg", label: "Metro Detroit / SE Michigan", caption: "Detroit, Ann Arbor and Southeast Michigan" },
+    west_michigan: { image: "grand-rapids.jpg", label: "West Michigan", caption: "Grand Rapids, Holland, lakeshore, Kalamazoo and Battle Creek" },
+    mid_michigan: { image: "michigan night view.jpg", label: "Mid-Michigan", caption: "Lansing, Jackson, Mount Pleasant and the Tri-Cities" },
+    northern_michigan: { image: "mackinac-bridge.jpg", label: "Northern Michigan", caption: "Cadillac, Houghton Lake, Traverse City, Mackinac City and the U.P." }
   };
   const regional = data.regional_watch || {};
   const tabs = Object.keys(regionNames);

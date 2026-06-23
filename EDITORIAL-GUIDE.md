@@ -64,6 +64,13 @@ The browser limits the display to 12 valid items and falls back to the editorial
 - Rewrite source headlines and post text in original language.
 - Keep summaries factual and under 55 words.
 
+## Regional definitions
+
+- **Metro Detroit / Southeast Michigan:** Detroit, Wayne, Oakland, Macomb, Washtenaw and Ann Arbor.
+- **West Michigan:** Grand Rapids, Holland, the Lake Michigan lakeshore, Kalamazoo and Battle Creek.
+- **Mid-Michigan:** Lansing, Jackson, Mount Pleasant and the Tri-Cities: Midland, Bay City and Saginaw.
+- **Northern Michigan:** Cadillac, Houghton Lake, Traverse City, Mackinac City and the Upper Peninsula.
+
 ## Publishing check
 
 Before publishing:
