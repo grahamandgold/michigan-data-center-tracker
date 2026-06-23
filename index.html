@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
-  MICHIGAN DATA CENTER TRACKER — v59
+  MICHIGAN DATA CENTER TRACKER — v60
   michigandatacentertracker.comndatacentertracker.com
   Brand: black / white / red primary · slate-blue (#1E3A5F) secondary utility accent
 
@@ -214,12 +214,12 @@ button{font-family:inherit;cursor:pointer;}
 #hdr-visual::before{ content:''; display:none; }
 #hdr-overlay{
   position:absolute;inset:0;
-  /* Mobile: logo is wide, keep solid dark over left ~45%, open right half */
+  /* Mobile: enough dark left-side for readability, open right for image */
   background:linear-gradient(to right,
-    rgba(13,13,15,.95)  0%,
-    rgba(13,13,15,.88) 32%,
-    rgba(13,13,15,.55) 52%,
-    rgba(13,13,15,.12) 70%,
+    rgba(13,13,15,.82)  0%,
+    rgba(13,13,15,.72) 30%,
+    rgba(13,13,15,.40) 50%,
+    rgba(13,13,15,.10) 68%,
     rgba(13,13,15,.01) 100%
   );
   z-index:2;
@@ -310,12 +310,21 @@ h1.wm-inner,
 .wm-rule{
   display:block;width:100%;height:3px;
   background:var(--red);margin:7px 0 6px;
+  max-width:100%;
+}
+/* On mobile cap the red rule to the MICHIGAN text natural width */
+@media(max-width:539px){
+  .wm-rule{ width:min(100%,var(--wm-rule-w,100%)); max-width:fit-content; }
+  .wm-inner{ align-items:flex-start; }
 }
 .wm-sub{
   font-family:'Arial Narrow',Arial,Helvetica,sans-serif;
   font-size:clamp(10px,2.3vw,22px);
-  font-weight:400;letter-spacing:.28em;;text-transform:uppercase;
+  font-weight:400;letter-spacing:.28em;text-transform:uppercase;
   color:rgba(255,255,255,1);text-shadow:0 1px 4px rgba(0,0,0,.6);line-height:1.2;display:block;
+}
+@media(max-width:539px){
+  .wm-sub{ letter-spacing:.18em; }
 }
 
 /* Region nav */
