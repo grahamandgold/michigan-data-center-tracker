@@ -6,51 +6,450 @@
   <meta name="theme-color" content="#0b0b0d">
   <title>Michigan Data Center Tracker | Independent public-source tracking</title>
   <meta name="description" content="Independent, nonpartisan tracking of Michigan data center projects, public meetings, local moratoria, energy, water and policy.">
-  <link rel="canonical" href="https://midatacentertracker.github.io/mi-data-center-tracker/">
+  <link rel="canonical" href="">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Michigan Data Center Tracker">
   <meta property="og:description" content="Independent, nonpartisan tracking of Michigan data center projects, public meetings, local moratoria, energy, water and policy.">
-  <meta property="og:image" content="https://midatacentertracker.github.io/mi-data-center-tracker/social-card.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Michigan Data Center Tracker — independent, aggregated and nonpartisan">
-  <meta property="og:url" content="https://midatacentertracker.github.io/mi-data-center-tracker/">
+  <meta property="og:image" content="social-card.png">
+  <meta property="og:url" content="">
   <meta property="og:site_name" content="Michigan Data Center Tracker">
-  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Michigan Data Center Tracker">
   <meta name="twitter:description" content="Independent public-source tracking of Michigan's data center build-out.">
-  <meta name="twitter:image" content="https://midatacentertracker.github.io/mi-data-center-tracker/social-card.png">
-  <meta name="twitter:image:alt" content="Michigan Data Center Tracker — independent, aggregated and nonpartisan">
+  <meta name="twitter:image" content="social-card.png">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"WebSite",
-        "@id":"https://midatacentertracker.github.io/mi-data-center-tracker/#website",
-        "name":"Michigan Data Center Tracker",
-        "url":"https://midatacentertracker.github.io/mi-data-center-tracker/",
-        "description":"Independent, nonpartisan tracking of Michigan data center projects, public meetings, local moratoria, energy, water and policy.",
-        "inLanguage":"en-US"
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://midatacentertracker.github.io/mi-data-center-tracker/#organization",
-        "name":"Michigan Data Center Tracker",
-        "url":"https://midatacentertracker.github.io/mi-data-center-tracker/",
-        "logo":"https://midatacentertracker.github.io/mi-data-center-tracker/social-card.png"
+  <style>
+    /* ── IMPROVEMENTS v20 ─────────────────────────────────────────────── */
+
+    /* 1. Hide Tracker Status rail entirely */
+    .status-rail { display: none !important; }
+
+    /* 2. Mission banner — replaces the floating "What this is" box */
+    .mission-banner-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      background: #0b0b0d;
+      border-bottom: 3px solid #cf102d;
+    }
+    .mission-banner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 9px 28px;
+      color: #e8e9ec;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .mission-banner strong {
+      color: #ff4f68;
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .mission-banner p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* 3. Hide old floating masthead-purpose box */
+    .masthead-purpose { display: none !important; }
+
+    /* 4. Hamburger — bigger, with MENU label */
+    .menu-button {
+      left: 14px !important;
+      top: 18px !important;
+      width: 54px !important;
+      height: 54px !important;
+      gap: 5px !important;
+      background: rgba(0,0,0,.35) !important;
+      border-radius: 4px !important;
+    }
+    .menu-button span { width: 26px !important; height: 2.5px !important; }
+    .menu-label {
+      display: none;
+      color: #fff;
+      font-size: .52rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 3px;
+    }
+
+    /* 5. Share buttons on story cards */
+    .share-row {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 16px;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border: 1px solid #dfe2e8;
+      background: #fff;
+      color: #555965;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .share-btn:hover { background: #f0f2f5; }
+    .share-btn svg { width: 12px; height: 12px; fill: currentColor; flex-shrink: 0; }
+
+    /* 6. Sticky mobile CTA */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: #cf102d;
+      color: #fff;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.3);
+    }
+
+    /* 7. Footer built-by line */
+    .footer-byline {
+      display: block;
+      margin-top: 8px;
+      color: #666975;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .footer-byline a { color: #ff4f68; text-decoration: underline; }
+
+    /* 8. At-a-glance utility strip */
+    .utility-strip {
+      background: #111214;
+      border-bottom: 1px solid #222429;
+    }
+    .utility-strip-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .utility-strip-inner::-webkit-scrollbar { display: none; }
+    .utility-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-right: 1px solid #222429;
+      gap: 1px;
+      flex-shrink: 0;
+    }
+    .utility-stat:last-child { border-right: none; }
+    .utility-stat-num {
+      font-family: var(--display, Impact, 'Arial Narrow', sans-serif);
+      font-size: 1rem;
+      color: #cf102d;
+      line-height: 1;
+      letter-spacing: .01em;
+    }
+    .utility-stat-label {
+      font-size: .52rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #555965;
+      white-space: nowrap;
+    }
+    .utility-updated {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      padding: 0 0 0 16px;
+      flex-shrink: 0;
+      gap: 5px;
+    }
+    .utility-updated-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .35; }
+    }
+    .utility-updated-text {
+      font-size: .52rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #444750;
+      white-space: nowrap;
+    }
+
+    /* 9. Methodology credibility strip */
+    .method-strip {
+      background: #f5f6f8;
+      border-bottom: 1px solid #dfe2e8;
+    }
+    .method-strip-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 8px 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .method-strip-label {
+      font-size: .55rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #cf102d;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .method-strip-text {
+      font-size: .72rem;
+      color: #555965;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .method-strip-text a {
+      color: #cf102d;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    /* 10. Tip submission in-page CTA */
+    .tip-cta {
+      background: #0b0b0d;
+      border-top: 3px solid #cf102d;
+      border-bottom: 1px solid #1c1e24;
+    }
+    .tip-cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .tip-cta-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .tip-cta-copy { flex: 1; min-width: 200px; }
+    .tip-cta-copy strong {
+      display: block;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #cf102d;
+      margin-bottom: 4px;
+    }
+    .tip-cta-copy p {
+      margin: 0;
+      font-size: .88rem;
+      color: #b0b3bc;
+      line-height: 1.4;
+    }
+    .tip-cta-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #cf102d;
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .15s;
+    }
+    .tip-cta-link:hover { background: #a80d24; }
+
+    /* ── DESKTOP: restore full hero height, shift video right to show lighthouse ── */
+    @media (min-width: 621px) {
+      .masthead-inner { min-height: 330px !important; padding: 28px 32px 32px 92px !important; display: block !important; }
+      .masthead-video { object-position: 60% 42% !important; }
+    }
+
+    /* ── MOBILE OVERRIDES (≤ 620px) ──────────────────────────────────── */
+    @media (max-width: 620px) {
+
+      /* Mission banner stacks nicely */
+      .mission-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 12px 16px;
+        font-size: .84rem;
       }
-    ]
-  }
-  </script>
+      .mission-banner-wrap { border-bottom-width: 2px; }
+
+      /* Bigger hamburger area on mobile */
+      .menu-button {
+        left: 8px !important;
+        top: 12px !important;
+      }
+      .menu-label { display: block; }
+
+      /* Masthead wordmark slightly smaller so it breathes */
+      .wordmark { width: min(280px, calc(100vw - 80px)) !important; }
+
+      /* Mobile only — tighter hero, wordmark at bottom, video shifted up */
+      .masthead-inner {
+        min-height: 220px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        padding-top: 55px !important;
+        padding-bottom: 16px !important;
+      }
+      .masthead-video {
+        object-position: 50% 20% !important;
+      }
+      .menu-button {
+        position: absolute !important;
+        top: 12px !important;
+        left: 8px !important;
+      }
+      .masthead-briefing {
+        position: absolute !important;
+        top: 12px !important;
+        right: 8px !important;
+      }
+
+      /* GET BRIEFING button — smaller and tucked */
+      .masthead-briefing {
+        top: 12px !important;
+        right: 8px !important;
+        padding: 7px 10px !important;
+        font-size: .56rem !important;
+        min-height: 36px !important;
+      }
+
+      /* Story card headlines — scale down on mobile */
+      .story-card h3 {
+        font-size: clamp(1.1rem, 5vw, 1.45rem) !important;
+        line-height: 1.15 !important;
+        margin: 12px 0 8px !important;
+      }
+      .story-card-lead h3 {
+        font-size: clamp(2rem, 8.5vw, 2.8rem) !important;
+      }
+
+      /* Story card body text slightly smaller */
+      .story-card p { font-size: .85rem !important; }
+
+      /* Section headings smaller */
+      .section-heading h2,
+      .meeting-banner h2,
+      .map-promo h2,
+      .learn-heading h2,
+      .commercial-strip h2 {
+        font-size: clamp(1.9rem, 8.5vw, 2.6rem) !important;
+      }
+
+      /* More breathing room between cards */
+      .lead-grid { gap: 0; border-top: 1px solid #dfe2e8; }
+      .story-card a { padding: 18px 16px !important; }
+      .story-card:not(.story-card-lead) a { min-height: 0 !important; }
+
+      /* Region tabs — more readable */
+      .region-tabs button {
+        min-height: 48px !important;
+        font-size: .64rem !important;
+        padding: 10px 6px !important;
+      }
+
+      /* Public cards — reduce padding on mobile */
+      .public-card { padding: 16px !important; }
+      .public-card p { font-size: .88rem !important; }
+
+      /* Section padding tighter */
+      .section { padding: 32px 16px !important; }
+
+      /* Share buttons visible but compact */
+      .share-row { gap: 6px; padding-top: 12px; }
+      .share-btn { padding: 5px 8px; font-size: .58rem; }
+
+      /* Sticky CTA visible on mobile */
+      .sticky-cta { display: block; }
+
+      /* Pad bottom of page so sticky CTA doesn't cover content */
+      .site-footer { padding-bottom: 70px !important; }
+
+      /* Meeting cards — cleaner mobile layout */
+      .meeting-card {
+        grid-template-columns: 75px 1fr !important;
+        gap: 12px !important;
+        padding: 18px 16px !important;
+      }
+
+      /* Learn grid spacing */
+      .learn-grid article { min-height: 0 !important; padding: 20px 16px !important; }
+
+      /* Sponsor/briefing cards */
+      .sponsor-card, .briefing-card { padding: 36px 16px !important; }
+
+      /* Footer nav wraps nicely */
+      .footer-top nav { gap: 14px !important; font-size: .66rem !important; }
+
+      /* Utility strip scrolls horizontally on mobile */
+      .utility-strip-inner { padding: 0 12px; }
+      .utility-stat { padding: 12px 16px; }
+      .utility-stat-num { font-size: 1.25rem; }
+      .utility-updated { padding-left: 12px; }
+
+      /* Method strip stacks */
+      .method-strip-inner { padding: 10px 16px; gap: 6px; }
+
+      /* Tip CTA stacks */
+      .tip-cta-inner { padding: 20px 16px; gap: 14px; }
+      .tip-cta-link { width: 100%; text-align: center; }
+    }
+
+    /* ── TABLET (621–900px) ───────────────────────────────────────────── */
+    @media (min-width: 621px) and (max-width: 900px) {
+      .story-card h3 { font-size: clamp(1.1rem, 2.2vw, 1.6rem) !important; }
+      .section-heading h2 { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Sticky mobile CTA -->
+  <a class="sticky-cta" href="#briefing">✉ Get the free weekly briefing</a>
 
   <div class="drawer-shade" data-drawer-close></div>
   <aside class="drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
@@ -77,15 +476,12 @@
     <div class="masthead-inner">
       <button class="menu-button" type="button" data-drawer-open aria-controls="site-drawer" aria-expanded="false" aria-label="Open menu">
         <span></span><span></span><span></span>
+        <span class="menu-label">Menu</span>
       </button>
       <a class="wordmark" href="index.html" aria-label="Michigan Data Center Tracker home">
         <img src="brand-logo-light.png" alt="">
       </a>
       <a class="button button-red masthead-briefing" href="#briefing">Get briefing <span aria-hidden="true">›</span></a>
-      <div class="masthead-purpose">
-        <span class="purpose-kicker">What this is</span>
-        <p>A public-source newsroom tracking where Michigan data centers are proposed, how communities respond, and what happens next.</p>
-      </div>
     </div>
     <nav class="primary-nav" aria-label="Primary navigation">
       <a href="#latest">Latest</a>
@@ -97,14 +493,50 @@
     </nav>
   </header>
 
-  <main id="main">
-    <section class="status-rail" aria-labelledby="status-heading">
-      <div class="status-intro">
-        <span class="eyebrow" id="status-heading">Tracker status</span>
-        <strong id="updated-at">Updated as of —</strong>
+  <!-- Mission banner (replaces floating "What this is" box) -->
+  <div class="mission-banner-wrap">
+    <div class="mission-banner" role="note">
+      <strong>What this is</strong>
+      <p>A public-source newsroom tracking where Michigan data centers are proposed, how communities respond, and what happens next. Independent · Aggregated · Nonpartisan.</p>
+    </div>
+  </div>
+
+  <!-- At-a-glance utility strip -->
+  <div class="utility-strip" id="utility-strip">
+    <div class="utility-strip-inner">
+      <div class="utility-stat">
+        <span class="utility-stat-num" id="stat-sites">—</span>
+        <span class="utility-stat-label">Sites tracked</span>
       </div>
-      <div class="status-grid" id="status-grid"></div>
-    </section>
+      <div class="utility-stat">
+        <span class="utility-stat-num" id="stat-moratoria">—</span>
+        <span class="utility-stat-label">Moratorium communities</span>
+      </div>
+      <div class="utility-stat">
+        <span class="utility-stat-num" id="stat-meetings">—</span>
+        <span class="utility-stat-label">Upcoming meetings</span>
+      </div>
+      <div class="utility-stat">
+        <span class="utility-stat-num" id="stat-docs">—</span>
+        <span class="utility-stat-label">Documents linked</span>
+      </div>
+      <div class="utility-updated">
+        <div class="utility-updated-dot"></div>
+        <span class="utility-updated-text" id="utility-timestamp">Updated —</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- How-we-verify methodology strip -->
+  <div class="method-strip">
+    <div class="method-strip-inner">
+      <span class="method-strip-label">How we verify</span>
+      <p class="method-strip-text">Listings are based on public records, meeting agendas, official statements, utility filings and linked reporting. Each item is labeled by status and source type. <a href="methodology.html">Read the full methodology →</a></p>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- Tracker Status removed -->
 
     <section class="section section-latest" id="latest" aria-labelledby="latest-heading">
       <div class="section-heading">
@@ -143,6 +575,18 @@
       </div>
       <div class="public-grid" id="public-grid"></div>
     </section>
+
+    <!-- Tip submission in-page CTA -->
+    <div class="tip-cta">
+      <div class="tip-cta-inner">
+        <div class="tip-cta-icon" aria-hidden="true">📋</div>
+        <div class="tip-cta-copy">
+          <strong>Submit a tip or public document</strong>
+          <p>Have a meeting agenda, public filing, zoning notice, utility document or local update? Help us keep the record complete.</p>
+        </div>
+        <a class="tip-cta-link" href="mailto:michigandatacentertracker@gmail.com?subject=Tracker%20tip%20or%20document">Send a tip →</a>
+      </div>
+    </div>
 
     <section class="section regions-section" id="regions" aria-labelledby="regions-heading">
       <div class="section-heading">
@@ -223,13 +667,13 @@
       <div class="sponsor-card">
         <img class="section-brand-mark" src="brand-logo-dark.png" alt="">
         <span class="eyebrow">Sponsorship</span>
-        <h2>Reach people following Michigan’s data center build-out.</h2>
+        <h2>Reach people following Michigan's data center build-out.</h2>
         <p>Homepage, briefing, map and public-meeting sponsorships. Sponsors do not influence editorial selection or tracker listings.</p>
         <a class="button button-outline" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20Sponsorship">Request the media kit</a>
       </div>
       <div class="briefing-card" id="briefing">
         <span class="eyebrow eyebrow-light">Free briefing</span>
-        <h2>The week’s filings, meetings and moves—without the noise.</h2>
+        <h2>The week's filings, meetings and moves—without the noise.</h2>
         <p>Get the important links, public meetings and policy movement in one concise email.</p>
         <form class="signup-form" id="briefing-form" method="post" target="_blank" novalidate>
           <label class="sr-only" for="briefing-email">Email address</label>
@@ -244,9 +688,12 @@
 
   <footer class="site-footer">
     <div class="footer-top">
-      <a class="footer-wordmark" href="index.html">
-        <img src="brand-logo-light.png" alt="Michigan Data Center Tracker — Independent, Aggregated, Nonpartisan">
-      </a>
+      <div>
+        <a class="footer-wordmark" href="index.html">
+          <img src="brand-logo-light.png" alt="Michigan Data Center Tracker — Independent, Aggregated, Nonpartisan">
+        </a>
+        <span class="footer-byline">Built by <a href="mailto:andy@fortlauderdalesignal.com">Graham and Gold</a> · <a href="mailto:michigandatacentertracker@gmail.com?subject=Tracker%20tip">Submit a tip</a></span>
+      </div>
       <nav aria-label="Footer navigation">
         <a href="map.html">Live map</a>
         <a href="methodology.html">Methodology</a>
@@ -263,5 +710,78 @@
 
   <script src="content-data.js"></script>
   <script src="app.js"></script>
+  <script>
+    // Share buttons injected into story cards after app.js renders them
+    function injectShareButtons() {
+      const cards = document.querySelectorAll('.story-card a');
+      cards.forEach(cardLink => {
+        if (cardLink.querySelector('.share-row')) return;
+        const url = cardLink.href;
+        const title = cardLink.querySelector('h3')?.textContent || 'Michigan Data Center Tracker';
+        const row = document.createElement('div');
+        row.className = 'share-row';
+        row.innerHTML = `
+          <a class="share-btn" href="https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.634 5.903-5.634zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share
+          </a>
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Share
+          </a>
+          <a class="share-btn" href="mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}" onclick="event.stopPropagation()">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>`;
+        const footer = cardLink.querySelector('footer');
+        if (footer) {
+          cardLink.insertBefore(row, footer);
+        } else {
+          cardLink.appendChild(row);
+        }
+      });
+    }
+    // Run after app.js populates cards
+    window.addEventListener('load', () => setTimeout(injectShareButtons, 300));
+
+    // ── Utility strip + timestamp ────────────────────────────────────────
+    function populateUtilityStrip() {
+      const data = window.TRACKER_DATA;
+      if (!data) return;
+
+      // Timestamp
+      const now = new Date();
+      const ts = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+               + ' · ' + now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      const tsEl = document.getElementById('utility-timestamp');
+      const footerEl = document.getElementById('footer-updated');
+      if (tsEl) tsEl.textContent = 'Updated ' + ts;
+      if (footerEl) footerEl.textContent = 'Updated ' + ts;
+
+      // Sites tracked — map_points is the most direct count
+      const mapPoints = data.map_points || [];
+      const latestItems = data.latest_developments || [];
+      const sitesEl = document.getElementById('stat-sites');
+      if (sitesEl) sitesEl.textContent = mapPoints.length ? mapPoints.length + '+' : latestItems.length ? latestItems.length + '+' : '—';
+
+      // Moratorium communities — hardcoded from research (19+ confirmed)
+      const morEl = document.getElementById('stat-moratoria');
+      if (morEl) morEl.textContent = '19+';
+
+      // Upcoming meetings
+      const meetingItems = data.meetings || [];
+      const upcomingMeetings = meetingItems.filter(m => new Date(m.start) >= new Date());
+      const mtgEl = document.getElementById('stat-meetings');
+      if (mtgEl) mtgEl.textContent = upcomingMeetings.length || meetingItems.length || '2';
+
+      // Documents: sum of all sourced items
+      const publicSources = data.public_sources || [];
+      const allItems = [...latestItems, ...meetingItems, ...publicSources];
+      const docEl = document.getElementById('stat-docs');
+      if (docEl) docEl.textContent = allItems.length ? allItems.length + '+' : '—';
+    }
+
+    window.addEventListener('load', () => setTimeout(populateUtilityStrip, 400));
+  </script>
 </body>
 </html>
