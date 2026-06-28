@@ -31,14 +31,14 @@ window.TRACKER_DATA = {
     {
       label: "Large-load threshold",
       value: "100 MW",
-      detail: "Consumers Energyâs approved data center tariff threshold",
+      detail: "Consumers Energy’s approved data center tariff threshold",
       source_name: "Michigan PSC",
       source_url: "https://www.michigan.gov/mpsc/commission/news-releases/2025/11/06/mpsc-approves-terms-of-service-between-consumers-energy-and-data-centers"
     }
   ],
   latest_developments: [
     {
-      headline: "State Capitol rally brings Michiganâs data center debate into public view",
+      headline: "State Capitol rally brings Michigan’s data center debate into public view",
       summary: "A bipartisan group of speakers is scheduled to gather Tuesday evening in Lansing to press for changes in state data center policy.",
       published_date: "2026-06-22",
       source_name: "Sen. Jim Runestad on X",
@@ -47,7 +47,7 @@ window.TRACKER_DATA = {
       topic: "Public event"
     },
     {
-      headline: "Van Buren Townshipâs Google proposal enters a consequential wetland review",
+      headline: "Van Buren Township’s Google proposal enters a consequential wetland review",
       summary: "A permit under state review says the proposed one-gigawatt campus would permanently affect 13.55 acres of wetlands, with public comments open through June 26.",
       published_date: "2026-06-17",
       source_name: "Planet Detroit",
@@ -56,7 +56,7 @@ window.TRACKER_DATA = {
       topic: "Environment"
     },
     {
-      headline: "Michiganâs local data center pauses now reach roughly 50 communities",
+      headline: "Michigan’s local data center pauses now reach roughly 50 communities",
       summary: "Temporary moratoria continue to spread as municipalities study zoning, energy, water and infrastructure questions before accepting new applications.",
       published_date: "2026-06-10",
       source_name: "Michigan Public",
@@ -66,7 +66,7 @@ window.TRACKER_DATA = {
     },
     {
       headline: "Allen Park planners turn down a 26-megawatt proposal and seek time for new rules",
-      summary: "The planning commission voted 7â2 against the preliminary Solstice Data plan and recommended a six-month citywide pause while standards are developed.",
+      summary: "The planning commission voted 7–2 against the preliminary Solstice Data plan and recommended a six-month citywide pause while standards are developed.",
       published_date: "2026-06-05",
       source_name: "Planet Detroit",
       source_url: "https://planetdetroit.org/2026/06/allen-park-planners-reject-data-center/",
@@ -75,7 +75,7 @@ window.TRACKER_DATA = {
     },
     {
       headline: "Proposed Senate package would halt new data center approvals for one year",
-      summary: "Senate Bills 1018â1020 would pause projects and related approvals while lawmakers review possible effects on ratepayers, communities and natural resources.",
+      summary: "Senate Bills 1018–1020 would pause projects and related approvals while lawmakers review possible effects on ratepayers, communities and natural resources.",
       published_date: "2026-06-04",
       source_name: "Michigan Advance",
       source_url: "https://michiganadvance.com/briefs/runestad-proposes-one-year-moratorium-on-data-centers-urging-caution-and-scrutiny/",
@@ -92,7 +92,7 @@ window.TRACKER_DATA = {
       topic: "Project"
     },
     {
-      headline: "Salineâs 1.4-gigawatt campus moves from approvals into full construction",
+      headline: "Saline’s 1.4-gigawatt campus moves from approvals into full construction",
       summary: "The Related Digital campus for Oracle and OpenAI held a June 1 groundbreaking after construction began in February on the 250-acre site.",
       published_date: "2026-06-02",
       source_name: "Engineering News-Record",
@@ -127,7 +127,7 @@ window.TRACKER_DATA = {
     {
       title: "Michigan data center policy rally",
       body: "Public rally announced by state Sen. Jim Runestad with a bipartisan list of speakers.",
-      government_body: "Public event â not a government hearing",
+      government_body: "Public event — not a government hearing",
       county: "Ingham",
       start: "2026-06-23T17:30:00-04:00",
       location: "Michigan State Capitol, Lansing",
