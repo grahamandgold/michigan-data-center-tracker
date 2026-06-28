@@ -300,6 +300,7 @@
     @media (min-width: 621px) {
       .masthead-inner { min-height: 330px !important; padding: 28px 32px 32px 92px !important; display: block !important; }
       .masthead-video { object-position: 60% 42% !important; }
+      .wordmark { width: min(400px, 36vw) !important; }
     }
 
     /* ── MOBILE OVERRIDES (≤ 620px) ──────────────────────────────────── */
@@ -536,6 +537,13 @@
   </div>
 
   <main id="main">
+  <section class="status-rail" aria-labelledby="status-heading">
+    <div class="status-intro">
+      <span class="eyebrow" id="status-heading">Tracker status</span>
+      <strong id="updated-at">Updated as of —</strong>
+    </div>
+    <div class="status-grid" id="status-grid"></div>
+  </section>
     <!-- Tracker Status removed -->
 
     <section class="section section-latest" id="latest" aria-labelledby="latest-heading">
