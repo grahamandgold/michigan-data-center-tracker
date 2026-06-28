@@ -124,14 +124,14 @@
   }
 
   const regionNames = {
-    statewide: "Statewide",
+    statewide: "Your top stories",
     metro_detroit: "Metro Detroit / SE Michigan",
     west_michigan: "West Michigan",
     mid_michigan: "Mid-Michigan",
     northern_michigan: "Northern Michigan"
   };
   const regionVisuals = {
-    statewide: { image: "pictured-rocks.jpg", label: "Statewide", caption: "One state, many local decisions" },
+    statewide: { image: "pictured-rocks.jpg", label: "Your top stories", caption: "One state, many local decisions" },
     metro_detroit: { image: "detroit.jpg", label: "Metro Detroit / SE Michigan", caption: "Detroit, Ann Arbor and Southeast Michigan" },
     west_michigan: { image: "grand-rapids.jpg", label: "West Michigan", caption: "Grand Rapids, Holland, lakeshore, Kalamazoo and Battle Creek" },
     mid_michigan: { image: "michigan night view.jpg", label: "Mid-Michigan", caption: "Lansing, Jackson, Mount Pleasant and the Tri-Cities" },
