@@ -82,7 +82,7 @@
         <div class="meeting-actions">
           ${item.agenda_url ? `<a href="${safeUrl(item.agenda_url)}" target="_blank" rel="noopener">Agenda ${external}</a>` : ""}
           ${item.watch_url ? `<a class="watch" href="${safeUrl(item.watch_url)}" target="_blank" rel="noopener">Watch ${external}</a>` : ""}
-          <a href="${safeUrl(item.source_url)}" target="_blank" rel="noopener">Source ${external}</a>
+          ${!item.agenda_url && !item.watch_url && item.source_url ? `<a href="${safeUrl(item.source_url)}" target="_blank" rel="noopener">Source ${external}</a>` : ""}
         </div>
       </article>`;
     }).join("")
