@@ -161,9 +161,16 @@
     const indexes = regional[key] || [];
     const items = indexes.map(index => latest[index]).filter(Boolean);
     const visual = regionVisuals[key];
-    const visualCard = `<div class="region-visual" style="--region-image:url('${escapeHtml(visual.image)}')">
-      <strong>${escapeHtml(visual.caption)}</strong>
-    </div>`;
+    const visualCard = key === "statewide"
+      ? `<div class="region-visual region-visual-video">
+          <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="across-michigan-hero-web.mp4" type="video/mp4">
+          </video>
+          <strong>${escapeHtml(visual.caption)}</strong>
+        </div>`
+      : `<div class="region-visual" style="--region-image:url('${escapeHtml(visual.image)}')">
+          <strong>${escapeHtml(visual.caption)}</strong>
+        </div>`;
     $("#region-panel").innerHTML = visualCard + (items.length
       ? items.map(item => `<a href="${safeUrl(item.source_url)}" target="_blank" rel="noopener">
           <span class="region-topic">${escapeHtml(item.region)}</span>
