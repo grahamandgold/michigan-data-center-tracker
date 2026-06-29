@@ -438,6 +438,52 @@
       .story-card h3 { font-size: clamp(1.1rem, 2.2vw, 1.6rem) !important; }
       .section-heading h2 { font-size: clamp(2rem, 5vw, 3.5rem) !important; }
     }
+
+    /* ── TICKER BAR ─────────────────────────────────────────────────── */
+    .ticker-bar {
+      background: #f5f6f8;
+      border-bottom: 1px solid #dfe2e8;
+      overflow: hidden;
+      height: 36px;
+    }
+    .ticker-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 100%;
+      position: relative;
+    }
+    .ticker-msg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      font-size: .72rem;
+      color: #555965;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .5s ease, transform .5s ease;
+      pointer-events: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ticker-msg strong {
+      color: #cf102d;
+      font-size: .55rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ticker-msg a { color: #cf102d; font-weight: 700; text-decoration: underline; }
+    .ticker-msg-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
   </style>
 </head>
 <body>
@@ -487,7 +533,7 @@
     <video class="masthead-video" src="header.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
     <div class="masthead-scrim"></div>
     <div class="masthead-inner">
-      <p class="masthead-slogan">Independent &middot; Aggregated &middot; Nonpartisan</p>
+
     </div>
   </header>
 
@@ -515,11 +561,23 @@
   </div>
 
   <!-- How-we-verify methodology strip -->
-  <div class="method-strip">
-    <div class="method-strip-inner">
-      <p class="method-strip-text"><strong class="method-strip-label">How we verify</strong> Public records, meeting agendas, official statements and linked reporting. <a href="methodology.html">Full methodology →</a></p>
+  <div class="ticker-bar">
+    <div class="ticker-inner">
+      <span class="ticker-msg ticker-msg-active">Independent &middot; Aggregated &middot; Nonpartisan</span>
+      <span class="ticker-msg"><strong>How we verify</strong> Public records, meeting agendas, official statements and linked reporting. <a href="methodology.html">Full methodology →</a></span>
     </div>
   </div>
+  <script>
+    (function(){
+      var msgs = document.querySelectorAll('.ticker-msg');
+      var i = 0;
+      setInterval(function(){
+        msgs[i].classList.remove('ticker-msg-active');
+        i = (i + 1) % msgs.length;
+        msgs[i].classList.add('ticker-msg-active');
+      }, 5000);
+    })();
+  </script>
 
   <main id="main">
   <section class="status-rail" aria-labelledby="status-heading">
