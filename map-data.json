@@ -1015,7 +1015,9 @@
     "external_map": {
       "label": "ITC official route map",
       "url": "https://www.mifuturegrid.com/oneida-sabine-lake/"
-    }
+    },
+    "tagline": "The most complete public-source map of Michigan's data center build-out",
+    "badge": "Independent · Sourced · Nonpartisan"
   },
   "map_stories": [
     {
@@ -1252,5 +1254,81 @@
         ]
       ]
     }
-  ]
+  ],
+  "stats_ribbon": [
+    {
+      "label": "Tracked records",
+      "value_key": "total",
+      "suffix": ""
+    },
+    {
+      "label": "Local moratoria",
+      "value_key": "moratoria",
+      "suffix": ""
+    },
+    {
+      "label": "Active projects",
+      "value_key": "projects",
+      "suffix": ""
+    },
+    {
+      "label": "Grid corridors",
+      "value_key": "transmission",
+      "suffix": ""
+    }
+  ],
+  "site_links": [
+    {
+      "label": "Full tracker",
+      "href": "index.html",
+      "desc": "Latest news & meetings"
+    },
+    {
+      "label": "Methodology",
+      "href": "methodology.html",
+      "desc": "How we source records"
+    },
+    {
+      "label": "Subscribe",
+      "href": "index.html#briefing",
+      "desc": "Weekly briefing"
+    },
+    {
+      "label": "Capitol watch",
+      "href": "index.html#capitol",
+      "desc": "Legislation & policy"
+    }
+  ],
+  "sponsors": {
+    "headline": "Partner with Michigan's definitive map",
+    "subhead": "Premium placement for law firms, utilities, economic development & civic orgs reaching communities tracking data centers.",
+    "inquire_url": "mailto:info@michigandatacentertracker.com?subject=Map%20sponsorship%20inquiry",
+    "inquire_label": "Sponsorship inquiries",
+    "slots": [
+      {
+        "tier": "presenting",
+        "status": "available",
+        "name": "Presenting partner",
+        "tagline": "Logo on map · sidebar feature · newsletter mention",
+        "cta_label": "Reserve slot",
+        "highlight": true
+      },
+      {
+        "tier": "supporting",
+        "status": "available",
+        "name": "Supporting partner",
+        "tagline": "Sidebar recognition · category exclusivity",
+        "cta_label": "Learn more",
+        "highlight": false
+      },
+      {
+        "tier": "supporting",
+        "status": "available",
+        "name": "Supporting partner",
+        "tagline": "Sidebar recognition · regional targeting",
+        "cta_label": "Learn more",
+        "highlight": false
+      }
+    ]
+  }
 }

@@ -86,6 +86,324 @@
         radial-gradient(ellipse at center, transparent 42%, rgba(11,11,13,0.28) 100%),
         linear-gradient(180deg, rgba(11,11,13,0.42) 0%, transparent 12%, transparent 88%, rgba(11,11,13,0.35) 100%);
     }
+    .map-grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 402;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .map-stats-ribbon {
+      position: absolute;
+      z-index: 660;
+      top: 74px;
+      right: 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      max-width: min(520px, calc(100vw - 400px));
+      pointer-events: none;
+    }
+    .stat-pill {
+      pointer-events: auto;
+      background: rgba(11,11,13,0.9);
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      padding: 8px 14px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+    .stat-pill strong {
+      display: block;
+      font-family: var(--display);
+      font-size: 1.15rem;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+    .stat-pill span {
+      display: block;
+      margin-top: 3px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .stat-pill--accent {
+      border-color: rgba(207,16,45,0.45);
+      background: linear-gradient(135deg, rgba(207,16,45,0.18), rgba(11,11,13,0.92));
+    }
+
+    .map-hud {
+      position: absolute;
+      z-index: 660;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(11,11,13,0.92);
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+      backdrop-filter: blur(14px);
+    }
+    .map-hud button {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      background: transparent;
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .map-hud button:hover { color: var(--ink); background: rgba(255,255,255,0.06); }
+    .map-hud button.primary {
+      color: #fff;
+      background: var(--red);
+    }
+    .map-hud button.primary:hover { background: var(--red-dark); }
+    .map-hud .hud-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--line-strong);
+    }
+
+    .map-legend {
+      position: absolute;
+      z-index: 660;
+      bottom: 24px;
+      right: 16px;
+      width: min(220px, calc(100vw - 32px));
+      background: rgba(11,11,13,0.92);
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      padding: 12px 14px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .map-legend[hidden] { display: none !important; }
+    .map-legend-title {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 0;
+      font-size: 12px;
+      color: var(--ink-dim);
+    }
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+    }
+    .legend-line {
+      width: 22px;
+      height: 3px;
+      border-radius: 2px;
+      background: #9c5fc9;
+      flex-shrink: 0;
+    }
+
+    .panel-badge {
+      display: inline-flex;
+      margin-top: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+    }
+    .panel-tagline {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--ink-muted);
+      margin-top: 6px;
+    }
+
+    .panel-sponsor {
+      padding: 14px 16px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(207,16,45,0.06), transparent);
+    }
+    .sponsor-head {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .sponsor-title {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .sponsor-sub {
+      font-size: 11px;
+      line-height: 1.45;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+    .sponsor-slots { display: flex; flex-direction: column; gap: 8px; }
+    .sponsor-slot {
+      border: 1px dashed rgba(255,255,255,0.16);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.02);
+    }
+    .sponsor-slot--hero {
+      border-style: solid;
+      border-color: rgba(207,16,45,0.35);
+      background: linear-gradient(135deg, rgba(207,16,45,0.12), rgba(255,255,255,0.02));
+    }
+    .sponsor-slot-tier {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+    .sponsor-slot-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink-dim);
+      margin-bottom: 3px;
+    }
+    .sponsor-slot-tag { font-size: 11px; color: var(--ink-muted); line-height: 1.35; }
+    .sponsor-inquire {
+      display: inline-flex;
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--red);
+      border-radius: 8px;
+      padding: 9px 12px;
+      text-decoration: none;
+    }
+    .sponsor-inquire:hover { background: var(--red-dark); }
+
+    .panel-site-nav {
+      padding: 12px 16px 14px;
+      border-top: 1px solid var(--line);
+    }
+    .site-nav-title {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .site-nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+    .site-nav-link {
+      display: block;
+      padding: 10px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255,255,255,0.02);
+      transition: border-color .15s, background .15s;
+    }
+    .site-nav-link:hover {
+      border-color: rgba(207,16,45,0.35);
+      background: rgba(207,16,45,0.08);
+    }
+    .site-nav-link strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-dim);
+    }
+    .site-nav-link small {
+      display: block;
+      margin-top: 2px;
+      font-size: 10px;
+      color: var(--ink-muted);
+    }
+
+    .topbar-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      min-width: 0;
+    }
+    .topbar-breadcrumb a {
+      color: var(--ink-dim);
+      text-decoration: none;
+    }
+    .topbar-breadcrumb a:hover { color: var(--red); }
+    .topbar-breadcrumb span[aria-hidden] { opacity: 0.45; }
+
+    .leaflet-interactive.tx-glow {
+      filter: drop-shadow(0 0 6px rgba(156,95,201,0.65));
+      animation: tx-pulse 3s ease-in-out infinite;
+    }
+    @keyframes tx-pulse {
+      0%, 100% { filter: drop-shadow(0 0 4px rgba(156,95,201,0.45)); }
+      50% { filter: drop-shadow(0 0 12px rgba(192,132,252,0.85)); }
+    }
+
+    .map-diff-badge {
+      position: absolute;
+      z-index: 660;
+      top: 74px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      background: rgba(11,11,13,0.82);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      backdrop-filter: blur(10px);
+    }
+    .map-diff-badge em {
+      font-style: normal;
+      color: var(--red);
+    }
 
     .map-topbar {
       position: absolute;
@@ -732,9 +1050,15 @@
 
     .sidebar-toggle { display: none; }
 
+    @media (max-width: 1100px) {
+      .map-stats-ribbon { display: none; }
+      .map-diff-badge { display: none; }
+    }
     @media (max-width: 900px) {
       .map-topbar-kicker { display: none; }
       .tile-toggle { display: none; }
+      .topbar-breadcrumb { display: none; }
+      .map-legend { bottom: 88px; right: 12px; }
     }
 
     @media (max-width: 768px) {
@@ -764,7 +1088,9 @@
       .map-panel.open #story-detail,
       .map-panel.open .map-stories,
       .map-panel.open .map-layers,
-      .map-panel.open .panel-foot { display: block; }
+      .map-panel.open .panel-foot,
+      .map-panel.open .panel-sponsor,
+      .map-panel.open .panel-site-nav { display: block; }
       .map-panel.open .map-directory { display: block; }
       .sidebar-toggle {
         display: block;
@@ -795,16 +1121,21 @@
     <header class="map-topbar">
       <a class="map-topbar-brand" href="index.html">
         <img src="brand-logo-light.png" alt="Michigan Data Center Tracker">
-        <span class="map-topbar-kicker">Live project map</span>
+        <span class="map-topbar-kicker">Live intelligence map</span>
       </a>
+      <nav class="topbar-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Tracker</a>
+        <span aria-hidden="true">/</span>
+        <span>Map</span>
+      </nav>
       <div class="map-topbar-actions">
         <div class="tile-toggle" role="group" aria-label="Map style">
           <button class="tile-btn active" data-mode="dark" type="button">Dark</button>
           <button class="tile-btn" data-mode="day" type="button">Daylight</button>
           <button class="tile-btn" data-mode="sat" type="button">Satellite</button>
         </div>
+        <a class="nav-link" href="index.html">← Back to tracker</a>
         <a class="nav-link" href="methodology.html">Methodology</a>
-        <a class="nav-link" href="index.html">Homepage</a>
         <a class="nav-cta" href="index.html#briefing">Subscribe</a>
       </div>
     </header>
@@ -813,6 +1144,8 @@
       <div class="panel-head" id="sidebar-header">
         <div class="panel-eyebrow">Across Michigan</div>
         <h1 class="panel-title">Michigan intelligence map</h1>
+        <p class="panel-tagline" id="panel-tagline">The most complete public-source map of Michigan's data center build-out.</p>
+        <div class="panel-badge" id="panel-badge">Independent · Sourced · Nonpartisan</div>
         <div class="panel-meta">
           <span><strong id="panel-record-count">Loading…</strong></span>
           <span id="map-updated">Updated —</span>
@@ -865,6 +1198,13 @@
       <div class="panel-directory-head">Directory</div>
       <div class="map-directory" id="map-directory"></div>
 
+      <div class="panel-sponsor" id="map-sponsors" aria-label="Sponsorship"></div>
+
+      <div class="panel-site-nav" aria-label="Site navigation">
+        <div class="site-nav-title">From the tracker</div>
+        <div class="site-nav-grid" id="site-nav-grid"></div>
+      </div>
+
       <div class="panel-foot">
         <button id="copy-link" type="button">Copy link</button>
         <a id="external-map-link" class="panel-ext-link" href="https://www.mifuturegrid.com/oneida-sabine-lake/" target="_blank" rel="noopener" hidden>ITC route map ↗</a>
@@ -873,11 +1213,26 @@
 
     <button class="sidebar-toggle" id="sidebar-toggle" aria-controls="map-sidebar" aria-expanded="false" type="button">Open panel</button>
 
+    <div class="map-diff-badge" aria-hidden="true">Only statewide map with <em>moratoria + grid + projects</em> in one view</div>
+
+    <div class="map-stats-ribbon" id="map-stats-ribbon" aria-label="Map statistics"></div>
+
+    <div class="map-hud" role="toolbar" aria-label="Map controls">
+      <button class="primary" id="map-reset" type="button" title="Reset filters and zoom (R)">Reset map</button>
+      <span class="hud-divider" aria-hidden="true"></span>
+      <button id="map-locate" type="button" title="Find records near you">Near me</button>
+      <button id="map-share" type="button" title="Share this view">Share</button>
+      <button id="map-legend-toggle" type="button" aria-expanded="true" aria-controls="map-legend">Legend</button>
+    </div>
+
+    <div class="map-legend" id="map-legend"></div>
+
+    <div class="map-grain" aria-hidden="true"></div>
     <div class="map-vignette" aria-hidden="true"></div>
     <main id="map" aria-label="Interactive map of Michigan data center records"></main>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script src="map.js?v=20260629e" defer></script>
+  <script src="map.js?v=20260629f" defer></script>
 </body>
 </html>

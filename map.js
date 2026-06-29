@@ -10,7 +10,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260629e", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260629f", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -153,11 +153,80 @@
 
     const markerLayer = L.layerGroup().addTo(map);
     const transmissionGroup = L.layerGroup().addTo(map);
+    const lineLabelGroup = L.layerGroup().addTo(map);
     const markerMap = new Map();
     const pointByName = new Map(points.map(p => [p.name, p]));
     let activeMarker = null, activePointName = null, activeRegion = initRegion;
     const filtersEl = $("#map-filters"), layersEl = $("#map-layers"), dirEl = $("#map-directory"), storiesEl = $("#map-stories");
     const statuses = [...new Set(points.map(p => p.status))].sort();
+    const INITIAL_VIEW = { center: [44.3, -85.2], zoom: 6 };
+
+    const taglineEl = $("#panel-tagline"), badgeEl = $("#panel-badge");
+    if (taglineEl && data.map_meta?.tagline) taglineEl.textContent = data.map_meta.tagline;
+    if (badgeEl && data.map_meta?.badge) badgeEl.textContent = data.map_meta.badge;
+
+    function statCounts(visibleOnly = false) {
+      const pool = visibleOnly ? points.filter(pointVisible) : points;
+      return {
+        total: pool.length,
+        moratoria: pool.filter(p => p.layer === "moratoria").length,
+        projects: pool.filter(p => p.layer === "projects").length,
+        transmission: (activeLayers.has("transmission") ? transmissionLines.length : 0) +
+          pool.filter(p => p.layer === "transmission").length,
+        meetings: pool.filter(p => p.layer === "meetings").length,
+        policy: pool.filter(p => p.layer === "policy").length
+      };
+    }
+
+    function renderStatsRibbon() {
+      const ribbon = $("#map-stats-ribbon");
+      const defs = data.stats_ribbon || [];
+      if (!ribbon || !defs.length) return;
+      const counts = statCounts(true);
+      ribbon.innerHTML = defs.map((d, i) => {
+        const val = counts[d.value_key] ?? 0;
+        const suffix = d.suffix || "";
+        const accent = i === 0 ? " stat-pill--accent" : "";
+        return `<div class="stat-pill${accent}"><strong>${val}${suffix}</strong><span>${esc(d.label)}</span></div>`;
+      }).join("");
+    }
+
+    function renderSponsors() {
+      const el = $("#map-sponsors");
+      const s = data.sponsors;
+      if (!el || !s) return;
+      const slots = (s.slots || []).map(slot => {
+        const hero = slot.highlight ? " sponsor-slot--hero" : "";
+        const filled = slot.status === "filled" && slot.logo_url;
+        return `<div class="sponsor-slot${hero}">${filled
+          ? `<img src="${esc(slot.logo_url)}" alt="${esc(slot.name)}" style="max-height:36px;margin-bottom:6px">`
+          : `<div class="sponsor-slot-tier">${esc(slot.tier)}</div><div class="sponsor-slot-name">${esc(slot.name)}</div><div class="sponsor-slot-tag">${esc(slot.tagline)}</div>`}</div>`;
+      }).join("");
+      el.innerHTML = `<div class="sponsor-head">Sponsorship</div><div class="sponsor-title">${esc(s.headline)}</div><p class="sponsor-sub">${esc(s.subhead)}</p><div class="sponsor-slots">${slots}</div><a class="sponsor-inquire" href="${safeUrl(s.inquire_url)}">${esc(s.inquire_label || "Inquire")}</a>`;
+    }
+
+    function renderSiteLinks() {
+      const el = $("#site-nav-grid");
+      const links = data.site_links || [];
+      if (!el || !links.length) return;
+      el.innerHTML = links.map(l =>
+        `<a class="site-nav-link" href="${esc(l.href)}"><strong>${esc(l.label)}</strong><small>${esc(l.desc)}</small></a>`
+      ).join("");
+    }
+
+    function renderLegend() {
+      const el = $("#map-legend");
+      if (!el) return;
+      const rows = layersMeta.map(l =>
+        `<div class="legend-row"><span class="legend-swatch" style="background:${l.color}"></span>${esc(l.label)}</div>`
+      ).join("");
+      const txRow = `<div class="legend-row"><span class="legend-line"></span>Transmission corridors</div>`;
+      el.innerHTML = `<div class="map-legend-title">Legend</div>${rows}${txRow}`;
+    }
+
+    renderSponsors();
+    renderSiteLinks();
+    renderLegend();
 
     points.forEach(p => {
       const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(pointColor(p), false, p.layer), title: p.name });
@@ -169,9 +238,23 @@
     transmissionLines.forEach(line => {
       if (!line.coordinates?.length) return;
       const isAlt = String(line.id).includes("route-b");
-      const poly = L.polyline(line.coordinates, { color: isAlt ? "#c084fc" : "#9c5fc9", weight: isAlt ? 3 : 4, opacity: isAlt ? 0.55 : 0.85, dashArray: isAlt ? "10 8" : null });
+      const poly = L.polyline(line.coordinates, {
+        color: isAlt ? "#c084fc" : "#9c5fc9",
+        weight: isAlt ? 3 : 4,
+        opacity: isAlt ? 0.55 : 0.85,
+        dashArray: isAlt ? "10 8" : null,
+        className: isAlt ? "" : "tx-glow"
+      });
       poly.bindPopup(makeLinePopup(line), { maxWidth: 340 });
       transmissionGroup.addLayer(poly);
+      if (!isAlt && line.name) {
+        const mid = line.coordinates[Math.floor(line.coordinates.length / 2)];
+        const label = L.marker(mid, {
+          icon: L.divIcon({ className: "line-label-wrap", html: `<span class="line-label">${esc(line.name.split("(")[0].trim())}</span>`, iconSize: [0, 0] }),
+          interactive: false
+        });
+        lineLabelGroup.addLayer(label);
+      }
     });
 
     function pointVisible(p) {
@@ -182,6 +265,19 @@
       return layerOk && regionOk && statusOk;
     }
 
+    function syncUrl() {
+      const p = new URLSearchParams();
+      if (currentMode !== "dark") p.set("mode", currentMode);
+      if (activeRegion !== "all") p.set("region", activeRegion);
+      const onStatuses = statuses.filter(s => filtersEl?.querySelector(`input[value="${escAttr(s)}"]`)?.checked);
+      if (onStatuses.length && onStatuses.length < statuses.length) p.set("f", onStatuses.join(","));
+      const onLayers = [...activeLayers];
+      if (onLayers.length && onLayers.length < layersMeta.length) p.set("layers", onLayers.join(","));
+      if (activePointName) p.set("point", activePointName);
+      const qs = p.toString();
+      history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+    }
+
     function refreshMarkers() {
       markerLayer.clearLayers();
       const visible = points.filter(pointVisible);
@@ -189,12 +285,21 @@
       const countEl = $("#panel-record-count");
       if (countEl) countEl.textContent = `${visible.length} of ${points.length} records shown`;
       if (dirEl) {
-        dirEl.innerHTML = [...visible].sort((a,b) => a.municipality.localeCompare(b.municipality)).map(p =>
-          `<button type="button" data-point="${esc(p.name)}"><span class="dir-dot" style="background:${pointColor(p)}"></span><strong>${esc(p.name)}</strong><small>${esc(p.municipality)} · ${esc(p.status)}</small></button>`
-        ).join("");
+        dirEl.innerHTML = visible.length
+          ? [...visible].sort((a, b) => a.municipality.localeCompare(b.municipality)).map(p =>
+            `<button type="button" data-point="${esc(p.name)}" class="${activePointName === p.name ? "active" : ""}"><span class="dir-dot" style="background:${pointColor(p)}"></span><strong>${esc(p.name)}</strong><small>${esc(p.municipality)} · ${esc(p.status)}</small></button>`
+          ).join("")
+          : `<div class="dir-empty">No records match your filters.</div>`;
       }
-      if (activeLayers.has("transmission")) map.addLayer(transmissionGroup);
-      else map.removeLayer(transmissionGroup);
+      if (activeLayers.has("transmission")) {
+        map.addLayer(transmissionGroup);
+        map.addLayer(lineLabelGroup);
+      } else {
+        map.removeLayer(transmissionGroup);
+        map.removeLayer(lineLabelGroup);
+      }
+      renderStatsRibbon();
+      syncUrl();
     }
 
     function fitAll() {
@@ -240,22 +345,68 @@
       if (story.fly_to) map.flyTo([story.fly_to.lat, story.fly_to.lng], story.fly_to.zoom || 8, { duration: 0.8 });
     }
 
+    function renderSelectedRecord(p) {
+      const panel = $("#selected-record");
+      if (!panel) return;
+      if (!p) { panel.hidden = true; panel.innerHTML = ""; return; }
+      const c = pointColor(p);
+      const dateStr = p.verified_date ? dateLabel(p.verified_date) : "";
+      panel.hidden = false;
+      panel.innerHTML = `<div class="selected-kicker">${esc(layerLabel(p))}</div><div class="selected-status" style="color:${c}">${esc(p.status)}</div><div class="selected-name">${esc(p.name)}</div><div class="selected-meta">${esc(p.municipality)}, ${esc(p.county)} County</div>${p.developer ? `<div class="selected-detail"><span>Developer</span>${esc(p.developer)}</div>` : ""}${p.power_mw ? `<div class="selected-detail"><span>Scale</span>${esc(p.power_mw)} MW</div>` : ""}${dateStr ? `<div class="selected-detail"><span>Verified</span>${dateStr}</div>` : ""}${p.note ? `<div class="selected-detail" style="margin-top:6px">${esc(p.note)}</div>` : ""}<a class="selected-link" href="${safeUrl(p.source_url)}" target="_blank" rel="noopener">${esc(p.source_name || "Source")} ↗</a>`;
+    }
+
+    function clearSelection() {
+      if (activeMarker && activePointName) {
+        const prev = pointByName.get(activePointName);
+        if (prev) activeMarker.setIcon(makeIcon(pointColor(prev), false, prev.layer));
+      }
+      activeMarker = null;
+      activePointName = null;
+      renderSelectedRecord(null);
+      $$(".map-directory button.active").forEach(b => b.classList.remove("active"));
+    }
+
     function selectPoint(name, fly = true) {
       const marker = markerMap.get(name), p = pointByName.get(name);
       if (!marker || !p) return;
       if (activeMarker && activePointName) { const prev = pointByName.get(activePointName); if (prev) activeMarker.setIcon(makeIcon(pointColor(prev), false, prev.layer)); }
       activeMarker = marker; activePointName = name;
       marker.setIcon(makeIcon(pointColor(p), true, p.layer));
+      renderSelectedRecord(p);
+      $$(".map-directory button").forEach(b => b.classList.toggle("active", b.dataset.point === name));
       if (fly) { map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 10), { duration: 0.6 }); setTimeout(() => marker.openPopup(), 500); }
+      syncUrl();
     }
 
-    $("#show-all")?.addEventListener("click", () => {
+    function resetMapView({ fit = true } = {}) {
       activeRegion = "all";
-      activeLayers = new Set(layersMeta.map(l => l.id));
+      activeLayers = new Set(layersMeta.filter(l => l.default_on !== false).map(l => l.id));
+      if (!activeLayers.size) ["projects", "moratoria", "meetings", "transmission", "policy"].forEach(id => activeLayers.add(id));
       $$("#map-filters input").forEach(i => { i.checked = true; i.closest("label")?.classList.remove("off"); });
-      $$("#map-layers input").forEach(i => { i.checked = true; i.closest("label")?.classList.remove("off"); });
+      $$("#map-layers input").forEach(i => {
+        const on = activeLayers.has(i.value);
+        i.checked = on;
+        i.closest("label")?.classList.toggle("off", !on);
+      });
       $$(".region-chip").forEach(c => c.classList.toggle("active", c.dataset.region === "all"));
-      refreshMarkers(); fitAll();
+      const storyPanel = $("#story-detail");
+      if (storyPanel) { storyPanel.hidden = true; storyPanel.innerHTML = ""; }
+      clearSelection();
+      map.closePopup();
+      refreshMarkers();
+      if (fit) {
+        map.flyTo(INITIAL_VIEW.center, INITIAL_VIEW.zoom, { duration: 0.7 });
+      }
+    }
+
+    $("#show-all")?.addEventListener("click", () => resetMapView());
+
+    $("#map-reset")?.addEventListener("click", () => resetMapView());
+
+    document.addEventListener("keydown", e => {
+      if (e.target.matches("input, textarea, select")) return;
+      if (e.key === "r" || e.key === "R") { e.preventDefault(); resetMapView(); }
+      if (e.key === "/") { e.preventDefault(); $("#map-search")?.focus(); }
     });
 
     $$(".region-chip").forEach(chip => {
@@ -277,8 +428,79 @@
       searchResults.addEventListener("click", e => { const btn = e.target.closest("button[data-point]"); if (btn) { selectPoint(btn.dataset.point); searchEl.value = ""; searchResults.hidden = true; } });
     }
 
+    function haversineMi(lat1, lng1, lat2, lng2) {
+      const R = 3958.8, toRad = d => d * Math.PI / 180;
+      const dLat = toRad(lat2 - lat1), dLng = toRad(lng2 - lng1);
+      const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function locateNearMe() {
+      const btn = $("#map-locate");
+      if (!navigator.geolocation) { alert("Geolocation is not available in this browser."); return; }
+      if (btn) { btn.textContent = "Locating…"; btn.disabled = true; }
+      navigator.geolocation.getCurrentPosition(pos => {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        const nearby = points.filter(pointVisible).map(p => ({ p, dist: haversineMi(lat, lng, p.latitude, p.longitude) }))
+          .sort((a, b) => a.dist - b.dist).slice(0, 5);
+        const bounds = L.latLngBounds([[lat, lng]]);
+        nearby.forEach(({ p }) => bounds.extend([p.latitude, p.longitude]));
+        map.flyToBounds(bounds, { padding: [80, 80], maxZoom: 11, duration: 0.8 });
+        if (nearby.length) setTimeout(() => selectPoint(nearby[0].p.name, false), 600);
+        if (btn) { btn.textContent = "Near me"; btn.disabled = false; }
+      }, () => {
+        if (btn) { btn.textContent = "Near me"; btn.disabled = false; }
+        alert("Could not access your location. Check browser permissions.");
+      }, { enableHighAccuracy: false, timeout: 12000 });
+    }
+
+    $("#map-locate")?.addEventListener("click", locateNearMe);
+
+    async function shareMapView() {
+      const url = location.href;
+      const title = "Michigan Data Center Tracker — Live Map";
+      const text = "Explore Michigan data center proposals, moratoria, and grid corridors.";
+      try {
+        if (navigator.share) { await navigator.share({ title, text, url }); return; }
+      } catch (err) {
+        if (err?.name === "AbortError") return;
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        const btn = $("#map-share");
+        if (btn) { const orig = btn.textContent; btn.textContent = "Copied!"; setTimeout(() => { btn.textContent = orig; }, 1800); }
+      } catch {
+        prompt("Copy this link:", url);
+      }
+    }
+
+    $("#map-share")?.addEventListener("click", shareMapView);
+
+    const legendEl = $("#map-legend"), legendToggle = $("#map-legend-toggle");
+    legendToggle?.addEventListener("click", () => {
+      const hidden = legendEl?.hasAttribute("hidden");
+      if (hidden) { legendEl.removeAttribute("hidden"); legendToggle.setAttribute("aria-expanded", "true"); }
+      else { legendEl?.setAttribute("hidden", ""); legendToggle.setAttribute("aria-expanded", "false"); }
+    });
+
+    $("#copy-link")?.addEventListener("click", shareMapView);
+
+    const sidebar = $("#map-sidebar"), sidebarToggle = $("#sidebar-toggle");
+    $("#sidebar-header")?.addEventListener("click", () => {
+      if (window.innerWidth > 768) return;
+      sidebar?.classList.toggle("open");
+      const open = sidebar?.classList.contains("open");
+      if (sidebarToggle) { sidebarToggle.textContent = open ? "Close panel" : "Open panel"; sidebarToggle.setAttribute("aria-expanded", String(open)); }
+    });
+    sidebarToggle?.addEventListener("click", () => {
+      sidebar?.classList.toggle("open");
+      const open = sidebar?.classList.contains("open");
+      sidebarToggle.textContent = open ? "Close panel" : "Open panel";
+      sidebarToggle.setAttribute("aria-expanded", String(open));
+    });
+
     const updEl = $("#map-updated");
-    if (updEl && data.updated_at) updEl.textContent = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/Detroit" }).format(new Date(data.updated_at));
+    if (updEl && data.updated_at) updEl.textContent = "Updated " + new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/Detroit" }).format(new Date(data.updated_at));
 
     const ext = data.map_meta?.external_map;
     if (ext) { const link = $("#external-map-link"); if (link) { link.href = ext.url; link.textContent = ext.label; link.hidden = false; } }
