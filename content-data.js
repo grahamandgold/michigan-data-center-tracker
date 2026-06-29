@@ -142,7 +142,7 @@ window.TRACKER_DATA = {
       county: "Washtenaw",
       start: "2026-07-07T19:00:00-04:00",
       location: "Pittsfield Township Hall · 6201 W. Michigan Ave, Ann Arbor MI 48108",
-      agenda_url: "",
+      agenda_url: "https://www.pittsfield-mi.gov/AgendaCenter",
       watch_url: "",
       source_url: "https://www.pittsfield-mi.gov/AgendaCenter"
     },
@@ -153,7 +153,7 @@ window.TRACKER_DATA = {
       county: "Washtenaw",
       start: "2026-07-08T19:00:00-04:00",
       location: "Saline Township Hall · 5731 Braun Road, Saline MI 48176",
-      agenda_url: "",
+      agenda_url: "https://salinetownship.org/meeting-agendas.php",
       watch_url: "",
       source_url: "https://salinetownship.org/meeting-agendas.php"
     },
@@ -175,7 +175,7 @@ window.TRACKER_DATA = {
       county: "Macomb",
       start: "2026-07-09T19:00:00-04:00",
       location: "Lenox Township Hall · 6675 25 Mile Rd, Ray MI 48096",
-      agenda_url: "",
+      agenda_url: "https://www.lenox-mi.gov/agendacenter",
       watch_url: "",
       source_url: "https://www.lenox-mi.gov/agendacenter"
     },
@@ -186,9 +186,9 @@ window.TRACKER_DATA = {
       county: "Ingham",
       start: "2026-07-10T09:30:00-04:00",
       location: "MPSC Offices · 7109 W. Saginaw Hwy, Lansing MI 48917",
-      agenda_url: "https://www.michigan.gov/mpsc/commission",
+      agenda_url: "https://www.michigan.gov/mpsc/commission/meetings",
       watch_url: "https://www.youtube.com/@MichiganPSC",
-      source_url: "https://www.michigan.gov/mpsc/commission"
+      source_url: "https://www.michigan.gov/mpsc/commission/meetings"
     }
   ],
   public_sources: [
