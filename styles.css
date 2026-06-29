@@ -325,19 +325,19 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   font-size: .78rem;
 }
 .editorial-note strong { color: #fff; text-transform: uppercase; letter-spacing: .08em; }
-.public-disclaimer { grid-column: 1 / -1; font-size: .72rem; color: #8a909e; margin: 0 0 4px; font-style: italic; }
-.public-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.public-card { display: flex; flex-direction: column; padding: 20px 22px; border: 1px solid var(--line); background: #fff; text-decoration: none; color: inherit; transition: transform .15s, box-shadow .15s; }
-.public-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(12,18,30,.08); }
-.public-source { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.public-source strong { font-size: .85rem; font-weight: 800; color: #0b0b0d; white-space: nowrap; }
-.public-tag { font-size: .62rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
-.tag-social { background: #eef0f5; color: #555965; }
-.tag-official { background: #fff0f0; color: var(--red); }
-.tag-news { background: #f0f4ff; color: #3a5bc7; }
-.public-card p { font-size: .83rem; color: #3a3d47; line-height: 1.55; flex: 1; margin: 0 0 12px; }
+.public-disclaimer { grid-column: 1 / -1; font-size: .71rem; color: #9aa0ae; margin: 0 0 6px; font-style: italic; }
+.public-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.public-card { display: flex; flex-direction: column; padding: 18px 20px; border: 1px solid #e4e6ed; background: #fff; text-decoration: none; color: inherit; transition: transform .15s, box-shadow .15s; box-shadow: 0 1px 4px rgba(12,18,30,.04); }
+.public-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(12,18,30,.09); }
+.public-source { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+.public-source strong { font-size: .84rem; font-weight: 800; color: #0b0b0d; white-space: nowrap; }
+.public-tag { font-size: .58rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; white-space: nowrap; }
+.tag-social   { background: #eef0f5; color: #666c7a; }
+.tag-official { background: #fff0f1; color: #b5112a; }
+.tag-news     { background: #eef2ff; color: #3a52b0; }
+.public-card p { font-size: .82rem; color: #3a3d47; line-height: 1.54; flex: 1; margin: 0 0 12px; }
 .public-card footer { display: flex; align-items: center; gap: 10px; margin-top: auto; }
-.public-card footer time { font-size: .68rem; color: #9aa0ae; }
+.public-card footer time { font-size: .67rem; color: #9aa0ae; }
 .feed-notice { margin: -8px 0 18px; color: var(--muted); font-size: .75rem; }
 .region-tabs { display: flex; overflow-x: auto; border-bottom: 1px solid #e4e6ea; gap: 0; }
 .region-tabs button {
