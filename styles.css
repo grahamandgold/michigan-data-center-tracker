@@ -281,7 +281,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   display: flex;
   align-items: center;
   gap: 8px;
-  padding-right: 20px;
+  padding-right: 14px;
   border-right: 1px solid #1e2028;
   margin-right: 0;
 }
@@ -306,8 +306,8 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .km-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 24px;
+  gap: 10px;
+  padding: 0 16px;
   text-decoration: none;
   color: inherit;
   transition: background .15s;
@@ -316,16 +316,16 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 }
 .km-item:hover { background: #17181c; }
 .km-date {
-  font-size: .62rem;
+  font-size: .58rem;
   font-weight: 900;
   color: var(--red);
   white-space: nowrap;
   flex-shrink: 0;
-  letter-spacing: .06em;
+  letter-spacing: .04em;
   text-transform: uppercase;
 }
 .km-title {
-  font-size: .75rem;
+  font-size: .68rem;
   font-weight: 500;
   color: #a8aab4;
   white-space: nowrap;
@@ -481,15 +481,15 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .region-tabs::-webkit-scrollbar { display: none; }
 .region-tabs button {
   flex-shrink: 0;
-  padding: 10px 16px;
+  padding: 10px 12px;
   border: 0;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
   color: #9099aa;
   background: transparent;
-  font-size: .62rem;
+  font-size: .56rem;
   font-weight: 800;
-  letter-spacing: .08em;
+  letter-spacing: .07em;
   text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
