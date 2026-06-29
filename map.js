@@ -10,7 +10,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260701b", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260701c", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -727,10 +727,6 @@
       if (duration != null) map.flyToBounds(LOWER_PENINSULA_BOUNDS, { ...opts, duration });
       else map.fitBounds(LOWER_PENINSULA_BOUNDS, opts);
     }
-
-    const taglineEl = $("#panel-tagline"), badgeEl = $("#panel-badge");
-    if (taglineEl && data.map_meta?.tagline) taglineEl.textContent = data.map_meta.tagline;
-    if (badgeEl && data.map_meta?.badge) badgeEl.textContent = data.map_meta.badge;
 
     function statCounts(visibleOnly = false) {
       const pool = visibleOnly ? points.filter(pointVisible) : points;

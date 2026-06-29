@@ -31,7 +31,7 @@
       --panel: rgba(11,11,13,0.88);
       --display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
       --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --topbar-h: 58px;
+      --topbar-h: 64px;
       --chrome-stats-h: 42px;
       --chrome-lakes-h: 28px;
       --chrome-h: calc(var(--chrome-stats-h) + var(--chrome-lakes-h));
@@ -432,6 +432,8 @@
       font-weight: 600;
       color: var(--ink-muted);
       min-width: 0;
+      flex: 1;
+      padding-left: 4px;
     }
     .topbar-breadcrumb a {
       color: var(--ink-dim);
@@ -475,48 +477,39 @@
       left: 0;
       right: 0;
       z-index: 700;
-      height: 58px;
+      height: var(--topbar-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 0 18px;
+      gap: 16px;
+      padding: 0 20px;
       padding-top: env(safe-area-inset-top, 0px);
       background: #0b0b0d;
-      border-bottom: 3px solid var(--red);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+      border-bottom: 2px solid var(--red);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.32);
     }
     .map-topbar-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
       color: inherit;
+      flex-shrink: 0;
       min-width: 0;
-      flex: 1;
     }
     .map-topbar-brand img {
       display: block;
-      height: 36px;
+      height: 48px;
       width: auto;
-      max-width: min(168px, 42vw);
+      max-width: min(240px, 54vw);
       object-fit: contain;
       object-position: left center;
-      flex-shrink: 0;
-    }
-    .map-topbar-kicker {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--red);
-      white-space: nowrap;
     }
     .map-topbar-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-shrink: 0;
+      margin-left: auto;
     }
     .map-topbar-actions a,
     .map-topbar-actions button {
@@ -658,11 +651,6 @@
       white-space: nowrap;
       font-variant-numeric: tabular-nums;
     }
-    .panel-tagline,
-    .panel-badge,
-    .panel-eyebrow,
-    .panel-meta { display: none; }
-
     .panel-search-wrap {
       position: relative;
     }
@@ -1569,7 +1557,6 @@
       .stat-inline strong { font-size: 0.95rem; }
     }
     @media (max-width: 900px) {
-      .map-topbar-kicker { display: none; }
       .tile-toggle { display: none; }
       .topbar-breadcrumb { display: none; }
       .map-legend { bottom: 88px; right: 12px; }
