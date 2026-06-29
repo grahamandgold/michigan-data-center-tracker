@@ -543,13 +543,15 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .menu-button span { width: 25px; }
   .wordmark { width: min(315px, calc(100vw - 74px)); }
   .masthead-briefing { position: relative; top: auto; right: auto; min-height: 40px; padding: 8px 12px; font-size: .59rem; align-self: flex-end; }
-  /* Mobile: primary-nav becomes just a hamburger bar */
-  .primary-nav { position: sticky; top: 0; }
-  .nav-wordmark { display: flex; } /* show logo in sticky mobile nav */
+  /* Mobile: primary-nav becomes a sticky hamburger bar */
+  .primary-nav { position: sticky; top: 0; z-index: 100; background: #0b0b0d; }
+  .primary-nav-inner { height: 48px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; }
+  .menu-button { display: grid; }
+  .nav-wordmark { display: flex; }
+  .nav-wordmark img { width: 110px; }
   .nav-links { display: none; }
   .nav-briefing { display: none; }
   .primary-nav .live-map-link { display: none; }
-  .primary-nav-inner { height: 44px; padding: 0 12px; }
   /* Show wordmark inside hero on mobile */
   .masthead-inner { display: flex !important; align-items: flex-end; justify-content: space-between; padding: 12px 16px 20px !important; min-height: 220px !important; }
   .wordmark { display: block !important; width: min(260px, calc(100vw - 80px)) !important; }
