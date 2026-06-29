@@ -10,7 +10,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260629m", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260629n", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -195,7 +195,7 @@
     const dayTile = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", { maxZoom: 19, attribution: '&copy; OSM &copy; CARTO' });
     const satTile = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: '&copy; Esri' });
 
-    const map = L.map("map", { zoomControl: false, scrollWheelZoom: true }).setView([44.3, -85.2], 6);
+    const map = L.map("map", { zoomControl: false, scrollWheelZoom: true }).setView([43.4, -85.0], 7);
     L.control.zoom({ position: "bottomright" }).addTo(map);
 
     let currentMode = ["dark","day","sat"].includes(initMode) ? initMode : "dark";
@@ -472,7 +472,15 @@
     let activeMarker = null, activePointName = null, activeRegion = initRegion;
     const filtersEl = $("#map-filters"), layersEl = $("#map-layers"), boundariesEl = $("#map-boundaries"), overlaysEl = $("#map-overlays"), dirEl = $("#map-directory"), storiesEl = $("#map-stories");
     const statuses = [...new Set(points.map(p => p.status))].sort();
-    const INITIAL_VIEW = { center: [44.3, -85.2], zoom: 6 };
+    const LOWER_PENINSULA_BOUNDS = L.latLngBounds([41.68, -87.52], [45.78, -82.02]);
+
+    function fitLowerPeninsula({ duration } = {}) {
+      const opts = isMobile()
+        ? { paddingTopLeft: [72, 28], paddingBottomRight: [96, 28], maxZoom: 8 }
+        : { paddingTopLeft: [56, 360], paddingBottomRight: [56, 56], maxZoom: 8 };
+      if (duration != null) map.flyToBounds(LOWER_PENINSULA_BOUNDS, { ...opts, duration });
+      else map.fitBounds(LOWER_PENINSULA_BOUNDS, opts);
+    }
 
     const taglineEl = $("#panel-tagline"), badgeEl = $("#panel-badge");
     if (taglineEl && data.map_meta?.tagline) taglineEl.textContent = data.map_meta.tagline;
@@ -794,9 +802,7 @@
       clearSelection();
       map.closePopup();
       refreshMarkers();
-      if (fit) {
-        map.flyTo(INITIAL_VIEW.center, INITIAL_VIEW.zoom, { duration: 0.7 });
-      }
+      if (fit) fitLowerPeninsula({ duration: 0.7 });
     }
 
     $("#show-all")?.addEventListener("click", () => resetMapView());
@@ -920,7 +926,7 @@
     if (ext) { const link = $("#external-map-link"); if (link) { link.href = ext.url; link.textContent = ext.label; link.hidden = false; } }
 
     refreshMarkers();
-    if (!initStory && !initPoint) fitAll();
+    if (!initStory && !initPoint) fitLowerPeninsula();
     if (initStory) openStory(initStory);
     else if (initPoint && markerMap.has(initPoint)) selectPoint(initPoint);
   }
