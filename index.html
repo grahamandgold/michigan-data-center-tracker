@@ -660,8 +660,85 @@
     .home-map-heading-short { display: none; }
 
     /* ── DESKTOP: restore full hero height, shift video right to show lighthouse ── */
-    @media (min-width: 621px) {
+    @media (min-width: 901px) {
       .masthead-video { object-position: 60% 42% !important; }
+    }
+
+    /* ── COMPACT FOLD (phones + narrow tablets, ≤ 900px) ─────────────── */
+    @media (max-width: 900px) {
+      .masthead { min-height: 100px !important; }
+      .masthead-inner { display: none !important; }
+      .masthead-video { object-position: 62% 36% !important; }
+
+      .context-strip { display: none !important; }
+      .utility-edition { display: none; }
+      .sponsor-avail--strip { display: none; }
+
+      .utility-strip { border-top-width: 1px; }
+      .utility-strip-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        padding: 8px 12px 6px;
+        gap: 0;
+      }
+      .utility-stat {
+        padding: 6px 4px;
+        border-right: 0;
+      }
+      .utility-stat-num { font-size: 1.15rem; }
+      .utility-stat-label { font-size: .48rem; letter-spacing: .08em; }
+
+      .nav-briefing { display: none !important; }
+      .nav-alerts-mobile {
+        display: inline-flex;
+        align-items: center;
+        margin-left: auto;
+        padding: 7px 12px;
+        background: #cf102d;
+        color: #fff;
+        font-size: .56rem;
+        font-weight: 900;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        flex-shrink: 0;
+        z-index: 3;
+      }
+      .nav-alerts-mobile:hover { background: #a80d24; }
+
+      .home-intro::before {
+        background: linear-gradient(
+          180deg,
+          rgba(8, 9, 12, .86) 0%,
+          rgba(8, 9, 12, .58) 38%,
+          rgba(8, 9, 12, .24) 72%,
+          rgba(8, 9, 12, .12) 100%
+        );
+      }
+      .home-intro-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 16px 6px;
+      }
+      .home-intro-copy .eyebrow-live { display: none; }
+      .home-intro-copy h2 {
+        margin: 0;
+        font-size: clamp(1rem, 4.5vw, 1.2rem) !important;
+        line-height: 1.05 !important;
+        color: #fff !important;
+      }
+      .home-map-heading-long { display: none; }
+      .home-map-heading-short { display: inline; }
+      .home-intro-lead,
+      .home-intro-verify,
+      .home-intro-alerts { display: none !important; }
+      .home-map-preview-chip-text span { display: none; }
+      .home-map-preview {
+        aspect-ratio: 2.15 / 1;
+        max-height: 248px;
+      }
     }
 
     /* ── MOBILE OVERRIDES (≤ 620px) ──────────────────────────────────── */
@@ -678,10 +755,6 @@
       .mission-banner-wrap { border-bottom-width: 2px; }
 
 
-
-      .masthead-video {
-        object-position: 62% 36% !important;
-      }
 
       /* Story card headlines — scale down on mobile */
       .story-card h3 {
@@ -761,84 +834,15 @@
       /* Footer nav wraps nicely */
       .footer-top nav { gap: 14px !important; font-size: .66rem !important; }
 
-      /* Utility strip — compact grid on mobile */
-      .utility-strip { border-top-width: 1px; }
-      .utility-strip-inner {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        overflow-x: visible;
-        padding: 8px 12px 6px;
-        gap: 0;
-      }
-      .utility-stat {
-        padding: 6px 4px;
-        border-right: 0;
-      }
-      .utility-stat-num { font-size: 1.2rem; }
-      .utility-stat-label { font-size: .48rem; letter-spacing: .08em; }
-      .utility-edition {
-        grid-column: 1 / -1;
-        justify-content: center;
-        padding: 7px 0 2px;
-        margin-top: 2px;
-        margin-left: 0;
-        border-left: 0;
-        border-top: 0;
-      }
-      .utility-edition-date { font-size: .52rem; letter-spacing: .08em; }
-      .utility-stat-num--compact { font-size: .82rem; }
-      /* Context facts — desktop only; too wordy above the map on phones */
-      .context-strip { display: none !important; }
-
-      .utility-edition { display: none; }
-
-      /* Homepage sponsor strip — too noisy above the map on small screens */
-      .sponsor-avail--strip { display: none; }
-
-      /* Intro — copy then compact map card */
-      .home-intro {
-        background-position: center 52%;
-      }
-      .home-intro::before {
-        background: linear-gradient(
-          180deg,
-          rgba(8, 9, 12, .86) 0%,
-          rgba(8, 9, 12, .58) 38%,
-          rgba(8, 9, 12, .24) 72%,
-          rgba(8, 9, 12, .12) 100%
-        );
-      }
-      .home-intro-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px 16px 6px;
-      }
-      .home-intro-copy .eyebrow-live { display: none; }
-      .home-intro-copy h2 {
-        margin: 0;
-        font-size: clamp(1rem, 5.2vw, 1.25rem) !important;
-        line-height: 1.05 !important;
-        color: #fff !important;
-      }
-      .home-map-heading-long { display: none; }
-      .home-map-heading-short { display: inline; }
-      .home-intro-lead,
-      .home-intro-verify,
-      .home-intro-alerts { display: none !important; }
+      .home-intro { background-position: center 52%; }
       .home-intro-map { max-width: none; }
       .home-map-shell {
         border-color: rgba(255,255,255,.1);
         box-shadow: 0 0 0 1px rgba(207,16,45,.18), 0 14px 36px rgba(0,0,0,.5);
       }
       .home-map-live { display: none; }
-      .home-map-preview {
-        aspect-ratio: 2.15 / 1;
-        max-height: 248px;
-      }
       .home-map-preview-chip { padding: 8px 10px 10px; }
       .home-map-preview-chip-text strong { font-size: .5rem; }
-      .home-map-preview-chip-text span { display: none; }
       .home-map-preview-dock {
         gap: 8px;
         padding: 7px 8px 8px;
@@ -890,23 +894,6 @@
 
 
       .sticky-cta { font-size: .64rem; padding-top: 11px; padding-bottom: calc(11px + env(safe-area-inset-bottom, 0px)); }
-
-      .nav-alerts-mobile {
-        display: inline-flex;
-        align-items: center;
-        margin-left: auto;
-        padding: 7px 12px;
-        background: #cf102d;
-        color: #fff;
-        font-size: .56rem;
-        font-weight: 900;
-        letter-spacing: .1em;
-        text-transform: uppercase;
-        text-decoration: none;
-        flex-shrink: 0;
-        z-index: 3;
-      }
-      .nav-alerts-mobile:hover { background: #a80d24; }
 
       .regions-section { padding-top: 28px !important; }
       body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
@@ -1934,10 +1921,10 @@
     </div>
   </footer>
 
-  <script src="home-stats.js?v=20260703l"></script>
+  <script src="home-stats.js?v=20260703n"></script>
   <script src="home-map-preview.js?v=20260703i"></script>
   <script src="content-data.js?v=20260701x"></script>
-  <script src="app.js?v=20260703k"></script>
+  <script src="app.js?v=20260703n"></script>
   <script>
     (function () {
       const MAP_VERSION = "20260703h";
@@ -1957,8 +1944,7 @@
         HomeStats.applyEditionDate();
         if (mapData) {
           const counts = HomeStats.computeStats(mapData);
-          HomeStats.mountUtilityStats(counts, { industryStats: mapData.industry_stats || [] });
-          HomeStats.mountContextFacts(mapData.context_facts || []);
+          HomeStats.watchHomeFold(mapData);
           HomeMapPreview.init({ mapData, mapVersion: MAP_VERSION });
         } else {
           HomeMapPreview.init({ mapVersion: MAP_VERSION });

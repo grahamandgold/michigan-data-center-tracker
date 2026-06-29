@@ -67,10 +67,10 @@
     return /^[\d,]+$/.test(String(value).replace(/\+/g, ""));
   }
 
-  const MOBILE_MQ = "(max-width: 620px)";
+  const COMPACT_FOLD_MQ = "(max-width: 900px)";
 
-  function isMobileViewport(root = document) {
-    return root.defaultView?.matchMedia(MOBILE_MQ).matches ?? false;
+  function isCompactFold(root = document) {
+    return root.defaultView?.matchMedia(COMPACT_FOLD_MQ).matches ?? false;
   }
 
   /** Three fixed numbers on small screens — no rotation, short labels. */
@@ -252,7 +252,7 @@
     const strip = root.getElementById("context-strip");
     const factEl = root.getElementById("context-strip-fact");
     if (!strip || !factEl) return null;
-    if (!facts.length || (options.mobile !== false && isMobileViewport(root))) {
+    if (!facts.length || (options.mobile !== false && isCompactFold(root))) {
       strip.hidden = true;
       return null;
     }
@@ -312,7 +312,7 @@
 
   function mountUtilityStats(counts, options = {}, root = document) {
     const industryStats = options.industryStats || [];
-    const rotations = isMobileViewport(root)
+    const rotations = isCompactFold(root)
       ? buildMobileUtilityStats(counts)
       : buildUtilityRotations(counts, industryStats);
     const slots = [
@@ -325,7 +325,30 @@
       .map((el, i) => (el && rotations[i] ? { el, rotation: rotations[i] } : null))
       .filter(Boolean);
 
-    return startUtilityStatRotator(columns);
+    const rotator = startUtilityStatRotator(columns);
+    const compact = isCompactFold(root);
+    rotator._compact = compact;
+    return rotator;
+  }
+
+  let foldControllers = { utility: null, context: null };
+
+  function mountHomeFold(mapData, root = document) {
+    foldControllers.utility?.stop();
+    foldControllers.context?.stop();
+    const counts = computeStats(mapData);
+    foldControllers.utility = mountUtilityStats(counts, { industryStats: mapData.industry_stats || [] }, root);
+    foldControllers.context = mountContextFacts(mapData.context_facts || [], root);
+    return foldControllers;
+  }
+
+  function watchHomeFold(mapData, root = document) {
+    mountHomeFold(mapData, root);
+    const mq = root.defaultView?.matchMedia(COMPACT_FOLD_MQ);
+    if (!mq) return foldControllers;
+    const onChange = () => mountHomeFold(mapData, root);
+    mq.addEventListener("change", onChange);
+    return foldControllers;
   }
 
   function formatUpdated(iso) {
@@ -396,7 +419,9 @@
     computeStats,
     buildUtilityRotations,
     buildMobileUtilityStats,
-    isMobileViewport,
+    isCompactFold,
+    mountHomeFold,
+    watchHomeFold,
     mountContextFacts,
     mountUtilityStats,
     startUtilityStatRotator,

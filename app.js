@@ -527,7 +527,7 @@
     const overlapTarget = $(".home-map-preview") || $("#live-map");
     if (!cta || !overlapTarget) return;
 
-    const mobile = window.matchMedia("(max-width: 620px)");
+    const mobile = window.matchMedia("(max-width: 900px)");
     let observer = null;
 
     const bind = () => {
