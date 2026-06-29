@@ -5,7 +5,9 @@
   const SVG_SIZE = { w: 1200, h: 720 };
   const GEO = { north: 45.48, south: 41.7, west: -87.02, east: -82.38 };
   const PAD = { left: 92, right: 88, top: 36, bottom: 44 };
-  const MAP_BG = ["#dfe8f2", "#c8d6e6"];
+  const MAP_BG = ["#1a2a42", "#0c121c"];
+  const COUNTY_FILL = "#243a56";
+  const COUNTY_STROKE = "#4d7394";
   const PREVIEW_ASPECT = 2.2;
   const LAYER_COLORS = {
     projects: "#cf102d",
@@ -319,11 +321,14 @@
       && Math.abs(point.longitude - focus.lng) < 0.12;
     const base = markerSize(view);
     const size = focused ? base + 4 : base;
-    const glow = focused ? base * 0.72 : base * 0.58;
+    const glow = focused ? base * 0.85 : base * 0.68;
     const inner = iconInner(point.layer, color, point.status);
     const cls = focused ? ' class="home-map-preview-pulse"' : "";
+    const cx = (size / 2).toFixed(1);
     return `<g transform="translate(${(x - size / 2).toFixed(1)} ${(y - size / 2).toFixed(1)})"${cls}>
-<circle cx="${(size / 2).toFixed(1)}" cy="${(size / 2).toFixed(1)}" r="${glow}" fill="${color}" opacity=".22"/>
+<circle cx="${cx}" cy="${cx}" r="${(glow * 1.55).toFixed(1)}" fill="${color}" opacity=".1"/>
+<circle cx="${cx}" cy="${cx}" r="${glow}" fill="${color}" opacity=".32"/>
+<circle cx="${cx}" cy="${cx}" r="${(glow * 0.42).toFixed(1)}" fill="#fff" opacity=".55"/>
 <svg x="0" y="0" width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true">${inner}</svg>
 </g>`;
   }
@@ -347,8 +352,9 @@
       if (!lineInView(projected, view)) return "";
       const coords = projected.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
       if (!coords) return "";
-      return `<polyline points="${coords}" fill="none" stroke="${LAYER_COLORS.transmission}" stroke-width="${stroke}" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>
-<polyline points="${coords}" fill="none" stroke="#fff" stroke-width="${halo}" stroke-linecap="round" stroke-linejoin="round" opacity=".38"/>`;
+      return `<polyline points="${coords}" fill="none" stroke="${LAYER_COLORS.transmission}" stroke-width="${(parseFloat(stroke) * 1.35).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" opacity=".22"/>
+<polyline points="${coords}" fill="none" stroke="${LAYER_COLORS.transmission}" stroke-width="${stroke}" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>
+<polyline points="${coords}" fill="none" stroke="#e9d5ff" stroke-width="${halo}" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/>`;
     }).join("");
   }
 
@@ -369,7 +375,7 @@
 
     const showCounties = slide.wide || view.w >= 720;
     const countyLayer = showCounties
-      ? `<g fill="#e8eef4" stroke="#8fa3b8" stroke-width="1.1" stroke-linejoin="round">${countyMarkup}</g>`
+      ? `<g fill="${COUNTY_FILL}" stroke="${COUNTY_STROKE}" stroke-width="1" stroke-linejoin="round" opacity=".92">${countyMarkup}</g>`
       : "";
 
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
@@ -378,13 +384,23 @@
 <stop offset="0%" stop-color="${MAP_BG[0]}"/>
 <stop offset="100%" stop-color="${MAP_BG[1]}"/>
 </linearGradient>
+<radialGradient id="vignette-${id}" cx="50%" cy="44%" r="68%">
+<stop offset="0%" stop-color="rgba(125,211,252,.14)"/>
+<stop offset="55%" stop-color="rgba(0,0,0,0)"/>
+<stop offset="100%" stop-color="rgba(0,0,0,.42)"/>
+</radialGradient>
+<pattern id="grid-${id}" width="28" height="28" patternUnits="userSpaceOnUse">
+<path d="M28 0H0V28" fill="none" stroke="rgba(125,211,252,.07)" stroke-width=".6"/>
+</pattern>
 </defs>
 <rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="url(#bg-${id})"/>
-${showCounties ? `<path d="M0,0 L220,0 L180,720 L0,720 Z" fill="#b8cfe0" opacity=".4"/>
-<path d="M1020,0 L1200,0 L1200,720 L980,720 Z" fill="#b8cfe0" opacity=".4"/>` : ""}
+<rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="url(#grid-${id})" opacity=".55"/>
+${showCounties ? `<path d="M0,0 L220,0 L180,720 L0,720 Z" fill="#0a1018" opacity=".55"/>
+<path d="M1020,0 L1200,0 L1200,720 L980,720 Z" fill="#0a1018" opacity=".55"/>` : ""}
 ${countyLayer}
 ${tint}
 <g>${lineMarkup}${pointMarkup}</g>
+<rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="url(#vignette-${id})"/>
 </svg>`;
   }
 
@@ -395,37 +411,17 @@ ${tint}
     return `<span class="home-map-preview-swatch home-map-preview-swatch--icon" style="color:${color}"><svg viewBox="0 0 24 24" aria-hidden="true">${inner}</svg></span>`;
   }
 
-  function renderFiltersHtml(slide) {
+  function renderDockLayers(slide) {
+    if (slide.layers.length > 3) {
+      return `<span class="home-map-preview-layer home-map-preview-layer--stack"><i></i>${slide.layers.length} layers</span>`;
+    }
     return slide.layers.map(id => {
       const meta = LAYER_META[id] || { short: id };
       const color = LAYER_COLORS[id] || LAYER_COLORS.projects;
-      return `<span class="home-map-preview-filter-pill"><i style="background:${color}"></i>${meta.short}</span>`;
-    }).join("");
-  }
-
-  function legendSwatch(layer) {
-    const color = LAYER_COLORS[layer] || LAYER_COLORS.projects;
-    if (layer === "moratoria") {
-      return `<span class="home-map-preview-legend-swatch home-map-preview-legend-swatch--square" style="background:${color}"></span>`;
-    }
-    if (layer === "transmission") {
-      return `<span class="home-map-preview-legend-swatch home-map-preview-legend-swatch--bolt" style="color:${color}"><svg viewBox="0 0 24 24" aria-hidden="true">${iconInner("transmission", color)}</svg></span>`;
-    }
-    if (layer === "projects") {
-      return `<span class="home-map-preview-legend-swatch home-map-preview-legend-swatch--pin" style="color:${color}"><svg viewBox="0 0 24 24" aria-hidden="true">${iconInner("projects", color)}</svg></span>`;
-    }
-    return `<span class="home-map-preview-legend-swatch" style="background:${color}"></span>`;
-  }
-
-  function renderLegendHtml(slide) {
-    const rows = slide.layers.map(id => {
-      const meta = LAYER_META[id] || { label: id };
-      return `<div class="home-map-preview-legend-row">${legendSwatch(id)}<span>${meta.label}</span></div>`;
-    }).join("");
-    const txRow = slide.lines
-      ? `<div class="home-map-preview-legend-row"><span class="home-map-preview-legend-line"></span><span>Transmission corridors</span></div>`
-      : "";
-    return `<div class="home-map-preview-legend-title">Legend</div>${rows}${txRow}`;
+      return `<span class="home-map-preview-layer" style="--layer:${color}"><i></i>${meta.short}</span>`;
+    }).join("") + (slide.lines
+      ? `<span class="home-map-preview-layer home-map-preview-layer--line"><i></i>Grid</span>`
+      : "");
   }
 
   async function init(options = {}) {
@@ -433,7 +429,6 @@ ${tint}
     const link = document.getElementById(options.linkId || "home-map-preview-link");
     const chip = document.getElementById(options.chipId || "home-map-preview-chip");
     const filters = document.getElementById(options.filtersId || "home-map-preview-filters");
-    const legend = document.getElementById(options.legendId || "home-map-preview-legend");
     const dotsRoot = document.getElementById(options.dotsId || "home-map-preview-dots");
     if (!root || !link) return;
 
@@ -484,8 +479,7 @@ ${tint}
       if (chip) {
         chip.innerHTML = `${layerSwatch(slide)}<span class="home-map-preview-chip-text"><strong>${slide.label}</strong><span>${slide.kicker}</span></span>`;
       }
-      if (filters) filters.innerHTML = renderFiltersHtml(slide);
-      if (legend) legend.innerHTML = renderLegendHtml(slide);
+      if (filters) filters.innerHTML = renderDockLayers(slide);
       return index;
     };
 
