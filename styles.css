@@ -257,6 +257,44 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .status-card strong { display: block; margin: 2px 0 0; font-family: var(--display); font-size: 2.8rem; letter-spacing: .02em; color: var(--red); line-height: 1; }
 .status-card small { color: #9aa0ae; font-size: .68rem; margin-top: 3px; }
 .status-card em { margin-top: 8px; color: #ff5c73; font-size: .62rem; font-style: normal; font-weight: 800; letter-spacing: .06em; }
+.whats-new-bar {
+  background: #111317;
+  border-bottom: 1px solid #1e2028;
+  padding: 0;
+}
+.whats-new-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 9px 42px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.whats-new-label {
+  font-size: .58rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.whats-new-items {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .68rem;
+  color: #9aa0ae;
+  flex-wrap: wrap;
+}
+.whats-new-items span { white-space: nowrap; }
+.wnb-dot { color: #2e3038; font-size: .8rem; }
+@media (max-width: 620px) {
+  .whats-new-inner { padding: 8px 14px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .whats-new-items { gap: 6px; }
+  .wnb-dot { display: none; }
+  .whats-new-items span { display: block; }
+}
 .section { padding: 54px 42px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
 .section-heading h2, .meeting-banner h2, .map-promo h2, .learn-heading h2, .commercial-strip h2 {
