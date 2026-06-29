@@ -80,15 +80,13 @@
       const date = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "America/Detroit" }).format(dt);
       const time = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Detroit" }).format(dt);
       const hasLinks = item.agenda_url || item.watch_url;
-      const sourceLink = item.source_url ? safeUrl(item.source_url) : "";
       return `<article class="meeting-card">
         <div class="meeting-date"><strong>${day}</strong><span>${date}</span><em>${time}</em></div>
         <div class="meeting-copy"><span>${escapeHtml(item.county)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.location || "Location listed in source")}</p></div>
         <div class="meeting-actions">
           ${item.agenda_url ? `<a href="${safeUrl(item.agenda_url)}" target="_blank" rel="noopener">Agenda ${external}</a>` : ""}
           ${item.watch_url ? `<a class="watch" href="${safeUrl(item.watch_url)}" target="_blank" rel="noopener">Watch ${external}</a>` : ""}
-          ${!hasLinks && sourceLink ? `<a class="source-link" href="${sourceLink}" target="_blank" rel="noopener">Agenda center ${external}</a>` : ""}
-          ${!hasLinks && !sourceLink ? `<span class="agenda-pending">Agenda pending</span>` : ""}
+          ${!hasLinks ? `<span class="agenda-pending">Agenda pending</span>` : ""}
         </div>
       </article>`;
     }).join("")
