@@ -81,6 +81,26 @@
     ].filter(column => column.length > 0);
   }
 
+  function scrambleDigits(len) {
+    return Array.from({ length: Math.max(len, 1) }, () => Math.floor(Math.random() * 10)).join("");
+  }
+
+  function clearStatTimers(el) {
+    if (!el) return;
+    if (el._utilityFlicker) {
+      window.clearInterval(el._utilityFlicker);
+      el._utilityFlicker = null;
+    }
+    if (el._utilitySwap) {
+      window.clearTimeout(el._utilitySwap);
+      el._utilitySwap = null;
+    }
+    if (el._utilityLand) {
+      window.clearTimeout(el._utilityLand);
+      el._utilityLand = null;
+    }
+  }
+
   function startUtilityStatRotator(columns, options = {}) {
     const interval = options.interval || 3400;
     const stagger = options.stagger || 420;
@@ -89,15 +109,51 @@
 
     const apply = (column, item) => {
       if (!column || !item) return;
-      const num = column.querySelector(".utility-stat-num");
-      const label = column.querySelector(".utility-stat-label");
+      const el = column.el || column;
+      const num = el.querySelector(".utility-stat-num");
+      const label = el.querySelector(".utility-stat-label");
       if (!num || !label) return;
-      column.classList.add("utility-stat--flip");
-      window.setTimeout(() => {
-        num.textContent = String(item.value);
-        label.textContent = item.label;
-        column.classList.remove("utility-stat--flip");
-      }, 180);
+
+      const nextValue = String(item.value);
+      const nextLabel = item.label;
+      if (num.textContent === nextValue && label.textContent === nextLabel) return;
+
+      clearStatTimers(el);
+      el.classList.remove("utility-stat--land", "utility-stat--flip", "utility-stat--zap");
+
+      if (reducedMotion.matches) {
+        num.textContent = nextValue;
+        label.textContent = nextLabel;
+        return;
+      }
+
+      el.classList.add("utility-stat--zap");
+      const len = nextValue.length;
+      let flickers = 0;
+      el._utilityFlicker = window.setInterval(() => {
+        num.textContent = scrambleDigits(len);
+        flickers += 1;
+        if (flickers >= 6) {
+          window.clearInterval(el._utilityFlicker);
+          el._utilityFlicker = null;
+        }
+      }, 30);
+
+      el._utilitySwap = window.setTimeout(() => {
+        if (el._utilityFlicker) {
+          window.clearInterval(el._utilityFlicker);
+          el._utilityFlicker = null;
+        }
+        num.textContent = nextValue;
+        label.textContent = nextLabel;
+        el.classList.remove("utility-stat--zap");
+        el.classList.add("utility-stat--land");
+        el._utilityLand = window.setTimeout(() => {
+          el.classList.remove("utility-stat--land");
+          el._utilityLand = null;
+        }, 360);
+        el._utilitySwap = null;
+      }, 220);
     };
 
     const stop = () => {
@@ -106,23 +162,24 @@
         window.clearTimeout(id);
       });
       timers.length = 0;
+      columns.forEach(column => clearStatTimers(column.el));
     };
 
     columns.forEach((column, columnIndex) => {
       const rotation = column.rotation || [];
       if (rotation.length < 2) {
-        if (rotation[0]) apply(column.el, rotation[0]);
+        if (rotation[0]) apply(column, rotation[0]);
         return;
       }
 
       let index = 0;
-      apply(column.el, rotation[0]);
+      apply(column, rotation[0]);
 
       if (reducedMotion.matches) return;
 
       const tick = () => {
         index = (index + 1) % rotation.length;
-        apply(column.el, rotation[index]);
+        apply(column, rotation[index]);
       };
       const startDelay = columnIndex * stagger;
       const starter = window.setTimeout(() => {
