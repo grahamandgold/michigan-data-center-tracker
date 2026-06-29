@@ -87,7 +87,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   overflow: hidden;
   color: #fff;
   background: #09090b url("hero-poster.jpg") center 42%/cover no-repeat;
-  border-top: 4px solid #24252a;
+  border-top: 2px solid #24252a;
 }
 .masthead-video {
   position: absolute;
@@ -108,8 +108,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .masthead-inner {
   position: relative;
   z-index: 2;
-  min-height: 330px;
-  padding: 28px 32px 32px 92px;
+  min-height: 220px;
+  padding: 20px 32px 24px 80px;
 }
 .menu-button {
   position: absolute;
@@ -124,14 +124,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   background: transparent;
 }
 .menu-button span { width: 30px; height: 3px; background: #fff; }
-.wordmark { display: block; width: min(610px, 55vw); }
+.wordmark { display: block; width: min(340px, 32vw); }
 .wordmark img {
   display: block;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 3px 13px rgba(0,0,0,.72));
 }
-.masthead-briefing { position: absolute; top: 28px; right: 28px; }
+.masthead-briefing { position: absolute; top: 18px; right: 22px; }
 .masthead-purpose {
   position: absolute;
   right: 30px;
@@ -153,19 +153,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .primary-nav {
   position: relative;
   z-index: 3;
-  min-height: 56px;
+  min-height: 40px;
   display: flex;
   align-items: stretch;
   padding-left: 28px;
   background: rgba(10,10,12,.97);
-  border-bottom: 4px solid var(--red);
+  border-bottom: 2px solid var(--red);
 }
 .primary-nav a {
   display: flex;
   align-items: center;
-  padding: 0 18px;
-  font-size: .78rem;
-  font-weight: 850;
+  padding: 0 14px;
+  font-size: .7rem;
+  font-weight: 800;
 }
 .primary-nav a:hover, .primary-nav a:focus-visible { background: #222228; }
 .primary-nav .live-map-link { margin-left: auto; background: var(--red); text-transform: uppercase; letter-spacing: .1em; }
@@ -315,7 +315,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   border-bottom: 1px solid var(--line);
 }
 .region-visual span { color: #ff5870; font-size: .66rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
-.region-visual strong { margin-top: 5px; font-family: var(--display); font-size: 2.1rem; line-height: .94; text-transform: uppercase; }
+.region-visual strong { margin-top: 4px; font-family: var(--display); font-size: 1.1rem; line-height: 1.1; text-transform: uppercase; }
 .region-topic { display: block; color: var(--red); font-size: .65rem; font-weight: 900; text-transform: uppercase; }
 .region-panel strong, .region-panel small { display: block; }
 .region-panel strong { margin: 9px 0 16px; line-height: 1.15; }
@@ -418,7 +418,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .drawer-briefing { margin-top: 28px; }
 
 @media (max-width: 900px) {
-  .masthead-inner { min-height: 300px; padding-left: 75px; }
+  .masthead-inner { min-height: 200px; padding-left: 65px; }
   .menu-button { left: 18px; }
   .masthead-purpose { display: none; }
   .status-rail { grid-template-columns: 1fr; }
