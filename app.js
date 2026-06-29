@@ -256,8 +256,8 @@
       caption: "Detroit, Ann Arbor and Southeast Michigan"
     },
     west_michigan: {
-      slides: [`${slideBase}grand-rapids.jpg`, `${slideBase}03-grand-ledge-water-town.jpg`],
       image: `${slideBase}grand-rapids.jpg`,
+      objectPosition: "center 38%",
       caption: "Grand Rapids, Holland, lakeshore, Kalamazoo and Battle Creek"
     },
     mid_michigan: {
@@ -340,7 +340,8 @@
           ${dots}
         </div>`;
     }
-    return `<div class="region-visual" style="--region-image:url('${escapeHtml(visual.image)}')">
+    const position = visual.objectPosition ? `;--region-position:${escapeHtml(visual.objectPosition)}` : "";
+    return `<div class="region-visual" style="--region-image:url('${escapeHtml(visual.image)}')${position}">
         <div class="region-visual-scrim" aria-hidden="true"></div>
         ${caption}
       </div>`;

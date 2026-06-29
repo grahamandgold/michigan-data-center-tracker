@@ -107,6 +107,24 @@ window.TRACKER_DATA = {
       source_url: "https://www.enr.com/articles/63087-record-16b-data-center-project-advances-in-michigan",
       region: "Southeast Michigan",
       topic: "Construction"
+    },
+    {
+      headline: "Microsoft confirms data center plans on former Steelcase land in Kent County",
+      summary: "Gaines Township is weighing rezoning for a 316-acre proposal as Microsoft expands its West Michigan land portfolio.",
+      published_date: "2025-12-01",
+      source_name: "MLive",
+      source_url: "https://www.mlive.com/news/grand-rapids/2025/12/microsoft-confirms-data-center-plans-in-kent-county.html",
+      region: "West Michigan",
+      topic: "Project"
+    },
+    {
+      headline: "Franklin Partners' $1B Kent County data center heads toward a January hearing",
+      summary: "Lowell Township planners are preparing for a high-profile hearing on a 235-acre proposal described as tied to a top-10 U.S. company.",
+      published_date: "2025-12-01",
+      source_name: "MLive",
+      source_url: "https://www.mlive.com/news/grand-rapids/2025/12/controversial-1b-kent-county-data-center-faces-public-hearing-in-january.html",
+      region: "West Michigan",
+      topic: "Public hearing"
     }
   ],
   meetings: [
@@ -232,7 +250,7 @@ window.TRACKER_DATA = {
   regional_watch: {
     statewide: [0, 2, 5],
     metro_detroit: [1, 3],
-    west_michigan: [],
+    west_michigan: [7, 8],
     mid_michigan: [5],
     northern_michigan: []
   },

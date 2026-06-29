@@ -661,7 +661,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   overflow: hidden;
   padding: 0;
   color: #fff;
-  background: #09090b var(--region-image) center/cover no-repeat;
+  background: #09090b var(--region-image) var(--region-position, center 42%) / cover no-repeat;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -731,25 +731,25 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .region-visual-dots {
   position: absolute;
   z-index: 3;
-  top: 12px;
-  right: 12px;
+  left: 18px;
+  right: 18px;
+  bottom: 78px;
   display: flex;
-  gap: 6px;
-  padding: 6px 8px;
-  border-radius: 999px;
-  background: rgba(8,9,11,.55);
-  backdrop-filter: blur(4px);
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  pointer-events: none;
 }
 .region-visual-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.35);
-  transition: background .25s, transform .25s;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.28);
+  transition: background .25s ease, opacity .25s ease;
 }
 .region-visual-dot.is-active {
-  background: var(--red);
-  transform: scale(1.15);
+  background: #fff;
+  opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) {
   .region-visual-slide {
@@ -1441,7 +1441,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .region-visual { min-height: 260px; grid-row: auto; }
   .region-visual-caption { padding: 14px 16px 16px 18px; }
   .region-visual-title { font-size: clamp(.88rem, 4.2vw, 1.05rem); }
-  .region-visual-dots { top: 10px; right: 10px; }
+  .region-visual-dots { left: 14px; right: 14px; bottom: 70px; }
   .public-grid { gap: 10px; }
   .public-card { padding: 16px 18px; }
   .story-card-lead { grid-column: auto; }
