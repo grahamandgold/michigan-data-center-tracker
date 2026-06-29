@@ -1198,26 +1198,20 @@
       pointer-events: none;
     }
     .home-map-preview-chip {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 0;
-      padding: 10px 12px 12px;
-      background: linear-gradient(180deg, rgba(6,8,12,.92) 0%, rgba(6,8,12,.55) 72%, transparent 100%);
-      color: #fff;
-      border: 0;
-      backdrop-filter: none;
-      transition: opacity .3s ease;
+      display: none;
     }
     .home-map-preview-dock {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 10px 9px;
-      background: linear-gradient(0deg, rgba(6,8,12,.94) 0%, rgba(6,8,12,.72) 55%, transparent 100%);
-      border-top: 1px solid rgba(255,255,255,.06);
-      backdrop-filter: blur(10px);
+      justify-content: center;
+      gap: 12px;
+      padding: 7px 12px 9px;
+      background: linear-gradient(0deg, rgba(6,8,12,.82) 0%, transparent 100%);
+      border-top: 0;
+      backdrop-filter: none;
+    }
+    .home-map-preview-dock-layers {
+      display: none !important;
     }
     .home-map-preview-dock-layers {
       display: flex;
@@ -1625,7 +1619,7 @@
               <div class="home-map-preview-dock">
                 <div class="home-map-preview-dock-layers" id="home-map-preview-filters" aria-hidden="true"></div>
                 <span class="home-map-preview-dots" id="home-map-preview-dots" aria-hidden="true"></span>
-                <span class="home-map-preview-dock-cta">Explore live map <span aria-hidden="true">→</span></span>
+                <span class="home-map-preview-dock-cta">Open map <span aria-hidden="true">→</span></span>
               </div>
             </div>
           </a>
@@ -1922,7 +1916,7 @@
   </footer>
 
   <script src="home-stats.js?v=20260703n"></script>
-  <script src="home-map-preview.js?v=20260703i"></script>
+  <script src="home-map-preview.js?v=20260703o"></script>
   <script src="content-data.js?v=20260701x"></script>
   <script src="app.js?v=20260703n"></script>
   <script>

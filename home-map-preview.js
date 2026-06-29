@@ -47,7 +47,7 @@
       swatchLayer: "moratoria",
       fit: p => p.longitude > -83.72 && p.latitude > 42.18 && p.latitude < 42.82,
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 320, h: 250 },
       focus: { lat: 42.52, lng: -83.42 },
       href: "map.html?lat=42.52&lng=-83.42&zoom=10&layers=moratoria,projects"
@@ -60,7 +60,7 @@
       swatchLayer: "meetings",
       fit: p => p.longitude > -83.78 && p.longitude < -83.35 && p.latitude > 42.2 && p.latitude < 42.58,
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 290, h: 230 },
       focus: { lat: 42.525, lng: -83.536 },
       href: "map.html?lat=42.525&lng=-83.536&zoom=11&layers=meetings,moratoria,projects"
@@ -73,7 +73,7 @@
       swatchLayer: "projects",
       fit: p => p.longitude > -84.05 && p.longitude < -83.55 && p.latitude > 42.05 && p.latitude < 42.35,
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 300, h: 240 },
       focus: { lat: 42.2, lng: -83.75 },
       href: "map.html?lat=42.2&lng=-83.75&zoom=10&layers=projects,moratoria"
@@ -86,7 +86,7 @@
       swatchLayer: "projects",
       fit: p => p.longitude > -83.65 && p.longitude < -83.15 && p.latitude > 42.15 && p.latitude < 42.48,
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 280, h: 220 },
       focus: { lat: 42.232, lng: -83.486 },
       href: "map.html?lat=42.23&lng=-83.49&zoom=11&layers=projects,moratoria"
@@ -99,7 +99,7 @@
       swatchLayer: "moratoria",
       fit: p => p.longitude < -85.1 && p.latitude > 42.65,
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 340, h: 270 },
       href: "map.html?lat=43.05&lng=-85.75&zoom=9&layers=moratoria,projects"
     },
@@ -111,7 +111,7 @@
       swatchLayer: "policy",
       fit: p => p.longitude > -84.75 && p.longitude < -84.35 && p.latitude > 42.55 && p.latitude < 42.82,
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 300, h: 240 },
       focus: { lat: 42.73, lng: -84.55 },
       href: "map.html?lat=42.73&lng=-84.55&zoom=10&layers=policy,meetings,moratoria"
@@ -126,7 +126,7 @@
       fit: p => ["transmission", "generation", "projects"].includes(p.layer)
         && p.longitude > -86.2 && p.latitude > 42.35 && p.latitude < 43.1,
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 380, h: 300 },
       href: "map.html?lat=42.68&lng=-84.9&zoom=9&layers=transmission,generation,projects"
     },
@@ -139,7 +139,7 @@
       fit: p => p.layer === "generation"
         && ((p.longitude < -84.5 && p.latitude > 43.0) || p.name.includes("Wind") || p.name.includes("Solar")),
       tight: true,
-      labels: true,
+      labels: false,
       maxView: { w: 400, h: 310 },
       href: "map.html?lat=43.2&lng=-85.1&zoom=9&layers=generation"
     },
@@ -571,10 +571,8 @@ ${labelMarkup}
       slideEls.forEach((el, i) => el.classList.toggle("is-active", i === index));
       dots.forEach((el, i) => el.classList.toggle("is-active", i === index));
       link.href = slide.href;
-      if (chip) {
-        chip.innerHTML = `${layerSwatch(slide)}<span class="home-map-preview-chip-text"><strong>${slide.label}</strong><span>${slide.kicker}</span></span>`;
-      }
-      if (filters) filters.innerHTML = renderDockLayers(slide);
+      if (chip) chip.innerHTML = "";
+      if (filters) filters.innerHTML = "";
       return index;
     };
 
