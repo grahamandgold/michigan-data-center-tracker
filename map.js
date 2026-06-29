@@ -14,7 +14,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260701n", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260701t", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -792,7 +792,7 @@
     function fitLowerPeninsula({ duration } = {}) {
       const embed = document.documentElement.classList.contains("map-embed");
       const opts = isMobile()
-        ? { paddingTopLeft: [108, 20], paddingBottomRight: [88, 20], maxZoom: 8.5 }
+        ? { paddingTopLeft: [48, 14], paddingBottomRight: [128, 14], maxZoom: 8.5 }
         : embed
           ? { padding: [28, 36], maxZoom: 9 }
           : { paddingTopLeft: [100, 300], paddingBottomRight: [56, 48], maxZoom: 8.5 };

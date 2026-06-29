@@ -1627,30 +1627,33 @@
       .map-stats-inline { padding: 6px 16px; }
     }
     @media (max-width: 900px) {
-      .tile-toggle { display: none; }
       .topbar-breadcrumb { display: none; }
       .map-support-line { display: none; }
       .map-legend { bottom: 88px; right: 12px; }
+      .tile-btn { padding: 8px 9px; font-size: 10px; min-height: 36px; }
     }
 
     @media (max-width: 768px) {
+      :root {
+        --topbar-h: 56px;
+        --chrome-stats-h: 0px;
+        --chrome-h: 0px;
+        --map-inset-top: var(--topbar-h);
+      }
       .map-topbar {
-        height: auto;
-        min-height: 60px;
-        gap: 12px;
-        padding: 10px 16px;
-        padding-top: calc(10px + env(safe-area-inset-top, 0px));
+        height: var(--topbar-h);
+        min-height: var(--topbar-h);
+        gap: 8px;
+        padding: 8px 12px;
+        padding-top: calc(8px + env(safe-area-inset-top, 0px));
       }
       .map-topbar-brand img {
-        height: 44px;
-        max-width: min(230px, 68vw);
+        height: 38px;
+        max-width: min(200px, 58vw);
       }
       .nav-link--desktop { display: none !important; }
-      .nav-cta {
-        min-height: 40px;
-        padding: 8px 12px;
-        font-size: 10px;
-      }
+      .nav-cta { display: none !important; }
+      .map-chrome-stack { display: none !important; }
 
       .map-panel {
         top: auto;
@@ -1658,7 +1661,7 @@
         left: 0;
         right: 0;
         width: 100%;
-        max-height: calc(58px + env(safe-area-inset-bottom, 0px));
+        max-height: calc(52px + env(safe-area-inset-bottom, 0px));
         border-radius: 0;
         border-bottom: 0;
         border-top: 3px solid var(--red);
@@ -1704,8 +1707,9 @@
 
       .panel-tab {
         min-height: 44px;
-        padding: 10px 4px;
-        font-size: 9px;
+        padding: 10px 6px;
+        font-size: 10px;
+        letter-spacing: .06em;
       }
       .layer-row {
         min-height: 48px;
@@ -1726,10 +1730,10 @@
       .map-filters label { min-height: 44px; }
 
       .map-hud {
-        top: calc(var(--map-inset-top) + env(safe-area-inset-top, 0px) + 8px);
-        bottom: auto;
-        left: 12px;
-        right: 12px;
+        top: auto;
+        bottom: calc(52px + env(safe-area-inset-bottom, 0px) + 10px);
+        left: 10px;
+        right: 10px;
         transform: none;
         width: auto;
         max-width: none;
@@ -1737,13 +1741,16 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding: 5px;
+        padding: 4px;
+        border-radius: 2px;
+        box-shadow: 0 6px 20px rgba(0,0,0,.35);
       }
       .map-hud::-webkit-scrollbar { display: none; }
       .map-hud button {
         flex: 0 0 auto;
-        min-height: 40px;
-        padding: 10px 12px;
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 10px;
       }
 
       .map-legend {
@@ -1755,24 +1762,11 @@
       }
 
       .leaflet-bottom.leaflet-right {
-        bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+        bottom: calc(112px + env(safe-area-inset-bottom, 0px)) !important;
         right: 10px !important;
       }
-      .map-chrome-bar {
-        grid-template-columns: 1fr auto;
-        padding: 0 12px;
-        gap: 8px;
-      }
-      .chrome-panel-spacer { display: none; }
-      .map-chrome-center { justify-content: center; }
-      .map-stats-inline { padding: 6px 10px; }
-      .stat-inline { padding: 0 10px; font-size: 9px; }
-      .stat-inline strong { font-size: 1.15rem; }
-      .chrome-bar-end .map-support-line { display: none; }
-      .map-reset-btn {
-        font-size: 10px;
-        padding: 0 12px;
-        height: 32px;
+      .map-shell:has(.map-panel.open) .leaflet-bottom.leaflet-right {
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
       }
 
       .leaflet-popup-content { width: min(300px, calc(100vw - 48px)) !important; }
@@ -1938,7 +1932,7 @@
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin=""></script>
   <!-- Optional: set data-plausible-domain on <body> and uncomment for Plausible -->
   <!-- <script defer data-domain="midatacentertracker.com" src="https://plausible.io/js/script.js"></script> -->
-  <script src="map-analytics.js?v=20260701n"></script>
-  <script src="map.js?v=20260701n" defer></script>
+  <script src="map-analytics.js?v=20260701t"></script>
+  <script src="map.js?v=20260701t" defer></script>
 </body>
 </html>

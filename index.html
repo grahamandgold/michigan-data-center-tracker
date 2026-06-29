@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="social-card.png">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=20260701s">
+  <link rel="stylesheet" href="styles.css?v=20260701t">
   <style>
     /* ── IMPROVEMENTS v20 ─────────────────────────────────────────────── */
 
@@ -83,7 +83,8 @@
       color: #fff;
       text-align: center;
       padding: 14px 20px;
-      font-size: .78rem;
+      padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+      font-size: .72rem;
       font-weight: 900;
       letter-spacing: .1em;
       text-transform: uppercase;
@@ -312,17 +313,8 @@
       /* Masthead wordmark slightly smaller so it breathes */
       .wordmark { width: min(280px, calc(100vw - 80px)) !important; }
 
-      /* Mobile only — tighter hero, wordmark at bottom, video shifted up */
-      .masthead-inner {
-        min-height: 220px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-end !important;
-        padding-top: 16px !important;
-        padding-bottom: 16px !important;
-      }
       .masthead-video {
-        object-position: 50% 20% !important;
+        object-position: 50% 28% !important;
       }
 
       /* Story card headlines — scale down on mobile */
@@ -389,11 +381,71 @@
       /* Footer nav wraps nicely */
       .footer-top nav { gap: 14px !important; font-size: .66rem !important; }
 
-      /* Utility strip scrolls horizontally on mobile */
-      .utility-strip-inner { padding: 0 12px; }
-      .utility-stat { padding: 12px 16px; }
-      .utility-stat-num { font-size: 1.25rem; }
-      .utility-updated { padding-left: 12px; }
+      /* Utility strip — compact grid on mobile */
+      .utility-strip-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        padding: 10px 12px 8px;
+        gap: 0;
+      }
+      .utility-stat {
+        padding: 6px 4px;
+        border-right: 0;
+      }
+      .utility-stat-num { font-size: 1.2rem; }
+      .utility-stat-label { font-size: .48rem; letter-spacing: .08em; }
+      .utility-updated {
+        grid-column: 1 / -1;
+        justify-content: center;
+        padding: 8px 0 2px;
+        margin-top: 4px;
+        border-top: 1px solid #222429;
+      }
+
+      /* Map-first on mobile */
+      .home-intro-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 14px 16px 0;
+      }
+      .home-intro-map { order: -1; max-width: none; }
+      .home-intro-copy h2 {
+        font-size: clamp(1.25rem, 6.5vw, 1.55rem) !important;
+      }
+      .home-intro-lead { font-size: .86rem; margin-bottom: 10px; }
+
+      /* What's next — stacked, tappable rows */
+      .home-whats-next .key-meetings-inner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        min-height: 0;
+      }
+      .home-whats-next .km-label {
+        padding: 10px 16px;
+        border-right: 0;
+        border-bottom: 1px solid #1e2028;
+      }
+      .home-whats-next .km-items { flex-direction: column; }
+      .home-whats-next .km-divider { display: none; }
+      .home-whats-next .km-item {
+        padding: 13px 16px;
+        min-height: 48px;
+        border-bottom: 1px solid #1e2028;
+      }
+      .home-whats-next .km-item--next { box-shadow: inset 4px 0 0 var(--red); }
+      .home-whats-next .km-all {
+        padding: 12px 16px;
+        border-left: 0;
+        justify-content: center;
+        min-height: 44px;
+        color: #ff5c73;
+      }
+
+      .regions-section { padding-top: 28px !important; }
+      body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
 
       /* Method strip stacks */
       .method-strip-inner { padding: 10px 16px; gap: 6px; }
@@ -591,6 +643,8 @@
       background: #dfe8f2;
       text-decoration: none;
       color: inherit;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
     .home-map-preview img {
       display: block;
@@ -656,8 +710,11 @@
       }
     }
     @media (max-width: 620px) {
-      .home-intro-inner { padding: 16px 16px 20px; }
-      .home-map-preview-action .button { width: min(100%, 240px); }
+      .home-map-preview-action .button {
+        width: min(100%, 260px);
+        min-height: 44px;
+        font-size: .64rem;
+      }
     }
 
     .regions-section { padding-top: 40px !important; }
@@ -712,9 +769,9 @@
       <img src="brand-logo-light.png" alt="">
     </a>
     <nav aria-label="Mobile navigation">
+      <a href="map.html">Explore live map</a>
       <a href="#meetings">Meetings &amp; hearings</a>
       <a href="#regions">Stories we're following</a>
-      <a href="#live-map">Live map</a>
       <a href="#learn">Learning library</a>
       <a href="methodology.html">Methodology</a>
     </nav>
@@ -735,7 +792,7 @@
         <a href="#regions">Top Stories</a>
         <a href="#learn">Learn</a>
       </div>
-      <a class="live-map-link" href="#live-map"><span class="live-dot"></span>Live map</a>
+      <a class="live-map-link" href="map.html"><span class="live-dot"></span>Map</a>
       <a class="button button-red nav-briefing" href="#briefing">Get briefing</a>
     </div>
   </nav>
@@ -980,12 +1037,12 @@
     </div>
   </footer>
 
-  <script src="home-stats.js?v=20260701s"></script>
+  <script src="home-stats.js?v=20260701t"></script>
   <script src="content-data.js?v=202606282355"></script>
   <script src="app.js?v=202606282355"></script>
   <script>
     (function () {
-      const MAP_VERSION = "20260701s";
+      const MAP_VERSION = "20260701t";
 
       function setText(id, value) {
         const el = document.getElementById(id);
