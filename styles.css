@@ -758,53 +758,79 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .learn-row-links a:hover { opacity: .7; }
 /* Sponsorship availability placements */
 .sponsor-avail { margin: 0; }
+.sponsor-avail-frame,
+.sponsor-avail--section .sponsor-avail-inner {
+  position: relative;
+  border: 2px dashed #b8c1ce;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(246,248,251,.96) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.85);
+}
+.sponsor-avail-frame::before,
+.sponsor-avail--section .sponsor-avail-inner::before {
+  content: "AD";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: .48rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+  color: rgba(168,178,194,.42);
+  pointer-events: none;
+}
 .sponsor-avail--strip {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  padding: 10px 42px;
-  background: #f7f8fa;
+  padding: 12px 42px 14px;
+  background: #eef1f5;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
+.sponsor-avail-frame {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 14px 18px;
+}
 .sponsor-avail-label {
-  font-size: .58rem;
+  font-size: .56rem;
   font-weight: 900;
-  letter-spacing: .14em;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  color: #9aa0ae;
+  color: #b4bcc8;
   flex-shrink: 0;
 }
 .sponsor-avail-copy {
   flex: 1;
   min-width: 0;
-  font-size: .72rem;
-  color: #7a8090;
-  line-height: 1.4;
+  font-size: .7rem;
+  color: #a8b0bc;
+  line-height: 1.45;
 }
 .sponsor-avail-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 34px;
-  padding: 6px 12px;
-  border: 1px solid #e4c8cd;
-  background: #fff;
-  color: var(--red);
-  font-size: .62rem;
-  font-weight: 900;
-  letter-spacing: .08em;
+  min-height: 38px;
+  min-width: 128px;
+  padding: 8px 16px;
+  border: 2px dashed #c3cad4;
+  background: rgba(255,255,255,.55);
+  color: #9aa5b3;
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .11em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  transition: background .15s, color .15s, border-color .15s;
+  transition: background .18s, color .18s, border-color .18s, border-style .18s, box-shadow .18s;
 }
 .sponsor-avail-cta:hover,
 .sponsor-avail-cta:focus-visible {
-  background: var(--red);
-  border-color: var(--red);
-  color: #fff;
+  border-style: solid;
+  border-color: #d9aab2;
+  background: #fff;
+  color: var(--red);
+  box-shadow: 0 4px 14px rgba(207,16,45,.1);
 }
 .sponsor-avail--section {
   padding: 0 42px 28px;
@@ -814,30 +840,29 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   grid-template-columns: 1fr auto;
   gap: 4px 20px;
   align-items: center;
-  padding: 16px 20px;
-  border: 1px dashed #cfd4dc;
-  background: linear-gradient(135deg, #fafbfc 0%, #f3f5f8 100%);
+  padding: 18px 20px 18px 22px;
 }
 .sponsor-avail-kicker {
   grid-column: 1;
-  font-size: .56rem;
+  font-size: .54rem;
   font-weight: 900;
-  letter-spacing: .14em;
+  letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--red);
+  color: #c4a0a8;
 }
 .sponsor-avail-title {
   grid-column: 1;
-  font-size: .94rem;
-  font-weight: 800;
-  letter-spacing: .01em;
+  font-size: .9rem;
+  font-weight: 750;
+  letter-spacing: .02em;
   line-height: 1.25;
+  color: #8f97a5;
 }
 .sponsor-avail-desc {
   grid-column: 1;
   margin: 0;
-  font-size: .74rem;
-  color: var(--muted);
+  font-size: .72rem;
+  color: #b0b7c3;
   line-height: 1.45;
   max-width: 62ch;
 }
@@ -903,16 +928,22 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   position: relative;
   z-index: 2;
   margin: 18px 0 0;
-  padding-top: 14px;
-  border-top: 1px solid #2a2c33;
-  font-size: .68rem;
-  color: #8f95a3;
+  padding: 12px 14px;
+  border: 2px dashed rgba(255,255,255,.16);
+  background: rgba(255,255,255,.04);
+  font-size: .66rem;
+  color: #7f8796;
 }
 .briefing-sponsor-avail a {
-  color: #ff6b7f;
+  color: #c9a5ad;
   font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  letter-spacing: .04em;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(201,165,173,.55);
+}
+.briefing-sponsor-avail a:hover {
+  color: #ff8a9a;
+  border-bottom-color: #ff8a9a;
 }
 .commercial-strip h2 { font-size: clamp(1.6rem, 2.8vw, 2.6rem); }
 .commercial-strip p { max-width: 520px; }
@@ -1006,12 +1037,13 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .map-promo-stats { display: grid; grid-template-columns: repeat(3, 1fr); }
   .map-promo-stats div { padding-right: 15px; }
   .commercial-strip { grid-template-columns: 1fr; }
-  .sponsor-avail--strip { padding: 10px 18px; }
-  .sponsor-avail--section { padding: 0 18px 22px; }
+  .sponsor-avail--strip { padding: 10px 16px 12px; }
+  .sponsor-avail-frame { padding: 12px 14px; gap: 8px 12px; }
+  .sponsor-avail--section { padding: 0 16px 20px; }
   .sponsor-avail--section .sponsor-avail-inner {
     grid-template-columns: 1fr;
     gap: 8px;
-    padding: 14px 16px;
+    padding: 14px 14px 14px 16px;
   }
   .sponsor-avail--section .sponsor-avail-cta {
     grid-column: 1;
