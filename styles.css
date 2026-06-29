@@ -901,8 +901,73 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   font-weight: 900;
 }
 .commercial-strip { display: grid; grid-template-columns: 1fr 1fr; }
-.sponsor-card, .briefing-card { min-height: 420px; padding: 48px 42px; }
-.sponsor-card { background: #f1f3f6; }
+.sponsor-card, .briefing-card { min-height: 0; padding: 36px 32px; }
+.sponsor-card {
+  color: #e8eaed;
+  background: #101116;
+  border-right: 1px solid #23252b;
+}
+.sponsor-card-inner {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.sponsor-card-copy { display: flex; flex-direction: column; min-width: 0; }
+.sponsor-card h2 {
+  margin: 8px 0 10px;
+  color: #fff;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.08;
+}
+.sponsor-card p {
+  margin: 0 0 18px;
+  color: #9aa3b0;
+  font-size: .86rem;
+  line-height: 1.5;
+  max-width: 38ch;
+}
+.sponsor-inquire { align-self: flex-start; margin-bottom: 14px; }
+.sponsor-card .sponsor-avail-disc {
+  margin: 0;
+  color: #6f7785;
+  font-size: .62rem;
+}
+.sponsor-placement-board {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border: 2px dashed rgba(255,255,255,.14);
+  background: rgba(255,255,255,.03);
+}
+.sponsor-placement-label {
+  font-size: .54rem;
+  font-weight: 900;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #c4a0a8;
+}
+.sponsor-placement-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.sponsor-placement-grid li {
+  padding: 8px 10px;
+  border: 1px dashed rgba(255,255,255,.12);
+  background: rgba(255,255,255,.02);
+  color: #8d95a3;
+  font-size: .66rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sponsor-placement-grid li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
 .section-brand-mark {
   display: block;
   width: min(330px, 72%);
@@ -948,8 +1013,8 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   color: #ff8a9a;
   border-bottom-color: #ff8a9a;
 }
-.commercial-strip h2 { font-size: clamp(1.6rem, 2.8vw, 2.6rem); }
-.commercial-strip p { max-width: 520px; }
+.commercial-strip .briefing-card h2 { font-size: clamp(1.6rem, 2.8vw, 2.6rem); }
+.commercial-strip .briefing-card p { max-width: 520px; }
 .signup-form { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-top: 28px; max-width: 520px; }
 .signup-form input { 
   min-width: 0; 
@@ -1040,6 +1105,9 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .map-promo-stats { display: grid; grid-template-columns: repeat(3, 1fr); }
   .map-promo-stats div { padding-right: 15px; }
   .commercial-strip { grid-template-columns: 1fr; }
+  .sponsor-card-inner { grid-template-columns: 1fr; gap: 18px; }
+  .sponsor-placement-grid { grid-template-columns: 1fr; }
+  .sponsor-placement-grid li:last-child:nth-child(odd) { grid-column: auto; }
   .sponsor-avail--strip { padding: 10px 16px 12px; }
   .sponsor-avail-frame { padding: 12px 14px; gap: 8px 12px; }
   .sponsor-avail--section { padding: 0 16px 20px; }
