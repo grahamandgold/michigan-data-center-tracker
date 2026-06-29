@@ -108,8 +108,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .masthead-inner {
   position: relative;
   z-index: 2;
-  min-height: 180px;
-  padding: 0 32px 22px;
+  min-height: 140px;
+  padding: 0 32px 18px;
   display: flex;
   align-items: flex-end;
 }
@@ -477,6 +477,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .masthead-inner { min-height: 160px; padding-left: 32px; }
   .wordmark { display: none; }
   .menu-button { display: none; }
+  .primary-nav-inner .menu-button { display: none; }
   .menu-button { left: 18px; }
   .masthead-purpose { display: none; }
   .status-rail { grid-template-columns: 1fr; }
