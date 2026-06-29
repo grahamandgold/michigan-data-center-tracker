@@ -488,13 +488,6 @@
     </nav>
   </header>
 
-  <!-- Mission banner (replaces floating "What this is" box) -->
-  <div class="mission-banner-wrap">
-    <div class="mission-banner" role="note">
-      <strong>What this is</strong>
-      <p>A public-source newsroom tracking where Michigan data centers are proposed, how communities respond, and what happens next. Independent · Aggregated · Nonpartisan.</p>
-    </div>
-  </div>
 
   <!-- At-a-glance utility strip -->
   <div class="utility-strip" id="utility-strip">
@@ -511,10 +504,6 @@
         <span class="utility-stat-num" id="stat-meetings">—</span>
         <span class="utility-stat-label">Upcoming meetings</span>
       </div>
-      <a class="utility-map-link" href="map.html">
-        <span class="utility-map-dot"></span>
-        <span>Live map</span>
-      </a>
       <div class="utility-updated">
         <div class="utility-updated-dot"></div>
         <span class="utility-updated-text" id="utility-timestamp">Updated —</span>
@@ -525,8 +514,7 @@
   <!-- How-we-verify methodology strip -->
   <div class="method-strip">
     <div class="method-strip-inner">
-      <span class="method-strip-label">How we verify</span>
-      <p class="method-strip-text">Listings are based on public records, meeting agendas, official statements, utility filings and linked reporting. Each item is labeled by status and source type. <a href="methodology.html">Read the full methodology →</a></p>
+      <p class="method-strip-text"><strong class="method-strip-label">How we verify</strong> Public records, meeting agendas, official statements and linked reporting. <a href="methodology.html">Full methodology →</a></p>
     </div>
   </div>
 
@@ -710,11 +698,10 @@
 
       // Timestamp
       const now = new Date();
-      const ts = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-               + ' · ' + now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      const ts = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
       const tsEl = document.getElementById('utility-timestamp');
       const footerEl = document.getElementById('footer-updated');
-      if (tsEl) tsEl.textContent = 'Updated ' + ts;
+      if (tsEl) tsEl.textContent = 'As of ' + ts;
       if (footerEl) footerEl.textContent = 'Updated ' + ts;
 
       // Sites tracked — map_points is the most direct count
