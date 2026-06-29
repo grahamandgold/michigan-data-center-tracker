@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="social-card.png">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=20260701k">
+  <link rel="stylesheet" href="styles.css?v=20260701l">
   <style>
     /* ── IMPROVEMENTS v20 ─────────────────────────────────────────────── */
 
@@ -867,12 +867,12 @@
     </div>
   </footer>
 
-  <script src="home-stats.js?v=20260701k"></script>
+  <script src="home-stats.js?v=20260701l"></script>
   <script src="content-data.js?v=202606282355"></script>
   <script src="app.js?v=202606282355"></script>
   <script>
     (function () {
-      const MAP_VERSION = "20260701k";
+      const MAP_VERSION = "20260701l";
 
       function setText(id, value) {
         const el = document.getElementById(id);
@@ -882,7 +882,7 @@
       function initHomeMapEmbed() {
         const iframe = document.getElementById("home-map-embed");
         if (!iframe) return;
-        const src = `map.html?embed=1&v=${MAP_VERSION}`;
+        const src = `map.html?embed=1&mode=day&v=${MAP_VERSION}`;
         const mount = () => { iframe.src = src; };
         if ("IntersectionObserver" in window) {
           const obs = new IntersectionObserver(entries => {

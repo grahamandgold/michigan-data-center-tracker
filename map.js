@@ -14,7 +14,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260701k", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260701l", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -214,7 +214,7 @@
     const CARTO_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>';
     const cartoOpts = { subdomains: "abcd", maxZoom: 20, attribution: CARTO_ATTR };
 
-    const map = L.map("map", { zoomControl: false, scrollWheelZoom: true }).setView([43.4, -85.0], 7);
+    const map = L.map("map", { zoomControl: false, scrollWheelZoom: true }).setView([43.2, -84.6], 8);
     L.control.zoom({ position: "bottomright" }).addTo(map);
 
     const mapLabelPane = map.createPane("mapLabelPane");
@@ -787,13 +787,15 @@
     function statusesForActiveLayers() {
       return [...new Set(points.filter(p => activeLayers.has(p.layer || "projects")).map(p => p.status))].sort();
     }
-    const LOWER_PENINSULA_BOUNDS = L.latLngBounds([41.72, -87.38], [45.68, -82.12]);
+    const LOWER_PENINSULA_BOUNDS = L.latLngBounds([41.70, -87.02], [45.48, -82.38]);
 
     function fitLowerPeninsula({ duration } = {}) {
-      const chromePad = 0;
+      const embed = document.documentElement.classList.contains("map-embed");
       const opts = isMobile()
-        ? { paddingTopLeft: [118, 24 + chromePad], paddingBottomRight: [100, 24], maxZoom: 7 }
-        : { paddingTopLeft: [112, 340 + chromePad], paddingBottomRight: [64, 64], maxZoom: 7 };
+        ? { paddingTopLeft: [108, 20], paddingBottomRight: [88, 20], maxZoom: 8.5 }
+        : embed
+          ? { paddingTopLeft: [88, 20], paddingBottomRight: [52, 20], maxZoom: 8.5 }
+          : { paddingTopLeft: [100, 300], paddingBottomRight: [56, 48], maxZoom: 8.5 };
       if (duration != null) map.flyToBounds(LOWER_PENINSULA_BOUNDS, { ...opts, duration });
       else map.fitBounds(LOWER_PENINSULA_BOUNDS, opts);
     }
@@ -1328,6 +1330,7 @@
       clearSelection();
       clearClusterPeek();
       map.closePopup();
+      setTileMode("day");
       refreshMarkers();
       if (!isMobile()) switchPanelTab("layers");
       else toggleMobilePanel(false);
@@ -1481,6 +1484,10 @@
     };
     applyInitialView();
     requestAnimationFrame(applyInitialView);
+    setTimeout(applyInitialView, 200);
+    if (document.documentElement.classList.contains("map-embed")) {
+      setTimeout(applyInitialView, 700);
+    }
     if (initStory) openStory(initStory);
     else if (initPoint && markerMap.has(initPoint)) selectPoint(initPoint);
   }
