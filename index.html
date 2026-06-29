@@ -20,7 +20,7 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css?v=20260704b">
-  <link rel="stylesheet" href="tracker-site.css?v=20260704f">
+  <link rel="stylesheet" href="tracker-site.css?v=20260704g">
   <style>
     /* ── IMPROVEMENTS v21 — map-first homepage ───────────────────────── */
 
@@ -39,8 +39,9 @@
       align-items: center;
     }
     @media (min-width: 901px) {
-      .site-page .nav-links a { font-size: .68rem; padding: 0 12px; }
-      .site-page .nav-brand { margin-right: 22px; }
+      .site-page .nav-links a { font-size: .66rem; padding: 0 11px; }
+      .site-page .nav-brand { margin-right: 28px; }
+      .site-page .nav-briefing { padding: 8px 14px !important; font-size: .6rem !important; }
     }
 
     /* 1. Hide Tracker Status rail entirely */
@@ -1104,16 +1105,17 @@
     }
     @media (min-width: 1024px) {
       .home-intro-inner {
-        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
         grid-template-areas:
           "copy map"
           "meta map";
-        gap: 22px 36px;
-        padding: 36px 32px 40px;
+        gap: 28px 44px;
+        padding: 40px 36px 44px;
         align-items: start;
       }
       .home-intro-map { align-self: stretch; }
       .home-intro-meta { align-self: end; }
+      .home-intro-copy { padding-top: 8px; }
     }
     .home-intro-head { grid-area: copy; }
     .home-intro-map { grid-area: map; }
@@ -1232,10 +1234,19 @@
     .home-intro-meta .utility-stat:last-child { border-right: 0; }
     .home-intro-meta .utility-edition { display: none; }
     .home-intro-meta .utility-stat-num {
-      font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+      font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+      font-weight: 800;
       color: #ff5c73;
+      letter-spacing: -.02em;
     }
-    .home-intro-meta .utility-stat-label { color: #8b919e; }
+    .home-intro-meta .utility-stat-label {
+      color: #8b919e;
+      font-size: .58rem;
+      letter-spacing: .1em;
+    }
+    .home-intro-meta .utility-stat {
+      padding: 14px 12px;
+    }
     .home-intro-verify a {
       color: var(--red);
       text-decoration: none;
@@ -1860,7 +1871,7 @@
         <span class="nav-brand-logo-wrap">
           <img class="nav-brand-logo" src="brand-logo-light.png" alt="" width="1934" height="604">
         </span>
-        <span class="nav-brand-tag">Independent · Nonpartisan · Public source</span>
+        <span class="nav-brand-tag">Independent · Nonpartisan · Methodology</span>
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
@@ -1981,6 +1992,7 @@
         <div class="home-hub-grid">
           <a class="hub-card" href="stories.html">
             <span class="hub-card-index" aria-hidden="true">01</span>
+            <span class="hub-card-mark" aria-hidden="true"></span>
             <span class="hub-card-kicker">Across Michigan</span>
             <strong>Regional stories &amp; verified headlines</strong>
             <p class="hub-card-desc">Coverage by region — every item linked to the original reporting or official record.</p>
@@ -1988,6 +2000,7 @@
           </a>
           <a class="hub-card" href="meetings.html">
             <span class="hub-card-index" aria-hidden="true">02</span>
+            <span class="hub-card-mark" aria-hidden="true"></span>
             <span class="hub-card-kicker">Public calendar</span>
             <strong>Meetings, hearings &amp; agendas</strong>
             <p class="hub-card-desc">Planning commissions and state hearings with agendas and watch links when officials publish them.</p>
@@ -1995,6 +2008,7 @@
           </a>
           <a class="hub-card" href="learn.html">
             <span class="hub-card-index" aria-hidden="true">03</span>
+            <span class="hub-card-mark" aria-hidden="true"></span>
             <span class="hub-card-kicker">Learning library</span>
             <strong>Power, water, incentives &amp; records</strong>
             <p class="hub-card-desc">Plain-language context on siting stakes, with links to primary sources and public records.</p>
