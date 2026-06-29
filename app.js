@@ -90,14 +90,22 @@
     }).join("")
     : emptyState("No upcoming meeting is verified in the current feed", "When an agenda or official notice is available, it will appear here with a direct source link.");
 
+  const platformClass = t => ({ social: "tag-social", official: "tag-official", news: "tag-news" }[t] || "tag-social");
   const renderPublicSources = posts => {
-    $("#public-grid").innerHTML = posts.length
-    ? posts.slice(0, 12).map(post => `<a class="public-card" href="${safeUrl(post.post_url)}" target="_blank" rel="noopener">
-        <div class="public-source"><strong>${escapeHtml(post.account_name)}</strong><span>${escapeHtml(post.platform)}</span></div>
+    if (!posts.length) {
+      $("#public-grid").innerHTML = emptyState("No verified public posts loaded", "Exact post links will appear here when verified.");
+      return;
+    }
+    $("#public-grid").innerHTML = `
+      <p class="public-disclaimer">Summaries are written by the tracker based on public posts and statements. Not verbatim quotes.</p>
+      ${posts.slice(0, 6).map(post => `<a class="public-card" href="${safeUrl(post.post_url)}" target="_blank" rel="noopener">
+        <div class="public-source">
+          <strong>${escapeHtml(post.account_name)}</strong>
+          <span class="public-tag ${platformClass(post.platform_type)}">${escapeHtml(post.platform)}</span>
+        </div>
         <p>${escapeHtml(post.text)}</p>
-        <footer><span>${escapeHtml(post.context_note)}</span>${external}</footer>
-      </a>`).join("")
-    : emptyState("No verified public posts loaded", "Account homepages and reconstructed quotes are not used. Exact post links will appear here when verified.");
+        <footer><time>${escapeHtml(post.posted_at)}</time>${external}</footer>
+      </a>`).join("")}`;
     labelExternalLinks();
   };
   renderPublicSources(data.public_sources || []);
