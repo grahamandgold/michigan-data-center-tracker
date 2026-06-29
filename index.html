@@ -20,7 +20,7 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css?v=20260704b">
-  <link rel="stylesheet" href="tracker-site.css?v=20260704g">
+  <link rel="stylesheet" href="tracker-site.css?v=20260704h">
   <style>
     /* ── IMPROVEMENTS v21 — map-first homepage ───────────────────────── */
 
@@ -579,8 +579,18 @@
 
     /* 11. What can we help explain? */
     .explain-ask {
-      background: linear-gradient(180deg, #f6f7f9 0%, #fff 100%);
-      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, #eceef2 0%, #f8f9fb 48px, #fff 100%);
+      border-top: 1px solid rgba(11, 11, 13, .08);
+      position: relative;
+    }
+    .explain-ask::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, rgba(207, 16, 45, .25) 50%, transparent 100%);
     }
     .explain-ask-inner {
       max-width: 1180px;
@@ -1871,7 +1881,11 @@
         <span class="nav-brand-logo-wrap">
           <img class="nav-brand-logo" src="brand-logo-light.png" alt="" width="1934" height="604">
         </span>
-        <span class="nav-brand-tag">Independent · Nonpartisan · Methodology</span>
+        <span class="nav-brand-tag" aria-label="Independent, nonpartisan, with documented methodology">
+          <span class="nav-brand-tag-item">Independent</span>
+          <span class="nav-brand-tag-item">Nonpartisan</span>
+          <a class="nav-brand-tag-item nav-brand-tag-link" href="methodology.html">Methodology</a>
+        </span>
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
