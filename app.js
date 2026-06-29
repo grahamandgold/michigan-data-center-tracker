@@ -524,8 +524,8 @@
 
   const initStickyCta = () => {
     const cta = $(".sticky-cta");
-    const liveMap = $("#live-map");
-    if (!cta || !liveMap) return;
+    const overlapTarget = $(".home-map-preview") || $("#live-map");
+    if (!cta || !overlapTarget) return;
 
     const mobile = window.matchMedia("(max-width: 620px)");
     let observer = null;
@@ -538,11 +538,12 @@
       cta.classList.remove("is-hidden");
       if (!mobile.matches) return;
 
+      /* Hide only when the map card overlaps the bottom bar — not the whole hero */
       observer = new IntersectionObserver(([entry]) => {
-        const show = !entry.isIntersecting || entry.intersectionRatio < 0.28;
-        cta.classList.toggle("is-hidden", !show);
-      }, { threshold: [0, 0.15, 0.28, 0.5] });
-      observer.observe(liveMap);
+        const mapCardVisible = entry.isIntersecting && entry.intersectionRatio > 0.42;
+        cta.classList.toggle("is-hidden", mapCardVisible);
+      }, { threshold: [0, 0.25, 0.42, 0.6] });
+      observer.observe(overlapTarget);
     };
 
     bind();

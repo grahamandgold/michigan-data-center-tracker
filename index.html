@@ -654,6 +654,10 @@
     }
     .explain-ask-message.is-error { color: #cf102d; }
 
+    /* Mobile nav alerts + intro signup (desktop hidden) */
+    .nav-alerts-mobile,
+    .home-intro-alerts { display: none; }
+
     /* ── DESKTOP: restore full hero height, shift video right to show lighthouse ── */
     @media (min-width: 621px) {
       .masthead-video { object-position: 60% 42% !important; }
@@ -757,11 +761,12 @@
       .footer-top nav { gap: 14px !important; font-size: .66rem !important; }
 
       /* Utility strip — compact grid on mobile */
+      .utility-strip { border-top-width: 1px; }
       .utility-strip-inner {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         overflow-x: visible;
-        padding: 10px 12px 8px;
+        padding: 8px 12px 6px;
         gap: 0;
       }
       .utility-stat {
@@ -781,14 +786,27 @@
       }
       .utility-edition-date { font-size: .52rem; letter-spacing: .08em; }
       .utility-stat-num--compact { font-size: .82rem; }
+      /* Fold context into utility strip — one dark band, not two */
+      .context-strip {
+        background: #111214;
+        border-bottom: 1px solid #1e2128;
+      }
       .context-strip-inner {
         grid-template-columns: 1fr;
-        gap: 4px;
-        padding: 8px 16px 9px;
+        gap: 0;
+        padding: 0 16px 9px;
+        margin-top: -2px;
       }
-      .context-strip-label { padding-top: 0; }
-      .context-strip-fact { font-size: .6rem; line-height: 1.42; }
-      .context-strip-fact cite { display: block; margin: 4px 0 0; }
+      .context-strip-label { display: none; }
+      .context-strip-fact {
+        font-size: .58rem;
+        line-height: 1.38;
+        color: #8b909c;
+      }
+      .context-strip-fact cite { display: inline; margin: 0 0 0 .3em; }
+
+      /* Homepage sponsor strip — too noisy above the map on small screens */
+      .sponsor-avail--strip { display: none; }
 
       /* Intro — copy then compact map card */
       .home-intro {
@@ -817,11 +835,26 @@
       }
       .home-intro-lead { display: none; }
       .home-intro-verify {
-        margin-top: 8px;
+        margin-top: 6px;
         font-size: .56rem;
         line-height: 1.45;
         color: rgba(255, 255, 255, .62) !important;
       }
+      .home-intro-alerts {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 10px;
+        padding: 8px 14px;
+        background: #cf102d;
+        color: #fff;
+        font-size: .58rem;
+        font-weight: 900;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .home-intro-alerts:hover { background: #a80d24; }
       .home-intro-map { max-width: none; }
       .home-map-shell {
         border-color: rgba(255,255,255,.1);
@@ -886,6 +919,23 @@
 
 
       .sticky-cta { font-size: .64rem; padding-top: 11px; padding-bottom: calc(11px + env(safe-area-inset-bottom, 0px)); }
+
+      .nav-alerts-mobile {
+        display: inline-flex;
+        align-items: center;
+        margin-left: auto;
+        padding: 7px 12px;
+        background: #cf102d;
+        color: #fff;
+        font-size: .56rem;
+        font-weight: 900;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        flex-shrink: 0;
+        z-index: 3;
+      }
+      .nav-alerts-mobile:hover { background: #a80d24; }
 
       .regions-section { padding-top: 28px !important; }
       body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
@@ -1542,6 +1592,7 @@
         <a href="#sponsorship">Sponsor</a>
       </div>
       <a class="live-map-link" href="map.html"><span class="live-dot"></span>Live map</a>
+      <a class="nav-alerts-mobile" href="#briefing">Alerts</a>
       <a class="button button-red nav-briefing" href="#briefing">Sign up now</a>
     </div>
   </nav>
@@ -1603,6 +1654,7 @@
         <h2 id="home-map-heading">Michigan's build-out, mapped in real time.</h2>
         <p class="home-intro-lead">Public-source sites and moratoria across the lower peninsula — updated as filings and meeting records publish.</p>
         <p class="home-intro-verify">Independent · Aggregated · Nonpartisan · <a href="methodology.html">Methodology →</a></p>
+        <a class="home-intro-alerts" href="#briefing">Stay alerted — sign up free</a>
       </div>
       <div class="home-intro-map">
         <div class="home-map-shell">
@@ -1914,7 +1966,7 @@
   <script src="home-stats.js?v=20260703h"></script>
   <script src="home-map-preview.js?v=20260703i"></script>
   <script src="content-data.js?v=20260701x"></script>
-  <script src="app.js?v=20260703j"></script>
+  <script src="app.js?v=20260703k"></script>
   <script>
     (function () {
       const MAP_VERSION = "20260703h";
