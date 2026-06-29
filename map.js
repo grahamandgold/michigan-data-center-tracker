@@ -10,7 +10,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260629l", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260629m", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -218,7 +218,7 @@
 
     const boundaryGroups = {}, boundaryLabelGroups = {}, boundaryCache = {}, boundaryLoading = {};
     const overlayGroups = {}, overlayCache = {}, overlayLoading = {};
-    const GEO_VERSION = "20260629i";
+    const GEO_VERSION = "20260629m";
 
     function outerRing(geom) {
       if (!geom) return [];
@@ -245,8 +245,8 @@
     function boundaryStyle(meta) {
       return () => ({
         color: meta.color,
-        weight: meta.id === "townships" ? 0.9 : 2.2,
-        opacity: meta.id === "townships" ? 0.42 : 0.78,
+        weight: meta.id === "townships" ? 0.9 : meta.id === "counties" ? 1.6 : 2.2,
+        opacity: meta.id === "townships" ? 0.42 : meta.id === "counties" ? 0.72 : 0.78,
         fillColor: meta.color,
         fillOpacity: meta.id === "congressional" ? 0.07 : 0,
         dashArray: meta.id === "townships" ? "3 4" : null
@@ -270,8 +270,13 @@
           interactive: true,
           onEachFeature: (feature, layer) => {
             const props = feature.properties || {};
-            if (meta.id === "congressional") {
+            if (meta.id === "congressional" || meta.id === "counties") {
               layer.bindPopup(makeBoundaryPopup(props, meta), { maxWidth: 280, className: "tracker-popup" });
+              layer.bindTooltip(props.name || props.label || meta.label, {
+                className: "boundary-tip",
+                sticky: true,
+                opacity: 0.95
+              });
             } else if (meta.id === "townships") {
               layer.bindTooltip(props.label || props.name || "Township", {
                 className: "boundary-tip",
@@ -653,7 +658,7 @@
     if (boundariesEl && boundaryLayersMeta.length) {
       boundariesEl.innerHTML = boundaryLayersMeta.map(b => {
         const on = activeBoundaries.has(b.id);
-        const count = b.id === "townships" ? "1,240" : b.id === "congressional" ? "13" : "";
+        const count = b.id === "townships" ? "1,240" : b.id === "congressional" ? "13" : b.id === "counties" ? "83" : "";
         return layerRow({ id: b.id, label: b.label, desc: b.description, color: b.color, count, on, line: true });
       }).join("");
       bindLayerList(boundariesEl, (id, on) => {
