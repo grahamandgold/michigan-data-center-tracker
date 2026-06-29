@@ -113,17 +113,7 @@ window.TRACKER_DATA = {
       watch_url: "https://www.youtube.com/channel/UCDAiD7kmuJQaB27m_PXUenA",
       source_url: "https://www.wixomgov.org/departments/construction-development-services-building/data-center-moratorium-ordinance"
     },
-    {
-      title: "Big Rapids Township Regular Board Meeting",
-      body: "Regular board meeting. Big Rapids Township enacted a one-year data center moratorium in early 2026. Monitor for ordinance development or developer inquiries.",
-      government_body: "Big Rapids Township Board",
-      county: "Mecosta",
-      start: "2026-07-07T18:00:00-04:00",
-      location: "Big Rapids Township Hall · 14212 Northland Dr, Big Rapids MI 49307",
-      agenda_url: "",
-      watch_url: "",
-      source_url: "https://bigrapidstownship.com/"
-    },
+
     {
       title: "Lyon Township Regular Board Meeting",
       body: "Regular board meeting. Lyon Township is in a high-growth Oakland County corridor. Stream link usually posted to their YouTube channel before the meeting.",
@@ -157,17 +147,7 @@ window.TRACKER_DATA = {
       watch_url: "",
       source_url: "https://salinetownship.org/meeting-agendas.php"
     },
-    {
-      title: "Stronach Township Regular Board Meeting",
-      body: "Regular board meeting. Stronach Township approved a six-month data center moratorium through December 2026. Monitor for ordinance drafting progress.",
-      government_body: "Stronach Township Board",
-      county: "Manistee",
-      start: "2026-07-08T18:00:00-04:00",
-      location: "Stronach Township Hall · 2506 Stronach Rd, Manistee MI 49660",
-      agenda_url: "",
-      watch_url: "",
-      source_url: "https://www.manisteecounty.net/"
-    },
+
     {
       title: "Lenox Township Regular Board Meeting",
       body: "Regular board meeting. Lenox Township enacted an early moratorium on data centers. Check their Agenda Center closer to the date for posted items.",
