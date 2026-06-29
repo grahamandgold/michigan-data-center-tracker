@@ -108,13 +108,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .masthead-inner {
   position: relative;
   z-index: 2;
-  min-height: 220px;
-  padding: 20px 32px 24px 80px;
+  min-height: 200px;
+  padding: 20px 32px 24px 32px;
 }
 .menu-button {
-  position: absolute;
-  left: 28px;
-  top: 34px;
+  position: relative;
+  left: auto;
+  top: auto;
   width: 44px;
   height: 44px;
   display: grid;
@@ -151,25 +151,68 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .masthead-purpose p { margin: 7px 0 0; font-size: .92rem; font-weight: 650; }
 .primary-nav {
-  position: relative;
-  z-index: 3;
-  min-height: 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0b0b0d;
+  border-bottom: 2px solid var(--red);
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.primary-nav-inner {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  gap: 0;
+}
+.nav-wordmark {
+  display: block;
+  width: 160px;
+  flex-shrink: 0;
+  margin-right: 24px;
+}
+.nav-wordmark img { display: block; width: 100%; height: auto; }
+.nav-links {
   display: flex;
   align-items: stretch;
-  padding-left: 28px;
-  background: rgba(10,10,12,.97);
-  border-bottom: 2px solid var(--red);
+  flex: 1;
+  gap: 0;
 }
-.primary-nav a {
+.nav-links a {
   display: flex;
   align-items: center;
   padding: 0 14px;
   font-size: .7rem;
   font-weight: 800;
+  color: #e8e9ec;
+  text-decoration: none;
+  white-space: nowrap;
 }
-.primary-nav a:hover, .primary-nav a:focus-visible { background: #222228; }
-.primary-nav .live-map-link { margin-left: auto; background: var(--red); text-transform: uppercase; letter-spacing: .1em; }
-.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 5px rgba(255,255,255,.16); }
+.nav-links a:hover, .nav-links a:focus-visible { color: #fff; background: #1a1b1f; }
+.primary-nav .live-map-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  margin-left: auto;
+  font-size: .66rem;
+  font-weight: 900;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: #e8e9ec;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.primary-nav .live-map-link:hover { color: #fff; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(207,16,45,.22); flex-shrink: 0; }
+.nav-briefing {
+  margin-left: 12px;
+  padding: 7px 14px !important;
+  font-size: .62rem !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 
 main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--paper); }
 .status-rail {
@@ -418,7 +461,9 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .drawer-briefing { margin-top: 28px; }
 
 @media (max-width: 900px) {
-  .masthead-inner { min-height: 200px; padding-left: 65px; }
+  .masthead-inner { min-height: 180px; padding-left: 32px; }
+  .wordmark { display: none; }
+  .menu-button { display: none; }
   .menu-button { left: 18px; }
   .masthead-purpose { display: none; }
   .status-rail { grid-template-columns: 1fr; }
@@ -443,7 +488,16 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .menu-button span { width: 25px; }
   .wordmark { width: min(315px, calc(100vw - 74px)); }
   .masthead-briefing { top: 15px; right: 12px; bottom: auto; min-height: 40px; padding: 8px 12px; font-size: .59rem; }
-  .primary-nav { display: none; }
+  /* Mobile: primary-nav becomes just a hamburger bar */
+  .primary-nav { position: sticky; top: 0; }
+  .nav-wordmark { display: none; }
+  .nav-links { display: none; }
+  .nav-briefing { display: none; }
+  .primary-nav .live-map-link { display: none; }
+  .primary-nav-inner { height: 44px; padding: 0 12px; }
+  /* Show wordmark inside hero on mobile */
+  .masthead-inner { display: flex !important; align-items: flex-end; padding: 12px 16px 18px !important; min-height: 180px !important; }
+  .wordmark { display: block !important; width: min(260px, calc(100vw - 80px)) !important; }
   .status-grid { grid-template-columns: 1fr 1fr; }
   .status-card { padding: 16px; }
   .status-card strong { font-size: 1.8rem; }
