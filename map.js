@@ -10,7 +10,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260630c", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260630d", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -858,7 +858,9 @@
       const statusPool = statusesForActiveLayers();
       if (onStatuses.length && onStatuses.length < statusPool.length) p.set("f", onStatuses.join(","));
       const onLayers = [...activeLayers];
-      if (onLayers.length && onLayers.length < layersMeta.length) p.set("layers", onLayers.join(","));
+      const defaultLayerSet = new Set(layersMeta.filter(l => l.default_on !== false).map(l => l.id));
+      const layersAreDefault = onLayers.length === defaultLayerSet.size && onLayers.every(id => defaultLayerSet.has(id));
+      if (onLayers.length && onLayers.length < layersMeta.length && !layersAreDefault) p.set("layers", onLayers.join(","));
       const onBoundaries = [...activeBoundaries];
       if (onBoundaries.length) p.set("boundaries", onBoundaries.join(","));
       const onOverlays = [...activeOverlays];
@@ -1122,7 +1124,12 @@
     document.addEventListener("keydown", e => {
       if (e.target.matches("input, textarea, select")) return;
       if (e.key === "r" || e.key === "R") { e.preventDefault(); resetMapView(); }
-      if (e.key === "/") { e.preventDefault(); $("#map-search")?.focus(); }
+      if (e.key === "/") {
+        e.preventDefault();
+        if (isMobile()) openMobilePanel("list");
+        else switchPanelTab("list");
+        $("#map-search")?.focus();
+      }
     });
 
     $$(".region-chip").forEach(chip => {
