@@ -185,16 +185,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .nav-wordmark {
   display: none;
-  width: 140px;
-  height: 34px;
+  width: 168px;
   flex-shrink: 0;
   margin-right: 16px;
-  overflow: hidden;
+  line-height: 1;
 }
 .nav-wordmark img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 40px;
   object-fit: contain;
   object-position: left center;
 }
@@ -970,7 +970,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
     justify-self: start;
   }
   /* Nav: fixed bar follows scroll on mobile (sticky breaks with overflow-x on html) */
-  body { padding-top: calc(52px + env(safe-area-inset-top, 0px)); }
+  body { padding-top: calc(56px + env(safe-area-inset-top, 0px)); }
   .primary-nav {
     position: fixed;
     top: env(safe-area-inset-top, 0px);
@@ -980,15 +980,15 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
     background: #0b0b0d;
     box-shadow: 0 2px 12px rgba(0,0,0,.28);
   }
-  .primary-nav-inner { height: 52px; padding: 0 12px; display: flex; align-items: center; gap: 8px; }
+  .primary-nav-inner { height: 56px; padding: 0 12px; display: flex; align-items: center; gap: 8px; }
   .menu-button { display: grid; width: 48px; height: 48px; gap: 5px; }
   .nav-wordmark {
     display: block !important;
-    width: min(188px, 52vw);
-    height: 36px;
-    margin-right: 6px;
+    width: min(210px, 58vw);
+    margin-right: 4px;
     flex-shrink: 0;
   }
+  .nav-wordmark img { max-height: 44px; }
   .nav-site-name { display: none; }
   .nav-links { display: none; }
   .nav-briefing { display: none; }
