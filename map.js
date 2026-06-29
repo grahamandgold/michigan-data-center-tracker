@@ -877,7 +877,7 @@
       const presentingCard = presenting
         ? sponsorPartnerCard(presenting, "presenting", "Presenting partner")
         : sponsorPartnerCard(
-          { status: "available", name: "Presenting partner", description: "Featured logo · map visibility · newsletter mention" },
+          { status: "available", name: "Presenting partner", description: "Featured logo · map visibility · email alert mention" },
           "presenting",
           "Presenting partner"
         );
