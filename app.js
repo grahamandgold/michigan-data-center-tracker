@@ -72,19 +72,21 @@
   }
 
   const meetings = data.meetings || [];
+  const meetingNote = `<p class="meeting-section-note">Agendas and livestreams are added as local governments publish them. Not all meetings have data center items on the agenda.</p>`;
   $("#meeting-list").innerHTML = meetings.length
-    ? meetings.map(item => {
+    ? meetingNote + meetings.map(item => {
       const dt = new Date(item.start);
       const day = new Intl.DateTimeFormat("en-US", { weekday: "short", timeZone: "America/Detroit" }).format(dt);
       const date = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "America/Detroit" }).format(dt);
       const time = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Detroit" }).format(dt);
+      const hasLinks = item.agenda_url || item.watch_url;
       return `<article class="meeting-card">
         <div class="meeting-date"><strong>${day}</strong><span>${date}</span><em>${time}</em></div>
         <div class="meeting-copy"><span>${escapeHtml(item.county)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.location || "Location listed in source")}</p></div>
         <div class="meeting-actions">
           ${item.agenda_url ? `<a href="${safeUrl(item.agenda_url)}" target="_blank" rel="noopener">Agenda ${external}</a>` : ""}
           ${item.watch_url ? `<a class="watch" href="${safeUrl(item.watch_url)}" target="_blank" rel="noopener">Watch ${external}</a>` : ""}
-          ${!item.agenda_url && !item.watch_url && item.source_url ? `<a href="${safeUrl(item.source_url)}" target="_blank" rel="noopener">Source ${external}</a>` : ""}
+          ${!hasLinks ? `<span class="agenda-pending">Agenda pending</span>` : ""}
         </div>
       </article>`;
     }).join("")
