@@ -193,8 +193,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   display: none;
   flex-shrink: 0;
   margin-right: 16px;
-  width: min(168px, 46vw);
-  height: 44px;
+  width: min(196px, calc(100vw - 108px));
+  height: 50px;
   overflow: hidden;
   line-height: 0;
   text-decoration: none;
@@ -203,7 +203,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .nav-wordmark img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 50px;
+  object-fit: cover;
+  object-position: top center;
 }
 .nav-links {
   display: flex;
@@ -1358,7 +1360,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
     justify-self: start;
   }
   /* Nav: fixed bar follows scroll on mobile (sticky breaks with overflow-x on html) */
-  body { padding-top: calc(56px + env(safe-area-inset-top, 0px)); }
+  body { padding-top: calc(58px + env(safe-area-inset-top, 0px)); }
   .primary-nav {
     position: fixed;
     top: env(safe-area-inset-top, 0px);
@@ -1368,15 +1370,15 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
     background: #0b0b0d;
     box-shadow: 0 2px 12px rgba(0,0,0,.28);
   }
-  .primary-nav-inner { height: 56px; padding: 0 12px; display: flex; align-items: center; gap: 8px; }
+  .primary-nav-inner { height: 58px; padding: 0 12px; display: flex; align-items: center; gap: 8px; }
   .menu-button { display: grid; width: 48px; height: 48px; gap: 5px; }
   .nav-wordmark {
     display: block !important;
     margin-right: 0;
     flex: 1;
     min-width: 0;
-    width: min(168px, 46vw);
-    height: 44px;
+    width: min(196px, calc(100vw - 132px));
+    height: 50px;
   }
   .nav-site-name { display: none; }
   .nav-links { display: none; }
@@ -1400,8 +1402,8 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
     transform: translateX(-50%);
     flex: 0;
     margin: 0;
-    width: min(176px, 54vw);
-    height: 44px;
+    width: min(204px, calc(100vw - 108px));
+    height: 50px;
     z-index: 1;
     pointer-events: auto;
   }
