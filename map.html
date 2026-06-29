@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080a10">
-  <title>Michigan Data Center Tracker | Internal Intelligence Platform</title>
-  <meta name="description" content="Internal market intelligence map tracking Michigan data center projects, infrastructure capacity, local moratoria, and municipal actions.">
+  <title>Michigan Data Center Tracker | Interactive Map</title>
+  <meta name="description" content="Interactive map tracking Michigan data center projects, infrastructure capacity, local moratoria, and municipal actions.">
   <link rel="canonical" href="https://midatacentertracker.github.io/mi-data-center-tracker/map.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Michigan Data Center Map - Internal Tracker">
-  <meta property="og:description" content="Internal market intelligence map tracking Michigan data center projects, infrastructure capacity, local moratoria, and municipal actions.">
+  <meta property="og:title" content="Michigan Data Center Tracker — Interactive Map">
+  <meta property="og:description" content="Interactive map tracking Michigan data center projects, infrastructure capacity, local moratoria, and municipal actions.">
   <meta property="og:url" content="https://midatacentertracker.github.io/mi-data-center-tracker/map.html">
   <meta property="og:image" content="https://midatacentertracker.github.io/mi-data-center-tracker/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -104,12 +104,6 @@
       display: flex; align-items: center; gap: 12px; text-decoration: none;
     }
     .map-topbar-brand img { height: 36px; width: auto; }
-    .map-topbar-title {
-      font-family: var(--mono);
-      font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
-      text-transform: uppercase; color: var(--ink-dim);
-      border-left: 1px solid var(--line-strong); padding-left: 12px;
-    }
     .map-topbar-nav { display: flex; align-items: center; gap: 16px; }
     .map-topbar-nav a {
       font-family: var(--mono); font-size: 9px; font-weight: 600;
@@ -199,7 +193,7 @@
     /* ── INTELLIGENCE SIDEBAR PANEL ── */
     .map-sidebar {
       position: absolute; z-index: 550;
-      top: 124px; left: 16px; /* Shifted down to prevent overlapping the status HUD */
+      top: 124px; left: 16px;
       width: 300px;
       max-height: calc(100vh - 142px);
       background: var(--panel);
@@ -246,7 +240,12 @@
       transition: background .12s;
     }
     .map-filters label:hover { background: rgba(255,255,255,0.04); }
-    .map-filters input[type="checkbox"] { display: none; }
+    /* Visually hidden but accessible to keyboard/screen readers */
+    .map-filters input[type="checkbox"] {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
     .filter-dot {
       width: 9px; height: 9px; border-radius: 50%;
       background: var(--marker); flex-shrink: 0;
@@ -468,12 +467,6 @@
       padding-top: 10px; margin-top: 4px;
       border-top: 1px solid rgba(255,255,255,0.05);
     }
-    .pop-meeting-badge {
-      display: inline-block; margin-top: 6px; padding: 4px 8px;
-      background: rgba(207,16,45,0.1); border: 1px solid rgba(207,16,45,0.25);
-      border-radius: 4px; font-family: var(--mono); font-size: 9px;
-      color: var(--ink); font-weight: 500;
-    }
 
     /* Operational Action Controls */
     .pop-footer {
@@ -545,7 +538,7 @@
     </a>
     <nav class="map-topbar-nav">
       <a href="methodology.html">Methodology</a>
-      <a href="index.html" class="nav-home">← Homepage</a>
+      <a href="index.html" class="nav-home">&larr; Homepage</a>
       <a href="index.html#briefing" class="nav-subscribe">Subscribe</a>
     </nav>
   </header>
@@ -558,8 +551,8 @@
   <section class="hud-status" aria-label="System status">
     <span class="hud-live-dot" aria-hidden="true"></span>
     <span class="hud-live-txt">Live</span>
-    <span class="hud-live-sub" id="hud-record-count">Loading…</span>
-    <span class="hud-updated" id="map-updated">—</span>
+    <span class="hud-live-sub" id="hud-record-count">Loading&hellip;</span>
+    <span class="hud-updated" id="map-updated">&mdash;</span>
     <div class="tile-toggle" id="tile-toggle" role="group" aria-label="Map style">
       <button class="tile-btn active" data-mode="dark" type="button">Dark</button>
       <button class="tile-btn" data-mode="day" type="button">Daylight</button>
@@ -578,7 +571,7 @@
     </header>
     
     <div class="sidebar-search">
-      <input type="search" id="map-search" placeholder="Search name, city, developer…" autocomplete="off" spellcheck="false" aria-label="Search records">
+      <input type="search" id="map-search" placeholder="Search name, city, developer&hellip;" autocomplete="off" spellcheck="false" aria-label="Search records">
       <div id="search-results" class="search-results" hidden></div>
     </div>
     
@@ -587,14 +580,14 @@
   </aside>
 
   <button class="sidebar-toggle" id="sidebar-toggle" aria-controls="map-sidebar" aria-expanded="false" type="button">
-    Filter &amp; Directory ↑
+    Filter &amp; Directory &uarr;
   </button>
 
   <div class="hud-legend" id="hud-legend" aria-hidden="true"></div>
 
   <main id="map" aria-label="Interactive map of Michigan data center records"></main>
 
-  <div class="scroll-hint" aria-hidden="true">Scroll to zoom · Click markers to explore</div>
+  <div class="scroll-hint" aria-hidden="true">Scroll to zoom &middot; Click markers to explore</div>
 
   <script>
     (function() {
@@ -605,11 +598,18 @@
       lfScript.onload = function() {
         // Step 2: Load content-data.js (sets window.TRACKER_DATA)
         var ds = document.createElement("script");
-        ds.src = "content-data.js?v=20260628c";
+        ds.src = "content-data.js?v=20260629a";
         ds.onload = function() {
           // Step 3: Load map.js after data is ready
           var ms = document.createElement("script");
-          ms.src = "map.js?v=20260628c";
+          ms.src = "map.js?v=20260629a";
+          document.body.appendChild(ms);
+        };
+        ds.onerror = function() {
+          // Data failed to load — init with empty data so map still renders
+          window.TRACKER_DATA = { map_points: [], updated_at: null };
+          var ms = document.createElement("script");
+          ms.src = "map.js?v=20260629a";
           document.body.appendChild(ms);
         };
         document.body.appendChild(ds);
