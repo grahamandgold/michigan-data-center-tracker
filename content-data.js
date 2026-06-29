@@ -103,19 +103,19 @@ window.TRACKER_DATA = {
   ],
   meetings: [
     {
-      title: "Wixom Planning Commission — Special Meeting & Public Hearing",
-      body: "Public hearing on proposed zoning ordinance amendments to define data centers and set performance standards in IRO, OS-1, M-1, and M-2 zoning districts. One of the first communities to move from moratorium to permanent rules.",
+      title: "Wixom Planning Commission — Public Hearing on Data Center Zoning Ordinance",
+      body: "Public hearing on proposed zoning amendments to define data centers and set performance standards for water usage, noise, and other impacts across IRO, OS-1, M-1, and M-2 districts. One of the first Michigan communities to move from moratorium to permanent rules.",
       government_body: "Wixom Planning Commission",
       county: "Oakland",
       start: "2026-06-29T19:00:00-04:00",
       location: "Wixom Council Chambers · 49045 Pontiac Trail, Wixom MI 48393",
       agenda_url: "https://www.wixomgov.org/home/showpublisheddocument/12830",
       watch_url: "https://www.youtube.com/channel/UCDAiD7kmuJQaB27m_PXUenA",
-      source_url: "https://www.wixomgov.org/home/showpublisheddocument/12830"
+      source_url: "https://www.wixomgov.org/departments/construction-development-services-building/data-center-moratorium-ordinance"
     },
     {
       title: "Saline Township Regular Board Meeting",
-      body: "Regular township board business. Monitor for updates on the Related Digital / 'The Barn' data center project — construction traffic, permits, advisory committee items, or IFEC application. Saline remains the highest-profile active project in Michigan. Streaming not confirmed; check township website day-of.",
+      body: "Regular township board meeting. Monitor for updates on the Related Digital / 'The Barn' project — the highest-profile active data center development in Michigan. Construction traffic, permits, advisory committee reports, and IFEC applications may surface here. Streaming unconfirmed; check township website day-of.",
       government_body: "Saline Township Board",
       county: "Washtenaw",
       start: "2026-07-08T19:00:00-04:00",
@@ -125,15 +125,26 @@ window.TRACKER_DATA = {
       source_url: "https://salinetownship.org/meeting-agendas-archive.php"
     },
     {
-      title: "Michigan data center policy rally",
-      body: "Public rally announced by state Sen. Jim Runestad with a bipartisan list of speakers.",
-      government_body: "Public event — not a government hearing",
-      county: "Ingham",
-      start: "2026-06-23T17:30:00-04:00",
-      location: "Michigan State Capitol, Lansing",
+      title: "Pittsfield Charter Township Planning Commission",
+      body: "Regular planning commission meeting. Pittsfield has been working on a data center zoning ordinance; check the posted agenda for data center-related items as the meeting date approaches.",
+      government_body: "Pittsfield Charter Township Planning Commission",
+      county: "Washtenaw",
+      start: "2026-07-07T19:00:00-04:00",
+      location: "Pittsfield Township Hall · 6201 W. Michigan Ave, Ann Arbor MI 48108",
+      agenda_url: "https://pittsfield-mi.gov/bc/planning-commission/",
+      watch_url: "",
+      source_url: "https://pittsfield-mi.gov/bc/planning-commission/"
+    },
+    {
+      title: "Statewide monitoring — regular board and commission meetings",
+      body: "Many Michigan communities with active moratoriums or ordinance work hold regular board and planning commission meetings in early July. The tracker is monitoring Oakland, Washtenaw, Monroe, and Livingston counties for data center-specific agenda items. Confirmed hearings will be added as they are scheduled.",
+      government_body: "Multiple jurisdictions",
+      county: "Statewide",
+      start: "2026-07-06T18:00:00-04:00",
+      location: "Various locations — see individual municipal websites",
       agenda_url: "",
       watch_url: "",
-      source_url: "https://x.com/SenJRunestad/status/2069178837577953448"
+      source_url: "https://midatacentertracker.github.io/mi-data-center-tracker/"
     }
   ],
   public_sources: [
