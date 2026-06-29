@@ -73,12 +73,13 @@
     }));
   }
 
-  function renderDot(point, layers) {
+  function renderDot(point, layers, index = 0) {
     if (!layers.has(point.layer || "projects")) return "";
     const [x, y] = project(point.latitude, point.longitude);
     const color = LAYER_COLORS[point.layer] || LAYER_COLORS.projects;
     const r = point.layer === "moratoria" ? 5 : 4;
-    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${color}" stroke="#fff" stroke-width="1.4" opacity=".92"/>`;
+    const delay = ((index * 0.38) % 2.4).toFixed(2);
+    return `<circle class="home-map-preview-pulse" style="animation-delay:${delay}s" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${color}" stroke="#fff" stroke-width="1.4" opacity=".92"/>`;
   }
 
   function renderSlideSvg(slide, data) {
@@ -87,7 +88,7 @@
     const points = (data.map_points || []).filter(
       p => Number.isFinite(p.latitude) && Number.isFinite(p.longitude)
     );
-    const pointMarkup = points.map(p => renderDot(p, layers)).join("");
+    const pointMarkup = points.map((p, i) => renderDot(p, layers, i)).join("");
     const vb = `${view.x} ${view.y} ${view.w} ${view.h}`;
     const countyLayer = countyMarkup
       ? `<g fill="${COUNTY_FILL}" stroke="${COUNTY_STROKE}" stroke-width="1" stroke-linejoin="round">${countyMarkup}</g>`
