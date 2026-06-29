@@ -195,66 +195,50 @@ window.TRACKER_DATA = {
     {
       account_name: "Sen. Jim Runestad",
       platform: "Facebook",
+      platform_type: "social",
       posted_at: "2026-06-24",
-      text: "Says moratorium momentum is growing after the \"People over Data Centers\" Capitol rally, criticizing big money interests pushing projects on Michigan communities.",
-      post_url: "https://www.facebook.com/SenJimRunestad/posts/people-over-data-centersour-push-for-a-moratorium-is-gaining-major-momentum/1461017315832317/",
-      context_note: "Summarized by the tracker from public post; not a verbatim quote."
-    },
-    {
-      account_name: "Senate Democrats / Sen. Rosemary Bayer",
-      platform: "senatedems.com",
-      posted_at: "2026-06-25",
-      text: "Highlighted an eight-bill package to regulate data centers — covering water use caps, labor protections, transparency requirements, and a ban on local officials signing NDAs with developers.",
-      post_url: "https://senatedems.com/bayer/data-centers/",
-      context_note: "Summarized by the tracker from official caucus page; not a verbatim quote."
-    },
-    {
-      account_name: "Michigan Advance",
-      platform: "michiganadvance.com",
-      posted_at: "2026-06-24",
-      text: "Republican and Democratic lawmakers joined residents at the Michigan State Capitol calling for a one-year moratorium on new data center projects to study energy, water, and community impacts.",
-      post_url: "https://michiganadvance.com/2026/06/24/michigan-lawmakers-residents-renew-push-for-statewide-data-center-moratorium/",
-      context_note: "Coverage of the June 23 bipartisan \"People Over Data Centers\" rally; summarized by the tracker."
-    },
-    {
-      account_name: "City of Wixom",
-      platform: "wixomgov.org",
-      posted_at: "2026-06-25",
-      text: "Announced a public hearing on June 29 for proposed zoning amendments that would define and regulate data centers, including performance standards for water usage and noise.",
-      post_url: "https://www.wixomgov.org/departments/construction-development-services-building/data-center-moratorium-ordinance",
-      context_note: "Summarized by the tracker from official city notice; not a verbatim quote."
+      text: "Moratorium momentum is growing after the \"People over Data Centers\" Capitol rally. Criticized big money interests pushing projects on Michigan communities.",
+      post_url: "https://www.facebook.com/SenJimRunestad/posts/people-over-data-centersour-push-for-a-moratorium-is-gaining-major-momentum/1461017315832317/"
     },
     {
       account_name: "Tom Leonard",
       platform: "Facebook",
+      platform_type: "social",
       posted_at: "2026-06-24",
-      text: "Former House Speaker renewed his call for a one-year moratorium on new data centers, arguing it would force lawmakers to address energy costs, water resources, tax breaks, and transparency.",
-      post_url: "https://www.facebook.com/TomLeonard28/posts/this-is-why-i-called-for-a-one-year-moratorium-on-new-data-centers-in-january/1606836081068249/",
-      context_note: "Summarized by the tracker from public post; not a verbatim quote."
+      text: "Renewed his call for a one-year moratorium, arguing it would force lawmakers to address energy costs, water use, tax breaks, and transparency before new projects advance.",
+      post_url: "https://www.facebook.com/TomLeonard28/posts/this-is-why-i-called-for-a-one-year-moratorium-on-new-data-centers-in-january/1606836081068249/"
     },
     {
-      account_name: "WEMU / Michigan Public",
-      platform: "wemu.org",
+      account_name: "Sen. Rosemary Bayer",
+      platform: "Official site",
+      platform_type: "official",
       posted_at: "2026-06-25",
-      text: "Coverage of the Capitol rally noted unusually broad bipartisan opposition; Sen. Runestad said he has rarely seen such a coalition form against new development projects.",
-      post_url: "https://www.wemu.org/michigan-news/2026-06-25/michigan-lawmakers-continue-call-for-data-center-moratorium",
-      context_note: "Summarized by the tracker from news coverage; not a verbatim quote."
+      text: "Senate Democrats detailed an eight-bill regulatory package covering water use caps, labor protections, transparency, and a ban on local officials signing NDAs with data center developers.",
+      post_url: "https://senatedems.com/bayer/data-centers/"
+    },
+    {
+      account_name: "City of Wixom",
+      platform: "Official site",
+      platform_type: "official",
+      posted_at: "2026-06-25",
+      text: "Announced a June 29 public hearing on zoning amendments that would define data centers and set performance standards for water use, noise, and other impacts.",
+      post_url: "https://www.wixomgov.org/departments/construction-development-services-building/data-center-moratorium-ordinance"
     },
     {
       account_name: "Michigan Advance",
-      platform: "michiganadvance.com",
+      platform: "News coverage",
+      platform_type: "news",
       posted_at: "2026-06-24",
-      text: "Democratic legislators promoted an eight-bill regulatory package including water use caps, energy infrastructure cost requirements for developers, and limits on NDAs between local officials and data center companies.",
-      post_url: "https://michiganadvance.com/2026/06/24/michigan-lawmakers-residents-renew-push-for-statewide-data-center-moratorium/",
-      context_note: "Summarized by the tracker from news coverage; not a verbatim quote."
+      text: "Bipartisan lawmakers and residents rallied at the State Capitol calling for a one-year moratorium to study data center impacts on energy, water, and local communities.",
+      post_url: "https://michiganadvance.com/2026/06/24/michigan-lawmakers-residents-renew-push-for-statewide-data-center-moratorium/"
     },
     {
-      account_name: "Downtown Wixom / City of Wixom",
-      platform: "Facebook",
+      account_name: "WEMU / Michigan Public",
+      platform: "News coverage",
+      platform_type: "news",
       posted_at: "2026-06-25",
-      text: "Promoted the June 29 public hearing on draft zoning text that would create specific categories and performance standards for data centers, following an earlier six-month moratorium.",
-      post_url: "https://www.facebook.com/downtownwixom/posts/public-hearing-for-draft-ordinance-on-data-centers-monday-june-29th-at-7-pm-wixo/1508689691299325/",
-      context_note: "Summarized by the tracker from official city Facebook post; not a verbatim quote."
+      text: "Reported unusually broad bipartisan opposition at the Capitol rally. Sen. Runestad said he has rarely seen such a coalition form against a development category.",
+      post_url: "https://www.wemu.org/michigan-news/2026-06-25/michigan-lawmakers-continue-call-for-data-center-moratorium"
     }
   ],
   regional_watch: {
