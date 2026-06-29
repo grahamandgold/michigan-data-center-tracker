@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="social-card.png">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=20260702n">
+  <link rel="stylesheet" href="styles.css?v=20260702p">
   <style>
     /* ── IMPROVEMENTS v20 ─────────────────────────────────────────────── */
 
@@ -174,33 +174,50 @@
       color: #9aa0ae;
       white-space: nowrap;
     }
-    .utility-updated {
+    .utility-edition {
       display: flex;
-      align-items: center;
-      padding: 0 0 0 16px;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 0 0 18px;
+      margin-left: auto;
+      border-left: 1px solid #2a2d34;
       flex-shrink: 0;
-      gap: 5px;
+      text-align: right;
+      gap: 2px;
     }
-    .utility-updated-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #cf102d;
-      box-shadow: 0 0 0 0 rgba(207,16,45,.45);
-      animation: pulse-dot 2s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .35; }
-    }
-    .utility-updated-text {
-      font-size: .54rem;
-      font-weight: 800;
-      letter-spacing: .08em;
+    .utility-edition-weekday {
+      font-size: .46rem;
+      font-weight: 700;
+      letter-spacing: .22em;
       text-transform: uppercase;
-      color: #7a8194;
+      color: #8b919e;
       white-space: nowrap;
+    }
+    .utility-edition-date {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: .78rem;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: .02em;
+      color: #d8dbe2;
+      white-space: nowrap;
+    }
+    .edition-date {
+      margin: 0 0 14px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: .82rem;
+      font-style: italic;
+      letter-spacing: .02em;
+      color: #8b919e;
+    }
+    .footer-edition {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: .74rem;
+      font-style: italic;
+      letter-spacing: .03em;
+      color: #8b919e;
     }
 
     /* 9. Methodology credibility strip */
@@ -406,13 +423,17 @@
       }
       .utility-stat-num { font-size: 1.2rem; }
       .utility-stat-label { font-size: .48rem; letter-spacing: .08em; }
-      .utility-updated {
+      .utility-edition {
         grid-column: 1 / -1;
-        justify-content: center;
-        padding: 8px 0 2px;
+        align-items: center;
+        text-align: center;
+        padding: 10px 0 4px;
         margin-top: 4px;
+        margin-left: 0;
+        border-left: 0;
         border-top: 1px solid #222429;
       }
+      .utility-edition-date { font-size: .82rem; }
 
       /* Intro — copy then compact map card */
       .home-intro-inner {
@@ -1061,9 +1082,9 @@
         <span class="utility-stat-num" id="stat-moratoria">—</span>
         <span class="utility-stat-label">Moratoria</span>
       </div>
-      <div class="utility-updated">
-        <div class="utility-updated-dot"></div>
-        <span class="utility-updated-text" id="utility-timestamp">Updated —</span>
+      <div class="utility-edition" aria-label="Today's edition">
+        <span class="utility-edition-weekday" id="utility-weekday"></span>
+        <time class="utility-edition-date" id="utility-timestamp"></time>
       </div>
     </div>
   </div>
@@ -1138,7 +1159,7 @@
   <section class="status-rail" aria-labelledby="status-heading">
     <div class="status-intro">
       <span class="eyebrow" id="status-heading">Tracker status</span>
-      <strong id="updated-at">Updated as of —</strong>
+      <strong id="updated-at"></strong>
     </div>
     <div class="status-grid" id="status-grid"></div>
   </section>
@@ -1185,7 +1206,7 @@
         <strong>Context, not endorsement.</strong>
         <span>Posts below are selected because they document the public debate. Views belong to their authors. We link to the original post whenever available.</span>
       </div>
-      <p class="public-updated">Updated <span id="public-updated-time">recently</span></p>
+      <p class="edition-date"><time id="public-updated-time"></time></p>
       <div class="public-grid" id="public-grid"></div>
     </section>
 
@@ -1349,14 +1370,14 @@
       </nav>
     </div>
     <div class="footer-bottom">
-      <p id="footer-updated">Updated —</p>
+      <time class="footer-edition" id="footer-updated"></time>
     </div>
   </footer>
 
-  <script src="home-stats.js?v=20260701w"></script>
+  <script src="home-stats.js?v=20260702p"></script>
   <script src="home-map-preview.js?v=20260702m"></script>
   <script src="content-data.js?v=20260701x"></script>
-  <script src="app.js?v=20260702d"></script>
+  <script src="app.js?v=20260702p"></script>
   <script>
     (function () {
       const MAP_VERSION = "20260701w";
@@ -1373,17 +1394,13 @@
         } catch (err) {
           console.error("[home stats]", err);
         }
+        HomeStats.applyEditionDate();
         if (mapData) {
           const counts = HomeStats.computeStats(mapData);
-          const updated = HomeStats.formatUpdated(mapData.updated_at);
           setText("stat-on-map", counts.total);
           setText("stat-sites", counts.projects);
           setText("stat-moratoria", counts.moratoria);
-          setText("home-map-preview-meta", updated ? `Updated ${updated}` : "Tap to open");
-          if (updated) {
-            setText("utility-timestamp", `Map data · ${updated}`);
-            setText("footer-updated", `Updated ${updated}`);
-          }
+          setText("home-map-preview-meta", "Tap to open");
           HomeMapPreview.init({ mapData, mapVersion: MAP_VERSION });
         } else {
           HomeMapPreview.init({ mapVersion: MAP_VERSION });

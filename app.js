@@ -57,9 +57,16 @@
       <div><strong>${escapeHtml(title)}</strong><p>${escapeHtml(body)}</p></div>
     </div>`;
 
-  const updated = updatedLabel(data.updated_at);
-  $("#updated-at").textContent = `Updated ${updated}`;
-  $("#footer-updated").textContent = `Last editorial update: ${updated}`;
+  const edition = window.HomeStats?.formatEditionDate?.() || null;
+  if (edition) {
+    const updatedAtEl = $("#updated-at");
+    if (updatedAtEl) updatedAtEl.textContent = edition.short;
+    const footerEl = $("#footer-updated");
+    if (footerEl) {
+      footerEl.textContent = edition.short;
+      footerEl.setAttribute("datetime", edition.iso);
+    }
+  }
 
   $("#status-grid").innerHTML = (data.status || []).map(item => `
     <a class="status-card" href="${safeUrl(item.source_url)}" target="_blank" rel="noopener">
@@ -129,8 +136,9 @@
   };
   renderPublicSources(data.public_sources || []);
   const pubUpdatedEl = document.getElementById("public-updated-time");
-  if (pubUpdatedEl && data.updated_at) {
-    pubUpdatedEl.textContent = dateLabel(data.updated_at, true);
+  if (pubUpdatedEl && edition) {
+    pubUpdatedEl.textContent = edition.short;
+    pubUpdatedEl.setAttribute("datetime", edition.iso);
   }
 
   const feedUrl = data.feeds?.public_monitor_url;

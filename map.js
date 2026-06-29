@@ -1472,7 +1472,12 @@
     updateMobilePanelUi();
 
     const updEl = $("#map-updated");
-    if (updEl && data.updated_at) updEl.textContent = "Updated " + new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/Detroit" }).format(new Date(data.updated_at));
+    if (updEl) {
+      const detroit = { timeZone: "America/Detroit" };
+      const now = new Date();
+      updEl.textContent = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", ...detroit }).format(now);
+      updEl.setAttribute("datetime", new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "2-digit", day: "2-digit", ...detroit }).format(now));
+    }
 
     const ext = data.map_meta?.external_map;
     if (ext) { const link = $("#external-map-link"); if (link) { link.href = ext.url; link.textContent = ext.label; link.hidden = false; } }

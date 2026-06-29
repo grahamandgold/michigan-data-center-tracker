@@ -48,6 +48,36 @@
     }
   }
 
+  /** Magazine-style edition date — defaults to today in Michigan time. */
+  function formatEditionDate(iso) {
+    const d = iso
+      ? new Date(iso.includes("T") ? iso : `${iso}T12:00:00`)
+      : new Date();
+    const detroit = { timeZone: "America/Detroit" };
+    const fmt = opts => new Intl.DateTimeFormat("en-US", { ...opts, ...detroit }).format(d);
+    return {
+      iso: new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "2-digit", day: "2-digit", ...detroit }).format(d),
+      weekday: fmt({ weekday: "long" }),
+      short: fmt({ month: "long", day: "numeric", year: "numeric" }),
+      compact: fmt({ month: "short", day: "numeric", year: "numeric" })
+    };
+  }
+
+  function applyEditionDate(root = document) {
+    const edition = formatEditionDate();
+    const set = (id, text, attr) => {
+      const el = root.getElementById(id);
+      if (!el) return;
+      el.textContent = text;
+      if (attr) el.setAttribute("datetime", attr);
+    };
+    set("utility-weekday", edition.weekday);
+    set("utility-timestamp", edition.short, edition.iso);
+    set("footer-updated", edition.short, edition.iso);
+    set("public-updated-time", edition.short, edition.iso);
+    return edition;
+  }
+
   function ribbonStats(data, counts) {
     const defs = data.stats_ribbon || [];
     return defs.map((d, i) => ({
@@ -71,6 +101,8 @@
     getDefaultLayers,
     computeStats,
     formatUpdated,
+    formatEditionDate,
+    applyEditionDate,
     ribbonStats,
     loadMapData
   };
