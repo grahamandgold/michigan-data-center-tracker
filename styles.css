@@ -123,6 +123,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   text-shadow: 0 1px 6px rgba(0,0,0,.7);
 }
 .menu-button {
+  display: none;
   position: relative;
   left: auto;
   top: auto;
@@ -490,7 +491,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .masthead-video { inset: 0; width: 100%; height: 100%; object-position: 52% 42%; filter: brightness(1.22) saturate(1.08); }
   .masthead-scrim { background: linear-gradient(90deg, rgba(6,6,8,.58), rgba(6,6,8,.08)), linear-gradient(0deg, rgba(6,6,8,.3), transparent 64%); }
   .masthead-inner { min-height: 280px; padding: 74px 16px 24px 54px; }
-  .menu-button { left: 8px; top: 17px; }
+  .menu-button { display: grid; left: 8px; top: 17px; }
   .menu-button span { width: 25px; }
   .wordmark { width: min(315px, calc(100vw - 74px)); }
   .masthead-briefing { top: 15px; right: 12px; bottom: auto; min-height: 40px; padding: 8px 12px; font-size: .59rem; }
