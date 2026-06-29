@@ -1,7 +1,11 @@
 window.TRACKER_DATA = {
   updated_at: "2026-06-29T12:00:00-04:00",
   newsletter: {
-    form_action: ""
+    /* Mailchimp audience: MICHIGAN DATA CENTER TRACKER
+       Paste form action from Audience → Signup forms → Embedded forms → <form action="..."> */
+    form_action: "",
+    /* Honeypot field name from same embed, e.g. "b_abc123def" — stops bot signups */
+    bot_field: ""
   },
   feeds: {
     public_monitor_url: ""

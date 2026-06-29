@@ -404,10 +404,24 @@
   if (video && window.matchMedia("(prefers-reduced-motion: reduce)").matches) video.pause();
 
   const mailchimpAction = data.newsletter?.form_action || "";
+  const mailchimpBotField = data.newsletter?.bot_field || "";
+
+  const ensureMailchimpBotField = form => {
+    if (!form || !mailchimpBotField || form.querySelector(`[name="${mailchimpBotField}"]`)) return;
+    const trap = document.createElement("div");
+    trap.setAttribute("aria-hidden", "true");
+    trap.style.cssText = "position:absolute;left:-5000px;";
+    trap.innerHTML = `<input type="text" name="${mailchimpBotField}" tabindex="-1" value="" autocomplete="off">`;
+    form.append(trap);
+  };
+
   const bindNewsletterForm = (form, emailId, messageId, onSuccess) => {
     if (!form) return;
     const message = messageId ? $(messageId) : null;
-    if (mailchimpAction) form.action = mailchimpAction;
+    if (mailchimpAction) {
+      form.action = mailchimpAction;
+      ensureMailchimpBotField(form);
+    }
     form.addEventListener("submit", event => {
       const email = $(emailId);
       if (!email?.checkValidity()) {
