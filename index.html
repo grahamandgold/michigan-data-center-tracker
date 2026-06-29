@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="social-card.png">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=20260702t">
+  <link rel="stylesheet" href="styles.css?v=20260702u">
   <style>
     /* ── IMPROVEMENTS v20 ─────────────────────────────────────────────── */
 
@@ -443,6 +443,18 @@
       .utility-edition-date { font-size: .82rem; }
 
       /* Intro — copy then compact map card */
+      .home-intro {
+        background-position: center 52%;
+      }
+      .home-intro::before {
+        background: linear-gradient(
+          180deg,
+          rgba(8, 9, 12, .86) 0%,
+          rgba(8, 9, 12, .58) 38%,
+          rgba(8, 9, 12, .24) 72%,
+          rgba(8, 9, 12, .12) 100%
+        );
+      }
       .home-intro-inner {
         display: flex;
         flex-direction: column;
@@ -453,12 +465,14 @@
         margin: 2px 0 0;
         font-size: clamp(1.1rem, 5.8vw, 1.4rem) !important;
         line-height: 1.04 !important;
+        color: #fff !important;
       }
       .home-intro-lead { display: none; }
       .home-intro-verify {
         margin-top: 8px;
         font-size: .56rem;
         line-height: 1.45;
+        color: rgba(255, 255, 255, .62) !important;
       }
       .home-intro-map { max-width: none; }
       .home-map-shell {
@@ -626,16 +640,37 @@
       pointer-events: auto;
     }
 
-    /* ── Homepage intro + compact map (bright) ──────────────────────── */
+    /* ── Homepage intro + compact map (night lights backdrop) ───────── */
     .home-intro {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
+      position: relative;
+      background-color: #0a0c10;
+      background-image: url("assets/michigan-night-lights.jpg");
+      background-position: center 58%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid #1a1f28;
       overflow: hidden;
     }
+    .home-intro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        102deg,
+        rgba(8, 9, 12, .92) 0%,
+        rgba(8, 9, 12, .78) 34%,
+        rgba(8, 9, 12, .42) 56%,
+        rgba(8, 9, 12, .16) 76%,
+        rgba(8, 9, 12, .08) 100%
+      );
+      pointer-events: none;
+    }
     .home-intro-inner {
+      position: relative;
+      z-index: 1;
       max-width: var(--max);
       margin: 0 auto;
-      padding: 20px 42px 22px;
+      padding: 28px 42px 24px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(260px, 36%);
       gap: 20px 40px;
@@ -666,13 +701,14 @@
       line-height: .96;
       letter-spacing: .015em;
       text-transform: uppercase;
+      color: #fff;
     }
     .home-intro-lead {
       margin: 0 0 12px;
       max-width: 42ch;
       font-size: .9rem;
       line-height: 1.48;
-      color: #525866;
+      color: rgba(255, 255, 255, .78);
     }
     .home-intro-verify {
       margin: 0;
@@ -680,7 +716,7 @@
       font-weight: 800;
       letter-spacing: .06em;
       text-transform: uppercase;
-      color: #727886;
+      color: rgba(255, 255, 255, .58);
     }
     .home-intro-verify a {
       color: var(--red);
@@ -695,8 +731,8 @@
     }
     .home-map-shell {
       position: relative;
-      border: 1px solid #d8dde6;
-      box-shadow: 0 12px 32px rgba(23,27,35,.06);
+      border: 1px solid rgba(255, 255, 255, .22);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .42);
       background: #fff;
       overflow: hidden;
     }
