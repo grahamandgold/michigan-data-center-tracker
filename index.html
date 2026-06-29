@@ -20,7 +20,7 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css?v=20260704b">
-  <link rel="stylesheet" href="tracker-site.css?v=20260704h">
+  <link rel="stylesheet" href="tracker-site.css?v=20260704i">
   <style>
     /* ── IMPROVEMENTS v21 — map-first homepage ───────────────────────── */
 
@@ -520,25 +520,58 @@
     }
     .tip-cta-link:hover { background: #a80d24; }
 
-    /* ── Homepage body — sections below hero ───────────────────────── */
+    /* ── Homepage body — v24 premium cohesion ─────────────────────── */
+    .page-body--home {
+      background: #fff;
+    }
     .page-body--home .page-section {
-      padding: 48px 0 56px;
+      padding: 64px 0 72px;
     }
     .page-body--home .page-wrap {
       max-width: 1180px;
       padding-left: 32px;
       padding-right: 32px;
     }
+    .page-body--home .home-headlines .page-section-head {
+      margin-bottom: 28px;
+    }
+    .page-body--home .home-headlines .page-section-head p {
+      font-size: .92rem;
+      color: #5a6172;
+    }
+    .page-body--home .section-cta-row {
+      margin-top: 28px;
+    }
     .page-body--home .commercial-strip {
       background: #0b0b0d;
-      border-top: 3px solid var(--red);
+      border-top: none;
     }
     .page-body--home .commercial-strip .briefing-card {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 48px 32px 52px;
+      padding: 64px 32px 68px;
       border-left: 0;
       position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 48px 56px;
+      align-items: start;
+    }
+    .page-body--home .commercial-strip .briefing-card .briefing-copy {
+      max-width: 46ch;
+    }
+    .page-body--home .commercial-strip .briefing-card h2 {
+      margin-top: 10px;
+      font-size: clamp(1.35rem, 2.8vw, 1.9rem);
+    }
+    .page-body--home .commercial-strip .briefing-card > p {
+      margin-top: 14px;
+      font-size: .92rem;
+      line-height: 1.58;
+      color: rgba(255, 255, 255, .72);
+    }
+    .page-body--home .commercial-strip .signup-form {
+      align-self: center;
     }
     .page-body--home .commercial-strip .briefing-card::after {
       content: "";
@@ -579,23 +612,20 @@
 
     /* 11. What can we help explain? */
     .explain-ask {
-      background: linear-gradient(180deg, #eceef2 0%, #f8f9fb 48px, #fff 100%);
-      border-top: 1px solid rgba(11, 11, 13, .08);
+      background: #f4f5f8;
+      border-top: 1px solid var(--line);
       position: relative;
-    }
-    .explain-ask::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent 0%, rgba(207, 16, 45, .25) 50%, transparent 100%);
     }
     .explain-ask-inner {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 48px 32px 56px;
+      padding: 64px 32px 72px;
+    }
+    .explain-ask-panel {
+      padding: 36px 36px 40px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 48px rgba(11, 11, 13, .06);
     }
     .explain-ask-header {
       max-width: 640px;
@@ -633,16 +663,15 @@
     .explain-ask-fair {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      margin: 0 0 24px;
-      padding: 16px 18px;
-      background: #fff;
+      gap: 12px;
+      margin: 0 0 28px;
+      padding: 18px 20px;
+      background: #fafbfc;
       border: 1px solid var(--line);
-      border-left: 3px solid #cf102d;
-      box-shadow: 0 2px 12px rgba(11,11,13,.04);
-      font-size: .8rem;
-      color: #555965;
-      line-height: 1.52;
+      border-left: 4px solid #cf102d;
+      font-size: .84rem;
+      color: #444a57;
+      line-height: 1.55;
     }
     .explain-ask-fair strong {
       display: block;
@@ -669,15 +698,14 @@
       margin-bottom: 2px;
     }
     .explain-topic {
-      padding: 8px 14px;
+      padding: 10px 16px;
       border: 1px solid var(--line);
       background: #fff;
-      color: #333742;
-      font-size: .72rem;
+      color: #2a2f38;
+      font-size: .74rem;
       font-weight: 700;
       letter-spacing: .02em;
       cursor: pointer;
-      box-shadow: 0 1px 4px rgba(11,11,13,.03);
       transition: border-color .15s, background .15s, color .15s, box-shadow .15s;
     }
     .explain-topic:hover,
@@ -766,6 +794,13 @@
 
     /* ── COMPACT FOLD (phones + narrow tablets, ≤ 900px) ─────────────── */
     @media (max-width: 900px) {
+      .page-body--home .commercial-strip .briefing-card {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 48px 16px 52px;
+      }
+      .page-body--home .page-section { padding: 48px 0 56px; }
+      .page-body--home .home-hub-inner { padding: 48px 16px 52px; }
       .nav-briefing { display: none !important; }
       .nav-alerts-mobile {
         display: inline-flex;
@@ -981,7 +1016,15 @@
       .explain-ask-inner { padding: 36px 16px 40px; }
       .page-body--home .page-wrap,
       .page-body--home .commercial-strip .briefing-card { padding-left: 16px; padding-right: 16px; }
-      .page-body--home .page-section { padding: 36px 0 40px; }
+      .page-body--home .page-section { padding: 40px 0 48px; }
+      .page-body--home .commercial-strip .briefing-card {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 40px 16px 44px;
+      }
+      .page-body--home .home-hub-inner { padding: 44px 16px 48px; }
+      .hub-card { min-height: 0; padding: 24px 20px 22px; }
+      .explain-ask-panel { padding: 24px 18px 28px; }
       .explain-ask-actions { flex-direction: column; align-items: stretch; }
       .explain-ask-submit { width: 100%; }
       .explain-ask-note { max-width: none; }
@@ -2046,9 +2089,11 @@
 
     <section class="commercial-strip commercial-strip--solo" id="briefing">
       <div class="briefing-card">
-        <span class="eyebrow eyebrow-light">Stay alerted</span>
-        <h2>Filings, meetings and moves—without the noise.</h2>
-        <p>Get the important links, public meetings and policy shifts in your inbox when it matters.</p>
+        <div class="briefing-copy">
+          <span class="eyebrow eyebrow-light">Stay alerted</span>
+          <h2>Filings, meetings and moves—without the noise.</h2>
+          <p>Get the important links, public meetings and policy shifts in your inbox when it matters.</p>
+        </div>
         <form class="signup-form" id="briefing-form" method="post" target="_blank" novalidate>
           <label class="sr-only" for="briefing-name">Name</label>
           <input id="briefing-name" data-merge="name" type="text" autocomplete="name" placeholder="Your name" required>
@@ -2065,6 +2110,7 @@
 
     <section class="explain-ask" id="explain" aria-labelledby="explain-heading">
       <div class="explain-ask-inner">
+        <div class="explain-ask-panel">
         <div class="explain-ask-header">
           <span class="eyebrow">Your questions</span>
           <h2 id="explain-heading">What can we help explain?</h2>
@@ -2096,6 +2142,7 @@
           </div>
           <p class="explain-ask-message" id="explain-ask-message" role="status" aria-live="polite" hidden></p>
         </form>
+        </div>
       </div>
     </section>
 
