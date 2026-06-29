@@ -250,7 +250,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .status-card small { color: #d4d5d9; font-size: .72rem; }
 .status-card em { margin-top: 9px; color: #ff5c73; font-size: .65rem; font-style: normal; font-weight: 800; }
 .section { padding: 54px 42px; }
-.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
 .section-heading h2, .meeting-banner h2, .map-promo h2, .learn-heading h2, .commercial-strip h2 {
   margin: 4px 0 0;
   font-family: var(--display);
@@ -345,7 +345,7 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   text-transform: uppercase;
 }
 .region-tabs button[aria-selected="true"] { color: #fff; background: var(--ink); border-color: var(--red); }
-.region-panel { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--line); }
+.region-panel { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--line); margin-bottom: 0; }
 .region-panel > a { min-height: 155px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .region-visual {
   position: relative;
