@@ -128,6 +128,20 @@
   }
 
   const latest = data.latest_developments || [];
+  const homeTeaser = $("#home-latest-teaser");
+  if (homeTeaser) {
+    homeTeaser.innerHTML = latest.length
+      ? latest.slice(0, 4).map(item => `
+        <a class="teaser-item" href="${safeUrl(item.source_url)}" target="_blank" rel="noopener">
+          <div>
+            <strong>${escapeHtml(item.headline)} ${external}</strong>
+            <small>${escapeHtml(item.region)} · ${escapeHtml(item.source_name)} · ${dateLabel(item.published_date)}</small>
+          </div>
+          <em>Read</em>
+        </a>`).join("")
+      : emptyState("No verified headlines loaded", "Check back as new public records publish.");
+    labelExternalLinks();
+  }
   if ($("#latest-grid")) {
     $("#latest-grid").innerHTML = latest.length
       ? latest.map((item, index) => `

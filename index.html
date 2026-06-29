@@ -19,7 +19,8 @@
   <meta name="twitter:image" content="social-card.png">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=20260703w">
+  <link rel="stylesheet" href="styles.css?v=20260704a">
+  <link rel="stylesheet" href="tracker-site.css?v=20260704a">
   <style>
     /* ── IMPROVEMENTS v21 — map-first homepage ───────────────────────── */
 
@@ -1514,7 +1515,7 @@
     }
   </style>
 </head>
-<body>
+<body class="site-page" data-page="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Sticky mobile CTA -->
@@ -1549,16 +1550,14 @@
       <img src="brand-logo-light.png" alt="">
     </a>
     <nav aria-label="Mobile navigation">
-      <a href="map.html">Explore live map</a>
-      <a href="#live-map">Map on this page</a>
-      <a href="#regions">Stories we're following</a>
-      <a href="#public-monitor">Public-source monitor</a>
-      <a href="#meetings">Meetings &amp; hearings</a>
-      <a href="#learn">Learning library</a>
+      <a href="index.html">Home</a>
+      <a href="map.html">Live map</a>
+      <a href="stories.html">Stories</a>
+      <a href="meetings.html">Meetings</a>
+      <a href="learn.html">Learn</a>
+      <a href="sponsorship.html">Sponsorship</a>
       <a href="#explain">Ask a question</a>
       <a href="#briefing">Email alerts</a>
-      <a href="#sponsorship">Sponsorship</a>
-      <a href="methodology.html">Methodology</a>
     </nav>
     <a class="button button-red drawer-briefing" href="#briefing">Sign up now</a>
   </aside>
@@ -1573,11 +1572,12 @@
       </a>
       <span class="nav-site-name">Michigan Data Center Tracker</span>
       <div class="nav-links">
-        <a href="map.html">Map</a>
-        <a href="#regions">Stories</a>
-        <a href="#meetings">Meetings</a>
-        <a href="#learn">Learn</a>
-        <a href="methodology.html">Methodology</a>
+        <a href="index.html">Home</a>
+        <a href="map.html">Live map</a>
+        <a href="stories.html">Stories</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="learn.html">Learn</a>
+        <a href="sponsorship.html">Sponsor</a>
       </div>
       <a class="live-map-link" href="map.html"><span class="live-dot"></span>Live map</a>
       <a class="nav-alerts-mobile" href="#briefing">Alerts</a>
@@ -1645,7 +1645,7 @@
       <div class="key-meetings-inner">
         <span class="km-label"><span class="km-pulse" aria-hidden="true"></span>What's next</span>
         <div class="km-items">
-          <a class="km-item km-item--next" href="#meetings">
+          <a class="km-item km-item--next" href="meetings.html">
             <span class="km-date">Jun 29</span>
             <span class="km-title">Wixom Planning Commission</span>
           </a>
@@ -1660,115 +1660,67 @@
             <span class="km-title">MI Public Service Commission</span>
           </a>
         </div>
-        <a class="km-all" href="#meetings">All meetings →</a>
+        <a class="km-all" href="meetings.html">All meetings →</a>
       </div>
     </div>
   </section>
 
-  <aside class="sponsor-avail sponsor-avail--section" aria-label="Live map sponsorship availability">
-    <div class="sponsor-avail-inner">
-      <span class="sponsor-avail-kicker">Sponsorship · Available</span>
-      <strong class="sponsor-avail-title">Sponsor the live intelligence map</strong>
-      <p class="sponsor-avail-desc">Premium placement beside Michigan's interactive map of sites, moratoria and verified public records.</p>
-      <a class="sponsor-avail-cta" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20%E2%80%94%20Live%20Map%20sponsorship">Sponsor this section</a>
-    </div>
-  </aside>
-
-  <main id="main">
-  <section class="status-rail" aria-labelledby="status-heading">
-    <div class="status-intro">
-      <span class="eyebrow" id="status-heading">Tracker status</span>
-      <strong id="updated-at"></strong>
-    </div>
-    <div class="status-grid" id="status-grid"></div>
-  </section>
-    <!-- Tracker Status removed -->
-
-    <section class="section regions-section" id="regions" aria-labelledby="regions-heading">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">Across Michigan</span>
-          <h2 id="regions-heading">The stories we're following. Linking you to the latest.</h2>
+  <main id="main" class="page-body">
+    <section class="home-hub" aria-labelledby="home-hub-heading">
+      <div class="home-hub-inner">
+        <header class="home-hub-head">
+          <span class="eyebrow">Explore the tracker</span>
+          <h2 id="home-hub-heading">Everything behind the map</h2>
+        </header>
+        <div class="home-hub-grid">
+          <a class="hub-card" href="stories.html">
+            <span class="hub-card-kicker">Across Michigan</span>
+            <strong>Regional stories &amp; verified headlines</strong>
+            <span>View stories</span>
+          </a>
+          <a class="hub-card" href="meetings.html">
+            <span class="hub-card-kicker">Public calendar</span>
+            <strong>Meetings, hearings &amp; agendas</strong>
+            <span>View calendar</span>
+          </a>
+          <a class="hub-card" href="learn.html">
+            <span class="hub-card-kicker">Learning library</span>
+            <strong>Power, water, incentives &amp; records</strong>
+            <span>Start learning</span>
+          </a>
         </div>
-
-      </div>
-      <div class="regions-stage">
-        <div class="regions-radar" aria-hidden="true">
-          <div class="regions-radar-ring regions-radar-ring--1"></div>
-          <div class="regions-radar-ring regions-radar-ring--2"></div>
-          <div class="regions-radar-ring regions-radar-ring--3"></div>
-          <div class="regions-radar-sweep"></div>
-          <div class="regions-radar-core"></div>
-        </div>
-        <div class="region-tabs" role="tablist" aria-label="Michigan regions" id="region-tabs"></div>
-        <div class="region-panel" id="region-panel" role="tabpanel" tabindex="0"></div>
       </div>
     </section>
 
-    <aside class="sponsor-avail sponsor-avail--section" aria-label="Regional stories sponsorship availability">
-      <div class="sponsor-avail-inner">
-        <span class="sponsor-avail-kicker">Sponsorship · Available</span>
-        <strong class="sponsor-avail-title">Sponsor Across Michigan regional coverage</strong>
-        <p class="sponsor-avail-desc">Associate your brand with verified headlines across Metro Detroit, West Michigan, Mid-Michigan and the U.P.</p>
-        <a class="sponsor-avail-cta" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20%E2%80%94%20Regional%20Stories%20sponsorship">Sponsor this section</a>
-      </div>
-    </aside>
-
-    <section class="section public-monitor" id="public-monitor" aria-labelledby="public-heading">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">Public-source monitor</span>
-          <h2 id="public-heading">What officials, utilities and communities are posting</h2>
+    <section class="page-section" id="regions">
+      <div class="page-wrap">
+        <div class="page-section-head">
+          <span class="eyebrow">Latest verified</span>
+          <h2>Headlines we're tracking</h2>
         </div>
+        <div class="teaser-list" id="home-latest-teaser"></div>
+        <p class="section-cta-row"><a class="text-link" href="stories.html">All stories →</a></p>
       </div>
-      <div class="editorial-note">
-        <strong>Context, not endorsement.</strong>
-        <span>Posts below are selected because they document the public debate. Views belong to their authors. We link to the original post whenever available.</span>
-      </div>
-      <p class="edition-date"><time id="public-updated-time"></time></p>
-      <div class="public-grid" id="public-grid"></div>
     </section>
 
-    <aside class="sponsor-avail sponsor-avail--section" aria-label="Public monitor sponsorship availability">
-      <div class="sponsor-avail-inner">
-        <span class="sponsor-avail-kicker">Sponsorship · Available</span>
-        <strong class="sponsor-avail-title">Sponsor the public-source monitor</strong>
-        <p class="sponsor-avail-desc">Visibility alongside official posts, utility statements and community updates from across the debate.</p>
-        <a class="sponsor-avail-cta" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20%E2%80%94%20Public%20Monitor%20sponsorship">Sponsor this section</a>
+    <section class="commercial-strip" id="briefing" style="border-top:3px solid var(--red);">
+      <div class="briefing-card">
+        <span class="eyebrow eyebrow-light">Stay alerted</span>
+        <h2>Filings, meetings and moves—without the noise.</h2>
+        <p>Get the important links, public meetings and policy shifts in your inbox when it matters.</p>
+        <form class="signup-form" id="briefing-form" method="post" target="_blank" novalidate>
+          <label class="sr-only" for="briefing-name">Name</label>
+          <input id="briefing-name" data-merge="name" type="text" autocomplete="name" placeholder="Your name" required>
+          <label class="sr-only" for="briefing-zip">ZIP code</label>
+          <input id="briefing-zip" data-merge="zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="ZIP code" pattern="\d{5}(-\d{4})?" maxlength="10" required>
+          <label class="sr-only" for="briefing-email">Email address</label>
+          <input class="signup-email" id="briefing-email" data-merge="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+          <button class="button button-light signup-submit" type="submit">Sign up now</button>
+          <p class="form-note">No spam. Unsubscribe anytime. <a href="privacy.html">Privacy notice</a></p>
+          <p class="form-message" id="briefing-message" role="status" aria-live="polite"></p>
+        </form>
       </div>
-    </aside>
-
-    <section class="section section-meetings" id="meetings" aria-labelledby="meetings-heading">
-      <div class="meeting-banner">
-        <div class="meeting-video-scrim" aria-hidden="true"></div>
-        <div>
-          <span class="eyebrow eyebrow-light">Public calendar</span>
-          <h2 id="meetings-heading">Meetings &amp; hearings</h2>
-        </div>
-      </div>
-      <div class="meeting-list" id="meeting-list"></div>
     </section>
-
-    <aside class="sponsor-avail sponsor-avail--section" aria-label="Meetings calendar sponsorship availability">
-      <div class="sponsor-avail-inner">
-        <span class="sponsor-avail-kicker">Sponsorship · Available</span>
-        <strong class="sponsor-avail-title">Sponsor the meetings &amp; hearings calendar</strong>
-        <p class="sponsor-avail-desc">Reach planners, attorneys, utilities and residents tracking the next local hearing on data center proposals.</p>
-        <a class="sponsor-avail-cta" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20%E2%80%94%20Meetings%20Calendar%20sponsorship">Sponsor this section</a>
-      </div>
-    </aside>
-
-    <!-- Tip submission in-page CTA -->
-    <div class="tip-cta">
-      <div class="tip-cta-inner">
-        <div class="tip-cta-icon" aria-hidden="true">📋</div>
-        <div class="tip-cta-copy">
-          <strong>Submit a tip or public document</strong>
-          <p>Have a meeting agenda, public filing, zoning notice, utility document or local update? Help us keep the record complete.</p>
-        </div>
-        <a class="tip-cta-link" href="mailto:michigandatacentertracker@gmail.com?subject=Tracker%20tip%20or%20document">Send a tip →</a>
-      </div>
-    </div>
 
     <section class="explain-ask" id="explain" aria-labelledby="explain-heading">
       <div class="explain-ask-inner">
@@ -1806,108 +1758,10 @@
       </div>
     </section>
 
-    <section class="learn-section" id="learn" aria-labelledby="learn-heading">
-      <div class="learn-header">
-        <div class="learn-header-text">
-          <span class="eyebrow">Learning library</span>
-          <h2 id="learn-heading">Understand the stakes before the next meeting.</h2>
-        </div>
-      </div>
-      <div class="learn-rows">
-        <div class="learn-row">
-          <div class="learn-row-label">Power &amp; the grid</div>
-          <div class="learn-row-desc">Why 100-megawatt loads change utility planning, contracts and risk for other customers.</div>
-          <div class="learn-row-links">
-            <a href="https://www.michigan.gov/mpsc/commission/news-releases/2025/11/06/mpsc-approves-terms-of-service-between-consumers-energy-and-data-centers" target="_blank" rel="noopener">MPSC large-load framework ↗</a>
-          </div>
-        </div>
-        <div class="learn-row">
-          <div class="learn-row-label">Water &amp; wastewater</div>
-          <div class="learn-row-desc">Cooling demand is only one issue. Sewer capacity and industrial discharge can determine whether a project advances.</div>
-          <div class="learn-row-links">
-            <a href="https://bridgemi.com/business-watch/in-ypsilanti-battle-lines-draw-over-data-centers-and-sewage/" target="_blank" rel="noopener">Ypsilanti case study ↗</a>
-          </div>
-        </div>
-        <div class="learn-row">
-          <div class="learn-row-label">Tax incentives</div>
-          <div class="learn-row-desc">Michigan expanded data center tax exemptions in 2025; lawmakers and communities continue to debate the tradeoffs.</div>
-          <div class="learn-row-links">
-            <a href="https://www.michigan.gov/whitmer/news/press-releases/2025/01/17/governor-whitmer-signs-bills-supporting-technology-and-innovation" target="_blank" rel="noopener">State release ↗</a>
-          </div>
-        </div>
-        <div class="learn-row">
-          <div class="learn-row-label">Local power &amp; moratoria</div>
-          <div class="learn-row-desc">Moratoria create time to write zoning rules, but their scope, duration and legal effect vary by community.</div>
-          <div class="learn-row-links">
-            <a href="https://bridgemi.com/michigan-environment-watch/at-least-19-michigan-towns-pause-data-centers-no-one-knows-if-itll-work/" target="_blank" rel="noopener">Bridge Michigan overview ↗</a>
-          </div>
-        </div>
-        <div class="learn-row">
-          <div class="learn-row-label">Public records</div>
-          <div class="learn-row-desc">Permits, meeting packets, utility filings and development agreements are the paper trail behind every credible listing.</div>
-          <div class="learn-row-links">
-            <a href="https://www.michigan.gov/egle/contact/foia" target="_blank" rel="noopener">File an EGLE FOIA request ↗</a>
-          </div>
-        </div>
-        <div class="learn-row">
-          <div class="learn-row-label">Our methodology</div>
-          <div class="learn-row-desc">See what qualifies as confirmed, reported or a public signal—and how corrections are handled.</div>
-          <div class="learn-row-links">
-            <a href="methodology.html">Read the methodology →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <aside class="sponsor-avail sponsor-avail--section" aria-label="Learning library sponsorship availability">
-      <div class="sponsor-avail-inner">
-        <span class="sponsor-avail-kicker">Sponsorship · Available</span>
-        <strong class="sponsor-avail-title">Sponsor the learning library</strong>
-        <p class="sponsor-avail-desc">Contextual placement for readers researching power, water, tax incentives and public records before the next meeting.</p>
-        <a class="sponsor-avail-cta" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20%E2%80%94%20Learning%20Library%20sponsorship">Sponsor this section</a>
-      </div>
-    </aside>
-
-    <section class="commercial-strip" id="sponsorship">
-      <div class="sponsor-card">
-        <div class="sponsor-card-inner">
-          <div class="sponsor-card-copy">
-            <span class="eyebrow eyebrow-light">Sponsorship avail</span>
-            <h2>Put your brand in front of Michigan's data center audience.</h2>
-            <p>Placements across the homepage, live map, regional coverage, public monitor, meetings calendar, learning library and email alerts.</p>
-            <a class="button button-red sponsor-inquire" href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20Sponsorship">Inquire about sponsorship</a>
-            <p class="sponsor-avail-disc">Sponsors support the tracker. Sponsors do not control coverage, headline selection or map listings.</p>
-          </div>
-          <div class="sponsor-placement-board" aria-label="Available sponsorship placements">
-            <span class="sponsor-placement-label">Open placements</span>
-            <ul class="sponsor-placement-grid">
-              <li>Homepage leaderboard</li>
-              <li>Live intelligence map</li>
-              <li>Across Michigan coverage</li>
-              <li>Public-source monitor</li>
-              <li>Meetings calendar</li>
-              <li>Learning library</li>
-              <li>Email alerts</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="briefing-card" id="briefing">
-        <span class="eyebrow eyebrow-light">Stay alerted</span>
-        <h2>Filings, meetings and moves—without the noise.</h2>
-        <p>Get the important links, public meetings and policy shifts in your inbox when it matters.</p>
-        <form class="signup-form" id="briefing-form" method="post" target="_blank" novalidate>
-          <label class="sr-only" for="briefing-name">Name</label>
-          <input id="briefing-name" data-merge="name" type="text" autocomplete="name" placeholder="Your name" required>
-          <label class="sr-only" for="briefing-zip">ZIP code</label>
-          <input id="briefing-zip" data-merge="zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="ZIP code" pattern="\d{5}(-\d{4})?" maxlength="10" required>
-          <label class="sr-only" for="briefing-email">Email address</label>
-          <input class="signup-email" id="briefing-email" data-merge="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
-          <button class="button button-light signup-submit" type="submit">Sign up now</button>
-          <p class="form-note">No spam. Unsubscribe anytime. By subscribing, you agree to our <a href="privacy.html">privacy notice</a>.</p>
-          <p class="form-message" id="briefing-message" role="status" aria-live="polite"></p>
-        </form>
-        <p class="briefing-sponsor-avail">Email alert sponsorship available · <a href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20%E2%80%94%20Email%20alerts%20sponsorship">Advertise in email alerts</a></p>
+    <section class="page-section" style="padding:28px 0 36px;background:var(--wash);border-top:1px solid var(--line);">
+      <div class="page-wrap" style="text-align:center;">
+        <p style="margin:0 0 12px;font-size:.88rem;color:var(--muted);">Independent tracking supported by selective sponsorship.</p>
+        <a class="text-link" href="sponsorship.html">Sponsorship opportunities →</a>
       </div>
     </section>
   </main>
@@ -1919,15 +1773,14 @@
         <p class="footer-tag">Independent public-source tracking</p>
       </div>
       <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a>
         <a href="map.html">Live map</a>
-        <a href="#regions">Stories</a>
-        <a href="#meetings">Meetings</a>
-        <a href="#learn">Learn</a>
+        <a href="stories.html">Stories</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="learn.html">Learn</a>
         <a href="methodology.html">Methodology</a>
+        <a href="sponsorship.html">Sponsor</a>
         <a href="privacy.html">Privacy</a>
-        <a href="#explain">Ask a question</a>
-        <a href="mailto:michigandatacentertracker@gmail.com?subject=Tracker%20tip">Submit a tip</a>
-        <a href="#sponsorship">Sponsor</a>
       </nav>
     </div>
     <div class="footer-bottom">
@@ -1938,8 +1791,9 @@
 
   <script src="home-stats.js?v=20260703u"></script>
   <script src="home-map-preview.js?v=20260703t"></script>
-  <script src="content-data.js?v=20260703w"></script>
-  <script src="app.js?v=20260703w"></script>
+  <script src="content-data.js?v=20260704a"></script>
+  <script src="app.js?v=20260704a"></script>
+  <script src="site-chrome.js?v=20260704a"></script>
   <script>
     (function () {
       const MAP_VERSION = "20260703h";
