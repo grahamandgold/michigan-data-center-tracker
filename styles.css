@@ -509,11 +509,74 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 .public-card footer { display: flex; align-items: center; gap: 10px; margin-top: auto; border-top: 1px solid #f0f1f5; padding-top: 10px; }
 .public-card footer time { font-size: .65rem; color: #9aa0ae; font-weight: 600; }
 .feed-notice { margin: -8px 0 18px; color: var(--muted); font-size: .75rem; }
+.regions-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #fff 0%, #f6f8fb 58%, #eef2f7 100%);
+}
+.regions-stage {
+  position: relative;
+  isolation: isolate;
+}
+.regions-radar {
+  position: absolute;
+  z-index: 0;
+  right: -6%;
+  bottom: -18%;
+  width: min(560px, 78vw);
+  height: min(560px, 78vw);
+  pointer-events: none;
+  opacity: 0.72;
+}
+.regions-radar-ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(35, 75, 110, .14);
+  border-radius: 50%;
+}
+.regions-radar-ring--1 { inset: 8%; }
+.regions-radar-ring--2 { inset: 22%; border-color: rgba(207, 16, 45, .12); }
+.regions-radar-ring--3 { inset: 36%; border-color: rgba(35, 75, 110, .1); }
+.regions-radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 210deg at 50% 50%,
+    transparent 0deg,
+    transparent 300deg,
+    rgba(207, 16, 45, .16) 332deg,
+    rgba(35, 75, 110, .22) 360deg
+  );
+  animation: regions-radar-spin 10s linear infinite;
+}
+.regions-radar-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--red);
+  box-shadow: 0 0 0 7px rgba(207, 16, 45, .14);
+}
+@keyframes regions-radar-spin {
+  to { transform: rotate(360deg); }
+}
+.regions-stage .region-tabs,
+.regions-stage .region-panel {
+  position: relative;
+  z-index: 1;
+}
 .region-tabs {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   border-bottom: 1px solid #e4e6ea;
   gap: 0;
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(4px);
 }
 .region-tabs button {
   min-width: 0;
@@ -535,7 +598,13 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
 }
 .region-tabs button:hover { color: #3a3d46; }
 .region-tabs button[aria-selected="true"] { color: #0b0b0d; background: transparent; border-color: var(--red); }
-.region-panel { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--line); margin-bottom: 0; }
+.region-panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-left: 1px solid var(--line);
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, .9);
+}
 .region-panel > a { min-height: 155px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .region-visual-video {
   position: relative;
@@ -1206,6 +1275,14 @@ main, .site-footer { max-width: var(--max); margin: 0 auto; background: var(--pa
   .region-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .region-tabs button { min-height: 44px; padding: 8px 6px; font-size: .54rem; }
   .region-tabs button:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .regions-radar {
+    right: 50%;
+    bottom: -10%;
+    width: min(420px, 92vw);
+    height: min(420px, 92vw);
+    transform: translateX(50%);
+    opacity: 0.5;
+  }
 
   .map-promo { min-height: 540px; padding: 50px 20px; }
   .map-promo-stats { grid-template-columns: 1fr; }
