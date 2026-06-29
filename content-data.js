@@ -197,7 +197,7 @@ window.TRACKER_DATA = {
       platform: "Facebook",
       platform_type: "social",
       posted_at: "2026-06-24",
-      text: "Moratorium momentum is growing after the \"People over Data Centers\" Capitol rally. Criticized big money interests pushing projects on Michigan communities.",
+      text: "Moratorium momentum is growing after the \"People over Data Centers\" Capitol rally. Criticized big money interests pushing data center projects on Michigan communities.",
       post_url: "https://www.facebook.com/SenJimRunestad/posts/people-over-data-centersour-push-for-a-moratorium-is-gaining-major-momentum/1461017315832317/"
     },
     {
@@ -205,39 +205,39 @@ window.TRACKER_DATA = {
       platform: "Facebook",
       platform_type: "social",
       posted_at: "2026-06-24",
-      text: "Renewed his call for a one-year moratorium, arguing it would force lawmakers to address energy costs, water use, tax breaks, and transparency before new projects advance.",
+      text: "Renewed his call for a one-year moratorium, arguing it would force lawmakers to address energy costs, water use, and tax break transparency before new projects advance.",
       post_url: "https://www.facebook.com/TomLeonard28/posts/this-is-why-i-called-for-a-one-year-moratorium-on-new-data-centers-in-january/1606836081068249/"
     },
     {
-      account_name: "Sen. Rosemary Bayer",
-      platform: "Official site",
+      account_name: "Senate Democrats",
+      platform: "Official statement",
       platform_type: "official",
       posted_at: "2026-06-25",
-      text: "Senate Democrats detailed an eight-bill regulatory package covering water use caps, labor protections, transparency, and a ban on local officials signing NDAs with data center developers.",
+      text: "Detailed an eight-bill package covering water use caps, labor protections, and a ban on local officials signing NDAs with data center developers.",
       post_url: "https://senatedems.com/bayer/data-centers/"
     },
     {
       account_name: "City of Wixom",
-      platform: "Official site",
+      platform: "Official notice",
       platform_type: "official",
       posted_at: "2026-06-25",
-      text: "Announced a June 29 public hearing on zoning amendments that would define data centers and set performance standards for water use, noise, and other impacts.",
+      text: "Announced a June 29 public hearing on zoning amendments to define data centers and set performance standards for water use and noise.",
       post_url: "https://www.wixomgov.org/departments/construction-development-services-building/data-center-moratorium-ordinance"
     },
     {
       account_name: "Michigan Advance",
-      platform: "News coverage",
+      platform: "News",
       platform_type: "news",
       posted_at: "2026-06-24",
-      text: "Bipartisan lawmakers and residents rallied at the State Capitol calling for a one-year moratorium to study data center impacts on energy, water, and local communities.",
+      text: "Bipartisan lawmakers and residents rallied at the State Capitol calling for a one-year moratorium to study data center impacts on energy, water, and communities.",
       post_url: "https://michiganadvance.com/2026/06/24/michigan-lawmakers-residents-renew-push-for-statewide-data-center-moratorium/"
     },
     {
-      account_name: "WEMU / Michigan Public",
-      platform: "News coverage",
+      account_name: "WEMU",
+      platform: "News",
       platform_type: "news",
       posted_at: "2026-06-25",
-      text: "Reported unusually broad bipartisan opposition at the Capitol rally. Sen. Runestad said he has rarely seen such a coalition form against a development category.",
+      text: "Noted unusually broad bipartisan opposition at the Capitol rally. Sen. Runestad said he has rarely seen such a coalition form against a single development category.",
       post_url: "https://www.wemu.org/michigan-news/2026-06-25/michigan-lawmakers-continue-call-for-data-center-moratorium"
     }
   ],
