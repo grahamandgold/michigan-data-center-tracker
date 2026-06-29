@@ -182,7 +182,8 @@
     const indexes = regional[key] || [];
     const items = indexes.map(index => latest[index]).filter(Boolean);
     const visual = regionVisuals[key];
-    const visualCard = key === "statewide"
+    const isMobile = window.matchMedia("(max-width: 900px)").matches;
+    const visualCard = (key === "statewide" && !isMobile)
       ? `<div class="region-visual region-visual-video">
           <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
             <source src="across-michigan-hero-web.mp4" type="video/mp4">
