@@ -125,6 +125,37 @@
       transition: background .15s, color .15s;
     }
     .map-topbar-nav .nav-back:hover { background: var(--red); color: #fff; }
+    .map-topbar-nav .nav-home {
+      color: var(--ink-dim); border: 1px solid var(--line-strong);
+      padding: 5px 10px; border-radius: 4px;
+      transition: background .15s, color .15s;
+    }
+    .map-topbar-nav .nav-home:hover { background: rgba(255,255,255,0.08); color: var(--ink); }
+    .map-topbar-nav .nav-subscribe {
+      color: #fff; background: var(--red);
+      border: 1px solid var(--red);
+      padding: 5px 12px; border-radius: 4px; font-weight: 700;
+      transition: background .15s, border-color .15s;
+    }
+    .map-topbar-nav .nav-subscribe:hover { background: #a80d24; border-color: #a80d24; }
+
+    /* 3-mode tile toggle */
+    .tile-toggle {
+      display: flex; border: 1px solid var(--line-strong); border-radius: 4px; overflow: hidden;
+    }
+    .tile-btn {
+      font-family: var(--mono); font-size: 8px; letter-spacing: 1.2px;
+      text-transform: uppercase; font-weight: 700;
+      color: var(--ink-muted); background: transparent;
+      border: none; border-right: 1px solid var(--line-strong);
+      padding: 4px 8px; cursor: pointer;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .tile-btn:last-child { border-right: none; }
+    .tile-btn:hover { background: rgba(207,16,45,0.12); color: var(--red); }
+    .tile-btn.active { background: rgba(207,16,45,0.18); color: var(--red); }
+    @media (max-width: 560px) { .tile-toggle { display: none; } }
 
     /* ── LIVE HUD STATUS BAR ── */
     .hud-status {
@@ -512,11 +543,11 @@
   <header class="map-topbar">
     <a class="map-topbar-brand" href="index.html">
       <img src="brand-logo-light.png" alt="Michigan Data Center Tracker">
-      <span class="map-topbar-title">Internal Tracker</span>
     </a>
     <nav class="map-topbar-nav">
       <a href="methodology.html">Methodology</a>
-      <a href="index.html" class="nav-back">← Tracker Home</a>
+      <a href="index.html" class="nav-home">← Homepage</a>
+      <a href="index.html#briefing" class="nav-subscribe">Subscribe</a>
     </nav>
   </header>
 
@@ -530,7 +561,11 @@
     <span class="hud-live-txt">Live</span>
     <span class="hud-live-sub" id="hud-record-count">Loading…</span>
     <span class="hud-updated" id="map-updated">—</span>
-    <button id="sat-toggle" class="hud-btn" type="button">Satellite</button>
+    <div class="tile-toggle" id="tile-toggle" role="group" aria-label="Map style">
+      <button class="tile-btn active" data-mode="dark" type="button">Dark</button>
+      <button class="tile-btn" data-mode="day" type="button">Daylight</button>
+      <button class="tile-btn" data-mode="sat" type="button">Satellite</button>
+    </div>
     <button id="copy-link" class="hud-btn" type="button">Copy link</button>
   </section>
 
