@@ -1531,7 +1531,7 @@
       "description": "83 Michigan counties — hover for name",
       "color": "#64748b",
       "url": "geo/mi-counties.geojson",
-      "default_on": false
+      "default_on": true
     },
     {
       "id": "congressional",

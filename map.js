@@ -14,7 +14,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260701f", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260701g", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -1013,7 +1013,9 @@
       const layersAreDefault = onLayers.length === defaultLayerSet.size && onLayers.every(id => defaultLayerSet.has(id));
       if (onLayers.length && onLayers.length < layersMeta.length && !layersAreDefault) p.set("layers", onLayers.join(","));
       const onBoundaries = [...activeBoundaries];
-      if (onBoundaries.length) p.set("boundaries", onBoundaries.join(","));
+      const defaultBoundarySet = new Set(boundaryLayersMeta.filter(b => b.default_on).map(b => b.id));
+      const boundariesAreDefault = onBoundaries.length === defaultBoundarySet.size && onBoundaries.every(id => defaultBoundarySet.has(id));
+      if (onBoundaries.length && !boundariesAreDefault) p.set("boundaries", onBoundaries.join(","));
       const onOverlays = [...activeOverlays];
       if (onOverlays.length) p.set("overlays", onOverlays.join(","));
       if (activePointName) p.set("point", activePointName);
