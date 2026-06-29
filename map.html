@@ -1522,17 +1522,42 @@
       padding-top: 8px;
       border-top: 1px solid var(--line);
     }
-    .pop-footer { padding: 0 16px 14px; }
-    .pop-source {
-      display: inline-flex;
-      font-size: 11px;
+    .pop-source-fold {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+    .pop-source-fold summary {
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--ink-muted);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .pop-source-fold summary::-webkit-details-marker { display: none; }
+    .pop-source-fold[open] summary { margin-bottom: 6px; }
+    .pop-source-link {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-dim);
       text-decoration: none;
     }
-    .pop-source:hover { text-decoration: underline; }
+    .pop-source-link:hover { color: var(--ink); text-decoration: underline; }
+    .more-source-note {
+      padding: 10px 14px 12px;
+      font-size: 10px;
+      line-height: 1.45;
+      color: var(--ink-muted);
+      border-bottom: 1px solid var(--line);
+    }
+    .more-source-note a {
+      color: var(--ink-dim);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
 
     .sidebar-toggle { display: none; }
     .nav-link--desktop { display: inline-flex; }
@@ -1800,6 +1825,7 @@
         </div>
 
         <div class="panel-pane" id="pane-more" role="tabpanel" aria-labelledby="tab-btn-more" hidden>
+          <p class="more-source-note">Records are verified against public filings and official notices. Direct citations appear on the map only when a public link adds value. <a href="methodology.html">How we source</a></p>
           <div class="sponsor-ribbon" aria-label="Presenting sponsor">
             <span class="sponsor-ribbon-label">Presented by</span>
             <span class="sponsor-ribbon-slot">Partner placement available</span>
@@ -1855,7 +1881,7 @@
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin=""></script>
   <!-- Optional: set data-plausible-domain on <body> and uncomment for Plausible -->
   <!-- <script defer data-domain="midatacentertracker.com" src="https://plausible.io/js/script.js"></script> -->
-  <script src="map-analytics.js?v=20260701a"></script>
-  <script src="map.js?v=20260701a" defer></script>
+  <script src="map-analytics.js?v=20260701b"></script>
+  <script src="map.js?v=20260701b" defer></script>
 </body>
 </html>

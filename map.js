@@ -10,7 +10,7 @@
 
   async function loadMapData() {
     try {
-      const res = await fetch("map-data.json?v=20260701a", { cache: "no-store" });
+      const res = await fetch("map-data.json?v=20260701b", { cache: "no-store" });
       if (!res.ok) throw new Error(`map-data.json HTTP ${res.status}`);
       const json = await res.json();
       if (!json.map_points?.length) throw new Error("map-data.json has no map_points");
@@ -383,7 +383,10 @@
       if (props.owner) rows.push(`<div class="pop-row"><span class="pop-label">Owner</span><span class="pop-val">${esc(props.owner)}</span></div>`);
       if (props.county) rows.push(`<div class="pop-row"><span class="pop-label">County</span><span class="pop-val">${esc(props.county)}</span></div>`);
       const note = props.note || (props.label && props.label !== title ? props.label : "");
-      return `<div class="map-popup"><div class="pop-header" style="--status:${c}"><span class="pop-status">${esc(meta.label)}</span><div class="pop-name">${esc(title)}</div></div><div class="pop-body">${rows.join("")}${note ? `<p class="pop-note">${esc(note)}</p>` : ""}</div>${meta.source_url ? `<div class="pop-footer"><a class="pop-source" href="${safeUrl(meta.source_url)}" target="_blank" rel="noopener">${esc(meta.source_name || "Source")} ↗</a></div>` : ""}</div>`;
+      const overlaySrc = meta.source_url && safeUrl(meta.source_url) !== "#" && meta.source_name
+        ? `<details class="pop-source-fold"><summary>Data source</summary><a class="pop-source-link" href="${safeUrl(meta.source_url)}" target="_blank" rel="noopener">${esc(meta.source_name)}</a></details>`
+        : "";
+      return `<div class="map-popup"><div class="pop-header" style="--status:${c}"><span class="pop-status">${esc(meta.label)}</span><div class="pop-name">${esc(title)}</div></div><div class="pop-body">${rows.join("")}${note ? `<p class="pop-note">${esc(note)}</p>` : ""}${overlaySrc}</div></div>`;
     }
 
     function overlayFeatureStyle(meta, props = {}) {
@@ -559,15 +562,38 @@
       const status = String(p?.status || "");
       const when = p?.verified_date ? dateLabel(p.verified_date) : "";
       if (layer === "meetings" && when) actions.push(`Next public step: ${when}`);
-      else if (layer === "meetings") actions.push("Open the source for agenda and meeting details.");
+      else if (layer === "meetings") actions.push("Check the local agenda for hearing date and materials.");
       if (layer === "moratoria" || status === "Moratorium") actions.push("Watch for township board votes and ordinance updates.");
       if (status === "Proposed" || status === "Under review") actions.push("Track planning commission and zoning hearings.");
       if (status === "Under construction") actions.push("Monitor construction permits and utility filings.");
       if (status === "Rejected by planning commission" || status === "Under appeal") actions.push("Follow appeals, pauses, or revised applications.");
       if (layer === "transmission") actions.push("Review MPSC dockets and corridor route updates.");
       if (layer === "policy") actions.push("Follow capitol hearings and agency rulemaking.");
-      if (!actions.length && p?.note) actions.push("Read the source for the latest public update.");
+      if (!actions.length && p?.note) actions.push("Track public filings for the latest update.");
       return actions.slice(0, 2);
+    }
+
+    function recordSource(p) {
+      const url = String(p?.source_url || "");
+      if (!url || safeUrl(url) === "#") return null;
+      const label = String(p.source_name || "").trim();
+      if (!label) return null;
+      return { href: safeUrl(url), label };
+    }
+
+    function sourceWorthShowing(p) {
+      const src = recordSource(p);
+      if (!src) return null;
+      const hay = `${src.href} ${src.label}`.toLowerCase();
+      if (["meetings", "moratoria", "policy", "transmission"].includes(p.layer)) return src;
+      if (/\.gov|michigan\.gov|township|city of|mpsc|egle|legislature/.test(hay)) return src;
+      return null;
+    }
+
+    function popSourceMarkup(p) {
+      const src = sourceWorthShowing(p);
+      if (!src) return "";
+      return `<details class="pop-source-fold"><summary>Public record</summary><a class="pop-source-link" href="${src.href}" target="_blank" rel="noopener">${esc(src.label)}</a></details>`;
     }
 
     function makePopup(p) {
@@ -580,11 +606,17 @@
       const actionHtml = actions.length
         ? `<div class="pop-actions"><div class="pop-actions-title">What to watch</div><ul>${actions.map(a => `<li>${esc(a)}</li>`).join("")}</ul></div>`
         : "";
-      return `<div class="map-popup"><div class="pop-header" style="--status:${c}"><span class="pop-status">${esc(layerLabel(p))}</span><div class="pop-phase">${esc(phase)}</div><div class="pop-name">${esc(p.name)}</div><div class="pop-location">${esc(p.municipality)}, ${esc(p.county)} County</div><div class="pop-status-pill" style="--status:${c}">${esc(p.status)}</div></div><div class="pop-body">${p.developer ? `<div class="pop-row"><span class="pop-label">${ownerLabel}</span><span class="pop-val">${esc(p.developer)}</span></div>` : ""}${p.power_mw ? `<div class="pop-row"><span class="pop-label">${capacityLabel}</span><span class="pop-val">${esc(p.power_mw)} MW</span></div>` : ""}${dateStr ? `<div class="pop-row"><span class="pop-label">Last verified</span><span class="pop-val">${dateStr}</span></div>` : ""}${p.confidence ? `<div class="pop-row"><span class="pop-label">Confidence</span><span class="pop-val">${esc(p.confidence)}</span></div>` : ""}${p.note ? `<p class="pop-note">${esc(p.note)}</p>` : ""}${actionHtml}</div><div class="pop-footer"><a class="pop-source" href="${safeUrl(p.source_url)}" target="_blank" rel="noopener">${esc(p.source_name || "Source")} ↗</a></div></div>`;
+      return `<div class="map-popup"><div class="pop-header" style="--status:${c}"><span class="pop-status">${esc(layerLabel(p))}</span><div class="pop-phase">${esc(phase)}</div><div class="pop-name">${esc(p.name)}</div><div class="pop-location">${esc(p.municipality)}, ${esc(p.county)} County</div><div class="pop-status-pill" style="--status:${c}">${esc(p.status)}</div></div><div class="pop-body">${p.developer ? `<div class="pop-row"><span class="pop-label">${ownerLabel}</span><span class="pop-val">${esc(p.developer)}</span></div>` : ""}${p.power_mw ? `<div class="pop-row"><span class="pop-label">${capacityLabel}</span><span class="pop-val">${esc(p.power_mw)} MW</span></div>` : ""}${dateStr ? `<div class="pop-row"><span class="pop-label">Last verified</span><span class="pop-val">${dateStr}</span></div>` : ""}${p.confidence ? `<div class="pop-row"><span class="pop-label">Confidence</span><span class="pop-val">${esc(p.confidence)}</span></div>` : ""}${p.note ? `<p class="pop-note">${esc(p.note)}</p>` : ""}${actionHtml}${popSourceMarkup(p)}</div></div>`;
     }
 
     function makeLinePopup(line) {
-      return `<div class="map-popup"><div class="pop-header" style="--status:#9c5fc9"><span class="pop-status">Power & grid · ${esc(line.status)}</span><div class="pop-name">${esc(line.name)}</div><div class="pop-location">${esc((line.counties||[]).join(", "))}</div></div><div class="pop-body"><div class="pop-row"><span class="pop-label">Operator</span><span class="pop-val">${esc(line.operator)}</span></div>${line.note ? `<p class="pop-note">${esc(line.note)}</p>` : ""}</div><div class="pop-footer"><a class="pop-source" href="${safeUrl(line.source_url)}" target="_blank" rel="noopener">${esc(line.source_name)} ↗</a></div></div>`;
+      const src = line.source_url && safeUrl(line.source_url) !== "#" && line.source_name
+        ? { href: safeUrl(line.source_url), label: line.source_name }
+        : null;
+      const srcHtml = src
+        ? `<details class="pop-source-fold"><summary>Public record</summary><a class="pop-source-link" href="${src.href}" target="_blank" rel="noopener">${esc(src.label)}</a></details>`
+        : "";
+      return `<div class="map-popup"><div class="pop-header" style="--status:#9c5fc9"><span class="pop-status">Power & grid · ${esc(line.status)}</span><div class="pop-name">${esc(line.name)}</div><div class="pop-location">${esc((line.counties||[]).join(", "))}</div></div><div class="pop-body"><div class="pop-row"><span class="pop-label">Operator</span><span class="pop-val">${esc(line.operator)}</span></div>${line.note ? `<p class="pop-note">${esc(line.note)}</p>` : ""}${srcHtml}</div></div>`;
     }
 
     function shortLineLabel(name) {
@@ -1114,7 +1146,7 @@
       const actionHtml = actions.length
         ? `<div class="record-actions"><div class="record-actions-title">What to watch</div><ul>${actions.map(a => `<li>${esc(a)}</li>`).join("")}</ul></div>`
         : "";
-      panel.innerHTML = `<div class="record-card" style="--status:${c}"><div class="record-status">${esc(p.status)}</div><div class="record-phase">${esc(phase)} · ${esc(layerLabel(p))}</div><h2 class="record-name">${esc(p.name)}</h2><div class="record-meta">${esc(p.municipality)}, ${esc(p.county)} County</div>${facts ? `<div class="record-facts">${facts}</div>` : ""}${p.note ? `<p class="record-note">${esc(p.note)}</p>` : ""}${actionHtml}<div class="record-card-foot"><a class="selected-link" href="${safeUrl(p.source_url)}" target="_blank" rel="noopener">${esc(p.source_name || "Source")} ↗</a></div></div>`;
+      panel.innerHTML = `<div class="record-card" style="--status:${c}"><div class="record-status">${esc(p.status)}</div><div class="record-phase">${esc(phase)} · ${esc(layerLabel(p))}</div><h2 class="record-name">${esc(p.name)}</h2><div class="record-meta">${esc(p.municipality)}, ${esc(p.county)} County</div>${facts ? `<div class="record-facts">${facts}</div>` : ""}${p.note ? `<p class="record-note">${esc(p.note)}</p>` : ""}${actionHtml}</div>`;
     }
 
     function clearSelection() {
