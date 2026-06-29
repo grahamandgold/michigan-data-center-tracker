@@ -499,6 +499,161 @@
     }
     .tip-cta-link:hover { background: #a80d24; }
 
+    /* 11. What can we help explain? */
+    .explain-ask {
+      background: #f0f1f4;
+      border-top: 1px solid #dfe2e8;
+      border-bottom: 1px solid #dfe2e8;
+    }
+    .explain-ask-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 44px 28px 48px;
+    }
+    .explain-ask-header {
+      max-width: 640px;
+      margin-bottom: 22px;
+    }
+    .explain-ask-header .eyebrow { color: #cf102d; }
+    .explain-ask-header h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      font-weight: 700;
+      color: #0b0b0d;
+      line-height: 1.15;
+    }
+    .explain-ask-lead {
+      margin: 0;
+      font-size: .9rem;
+      color: #555965;
+      line-height: 1.55;
+    }
+    .explain-ask-fair {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 0 0 22px;
+      padding: 12px 14px;
+      background: #fff;
+      border: 1px solid #dfe2e8;
+      border-left: 3px solid #cf102d;
+      font-size: .78rem;
+      color: #555965;
+      line-height: 1.5;
+    }
+    .explain-ask-fair strong {
+      display: block;
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #0b0b0d;
+      margin-bottom: 3px;
+    }
+    .explain-ask-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .explain-ask-topics-label {
+      width: 100%;
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #8b909c;
+      margin-bottom: 2px;
+    }
+    .explain-topic {
+      padding: 7px 12px;
+      border: 1px solid #c8ccd6;
+      background: #fff;
+      color: #333742;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      cursor: pointer;
+      transition: border-color .15s, background .15s, color .15s;
+    }
+    .explain-topic:hover,
+    .explain-topic:focus-visible {
+      border-color: #cf102d;
+      color: #cf102d;
+      outline: none;
+    }
+    .explain-topic.is-active {
+      background: #0b0b0d;
+      border-color: #0b0b0d;
+      color: #fff;
+    }
+    .explain-ask-form {
+      display: grid;
+      gap: 12px;
+      max-width: 720px;
+    }
+    .explain-ask-form label {
+      font-size: .58rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #8b909c;
+    }
+    .explain-ask-form textarea {
+      width: 100%;
+      min-height: 108px;
+      padding: 14px 16px;
+      border: 1px solid #c8ccd6;
+      background: #fff;
+      color: #0b0b0d;
+      font: inherit;
+      font-size: .88rem;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    .explain-ask-form textarea:focus {
+      outline: 2px solid rgba(207,16,45,.35);
+      border-color: #cf102d;
+    }
+    .explain-ask-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .explain-ask-submit {
+      padding: 11px 22px;
+      background: #cf102d;
+      border: none;
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .explain-ask-submit:hover { background: #a80d24; }
+    .explain-ask-note {
+      margin: 0;
+      font-size: .72rem;
+      color: #8b909c;
+      line-height: 1.45;
+      max-width: 420px;
+    }
+    .explain-ask-note a {
+      color: #cf102d;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    .explain-ask-message {
+      margin: 0;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #0b0b0d;
+    }
+    .explain-ask-message.is-error { color: #cf102d; }
+
     /* ── DESKTOP: restore full hero height, shift video right to show lighthouse ── */
     @media (min-width: 621px) {
       .masthead-video { object-position: 60% 42% !important; }
@@ -741,6 +896,12 @@
       /* Tip CTA stacks */
       .tip-cta-inner { padding: 20px 16px; gap: 14px; }
       .tip-cta-link { width: 100%; text-align: center; }
+
+      /* Explain ask */
+      .explain-ask-inner { padding: 32px 16px 36px; }
+      .explain-ask-actions { flex-direction: column; align-items: stretch; }
+      .explain-ask-submit { width: 100%; }
+      .explain-ask-note { max-width: none; }
     }
 
     /* ── TABLET (621–900px) ───────────────────────────────────────────── */
@@ -1354,6 +1515,7 @@
       <a href="#public-monitor">Public-source monitor</a>
       <a href="#meetings">Meetings &amp; hearings</a>
       <a href="#learn">Learning library</a>
+      <a href="#explain">Ask a question</a>
       <a href="#briefing">Email alerts</a>
       <a href="#sponsorship">Sponsorship</a>
       <a href="methodology.html">Methodology</a>
@@ -1589,6 +1751,42 @@
       </div>
     </div>
 
+    <section class="explain-ask" id="explain" aria-labelledby="explain-heading">
+      <div class="explain-ask-inner">
+        <div class="explain-ask-header">
+          <span class="eyebrow">Your questions</span>
+          <h2 id="explain-heading">What can we help explain?</h2>
+          <p class="explain-ask-lead">Confused by a hearing notice, moratorium vote or utility filing? Ask us. We answer with public sources — filings, meeting records and official statements — not spin from any side.</p>
+        </div>
+        <p class="explain-ask-fair">
+          <span aria-hidden="true">⚖</span>
+          <span>
+            <strong>Fair &amp; independent</strong>
+            Questions from residents, developers, officials and journalists are all welcome. We don't advocate for or against projects. We show the paper trail and link you to primary sources. <a href="methodology.html">How we source →</a>
+          </span>
+        </p>
+        <div class="explain-ask-topics" role="group" aria-label="Common topics">
+          <span class="explain-ask-topics-label">Start with a topic</span>
+          <button class="explain-topic" type="button" data-prompt="How does large-load power demand from data centers affect Michigan's grid and other ratepayers?">Power &amp; grid</button>
+          <button class="explain-topic" type="button" data-prompt="What should I know about water use, cooling and wastewater for data center proposals near me?">Water &amp; cooling</button>
+          <button class="explain-topic" type="button" data-prompt="What can a moratorium actually do — and what happens after a town votes to pause data centers?">Moratoria &amp; zoning</button>
+          <button class="explain-topic" type="button" data-prompt="How do I read a planning commission or township hearing agenda for a data center proposal?">Public meetings</button>
+          <button class="explain-topic" type="button" data-prompt="What tax incentives apply to Michigan data centers, and who decides whether a project gets them?">Tax incentives</button>
+          <button class="explain-topic" type="button" data-prompt="What jobs do data centers typically bring — and how is that different from construction-phase hiring?">Jobs &amp; economy</button>
+          <button class="explain-topic" type="button" data-prompt="What state agencies and laws govern data center siting, energy contracts and environmental review in Michigan?">State policy</button>
+        </div>
+        <form class="explain-ask-form" id="explain-ask-form" novalidate>
+          <label for="explain-question">Your question</label>
+          <textarea id="explain-question" name="question" rows="4" placeholder="e.g. What happens at a Wixom Planning Commission hearing, and where can I find the agenda?" required></textarea>
+          <div class="explain-ask-actions">
+            <button class="explain-ask-submit" type="submit">Send your question</button>
+            <p class="explain-ask-note">Opens your email app — no account required. We may answer on the site, in alerts, or point you to the public record. <a href="methodology.html">Our sourcing standards</a></p>
+          </div>
+          <p class="explain-ask-message" id="explain-ask-message" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+
     <section class="learn-section" id="learn" aria-labelledby="learn-heading">
       <div class="learn-header">
         <div class="learn-header-text">
@@ -1702,6 +1900,7 @@
         <a href="#live-map">Live map</a>
         <a href="methodology.html">Methodology</a>
         <a href="privacy.html">Privacy</a>
+        <a href="#explain">Ask a question</a>
         <a href="mailto:michigandatacentertracker@gmail.com?subject=Tracker%20tip">Submit a tip</a>
         <a href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker%20Sponsorship">Sponsor</a>
         <a href="mailto:andy@fortlauderdalesignal.com?subject=Michigan%20Data%20Center%20Tracker">Contact</a>
@@ -1715,7 +1914,7 @@
   <script src="home-stats.js?v=20260703h"></script>
   <script src="home-map-preview.js?v=20260703i"></script>
   <script src="content-data.js?v=20260701x"></script>
-  <script src="app.js?v=20260703e"></script>
+  <script src="app.js?v=20260703j"></script>
   <script>
     (function () {
       const MAP_VERSION = "20260703h";

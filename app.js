@@ -551,5 +551,66 @@
 
   initStickyCta();
 
+  const initExplainAsk = () => {
+    const form = $("#explain-ask-form");
+    const field = $("#explain-question");
+    const message = $("#explain-ask-message");
+    if (!form || !field) return;
+
+    const EMAIL = "michigandatacentertracker@gmail.com";
+    const setMessage = (text, isError = false) => {
+      if (!message) return;
+      message.hidden = !text;
+      message.textContent = text;
+      message.classList.toggle("is-error", isError);
+    };
+
+    $$(".explain-topic", form.closest(".explain-ask") || document).forEach(btn => {
+      btn.addEventListener("click", () => {
+        const prompt = btn.getAttribute("data-prompt") || "";
+        const active = btn.classList.toggle("is-active");
+        if (!active) return;
+        $$(".explain-topic").forEach(other => {
+          if (other !== btn) other.classList.remove("is-active");
+        });
+        if (!field.value.trim() || field.dataset.prefilled === "1") {
+          field.value = prompt;
+          field.dataset.prefilled = "1";
+        }
+        field.focus();
+        setMessage("");
+      });
+    });
+
+    field.addEventListener("input", () => {
+      delete field.dataset.prefilled;
+      $$(".explain-topic").forEach(btn => btn.classList.remove("is-active"));
+      setMessage("");
+    });
+
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const question = field.value.trim();
+      if (!question) {
+        setMessage("Please add your question before sending.", true);
+        field.focus();
+        return;
+      }
+      const topic = $(".explain-topic.is-active")?.textContent?.trim() || "";
+      const body = [
+        question,
+        "",
+        topic ? `Topic: ${topic}` : null,
+        "—",
+        "Sent from Michigan Data Center Tracker (midatacentertracker.github.io)"
+      ].filter(Boolean).join("\n");
+      const href = `mailto:${EMAIL}?subject=${encodeURIComponent("Tracker question")}&body=${encodeURIComponent(body)}`;
+      setMessage("Opening your email app…");
+      window.location.href = href;
+    });
+  };
+
+  initExplainAsk();
+
   labelExternalLinks();
 })();
