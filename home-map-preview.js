@@ -26,102 +26,122 @@
     generation: { label: "Power generation", short: "Power" }
   };
 
+  const DRIFT_CLASSES = ["ne", "sw", "nw", "se", "ctr"];
+
   const SLIDE_DEFS = [
     {
       id: "full-tracker",
       label: "Full tracker",
-      kickerFn: c => `Sites · moratoria · hearings · ${c.projects + c.moratoria + c.meetings} records`,
+      kickerFn: c => `${c.projects + c.moratoria + c.meetings} records statewide`,
       layers: ["projects", "moratoria", "meetings"],
       zoom: "state",
       wide: true,
+      labels: false,
       href: "map.html?layers=projects,moratoria,meetings"
     },
     {
-      id: "sites",
-      label: "Data center sites",
-      kickerFn: c => `${c.projects} proposed & operating facilities`,
-      layers: ["projects"],
-      swatchLayer: "projects",
-      fit: p => p.layer === "projects",
-      wide: true,
-      maxView: { w: 1080, h: 540 },
-      href: "map.html?layers=projects"
-    },
-    {
-      id: "moratoria",
+      id: "zoom-se-moratoria",
       label: "Moratoria & pauses",
-      kickerFn: c => `${c.moratoria} local bans & zoning pauses`,
+      kicker: "Oakland · Wayne · Macomb",
       layers: ["moratoria", "projects"],
       swatchLayer: "moratoria",
-      fit: p => p.layer === "moratoria" || p.layer === "projects",
-      wide: true,
-      maxView: { w: 820, h: 460 },
-      href: "map.html?layers=moratoria,projects"
+      fit: p => p.longitude > -83.72 && p.latitude > 42.18 && p.latitude < 42.82,
+      tight: true,
+      labels: true,
+      maxView: { w: 320, h: 250 },
+      focus: { lat: 42.52, lng: -83.42 },
+      href: "map.html?lat=42.52&lng=-83.42&zoom=10&layers=moratoria,projects"
     },
     {
-      id: "moratoria-focus",
-      label: "Pause clusters",
-      kicker: "Moratoria beside active proposals",
-      layers: ["moratoria", "projects"],
-      swatchLayer: "moratoria",
-      fit: p => p.layer === "moratoria",
-      maxView: { w: 620, h: 400 },
-      href: "map.html?layers=moratoria,projects"
-    },
-    {
-      id: "hearings",
+      id: "zoom-wixom",
       label: "Public meetings",
-      kickerFn: c => `${c.meetings} upcoming hearings & sessions`,
-      layers: ["meetings", "projects"],
+      kicker: "Wixom · Lyon · Pittsfield",
+      layers: ["meetings", "moratoria", "projects"],
       swatchLayer: "meetings",
-      fit: p => p.layer === "meetings" || p.layer === "projects",
-      wide: true,
-      maxView: { w: 860, h: 460 },
-      href: "map.html?layers=meetings,projects"
+      fit: p => p.longitude > -83.78 && p.longitude < -83.35 && p.latitude > 42.2 && p.latitude < 42.58,
+      tight: true,
+      labels: true,
+      maxView: { w: 290, h: 230 },
+      focus: { lat: 42.525, lng: -83.536 },
+      href: "map.html?lat=42.525&lng=-83.536&zoom=11&layers=meetings,moratoria,projects"
     },
     {
-      id: "generation",
-      label: "Power generation",
-      kickerFn: c => `${c.generation} nuclear · gas · wind · solar plants`,
-      layers: ["generation"],
-      swatchLayer: "generation",
-      fit: p => p.layer === "generation",
-      zoom: "state",
-      wide: true,
-      href: "map.html?layers=generation"
+      id: "zoom-saline",
+      label: "Data center sites",
+      kicker: "Saline · Pittsfield · Ypsilanti",
+      layers: ["projects", "moratoria"],
+      swatchLayer: "projects",
+      fit: p => p.longitude > -84.05 && p.longitude < -83.55 && p.latitude > 42.05 && p.latitude < 42.35,
+      tight: true,
+      labels: true,
+      maxView: { w: 300, h: 240 },
+      focus: { lat: 42.2, lng: -83.75 },
+      href: "map.html?lat=42.2&lng=-83.75&zoom=10&layers=projects,moratoria"
     },
     {
-      id: "grid",
+      id: "zoom-google",
+      label: "Data center sites",
+      kicker: "Van Buren · Allen Park corridor",
+      layers: ["projects", "moratoria"],
+      swatchLayer: "projects",
+      fit: p => p.longitude > -83.65 && p.longitude < -83.15 && p.latitude > 42.15 && p.latitude < 42.48,
+      tight: true,
+      labels: true,
+      maxView: { w: 280, h: 220 },
+      focus: { lat: 42.232, lng: -83.486 },
+      href: "map.html?lat=42.23&lng=-83.49&zoom=11&layers=projects,moratoria"
+    },
+    {
+      id: "zoom-west",
+      label: "Moratoria & pauses",
+      kicker: "Kent · Ottawa · Muskegon",
+      layers: ["moratoria", "projects"],
+      swatchLayer: "moratoria",
+      fit: p => p.longitude < -85.1 && p.latitude > 42.65,
+      tight: true,
+      labels: true,
+      maxView: { w: 340, h: 270 },
+      href: "map.html?lat=43.05&lng=-85.75&zoom=9&layers=moratoria,projects"
+    },
+    {
+      id: "zoom-capitol",
+      label: "Capitol & policy",
+      kicker: "Lansing · East Lansing",
+      layers: ["policy", "meetings", "moratoria"],
+      swatchLayer: "policy",
+      fit: p => p.longitude > -84.75 && p.longitude < -84.35 && p.latitude > 42.55 && p.latitude < 42.82,
+      tight: true,
+      labels: true,
+      maxView: { w: 300, h: 240 },
+      focus: { lat: 42.73, lng: -84.55 },
+      href: "map.html?lat=42.73&lng=-84.55&zoom=10&layers=policy,meetings,moratoria"
+    },
+    {
+      id: "zoom-grid",
       label: "Grid proposals",
-      kicker: "Corridors · plants · nearby sites",
+      kicker: "Corridors · plants · sites",
       layers: ["transmission", "generation", "projects"],
       swatchLayer: "transmission",
       lines: true,
-      fit: p => ["transmission", "generation", "projects"].includes(p.layer),
-      wide: true,
-      maxView: { w: 960, h: 520 },
-      href: "map.html?layers=transmission,generation,projects"
+      fit: p => ["transmission", "generation", "projects"].includes(p.layer)
+        && p.longitude > -86.2 && p.latitude > 42.35 && p.latitude < 43.1,
+      tight: true,
+      labels: true,
+      maxView: { w: 380, h: 300 },
+      href: "map.html?lat=42.68&lng=-84.9&zoom=9&layers=transmission,generation,projects"
     },
     {
-      id: "policy",
-      label: "Capitol & policy",
-      kicker: "Legislation · rallies · sessions",
-      layers: ["policy", "meetings", "generation"],
-      swatchLayer: "policy",
-      fit: p => ["policy", "meetings", "generation"].includes(p.layer),
-      wide: true,
-      maxView: { w: 720, h: 440 },
-      href: "map.html?layers=policy,meetings,generation"
-    },
-    {
-      id: "layered",
-      label: "Layered view",
-      kicker: "Stack filters on the live map",
-      layers: ["projects", "moratoria", "policy"],
-      fit: p => ["projects", "moratoria", "policy"].includes(p.layer),
-      wide: true,
-      maxView: { w: 900, h: 500 },
-      href: "map.html?layers=projects,moratoria,policy"
+      id: "zoom-wind",
+      label: "Power generation",
+      kicker: "Gratiot · Muskegon · Cross Winds",
+      layers: ["generation"],
+      swatchLayer: "generation",
+      fit: p => p.layer === "generation"
+        && ((p.longitude < -84.5 && p.latitude > 43.0) || p.name.includes("Wind") || p.name.includes("Solar")),
+      tight: true,
+      labels: true,
+      maxView: { w: 400, h: 310 },
+      href: "map.html?lat=43.2&lng=-85.1&zoom=9&layers=generation"
     },
     {
       id: "all-layers",
@@ -131,6 +151,7 @@
       lines: true,
       zoom: "state",
       wide: true,
+      labels: false,
       href: "map.html"
     }
   ];
@@ -241,9 +262,9 @@
 
     const spanX = Math.max(maxX - minX, 1);
     const spanY = Math.max(maxY - minY, 1);
-    const padFactor = slide.wide ? 0.09 : 0.12;
-    const padX = Math.max(spanX * padFactor, slide.wide ? 36 : 28);
-    const padY = Math.max(spanY * padFactor, slide.wide ? 30 : 24);
+    const padFactor = slide.tight ? 0.16 : slide.wide ? 0.09 : 0.12;
+    const padX = Math.max(spanX * padFactor, slide.tight ? 22 : slide.wide ? 36 : 28);
+    const padY = Math.max(spanY * padFactor, slide.tight ? 18 : slide.wide ? 30 : 24);
 
     let w = spanX + padX * 2;
     let h = spanY + padY * 2;
@@ -307,6 +328,72 @@
     }).filter(slide => slide.view.count > 0 || slide.lines);
   }
 
+  function townName(point) {
+    if (point.municipality) {
+      return String(point.municipality)
+        .replace(/\s+(Township|City|Charter Township|Village)$/i, "")
+        .trim();
+    }
+    const name = String(point.name || "");
+    const patterns = [
+      /^(?:City of |Township of |Village of )?([A-Za-z .'-]+?)\s+(?:moratorium|Planning|board|Commission|hearing|meeting|campus|Google|proposal|Project)/i,
+      /^([A-Za-z .'-]+?)\s+Township\b/i,
+      /^([A-Za-z .'-]+?)\s+(?:Nuclear|Power Plant|Generating|Wind|Solar|Energy Center|Solar Park)/i,
+      /^([A-Za-z .'-]+?)\s+(?:Metrobloks|Solstice|Meta|Microsoft|Franklin|Deep Green)/i,
+      /^([A-Za-z .'-]+?)-area\b/i,
+      /^([A-Za-z .'-]+)\s+County\b/i
+    ];
+    for (const pattern of patterns) {
+      const match = name.match(pattern);
+      if (match?.[1]) return match[1].replace(/ Township$/, "").trim();
+    }
+    if (point.county) return String(point.county).replace(/ County$/, "").trim();
+    return "";
+  }
+
+  function shouldShowLabels(slide, view) {
+    if (slide.labels === false) return false;
+    if (slide.labels === true || slide.tight) return true;
+    return view.w < 480;
+  }
+
+  function renderTownLabels(points, layers, view, slide) {
+    if (!shouldShowLabels(slide, view)) return "";
+    const scale = SVG_SIZE.w / Math.max(view.w, 180);
+    const fontSize = Math.min(12, Math.max(7.5, 7.2 * Math.pow(scale, 0.28)));
+    const placed = [];
+    const offsets = [[11, -9], [11, 15], [-11, -9], [-52, 12], [0, -15], [0, 18], [14, 2], [-58, -4]];
+    const rows = [];
+
+    points.forEach(point => {
+      if (!layers.has(point.layer || "projects")) return;
+      if (slide.fit && !slide.fit(point)) return;
+      const text = townName(point);
+      if (!text || text.length > 22) return;
+      const [x, y] = project(point.latitude, point.longitude);
+      if (x < view.x + 8 || x > view.x + view.w - 8 || y < view.y + 8 || y > view.y + view.h - 8) return;
+
+      let lx = x + 11;
+      let ly = y - 9;
+      for (const [dx, dy] of offsets) {
+        const tx = x + dx;
+        const ty = y + dy;
+        const clash = placed.some(p => Math.hypot(p.x - tx, p.y - ty) < Math.max(34, text.length * 3.8));
+        if (!clash) {
+          lx = tx;
+          ly = ty;
+          break;
+        }
+      }
+      placed.push({ x: lx, y: ly });
+      const textAnchor = lx < x ? "end" : "start";
+      rows.push(`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${textAnchor}" fill="rgba(255,255,255,.78)" stroke="rgba(6,10,16,.72)" stroke-width="2.4" paint-order="stroke">${text}</text>`);
+    });
+
+    if (!rows.length) return "";
+    return `<g class="home-map-labels" font-family="-apple-system,BlinkMacSystemFont,system-ui,sans-serif" font-size="${fontSize.toFixed(1)}" font-weight="600" letter-spacing=".05em">${rows.join("")}</g>`;
+  }
+
   function markerSize(view) {
     const scale = SVG_SIZE.w / Math.max(view.w, 200);
     return Math.min(22, Math.max(11, Math.round(11 * Math.pow(scale, 0.38))));
@@ -365,18 +452,23 @@
       p => Number.isFinite(p.latitude) && Number.isFinite(p.longitude)
     );
     const pointMarkup = points.map(p => renderMarker(p, layers, slide.focus, view)).join("");
+    const labelMarkup = renderTownLabels(points, layers, view, slide);
     const lineMarkup = slide.lines ? renderLines(data.transmission_lines, view) : "";
     const vb = `${view.x} ${view.y} ${view.w} ${view.h}`;
+    const isTight = slide.tight || view.w < 500;
     const tint = slide.layers.includes("moratoria") && !slide.layers.includes("projects")
       ? `<rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="rgba(224,152,32,.06)"/>`
       : slide.layers.includes("moratoria") && slide.layers.includes("projects")
         ? `<rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="rgba(207,16,45,.03)"/>`
         : "";
 
-    const showCounties = slide.wide || view.w >= 720;
+    const showCounties = !isTight && (slide.wide || view.w >= 620);
     const countyLayer = showCounties
       ? `<g fill="${COUNTY_FILL}" stroke="${COUNTY_STROKE}" stroke-width="1" stroke-linejoin="round" opacity=".92">${countyMarkup}</g>`
       : "";
+    const gridOpacity = isTight ? ".22" : ".55";
+    const vignetteInner = isTight ? "rgba(125,211,252,.08)" : "rgba(125,211,252,.14)";
+    const vignetteOuter = isTight ? "rgba(0,0,0,.28)" : "rgba(0,0,0,.42)";
 
     return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
 <defs>
@@ -385,22 +477,23 @@
 <stop offset="100%" stop-color="${MAP_BG[1]}"/>
 </linearGradient>
 <radialGradient id="vignette-${id}" cx="50%" cy="44%" r="68%">
-<stop offset="0%" stop-color="rgba(125,211,252,.14)"/>
+<stop offset="0%" stop-color="${vignetteInner}"/>
 <stop offset="55%" stop-color="rgba(0,0,0,0)"/>
-<stop offset="100%" stop-color="rgba(0,0,0,.42)"/>
+<stop offset="100%" stop-color="${vignetteOuter}"/>
 </radialGradient>
 <pattern id="grid-${id}" width="28" height="28" patternUnits="userSpaceOnUse">
 <path d="M28 0H0V28" fill="none" stroke="rgba(125,211,252,.07)" stroke-width=".6"/>
 </pattern>
 </defs>
 <rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="url(#bg-${id})"/>
-<rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="url(#grid-${id})" opacity=".55"/>
+<rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="url(#grid-${id})" opacity="${gridOpacity}"/>
 ${showCounties ? `<path d="M0,0 L220,0 L180,720 L0,720 Z" fill="#0a1018" opacity=".55"/>
 <path d="M1020,0 L1200,0 L1200,720 L980,720 Z" fill="#0a1018" opacity=".55"/>` : ""}
 ${countyLayer}
 ${tint}
 <g>${lineMarkup}${pointMarkup}</g>
 <rect x="${view.x}" y="${view.y}" width="${view.w}" height="${view.h}" fill="url(#vignette-${id})"/>
+${labelMarkup}
 </svg>`;
   }
 
@@ -450,10 +543,12 @@ ${tint}
     const slides = buildSlides(mapData);
     if (!slides.length) return;
 
-    root.innerHTML = slides.map((slide, i) => `
-      <div class="home-map-preview-slide${i === 0 ? " is-active" : ""}" data-slide="${slide.id}" data-href="${slide.href}">
+    root.innerHTML = slides.map((slide, i) => {
+      const drift = DRIFT_CLASSES[i % DRIFT_CLASSES.length];
+      return `<div class="home-map-preview-slide home-map-preview-slide--drift-${drift}${i === 0 ? " is-active" : ""}" data-slide="${slide.id}" data-href="${slide.href}">
         ${renderSlideSvg(slide, mapData)}
-      </div>`).join("");
+      </div>`;
+    }).join("");
 
     if (dotsRoot) {
       dotsRoot.innerHTML = slides.map((_, i) =>
@@ -498,7 +593,7 @@ ${tint}
       timer = setTimeout(() => {
         applySlide(index + 1);
         schedule();
-      }, 3800);
+      }, 4200);
     };
 
     const start = () => {

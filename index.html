@@ -977,12 +977,47 @@
       display: block;
       width: 100%;
       height: 100%;
-      transition: transform 4.2s ease;
-      transform: scale(1);
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.03);
+      will-change: transform, filter;
     }
     .home-map-preview-slide.is-active svg {
-      transform: scale(1.04);
-      filter: saturate(1.12) contrast(1.06) brightness(1.03);
+      filter: saturate(1.14) contrast(1.06) brightness(1.04);
+    }
+    .home-map-preview-slide--drift-ne.is-active svg {
+      animation: preview-drift-ne 4.6s cubic-bezier(.22, 1, .32, 1) forwards;
+    }
+    .home-map-preview-slide--drift-sw.is-active svg {
+      animation: preview-drift-sw 4.6s cubic-bezier(.22, 1, .32, 1) forwards;
+    }
+    .home-map-preview-slide--drift-nw.is-active svg {
+      animation: preview-drift-nw 4.6s cubic-bezier(.22, 1, .32, 1) forwards;
+    }
+    .home-map-preview-slide--drift-se.is-active svg {
+      animation: preview-drift-se 4.6s cubic-bezier(.22, 1, .32, 1) forwards;
+    }
+    .home-map-preview-slide--drift-ctr.is-active svg {
+      animation: preview-drift-ctr 4.6s cubic-bezier(.22, 1, .32, 1) forwards;
+    }
+    @keyframes preview-drift-ne {
+      from { transform: scale(1.03) translate(0.6%, 0.5%); }
+      to { transform: scale(1.11) translate(-1.4%, -1%); }
+    }
+    @keyframes preview-drift-sw {
+      from { transform: scale(1.04) translate(-0.5%, 0.4%); }
+      to { transform: scale(1.12) translate(1.2%, -0.8%); }
+    }
+    @keyframes preview-drift-nw {
+      from { transform: scale(1.03) translate(0.4%, -0.3%); }
+      to { transform: scale(1.1) translate(-1%, 0.9%); }
+    }
+    @keyframes preview-drift-se {
+      from { transform: scale(1.035) translate(-0.4%, -0.4%); }
+      to { transform: scale(1.115) translate(1.1%, 0.7%); }
+    }
+    @keyframes preview-drift-ctr {
+      from { transform: scale(1.02); }
+      to { transform: scale(1.09); }
     }
     .home-map-preview-ui {
       position: absolute;
@@ -1148,7 +1183,15 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .home-map-preview-slide svg,
-      .home-map-preview-slide.is-active svg { transform: none; transition: none; }
+      .home-map-preview-slide.is-active svg,
+      .home-map-preview-slide--drift-ne.is-active svg,
+      .home-map-preview-slide--drift-sw.is-active svg,
+      .home-map-preview-slide--drift-nw.is-active svg,
+      .home-map-preview-slide--drift-se.is-active svg,
+      .home-map-preview-slide--drift-ctr.is-active svg {
+        animation: none !important;
+        transform: none;
+      }
       .home-map-preview-pulse { animation: none; }
     }
     .home-map-preview-overlay {
@@ -1167,8 +1210,7 @@
     }
     .home-map-preview:hover .home-map-preview-slide.is-active svg,
     .home-map-preview:focus-visible .home-map-preview-slide.is-active svg {
-      transform: scale(1.06);
-      filter: saturate(1.18) contrast(1.08) brightness(1.06);
+      filter: saturate(1.2) contrast(1.08) brightness(1.07);
     }
     .home-map-preview:hover .home-map-preview-dock-cta,
     .home-map-preview:focus-visible .home-map-preview-dock-cta {
@@ -1671,7 +1713,7 @@
   </footer>
 
   <script src="home-stats.js?v=20260703h"></script>
-  <script src="home-map-preview.js?v=20260703g"></script>
+  <script src="home-map-preview.js?v=20260703i"></script>
   <script src="content-data.js?v=20260701x"></script>
   <script src="app.js?v=20260703e"></script>
   <script>
