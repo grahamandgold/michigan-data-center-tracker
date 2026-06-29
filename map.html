@@ -569,17 +569,16 @@
       lfScript.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
       // No integrity attr on dynamic scripts — SRI blocks execution silently
       lfScript.onload = function() {
-        // Step 2: Fetch data
-        fetch("data.json?v=20260628b")
-          .then(function(r) { return r.json(); })
-          .then(function(d) { window.TRACKER_DATA = d; })
-          .catch(function() { window.TRACKER_DATA = {}; })
-          .finally(function() {
-            // Step 3: Load map.js after Leaflet + data both ready
-            var ms = document.createElement("script");
-            ms.src = "map.js?v=20260628b";
-            document.body.appendChild(ms);
-          });
+        // Step 2: Load content-data.js (sets window.TRACKER_DATA)
+        var ds = document.createElement("script");
+        ds.src = "content-data.js?v=20260628c";
+        ds.onload = function() {
+          // Step 3: Load map.js after data is ready
+          var ms = document.createElement("script");
+          ms.src = "map.js?v=20260628c";
+          document.body.appendChild(ms);
+        };
+        document.body.appendChild(ds);
       };
       document.body.appendChild(lfScript);
     })();
