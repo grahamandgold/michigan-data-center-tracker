@@ -124,10 +124,36 @@
       padding: 0 28px;
       display: flex;
       align-items: stretch;
+      justify-content: center;
       gap: 0;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+    }
+    .utility-map-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 20px;
+      border-right: 1px solid #222429;
+      border-left: 1px solid #222429;
+      color: #cf102d;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: color .15s;
+    }
+    .utility-map-link:hover { color: #ff4f68; }
+    .utility-map-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #cf102d;
+      box-shadow: 0 0 0 3px rgba(207,16,45,.25);
+      animation: pulse-dot 2s infinite;
+      flex-shrink: 0;
     }
     .utility-strip-inner::-webkit-scrollbar { display: none; }
     .utility-stat {
@@ -157,7 +183,6 @@
       white-space: nowrap;
     }
     .utility-updated {
-      margin-left: auto;
       display: flex;
       align-items: center;
       padding: 0 0 0 16px;
@@ -456,7 +481,7 @@
     </div>
     <nav class="primary-nav" aria-label="Primary navigation">
       <a href="#meetings">Meetings</a>
-      <a href="#regions">Regions</a>
+      <a href="#regions">Top Stories</a>
       <a href="#public-monitor">Sources</a>
       <a href="#learn">Learn</a>
       <a class="live-map-link" href="map.html"><span class="live-dot"></span>Live map</a>
@@ -486,10 +511,10 @@
         <span class="utility-stat-num" id="stat-meetings">—</span>
         <span class="utility-stat-label">Upcoming meetings</span>
       </div>
-      <div class="utility-stat">
-        <span class="utility-stat-num" id="stat-docs">—</span>
-        <span class="utility-stat-label">Documents linked</span>
-      </div>
+      <a class="utility-map-link" href="map.html">
+        <span class="utility-map-dot"></span>
+        <span>Live map</span>
+      </a>
       <div class="utility-updated">
         <div class="utility-updated-dot"></div>
         <span class="utility-updated-text" id="utility-timestamp">Updated —</span>
