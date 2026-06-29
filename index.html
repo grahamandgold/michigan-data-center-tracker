@@ -60,7 +60,7 @@
     .masthead-purpose { display: none !important; }
 
     /* 4. Hamburger — bigger, with MENU label */
-    .menu-button { display: none !important; }
+    .menu-button { display: none; }  /* mobile media query restores display:grid */
     .menu-label {
       display: none;
       color: #fff;
@@ -558,12 +558,14 @@
   <script>
     (function(){
       var msgs = document.querySelectorAll('.ticker-msg');
+      if (!msgs.length) return;
       var i = 0;
-      setInterval(function(){
+      function rotate() {
         msgs[i].classList.remove('ticker-msg-active');
         i = (i + 1) % msgs.length;
         msgs[i].classList.add('ticker-msg-active');
-      }, 5000);
+      }
+      setInterval(rotate, 4000);
     })();
   </script>
 
