@@ -48,34 +48,24 @@ def encode_like_bundler(template: str) -> str:
     return _escape_json_closing_tags(json.dumps(template, ensure_ascii=True))
 
 
-def load_homepage_template() -> str:
-    import re as _re
-
+def load_homepage_template(support_uuid: str) -> str:
     from productionize_homepage import productionize_homepage
-    from theme_assets import inject_theme_template
+    from theme_assets import inject_theme_template, split_dc_parts, wrap_bundle_document
 
     dc = (HANDOFF / "Homepage.dc.html").read_text(encoding="utf-8")
-    inner_m = _re.search(r"<x-dc>(.*)</x-dc>", dc, _re.DOTALL)
-    if not inner_m:
-        raise ValueError("x-dc block not found in Homepage.dc.html")
-    inner = inner_m.group(1).strip()
-    script_m = _re.search(
-        r"<script[^>]*data-dc-script[^>]*>.*?</script>",
-        dc,
-        _re.DOTALL,
-    )
+    inner, script = split_dc_parts(dc)
     inner = productionize_homepage("<x-dc>" + inner + "</x-dc>")
     inner = inner[len("<x-dc>") : -len("</x-dc>")]
-    tpl = inner
-    if script_m:
-        tpl += "\n" + productionize_homepage(script_m.group(0))
+    if script:
+        script = productionize_homepage(script)
     for old, new in LINK_REPLACEMENTS:
-        tpl = tpl.replace(old, new)
-    return inject_theme_template(tpl)
+        inner = inner.replace(old, new)
+    inner = inject_theme_template(inner)
+    return wrap_bundle_document(inner, script, support_uuid)
 
 
-def patch_decoded_template(tpl: str) -> str:
-    return load_homepage_template()
+def patch_decoded_template(support_uuid: str) -> str:
+    return load_homepage_template(support_uuid)
 
 
 def decompress_manifest(html: str) -> str:
@@ -149,7 +139,10 @@ def patch_index_html(html: str) -> str:
     )
     if not m:
         raise ValueError("template block not found")
-    template = patch_decoded_template(json.loads(m.group(2).strip()))
+    from theme_assets import extract_support_uuid
+
+    support_uuid = extract_support_uuid(html, "index.html")
+    template = patch_decoded_template(support_uuid)
     encoded = encode_like_bundler(template)
     html = html[: m.start()] + m.group(1) + encoded + m.group(3) + html[m.end() :]
     html = decompress_manifest(html)

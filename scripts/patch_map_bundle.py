@@ -115,16 +115,20 @@ def patch_map_template(tpl: str) -> str:
     return tpl
 
 
-def load_map_template() -> str:
-    from theme_assets import inject_theme_template, template_from_dc
+def load_map_template(support_uuid: str) -> str:
+    from theme_assets import inject_theme_template, split_dc_parts, wrap_bundle_document
 
     dc = (HANDOFF / "Live Map.dc.html").read_text(encoding="utf-8")
-    tpl = patch_map_template(template_from_dc(dc))
-    return inject_theme_template(tpl)
+    inner, script = split_dc_parts(dc)
+    inner = patch_map_template(inner)
+    if script:
+        script = patch_map_template(script)
+    inner = inject_theme_template(inner)
+    return wrap_bundle_document(inner, script, support_uuid)
 
 
 def patch_map_html(html: str) -> str:
-    from theme_assets import inject_theme_shell
+    from theme_assets import extract_support_uuid, inject_theme_shell
 
     m = re.search(
         r'(<script type="__bundler/template">\s*\n)(.+?)(\n\s*</script>)',
@@ -133,7 +137,8 @@ def patch_map_html(html: str) -> str:
     )
     if not m:
         raise ValueError("template block not found in map bundle")
-    template = load_map_template()
+    support_uuid = extract_support_uuid(html, "map/index.html")
+    template = load_map_template(support_uuid)
     encoded = encode_like_bundler(template)
     html = html[: m.start()] + m.group(1) + encoded + m.group(3) + html[m.end() :]
     html = decompress_manifest(html)
