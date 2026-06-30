@@ -65,12 +65,6 @@ def patch_html(text: str) -> str:
             count=1,
             flags=re.I,
         )
-    # Inject base href into bundled template so it survives document.replaceWith()
-    text = text.replace(
-        '<meta name="viewport" content="width=device-width, initial-scale=1">',
-        f'<meta name="viewport" content="width=device-width, initial-scale=1">\\n<base href="{BASE}">',
-        1,
-    )
     return text
 
 
