@@ -9,7 +9,10 @@ from pathlib import Path
 
 RESPONSIVE_CSS = """
   a { color: inherit; }
-  .site-header { display:flex; align-items:center; justify-content:space-between; height:88px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+  .site-header { display:flex; align-items:center; justify-content:space-between; height:96px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+  .lockup { font-size:40px !important; }
+  .lockup .mark { height:1.55em !important; width:auto !important; }
+  .lockup .sub { font-size:.36em !important; letter-spacing:.24em !important; }
   .desktop-nav { display:flex; align-items:center; gap:28px; font-size:13px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; }
   .hamburger { display:none; flex-direction:column; gap:5px; width:28px; height:44px; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
   .hamburger span { height:2px; background:#cbc7c3; border-radius:0; }
@@ -42,7 +45,7 @@ RESPONSIVE_CSS = """
     .desktop-nav { display:none !important; }
     .hamburger { display:flex !important; }
     .site-header { height:68px; padding:0 20px !important; }
-    .lockup { font-size:22px !important; }
+    .lockup { font-size:28px !important; }
     .hero-section { flex-direction:column !important; padding:22px 20px 18px !important; gap:24px !important; }
     .hero-map-wrap { min-height:280px !important; }
     .section-pad { padding-left:20px !important; padding-right:20px !important; }
@@ -71,7 +74,7 @@ MOBILE_MENU = """
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed;inset:0;z-index:60;background:rgba(12,11,10,.97);padding:24px 20px;display:flex;flex-direction:column;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
-        <span class="lockup" style="font-size:20px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <span class="lockup" style="font-size:26px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
         <button onClick="{{ toggleMenu }}" aria-label="Close" style="background:none;border:none;color:#cbc7c3;font-size:30px;cursor:pointer;line-height:1;">×</button>
       </div>
       <nav style="display:flex;flex-direction:column;gap:4px;">
@@ -90,7 +93,7 @@ MOBILE_MENU = """
 RESPONSIVE_HEADER = """
     <header class="site-header">
       <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;">
-        <a class="lockup" href="index.html" style="font-size:30px;text-decoration:none;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a>
+        <a class="lockup" href="index.html" style="font-size:40px;text-decoration:none;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a>
         <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;" onmouseover="this.style.color='#8c8884'" onmouseout="this.style.color='#56524e'">Powered by PublicMeetingTracker.com</a>
       </div>
       <nav class="desktop-nav">

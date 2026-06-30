@@ -86,19 +86,19 @@
   .pod-sub { font-family:'Space Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#cbc7c3; border:1px solid #322e29; padding:6px 11px; text-decoration:none; white-space:nowrap; transition:border-color .15s ease,color .15s ease; }
   .pod-sub:hover { border-color:#E03131; color:#fff; }
   .lockup { display:inline-flex; align-items:center; line-height:1; }
-  .lockup .mark { height:1.3em; width:auto; display:block; }
+  .lockup .mark { height:1.55em; width:auto; display:block; }
   .lockup .divider { width:2px; align-self:stretch; background:#E03131; margin:.12em .5em .12em .28em; border-radius:0; }
   .lockup .words { display:flex; flex-direction:column; justify-content:center; }
   .lockup .mi { font-family:'Archivo',sans-serif; font-weight:800; font-size:1em; letter-spacing:.035em; color:#f6f4f1; line-height:.92; }
   .lockup .rule { height:2px; background:#E03131; margin:.14em 0 .1em; border-radius:0; }
-  .lockup .sub { font-family:'Archivo',sans-serif; font-weight:600; font-size:.30em; letter-spacing:.30em; color:#f6f4f1; white-space:nowrap; }
+  .lockup .sub { font-family:'Archivo',sans-serif; font-weight:600; font-size:.36em; letter-spacing:.24em; color:#f6f4f1; white-space:nowrap; }
   .leaflet-container { background:#13110d !important; font-family:'Archivo',sans-serif; }
   .leaflet-popup-content-wrapper { border-radius:0; }
   .leaflet-bar a { background:#16140f; color:#cbc7c3; border-color:#2b2824; }
   .leaflet-bar a:hover { background:#221f1b; }
 
   a { color: inherit; }
-  .site-header { display:flex; align-items:center; justify-content:space-between; height:88px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+  .site-header { display:flex; align-items:center; justify-content:space-between; height:96px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
   .desktop-nav { display:flex; align-items:center; gap:28px; font-size:13px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; }
   .hamburger { display:none; flex-direction:column; gap:5px; width:28px; height:44px; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
   .hamburger span { height:2px; background:#cbc7c3; border-radius:0; }
@@ -131,7 +131,7 @@
     .desktop-nav { display:none !important; }
     .hamburger { display:flex !important; }
     .site-header { height:68px; padding:0 20px !important; }
-    .lockup { font-size:22px !important; }
+    .lockup { font-size:28px !important; }
     .hero-section { flex-direction:column !important; padding:22px 20px 18px !important; gap:24px !important; }
     .hero-map-wrap { min-height:280px !important; }
     .section-pad { padding-left:20px !important; padding-right:20px !important; }
@@ -192,7 +192,7 @@
 <!-- header -->
     <header class="site-header">
       <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;">
-        <a class="lockup" href="index.html" style="font-size:30px;text-decoration:none;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a>
+        <a class="lockup" href="index.html" style="font-size:40px;text-decoration:none;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a>
         <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;" onmouseover="this.style.color='#8c8884'" onmouseout="this.style.color='#56524e'">Powered by PublicMeetingTracker.com</a>
       </div>
       <nav class="desktop-nav">
@@ -208,7 +208,7 @@
 <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <div style="position:fixed;inset:0;z-index:60;background:rgba(12,11,10,.97);padding:24px 20px;display:flex;flex-direction:column;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
-        <span class="lockup" style="font-size:20px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <span class="lockup" style="font-size:26px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
         <button onClick="{{ toggleMenu }}" aria-label="Close" style="background:none;border:none;color:#cbc7c3;font-size:30px;cursor:pointer;line-height:1;">×</button>
       </div>
       <nav style="display:flex;flex-direction:column;gap:4px;">
