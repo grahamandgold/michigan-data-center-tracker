@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/mark.svg">
+<meta name="theme-color" content="#100f0e">
+<title>Meetings &amp; Hearings — Michigan Data Center Tracker</title>
+<meta name="description" content="Every township board, planning commission, and state hearing where a Michigan data center is on the agenda.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meetings &amp; Hearings — Michigan Data Center Tracker">
+<meta property="og:description" content="Every township board, planning commission, and state hearing where a Michigan data center is on the agenda.">
+<meta property="og:image" content="assets/mark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meetings &amp; Hearings — Michigan Data Center Tracker">
+<meta name="twitter:description" content="Every township board, planning commission, and state hearing where a Michigan data center is on the agenda.">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #100f0e; -webkit-font-smoothing: antialiased; color: #f4f1ee; font-family: 'Archivo', sans-serif; }
+  a { color: inherit; }
+  .navlink { position: relative; color: #9b9794; text-decoration: none; transition: color .18s ease; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: 14px; }
+  .navlink:hover { color: #f4f1ee; }
+  .navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; background: #E03131; transition: right .22s ease; }
+  .navlink:hover::after { right: 0; }
+  .navlink.is-active { color: #f4f1ee; }
+  .navlink.is-active::after { right: 0; }
+  .cta { transition: background .18s ease, transform .18s ease; }
+  .cta:hover { background: #f24343; transform: translateY(-1px); }
+  .flink { color:#8c8884; text-decoration:none; transition: color .15s ease; }
+  .flink:hover { color:#e7e3df; }
+  .lockup { display:inline-flex; align-items:center; line-height:1; text-decoration:none; }
+  .lockup .mark { height:1.3em; width:auto; display:block; }
+  .lockup .divider { width:2px; align-self:stretch; background:#E03131; margin:.12em .5em .12em .28em; border-radius:0; }
+  .lockup .words { display:flex; flex-direction:column; justify-content:center; }
+  .lockup .mi { font-family:'Archivo',sans-serif; font-weight:800; font-size:1em; letter-spacing:.035em; color:#f6f4f1; line-height:.92; }
+  .lockup .rule { height:2px; background:#E03131; margin:.14em 0 .1em; border-radius:0; }
+  .lockup .sub { font-family:'Archivo',sans-serif; font-weight:600; font-size:.30em; letter-spacing:.30em; color:#f6f4f1; white-space:nowrap; }
+  .site-header { display:flex; align-items:center; justify-content:space-between; height:88px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+  .hamburger { display:none; flex-direction:column; gap:5px; width:28px; height:44px; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
+  .hamburger span { height:2px; background:#cbc7c3; border-radius:0; }
+  .chip { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#9b9794; background:transparent; border:1px solid #2b2824; border-radius:0; padding:8px 15px; cursor:pointer; transition:all .15s ease; white-space:nowrap; }
+  .chip:hover { border-color:#45403a; color:#e7e3df; }
+  .chip.on { background:#E03131; border-color:#E03131; color:#100f0e; font-weight:700; }
+  .mrow { display:grid; grid-template-columns:96px 1fr auto; gap:24px; align-items:center; padding:22px 24px; border:1px solid #221f1b; border-radius:0; background:#16140f; transition:border-color .18s ease, transform .18s ease; }
+  .mrow:hover { border-color:#45403a; transform:translateY(-2px); }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 44px; }
+  .datechip { display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid #2b2824; border-radius:0; padding:10px 0; background:#13110d; }
+  @media (max-width:760px) {
+    .mrow { grid-template-columns:64px 1fr; gap:16px; }
+    .mrow .mcta { grid-column:1 / -1; }
+  }
+  @media (max-width:860px) {
+    .desktop-nav { display:none; } .hamburger { display:flex; }
+    .site-header { height:68px; padding:0 20px; }
+    .lockup { font-size:20px !important; }
+    .wrap { padding:0 20px; }
+  }
+</style>
+</helmet>
+<div>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#16140f"/><rect x="28" y="28" width="44" height="44" rx="9" fill="#E03131"/><text x="50" y="65" font-family="Arial, sans-serif" font-weight="800" font-size="32" fill="#fff" text-anchor="middle">M</text></svg></template>
+
+  <header class="site-header">
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;"><a class="lockup" href="Homepage.dc.html" style="font-size:30px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a><a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;" onmouseover="this.style.color='#8c8884'" onmouseout="this.style.color='#56524e'">Powered by PublicMeetingTracker.com</a></div>
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:28px;">
+      <a class="navlink" href="Homepage.dc.html">Home</a>
+      <a class="navlink" href="Live Map.dc.html">Live Map</a>
+      <a class="navlink" href="Stories.dc.html">Stories</a>
+      <a class="navlink is-active" href="Meetings.dc.html">Meetings</a>
+      <a class="navlink" href="Learn.dc.html">Learn</a>
+      <a class="cta" href="Sponsor.dc.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em;padding:11px 19px;border-radius:0;">Sponsor</a>
+    </nav>
+    <button class="hamburger" onClick="{{ toggleMenu }}" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:60;background:rgba(12,11,10,.97);padding:24px 20px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
+        <span class="lockup" style="font-size:20px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <button onClick="{{ toggleMenu }}" aria-label="Close" style="background:none;border:none;color:#cbc7c3;font-size:30px;cursor:pointer;line-height:1;">×</button>
+      </div>
+      <nav style="display:flex;flex-direction:column;gap:4px;">
+        <a href="Homepage.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Home</a>
+        <a href="Live Map.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Live Map</a>
+        <a href="Stories.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Stories</a>
+        <a href="Meetings.dc.html" style="text-decoration:none;color:#f4f1ee;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Meetings</a>
+        <a href="Learn.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Learn</a>
+        <a href="Sponsor.dc.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;text-align:center;font-size:16px;text-transform:uppercase;letter-spacing:.04em;padding:15px;border-radius:0;margin-top:20px;">Sponsor the tracker</a>
+        <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="text-decoration:none;color:#9b9794;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:16px 0 0;">Powered by PublicMeetingTracker.com ↗</a>
+      </nav>
+    </div>
+  </sc-if>
+
+  <!-- intro -->
+  <div class="wrap" style="padding-top:56px;padding-bottom:8px;">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#E03131;margin-bottom:16px;">Public calendar · Updated daily</div>
+    <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(40px,7vw,64px);line-height:.98;margin:0 0 14px;">MEETINGS &amp; HEARINGS</h1>
+    <p style="max-width:580px;margin:0;color:#a39e99;font-size:17px;line-height:1.6;">Every township board, planning commission, and state hearing where a Michigan data center is on the agenda. Show up, speak, or just stay informed.</p>
+  </div>
+
+  <!-- alert band -->
+  <div class="wrap" style="padding-top:32px;">
+    <div style="border:1px solid #2b2824;border-radius:0;background:radial-gradient(130% 150% at 100% 0%, #241f18 0%, #16140f 55%);padding:28px 32px;display:flex;gap:28px;align-items:center;flex-wrap:wrap;">
+      <div style="flex:1 1 320px;min-width:0;">
+        <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1.04;margin:0 0 8px;color:#f6f3f0;">Get alerts for hearings in your county.</h3>
+        <p style="margin:0;color:#a39e99;font-size:14.5px;line-height:1.55;max-width:440px;">We'll email you the moment a data center meeting is posted near you — with the agenda and how to comment.</p>
+      </div>
+      <div style="flex:1 1 360px;min-width:0;">
+        <sc-if value="{{ alertPending }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <input type="text" placeholder="Your county or ZIP" style="flex:1 1 120px;min-width:0;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:50px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:15px;outline:none;" style-focus="border-color:#E03131;" />
+            <input type="email" placeholder="you@email.com" style="flex:2 1 160px;min-width:0;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:50px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:15px;outline:none;" style-focus="border-color:#E03131;" />
+            <button type="button" onClick="{{ subscribeAlerts }}" class="cta" style="flex-shrink:0;border:none;cursor:pointer;color:#100f0e;background:#E03131;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:0 22px;height:50px;border-radius:0;">Get alerts</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ alertDone }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:10px;min-height:50px;font-size:15px;color:#9bc49b;"><span style="width:24px;height:24px;border-radius:50%;background:rgba(120,170,120,.16);color:#9bc49b;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">✓</span>Done — we'll email you about local hearings.</div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+
+  <!-- county filter -->
+  <div class="wrap" style="padding-top:40px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap;">
+      <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:26px;margin:0;color:#f4f1ee;">Upcoming</h2>
+      <span style="font-family:'Space Mono',monospace;font-size:12px;color:#7d7975;">{{ count }} scheduled</span>
+    </div>
+    <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;">
+      <sc-for list="{{ counties }}" as="c" hint-placeholder-count="5">
+        <button class="chip {{ c.cls }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- meeting list -->
+  <div class="wrap" style="padding-top:22px;padding-bottom:60px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ meetings }}" as="m" hint-placeholder-count="5">
+        <div class="mrow">
+          <div class="datechip"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#E03131;">{{ m.mon }}</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;line-height:1;color:#f4f1ee;">{{ m.day }}</span></div>
+          <div style="min-width:0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:7px;flex-wrap:wrap;"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:{{ m.tagColor }};border:1px solid {{ m.tagBorder }};border-radius:0;padding:2px 7px;">{{ m.type }}</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#7d7975;">{{ m.time }} · {{ m.county }} County</span></div>
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.06;color:#f4f1ee;margin-bottom:4px;">{{ m.title }}</div>
+            <div style="font-size:13.5px;color:#8c8884;line-height:1.5;">{{ m.where }} · {{ m.agenda }}</div>
+          </div>
+          <a class="mcta" href="#" style="justify-self:end;text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#cbc7c3;border:1px solid #3a3733;border-radius:0;padding:11px 16px;white-space:nowrap;transition:border-color .15s,color .15s;" style-hover="border-color:#6f6b67;color:#f4f1ee;">Agenda &amp; how to comment →</a>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <footer style="padding:48px 44px 32px;background:#0c0b0a;border-top:1px solid #221f1b;">
+    <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+      <div style="max-width:320px;">
+        <span class="lockup" style="font-size:22px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <p style="color:#6f6b67;font-size:13px;line-height:1.6;margin:14px 0 0;">A public-interest record of Michigan's data center buildout. Sourced, cited, and corrected in the open.</p>
+      </div>
+      <div style="display:flex;gap:56px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">Explore</span>
+          <a class="flink" href="Live Map.dc.html" style="font-size:14px;">Live Map</a>
+          <a class="flink" href="Stories.dc.html" style="font-size:14px;">Stories</a>
+          <a class="flink" href="Meetings.dc.html" style="font-size:14px;">Meetings</a>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Learn</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">About</span>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Methodology</a>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Sources</a>
+          <a class="flink" href="Sponsor.dc.html" style="font-size:14px;">Sponsor</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:34px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #1a1813;">
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7d7975;">Independent · Nonpartisan · <span style="color:#9b9794;">AI-drafted, journalist-reviewed</span></span>
+      <span style="font-size:12px;color:#5f5b57;">Powered by <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="color:#E03131;text-decoration:none;font-weight:700;">PublicMeetingTracker.com</a> · © 2026 Michigan Data Center Tracker</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, county: 'All', alertPending: true, alertDone: false };
+
+  renderVals() {
+    const s = this.state;
+    const TYPE = {
+      'Planning Commission': { c: '#bda35f', b: '#4a4226' },
+      'Township Board': { c: '#7fb0e0', b: '#26384a' },
+      'State Hearing': { c: '#E03131', b: '#4a2626' },
+      'Public Comment': { c: '#9bc49b', b: '#2a4a2a' },
+    };
+    const ALL = [
+      { mon: 'Jul', day: '08', type: 'Planning Commission', time: '7:00 PM', county: 'Genesee', title: 'Mundy Township — 600 MW campus rezoning', where: 'Mundy Twp Hall', agenda: 'Site-plan review & public comment' },
+      { mon: 'Jul', day: '10', type: 'State Hearing', time: '1:00 PM', county: 'Ingham', title: 'MPSC — DTE special-rate contract docket', where: 'Lansing, MPSC', agenda: 'Saline Twp 1,383 MW load' },
+      { mon: 'Jul', day: '14', type: 'Township Board', time: '6:30 PM', county: 'Washtenaw', title: 'Saline Township — moratorium extension', where: 'Saline Twp Hall', agenda: 'Vote to extend interim pause' },
+      { mon: 'Jul', day: '16', type: 'Public Comment', time: '6:00 PM', county: 'Ottawa', title: 'Holland Bay — water withdrawal agreement', where: 'Holland City Hall', agenda: 'EGLE comment window opens' },
+      { mon: 'Jul', day: '21', type: 'Planning Commission', time: '7:00 PM', county: 'Oakland', title: 'Pontiac North — site-plan review', where: 'Pontiac City Hall', agenda: 'Brownfield redevelopment plan' },
+      { mon: 'Jul', day: '24', type: 'Township Board', time: '7:00 PM', county: 'Genesee', title: 'Grand Blanc — moratorium expiration', where: 'Grand Blanc Twp Hall', agenda: 'Adopt new zoning standards' },
+    ];
+    const counties = ['All', 'Genesee', 'Washtenaw', 'Oakland', 'Ingham', 'Ottawa'];
+    const meetings = (s.county === 'All' ? ALL : ALL.filter(m => m.county === s.county)).map(m => {
+      const t = TYPE[m.type] || { c: '#9b9794', b: '#2b2824' };
+      return Object.assign({}, m, { tagColor: t.c, tagBorder: t.b });
+    });
+    return {
+      menuOpen: s.menuOpen,
+      toggleMenu: () => this.setState(p => ({ menuOpen: !p.menuOpen })),
+      counties: counties.map(label => ({ label, cls: s.county === label ? 'on' : '', onClick: () => this.setState({ county: label }) })),
+      meetings, count: meetings.length,
+      alertPending: s.alertPending, alertDone: s.alertDone,
+      subscribeAlerts: () => this.setState({ alertPending: false, alertDone: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>

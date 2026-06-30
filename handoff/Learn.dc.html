@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/mark.svg">
+<meta name="theme-color" content="#100f0e">
+<title>Learn — Michigan Data Center Tracker</title>
+<meta name="description" content="Plain-English explainers on data centers, megawatts, moratoria, and special-rate contracts in Michigan.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Learn — Michigan Data Center Tracker">
+<meta property="og:description" content="Plain-English explainers on data centers, megawatts, moratoria, and special-rate contracts in Michigan.">
+<meta property="og:image" content="assets/mark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learn — Michigan Data Center Tracker">
+<meta name="twitter:description" content="Plain-English explainers on data centers, megawatts, moratoria, and special-rate contracts in Michigan.">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #100f0e; -webkit-font-smoothing: antialiased; color: #f4f1ee; font-family: 'Archivo', sans-serif; }
+  a { color: inherit; }
+  .navlink { position: relative; color: #9b9794; text-decoration: none; transition: color .18s ease; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: 14px; }
+  .navlink:hover { color: #f4f1ee; }
+  .navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; background: #E03131; transition: right .22s ease; }
+  .navlink:hover::after { right: 0; }
+  .navlink.is-active { color: #f4f1ee; }
+  .navlink.is-active::after { right: 0; }
+  .cta { transition: background .18s ease, transform .18s ease; }
+  .cta:hover { background: #f24343; transform: translateY(-1px); }
+  .flink { color:#8c8884; text-decoration:none; transition: color .15s ease; }
+  .flink:hover { color:#e7e3df; }
+  .lockup { display:inline-flex; align-items:center; line-height:1; text-decoration:none; }
+  .lockup .mark { height:1.3em; width:auto; display:block; }
+  .lockup .divider { width:2px; align-self:stretch; background:#E03131; margin:.12em .5em .12em .28em; border-radius:0; }
+  .lockup .words { display:flex; flex-direction:column; justify-content:center; }
+  .lockup .mi { font-family:'Archivo',sans-serif; font-weight:800; font-size:1em; letter-spacing:.035em; color:#f6f4f1; line-height:.92; }
+  .lockup .rule { height:2px; background:#E03131; margin:.14em 0 .1em; border-radius:0; }
+  .lockup .sub { font-family:'Archivo',sans-serif; font-weight:600; font-size:.30em; letter-spacing:.30em; color:#f6f4f1; white-space:nowrap; }
+  .site-header { display:flex; align-items:center; justify-content:space-between; height:88px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+  .hamburger { display:none; flex-direction:column; gap:5px; width:28px; height:44px; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
+  .hamburger span { height:2px; background:#cbc7c3; border-radius:0; }
+  .ecard { display:flex; flex-direction:column; border:1px solid #221f1b; border-radius:0; padding:26px 24px; background:#16140f; text-decoration:none; transition:border-color .18s ease, transform .18s ease; }
+  .ecard:hover { border-color:#45403a; transform:translateY(-3px); }
+  .ecard:hover .ec-arrow { transform:translateX(4px); color:#f4f1ee; }
+  .ec-arrow { transition:transform .18s ease, color .18s ease; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 44px; }
+  .qrow { border:1px solid #221f1b; border-radius:0; background:#16140f; overflow:hidden; }
+  .qhead { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; cursor:pointer; }
+  @media (max-width:900px) { .grid3 { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:860px) {
+    .desktop-nav { display:none; } .hamburger { display:flex; }
+    .site-header { height:68px; padding:0 20px; }
+    .lockup { font-size:20px !important; }
+    .wrap { padding:0 20px; }
+  }
+  @media (max-width:600px) { .grid3, .grid2 { grid-template-columns:1fr; } }
+</style>
+</helmet>
+<div>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#16140f"/><rect x="28" y="28" width="44" height="44" rx="9" fill="#E03131"/><text x="50" y="65" font-family="Arial, sans-serif" font-weight="800" font-size="32" fill="#fff" text-anchor="middle">M</text></svg></template>
+
+  <header class="site-header">
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;"><a class="lockup" href="Homepage.dc.html" style="font-size:30px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a><a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;" onmouseover="this.style.color='#8c8884'" onmouseout="this.style.color='#56524e'">Powered by PublicMeetingTracker.com</a></div>
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:28px;">
+      <a class="navlink" href="Homepage.dc.html">Home</a>
+      <a class="navlink" href="Live Map.dc.html">Live Map</a>
+      <a class="navlink" href="Stories.dc.html">Stories</a>
+      <a class="navlink" href="Meetings.dc.html">Meetings</a>
+      <a class="navlink is-active" href="Learn.dc.html">Learn</a>
+      <a class="cta" href="Sponsor.dc.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em;padding:11px 19px;border-radius:0;">Sponsor</a>
+    </nav>
+    <button class="hamburger" onClick="{{ toggleMenu }}" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:60;background:rgba(12,11,10,.97);padding:24px 20px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
+        <span class="lockup" style="font-size:20px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <button onClick="{{ toggleMenu }}" aria-label="Close" style="background:none;border:none;color:#cbc7c3;font-size:30px;cursor:pointer;line-height:1;">×</button>
+      </div>
+      <nav style="display:flex;flex-direction:column;gap:4px;">
+        <a href="Homepage.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Home</a>
+        <a href="Live Map.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Live Map</a>
+        <a href="Stories.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Stories</a>
+        <a href="Meetings.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Meetings</a>
+        <a href="Learn.dc.html" style="text-decoration:none;color:#f4f1ee;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Learn</a>
+        <a href="Sponsor.dc.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;text-align:center;font-size:16px;text-transform:uppercase;letter-spacing:.04em;padding:15px;border-radius:0;margin-top:20px;">Sponsor the tracker</a>
+        <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="text-decoration:none;color:#9b9794;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:16px 0 0;">Powered by PublicMeetingTracker.com ↗</a>
+      </nav>
+    </div>
+  </sc-if>
+
+  <!-- intro -->
+  <div class="wrap" style="padding-top:56px;padding-bottom:8px;">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#E03131;margin-bottom:16px;">Plain-English explainers</div>
+    <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(40px,7vw,64px);line-height:.98;margin:0 0 14px;">LEARN</h1>
+    <p style="max-width:600px;margin:0;color:#a39e99;font-size:17px;line-height:1.6;">Data centers come with their own jargon — megawatts, moratoria, special-rate contracts. Start here. No engineering degree required.</p>
+  </div>
+
+  <!-- explainer cards -->
+  <div class="wrap" style="padding-top:40px;">
+    <div class="grid3">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="6">
+        <a class="ecard" href="#">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:#E03131;margin-bottom:14px;">{{ g.num }}</div>
+          <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;line-height:1.06;margin:0 0 10px;color:#f4f1ee;">{{ g.title }}</h3>
+          <p style="margin:0 0 18px;color:#8c8884;font-size:14px;line-height:1.55;flex:1;">{{ g.dek }}</p>
+          <span class="ec-arrow" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.05em;color:#cbc7c3;">Read →</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- glossary -->
+  <div class="wrap" style="padding-top:60px;">
+    <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;margin:0 0 6px;color:#f4f1ee;">The glossary</h2>
+    <p style="margin:0 0 24px;color:#8c8884;font-size:15px;">The terms you'll hear at every hearing.</p>
+    <div class="grid2">
+      <sc-for list="{{ terms }}" as="t" hint-placeholder-count="6">
+        <div style="border:1px solid #221f1b;border-radius:0;background:#16140f;padding:20px 22px;">
+          <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;color:#f4f1ee;margin-bottom:6px;">{{ t.term }}</div>
+          <div style="font-size:14px;color:#a39e99;line-height:1.55;">{{ t.def }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- ask a question (moved from homepage) -->
+  <div class="wrap" style="padding-top:60px;padding-bottom:72px;">
+    <div style="border:1px solid #2b2824;border-radius:0;background:radial-gradient(130% 150% at 0% 0%, #241f18 0%, #16140f 55%);padding:40px;">
+      <div style="max-width:600px;">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#E03131;">Ask the tracker</span>
+        <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:32px;line-height:1.02;margin:14px 0 12px;color:#f6f3f0;">What can we help explain?</h3>
+        <p style="margin:0 0 24px;color:#a39e99;font-size:15.5px;line-height:1.6;">Confused about a proposal in your town? Send us the question. We answer the most common ones in our explainers and the daily briefing.</p>
+        <sc-if value="{{ qPending }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <textarea placeholder="e.g. Will the Mundy Township campus raise my electric bill?" rows="3" style="width:100%;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:14px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:15px;line-height:1.5;outline:none;resize:vertical;" style-focus="border-color:#E03131;"></textarea>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <input type="email" placeholder="Email (so we can reply)" style="flex:1 1 240px;min-width:0;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:50px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:15px;outline:none;" style-focus="border-color:#E03131;" />
+              <button type="button" onClick="{{ submitQuestion }}" class="cta" style="flex-shrink:0;border:none;cursor:pointer;color:#100f0e;background:#E03131;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:0 26px;height:50px;border-radius:0;">Send question</button>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ qDone }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:10px;min-height:50px;font-size:16px;color:#9bc49b;"><span style="width:26px;height:26px;border-radius:50%;background:rgba(120,170,120,.16);color:#9bc49b;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Thanks — we read every question and reply to most.</div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+
+  <footer style="padding:48px 44px 32px;background:#0c0b0a;border-top:1px solid #221f1b;">
+    <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+      <div style="max-width:320px;">
+        <span class="lockup" style="font-size:22px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <p style="color:#6f6b67;font-size:13px;line-height:1.6;margin:14px 0 0;">A public-interest record of Michigan's data center buildout. Sourced, cited, and corrected in the open.</p>
+      </div>
+      <div style="display:flex;gap:56px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">Explore</span>
+          <a class="flink" href="Live Map.dc.html" style="font-size:14px;">Live Map</a>
+          <a class="flink" href="Stories.dc.html" style="font-size:14px;">Stories</a>
+          <a class="flink" href="Meetings.dc.html" style="font-size:14px;">Meetings</a>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Learn</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">About</span>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Methodology</a>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Sources</a>
+          <a class="flink" href="Sponsor.dc.html" style="font-size:14px;">Sponsor</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1080px;margin:34px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #1a1813;">
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7d7975;">Independent · Nonpartisan · <span style="color:#9b9794;">AI-drafted, journalist-reviewed</span></span>
+      <span style="font-size:12px;color:#5f5b57;">Powered by <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="color:#E03131;text-decoration:none;font-weight:700;">PublicMeetingTracker.com</a> · © 2026 Michigan Data Center Tracker</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, qPending: true, qDone: false };
+
+  renderVals() {
+    const s = this.state;
+    const guides = [
+      { num: '01', title: 'What is a data center, really?', dek: 'Warehouses full of computers — and why the ones coming to Michigan are an order of magnitude bigger than what came before.' },
+      { num: '02', title: 'Megawatts, explained', dek: 'A 600 MW campus can draw as much power as a mid-sized city. Here\u2019s how to picture what that means for the grid.' },
+      { num: '03', title: 'Why do they need so much water?', dek: 'Cooling. We break down evaporative vs. closed-loop systems and what a withdrawal permit actually allows.' },
+      { num: '04', title: 'Who pays for the power?', dek: 'Special-rate contracts, ratepayer impact, and the question at the center of every hearing: will my bill go up?' },
+      { num: '05', title: 'Moratoria & zoning tools', dek: 'Pause, interim moratorium, special-use conversion — the legal levers townships are pulling, in plain English.' },
+      { num: '06', title: 'How we source the tracker', dek: 'Every figure traces to a public filing or official notice. Our methodology, corrections policy, and how to flag an error.' },
+    ];
+    const terms = [
+      { term: 'Megawatt (MW)', def: 'A unit of power. One large data center campus can be hundreds of MW — comparable to a small city\u2019s peak demand.' },
+      { term: 'Interconnection', def: 'The approval and physical hookup that lets a facility draw from the grid. Often the longest part of the timeline.' },
+      { term: 'Special-rate contract', def: 'A custom electricity deal between a utility and a single large customer, subject to regulator approval.' },
+      { term: 'Moratorium', def: 'A temporary local ban on new approvals while a community writes or updates its zoning rules.' },
+      { term: 'Tax abatement', def: 'A reduction in property taxes offered to attract investment — central to the jobs-vs-subsidy debate.' },
+      { term: 'Withdrawal permit', def: 'State authorization to draw a set volume of water per day, reviewed by EGLE in Michigan.' },
+    ];
+    return {
+      menuOpen: s.menuOpen,
+      toggleMenu: () => this.setState(p => ({ menuOpen: !p.menuOpen })),
+      guides, terms,
+      qPending: s.qPending, qDone: s.qDone,
+      submitQuestion: () => this.setState({ qPending: false, qDone: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>

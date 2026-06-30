@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/mark.svg">
+<meta name="theme-color" content="#100f0e">
+<title>Live Map — Michigan Data Center Tracker</title>
+<meta name="description" content="Interactive map of every tracked data center, permit, and moratorium across Michigan. Filter by status and region, find sites near you, and export the data.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Live Map — Michigan Data Center Tracker">
+<meta property="og:description" content="Interactive map of every tracked data center, permit, and moratorium across Michigan. Filter by status and region, find sites near you, and export the data.">
+<meta property="og:image" content="assets/mark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Live Map — Michigan Data Center Tracker">
+<meta name="twitter:description" content="Interactive map of every tracked data center, permit, and moratorium across Michigan. Filter by status and region, find sites near you, and export the data.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { background: #100f0e; font-family: 'Archivo', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .mdct { height: 100vh; min-height: 620px; display: flex; flex-direction: column; background: #100f0e; color: #f4f1ee; overflow: hidden; }
+
+  /* top bar */
+  .mdct-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 78px; flex-shrink: 0; padding: 0 26px; background: #16140f; border-bottom: 1px solid #221f1b; z-index: 30; }
+  .brand-img { height: 46px; width: auto; display: block; }
+  .lockup { display: inline-flex; align-items: center; font-size: 36px; line-height: 1; }
+  .lockup .mark { height: 1.3em; width: auto; display: block; }
+  .lockup .divider { width: 2px; align-self: stretch; background: #E03131; margin: .12em .5em .12em .28em; border-radius:0; }
+  .lockup .words { display: flex; flex-direction: column; justify-content: center; }
+  .lockup .mi { font-weight: 800; font-size: 1em; letter-spacing: .035em; color: #f6f4f1; line-height: .92; }
+  .lockup .rule { height: 2px; background: #E03131; margin: .14em 0 .1em; border-radius:0; }
+  .lockup .sub { font-weight: 600; font-size: .30em; letter-spacing: .30em; color: #f6f4f1; white-space: nowrap; }
+  .mdct-brand { display: inline-flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
+  .mdct-brand .wm { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 23px; line-height: 1; letter-spacing: .004em; color: #f4f1ee; white-space: nowrap; }
+  .mdct-brand .rule { display: block; width: 100%; height: 2.5px; background: #E03131; margin-top: 6px; }
+  .mdct-nav { display: flex; align-items: center; gap: 22px; }
+  .navlink { position: relative; color: #9b9794; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; transition: color .18s; }
+  .navlink:hover { color: #f4f1ee; }
+  .navlink.on { color: #f4f1ee; }
+  .navlink.on::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: #E03131; }
+  .seg { display: inline-flex; padding: 3px; border: 1px solid #2b2824; border-radius:0; background: #0f0e0d; }
+  .seg-btn { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8c8884; background: transparent; border: 0; border-radius:0; padding: 7px 12px; cursor: pointer; transition: color .15s, background .15s; }
+  .seg-btn:hover { color: #e7e3df; }
+  .seg-btn.on { color: #100f0e; background: #E03131; }
+  .cta { text-decoration: none; color: #100f0e; background: #E03131; font-weight: 700; font-size: 13px; letter-spacing: .04em; padding: 10px 16px; border-radius:0; transition: background .18s, transform .18s; }
+  .cta:hover { background: #f24343; transform: translateY(-1px); }
+
+  /* stage */
+  .mdct-stage { flex: 1; position: relative; min-height: 0; }
+  .mdct-map { position: absolute; inset: 0; background: #0c0b0a; }
+  .leaflet-container { background: #0c0b0a; outline: none; font-family: 'Archivo', sans-serif; }
+
+  /* ribbon */
+  .mdct-ribbon { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); z-index: 620; display: flex; align-items: center; gap: 0; padding: 9px 6px; background: rgba(16,15,14,.82); border: 1px solid #2b2824; border-radius:0; backdrop-filter: blur(10px); box-shadow: 0 14px 36px rgba(0,0,0,.4); max-width: calc(100% - 440px); overflow: hidden; }
+  .stat { flex-shrink: 0; padding: 0 18px; font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8c8884; white-space: nowrap; }
+  .stat strong { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .01em; color: #f4f1ee; margin-right: 7px; }
+  .stat.accent strong { color: #E03131; }
+  .stat-sep { width: 1px; height: 26px; background: #2b2824; flex-shrink: 0; }
+
+  /* panel */
+  .mdct-panel { position: absolute; top: 16px; left: 16px; z-index: 640; width: 372px; max-height: calc(100% - 32px); display: flex; flex-direction: column; background: linear-gradient(168deg, rgba(24,21,16,.94), rgba(17,15,11,.94)); border: 1px solid #2f2a24; border-radius:0; box-shadow: 0 24px 60px rgba(0,0,0,.5); backdrop-filter: blur(20px); overflow: hidden; }
+  .mdct-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #E03131, rgba(224,49,49,.15)); z-index: 2; }
+  .panel-head { flex-shrink: 0; padding: 16px 18px 12px; }
+  .panel-grab { display: none; }
+  .panel-head-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .panel-title { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: .02em; color: #f4f1ee; line-height: 1; }
+  .panel-sub { display: block; margin-top: 4px; font-size: 12px; color: #8c8884; }
+  .panel-count { font-family: 'Space Mono', monospace; font-size: 11px; color: #cbc7c3; background: rgba(255,255,255,.05); border-radius:0; padding: 5px 9px; white-space: nowrap; }
+  .panel-chev { display: none; }
+
+  .panel-tabs { flex-shrink: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin: 0 12px 10px; padding: 4px; background: rgba(255,255,255,.04); border-radius:0; }
+  .panel-tab { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8c8884; background: transparent; border: 0; border-radius:0; padding: 8px 4px; cursor: pointer; transition: color .15s, background .15s; }
+  .panel-tab:hover { color: #e7e3df; }
+  .panel-tab.on { color: #f4f1ee; background: rgba(224,49,49,.16); box-shadow: inset 0 0 0 1px rgba(224,49,49,.3); }
+
+  .panel-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+  .panel-body::-webkit-scrollbar { width: 8px; }
+  .panel-body::-webkit-scrollbar-thumb { background: #2b2824; border-radius:0; border: 2px solid transparent; background-clip: padding-box; }
+  .pane { padding: 4px 0 14px; }
+
+  .blk { padding: 12px 16px 14px; }
+  .blk + .blk { border-top: 1px solid #1c1a16; }
+  .blk-label { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6f6b67; margin-bottom: 11px; display: flex; align-items: center; justify-content: space-between; }
+  .blk-reset { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #E03131; background: transparent; border: 0; cursor: pointer; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #8c8884; background: rgba(255,255,255,.02); border: 1px solid #2b2824; border-radius:0; padding: 7px 13px; cursor: pointer; transition: color .15s, background .15s, border-color .15s; }
+  .chip:hover { color: #e7e3df; border-color: #45403a; }
+  .chip.on { color: #fff; background: rgba(224,49,49,.2); border-color: rgba(224,49,49,.55); }
+
+  .rows { display: flex; flex-direction: column; gap: 2px; }
+  .row { display: flex; align-items: center; gap: 11px; width: 100%; padding: 9px 10px; border: 0; border-radius:0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; transition: background .12s; }
+  .row:hover { background: rgba(255,255,255,.04); }
+  .row.off { opacity: .5; }
+  .swatch { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(255,255,255,.06); }
+  .swatch.sq { border-radius:0; }
+  .swatch.line { width: 20px; height: 0; border-radius:0; border-top: 3px solid currentColor; box-shadow: none; }
+  .row .nm { flex: 1; min-width: 0; font-size: 13px; font-weight: 500; color: #e7e3df; }
+  .row.off .nm { color: #8c8884; font-weight: 400; }
+  .row .ct { font-family: 'Space Mono', monospace; font-size: 11px; color: #8c8884; }
+  .chk { width: 16px; height: 16px; border: 1.5px solid #3a352e; border-radius:0; flex-shrink: 0; position: relative; transition: background .12s, border-color .12s; }
+  .row.on .chk { background: #E03131; border-color: #E03131; }
+  .row.on .chk::after { content: ""; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+  /* search + directory */
+  .search-wrap { position: relative; padding: 12px 16px 8px; }
+  .search { width: 100%; height: 44px; background: #0f0e0d; border: 1px solid #2b2824; border-radius:0; padding: 0 14px 0 34px; color: #f4f1ee; font-family: 'Archivo', sans-serif; font-size: 13.5px; outline: none; transition: border-color .15s; }
+  .search:focus { border-color: #E03131; }
+  .search-ico { position: absolute; left: 27px; top: 50%; transform: translateY(-50%); color: #5f5b57; font-size: 15px; pointer-events: none; }
+
+  .dir { padding: 4px 8px 4px; }
+  .dir-row { display: flex; align-items: flex-start; gap: 11px; width: 100%; padding: 12px; border: 0; border-radius:0; background: transparent; color: inherit; text-align: left; cursor: pointer; transition: background .12s; }
+  .dir-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .dir-row:hover { background: rgba(255,255,255,.045); }
+  .dir-row.on { background: rgba(224,49,49,.1); box-shadow: inset 2px 0 0 #E03131; }
+  .dir-dot { width: 10px; height: 10px; margin-top: 5px; border-radius: 50%; flex-shrink: 0; }
+  .dir-name { font-family: 'Saira Condensed', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: .01em; color: #e7e3df; line-height: 1.1; }
+  .dir-row.on .dir-name { color: #fff; }
+  .dir-meta { font-size: 11.5px; color: #8c8884; }
+  .dir-tags { display: flex; align-items: center; gap: 9px; margin-top: 4px; }
+
+  /* selected record */
+  .record { margin: 6px 12px 4px; border-radius:0; background: rgba(255,255,255,.035); box-shadow: inset 0 0 0 1px rgba(255,255,255,.05); overflow: hidden; }
+  .record-card { padding: 15px 16px 14px; border-left: 3px solid #E03131; }
+  .record-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+  .record-type { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #7d7975; }
+  .record-name { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.02; letter-spacing: .01em; color: #f4f1ee; }
+  .record-meta { font-size: 12.5px; color: #8c8884; margin-top: 4px; }
+  .record-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; margin-top: 14px; }
+  .fact-k { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #6f6b67; margin-bottom: 4px; }
+  .fact-v { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 18px; color: #f4f1ee; }
+  .fact-v.sm { font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 14px; color: #e7e3df; }
+  .record-note { font-size: 12.5px; line-height: 1.55; color: #a39e99; margin-top: 14px; padding-top: 12px; border-top: 1px solid #221f1b; }
+  .record-foot { padding: 12px 16px; border-top: 1px solid #221f1b; display: flex; gap: 9px; }
+
+  .tag { font-family: 'Space Mono', monospace; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; border-radius:0; padding: 3px 9px; white-space: nowrap; }
+
+  /* legend */
+  .mdct-legend { position: absolute; bottom: 18px; right: 18px; z-index: 620; width: 218px; background: rgba(16,15,14,.86); border: 1px solid #2b2824; border-radius:0; padding: 14px 16px; backdrop-filter: blur(12px); box-shadow: 0 14px 36px rgba(0,0,0,.4); }
+  .mdct-legend::before { content: ""; display: block; height: 2px; margin: -14px -16px 12px; border-radius:0; background: linear-gradient(90deg, #E03131, rgba(224,49,49,.15)); }
+  .legend-title { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #E03131; margin-bottom: 11px; }
+  .legend-row { display: flex; align-items: center; gap: 10px; padding: 4px 0; font-size: 12px; color: #cbc7c3; }
+
+  /* toolbar */
+  .mdct-toolbar { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 620; display: flex; align-items: stretch; gap: 2px; padding: 4px; background: rgba(16,15,14,.86); border: 1px solid #2b2824; border-radius:0; backdrop-filter: blur(12px); box-shadow: 0 14px 36px rgba(0,0,0,.4); }
+  .tbtn { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #cbc7c3; background: transparent; border: 0; border-radius:0; padding: 10px 15px; cursor: pointer; transition: color .15s, background .15s; }
+  .tbtn:hover { color: #fff; background: rgba(255,255,255,.06); }
+  .tbtn.primary { color: #100f0e; background: #E03131; }
+  .tbtn.primary:hover { background: #f24343; }
+  .tbtn-sep { width: 1px; background: #2b2824; margin: 4px 2px; }
+
+  /* sponsor / stories / nav (More) */
+  .sponsor { padding: 14px 16px; border-top: 1px solid #1c1a16; background: linear-gradient(180deg, rgba(224,49,49,.05), transparent); }
+  .sponsor-tier { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E03131; margin-bottom: 8px; }
+  .sponsor-card { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #2b2824; border-radius:0; background: rgba(255,255,255,.02); margin-bottom: 8px; text-decoration: none; transition: border-color .15s, background .15s; }
+  .sponsor-card:hover { border-color: rgba(224,49,49,.4); background: rgba(224,49,49,.07); }
+  .sponsor-logo { width: 46px; height: 46px; flex-shrink: 0; display: grid; place-items: center; border: 1px dashed #3a352e; border-radius:0; font-family: 'Space Mono', monospace; font-size: 8px; color: #6f6b67; }
+  .sponsor-name { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 16px; color: #f4f1ee; }
+  .sponsor-desc { font-size: 11.5px; color: #8c8884; margin-top: 2px; line-height: 1.4; }
+  .story { display: block; width: 100%; text-align: left; padding: 12px 14px; border-radius:0; border: 1px solid #221f1b; background: rgba(255,255,255,.02); color: #cbc7c3; cursor: pointer; margin-bottom: 7px; text-decoration: none; transition: border-color .15s, background .15s; }
+  .story:hover { border-color: rgba(224,49,49,.4); background: rgba(224,49,49,.08); }
+  .story-k { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #E03131; margin-bottom: 5px; }
+  .story-t { font-family: 'Saira Condensed', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.15; color: #e7e3df; }
+  .nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  .nav-cell { display: block; padding: 11px 12px; border: 1px solid #221f1b; border-radius:0; text-decoration: none; background: rgba(255,255,255,.02); transition: border-color .15s, background .15s; }
+  .nav-cell:hover { border-color: rgba(224,49,49,.35); background: rgba(224,49,49,.07); }
+  .nav-cell strong { display: block; font-family: 'Saira Condensed', sans-serif; font-weight: 600; font-size: 16px; color: #e7e3df; }
+  .nav-cell small { display: block; margin-top: 2px; font-size: 10.5px; color: #8c8884; }
+  .note { font-size: 11px; line-height: 1.5; color: #8c8884; padding: 12px 16px; }
+  .note a { color: #cbc7c3; }
+
+  /* Leaflet theming */
+  .leaflet-control-zoom { border: 1px solid #2b2824 !important; border-radius:0; overflow: hidden; background: rgba(16,15,14,.9) !important; box-shadow: 0 12px 30px rgba(0,0,0,.4) !important; }
+  .leaflet-control-zoom a { width: 34px !important; height: 34px !important; line-height: 34px !important; background: transparent !important; color: #e7e3df !important; border-bottom: 1px solid #221f1b !important; font-size: 18px !important; }
+  .leaflet-control-zoom a:last-child { border-bottom: 0 !important; }
+  .leaflet-control-zoom a:hover { background: rgba(224,49,49,.14) !important; color: #E03131 !important; }
+  .leaflet-bottom.leaflet-left { left: 16px; }
+  .leaflet-control-attribution { background: rgba(16,15,14,.8) !important; color: #6f6b67 !important; font-size: 10px !important; border-radius:0; }
+  .leaflet-control-attribution a { color: #8c8884 !important; }
+  .leaflet-popup-content-wrapper { background: rgba(18,16,13,.97); color: #f4f1ee; border: 1px solid #322e29; border-radius:0; box-shadow: 0 24px 56px rgba(0,0,0,.55); padding: 0; overflow: hidden; }
+  .leaflet-popup-content { margin: 0; width: 272px !important; }
+  .leaflet-popup-tip { background: rgba(18,16,13,.97); }
+  .leaflet-popup-close-button { color: #8c8884 !important; font-size: 20px !important; padding: 9px !important; }
+  .pop-head { padding: 14px 16px 12px; border-bottom: 1px solid #221f1b; }
+  .pop-head::before { content: ""; display: block; height: 3px; margin: -14px -16px 12px; background: var(--st, #E03131); }
+  .pop-type { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #7d7975; margin-bottom: 4px; }
+  .pop-name { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 20px; line-height: 1.05; color: #f4f1ee; }
+  .pop-loc { font-size: 12px; color: #8c8884; margin-top: 4px; }
+  .pop-pill { display: inline-block; margin-top: 9px; font-family: 'Space Mono', monospace; font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--st, #E03131); border: 1px solid var(--st, #E03131); border-radius:0; padding: 3px 9px; }
+  .pop-body { padding: 12px 16px 14px; }
+  .pop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 12px; }
+  .pop-k { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #6f6b67; margin-bottom: 3px; }
+  .pop-v { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 16px; color: #f4f1ee; }
+  .pop-v.sm { font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 13px; color: #e7e3df; }
+  .pop-note { font-size: 12px; line-height: 1.5; color: #a39e99; margin-top: 12px; padding-top: 10px; border-top: 1px solid #221f1b; }
+  .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large, .marker-cluster div { background: transparent !important; }
+  .cluster-bubble { display: grid; place-items: center; border-radius:0; background: linear-gradient(145deg, #f24343, #b80e26); color: #fff; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 12px; border: 1.5px solid rgba(255,255,255,.78); box-shadow: 0 6px 16px rgba(0,0,0,.42); }
+
+  /* mobile */
+  .mob-only { display: none; }
+  .panel-mob-bar { display: none; }
+  @media (max-width: 1180px) {
+    .mdct-ribbon { max-width: calc(100% - 32px); }
+  }
+  @media (max-width: 860px) {
+    .mdct-nav .navlink, .mdct-nav .seg { display: none; }
+    .mdct-ribbon { display: none; }
+    .mdct-legend { display: none; }
+    .mdct-toolbar { bottom: auto; top: 12px; right: 12px; left: auto; transform: none; }
+    .mdct-toolbar .tbtn { padding: 9px 11px; }
+    .mdct-panel { top: auto; bottom: 0; left: 0; right: 0; width: 100%; max-width: none; max-height: 82vh; border-radius:0; transform: translateY(calc(100% - 58px)); transition: transform .3s ease; }
+    .mdct-panel.open { transform: translateY(0); }
+    .panel-grab { display: block; width: 38px; height: 4px; border-radius:0; background: rgba(255,255,255,.25); margin: 8px auto 4px; }
+    .panel-head { cursor: pointer; padding: 2px 18px 12px; }
+    .panel-chev { display: block; font-size: 13px; color: #8c8884; transition: transform .25s; }
+    .mdct-panel.open .panel-chev { transform: rotate(180deg); }
+  }
+
+  /* welcome showcase */
+  .welcome { position: absolute; inset: 0; z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 24px; background: radial-gradient(120% 100% at 50% 0%, rgba(16,15,14,.74), rgba(16,15,14,.93)); backdrop-filter: blur(3px); }
+
+  .welcome-card { width: min(560px, 100%); max-height: calc(100% - 24px); overflow: auto; border: 1px solid #2f2a24; border-radius:0; background: linear-gradient(168deg, rgba(26,23,17,.98), rgba(17,15,11,.98)); box-shadow: 0 32px 80px rgba(0,0,0,.6); }
+  .welcome-card::before { content: ""; display: block; height: 3px; background: linear-gradient(90deg, #E03131, rgba(224,49,49,.15)); }
+  .welcome-inner { padding: 30px 32px 28px; }
+  .welcome-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #E03131; margin-bottom: 14px; }
+  .welcome-title { font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 38px; line-height: .98; letter-spacing: .01em; color: #f6f3f0; margin-bottom: 12px; }
+  .welcome-sub { font-size: 15px; line-height: 1.55; color: #a39e99; max-width: 440px; margin-bottom: 24px; }
+  .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+  .wa { display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #2b2824; border-radius:0; background: rgba(255,255,255,.02); color: inherit; cursor: pointer; text-align: left; transition: border-color .15s, background .15s, transform .15s; }
+  .wa:hover { border-color: rgba(224,49,49,.45); background: rgba(224,49,49,.07); transform: translateY(-2px); }
+  .wa-ico { width: 34px; height: 34px; flex-shrink: 0; display: grid; place-items: center; border-radius:0; background: rgba(224,49,49,.14); color: #E03131; font-size: 16px; }
+  .wa-t { display: block; font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-size: 16px; color: #f4f1ee; }
+  .wa-d { display: block; font-size: 11.5px; color: #8c8884; margin-top: 1px; }
+  .welcome-foot { display: flex; align-items: center; gap: 14px; }
+  .welcome-dismiss { color: #100f0e; background: #E03131; border: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 14px; padding: 13px 24px; border-radius:0; cursor: pointer; transition: background .15s, transform .15s; }
+  .welcome-dismiss:hover { background: #f24343; transform: translateY(-1px); }
+  .welcome-skip { font-size: 13px; color: #8c8884; background: none; border: 0; cursor: pointer; }
+  .welcome-skip:hover { color: #cbc7c3; }
+
+  /* location bar */
+  .loc-bar { margin: 12px 16px 4px; padding: 13px 15px; border: 1px solid #2f2a24; border-radius:0; background: linear-gradient(120deg, #1b1813, #16140f); }
+  .loc-label { font-family: 'Space Mono', monospace; font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: #cbc7c3; margin-bottom: 9px; display: flex; align-items: center; gap: 7px; }
+  .loc-dot { width: 7px; height: 7px; border-radius: 50%; background: #E03131; }
+  .loc-form { display: flex; gap: 8px; }
+  .loc-input { flex: 1; min-width: 0; height: 42px; background: #0f0e0d; border: 1px solid #2b2824; border-radius:0; padding: 0 12px; color: #f4f1ee; font-family: 'Archivo', sans-serif; font-size: 13px; outline: none; transition: border-color .15s; }
+  .loc-input:focus { border-color: #E03131; }
+  .loc-go { flex-shrink: 0; min-width: 52px; color: #100f0e; background: #E03131; border: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 13px; padding: 0 16px; border-radius:0; cursor: pointer; transition: background .15s; }
+  .loc-go:hover { background: #f24343; }
+  .loc-active { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 12px; color: #a39e99; }
+  .loc-clear { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: #E03131; background: none; border: 0; cursor: pointer; }
+  .dist-badge { font-family: 'Space Mono', monospace; font-size: 11px; color: #E03131; font-weight: 700; }
+
+  /* you-are-here marker */
+  .you-pin { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: rgba(46,140,255,.22); animation: youpulse 2s ease-in-out infinite; }
+  .you-core { width: 12px; height: 12px; border-radius: 50%; background: #2e8cff; border: 2px solid #fff; box-shadow: 0 0 10px rgba(46,140,255,.9); }
+  @keyframes youpulse { 0%,100% { box-shadow: 0 0 0 0 rgba(46,140,255,.4); } 50% { box-shadow: 0 0 0 11px rgba(46,140,255,0); } }
+
+  .dir-meta { display: block; }
+  .impact { margin-top: 13px; padding-top: 12px; border-top: 1px solid #221f1b; display: flex; flex-direction: column; gap: 9px; }
+  .impact-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .impact-k { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: #6f6b67; }
+  .impact-v { font-size: 13px; font-weight: 600; color: #e7e3df; text-align: right; }
+  .impact-v.flag { color: #E03131; }
+  .cite { font-size: 12px; line-height: 1.55; color: #a39e99; }
+  .cite strong { color: #E03131; font-weight: 700; }
+  .cite span { display: block; margin-top: 6px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .04em; color: #6f6b67; }
+
+  @media (max-width: 860px) { .leaflet-control-zoom { display: none !important; } }
+  @media (max-width: 560px) {
+    .welcome-title { font-size: 30px; }
+    .welcome-grid { grid-template-columns: 1fr; }
+    .welcome-inner { padding: 24px 22px 22px; }
+  }
+</style>
+</helmet>
+<div class="mdct">
+  <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#16140f"/><rect x="28" y="28" width="44" height="44" rx="9" fill="#E03131"/><text x="50" y="65" font-family="Arial, sans-serif" font-weight="800" font-size="32" fill="#fff" text-anchor="middle">M</text></svg></template>
+
+  <header class="mdct-top">
+    <div style="display:flex;flex-direction:column;gap:7px;align-items:flex-start;">
+    <a class="mdct-brand" href="Homepage.dc.html">
+      <span class="lockup">
+        <img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" />
+        <span class="divider"></span>
+        <span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span>
+      </span>
+    </a>
+    <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;" onmouseover="this.style.color='#8c8884'" onmouseout="this.style.color='#56524e'">Powered by PublicMeetingTracker.com</a>
+    </div>
+    <nav class="mdct-nav">
+      <a class="navlink" href="Homepage.dc.html">Home</a>
+      <a class="navlink on" href="#map">Live Map</a>
+      <a class="navlink" href="Stories.dc.html">Stories</a>
+      <a class="navlink" href="Meetings.dc.html">Meetings</a>
+      <a class="navlink" href="https://publicmeetingtracker.com" target="_blank" rel="noopener">PublicMeetingTracker ↗</a>
+      <div class="seg" role="group" aria-label="Basemap">
+        <button type="button" class="seg-btn {{ bmDark }}" onClick="{{ setDark }}">Dark</button>
+        <button type="button" class="seg-btn {{ bmDay }}" onClick="{{ setDay }}">Day</button>
+        <button type="button" class="seg-btn {{ bmSat }}" onClick="{{ setSat }}">Sat</button>
+      </div>
+      <a class="cta" href="Meetings.dc.html">Get alerts</a>
+    </nav>
+  </header>
+
+  <div class="mdct-stage">
+    <div id="mdct-map" class="mdct-map"></div>
+
+    <!-- welcome showcase -->
+    <sc-if value="{{ showWelcome }}" hint-placeholder-val="{{ true }}">
+      <div class="welcome">
+        <div class="welcome-card">
+          <div class="welcome-inner">
+            <div class="welcome-eyebrow">Live map · Updated daily</div>
+            <div class="welcome-title">EXPLORE MICHIGAN'S DATA CENTER BUILDOUT</div>
+            <div class="welcome-sub">Every tracked facility, permit, and local moratorium — mapped from public records. Filter it, dig into a site, find what's near you, and take the data with you.</div>
+            <div class="welcome-grid">
+              <button class="wa" onClick="{{ waFind }}"><span class="wa-ico">⌖</span><span><span class="wa-t">Find near you</span><span class="wa-d">Search your town or ZIP</span></span></button>
+              <button class="wa" onClick="{{ waFilter }}"><span class="wa-ico">≡</span><span><span class="wa-t">Filter by status</span><span class="wa-d">Operating · proposed · moratoria</span></span></button>
+              <button class="wa" onClick="{{ waLayers }}"><span class="wa-ico">▦</span><span><span class="wa-t">Grid &amp; water layers</span><span class="wa-d">Transmission · substations · intakes</span></span></button>
+              <button class="wa" onClick="{{ waExport }}"><span class="wa-ico">↓</span><span><span class="wa-t">Export the data</span><span class="wa-d">Download CSV · print a report</span></span></button>
+            </div>
+            <div class="welcome-foot">
+              <button class="welcome-dismiss" onClick="{{ dismissWelcome }}">Explore the map →</button>
+              <button class="welcome-skip" onClick="{{ dismissWelcome }}">Skip</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- stats ribbon -->
+    <div class="mdct-ribbon">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+        <span class="stat {{ s.cls }}"><strong>{{ s.value }}</strong>{{ s.label }}</span>
+        <span class="stat-sep"></span>
+      </sc-for>
+      <span class="stat"><strong>{{ moratoriaCount }}</strong>Moratoria</span>
+    </div>
+
+    <!-- panel -->
+    <aside class="mdct-panel {{ panelCls }}">
+      <div class="panel-grab"></div>
+      <div class="panel-head" onClick="{{ togglePanel }}">
+        <div class="panel-head-top">
+          <div>
+            <div class="panel-title">INTELLIGENCE MAP</div>
+            <span class="panel-sub">Sites, moratoria &amp; grid context</span>
+          </div>
+          <span class="panel-count">{{ resultLabel }}</span>
+          <span class="panel-chev">▲</span>
+        </div>
+      </div>
+
+      <nav class="panel-tabs">
+        <button type="button" class="panel-tab {{ tabList }}" onClick="{{ goList }}">List</button>
+        <button type="button" class="panel-tab {{ tabFilter }}" onClick="{{ goFilter }}">Filter</button>
+        <button type="button" class="panel-tab {{ tabLayers }}" onClick="{{ goLayers }}">Layers</button>
+        <button type="button" class="panel-tab {{ tabMore }}" onClick="{{ goMore }}">More</button>
+      </nav>
+
+      <div class="panel-body">
+
+        <!-- LIST -->
+        <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+        <div class="pane">
+          <div class="loc-bar">
+            <div class="loc-label"><span class="loc-dot"></span>Where do you live?</div>
+            <div class="loc-form">
+              <input class="loc-input" type="text" value="{{ locInput }}" onInput="{{ onLocInput }}" onKeyDown="{{ onLocKey }}" placeholder="Town, county or ZIP" />
+              <button class="loc-go" onClick="{{ submitLoc }}">{{ goText }}</button>
+            </div>
+            <sc-if value="{{ hasUser }}" hint-placeholder-val="{{ false }}">
+              <div class="loc-active"><span>Sorted by distance from <strong style="color:#e7e3df;">{{ userLabel }}</strong></span><button class="loc-clear" onClick="{{ clearLoc }}">Clear</button></div>
+            </sc-if>
+          </div>
+          <div class="search-wrap">
+            <span class="search-ico">⌕</span>
+            <input class="search" type="text" value="{{ query }}" onInput="{{ onQuery }}" placeholder="Search site, city, operator…" />
+          </div>
+          <sc-if value="{{ hasSelected }}" hint-placeholder-val="{{ true }}">
+            <div class="record">
+              <div class="record-card" style="{{ sel.borderStyle }}">
+                <div class="record-top">
+                  <span class="record-type">{{ sel.typeLabel }}</span>
+                  <span class="tag" style="{{ sel.tagStyle }}">{{ sel.statusLabel }}</span>
+                </div>
+                <div class="record-name">{{ sel.name }}</div>
+                <div class="record-meta">{{ sel.place }}</div>
+                <div class="record-facts">
+                  <sc-for list="{{ sel.facts }}" as="f" hint-placeholder-count="4">
+                    <div><div class="fact-k">{{ f.k }}</div><div class="fact-v {{ f.cls }}">{{ f.v }}</div></div>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ sel.showImpact }}" hint-placeholder-val="{{ false }}">
+                  <div class="impact">
+                    <div class="impact-row"><span class="impact-k">Permanent jobs</span><span class="impact-v">{{ sel.jobs }}</span></div>
+                    <div class="impact-row"><span class="impact-k">Rate impact</span><span class="impact-v {{ sel.rateCls }}">{{ sel.rate }}</span></div>
+                  </div>
+                </sc-if>
+                <div class="record-note">{{ sel.note }}</div>
+              </div>
+              <div class="record-foot">
+                <button class="tbtn" style="flex:1;border:1px solid #2b2824;" onClick="{{ sel.focus }}">Zoom to site</button>
+                <a class="cta" href="#map" style="flex:1;text-align:center;">Full profile →</a>
+              </div>
+            </div>
+          </sc-if>
+          <div class="dir">
+            <sc-for list="{{ directory }}" as="d" hint-placeholder-count="8">
+              <button type="button" class="dir-row {{ d.cls }}" onClick="{{ d.onSelect }}">
+                <span class="dir-dot" style="{{ d.dotStyle }}"></span>
+                <span class="dir-main">
+                  <span class="dir-name">{{ d.name }}</span>
+                  <span class="dir-meta">{{ d.place }}</span>
+                  <span class="dir-tags"><span class="tag" style="{{ d.tagStyle }}">{{ d.statusLabel }}</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#a39e99;">{{ d.loadLabel }}</span><span class="dist-badge">{{ d.distLabel }}</span></span>
+                </span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- FILTER -->
+        <sc-if value="{{ isFilter }}" hint-placeholder-val="{{ false }}">
+        <div class="pane">
+          <div class="blk">
+            <div class="blk-label">Region</div>
+            <div class="chips">
+              <sc-for list="{{ regions }}" as="r" hint-placeholder-count="5">
+                <button type="button" class="chip {{ r.cls }}" onClick="{{ r.onClick }}">{{ r.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="blk">
+            <div class="blk-label"><span>Status</span><button class="blk-reset" onClick="{{ resetStatus }}">Reset</button></div>
+            <div class="rows">
+              <sc-for list="{{ statusRows }}" as="s" hint-placeholder-count="5">
+                <button type="button" class="row {{ s.cls }}" onClick="{{ s.toggle }}">
+                  <span class="swatch" style="{{ s.dotStyle }}"></span>
+                  <span class="nm">{{ s.label }}</span>
+                  <span class="ct">{{ s.count }}</span>
+                  <span class="chk"></span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- LAYERS -->
+        <sc-if value="{{ isLayers }}" hint-placeholder-val="{{ false }}">
+        <div class="pane">
+          <div class="blk">
+            <div class="blk-label">Grid &amp; water context</div>
+            <div class="rows">
+              <sc-for list="{{ layerRows }}" as="l" hint-placeholder-count="4">
+                <button type="button" class="row {{ l.cls }}" onClick="{{ l.toggle }}">
+                  <span class="swatch {{ l.shape }}" style="{{ l.dotStyle }}"></span>
+                  <span class="nm">{{ l.label }}</span>
+                  <span class="ct">{{ l.count }}</span>
+                  <span class="chk"></span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+          <div class="blk">
+            <div class="blk-label">Basemap</div>
+            <div class="chips">
+              <button type="button" class="chip {{ bmDark }}" onClick="{{ setDark }}">Dark</button>
+              <button type="button" class="chip {{ bmDay }}" onClick="{{ setDay }}">Day</button>
+              <button type="button" class="chip {{ bmSat }}" onClick="{{ setSat }}">Satellite</button>
+            </div>
+          </div>
+          <div class="note">Context layers are illustrative samples for layout — swap in your authoritative GIS feeds (transmission, substations, intakes) when ready.</div>
+        </div>
+        </sc-if>
+
+        <!-- MORE -->
+        <sc-if value="{{ isMore }}" hint-placeholder-val="{{ false }}">
+        <div class="pane">
+          <div class="sponsor">
+            <div class="sponsor-tier">Presenting partner</div>
+            <a class="sponsor-card" href="Sponsor.dc.html">
+              <span class="sponsor-logo">LOGO</span>
+              <span><span class="sponsor-name">Your brand here</span><span class="sponsor-desc">Logo on the live map &amp; every record popup.</span></span>
+            </a>
+            <div class="sponsor-tier" style="color:#8c8884;margin-top:6px;">Supporting</div>
+            <a class="sponsor-card" href="Sponsor.dc.html">
+              <span class="sponsor-logo">LOGO</span>
+              <span><span class="sponsor-name" style="font-size:14px;">Become a supporter</span><span class="sponsor-desc">Section sponsorship &amp; daily briefing.</span></span>
+            </a>
+          </div>
+          <div class="blk">
+            <div class="blk-label">Stories</div>
+            <a class="story" href="Stories.dc.html"><span class="story-k">Investigation</span><span class="story-t">Who pays for the grid upgrades behind the buildout?</span></a>
+            <a class="story" href="Stories.dc.html"><span class="story-k">Explainer</span><span class="story-t">Reading a township moratorium — what it does and doesn't do</span></a>
+            <a class="story" href="Stories.dc.html"><span class="story-k">Tracker</span><span class="story-t">Every large-load rate case before the MPSC</span></a>
+          </div>
+          <div class="blk">
+            <div class="blk-label">Tracker</div>
+            <div class="nav-grid">
+              <a class="nav-cell" href="Live Map.dc.html"><strong>Facilities</strong><small>Database</small></a>
+              <a class="nav-cell" href="Live Map.dc.html"><strong>Power &amp; Grid</strong><small>Load vs. capacity</small></a>
+              <a class="nav-cell" href="Meetings.dc.html"><strong>Meetings</strong><small>Hearings</small></a>
+              <a class="nav-cell" href="Learn.dc.html"><strong>Learn</strong><small>Methodology</small></a>
+            </div>
+          </div>
+          <div class="blk">
+            <div class="blk-label">Why Michigan</div>
+            <div class="cite">Michigan leads the nation with <strong>26 data center moratoria</strong> — more than any U.S. state, in any sector.<span>ALEA Institute, “Moratorium Nation,” Feb 2026</span></div>
+          </div>
+          <div class="note">Records are verified against public filings and official notices. <a href="Learn.dc.html">How we source →</a><br><span style="display:inline-block;margin-top:8px;color:#7d7975;">AI-drafted, journalist-reviewed · Powered by <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="color:#E03131;text-decoration:none;font-weight:700;">PublicMeetingTracker.com</a></span></div>
+        </div>
+        </sc-if>
+
+      </div>
+    </aside>
+
+    <!-- legend -->
+    <sc-if value="{{ legendOpen }}" hint-placeholder-val="{{ true }}">
+      <div class="mdct-legend">
+        <div class="legend-title">Legend</div>
+        <sc-for list="{{ legendRows }}" as="g" hint-placeholder-count="5">
+          <div class="legend-row"><span class="swatch {{ g.shape }}" style="{{ g.dotStyle }}"></span>{{ g.label }}</div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <!-- toolbar -->
+    <div class="mdct-toolbar">
+      <button class="tbtn primary" onClick="{{ reset }}">Reset</button>
+      <span class="tbtn-sep"></span>
+      <button class="tbtn" onClick="{{ locate }}">Near me</button>
+      <button class="tbtn" onClick="{{ exportCSV }}">Export</button>
+      <button class="tbtn" onClick="{{ printReport }}">Print</button>
+      <button class="tbtn" onClick="{{ share }}">Share</button>
+      <button class="tbtn" onClick="{{ toggleLegend }}">Legend</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.STATUS = {
+      Operating:   { label: 'Operating',          color: '#E03131' },
+      Construction:{ label: 'Under construction',  color: '#dd8048' },
+      Permitting:  { label: 'Permitting',          color: '#bda35f' },
+      Proposed:    { label: 'Proposed',            color: '#8c8884' },
+      Moratorium:  { label: 'Moratorium / pause',  color: '#7c9cc4' },
+    };
+    // ── EDIT HERE to update the map ──────────────────────────────
+    this.RECORDS = [
+      { id: 1,  type: 'site', name: 'Mooreville Campus',  city: 'Saline',        county: 'Washtenaw',      region: 'metro', operator: 'Hyperion Compute', status: 'Permitting',   load: 480, acres: '250 ac', water: '1.4M gal', jobs: 90,  rate: 'Special rate — under review', updated: 'Jun 24, 2026', lat: 42.17, lng: -83.78, note: 'Rezoning under review by the township planning commission; public hearing scheduled.' },
+      { id: 2,  type: 'site', name: 'Redford Exchange',   city: 'Redford',       county: 'Wayne',          region: 'metro', operator: 'MetroData',        status: 'Operating',    load: 210, acres: '90 ac',  water: '620k gal', jobs: 55,  rate: 'Standard tariff', updated: 'Jun 20, 2026', lat: 42.42, lng: -83.30, note: 'Two halls online since 2024; third hall energizing this quarter.' },
+      { id: 3,  type: 'site', name: 'Grand River West',   city: 'Grand Rapids',  county: 'Kent',           region: 'west',  operator: 'Lakeshore DC',     status: 'Construction', load: 320, acres: '160 ac', water: '900k gal', jobs: 120, rate: 'Under review', updated: 'Jun 18, 2026', lat: 42.96, lng: -85.67, note: 'Site work underway; substation interconnect targeted for 2027.' },
+      { id: 4,  type: 'site', name: 'Mundy Campus',       city: 'Mundy Twp',     county: 'Genesee',        region: 'mid',   operator: 'Northstar Infra',  status: 'Proposed',     load: 600, acres: '410 ac', water: '1.9M gal', jobs: 140, rate: 'Special contract sought', updated: 'Jun 11, 2026', lat: 42.95, lng: -83.75, note: 'Largest proposed load on the tracker; rezoning vote expected in July.' },
+      { id: 5,  type: 'site', name: 'Saginaw Valley',     city: 'Saginaw',       county: 'Saginaw',        region: 'mid',   operator: 'Northstar Infra',  status: 'Permitting',   load: 180, acres: '120 ac', water: '540k gal', jobs: 70,  rate: 'Under review', updated: 'Jun 09, 2026', lat: 43.42, lng: -83.95, note: 'Air-permit application filed with EGLE.' },
+      { id: 6,  type: 'site', name: 'Marquette Node',     city: 'Marquette',     county: 'Marquette',      region: 'north', operator: 'Boreal Edge',      status: 'Proposed',     load: 90,  acres: '60 ac',  water: '210k gal', jobs: 35,  rate: 'Standard tariff', updated: 'May 28, 2026', lat: 46.55, lng: -87.40, note: 'Edge facility tied to UP grid; early community engagement stage.' },
+      { id: 7,  type: 'site', name: 'Ypsilanti Works',    city: 'Ypsilanti',     county: 'Washtenaw',      region: 'metro', operator: 'MetroData',        status: 'Operating',    load: 140, acres: '70 ac',  water: '430k gal', jobs: 60,  rate: 'Standard tariff', updated: 'Jun 15, 2026', lat: 42.24, lng: -83.61, note: 'Retrofit of a former logistics site; fully operational.' },
+      { id: 8,  type: 'site', name: 'Holland Bay',        city: 'Holland',       county: 'Ottawa',         region: 'west',  operator: 'Lakeshore DC',     status: 'Construction', load: 150, acres: '85 ac',  water: '470k gal', jobs: 80,  rate: 'Under review', updated: 'Jun 12, 2026', lat: 42.79, lng: -86.10, note: 'Foundations poured; lakeshore water-use agreement in negotiation.' },
+      { id: 9,  type: 'site', name: 'Lansing Central',    city: 'Lansing',       county: 'Ingham',         region: 'mid',   operator: 'Capitol Grid',     status: 'Operating',    load: 110, acres: '55 ac',  water: '330k gal', jobs: 45,  rate: 'Municipal utility', updated: 'Jun 21, 2026', lat: 42.73, lng: -84.55, note: 'Municipal-utility served; powers state and university workloads.' },
+      { id: 10, type: 'site', name: 'Pontiac North',      city: 'Pontiac',       county: 'Oakland',        region: 'metro', operator: 'MetroData',        status: 'Permitting',   load: 260, acres: '140 ac', water: '780k gal', jobs: 110, rate: 'Under review', updated: 'Jun 17, 2026', lat: 42.64, lng: -83.29, note: 'Brownfield redevelopment; site-plan review in progress.' },
+      { id: 11, type: 'site', name: 'Kalamazoo Edge',     city: 'Kalamazoo',     county: 'Kalamazoo',      region: 'west',  operator: 'Lakeshore DC',     status: 'Proposed',     load: 200, acres: '110 ac', water: '600k gal', jobs: 75,  rate: 'Standard tariff', updated: 'Jun 05, 2026', lat: 42.29, lng: -85.59, note: 'Letter of intent filed with the city; no application yet.' },
+      { id: 12, type: 'site', name: 'Troy Annex',         city: 'Troy',          county: 'Oakland',        region: 'metro', operator: 'Hyperion Compute', status: 'Operating',    load: 95,  acres: '40 ac',  water: '290k gal', jobs: 40,  rate: 'Standard tariff', updated: 'Jun 19, 2026', lat: 42.60, lng: -83.15, note: 'Compact enterprise facility; expansion shelved for now.' },
+      { id: 13, type: 'site', name: 'Traverse Spur',      city: 'Traverse City', county: 'Grand Traverse', region: 'north', operator: 'Boreal Edge',      status: 'Permitting',   load: 120, acres: '75 ac',  water: '360k gal', jobs: 50,  rate: 'Under review', updated: 'Jun 07, 2026', lat: 44.76, lng: -85.62, note: 'Special-use permit pending; grid capacity study requested.' },
+      { id: 14, type: 'site', name: 'Monroe Shoreline',   city: 'Monroe',        county: 'Monroe',         region: 'metro', operator: 'Northstar Infra',  status: 'Proposed',     load: 520, acres: '300 ac', water: '1.6M gal', jobs: 130, rate: 'Special contract sought', updated: 'Jun 03, 2026', lat: 41.92, lng: -83.40, note: 'Near a retiring power plant; reuse of existing interconnection studied.' },
+      { id: 15, type: 'moratorium', name: 'Pittsfield Township', city: 'Pittsfield Twp', county: 'Washtenaw', region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'May 2026', updated: 'Nov 2025', lat: 42.24, lng: -83.70, note: 'First in the statewide wave — pause on new data center zoning while standards are written.' },
+      { id: 16, type: 'moratorium', name: 'Howell Township',     city: 'Howell Twp',     county: 'Livingston', region: 'mid',  operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'May 2026', updated: 'Nov 2025', lat: 42.61, lng: -83.93, note: 'A $1B Meta-backed campus on 1,000+ acres prompted the pause; the developer later withdrew its rezoning request.' },
+      { id: 17, type: 'moratorium', name: 'City of Saginaw',     city: 'Saginaw',        county: 'Saginaw',    region: 'mid',  operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Interim pause', expires: 'Aug 2026', updated: 'Dec 2025', lat: 43.42, lng: -83.95, note: 'Interim pause while the city studies grid and water impacts.' },
+      { id: 18, type: 'moratorium', name: 'Grand Blanc Township', city: 'Grand Blanc Twp', county: 'Genesee', region: 'mid', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'Jun 2026', updated: 'Dec 2025', lat: 42.93, lng: -83.63, note: 'Moratorium adopted amid a cluster of proposals in Genesee County.' },
+      { id: 19, type: 'moratorium', name: 'City of Pontiac',     city: 'Pontiac',        county: 'Oakland',    region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Special-use conversion', expires: 'Ongoing', updated: 'Jan 2026', lat: 42.66, lng: -83.31, note: 'Removed data centers as a by-right use; now require special-use approval.' },
+      { id: 20, type: 'moratorium', name: 'City of Northville',  city: 'Northville',     county: 'Oakland',    region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Interim moratorium', expires: 'Jul 2026', updated: 'Jan 2026', lat: 42.43, lng: -83.48, note: 'Interim moratorium adopted by the city council.' },
+      { id: 21, type: 'moratorium', name: 'Sterling Heights',    city: 'Sterling Heights', county: 'Macomb',  region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'Aug 2026', updated: 'Feb 2026', lat: 42.58, lng: -83.03, note: 'Six-month moratorium while zoning standards are developed.' },
+      { id: 22, type: 'moratorium', name: 'City of Saline',      city: 'Saline',         county: 'Washtenaw',  region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Interim moratorium', expires: 'Jul 2026', updated: 'Jan 2026', lat: 42.17, lng: -83.79, note: 'Separate from Saline Township — the city paused new applications pending an ordinance.' },
+      { id: 23, type: 'moratorium', name: 'Green Charter Township', city: 'Green Charter Twp', county: 'Mecosta', region: 'west', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'Jun 2026', updated: 'Dec 2025', lat: 43.62, lng: -85.28, note: 'Moratorium follows broader scrutiny of large-load development in the township.' },
+    ];
+    this.CONTEXT = {
+      transmission: [
+        [[42.30,-83.70],[42.60,-83.40],[42.95,-83.75],[43.42,-83.95]],
+        [[42.96,-85.67],[42.79,-86.10],[42.29,-85.59]],
+        [[42.64,-83.29],[42.95,-83.75]],
+      ],
+      substations: [ [42.55,-83.35],[42.90,-85.60],[43.00,-83.85],[42.30,-83.70],[42.70,-84.50],[44.70,-85.60] ],
+      water: [ [42.05,-83.18],[43.05,-86.25],[44.00,-83.55] ],
+    };
+    this.REGIONS = [
+      { key: 'all', label: 'All' }, { key: 'metro', label: 'SE Michigan' },
+      { key: 'west', label: 'West MI' }, { key: 'mid', label: 'Mid-Michigan' }, { key: 'north', label: 'Northern MI' },
+    ];
+    this.state = {
+      basemap: 'dark', tab: 'list', region: 'all', query: '', selectedId: 1,
+      status: { Operating: true, Construction: true, Permitting: true, Proposed: true, Moratorium: true },
+      layers: { transmission: false, substations: false, water: false },
+      legendOpen: true, panelOpen: false,
+      userLoc: null, locInput: '', locBusy: false, showWelcome: true,
+    };
+  }
+
+  componentDidMount() {
+    this._wait = setInterval(() => {
+      if (window.L && window.L.markerClusterGroup) { clearInterval(this._wait); this.initMap(); }
+    }, 60);
+  }
+  componentWillUnmount() { clearInterval(this._wait); if (this._map) this._map.remove(); }
+
+  initMap() {
+    const el = document.getElementById('mdct-map');
+    if (!el || this._map) return;
+    const map = L.map(el, { zoomControl: false, attributionControl: true, minZoom: 5, maxZoom: 14, zoomSnap: 0.5 })
+      .setView([43.7, -84.6], 6.8);
+    this._map = map;
+    L.control.zoom({ position: 'topright' }).addTo(map);
+    this.tiles = {
+      dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', { subdomains: 'abcd', maxZoom: 19, attribution: '© OpenStreetMap · © CARTO' }),
+      day:  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', { subdomains: 'abcd', maxZoom: 19, attribution: '© OpenStreetMap · © CARTO' }),
+      sat:  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18, attribution: '© Esri' }),
+    };
+    this.tiles[this.state.basemap].addTo(map);
+    this._basemap = this.state.basemap;
+
+    this.cluster = L.markerClusterGroup({
+      maxClusterRadius: 48, showCoverageOnHover: false, spiderfyOnMaxZoom: true,
+      iconCreateFunction: (c) => {
+        const n = c.getChildCount();
+        const s = n < 8 ? 34 : n < 20 ? 40 : 46;
+        return L.divIcon({ html: '<div class="cluster-bubble" style="width:' + s + 'px;height:' + s + 'px;">' + n + '</div>', className: '', iconSize: [s, s] });
+      },
+    });
+    map.addLayer(this.cluster);
+    this.markers = {};
+    this.buildContext();
+    this.syncMarkers(); this._sig = this.sig();
+    this.syncContext(); this._lsig = JSON.stringify(this.state.layers);
+    this._sel = this.state.selectedId;
+    setTimeout(() => { map.invalidateSize(false); this.focusSelected(false); }, 240);
+  }
+
+  buildContext() {
+    const mk = (html, ll, size) => L.marker(ll, { icon: L.divIcon({ html, className: '', iconSize: [size, size], iconAnchor: [size / 2, size / 2] }) });
+    this.ctx = {
+      transmission: L.layerGroup(this.CONTEXT.transmission.map(line =>
+        L.polyline(line, { color: '#9c5fc9', weight: 2.5, opacity: .8, dashArray: '1 6', lineCap: 'round' }).bindTooltip('Transmission corridor', { sticky: true }))),
+      substations: L.layerGroup(this.CONTEXT.substations.map(ll =>
+        mk('<span style="display:block;width:11px;height:11px;background:#fbbf24;border:2px solid #100f0e;box-shadow:0 0 8px rgba(251,191,36,.6);"></span>', ll, 11).bindTooltip('Substation', { direction: 'top' }))),
+      water: L.layerGroup(this.CONTEXT.water.map(ll =>
+        mk('<span style="display:block;width:12px;height:12px;border-radius:50%;background:#22d3ee;border:2px solid #100f0e;box-shadow:0 0 8px rgba(34,211,238,.6);"></span>', ll, 12).bindTooltip('Water intake', { direction: 'top' }))),
+    };
+  }
+
+  pinIcon(r, active) {
+    const c = this.STATUS[r.status].color;
+    const moratorium = r.type === 'moratorium';
+    const size = active ? 22 : (moratorium ? 14 : 13 + Math.min(9, r.load / 70));
+    const ring = active ? '0 0 0 4px ' + c + '55, 0 0 18px ' + c + 'cc' : '0 0 8px ' + c + '66';
+    const shape = moratorium
+      ? 'width:' + size + 'px;height:' + size + 'px;border-radius:0;transform:rotate(45deg);background:transparent;border:2.5px solid ' + c + ';box-shadow:' + ring + ';'
+      : 'width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:' + c + ';border:2px solid #100f0e;box-shadow:' + ring + ';';
+    return L.divIcon({ className: '', html: '<span style="display:block;' + shape + '"></span>', iconSize: [size, size], iconAnchor: [size / 2, size / 2] });
+  }
+
+  popupHtml(r) {
+    const c = this.STATUS[r.status].color;
+    const st = this.STATUS[r.status].label;
+    const isM = r.type === 'moratorium';
+    const facts = isM
+      ? '<div><div class="pop-k">Type</div><div class="pop-v sm">' + r.mType + '</div></div><div><div class="pop-k">Expires</div><div class="pop-v sm">' + r.expires + '</div></div><div><div class="pop-k">County</div><div class="pop-v sm">' + r.county + '</div></div><div><div class="pop-k">Adopted</div><div class="pop-v sm">' + r.updated + '</div></div>'
+      : '<div><div class="pop-k">Load</div><div class="pop-v">' + r.load + ' MW</div></div>'
+      + '<div><div class="pop-k">Site</div><div class="pop-v">' + r.acres + '</div></div>'
+      + '<div><div class="pop-k">Jobs</div><div class="pop-v sm">' + r.jobs + ' permanent</div></div>'
+      + '<div><div class="pop-k">Rate impact</div><div class="pop-v sm">' + r.rate + '</div></div>';
+    return '<div style="--st:' + c + '">'
+      + '<div class="pop-head"><div class="pop-type">' + (isM ? 'Moratorium / pause' : 'Data center') + '</div>'
+      + '<div class="pop-name">' + r.name + '</div><div class="pop-loc">' + r.city + ' · ' + r.county + ' County</div>'
+      + '<span class="pop-pill">' + st + '</span></div>'
+      + '<div class="pop-body"><div class="pop-grid">' + facts + '</div>'
+      + '<div class="pop-note">' + r.note + '</div></div></div>';
+  }
+
+  filtered() {
+    const { status, region, query } = this.state;
+    const q = query.trim().toLowerCase();
+    return this.RECORDS.filter(r =>
+      status[r.status] &&
+      (region === 'all' || r.region === region) &&
+      (!q || (r.name + ' ' + r.city + ' ' + r.county + ' ' + r.operator).toLowerCase().includes(q)));
+  }
+  sig() { const s = this.state; return JSON.stringify([s.status, s.region, s.query]); }
+
+  syncMarkers() {
+    if (!this.cluster) return;
+    this.cluster.clearLayers(); this.markers = {};
+    this.filtered().forEach(r => {
+      const m = L.marker([r.lat, r.lng], { icon: this.pinIcon(r, r.id === this.state.selectedId) });
+      m.bindPopup(this.popupHtml(r), { maxWidth: 300, autoPanPadding: [60, 80] });
+      m.on('click', () => this.select(r.id));
+      this.markers[r.id] = m; this.cluster.addLayer(m);
+    });
+  }
+  syncContext() {
+    if (!this.ctx) return;
+    Object.keys(this.ctx).forEach(k => {
+      const on = this.state.layers[k];
+      if (on && !this._map.hasLayer(this.ctx[k])) this.ctx[k].addTo(this._map);
+      else if (!on && this._map.hasLayer(this.ctx[k])) this._map.removeLayer(this.ctx[k]);
+    });
+  }
+  focusSelected(open) {
+    const m = this.markers[this.state.selectedId];
+    if (!m || !this._map) return;
+    this.cluster.zoomToShowLayer(m, () => { if (open !== false) m.openPopup(); });
+  }
+  select(id) { this.setState({ selectedId: id, tab: 'list' }); }
+
+  componentDidUpdate() {
+    if (!this._map) return;
+    const s = this.state;
+    if (this._basemap !== s.basemap) { this._map.removeLayer(this.tiles[this._basemap]); this.tiles[s.basemap].addTo(this._map); this._basemap = s.basemap; }
+    const sg = this.sig(); let remade = false;
+    if (sg !== this._sig) { this._sig = sg; this.syncMarkers(); remade = true; }
+    const lg = JSON.stringify(s.layers); if (lg !== this._lsig) { this._lsig = lg; this.syncContext(); }
+    if (this._sel !== s.selectedId) { this._sel = s.selectedId; this.syncMarkers(); this.focusSelected(true); }
+    else if (remade) { /* keep view */ }
+    this._map.invalidateSize(false);
+  }
+
+  reset() {
+    this.setState({ region: 'all', query: '', status: { Operating: true, Construction: true, Permitting: true, Proposed: true, Moratorium: true } });
+    if (this._map) this._map.setView([43.7, -84.6], 6.8);
+  }
+  dist(a, b, c, d) { const R = 3958.8, t = Math.PI / 180, dLat = (c - a) * t, dLng = (d - b) * t, u = Math.sin(dLat / 2) ** 2 + Math.cos(a * t) * Math.cos(c * t) * Math.sin(dLng / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(u)); }
+  placeYou(lat, lng) {
+    if (!this._map) return;
+    if (this._you) { this._you.setLatLng([lat, lng]); }
+    else { this._you = L.marker([lat, lng], { icon: L.divIcon({ className: '', html: '<span class="you-pin"><span class="you-core"></span></span>', iconSize: [26, 26], iconAnchor: [13, 13] }), zIndexOffset: 1000, interactive: false }).addTo(this._map); }
+  }
+  applyUserLoc(lat, lng, label) { this.setState({ userLoc: { lat, lng, label }, locBusy: false, panelOpen: true }); this.placeYou(lat, lng); if (this._map) this._map.setView([lat, lng], 9); }
+  geocode(q) {
+    if (!q || !q.trim()) return;
+    this.setState({ locBusy: true });
+    fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=' + encodeURIComponent(q + ', Michigan'))
+      .then(r => r.json())
+      .then(d => { if (d && d[0]) this.applyUserLoc(+d[0].lat, +d[0].lon, q.trim()); else this.setState({ locBusy: false }); })
+      .catch(() => this.setState({ locBusy: false }));
+  }
+  clearLoc() { this.setState({ userLoc: null, locInput: '' }); if (this._you && this._map) { this._map.removeLayer(this._you); this._you = null; } if (this._map) this._map.setView([43.7, -84.6], 6.8); }
+  locate() { if (this._map && navigator.geolocation) navigator.geolocation.getCurrentPosition(p => this.applyUserLoc(p.coords.latitude, p.coords.longitude, 'Your location')); }
+  share() { try { navigator.clipboard && navigator.clipboard.writeText(location.href); } catch (e) {} }
+  exportCSV() {
+    const rows = this.filtered();
+    const head = ['Name', 'Type', 'Status', 'City', 'County', 'Region', 'Operator', 'Load MW', 'Acres', 'Water per day', 'Lat', 'Lng', 'Updated', 'Note'];
+    const esc = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+    const body = rows.map(r => [r.name, r.type, this.STATUS[r.status].label, r.city, r.county, r.region, r.operator, r.load || '', r.acres, r.water, r.lat, r.lng, r.updated, r.note].map(esc).join(','));
+    const csv = [head.join(',')].concat(body).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'michigan-data-center-tracker.csv';
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  printReport() {
+    const rows = this.filtered(); const w = window.open('', '_blank'); if (!w) return;
+    const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    const tr = rows.map(r => '<tr><td><strong>' + r.name + '</strong><br><span class="m">' + r.city + ' · ' + r.county + ' County</span></td><td>' + this.STATUS[r.status].label + '</td><td>' + (r.type === 'moratorium' ? '—' : r.load + ' MW') + '</td><td>' + r.operator + '</td><td>' + r.updated + '</td></tr>').join('');
+    w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Michigan Data Center Tracker — Report</title><link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Archivo:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{font-family:Archivo,sans-serif;color:#16140f;margin:40px}h1{font-family:\'Saira Condensed\',sans-serif;font-size:30px;letter-spacing:.01em;margin:0}.rule{height:3px;width:120px;background:#E03131;margin:8px 0 4px}.sub{font-family:\'Space Mono\',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#777}table{width:100%;border-collapse:collapse;margin-top:24px;font-size:12px}th{text-align:left;font-family:\'Space Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#999;border-bottom:2px solid #16140f;padding:8px 10px}td{padding:10px;border-bottom:1px solid #e5e2dc;vertical-align:top}td .m{color:#888;font-size:11px}strong{font-family:\'Saira Condensed\',sans-serif;font-weight:700;font-size:15px}footer{margin-top:24px;font-size:10px;color:#999}@media print{body{margin:18mm}}</style></head><body><h1>MICHIGAN DATA CENTER TRACKER</h1><div class="rule"></div><div class="sub">Site report · ' + rows.length + ' records · ' + today + '</div><table><thead><tr><th>Site</th><th>Status</th><th>Load</th><th>Operator</th><th>Updated</th></tr></thead><tbody>' + tr + '</tbody></table><footer>Independent · Nonpartisan · figures are placeholders pending source verification.</footer></body></html>');
+    w.document.close(); w.focus(); setTimeout(() => { try { w.print(); } catch (e) {} }, 500);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const seg = (k) => s.basemap === k ? 'on' : '';
+    const tag = (status) => { const c = this.STATUS[status].color; return { color: c, border: '1px solid ' + c + '66' }; };
+    const dot = (status) => ({ background: this.STATUS[status].color });
+
+    const sites = this.RECORDS.filter(r => r.type === 'site');
+    const loadGW = (sites.reduce((a, r) => a + r.load, 0) / 1000).toFixed(1);
+    const communities = new Set(this.RECORDS.map(r => r.city)).size;
+    const moratoriaCount = this.RECORDS.filter(r => r.type === 'moratorium').length;
+
+    const stats = [
+      { value: sites.length, label: 'Sites', cls: '' },
+      { value: loadGW + ' GW', label: 'Proposed load', cls: 'accent' },
+      { value: communities, label: 'Communities', cls: '' },
+    ];
+
+    const regions = this.REGIONS.map(r => ({ label: r.label, cls: s.region === r.key ? 'on' : '', onClick: () => this.setState({ region: r.key }) }));
+
+    const statusRows = Object.keys(this.STATUS).map(k => ({
+      label: this.STATUS[k].label, count: this.RECORDS.filter(r => r.status === k).length,
+      cls: s.status[k] ? 'on' : 'off', dotStyle: dot(k),
+      toggle: () => this.setState(st => ({ status: { ...st.status, [k]: !st.status[k] } })),
+    }));
+
+    const layerDefs = [
+      { key: 'transmission', label: 'Transmission corridors', color: '#9c5fc9', shape: 'line', count: this.CONTEXT.transmission.length },
+      { key: 'substations',  label: 'Substations',            color: '#fbbf24', shape: 'sq',   count: this.CONTEXT.substations.length },
+      { key: 'water',        label: 'Water intakes',          color: '#22d3ee', shape: '',     count: this.CONTEXT.water.length },
+    ];
+    const layerRows = layerDefs.map(l => ({
+      label: l.label, count: l.count, shape: l.shape, cls: s.layers[l.key] ? 'on' : 'off',
+      dotStyle: l.shape === 'line' ? { color: l.color } : { background: l.color },
+      toggle: () => this.setState(st => ({ layers: { ...st.layers, [l.key]: !st.layers[l.key] } })),
+    }));
+
+    const list = this.filtered();
+    const withDist = list.map(r => ({ r, mi: s.userLoc ? this.dist(s.userLoc.lat, s.userLoc.lng, r.lat, r.lng) : null }));
+    if (s.userLoc) withDist.sort((a, b) => a.mi - b.mi);
+    const directory = withDist.map(({ r, mi }) => ({
+      name: r.name, place: r.city + ' · ' + r.county + ' County',
+      statusLabel: this.STATUS[r.status].label, loadLabel: r.type === 'moratorium' ? 'Moratorium' : r.load + ' MW',
+      cls: r.id === s.selectedId ? 'on' : '', dotStyle: dot(r.status), tagStyle: tag(r.status),
+      distLabel: mi == null ? '' : (mi < 10 ? mi.toFixed(1) : Math.round(mi)) + ' mi',
+      onSelect: () => this.select(r.id),
+    }));
+
+    const r = this.RECORDS.find(x => x.id === s.selectedId);
+    const inView = r && s.status[r.status] && (s.region === 'all' || r.region === s.region);
+    const isM = r && r.type === 'moratorium';
+    const sel = r ? {
+      name: r.name, typeLabel: isM ? 'Moratorium / pause' : 'Data center',
+      place: r.city + ' · ' + r.county + ' County', statusLabel: this.STATUS[r.status].label,
+      note: r.note, tagStyle: tag(r.status), borderStyle: { borderLeftColor: this.STATUS[r.status].color },
+      facts: isM
+        ? [ { k: 'Type', v: r.mType }, { k: 'Expires', v: r.expires }, { k: 'County', v: r.county }, { k: 'Adopted', v: r.updated } ]
+        : [ { k: 'Proposed load', v: r.load + ' MW' }, { k: 'Site size', v: r.acres }, { k: 'Operator', v: r.operator, cls: 'sm' }, { k: 'Water/day', v: r.water, cls: 'sm' } ],
+      showImpact: !isM,
+      jobs: isM ? '—' : r.jobs + ' permanent',
+      rate: isM ? '—' : r.rate,
+      rateCls: (!isM && /special|sought/i.test(r.rate || '')) ? 'flag' : '',
+      focus: () => { this.setState({ panelOpen: false }); this.focusSelected(true); },
+    } : {};
+
+    const legendRows = [
+      ...Object.keys(this.STATUS).map(k => ({ label: this.STATUS[k].label, shape: k === 'Moratorium' ? 'sq' : '', dotStyle: dot(k) })),
+    ];
+
+    return {
+      stats, moratoriaCount,
+      bmDark: seg('dark'), bmDay: seg('day'), bmSat: seg('sat'),
+      setDark: () => this.setState({ basemap: 'dark' }), setDay: () => this.setState({ basemap: 'day' }), setSat: () => this.setState({ basemap: 'sat' }),
+      tabList: s.tab === 'list' ? 'on' : '', tabFilter: s.tab === 'filter' ? 'on' : '', tabLayers: s.tab === 'layers' ? 'on' : '', tabMore: s.tab === 'more' ? 'on' : '',
+      goList: () => this.setState({ tab: 'list' }), goFilter: () => this.setState({ tab: 'filter' }), goLayers: () => this.setState({ tab: 'layers' }), goMore: () => this.setState({ tab: 'more' }),
+      isList: s.tab === 'list', isFilter: s.tab === 'filter', isLayers: s.tab === 'layers', isMore: s.tab === 'more',
+      regions, statusRows, layerRows, directory, sel, legendRows,
+      hasSelected: !!r && inView,
+      query: s.query, onQuery: (e) => this.setState({ query: e.target.value }),
+      resetStatus: () => this.setState({ status: { Operating: true, Construction: true, Permitting: true, Proposed: true, Moratorium: true } }),
+      resultLabel: list.length + ' / ' + this.RECORDS.length,
+      legendOpen: s.legendOpen, toggleLegend: () => this.setState(st => ({ legendOpen: !st.legendOpen })),
+      panelCls: s.panelOpen ? 'open' : '', togglePanel: () => this.setState(st => ({ panelOpen: !st.panelOpen })),
+      reset: () => this.reset(), locate: () => this.locate(), share: () => this.share(),
+      exportCSV: () => this.exportCSV(), printReport: () => this.printReport(),
+      showWelcome: s.showWelcome, dismissWelcome: () => this.setState({ showWelcome: false }),
+      waFind: () => this.setState({ showWelcome: false, tab: 'list', panelOpen: true }),
+      waFilter: () => this.setState({ showWelcome: false, tab: 'filter', panelOpen: true }),
+      waLayers: () => this.setState({ showWelcome: false, tab: 'layers', panelOpen: true }),
+      waExport: () => { this.setState({ showWelcome: false }); this.exportCSV(); },
+      locInput: s.locInput, onLocInput: (e) => this.setState({ locInput: e.target.value }),
+      onLocKey: (e) => { if (e.key === 'Enter') this.geocode(this.state.locInput); },
+      submitLoc: () => this.geocode(this.state.locInput),
+      goText: s.locBusy ? '…' : 'Go',
+      hasUser: !!s.userLoc, userLabel: s.userLoc ? s.userLoc.label : '',
+      clearLoc: () => this.clearLoc(),
+    };
+  }
+}
+</script>
+</body>
+</html>

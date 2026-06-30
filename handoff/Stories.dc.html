@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/mark.svg">
+<meta name="theme-color" content="#100f0e">
+<title>Stories — Michigan Data Center Tracker</title>
+<meta name="description" content="Original reporting and analysis on the data centers reshaping Michigan’s grid, land, and water — sourced from public records.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stories — Michigan Data Center Tracker">
+<meta property="og:description" content="Original reporting and analysis on the data centers reshaping Michigan’s grid, land, and water — sourced from public records.">
+<meta property="og:image" content="assets/mark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stories — Michigan Data Center Tracker">
+<meta name="twitter:description" content="Original reporting and analysis on the data centers reshaping Michigan’s grid, land, and water — sourced from public records.">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #100f0e; -webkit-font-smoothing: antialiased; color: #f4f1ee; font-family: 'Archivo', sans-serif; }
+  a { color: inherit; }
+  .navlink { position: relative; color: #9b9794; text-decoration: none; transition: color .18s ease; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: 14px; }
+  .navlink:hover { color: #f4f1ee; }
+  .navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; background: #E03131; transition: right .22s ease; }
+  .navlink:hover::after { right: 0; }
+  .navlink.is-active { color: #f4f1ee; }
+  .navlink.is-active::after { right: 0; }
+  .cta { transition: background .18s ease, transform .18s ease; }
+  .cta:hover { background: #f24343; transform: translateY(-1px); }
+  .ghost { transition: border-color .18s ease, color .18s ease; }
+  .ghost:hover { border-color: #6f6b67; color: #f4f1ee; }
+  .flink { color:#8c8884; text-decoration:none; transition: color .15s ease; }
+  .flink:hover { color:#e7e3df; }
+  .lockup { display:inline-flex; align-items:center; line-height:1; text-decoration:none; }
+  .lockup .mark { height:1.3em; width:auto; display:block; }
+  .lockup .divider { width:2px; align-self:stretch; background:#E03131; margin:.12em .5em .12em .28em; border-radius:0; }
+  .lockup .words { display:flex; flex-direction:column; justify-content:center; }
+  .lockup .mi { font-family:'Archivo',sans-serif; font-weight:800; font-size:1em; letter-spacing:.035em; color:#f6f4f1; line-height:.92; }
+  .lockup .rule { height:2px; background:#E03131; margin:.14em 0 .1em; border-radius:0; }
+  .lockup .sub { font-family:'Archivo',sans-serif; font-weight:600; font-size:.30em; letter-spacing:.30em; color:#f6f4f1; white-space:nowrap; }
+  .site-header { display:flex; align-items:center; justify-content:space-between; height:88px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+  .hamburger { display:none; flex-direction:column; gap:5px; width:28px; height:44px; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
+  .hamburger span { height:2px; background:#cbc7c3; border-radius:0; }
+  .chip { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#9b9794; background:transparent; border:1px solid #2b2824; border-radius:0; padding:8px 15px; cursor:pointer; transition:all .15s ease; white-space:nowrap; }
+  .chip:hover { border-color:#45403a; color:#e7e3df; }
+  .chip.on { background:#E03131; border-color:#E03131; color:#100f0e; font-weight:700; }
+  .scard { display:flex; flex-direction:column; border:1px solid #221f1b; border-radius:0; overflow:hidden; background:#16140f; text-decoration:none; transition:border-color .18s ease, transform .18s ease; }
+  .scard:hover { border-color:#45403a; transform:translateY(-3px); }
+  .scard:hover .sc-head { color:#fff; }
+  .sc-head { transition:color .15s ease; }
+  image-slot { display:block; }
+  .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 44px; }
+  .feat { display:grid; grid-template-columns:1.15fr 1fr; gap:0; border:1px solid #221f1b; border-radius:0; overflow:hidden; background:#16140f; }
+  @media (max-width:900px) { .grid { grid-template-columns:repeat(2,1fr); } .feat { grid-template-columns:1fr; } }
+  @media (max-width:860px) {
+    .desktop-nav { display:none; } .hamburger { display:flex; }
+    .site-header { height:68px; padding:0 20px; }
+    .lockup { font-size:20px !important; }
+    .wrap { padding:0 20px; }
+  }
+  @media (max-width:600px) { .grid { grid-template-columns:1fr; } }
+  .sharerow { display:flex; align-items:center; gap:8px; }
+  .sharerow .lbl { font-family:'Space Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7d7975; margin-right:4px; }
+  .sbtn { width:38px; height:38px; display:grid; place-items:center; border:1px solid #2b2824; background:#16140f; color:#cbc7c3; text-decoration:none; font-family:'Archivo',sans-serif; font-weight:800; font-size:14px; transition:border-color .15s ease, color .15s ease, background .15s ease; }
+  .sbtn:hover { border-color:#E03131; color:#fff; background:#1f1c18; }
+</style>
+</helmet>
+<div>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#16140f"/><rect x="28" y="28" width="44" height="44" rx="9" fill="#E03131"/><text x="50" y="65" font-family="Arial, sans-serif" font-weight="800" font-size="32" fill="#fff" text-anchor="middle">M</text></svg></template>
+
+  <header class="site-header">
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;"><a class="lockup" href="Homepage.dc.html" style="font-size:30px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a><a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;" onmouseover="this.style.color='#8c8884'" onmouseout="this.style.color='#56524e'">Powered by PublicMeetingTracker.com</a></div>
+    <nav class="desktop-nav" style="display:flex;align-items:center;gap:28px;">
+      <a class="navlink" href="Homepage.dc.html">Home</a>
+      <a class="navlink" href="Live Map.dc.html">Live Map</a>
+      <a class="navlink is-active" href="Stories.dc.html">Stories</a>
+      <a class="navlink" href="Meetings.dc.html">Meetings</a>
+      <a class="navlink" href="Learn.dc.html">Learn</a>
+      <a class="cta" href="Sponsor.dc.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em;padding:11px 19px;border-radius:0;">Sponsor</a>
+    </nav>
+    <button class="hamburger" onClick="{{ toggleMenu }}" aria-label="Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:60;background:rgba(12,11,10,.97);padding:24px 20px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
+        <span class="lockup" style="font-size:20px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <button onClick="{{ toggleMenu }}" aria-label="Close" style="background:none;border:none;color:#cbc7c3;font-size:30px;cursor:pointer;line-height:1;">×</button>
+      </div>
+      <nav style="display:flex;flex-direction:column;gap:4px;">
+        <a href="Homepage.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Home</a>
+        <a href="Live Map.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Live Map</a>
+        <a href="Stories.dc.html" style="text-decoration:none;color:#f4f1ee;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Stories</a>
+        <a href="Meetings.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Meetings</a>
+        <a href="Learn.dc.html" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Learn</a>
+        <a href="Sponsor.dc.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;text-align:center;font-size:16px;text-transform:uppercase;letter-spacing:.04em;padding:15px;border-radius:0;margin-top:20px;">Sponsor the tracker</a>
+        <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="text-decoration:none;color:#9b9794;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:16px 0 0;">Powered by PublicMeetingTracker.com ↗</a>
+      </nav>
+    </div>
+  </sc-if>
+
+  <!-- page intro -->
+  <div class="wrap" style="padding-top:56px;padding-bottom:8px;">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#E03131;margin-bottom:16px;">Reporting · Updated daily</div>
+    <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(40px,7vw,64px);line-height:.98;margin:0 0 14px;">STORIES</h1>
+    <p style="max-width:560px;margin:0;color:#a39e99;font-size:17px;line-height:1.6;">Original reporting and analysis on the data centers reshaping Michigan's grid, land, and water — sourced from public records and on the ground.</p>
+  </div>
+
+  <!-- share -->
+  <div class="wrap" style="padding-top:18px;">
+    <div class="sharerow">
+      <span class="lbl">Share</span>
+      <a class="sbtn" href="https://twitter.com/intent/tweet?text=Michigan%20Data%20Center%20Tracker&url=https://michigandatacenters.org" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+      <a class="sbtn" href="https://www.facebook.com/sharer/sharer.php?u=https://michigandatacenters.org" target="_blank" rel="noopener" aria-label="Share on Facebook">f</a>
+      <a class="sbtn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://michigandatacenters.org" target="_blank" rel="noopener" aria-label="Share on LinkedIn" style="font-size:12px;">in</a>
+      <a class="sbtn" href="mailto:?subject=Michigan%20Data%20Center%20Tracker&body=Thought%20you%27d%20want%20to%20see%20this:%20https://michigandatacenters.org" aria-label="Share by email">✉</a>
+    </div>
+  </div>
+
+  <!-- featured -->
+  <div class="wrap" style="padding-top:40px;">
+    <a class="scard feat" href="#" style="border-radius:0;">
+      <image-slot id="story-feat" style="width:100%;min-height:340px;height:100%;" shape="rect" placeholder="Drop the lead photo"></image-slot>
+      <div style="padding:34px 34px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#E03131;">Power &amp; Grid</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#6f6b67;">Jun 27, 2026 · 8 min</span></div>
+        <h2 class="sc-head" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:1.02;margin:0 0 14px;color:#f4f1ee;">Inside the 1,383 MW deal that put Saline Township on the map</h2>
+        <p style="margin:0 0 20px;color:#a39e99;font-size:15.5px;line-height:1.6;">A single special-rate contract with DTE would draw more power than some Michigan cities. We trace how it was negotiated — and who pays if the math is wrong.</p>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.05em;color:#cbc7c3;">By the Tracker Desk →</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- filters -->
+  <div class="wrap" style="padding-top:44px;">
+    <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
+        <button class="chip {{ c.cls }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- grid -->
+  <div class="wrap" style="padding-top:24px;padding-bottom:64px;">
+    <div class="grid">
+      <sc-for list="{{ stories }}" as="s" hint-placeholder-count="6">
+        <a class="scard" href="#">
+          <image-slot id="{{ s.slotId }}" style="width:100%;height:180px;" shape="rect" placeholder="Drop photo"></image-slot>
+          <div style="padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#E03131;">{{ s.cat }}</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;color:#6f6b67;">{{ s.meta }}</span></div>
+            <h3 class="sc-head" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;line-height:1.06;margin:0 0 10px;color:#f4f1ee;">{{ s.title }}</h3>
+            <p style="margin:0;color:#8c8884;font-size:14px;line-height:1.55;">{{ s.dek }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- newsletter -->
+  <div class="wrap" style="padding-bottom:72px;">
+    <div style="border:1px solid #2b2824;border-radius:0;background:radial-gradient(130% 150% at 100% 0%, #241f18 0%, #16140f 55%);padding:40px;">
+      <div style="display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1 1 320px;min-width:0;">
+          <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;line-height:1.02;margin:0 0 10px;color:#f6f3f0;">Get the daily briefing.</h3>
+          <p style="margin:0;color:#a39e99;font-size:15px;line-height:1.55;max-width:440px;">One email a week — new filings, hearings, and the stories behind Michigan's data center buildout. No spam.</p>
+        </div>
+        <div style="flex:1 1 340px;min-width:0;">
+          <sc-if value="{{ subPending }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;gap:10px;"><input type="email" placeholder="you@email.com" style="flex:1;min-width:0;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:50px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:15px;outline:none;" style-focus="border-color:#E03131;" /><button type="button" onClick="{{ subscribe }}" class="cta" style="flex-shrink:0;border:none;cursor:pointer;color:#100f0e;background:#E03131;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;padding:0 24px;height:50px;border-radius:0;">Subscribe</button></div>
+          </sc-if>
+          <sc-if value="{{ subDone }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:10px;min-height:50px;font-size:15px;color:#9bc49b;"><span style="width:24px;height:24px;border-radius:50%;background:rgba(120,170,120,.16);color:#9bc49b;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">✓</span>You're in — first briefing lands this week.</div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="padding:48px 44px 32px;background:#0c0b0a;border-top:1px solid #221f1b;">
+    <div style="max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+      <div style="max-width:320px;">
+        <span class="lockup" style="font-size:22px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <p style="color:#6f6b67;font-size:13px;line-height:1.6;margin:14px 0 0;">A public-interest record of Michigan's data center buildout. Sourced, cited, and corrected in the open.</p>
+      </div>
+      <div style="display:flex;gap:56px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">Explore</span>
+          <a class="flink" href="Live Map.dc.html" style="font-size:14px;">Live Map</a>
+          <a class="flink" href="Stories.dc.html" style="font-size:14px;">Stories</a>
+          <a class="flink" href="Meetings.dc.html" style="font-size:14px;">Meetings</a>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Learn</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">About</span>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Methodology</a>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Sources</a>
+          <a class="flink" href="Learn.dc.html" style="font-size:14px;">Corrections</a>
+          <a class="flink" href="Sponsor.dc.html" style="font-size:14px;">Sponsor</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1180px;margin:34px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #1a1813;">
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7d7975;">Independent · Nonpartisan · <span style="color:#9b9794;">AI-drafted, journalist-reviewed</span></span>
+      <span style="font-size:12px;color:#5f5b57;">Powered by <a href="https://publicmeetingtracker.com" target="_blank" rel="noopener" style="color:#E03131;text-decoration:none;font-weight:700;">PublicMeetingTracker.com</a> · © 2026 Michigan Data Center Tracker</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, activeCat: 'All', subPending: true, subDone: false };
+
+  renderVals() {
+    const s = this.state;
+    const CATS = ['All', 'Power & Grid', 'Water', 'Local Government', 'Money', 'Explainers'];
+    const ALL = [
+      { cat: 'Local Government', meta: 'Jun 26 · 5 min', title: 'Why nine Michigan townships hit pause at once', dek: 'A wave of moratoria swept the state in months. We map who paused, why, and when each expires.', slotId: 'story-1' },
+      { cat: 'Water', meta: 'Jun 24 · 6 min', title: "The water question no one is answering in Holland", dek: 'A lakeshore campus wants millions of gallons a day. The withdrawal agreement is still being negotiated in private.', slotId: 'story-2' },
+      { cat: 'Money', meta: 'Jun 21 · 7 min', title: '50 jobs, $1 billion in abatements: the subsidy math', dek: 'Hyperscale sites promise transformative investment but employ fewer people than a grocery store. We run the numbers.', slotId: 'story-3' },
+      { cat: 'Power & Grid', meta: 'Jun 19 · 4 min', title: 'What a 600 MW load does to a rural substation', dek: 'Mundy Township\u2019s proposed campus would be the largest on our tracker. The grid study tells the story.', slotId: 'story-4' },
+      { cat: 'Explainers', meta: 'Jun 17 · 3 min', title: 'Moratorium, pause, or special-use? A plain-English guide', dek: 'The legal tools townships are using sound alike but work very differently. Here\u2019s what each one means.', slotId: 'story-5' },
+      { cat: 'Local Government', meta: 'Jun 14 · 5 min', title: 'How Howell\u2019s $1B Meta proposal fell apart', dek: 'A thousand-acre campus drew a packed hearing room \u2014 and then the developer quietly withdrew.', slotId: 'story-6' },
+    ];
+    const stories = (s.activeCat === 'All' ? ALL : ALL.filter(x => x.cat === s.activeCat || (s.activeCat === 'Money' && x.cat === 'Money')));
+    return {
+      menuOpen: s.menuOpen,
+      toggleMenu: () => this.setState(p => ({ menuOpen: !p.menuOpen })),
+      cats: CATS.map(label => ({ label, cls: s.activeCat === label ? 'on' : '', onClick: () => this.setState({ activeCat: label }) })),
+      stories,
+      subPending: s.subPending, subDone: s.subDone,
+      subscribe: () => this.setState({ subPending: false, subDone: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>
