@@ -326,7 +326,7 @@
       <div class="welcome">
         <div class="welcome-card">
           <div class="welcome-inner">
-            <div class="welcome-eyebrow">Live map · Updated daily</div>
+            <div class="welcome-eyebrow">Live map · Updated real-time</div>
             <div class="welcome-title">EXPLORE MICHIGAN'S DATA CENTER BUILDOUT</div>
             <div class="welcome-sub">Every tracked facility, permit, and local moratorium — mapped from public records. Filter it, dig into a site, find what's near you, and take the data with you.</div>
             <div class="welcome-grid">
@@ -619,8 +619,21 @@ class Component extends DCLogic {
     this._wait = setInterval(() => {
       if (window.L && window.L.markerClusterGroup) { clearInterval(this._wait); this.initMap(); }
     }, 60);
+    const siteTheme = document.documentElement.dataset.theme;
+    if (siteTheme === 'light') this.setState({ basemap: 'day' });
+    this._onTheme = (e) => {
+      const t = e.detail && e.detail.theme;
+      if (!t) return;
+      if (t === 'light' && this.state.basemap === 'dark') this.setState({ basemap: 'day' });
+      else if (t === 'dark' && this.state.basemap === 'day') this.setState({ basemap: 'dark' });
+    };
+    window.addEventListener('mdct-theme-change', this._onTheme);
   }
-  componentWillUnmount() { clearInterval(this._wait); if (this._map) this._map.remove(); }
+  componentWillUnmount() {
+    clearInterval(this._wait);
+    if (this._onTheme) window.removeEventListener('mdct-theme-change', this._onTheme);
+    if (this._map) this._map.remove();
+  }
 
   viewLowerPeninsula() {
     if (!this._map) return;

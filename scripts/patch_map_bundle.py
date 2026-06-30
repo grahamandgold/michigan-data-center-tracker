@@ -10,6 +10,7 @@ from pathlib import Path
 from patch_bundle_template import decompress_manifest, encode_like_bundler
 
 ROOT = Path(__file__).resolve().parents[1]
+HANDOFF = ROOT / "handoff"
 MAP_HTML = ROOT / "map" / "index.html"
 
 LINK_REPLACEMENTS = [
@@ -114,7 +115,17 @@ def patch_map_template(tpl: str) -> str:
     return tpl
 
 
+def load_map_template() -> str:
+    from theme_assets import inject_theme_template, template_from_dc
+
+    dc = (HANDOFF / "Live Map.dc.html").read_text(encoding="utf-8")
+    tpl = patch_map_template(template_from_dc(dc))
+    return inject_theme_template(tpl)
+
+
 def patch_map_html(html: str) -> str:
+    from theme_assets import inject_theme_shell
+
     m = re.search(
         r'(<script type="__bundler/template">\s*\n)(.+?)(\n\s*</script>)',
         html,
@@ -122,10 +133,11 @@ def patch_map_html(html: str) -> str:
     )
     if not m:
         raise ValueError("template block not found in map bundle")
-    template = patch_map_template(json.loads(m.group(2).strip()))
+    template = load_map_template()
     encoded = encode_like_bundler(template)
     html = html[: m.start()] + m.group(1) + encoded + m.group(3) + html[m.end() :]
-    return decompress_manifest(html)
+    html = decompress_manifest(html)
+    return inject_theme_shell(html)
 
 
 def main() -> None:

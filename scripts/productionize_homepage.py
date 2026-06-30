@@ -104,6 +104,7 @@ RESPONSIVE_HEADER = """
         <a class="navlink" href="learn.html">Learn</a>
         <a class="cta" href="sponsor.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;padding:11px 19px;border-radius:0;letter-spacing:.04em;">Sponsor</a>
       </nav>
+      <button type="button" class="mdct-theme-btn" aria-label="Switch to daylight mode" aria-pressed="false" title="Switch to daylight mode"><span class="mdct-theme-icon" aria-hidden="true">☀</span><span class="mdct-theme-label">Day</span></button>
       <button class="hamburger" onClick="{{ toggleMenu }}" aria-label="Menu"><span></span><span></span><span></span></button>
     </header>
 """

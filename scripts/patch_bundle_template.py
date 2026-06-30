@@ -11,6 +11,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+HANDOFF = ROOT / "handoff"
 BASE = "/mi-data-center-tracker/"
 
 LINK_REPLACEMENTS = [
@@ -47,13 +48,21 @@ def encode_like_bundler(template: str) -> str:
     return _escape_json_closing_tags(json.dumps(template, ensure_ascii=True))
 
 
-def patch_decoded_template(tpl: str) -> str:
+def load_homepage_template() -> str:
     from productionize_homepage import productionize_homepage
+    from theme_assets import inject_theme_template, template_from_dc
 
-    tpl = productionize_homepage(tpl)
+    dc = (HANDOFF / "Homepage.dc.html").read_text(encoding="utf-8")
+    tpl = template_from_dc(dc)
+    tpl = productionize_homepage("<x-dc>" + tpl + "</x-dc>")
+    tpl = tpl[len("<x-dc>") : -len("</x-dc>")]
     for old, new in LINK_REPLACEMENTS:
         tpl = tpl.replace(old, new)
-    return tpl
+    return inject_theme_template(tpl)
+
+
+def patch_decoded_template(tpl: str) -> str:
+    return load_homepage_template()
 
 
 def decompress_manifest(html: str) -> str:
@@ -132,7 +141,9 @@ def patch_index_html(html: str) -> str:
     html = html[: m.start()] + m.group(1) + encoded + m.group(3) + html[m.end() :]
     html = decompress_manifest(html)
     html = harden_bundle_shell(html)
-    return html
+    from theme_assets import inject_theme_shell
+
+    return inject_theme_shell(html)
 
 
 def main() -> None:
