@@ -100,8 +100,8 @@ def patch_map_template(tpl: str) -> str:
         tpl = tpl.replace(old, new)
     if '<base href="/mi-data-center-tracker/">' not in tpl:
         tpl = tpl.replace(
-            '<meta charset="utf-8">',
-            '<meta charset="utf-8">\n<base href="/mi-data-center-tracker/">',
+            '<meta charset="utf-8">\n<meta name="viewport"',
+            '<meta charset="utf-8">\n<base href="/mi-data-center-tracker/">\n<meta name="viewport"',
             1,
         )
     tpl = tpl.replace('href="#map"', 'href="map/"')
