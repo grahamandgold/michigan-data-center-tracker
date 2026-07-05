@@ -10,7 +10,7 @@ Independent public-source tracking of Michigan data center projects, public meet
 
 ## What this site is
 
-Public-facing static product site. It displays **approved/exported** outputs from [Michigan Live Desk](https://github.com/midatacentertracker/mi-live-desk) — not raw pipeline data.
+Public-facing static product site. It displays **approved/exported** outputs from [Michigan Live Desk](https://github.com/grahamandgold/michigan-intel-desk) — not raw pipeline data.
 
 | Does not use | Why |
 |--------------|-----|
