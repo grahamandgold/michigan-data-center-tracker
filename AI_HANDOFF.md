@@ -10,7 +10,7 @@ Public static site repo. **Not** the Michigan Live Desk pipeline.
 
 1. [`README.md`](README.md)
 2. [`docs/REPO_BOUNDARIES.md`](docs/REPO_BOUNDARIES.md)
-3. Michigan Live Desk: `midatacentertracker/mi-live-desk` → `README_STAGING_STATE.md`
+3. Michigan Live Desk: `grahamandgold/michigan-intel-desk` → `README_STAGING_STATE.md`
 
 ---
 

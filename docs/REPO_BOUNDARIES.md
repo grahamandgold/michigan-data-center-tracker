@@ -12,9 +12,9 @@ Public static Michigan Data Center Tracker site.
 
 ---
 
-## `midatacentertracker/mi-live-desk`
+## `grahamandgold/michigan-intel-desk`
 
-Private staging/editorial engine. See that repo's `README_STAGING_STATE.md`.
+Private staging/editorial engine (former slug: `midatacentertracker/mi-live-desk`). See that repo's `README_STAGING_STATE.md`.
 
 ---
 
