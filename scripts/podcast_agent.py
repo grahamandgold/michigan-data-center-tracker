@@ -104,6 +104,13 @@ TODAY'S VERIFIED STORIES (the lead is marked; these are your news facts):
 UPCOMING MEETINGS:
 {mdigest}
 
+BALANCE — HARD RULE: if the digest covers a debate or multi-candidate event but
+only includes ONE candidate's positions, you MUST research what the other major
+candidates said at that same event and present their positions with equal weight
+and attribution. If you cannot verify a rival's position, say on air that the
+tracker is still gathering the other candidates' statements — never present one
+side as the whole story.
+
 TEMPORAL ACCURACY: each story above is labeled with WHEN it happened. Only say
 "today" for stories labeled today. Say "yesterday", the weekday, or "this week"
 exactly as labeled — never present older news as breaking. If researching
