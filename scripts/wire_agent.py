@@ -55,8 +55,10 @@ SB 1046-1051, HB 6135-6142), MPSC filings.
 For EVERY meeting you report: "link" must be the official agenda page — or the
 page where that body posts agendas (AgendaCenter, clerk page). Also check whether
 the body streams meetings (YouTube channel, Granicus/Zoom, public-access cable
-page) and put that page in "stream". Meetings without an agenda-location link
-are not publishable.
+page) and put that page in "stream". VERIFY every agenda link actually loads before including it — prefer the
+body's agenda-LISTING page (AgendaCenter, clerk page, meetings page) over deep
+links to individual PDFs, which break. Meetings without a working agenda-location
+link are not publishable.
 
 2. HARD RULES:
 - NEWS items: target the last 15 hours; stretch to 24 hours to fill. \
@@ -215,7 +217,17 @@ def main() -> int:
             checked.append(s)
         else:
             print(f"::warning::dropped dead link: {s['url'][:90]}")
-    meetings = [m for m in out.get("meetings", []) if valid_meeting(m)]
+    meetings = []
+    for m in out.get("meetings", []):
+        if not valid_meeting(m):
+            continue
+        if not head_ok(m["link"]):
+            print(f"::warning::meeting dropped, dead agenda link: {m.get('body','')} {m.get('link','')[:80]}")
+            continue
+        if m.get("stream") and not head_ok(m["stream"]):
+            print(f"::warning::stream link dead, removed: {m.get('stream','')[:80]}")
+            m.pop("stream", None)
+        meetings.append(m)
 
     if len(checked) < 3:
         print(f"::warning::only {len(checked)} valid stories — keeping existing file")
