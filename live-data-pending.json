@@ -1,24 +1,7 @@
 {
- "updated_at": "2026-07-08T21:57:06+00:00",
+ "updated_at": "2026-07-08T21:58:01Z",
  "generator": "grok-wire-agent",
  "items": [
-  {
-   "title": "Adrian enacts year-long pause on new data center proposals",
-   "dek": "City leaders approved a moratorium to study impacts before allowing more projects. The move gives residents time to weigh power demand, water use, and noise concerns. Other Michigan communities are likely to watch Adrian's review closely.",
-   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQQ0xCMzZYQmFuVXNfcXBMZnBhc1JaVXJXeE9sRW1MLWgydkF1dmtJSHBKNHpZYzZPNWkyejctNHhXOHN3VXdMSXZoZTNSZl9XWDhpS3FlcU5kRzB4SkFHazg0b3BDcE9veEhZRG00bFduLUZma3JuZmYybzgyWkd4UXhHZFJqUWFfcnJuNHFURjAyTS1YYW9kQk1OVnhQSmNPVFJlelJWYnA4MlVVMDNZQmZ3SkNkWE9CalhtcGZHdXh2UGFYZEotZkFWSE5xcnNsZnZZMWMxQ2NCbUR0?oc=5",
-   "source": "lenconnect.com",
-   "region": "mid",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "iso": "2026-07-08T21:53:37Z",
-   "kind": "story",
-   "id": "00e3c1aeb45a",
-   "filed_at": "2026-07-08T21:53:37Z",
-   "origin": "google-news",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9,
-   "judge_note": "Clear municipal action: Adrian approved a year-long moratorium, a definitive policy decision affecting future data center development."
-  },
   {
    "title": "Saline Township weighs 12-year tax break for Oracle's $43 billion project",
    "dek": "The board will decide whether to grant major tax relief for one of the largest data center investments in state history. The outcome affects local school funding and services for years. Voters and businesses are watching how the deal balances jobs against tax revenue.",
