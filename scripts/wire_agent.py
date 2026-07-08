@@ -111,10 +111,23 @@ never omit "iso". Only if you can verify fewer than 3 items in the last 24 hours
 return {{"stories": []}}. Never pad with old news."""
 
 
+def director_notes() -> str:
+    """Standing notes from the News Director (set from the Intel Desk)."""
+    try:
+        notes = json.loads((ROOT / "agent-notes.json").read_text(encoding="utf-8")).get("notes", [])
+    except Exception:  # noqa: BLE001
+        return ""
+    mine = [n for n in notes if n.get("agent") in ("All agents", "Head Writer", "Managing Editor", "Standards Editor")]
+    if not mine:
+        return ""
+    return ("\n\nSTANDING NOTES FROM THE NEWS DIRECTOR (these override defaults):\n"
+            + "\n".join(f"- {n['text']}" for n in mine))
+
+
 def call_grok() -> dict | None:
     body = {
         "model": MODEL,
-        "messages": [{"role": "user", "content": PROMPT.format(now=datetime.now(timezone.utc).isoformat())}],
+        "messages": [{"role": "user", "content": PROMPT.format(now=datetime.now(timezone.utc).isoformat()) + director_notes()}],
         "search_parameters": {"mode": "on", "return_citations": True,
                               "from_date": (datetime.now(timezone.utc) - timedelta(days=8)).strftime("%Y-%m-%d")},
         "temperature": 0.2,

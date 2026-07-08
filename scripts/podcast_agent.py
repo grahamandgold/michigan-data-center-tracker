@@ -50,7 +50,36 @@ def post_json(url: str, body: dict, headers: dict, timeout: int = 420) -> dict:
         return json.loads(r.read())
 
 
+def director_notes() -> str:
+    """Standing notes from the News Director (agent-notes.json, set from the
+    Intel Desk). Injected into the prompt as hard instructions."""
+    try:
+        notes = json.loads((ROOT / "agent-notes.json").read_text(encoding="utf-8")).get("notes", [])
+    except Exception:  # noqa: BLE001
+        return ""
+    mine = [n for n in notes if n.get("agent") in ("All agents", "Streaming Producer")]
+    if not mine:
+        return ""
+    return ("\n\nSTANDING NOTES FROM THE NEWS DIRECTOR (obey these):\n"
+            + "\n".join(f"- {n['text']}" for n in mine))
+
+
+def script_override() -> dict | None:
+    """If the News Director edited today's script on the desk, voice HIS words."""
+    try:
+        ov = json.loads((ROOT / "pod" / "script-override.json").read_text(encoding="utf-8"))
+        if ov.get("date") == datetime.now(timezone.utc).strftime("%Y-%m-%d") and len(ov.get("lines", [])) >= 5:
+            print("Using the News Director's edited script (pod/script-override.json)")
+            return ov
+    except Exception:  # noqa: BLE001
+        pass
+    return None
+
+
 def write_script() -> dict | None:
+    override = script_override()
+    if override:
+        return override
     live = json.loads((ROOT / "live-data.json").read_text(encoding="utf-8"))
     stories = live.get("stories", [])[:10]
     meetings = live.get("meetings", [])[:5]
@@ -124,7 +153,7 @@ The quick hits must stick strictly to the story summaries above.
 
 Respond ONLY with JSON:
 {{"title": "<episode title>", "teaser": "<one-line teaser for the player, under 90 chars>",
- "lines": [{{"host": "Graham|Emmy", "text": "<one spoken line, 1-3 sentences>"}}]}}"""
+ "lines": [{{"host": "Graham|Emmy", "text": "<one spoken line, 1-3 sentences>"}}]}}{director_notes()}"""
     import xai_client
     out = xai_client.chat(XAI_KEY, {"model": XAI_MODEL, "messages": [{"role": "user", "content": prompt}],
                                     "search_parameters": {"mode": "on"}, "temperature": 0.6})
