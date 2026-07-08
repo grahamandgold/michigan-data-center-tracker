@@ -1,29 +1,6 @@
 {
- "updated_at": "2026-07-08T15:20:52+00:00",
+ "updated_at": "2026-07-08T15:24:37Z",
  "generator": "grok-wire-agent",
- "items": [
-  {
-   "title": "Saline Twp Board Agenda Includes Data Center Update",
-   "dek": "The July 8, 2026 Saline Township Board agenda lists item 9 as 'Data Center Update' alongside farmland preservation and noise ordinance (per the posted agenda PDF). The township hosts the 1,400 MW Stargate campus under construction by Related Digital/Oracle/OpenAI on 250 acres. The update comes as similar proposals face wetland reviews and referendums elsewhere in the region.",
-   "url": "https://salinetownship.org/meeting-agendas.php",
-   "source": "Saline Township Board agenda",
-   "region": "Southeast Michigan",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-08T15:20:52+00:00",
-   "kind": "agenda",
-   "id": "305aea77a37f",
-   "filed_at": "2026-07-08T15:20:52+00:00",
-   "accuracy": "document-based",
-   "findings": "Agenda item 9: Data Center Update | Agenda item 11: Farmland Preservation | Agenda item 15: Noise Ordinance | Supervisor's Report includes Andelina Farms, Invenergy, Jupiter | Consent agenda includes accounts payable and payroll approvals | Meeting at 7:00 PM ET at Saline Township Hall",
-   "perspective": "The data center update slot allows the board to address the ongoing Stargate build amid broader concerns over electric demand, water use, and loss of farmland documented in the township's tracker records. Residents can comment during the citizen comments period; the board has previously handled land-use items like rezonings in other Washtenaw County townships. Next steps include any follow-up reso",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://salinetownship.org/meeting-agendas.php"
-    }
-   ]
-  }
- ],
+ "items": [],
  "accuracy_checked_at": "2026-07-08T14:41:29+00:00"
 }
