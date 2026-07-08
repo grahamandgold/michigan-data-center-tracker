@@ -15,14 +15,14 @@
 <link rel="apple-touch-icon" href="assets/mark.svg">
 <meta name="theme-color" content="#100f0e">
 <title>Meetings &amp; Hearings — Michigan Data Center Tracker</title>
-<meta name="description" content="Every township board, planning commission, and state hearing where a Michigan data center is on the agenda.">
+<meta name="description" content="Township boards, planning commissions, and state hearings where Michigan data centers are on the agenda — tracked as they are posted.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Meetings &amp; Hearings — Michigan Data Center Tracker">
-<meta property="og:description" content="Every township board, planning commission, and state hearing where a Michigan data center is on the agenda.">
+<meta property="og:description" content="Township boards, planning commissions, and state hearings where Michigan data centers are on the agenda — tracked as they are posted.">
 <meta property="og:image" content="assets/mark.svg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Meetings &amp; Hearings — Michigan Data Center Tracker">
-<meta name="twitter:description" content="Every township board, planning commission, and state hearing where a Michigan data center is on the agenda.">
+<meta name="twitter:description" content="Township boards, planning commissions, and state hearings where Michigan data centers are on the agenda — tracked as they are posted.">
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -53,6 +53,7 @@
   .chip.on { background:#E03131; border-color:#E03131; color:#100f0e; font-weight:700; }
   .mrow { display:grid; grid-template-columns:96px 1fr auto; gap:24px; align-items:center; padding:22px 24px; border:1px solid #221f1b; border-radius:0; background:#16140f; transition:border-color .18s ease, transform .18s ease; }
   .mrow:hover { border-color:#45403a; transform:translateY(-2px); }
+  .mcta-wrap { justify-self:end; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
   .mrow.urgent { border-color:#4a2626; border-left:3px solid #E03131; }
   .wrow { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; padding:22px 24px; border:1px solid #221f1b; border-radius:0; background:#16140f; transition:border-color .18s ease, transform .18s ease; }
   .wrow:hover { border-color:#45403a; transform:translateY(-2px); }
@@ -60,10 +61,11 @@
   .datechip { display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid #2b2824; border-radius:0; padding:10px 0; background:#13110d; }
   @media (max-width:760px) {
     .mrow { grid-template-columns:64px 1fr; gap:16px; }
-    .mrow .mcta { grid-column:1 / -1; }
+    .mrow .mcta-wrap { grid-column:1 / -1; justify-self:start; }
+    .mcta-wrap .mcta, .mcta-wrap a { flex:1 1 auto; text-align:center; }
   }
   @media (max-width:860px) {
-    .desktop-nav { display:none; } .hamburger { display:flex; }
+    .desktop-nav { display:none !important; } .hamburger { display:flex !important; }
     .site-header { height:68px; padding:0 20px; }
     .lockup { font-size:20px !important; }
     .wrap { padding:0 20px; }
@@ -108,7 +110,7 @@
   <div class="wrap" style="padding-top:56px;padding-bottom:8px;">
     <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#E03131;margin-bottom:16px;">Public calendar · Updated daily</div>
     <h1 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(40px,7vw,64px);line-height:.98;margin:0 0 14px;">MEETINGS &amp; HEARINGS</h1>
-    <p style="max-width:580px;margin:0;color:#a39e99;font-size:17px;line-height:1.6;">Every township board, planning commission, and state hearing where a Michigan data center is on the agenda. Show up, speak, or just stay informed.</p>
+    <p style="max-width:580px;margin:0;color:#a39e99;font-size:17px;line-height:1.6;">Township boards, planning commissions, and state hearings where Michigan data centers are on the agenda — tracked as they are posted. Show up, speak, or just stay informed.</p>
   </div>
 
   <!-- alert band -->
@@ -157,7 +159,7 @@
             <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.06;color:#f4f1ee;margin-bottom:4px;">{{ m.body }}</div>
             <div style="font-size:13.5px;color:#8c8884;line-height:1.5;">{{ m.topic }}</div>
           </div>
-          <span style="justify-self:end;display:flex;gap:8px;align-items:center;flex-wrap:wrap;"><a class="mcta" href="{{ m.link }}" target="_blank" rel="noopener" style="text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#cbc7c3;border:1px solid #3a3733;border-radius:0;padding:11px 16px;white-space:nowrap;transition:border-color .15s,color .15s;" style-hover="border-color:#6f6b67;color:#f4f1ee;">{{ m.linkLabel }} →</a><sc-if value="{{ m.streamUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ m.streamUrl }}" target="_blank" rel="noopener" style="text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#E03131;border:1px solid #4a2626;border-radius:0;padding:11px 16px;white-space:nowrap;transition:all .15s;" onmouseover="this.style.background='#E03131';this.style.color='#100f0e'" onmouseout="this.style.background='transparent';this.style.color='#E03131'">Watch live ↗</a></sc-if></span>
+          <span class="mcta-wrap"><a class="mcta" href="{{ m.link }}" target="_blank" rel="noopener" style="text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#cbc7c3;border:1px solid #3a3733;border-radius:0;padding:11px 16px;white-space:nowrap;transition:border-color .15s,color .15s;" style-hover="border-color:#6f6b67;color:#f4f1ee;">{{ m.linkLabel }} →</a><sc-if value="{{ m.streamUrl }}" hint-placeholder-val="{{ false }}"><a href="{{ m.streamUrl }}" target="_blank" rel="noopener" style="text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#E03131;border:1px solid #4a2626;border-radius:0;padding:11px 16px;white-space:nowrap;transition:all .15s;" onmouseover="this.style.background='#E03131';this.style.color='#100f0e'" onmouseout="this.style.background='transparent';this.style.color='#E03131'">Watch live ↗</a></sc-if></span>
         </div>
       </sc-for>
     </div>
@@ -209,7 +211,7 @@
       </div>
     </div>
     <div style="max-width:1080px;margin:34px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #1a1813;">
-      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7d7975;">Independent · Nonpartisan · <span style="color:#9b9794;">AI-drafted, journalist-reviewed</span></span>
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7d7975;">Independent · Nonpartisan · <span style="color:#9b9794;">AI-drafted · every source linked</span></span>
       <span style="font-size:12px;color:#5f5b57;">Powered by <a href="https://grahamandgold.com" target="_blank" rel="noopener" style="color:#E03131;text-decoration:none;font-weight:700;">Graham &amp; Gold</a> · © 2026 Michigan Data Center Tracker</span>
     </div>
   </footer>
