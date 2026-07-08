@@ -35,6 +35,9 @@ PROMPT = """You are the wire editor for the Michigan Data Center Tracker \
 (https://grahamandgold.github.io/mi-data-center-tracker/). Current UTC time: {now}.
 
 MISSION: fill the homepage wire with what is happening RIGHT NOW.
+START by running x_search for "Michigan data center", "Michigan Senate debate",
+and "Grand Rapids debate" over the last 15 hours — live political events (a Senate
+debate where data centers came up, for example) are exactly the lead we want.
 
 1. SEARCH (use web_search AND x_search) for Michigan data center news from the \
 LAST 15 HOURS ONLY. Priorities, in order:
@@ -47,8 +50,8 @@ IPR, Traverse Ticker, UP outlets.
 SB 1046-1051, HB 6135-6142), MPSC filings.
 
 2. HARD RULES:
-- EVERY story must have been published within the last 15 hours. Do NOT backfill \
-older items. If an ongoing story matters, find TODAY's development in it.
+- Target the LAST 15 HOURS. If you cannot fill 6 items, you may stretch to 24 \
+hours — never older. Do NOT backfill old items; find TODAY's development instead.
 - Write every headline and dek in ORIGINAL, neutral, journalistic language. NEVER \
 copy or lightly rearrange a publisher's headline or a post.
 - Every item MUST have a real, working https source URL you actually found. For X \
@@ -74,8 +77,9 @@ official, or candidate account, and set "source": "X". For Reddit link the speci
 Regions: metro = SE Michigan incl. Ann Arbor (Wayne, Oakland, Macomb, Washtenaw, Monroe, \
 Livingston); west = Grand Rapids, Holland, Kalamazoo, lakeshore; mid = Tri-Cities, Lansing, \
 Jackson, Flint; north = Mt Pleasant northward + the UP.
-If you genuinely cannot verify at least 3 items from the last 15 hours, return \
-{{"stories": []}} — the site will keep its current feed. Never pad with old news."""
+Give each story your best-estimate publication time (to the hour) as ISO-8601 — \
+never omit "iso". Only if you can verify fewer than 3 items in the last 24 hours, \
+return {{"stories": []}}. Never pad with old news."""
 
 
 def call_grok() -> dict | None:
@@ -129,15 +133,30 @@ def fresh_enough(iso: str, hours: float = 20.0) -> bool:
 
 
 def valid_story(s: dict) -> bool:
+    """Normalize what we can; reject only what we must. Logs every rejection."""
     try:
-        return (isinstance(s.get("title"), str) and len(s["title"]) > 10
-                and isinstance(s.get("dek"), str)
-                and isinstance(s.get("url"), str) and s["url"].startswith("https://")
-                and isinstance(s.get("source"), str) and s["source"]
-                and s.get("region") in REGIONS
-                and s.get("tag") in TAGS
-                and fresh_enough(s["iso"]))
-    except Exception:  # noqa: BLE001
+        if not (isinstance(s.get("title"), str) and len(s["title"]) > 10):
+            print(f"::warning::rejected (title): {str(s.get('title'))[:60]}")
+            return False
+        if not (isinstance(s.get("url"), str) and s["url"].startswith("https://")):
+            print(f"::warning::rejected (url): {s.get('title','')[:60]}")
+            return False
+        if not fresh_enough(s.get("iso", ""), hours=26.0):
+            print(f"::warning::rejected (stale/no iso {s.get('iso')}): {s.get('title','')[:60]}")
+            return False
+        if s.get("region") not in REGIONS:
+            s["region"] = "statewide"
+        if s.get("tag") not in TAGS:
+            s["tag"] = "Policy"
+        if not s.get("cat"):
+            s["cat"] = "STATEWIDE"
+        if not isinstance(s.get("dek"), str):
+            s["dek"] = ""
+        if not s.get("source"):
+            s["source"] = "Source"
+        return True
+    except Exception as e:  # noqa: BLE001
+        print(f"::warning::rejected (error {e}): {str(s)[:80]}")
         return False
 
 
@@ -157,11 +176,16 @@ def main() -> int:
         print("::error::XAI_API_KEY secret is not set")
         return 1
     out = call_grok()
+    stories = [x for x in (out.get("stories", []) if out else []) if valid_story(x)]
+    if len(stories) < 3:
+        print("first pass thin — retrying with explicit 24-hour window")
+        global PROMPT
+        PROMPT = PROMPT.replace("LAST 15 HOURS", "LAST 24 HOURS")
+        out = call_grok()
+        stories = [x for x in (out.get("stories", []) if out else []) if valid_story(x)]
     if not out:
         print("Keeping existing live-data.json")
         return 0
-
-    stories = [s for s in out.get("stories", []) if valid_story(s)]
     checked = []
     for s in stories[:14]:
         if any(d in s["url"] for d in ("x.com/", "twitter.com/", "reddit.com/")):
