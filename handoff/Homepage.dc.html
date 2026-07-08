@@ -84,7 +84,7 @@
   .wire-list-top { display:grid; grid-template-columns:54px minmax(0,1fr); gap:10px 12px; align-items:start; }
   .wire-list-time { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.02em; color:#7d7975; padding-top:3px; white-space:nowrap; }
   .wire-list-item.is-hot .wire-list-time { color:#E03131; }
-  .wire-list-title { font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:15.5px; line-height:1.18; color:#dad6d1; letter-spacing:.01em; margin:0 0 6px; }
+  .wire-list-title { cursor:pointer; font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:15.5px; line-height:1.18; color:#dad6d1; letter-spacing:.01em; margin:0 0 6px; }
   .wire-src-line { font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.03em; color:#6f6b67; line-height:1.5; display:flex; align-items:center; flex-wrap:wrap; gap:4px 6px; }
   .wire-src-label { color:#6f6b67; }
   .wire-src-link { color:#c9a24b; text-decoration:none; border-bottom:1px solid rgba(201,162,75,.35); transition:border-color .15s ease,color .15s ease; }
@@ -168,10 +168,8 @@
     .desktop-nav { display:none !important; }
     .hamburger { display:flex !important; }
     .hero-section { flex-direction:column-reverse !important; padding:12px 14px 8px !important; gap:12px !important; }
-    .hero-copy > *:not(.hero-cta-row) { display:none !important; }
+    .hero-copy { display:none !important; }
     .hero-stats { display:none !important; }
-    .hero-cta-row { margin-bottom:0 !important; flex-direction:row !important; gap:8px !important; }
-    .hero-cta-row a { flex:1; text-align:center; padding:12px 8px !important; font-size:14px !important; }
     .hero-map-wrap { min-height:320px !important; }
     .wire-grid { grid-template-columns:1fr !important; }
     .tile-grid { grid-template-columns:repeat(2,1fr) !important; gap:10px !important; }
@@ -415,7 +413,7 @@
               <div class="wire-list-top">
                 <span class="wire-list-time">{{ w.timeAgo }}</span>
                 <div>
-                  <p class="wire-hl wire-list-title">{{ w.title }}</p>
+                  <a class="wire-hl wire-list-title" href="{{ w.url }}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;">{{ w.title }}</a>
                   <div class="wire-src-line">
                     <span class="wire-src-label">Source:</span>
                     <a class="wire-src-link {{ w.sourceKind }}" href="{{ w.url }}" target="_blank" rel="noopener noreferrer">{{ w.source }}</a><span class="wire-src-arrow"> →</span>
@@ -793,6 +791,7 @@ class Component extends DCLogic {
       const sm = MDCT.sourceMeta ? MDCT.sourceMeta(w) : { source: w.source, sourceKind: 'src-news' };
       const isHot = rec.hot;
       return Object.assign({}, w, sm, {
+        title: (sm.isVideo ? 'VIDEO: ' : '') + w.title,
         timeAgo: MDCT.ago ? MDCT.ago(w.iso, NOW) : '',
         dateLabel: mon[d.getMonth()] + ' ' + String(d.getDate()).padStart(2, '0'),
         isNew: isHot,

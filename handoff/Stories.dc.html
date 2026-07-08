@@ -383,7 +383,7 @@ class Component extends DCLogic {
           ? { label: 'Breaking', cls: 'wire-tag-breaking' }
           : { label: '', cls: '' };
       return {
-        title: h.title,
+        title: ((sm && sm.isVideo) ? 'VIDEO: ' : '') + h.title,
         dek: h.dek,
         tag: h.tag,
         cat: h.cat || '',
