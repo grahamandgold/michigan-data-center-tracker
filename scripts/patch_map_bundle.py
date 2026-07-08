@@ -124,7 +124,11 @@ def load_map_template(support_uuid: str) -> str:
     if script:
         script = patch_map_template(script)
     inner = inject_theme_template(inner)
-    return wrap_bundle_document(inner, script, support_uuid)
+    from theme_assets import MAP_DATA_SCRIPT
+
+    return wrap_bundle_document(
+        inner, script, support_uuid, extra_head=MAP_DATA_SCRIPT + "\n"
+    )
 
 
 def patch_map_html(html: str) -> str:

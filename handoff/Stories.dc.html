@@ -57,18 +57,62 @@
   .scard:hover { border-color:#45403a; transform:translateY(-3px); }
   .scard:hover .sc-head { color:#fff; }
   .sc-head { transition:color .15s ease; }
-  image-slot { display:block; }
   .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
   .wrap { max-width:1180px; margin:0 auto; padding:0 44px; }
-  .feat { display:grid; grid-template-columns:1.15fr 1fr; gap:0; border:1px solid #221f1b; border-radius:0; overflow:hidden; background:#16140f; }
-  @media (max-width:900px) { .grid { grid-template-columns:repeat(2,1fr); } .feat { grid-template-columns:1fr; } }
+  .wire-tag { font-family:'Space Mono',monospace; font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:2px 7px; border:1px solid; white-space:nowrap; display:inline-block; }
+  .wire-tag-breaking { color:#100f0e; background:#E03131; border-color:#E03131; }
+  .wire-tag-fresh { color:#f4f1ee; background:transparent; border-color:#E03131; }
+  .lead-card { display:block; border:1px solid #221f1b; border-left:3px solid #E03131; border-radius:0; background:#16140f; text-decoration:none; transition:border-color .18s ease, transform .18s ease; }
+  .lead-card:hover { border-color:#45403a; border-left-color:#E03131; transform:translateY(-2px); }
+  .lead-card:hover .sc-head { color:#fff; }
+  .lead-meta { display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+  .source-link { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.05em; color:#c9a24b; text-decoration:none; border-bottom:1px solid rgba(201,162,75,.35); transition:border-color .15s ease,color .15s ease; }
+  .source-link:hover { color:#e0c989; border-bottom-color:#e0c989; }
+  .source-link.src-x { color:#f4f1ee; font-weight:800; font-size:10px; letter-spacing:.1em; padding:1px 7px 0; border:1px solid #3a3733; background:#100f0e; border-bottom:1px solid #3a3733; border-radius:0; line-height:1.45; }
+  .source-link.src-x:hover { border-color:#6f6b67; color:#fff; }
+  .source-link.src-reddit { color:#ff8b6a; border-bottom-color:rgba(255,139,106,.4); }
+  .source-link.src-reddit:hover { color:#ffb199; }
+  .hot-section { padding-top:44px; }
+  .hot-head { font-family:'Saira Condensed',sans-serif; font-weight:700; font-size:clamp(26px,4vw,34px); line-height:1; margin:0 0 20px; text-transform:uppercase; letter-spacing:.02em; }
+  .hot-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; }
+  .hot-card { display:flex; flex-direction:column; gap:10px; border:1px solid #221f1b; border-radius:0; background:#16140f; padding:22px 22px 20px; text-decoration:none; transition:border-color .18s ease, transform .18s ease; min-height:100%; }
+  .hot-card:hover { border-color:#45403a; transform:translateY(-2px); }
+  .hot-card:hover .hot-title { color:#fff; }
+  .hot-title { font-family:'Saira Condensed',sans-serif; font-weight:700; font-size:21px; line-height:1.08; color:#f4f1ee; margin:0; transition:color .15s ease; }
+  .hot-dek { margin:0; color:#8c8884; font-size:14px; line-height:1.55; flex:1; }
+  .hot-foot { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:4px; flex-wrap:wrap; }
+  .hot-date { font-family:'Space Mono',monospace; font-size:10.5px; color:#6f6b67; }
+  .text-card { padding:22px 22px 24px; }
+  .text-card-meta { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+  .text-card-tag { font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#E03131; }
+  .text-card-date { font-family:'Space Mono',monospace; font-size:10.5px; color:#6f6b67; }
+  .text-card-dek { margin:0 0 16px; color:#8c8884; font-size:14px; line-height:1.55; flex:1; }
+  .discussion-rail { padding-top:48px; padding-bottom:8px; }
+  .disc-head { font-family:'Saira Condensed',sans-serif; font-weight:700; font-size:clamp(24px,3.5vw,30px); line-height:1; margin:0 0 8px; text-transform:uppercase; }
+  .disc-sub { margin:0 0 22px; color:#8c8884; font-size:15px; line-height:1.55; max-width:560px; }
+  .disc-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  .discover-card { display:flex; flex-direction:column; gap:8px; border:1px solid #2b2824; border-radius:0; background:#13110d; padding:18px 18px 16px; text-decoration:none; transition:border-color .18s ease, background .18s ease, transform .18s ease; min-height:100%; }
+  .discover-card:hover { border-color:#45403a; background:#1a1813; transform:translateY(-2px); }
+  .discover-platform { font-family:'Space Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#E03131; }
+  .discover-label { font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:17px; line-height:1.2; color:#dad6d1; }
+  .discover-arrow { font-family:'Space Mono',monospace; font-size:11px; color:#7d7975; margin-top:auto; }
+  .social-card { display:flex; flex-direction:column; gap:10px; border:1px solid #221f1b; border-radius:0; background:#16140f; padding:18px 18px 16px; text-decoration:none; transition:border-color .18s ease, transform .18s ease; min-height:100%; }
+  .social-card:hover { border-color:#45403a; transform:translateY(-2px); }
+  .social-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .social-platform { font-family:'Space Mono',monospace; font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#9b9794; border:1px solid #322e29; padding:2px 7px; }
+  .social-account { font-family:'Space Mono',monospace; font-size:10px; color:#6f6b67; }
+  .social-text { margin:0; color:#dad6d1; font-size:14px; line-height:1.55; }
+  .social-note { margin:0; color:#6f6b67; font-size:12.5px; line-height:1.5; }
+  .disc-loading { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#7d7975; padding:12px 0 20px; }
+  @media (max-width:900px) { .grid { grid-template-columns:repeat(2,1fr); } .disc-grid { grid-template-columns:repeat(2,1fr); } }
   @media (max-width:860px) {
     .desktop-nav { display:none; } .hamburger { display:flex; }
     .site-header { height:68px; padding:0 20px; }
     .lockup { font-size:20px !important; }
     .wrap { padding:0 20px; }
+    .hot-grid { grid-template-columns:1fr; }
   }
-  @media (max-width:600px) { .grid { grid-template-columns:1fr; } }
+  @media (max-width:600px) { .grid { grid-template-columns:1fr; } .disc-grid { grid-template-columns:1fr; } }
   .sharerow { display:flex; align-items:center; gap:8px; }
   .sharerow .lbl { font-family:'Space Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7d7975; margin-right:4px; }
   .sbtn { width:38px; height:38px; display:grid; place-items:center; border:1px solid #2b2824; background:#16140f; color:#cbc7c3; text-decoration:none; font-family:'Archivo',sans-serif; font-weight:800; font-size:14px; transition:border-color .15s ease, color .15s ease, background .15s ease; }
@@ -120,49 +164,110 @@
   <div class="wrap" style="padding-top:18px;">
     <div class="sharerow">
       <span class="lbl">Share</span>
-      <a class="sbtn" href="https://twitter.com/intent/tweet?text=Michigan%20Data%20Center%20Tracker&url=https://michigandatacenters.org" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
-      <a class="sbtn" href="https://www.facebook.com/sharer/sharer.php?u=https://michigandatacenters.org" target="_blank" rel="noopener" aria-label="Share on Facebook">f</a>
-      <a class="sbtn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://michigandatacenters.org" target="_blank" rel="noopener" aria-label="Share on LinkedIn" style="font-size:12px;">in</a>
-      <a class="sbtn" href="mailto:?subject=Michigan%20Data%20Center%20Tracker&body=Thought%20you%27d%20want%20to%20see%20this:%20https://michigandatacenters.org" aria-label="Share by email">✉</a>
+      <a class="sbtn" href="https://twitter.com/intent/tweet?text=Michigan%20Data%20Center%20Tracker&url=https%3A%2F%2Fgrahamandgold.github.io%2Fmi-data-center-tracker%2F" target="_blank" rel="noopener" aria-label="Share on X">𝕏</a>
+      <a class="sbtn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrahamandgold.github.io%2Fmi-data-center-tracker%2F" target="_blank" rel="noopener" aria-label="Share on Facebook">f</a>
+      <a class="sbtn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgrahamandgold.github.io%2Fmi-data-center-tracker%2F" target="_blank" rel="noopener" aria-label="Share on LinkedIn" style="font-size:12px;">in</a>
+      <a class="sbtn" href="mailto:?subject=Michigan%20Data%20Center%20Tracker&body=Thought%20you%27d%20want%20to%20see%20this:%20https%3A%2F%2Fgrahamandgold.github.io%2Fmi-data-center-tracker%2F" aria-label="Share by email">✉</a>
     </div>
   </div>
 
-  <!-- featured -->
+  <!-- lead story -->
   <div class="wrap" style="padding-top:40px;">
-    <a class="scard feat" href="#" style="border-radius:0;">
-      <image-slot id="story-feat" style="width:100%;min-height:340px;height:100%;" shape="rect" placeholder="Drop the lead photo"></image-slot>
-      <div style="padding:34px 34px;display:flex;flex-direction:column;justify-content:center;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#E03131;">Power &amp; Grid</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#6f6b67;">Jun 27, 2026 · 8 min</span></div>
-        <h2 class="sc-head" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:1.02;margin:0 0 14px;color:#f4f1ee;">Inside the 1,383 MW deal that put Saline Township on the map</h2>
-        <p style="margin:0 0 20px;color:#a39e99;font-size:15.5px;line-height:1.6;">A single special-rate contract with DTE would draw more power than some Michigan cities. We trace how it was negotiated — and who pays if the math is wrong.</p>
-        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.05em;color:#cbc7c3;">By the Tracker Desk →</span>
+    <a class="lead-card" href="{{ leadStory.url }}" target="_blank" rel="noopener">
+      <div style="padding:34px 34px;display:flex;flex-direction:column;">
+        <div class="lead-meta">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#E03131;">{{ leadStory.tag }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#6f6b67;">{{ leadStory.date }}</span>
+        </div>
+        <h2 class="sc-head" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:1.02;margin:0 0 14px;color:#f4f1ee;">{{ leadStory.title }}</h2>
+        <p style="margin:0 0 20px;color:#a39e99;font-size:15.5px;line-height:1.6;">{{ leadStory.dek }}</p>
+        <span class="source-link {{ leadStory.sourceKind }}">Source ↗ {{ leadStory.source }}</span>
       </div>
     </a>
   </div>
 
-  <!-- filters -->
+  <!-- hot right now -->
+  <sc-if value="{{ showHot }}" hint-placeholder-val="{{ true }}">
+    <div class="wrap hot-section">
+      <h2 class="hot-head">Hot Right Now</h2>
+      <div class="hot-grid">
+        <sc-for list="{{ hotStories }}" as="h" hint-placeholder-count="2">
+          <a class="hot-card" href="{{ h.url }}" target="_blank" rel="noopener">
+            <sc-if value="{{ h.showBadge }}" hint-placeholder-val="{{ true }}"><span class="wire-tag {{ h.badgeCls }}">{{ h.badge }}</span></sc-if>
+            <h3 class="hot-title">{{ h.title }}</h3>
+            <p class="hot-dek">{{ h.dek }}</p>
+            <div class="hot-foot">
+              <span class="hot-date">{{ h.date }}</span>
+              <span class="source-link {{ h.sourceKind }}">Source ↗ {{ h.source }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- regional filters -->
   <div class="wrap" style="padding-top:44px;">
     <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;">
-      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
-        <button class="chip {{ c.cls }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+      <sc-for list="{{ regions }}" as="r" hint-placeholder-count="5">
+        <button class="chip {{ r.cls }}" onClick="{{ r.onClick }}">{{ r.label }} · {{ r.count }}</button>
       </sc-for>
     </div>
   </div>
 
-  <!-- grid -->
-  <div class="wrap" style="padding-top:24px;padding-bottom:64px;">
+  <!-- story grid -->
+  <div class="wrap" style="padding-top:24px;padding-bottom:48px;">
     <div class="grid">
       <sc-for list="{{ stories }}" as="s" hint-placeholder-count="6">
-        <a class="scard" href="#">
-          <image-slot id="{{ s.slotId }}" style="width:100%;height:180px;" shape="rect" placeholder="Drop photo"></image-slot>
-          <div style="padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#E03131;">{{ s.cat }}</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;color:#6f6b67;">{{ s.meta }}</span></div>
-            <h3 class="sc-head" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;line-height:1.06;margin:0 0 10px;color:#f4f1ee;">{{ s.title }}</h3>
-            <p style="margin:0;color:#8c8884;font-size:14px;line-height:1.55;">{{ s.dek }}</p>
+        <a class="scard text-card" href="{{ s.url }}" target="_blank" rel="noopener">
+          <div class="text-card-meta">
+            <span class="text-card-tag">{{ s.tag }}</span>
+            <span class="text-card-date">{{ s.date }}</span>
           </div>
+          <h3 class="sc-head" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:23px;line-height:1.06;margin:0 0 10px;color:#f4f1ee;">{{ s.title }}</h3>
+          <p class="text-card-dek">{{ s.dek }}</p>
+          <span class="source-link {{ s.sourceKind }}">Source ↗ {{ s.source }}</span>
         </a>
       </sc-for>
     </div>
+  </div>
+
+  <!-- discussion rail -->
+  <div class="wrap discussion-rail">
+    <h2 class="disc-head">Discussion</h2>
+    <sc-if value="{{ hasSocialFeed }}" hint-placeholder-val="{{ false }}">
+      <p class="disc-sub">Public posts documenting the conversation around Michigan data centers. Inclusion is not endorsement.</p>
+      <sc-if value="{{ socialLoading }}" hint-placeholder-val="{{ false }}">
+        <div class="disc-loading">Loading community posts…</div>
+      </sc-if>
+      <sc-if value="{{ hasSocialPosts }}" hint-placeholder-val="{{ true }}">
+        <div class="disc-grid">
+          <sc-for list="{{ socialPosts }}" as="p" hint-placeholder-count="3">
+            <a class="social-card" href="{{ p.url }}" target="_blank" rel="noopener">
+              <div class="social-meta">
+                <span class="social-platform">{{ p.platform }}</span>
+                <span class="social-account">{{ p.account }}</span>
+                <span class="social-account">· {{ p.postedAt }}</span>
+              </div>
+              <p class="social-text">{{ p.text }}</p>
+              <sc-if value="{{ p.note }}" hint-placeholder-val="{{ false }}"><p class="social-note">{{ p.note }}</p></sc-if>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+    </sc-if>
+    <sc-if value="{{ showDiscover }}" hint-placeholder-val="{{ true }}">
+      <p class="disc-sub">Find the conversation — live searches on Reddit and X. We link out; we do not invent posts.</p>
+      <div class="disc-grid">
+        <sc-for list="{{ discoverLinks }}" as="d" hint-placeholder-count="3">
+          <a class="discover-card" href="{{ d.url }}" target="_blank" rel="noopener">
+            <span class="discover-platform">{{ d.platform }}</span>
+            <span class="discover-label">{{ d.label }}</span>
+            <span class="discover-arrow">Open search ↗</span>
+          </a>
+        </sc-for>
+      </div>
+    </sc-if>
   </div>
 
   <!-- newsletter -->
@@ -218,26 +323,140 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { menuOpen: false, activeCat: 'All', subPending: true, subDone: false };
+  state = {
+    menuOpen: false,
+    region: 'all',
+    subPending: true,
+    subDone: false,
+    socialPosts: [],
+    socialLoading: false,
+  };
+
+  componentDidMount() {
+    const social = (typeof window !== 'undefined' && window.MDCT_SOCIAL) || {};
+    const url = social.public_monitor_url;
+    if (!url) return;
+    this.setState({ socialLoading: true });
+    fetch(url, { headers: { Accept: 'application/json' } })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((d) => {
+        if (this._dead) return;
+        const rows = Array.isArray(d) ? d : (d.items || d.posts || []);
+        const posts = rows.slice(0, 12).map((p) => ({
+          account: p.account_name || p.author || 'Unknown',
+          platform: p.platform || '',
+          postedAt: p.posted_at || p.date || '',
+          text: p.text || p.summary || '',
+          url: p.post_url || p.url || '#',
+          note: p.context_note || '',
+        })).filter((p) => p.text);
+        this.setState({ socialPosts: posts, socialLoading: false });
+      })
+      .catch(() => {
+        if (!this._dead) this.setState({ socialLoading: false });
+      });
+  }
+
+  componentWillUnmount() {
+    this._dead = true;
+  }
 
   renderVals() {
     const s = this.state;
-    const CATS = ['All', 'Power & Grid', 'Water', 'Local Government', 'Money', 'Explainers'];
-    const ALL = [
-      { cat: 'Local Government', meta: 'Jun 26 · 5 min', title: 'Why nine Michigan townships hit pause at once', dek: 'A wave of moratoria swept the state in months. We map who paused, why, and when each expires.', slotId: 'story-1' },
-      { cat: 'Water', meta: 'Jun 24 · 6 min', title: "The water question no one is answering in Holland", dek: 'A lakeshore campus wants millions of gallons a day. The withdrawal agreement is still being negotiated in private.', slotId: 'story-2' },
-      { cat: 'Money', meta: 'Jun 21 · 7 min', title: '50 jobs, $1 billion in abatements: the subsidy math', dek: 'Hyperscale sites promise transformative investment but employ fewer people than a grocery store. We run the numbers.', slotId: 'story-3' },
-      { cat: 'Power & Grid', meta: 'Jun 19 · 4 min', title: 'What a 600 MW load does to a rural substation', dek: 'Mundy Township\u2019s proposed campus would be the largest on our tracker. The grid study tells the story.', slotId: 'story-4' },
-      { cat: 'Explainers', meta: 'Jun 17 · 3 min', title: 'Moratorium, pause, or special-use? A plain-English guide', dek: 'The legal tools townships are using sound alike but work very differently. Here\u2019s what each one means.', slotId: 'story-5' },
-      { cat: 'Local Government', meta: 'Jun 14 · 5 min', title: 'How Howell\u2019s $1B Meta proposal fell apart', dek: 'A thousand-acre campus drew a packed hearing room \u2014 and then the developer quietly withdrew.', slotId: 'story-6' },
+    const MD = (typeof window !== 'undefined' && window.MDCT) || {};
+    const socialCfg = (typeof window !== 'undefined' && window.MDCT_SOCIAL) || { discover: [] };
+    const headlines = MD.headlines ? MD.headlines() : [];
+
+    const mapStory = (h, opts) => {
+      const rec = MD.recency ? MD.recency(h.iso) : { label: '', cls: '', hot: false };
+      const sm = MD.sourceMeta ? MD.sourceMeta(h) : { source: h.source, sourceKind: 'src-news' };
+      const badge = rec.hot
+        ? { label: rec.label, cls: rec.cls }
+        : (h.breaking && opts && opts.hot)
+          ? { label: 'Breaking', cls: 'wire-tag-breaking' }
+          : { label: '', cls: '' };
+      return {
+        title: h.title,
+        dek: h.dek,
+        tag: h.tag,
+        date: MD.dateLabel ? MD.dateLabel(h.iso) : h.iso,
+        url: h.url,
+        source: sm.source,
+        sourceKind: sm.sourceKind,
+        badge: badge.label,
+        badgeCls: badge.cls,
+        showBadge: !!badge.label,
+      };
+    };
+
+    const leadRaw = headlines.find((h) => h.lead) || headlines[0] || {
+      title: 'Stories loading…',
+      dek: 'Editorial headlines load from content-data.js.',
+      tag: 'Tracker',
+      iso: new Date().toISOString(),
+      url: '#',
+      source: 'Tracker',
+    };
+    const leadStory = mapStory(leadRaw);
+
+    const hotStories = headlines
+      .filter((h) => {
+        const rec = MD.recency ? MD.recency(h.iso) : { hot: false };
+        return rec.hot || h.breaking;
+      })
+      .slice(0, 4)
+      .map((h) => mapStory(h, { hot: true }));
+
+    const REGIONS = [
+      { key: 'all', label: 'All' },
+      { key: 'metro', label: 'SE Michigan' },
+      { key: 'west', label: 'West Michigan' },
+      { key: 'mid', label: 'Mid-Michigan' },
+      { key: 'north', label: 'Northern Michigan' },
     ];
-    const stories = (s.activeCat === 'All' ? ALL : ALL.filter(x => x.cat === s.activeCat || (s.activeCat === 'Money' && x.cat === 'Money')));
+
+    const matchesRegion = (h, region) => {
+      if (region === 'all') return true;
+      return h.region === region || h.region === 'statewide';
+    };
+
+    const countRegion = (region) => headlines.filter((h) => matchesRegion(h, region)).length;
+
+    const stories = headlines
+      .filter((h) => h !== leadRaw)
+      .filter((h) => matchesRegion(h, s.region))
+      .map(mapStory);
+
+    const regions = REGIONS.map((r) => ({
+      label: r.label,
+      count: countRegion(r.key),
+      cls: s.region === r.key ? 'on' : '',
+      onClick: () => this.setState({ region: r.key }),
+    }));
+
+    const hasSocialFeed = !!socialCfg.public_monitor_url;
+    const discoverLinks = (socialCfg.discover || []).map((d) => ({
+      platform: d.platform,
+      label: d.label,
+      url: d.url,
+    }));
+
     return {
       menuOpen: s.menuOpen,
-      toggleMenu: () => this.setState(p => ({ menuOpen: !p.menuOpen })),
-      cats: CATS.map(label => ({ label, cls: s.activeCat === label ? 'on' : '', onClick: () => this.setState({ activeCat: label }) })),
+      toggleMenu: () => this.setState((p) => ({ menuOpen: !p.menuOpen })),
+      leadStory,
+      showHot: hotStories.length > 0,
+      hotStories,
+      regions,
       stories,
-      subPending: s.subPending, subDone: s.subDone,
+      hasSocialFeed,
+      showDiscover: !hasSocialFeed,
+      socialLoading: s.socialLoading,
+      hasSocialPosts: s.socialPosts.length > 0,
+      socialPosts: s.socialPosts,
+      discoverLinks,
+      subPending: s.subPending,
+      subDone: s.subDone,
       subscribe: () => this.setState({ subPending: false, subDone: true }),
     };
   }

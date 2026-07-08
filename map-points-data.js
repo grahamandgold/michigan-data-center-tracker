@@ -1,5 +1,5 @@
 /* Sourced map records — projects, moratoria, meetings, grid nodes */
-Object.assign(window.TRACKER_DATA || {}, {
+window.TRACKER_DATA = Object.assign(window.TRACKER_DATA || {}, {
   map_points: [
   {
     "name": "Saline Township campus (Stargate)",

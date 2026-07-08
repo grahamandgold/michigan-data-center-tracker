@@ -46,7 +46,7 @@ REMOVE = [
     "home-map-preview.js",
     "home-map-preview.svg",
     "home-stats.js",
-    "content-data.js",
+
     "map.html",
     "map.js",
     "map-boot.js",
@@ -129,7 +129,7 @@ def main() -> None:
   <meta charset="utf-8">
   <meta http-equiv="refresh" content="0;url={target}">
   <script>location.replace("{target}");</script>
-  <link rel="canonical" href="https://midatacentertracker.github.io/mi-data-center-tracker/{target}">
+  <link rel="canonical" href="https://grahamandgold.github.io/mi-data-center-tracker/{target}">
   <title>Redirecting…</title>
 </head>
 <body><p><a href="{target}">{title}</a></p></body>

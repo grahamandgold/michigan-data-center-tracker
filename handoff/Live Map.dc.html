@@ -353,7 +353,6 @@
         <span class="stat {{ s.cls }}"><strong>{{ s.value }}</strong>{{ s.label }}</span>
         <span class="stat-sep"></span>
       </sc-for>
-      <span class="stat"><strong>{{ moratoriaCount }}</strong>Moratoria</span>
     </div>
 
     <!-- panel -->
@@ -410,17 +409,13 @@
                     <div><div class="fact-k">{{ f.k }}</div><div class="fact-v {{ f.cls }}">{{ f.v }}</div></div>
                   </sc-for>
                 </div>
-                <sc-if value="{{ sel.showImpact }}" hint-placeholder-val="{{ false }}">
-                  <div class="impact">
-                    <div class="impact-row"><span class="impact-k">Permanent jobs</span><span class="impact-v">{{ sel.jobs }}</span></div>
-                    <div class="impact-row"><span class="impact-k">Rate impact</span><span class="impact-v {{ sel.rateCls }}">{{ sel.rate }}</span></div>
-                  </div>
-                </sc-if>
                 <div class="record-note">{{ sel.note }}</div>
               </div>
               <div class="record-foot">
                 <button class="tbtn" style="flex:1;border:1px solid #2b2824;" onClick="{{ sel.focus }}">Zoom to site</button>
-                <a class="cta" href="#map" style="flex:1;text-align:center;">Full profile →</a>
+                <sc-if value="{{ sel.hasSource }}" hint-placeholder-val="{{ false }}">
+                  <a class="cta" href="{{ sel.sourceUrl }}" target="_blank" rel="noopener" style="flex:1;text-align:center;">Source ↗</a>
+                </sc-if>
               </div>
             </div>
           </sc-if>
@@ -490,7 +485,7 @@
               <button type="button" class="chip {{ bmSat }}" onClick="{{ setSat }}">Satellite</button>
             </div>
           </div>
-          <div class="note">Context layers are illustrative samples for layout — swap in your authoritative GIS feeds (transmission, substations, intakes) when ready.</div>
+          <div class="note">Context layers load from public GIS feeds (transmission grid, substations, water intakes). Toggle a layer to fetch and display.</div>
         </div>
         </sc-if>
 
@@ -563,64 +558,72 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.STATUS = {
-      Operating:   { label: 'Operating',          color: '#E03131' },
-      Construction:{ label: 'Under construction',  color: '#dd8048' },
-      Permitting:  { label: 'Permitting',          color: '#bda35f' },
-      Proposed:    { label: 'Proposed',            color: '#8c8884' },
-      Moratorium:  { label: 'Moratorium / pause',  color: '#7c9cc4' },
+      Operating:    { label: 'Approved',                  color: '#E03131' },
+      Construction: { label: 'Under construction',          color: '#dd8048' },
+      Proposed:     { label: 'Proposed / under review',   color: '#bda35f' },
+      Withdrawn:    { label: 'Withdrawn / rejected',      color: '#6f6a64' },
+      Moratorium:   { label: 'Moratorium / pause',        color: '#7c9cc4' },
+      Meeting:      { label: 'Public meeting',            color: '#5bb3a6' },
     };
-    // ── EDIT HERE to update the map ──────────────────────────────
-    this.RECORDS = [
-      { id: 1,  type: 'site', name: 'Mooreville Campus',  city: 'Saline',        county: 'Washtenaw',      region: 'metro', operator: 'Hyperion Compute', status: 'Permitting',   load: 480, acres: '250 ac', water: '1.4M gal', jobs: 90,  rate: 'Special rate — under review', updated: 'Jun 24, 2026', lat: 42.17, lng: -83.78, note: 'Rezoning under review by the township planning commission; public hearing scheduled.' },
-      { id: 2,  type: 'site', name: 'Redford Exchange',   city: 'Redford',       county: 'Wayne',          region: 'metro', operator: 'MetroData',        status: 'Operating',    load: 210, acres: '90 ac',  water: '620k gal', jobs: 55,  rate: 'Standard tariff', updated: 'Jun 20, 2026', lat: 42.42, lng: -83.30, note: 'Two halls online since 2024; third hall energizing this quarter.' },
-      { id: 3,  type: 'site', name: 'Grand River West',   city: 'Grand Rapids',  county: 'Kent',           region: 'west',  operator: 'Lakeshore DC',     status: 'Construction', load: 320, acres: '160 ac', water: '900k gal', jobs: 120, rate: 'Under review', updated: 'Jun 18, 2026', lat: 42.96, lng: -85.67, note: 'Site work underway; substation interconnect targeted for 2027.' },
-      { id: 4,  type: 'site', name: 'Mundy Campus',       city: 'Mundy Twp',     county: 'Genesee',        region: 'mid',   operator: 'Northstar Infra',  status: 'Proposed',     load: 600, acres: '410 ac', water: '1.9M gal', jobs: 140, rate: 'Special contract sought', updated: 'Jun 11, 2026', lat: 42.95, lng: -83.75, note: 'Largest proposed load on the tracker; rezoning vote expected in July.' },
-      { id: 5,  type: 'site', name: 'Saginaw Valley',     city: 'Saginaw',       county: 'Saginaw',        region: 'mid',   operator: 'Northstar Infra',  status: 'Permitting',   load: 180, acres: '120 ac', water: '540k gal', jobs: 70,  rate: 'Under review', updated: 'Jun 09, 2026', lat: 43.42, lng: -83.95, note: 'Air-permit application filed with EGLE.' },
-      { id: 6,  type: 'site', name: 'Marquette Node',     city: 'Marquette',     county: 'Marquette',      region: 'north', operator: 'Boreal Edge',      status: 'Proposed',     load: 90,  acres: '60 ac',  water: '210k gal', jobs: 35,  rate: 'Standard tariff', updated: 'May 28, 2026', lat: 46.55, lng: -87.40, note: 'Edge facility tied to UP grid; early community engagement stage.' },
-      { id: 7,  type: 'site', name: 'Ypsilanti Works',    city: 'Ypsilanti',     county: 'Washtenaw',      region: 'metro', operator: 'MetroData',        status: 'Operating',    load: 140, acres: '70 ac',  water: '430k gal', jobs: 60,  rate: 'Standard tariff', updated: 'Jun 15, 2026', lat: 42.24, lng: -83.61, note: 'Retrofit of a former logistics site; fully operational.' },
-      { id: 8,  type: 'site', name: 'Holland Bay',        city: 'Holland',       county: 'Ottawa',         region: 'west',  operator: 'Lakeshore DC',     status: 'Construction', load: 150, acres: '85 ac',  water: '470k gal', jobs: 80,  rate: 'Under review', updated: 'Jun 12, 2026', lat: 42.79, lng: -86.10, note: 'Foundations poured; lakeshore water-use agreement in negotiation.' },
-      { id: 9,  type: 'site', name: 'Lansing Central',    city: 'Lansing',       county: 'Ingham',         region: 'mid',   operator: 'Capitol Grid',     status: 'Operating',    load: 110, acres: '55 ac',  water: '330k gal', jobs: 45,  rate: 'Municipal utility', updated: 'Jun 21, 2026', lat: 42.73, lng: -84.55, note: 'Municipal-utility served; powers state and university workloads.' },
-      { id: 10, type: 'site', name: 'Pontiac North',      city: 'Pontiac',       county: 'Oakland',        region: 'metro', operator: 'MetroData',        status: 'Permitting',   load: 260, acres: '140 ac', water: '780k gal', jobs: 110, rate: 'Under review', updated: 'Jun 17, 2026', lat: 42.64, lng: -83.29, note: 'Brownfield redevelopment; site-plan review in progress.' },
-      { id: 11, type: 'site', name: 'Kalamazoo Edge',     city: 'Kalamazoo',     county: 'Kalamazoo',      region: 'west',  operator: 'Lakeshore DC',     status: 'Proposed',     load: 200, acres: '110 ac', water: '600k gal', jobs: 75,  rate: 'Standard tariff', updated: 'Jun 05, 2026', lat: 42.29, lng: -85.59, note: 'Letter of intent filed with the city; no application yet.' },
-      { id: 12, type: 'site', name: 'Troy Annex',         city: 'Troy',          county: 'Oakland',        region: 'metro', operator: 'Hyperion Compute', status: 'Operating',    load: 95,  acres: '40 ac',  water: '290k gal', jobs: 40,  rate: 'Standard tariff', updated: 'Jun 19, 2026', lat: 42.60, lng: -83.15, note: 'Compact enterprise facility; expansion shelved for now.' },
-      { id: 13, type: 'site', name: 'Traverse Spur',      city: 'Traverse City', county: 'Grand Traverse', region: 'north', operator: 'Boreal Edge',      status: 'Permitting',   load: 120, acres: '75 ac',  water: '360k gal', jobs: 50,  rate: 'Under review', updated: 'Jun 07, 2026', lat: 44.76, lng: -85.62, note: 'Special-use permit pending; grid capacity study requested.' },
-      { id: 14, type: 'site', name: 'Monroe Shoreline',   city: 'Monroe',        county: 'Monroe',         region: 'metro', operator: 'Northstar Infra',  status: 'Proposed',     load: 520, acres: '300 ac', water: '1.6M gal', jobs: 130, rate: 'Special contract sought', updated: 'Jun 03, 2026', lat: 41.92, lng: -83.40, note: 'Near a retiring power plant; reuse of existing interconnection studied.' },
-      { id: 15, type: 'moratorium', name: 'Pittsfield Township', city: 'Pittsfield Twp', county: 'Washtenaw', region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'May 2026', updated: 'Nov 2025', lat: 42.24, lng: -83.70, note: 'First in the statewide wave — pause on new data center zoning while standards are written.' },
-      { id: 16, type: 'moratorium', name: 'Howell Township',     city: 'Howell Twp',     county: 'Livingston', region: 'mid',  operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'May 2026', updated: 'Nov 2025', lat: 42.61, lng: -83.93, note: 'A $1B Meta-backed campus on 1,000+ acres prompted the pause; the developer later withdrew its rezoning request.' },
-      { id: 17, type: 'moratorium', name: 'City of Saginaw',     city: 'Saginaw',        county: 'Saginaw',    region: 'mid',  operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Interim pause', expires: 'Aug 2026', updated: 'Dec 2025', lat: 43.42, lng: -83.95, note: 'Interim pause while the city studies grid and water impacts.' },
-      { id: 18, type: 'moratorium', name: 'Grand Blanc Township', city: 'Grand Blanc Twp', county: 'Genesee', region: 'mid', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'Jun 2026', updated: 'Dec 2025', lat: 42.93, lng: -83.63, note: 'Moratorium adopted amid a cluster of proposals in Genesee County.' },
-      { id: 19, type: 'moratorium', name: 'City of Pontiac',     city: 'Pontiac',        county: 'Oakland',    region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Special-use conversion', expires: 'Ongoing', updated: 'Jan 2026', lat: 42.66, lng: -83.31, note: 'Removed data centers as a by-right use; now require special-use approval.' },
-      { id: 20, type: 'moratorium', name: 'City of Northville',  city: 'Northville',     county: 'Oakland',    region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Interim moratorium', expires: 'Jul 2026', updated: 'Jan 2026', lat: 42.43, lng: -83.48, note: 'Interim moratorium adopted by the city council.' },
-      { id: 21, type: 'moratorium', name: 'Sterling Heights',    city: 'Sterling Heights', county: 'Macomb',  region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'Aug 2026', updated: 'Feb 2026', lat: 42.58, lng: -83.03, note: 'Six-month moratorium while zoning standards are developed.' },
-      { id: 22, type: 'moratorium', name: 'City of Saline',      city: 'Saline',         county: 'Washtenaw',  region: 'metro', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: 'Interim moratorium', expires: 'Jul 2026', updated: 'Jan 2026', lat: 42.17, lng: -83.79, note: 'Separate from Saline Township — the city paused new applications pending an ordinance.' },
-      { id: 23, type: 'moratorium', name: 'Green Charter Township', city: 'Green Charter Twp', county: 'Mecosta', region: 'west', operator: '—', status: 'Moratorium', load: 0, acres: '—', water: '—', mType: '6-month moratorium', expires: 'Jun 2026', updated: 'Dec 2025', lat: 43.62, lng: -85.28, note: 'Moratorium follows broader scrutiny of large-load development in the township.' },
-    ];
-    this.CONTEXT = {
-      transmission: [
-        [[42.30,-83.70],[42.60,-83.40],[42.95,-83.75],[43.42,-83.95]],
-        [[42.96,-85.67],[42.79,-86.10],[42.29,-85.59]],
-        [[42.64,-83.29],[42.95,-83.75]],
-      ],
-      substations: [ [42.55,-83.35],[42.90,-85.60],[43.00,-83.85],[42.30,-83.70],[42.70,-84.50],[44.70,-85.60] ],
-      water: [ [42.05,-83.18],[43.05,-86.25],[44.00,-83.55] ],
-    };
+    this.RECORDS = [];
+    this._geoLoaded = {};
+    this._layerCounts = { transmission: null, substations: null, water: null, meetings: 0, power_plants: 0 };
     this.REGIONS = [
       { key: 'all', label: 'All' }, { key: 'metro', label: 'SE Michigan' },
-      { key: 'west', label: 'West MI' }, { key: 'mid', label: 'Mid-Michigan' }, { key: 'north', label: 'Northern MI' },
+      { key: 'west', label: 'West Michigan' }, { key: 'mid', label: 'Mid-Michigan' }, { key: 'north', label: 'Northern Michigan' },
     ];
     this.LOWER_PEN_BOUNDS = [[41.68, -87.5], [45.35, -82.3]];
     this.state = {
-      basemap: 'dark', tab: 'list', region: 'all', query: '', selectedId: null,
-      status: { Operating: true, Construction: true, Permitting: true, Proposed: true, Moratorium: true },
-      layers: { transmission: false, substations: false, water: false },
+      basemap: 'dark', tab: 'list', region: 'all', query: '', selectedId: null, recordsReady: false,
+      status: { Operating: true, Construction: true, Proposed: true, Withdrawn: true, Moratorium: true, Meeting: true },
+      layers: { transmission: false, substations: false, water: false, meetings: false, power_plants: false },
       legendOpen: true, panelOpen: false,
       userLoc: null, locInput: '', locBusy: false, showWelcome: true,
     };
   }
 
+  fmtDate(iso) {
+    if (!iso) return '—';
+    if (window.MDCT && window.MDCT.dateLabel) return window.MDCT.dateLabel(iso);
+    return iso;
+  }
+
+  loadRecords() {
+    const apply = (points) => {
+      const MDCT = window.MDCT || {};
+      const fromPoint = MDCT.recordFromPoint || ((p, id) => null);
+      this.RECORDS = (points || []).map((p, i) => {
+        const rec = fromPoint(p, i + 1);
+        if (!rec) return null;
+        if (rec.type === 'meeting') rec.status = 'Meeting';
+        if (p.layer === 'power_plants') rec.type = 'power_plant';
+        return rec;
+      }).filter(Boolean);
+      this._layerCounts.meetings = this.RECORDS.filter(r => r.type === 'meeting').length;
+      this._layerCounts.power_plants = this.RECORDS.filter(r => r.type === 'power_plant').length;
+      this.setState({ recordsReady: true });
+      if (this._map) {
+        this.rebuildRecordLayers();
+        this.syncMarkers();
+        this._sig = this.sig();
+      }
+    };
+    fetch('map-data.json')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => apply(d.map_points))
+      .catch(() => {
+        const pts = (window.MDCT && window.MDCT.mapPoints) ? window.MDCT.mapPoints() : [];
+        apply(pts);
+      });
+  }
+
   componentDidMount() {
+    this.loadRecords();
     this._wait = setInterval(() => {
-      if (window.L && window.L.markerClusterGroup) { clearInterval(this._wait); this.initMap(); }
+      if (this.state.recordsReady && window.L && window.L.markerClusterGroup) {
+        clearInterval(this._wait);
+        this.initMap();
+      }
     }, 60);
     const siteTheme = document.documentElement.dataset.theme;
     if (siteTheme === 'light') this.setState({ basemap: 'day' });
@@ -637,6 +640,7 @@ class Component extends DCLogic {
   }
 
   initMap() {
+    if (!this.state.recordsReady || !window.L) return;
     const el = document.getElementById('mdct-map');
     if (!el || this._map) return;
     const map = L.map(el, { zoomControl: false, attributionControl: true, minZoom: 5, maxZoom: 14, zoomSnap: 0.5 });
@@ -675,44 +679,130 @@ class Component extends DCLogic {
   }
 
   buildContext() {
-    const mk = (html, ll, size) => L.marker(ll, { icon: L.divIcon({ html, className: '', iconSize: [size, size], iconAnchor: [size / 2, size / 2] }) });
     this.ctx = {
-      transmission: L.layerGroup(this.CONTEXT.transmission.map(line =>
-        L.polyline(line, { color: '#9c5fc9', weight: 2.5, opacity: .8, dashArray: '1 6', lineCap: 'round' }).bindTooltip('Transmission corridor', { sticky: true }))),
-      substations: L.layerGroup(this.CONTEXT.substations.map(ll =>
-        mk('<span style="display:block;width:11px;height:11px;background:#fbbf24;border:2px solid #100f0e;box-shadow:0 0 8px rgba(251,191,36,.6);"></span>', ll, 11).bindTooltip('Substation', { direction: 'top' }))),
-      water: L.layerGroup(this.CONTEXT.water.map(ll =>
-        mk('<span style="display:block;width:12px;height:12px;border-radius:50%;background:#22d3ee;border:2px solid #100f0e;box-shadow:0 0 8px rgba(34,211,238,.6);"></span>', ll, 12).bindTooltip('Water intake', { direction: 'top' }))),
+      transmission: L.layerGroup(),
+      substations: L.layerGroup(),
+      water: L.layerGroup(),
+      meetings: L.layerGroup(),
+      power_plants: L.layerGroup(),
     };
+    this.rebuildRecordLayers();
+  }
+
+  ctxMarker(html, ll, size, tip) {
+    const m = L.marker(ll, { icon: L.divIcon({ html, className: '', iconSize: [size, size], iconAnchor: [size / 2, size / 2] }) });
+    if (tip) m.bindTooltip(tip, { direction: 'top', sticky: !!tip.sticky });
+    return m;
+  }
+
+  rebuildRecordLayers() {
+    if (!this.ctx) return;
+    const plantColor = '#e8a54b';
+    this.ctx.meetings.clearLayers();
+    this.meetingMarkers = {};
+    if (this.state.layers.meetings && this.cluster) this.syncMarkers();
+    this.ctx.power_plants.clearLayers();
+    this.RECORDS.filter(r => r.type === 'power_plant').forEach(r => {
+      const html = '<span style="display:block;width:12px;height:12px;border-radius:50%;background:' + plantColor + ';border:2px solid #100f0e;box-shadow:0 0 8px rgba(232,165,75,.6);"></span>';
+      this.ctx.power_plants.addLayer(this.ctxMarker(html, [r.lat, r.lng], 12, r.name));
+    });
+    this._layerCounts.meetings = this.RECORDS.filter(r => r.type === 'meeting').length;
+    this._layerCounts.power_plants = this.RECORDS.filter(r => r.type === 'power_plant').length;
+    this._geoLoaded.meetings = true;
+    if (this._layerCounts.power_plants) this._geoLoaded.power_plants = true;
+  }
+
+  populateGeoLayer(key, geo) {
+    const group = this.ctx[key];
+    group.clearLayers();
+    (geo.features || []).forEach(f => {
+      const props = f.properties || {};
+      const g = f.geometry;
+      if (!g) return;
+      if (g.type === 'Point') {
+        const [lng, lat] = g.coordinates;
+        let html, size = 12, tip = props.label || props.name || key;
+        if (key === 'substations') {
+          html = '<span style="display:block;width:11px;height:11px;background:#fbbf24;border:2px solid #100f0e;box-shadow:0 0 8px rgba(251,191,36,.6);"></span>';
+          size = 11;
+          tip = props.label || props.name || 'Substation';
+        } else if (key === 'water') {
+          html = '<span style="display:block;width:12px;height:12px;border-radius:50%;background:#22d3ee;border:2px solid #100f0e;box-shadow:0 0 8px rgba(34,211,238,.6);"></span>';
+          tip = props.label || props.name || 'Water source';
+        } else {
+          html = '<span style="display:block;width:10px;height:10px;border-radius:50%;background:#8c8884;border:2px solid #100f0e;"></span>';
+        }
+        group.addLayer(this.ctxMarker(html, [lat, lng], size, tip));
+      } else if (g.type === 'LineString') {
+        const latlngs = g.coordinates.map(([lng, lat]) => [lat, lng]);
+        const line = L.polyline(latlngs, { color: '#9c5fc9', weight: 2.5, opacity: .8, dashArray: '1 6', lineCap: 'round' });
+        line.bindTooltip((props.owner || props.voltage_class || 'Transmission line') + (props.voltage ? ' · ' + props.voltage + ' kV' : ''), { sticky: true });
+        group.addLayer(line);
+      }
+    });
+    this._layerCounts[key] = (geo.features || []).length;
+  }
+
+  ensureContextLayer(key) {
+    if (this._geoLoaded[key]) return Promise.resolve();
+    if (key === 'meetings' || key === 'power_plants') {
+      this.rebuildRecordLayers();
+      return Promise.resolve();
+    }
+    const urls = {
+      substations: 'geo/mi-substations.geojson',
+      water: 'geo/mi-water-sources.geojson',
+      transmission: 'geo/mi-transmission-grid.geojson',
+    };
+    const url = urls[key];
+    if (!url || !this.ctx || !this.ctx[key]) return Promise.resolve();
+    return fetch(url)
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(geo => {
+        this.populateGeoLayer(key, geo);
+        this._geoLoaded[key] = true;
+        this.setState({ layerTick: Date.now() });
+        if (this.state.layers[key] && this._map && !this._map.hasLayer(this.ctx[key])) this.ctx[key].addTo(this._map);
+      })
+      .catch(() => {});
   }
 
   pinIcon(r, active) {
-    const c = this.STATUS[r.status].color;
+    const meta = this.STATUS[r.status] || this.STATUS.Proposed;
+    const c = meta.color;
     const moratorium = r.type === 'moratorium';
-    const size = active ? 22 : (moratorium ? 14 : 13 + Math.min(9, r.load / 70));
+    const meeting = r.type === 'meeting';
+    const size = active ? 22 : (moratorium || meeting ? 14 : 13 + Math.min(9, (r.load || 0) / 70));
     const ring = active ? '0 0 0 4px ' + c + '55, 0 0 18px ' + c + 'cc' : '0 0 8px ' + c + '66';
-    const shape = moratorium
-      ? 'width:' + size + 'px;height:' + size + 'px;border-radius:0;transform:rotate(45deg);background:transparent;border:2.5px solid ' + c + ';box-shadow:' + ring + ';'
-      : 'width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:' + c + ';border:2px solid #100f0e;box-shadow:' + ring + ';';
+    let shape;
+    if (moratorium || meeting) {
+      shape = 'width:' + size + 'px;height:' + size + 'px;border-radius:0;transform:rotate(45deg);background:' + (meeting ? c : 'transparent') + ';border:2.5px solid ' + c + ';box-shadow:' + ring + ';';
+    } else {
+      shape = 'width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:' + c + ';border:2px solid #100f0e;box-shadow:' + ring + ';';
+    }
     return L.divIcon({ className: '', html: '<span style="display:block;' + shape + '"></span>', iconSize: [size, size], iconAnchor: [size / 2, size / 2] });
   }
 
   popupHtml(r) {
-    const c = this.STATUS[r.status].color;
-    const st = this.STATUS[r.status].label;
-    const isM = r.type === 'moratorium';
-    const facts = isM
-      ? '<div><div class="pop-k">Type</div><div class="pop-v sm">' + r.mType + '</div></div><div><div class="pop-k">Expires</div><div class="pop-v sm">' + r.expires + '</div></div><div><div class="pop-k">County</div><div class="pop-v sm">' + r.county + '</div></div><div><div class="pop-k">Adopted</div><div class="pop-v sm">' + r.updated + '</div></div>'
-      : '<div><div class="pop-k">Load</div><div class="pop-v">' + r.load + ' MW</div></div>'
-      + '<div><div class="pop-k">Site</div><div class="pop-v">' + r.acres + '</div></div>'
-      + '<div><div class="pop-k">Jobs</div><div class="pop-v sm">' + r.jobs + ' permanent</div></div>'
-      + '<div><div class="pop-k">Rate impact</div><div class="pop-v sm">' + r.rate + '</div></div>';
+    const meta = this.STATUS[r.status] || this.STATUS.Proposed;
+    const c = meta.color;
+    const typeLabel = r.type === 'moratorium' ? 'Moratorium / pause' : (r.type === 'meeting' ? 'Public meeting' : (r.type === 'power_plant' ? 'Power plant' : 'Data center'));
+    const src = r.sourceUrl
+      ? '<div><div class="pop-k">Source</div><div class="pop-v sm"><a href="' + r.sourceUrl + '" target="_blank" rel="noopener" style="color:#E03131;text-decoration:none;font-weight:600;">Source ↗</a></div></div>'
+      : '';
+    const facts = '<div><div class="pop-k">Load</div><div class="pop-v sm">' + (r.loadLabel || 'Undisclosed') + '</div></div>'
+      + '<div><div class="pop-k">Status</div><div class="pop-v sm">' + (r.rawStatus || meta.label) + '</div></div>'
+      + '<div><div class="pop-k">Operator</div><div class="pop-v sm">' + (r.operator || '—') + '</div></div>'
+      + '<div><div class="pop-k">Verified</div><div class="pop-v sm">' + this.fmtDate(r.updated) + '</div></div>'
+      + '<div><div class="pop-k">Confidence</div><div class="pop-v sm">' + (r.confidence || '—') + '</div></div>'
+      + src;
     return '<div style="--st:' + c + '">'
-      + '<div class="pop-head"><div class="pop-type">' + (isM ? 'Moratorium / pause' : 'Data center') + '</div>'
+      + '<div class="pop-head"><div class="pop-type">' + typeLabel + '</div>'
       + '<div class="pop-name">' + r.name + '</div><div class="pop-loc">' + r.city + ' · ' + r.county + ' County</div>'
-      + '<span class="pop-pill">' + st + '</span></div>'
+      + '<span class="pop-pill">' + meta.label + '</span></div>'
       + '<div class="pop-body"><div class="pop-grid">' + facts + '</div>'
-      + '<div class="pop-note">' + r.note + '</div></div></div>';
+      + (r.note ? '<div class="pop-note">' + r.note + '</div>' : '')
+      + '</div></div>';
   }
 
   filtered() {
@@ -726,27 +816,53 @@ class Component extends DCLogic {
   sig() { const s = this.state; return JSON.stringify([s.status, s.region, s.query]); }
 
   syncMarkers() {
-    if (!this.cluster) return;
+    if (!this.cluster || !this.state.recordsReady) return;
     this.cluster.clearLayers(); this.markers = {};
-    this.filtered().forEach(r => {
+    const meetingsOnLayer = !!this.state.layers.meetings;
+    this.filtered().filter(r => !(meetingsOnLayer && r.type === 'meeting')).forEach(r => {
       const m = L.marker([r.lat, r.lng], { icon: this.pinIcon(r, r.id === this.state.selectedId) });
       m.bindPopup(this.popupHtml(r), { maxWidth: 300, autoPanPadding: [60, 80] });
       m.on('click', () => this.select(r.id));
       this.markers[r.id] = m; this.cluster.addLayer(m);
     });
+    if (this.ctx) this.ctx.meetings.clearLayers();
+    if (meetingsOnLayer && this.ctx) {
+      this.meetingMarkers = {};
+      this.filtered().filter(r => r.type === 'meeting').forEach(r => {
+        const m = L.marker([r.lat, r.lng], { icon: this.pinIcon(r, r.id === this.state.selectedId) });
+        m.bindPopup(this.popupHtml(r), { maxWidth: 300, autoPanPadding: [60, 80] });
+        m.on('click', () => this.select(r.id));
+        this.meetingMarkers[r.id] = m;
+        this.markers[r.id] = m;
+        this.ctx.meetings.addLayer(m);
+      });
+    }
   }
   syncContext() {
-    if (!this.ctx) return;
+    if (!this.ctx || !this._map) return;
     Object.keys(this.ctx).forEach(k => {
-      const on = this.state.layers[k];
-      if (on && !this._map.hasLayer(this.ctx[k])) this.ctx[k].addTo(this._map);
-      else if (!on && this._map.hasLayer(this.ctx[k])) this._map.removeLayer(this.ctx[k]);
+      const on = !!this.state.layers[k];
+      if (on) {
+        this.ensureContextLayer(k).then(() => {
+          if (!this._map || !this.ctx[k]) return;
+          if (this.state.layers[k] && !this._map.hasLayer(this.ctx[k])) this.ctx[k].addTo(this._map);
+        });
+      } else if (this._map.hasLayer(this.ctx[k])) {
+        this._map.removeLayer(this.ctx[k]);
+      }
     });
   }
   focusSelected(open) {
     const m = this.markers[this.state.selectedId];
     if (!m || !this._map) return;
-    this.cluster.zoomToShowLayer(m, () => { if (open !== false) m.openPopup(); });
+    const r = this.RECORDS.find(x => x.id === this.state.selectedId);
+    const done = () => { if (open !== false) m.openPopup(); };
+    if (r && r.type === 'meeting' && this.state.layers.meetings) {
+      this._map.setView([r.lat, r.lng], Math.max(this._map.getZoom(), 10));
+      done();
+      return;
+    }
+    this.cluster.zoomToShowLayer(m, done);
   }
   select(id) { this.setState({ selectedId: id, tab: 'list' }); }
 
@@ -756,14 +872,14 @@ class Component extends DCLogic {
     if (this._basemap !== s.basemap) { this._map.removeLayer(this.tiles[this._basemap]); this.tiles[s.basemap].addTo(this._map); this._basemap = s.basemap; }
     const sg = this.sig(); let remade = false;
     if (sg !== this._sig) { this._sig = sg; this.syncMarkers(); remade = true; }
-    const lg = JSON.stringify(s.layers); if (lg !== this._lsig) { this._lsig = lg; this.syncContext(); }
+    const lg = JSON.stringify(s.layers); if (lg !== this._lsig) { this._lsig = lg; this.syncContext(); this.syncMarkers(); }
     if (this._sel !== s.selectedId) { this._sel = s.selectedId; this.syncMarkers(); this.focusSelected(true); }
     else if (remade) { /* keep view */ }
     this._map.invalidateSize(false);
   }
 
   reset() {
-    this.setState({ region: 'all', query: '', selectedId: null, status: { Operating: true, Construction: true, Permitting: true, Proposed: true, Moratorium: true } });
+    this.setState({ region: 'all', query: '', selectedId: null, status: { Operating: true, Construction: true, Proposed: true, Withdrawn: true, Moratorium: true, Meeting: true } });
     if (this._map) this.viewLowerPeninsula();
   }
   dist(a, b, c, d) { const R = 3958.8, t = Math.PI / 180, dLat = (c - a) * t, dLng = (d - b) * t, u = Math.sin(dLat / 2) ** 2 + Math.cos(a * t) * Math.cos(c * t) * Math.sin(dLng / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(u)); }
@@ -786,9 +902,10 @@ class Component extends DCLogic {
   share() { try { navigator.clipboard && navigator.clipboard.writeText(location.href); } catch (e) {} }
   exportCSV() {
     const rows = this.filtered();
-    const head = ['Name', 'Type', 'Status', 'City', 'County', 'Region', 'Operator', 'Load MW', 'Acres', 'Water per day', 'Lat', 'Lng', 'Updated', 'Note'];
+    const head = ['Name', 'Type', 'Status', 'Raw Status', 'City', 'County', 'Region', 'Developer', 'Disclosed Load', 'Lat', 'Lng', 'Verified', 'Confidence', 'Source URL', 'Note'];
     const esc = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
-    const body = rows.map(r => [r.name, r.type, this.STATUS[r.status].label, r.city, r.county, r.region, r.operator, r.load || '', r.acres, r.water, r.lat, r.lng, r.updated, r.note].map(esc).join(','));
+    const st = (r) => (this.STATUS[r.status] || this.STATUS.Proposed).label;
+    const body = rows.map(r => [r.name, r.type, st(r), r.rawStatus || '', r.city, r.county, r.region, r.operator, r.loadLabel || 'Undisclosed', r.lat, r.lng, r.updated || '', r.confidence || '', r.sourceUrl || '', r.note || ''].map(esc).join(','));
     const csv = [head.join(',')].concat(body).join('\n');
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'michigan-data-center-tracker.csv';
@@ -797,26 +914,31 @@ class Component extends DCLogic {
   printReport() {
     const rows = this.filtered(); const w = window.open('', '_blank'); if (!w) return;
     const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    const tr = rows.map(r => '<tr><td><strong>' + r.name + '</strong><br><span class="m">' + r.city + ' · ' + r.county + ' County</span></td><td>' + this.STATUS[r.status].label + '</td><td>' + (r.type === 'moratorium' ? '—' : r.load + ' MW') + '</td><td>' + r.operator + '</td><td>' + r.updated + '</td></tr>').join('');
-    w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Michigan Data Center Tracker — Report</title><link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Archivo:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{font-family:Archivo,sans-serif;color:#16140f;margin:40px}h1{font-family:\'Saira Condensed\',sans-serif;font-size:30px;letter-spacing:.01em;margin:0}.rule{height:3px;width:120px;background:#E03131;margin:8px 0 4px}.sub{font-family:\'Space Mono\',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#777}table{width:100%;border-collapse:collapse;margin-top:24px;font-size:12px}th{text-align:left;font-family:\'Space Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#999;border-bottom:2px solid #16140f;padding:8px 10px}td{padding:10px;border-bottom:1px solid #e5e2dc;vertical-align:top}td .m{color:#888;font-size:11px}strong{font-family:\'Saira Condensed\',sans-serif;font-weight:700;font-size:15px}footer{margin-top:24px;font-size:10px;color:#999}@media print{body{margin:18mm}}</style></head><body><h1>MICHIGAN DATA CENTER TRACKER</h1><div class="rule"></div><div class="sub">Site report · ' + rows.length + ' records · ' + today + '</div><table><thead><tr><th>Site</th><th>Status</th><th>Load</th><th>Operator</th><th>Updated</th></tr></thead><tbody>' + tr + '</tbody></table><footer>Independent · Nonpartisan · figures are placeholders pending source verification.</footer></body></html>');
+    const st = (r) => (this.STATUS[r.status] || this.STATUS.Proposed).label;
+    const tr = rows.map(r => '<tr><td><strong>' + r.name + '</strong><br><span class="m">' + r.city + ' · ' + r.county + ' County</span></td><td>' + st(r) + '</td><td>' + (r.loadLabel || 'Undisclosed') + '</td><td>' + (r.operator || '—') + '</td><td>' + this.fmtDate(r.updated) + '</td></tr>').join('');
+    w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Michigan Data Center Tracker — Report</title><link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Archivo:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{font-family:Archivo,sans-serif;color:#16140f;margin:40px}h1{font-family:\'Saira Condensed\',sans-serif;font-size:30px;letter-spacing:.01em;margin:0}.rule{height:3px;width:120px;background:#E03131;margin:8px 0 4px}.sub{font-family:\'Space Mono\',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#777}table{width:100%;border-collapse:collapse;margin-top:24px;font-size:12px}th{text-align:left;font-family:\'Space Mono\',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#999;border-bottom:2px solid #16140f;padding:8px 10px}td{padding:10px;border-bottom:1px solid #e5e2dc;vertical-align:top}td .m{color:#888;font-size:11px}strong{font-family:\'Saira Condensed\',sans-serif;font-weight:700;font-size:15px}footer{margin-top:24px;font-size:10px;color:#999}@media print{body{margin:18mm}}</style></head><body><h1>MICHIGAN DATA CENTER TRACKER</h1><div class="rule"></div><div class="sub">Site report · ' + rows.length + ' records · ' + today + '</div><table><thead><tr><th>Site</th><th>Status</th><th>Load</th><th>Developer</th><th>Verified</th></tr></thead><tbody>' + tr + '</tbody></table><footer>Independent · Nonpartisan · Sourced from public records.</footer></body></html>');
     w.document.close(); w.focus(); setTimeout(() => { try { w.print(); } catch (e) {} }, 500);
   }
 
   renderVals() {
     const s = this.state;
     const seg = (k) => s.basemap === k ? 'on' : '';
-    const tag = (status) => { const c = this.STATUS[status].color; return { color: c, border: '1px solid ' + c + '66' }; };
-    const dot = (status) => ({ background: this.STATUS[status].color });
+    const tag = (status) => { const meta = this.STATUS[status] || this.STATUS.Proposed; const c = meta.color; return { color: c, border: '1px solid ' + c + '66' }; };
+    const dot = (status) => ({ background: (this.STATUS[status] || this.STATUS.Proposed).color });
+    const stLabel = (status) => (this.STATUS[status] || this.STATUS.Proposed).label;
 
-    const sites = this.RECORDS.filter(r => r.type === 'site');
-    const loadGW = (sites.reduce((a, r) => a + r.load, 0) / 1000).toFixed(1);
-    const communities = new Set(this.RECORDS.map(r => r.city)).size;
-    const moratoriaCount = this.RECORDS.filter(r => r.type === 'moratorium').length;
+    const projectSites = this.RECORDS.filter(r => r.type === 'site');
+    const mdctStats = (window.MDCT && window.MDCT.stats) ? window.MDCT.stats() : {};
+    const projectCount = mdctStats.projects != null ? mdctStats.projects : projectSites.length;
+    const disclosedGW = mdctStats.disclosedGW != null
+      ? mdctStats.disclosedGW
+      : (projectSites.reduce((a, r) => a + (r.load || 0), 0) / 1000).toFixed(1);
+    const pauseCount = mdctStats.pauses != null ? mdctStats.pauses : this.RECORDS.filter(r => r.type === 'moratorium').length;
 
     const stats = [
-      { value: sites.length, label: 'Sites', cls: '' },
-      { value: loadGW + ' GW', label: 'Proposed load', cls: 'accent' },
-      { value: communities, label: 'Communities', cls: '' },
+      { value: projectCount, label: 'Projects', cls: '' },
+      { value: disclosedGW + ' GW', label: 'Disclosed load', cls: 'accent' },
+      { value: pauseCount, label: 'Pauses', cls: '' },
     ];
 
     const regions = this.REGIONS.map(r => ({ label: r.label, cls: s.region === r.key ? 'on' : '', onClick: () => this.setState({ region: r.key }) }));
@@ -827,11 +949,19 @@ class Component extends DCLogic {
       toggle: () => this.setState(st => ({ status: { ...st.status, [k]: !st.status[k] } })),
     }));
 
+    const layerCount = (k) => {
+      const n = this._layerCounts[k];
+      return n == null ? '—' : n;
+    };
     const layerDefs = [
-      { key: 'transmission', label: 'Transmission corridors', color: '#9c5fc9', shape: 'line', count: this.CONTEXT.transmission.length },
-      { key: 'substations',  label: 'Substations',            color: '#fbbf24', shape: 'sq',   count: this.CONTEXT.substations.length },
-      { key: 'water',        label: 'Water intakes',          color: '#22d3ee', shape: '',     count: this.CONTEXT.water.length },
+      { key: 'transmission', label: 'Transmission corridors', color: '#9c5fc9', shape: 'line', count: layerCount('transmission') },
+      { key: 'substations',  label: 'Substations',            color: '#fbbf24', shape: 'sq',   count: layerCount('substations') },
+      { key: 'water',        label: 'Water intakes',          color: '#22d3ee', shape: '',     count: layerCount('water') },
+      { key: 'meetings',     label: 'Public meetings',        color: '#5bb3a6', shape: 'sq',   count: layerCount('meetings') },
     ];
+    if (this._layerCounts.power_plants > 0) {
+      layerDefs.push({ key: 'power_plants', label: 'Power plants', color: '#e8a54b', shape: '', count: layerCount('power_plants') });
+    }
     const layerRows = layerDefs.map(l => ({
       label: l.label, count: l.count, shape: l.shape, cls: s.layers[l.key] ? 'on' : 'off',
       dotStyle: l.shape === 'line' ? { color: l.color } : { background: l.color },
@@ -843,7 +973,8 @@ class Component extends DCLogic {
     if (s.userLoc) withDist.sort((a, b) => a.mi - b.mi);
     const directory = withDist.map(({ r, mi }) => ({
       name: r.name, place: r.city + ' · ' + r.county + ' County',
-      statusLabel: this.STATUS[r.status].label, loadLabel: r.type === 'moratorium' ? 'Moratorium' : r.load + ' MW',
+      statusLabel: stLabel(r.status),
+      loadLabel: r.type === 'moratorium' ? 'Moratorium' : (r.type === 'meeting' ? 'Meeting' : (r.loadLabel || 'Undisclosed')),
       cls: r.id === s.selectedId ? 'on' : '', dotStyle: dot(r.status), tagStyle: tag(r.status),
       distLabel: mi == null ? '' : (mi < 10 ? mi.toFixed(1) : Math.round(mi)) + ' mi',
       onSelect: () => this.select(r.id),
@@ -851,27 +982,31 @@ class Component extends DCLogic {
 
     const r = this.RECORDS.find(x => x.id === s.selectedId);
     const inView = r && s.status[r.status] && (s.region === 'all' || r.region === s.region);
-    const isM = r && r.type === 'moratorium';
+    const typeLabel = r && (r.type === 'moratorium' ? 'Moratorium / pause' : (r.type === 'meeting' ? 'Public meeting' : (r.type === 'power_plant' ? 'Power plant' : 'Data center')));
     const sel = r ? {
-      name: r.name, typeLabel: isM ? 'Moratorium / pause' : 'Data center',
-      place: r.city + ' · ' + r.county + ' County', statusLabel: this.STATUS[r.status].label,
-      note: r.note, tagStyle: tag(r.status), borderStyle: { borderLeftColor: this.STATUS[r.status].color },
-      facts: isM
-        ? [ { k: 'Type', v: r.mType }, { k: 'Expires', v: r.expires }, { k: 'County', v: r.county }, { k: 'Adopted', v: r.updated } ]
-        : [ { k: 'Proposed load', v: r.load + ' MW' }, { k: 'Site size', v: r.acres }, { k: 'Operator', v: r.operator, cls: 'sm' }, { k: 'Water/day', v: r.water, cls: 'sm' } ],
-      showImpact: !isM,
-      jobs: isM ? '—' : r.jobs + ' permanent',
-      rate: isM ? '—' : r.rate,
-      rateCls: (!isM && /special|sought/i.test(r.rate || '')) ? 'flag' : '',
+      name: r.name, typeLabel,
+      place: r.city + ' · ' + r.county + ' County', statusLabel: stLabel(r.status),
+      note: r.note, tagStyle: tag(r.status), borderStyle: { borderLeftColor: (this.STATUS[r.status] || this.STATUS.Proposed).color },
+      facts: [
+        { k: 'Disclosed load', v: r.loadLabel || 'Undisclosed' },
+        { k: 'Status', v: r.rawStatus || stLabel(r.status), cls: 'sm' },
+        { k: 'Developer', v: r.operator || '—', cls: 'sm' },
+        { k: 'Verified', v: this.fmtDate(r.updated), cls: 'sm' },
+        { k: 'Confidence', v: r.confidence || '—', cls: 'sm' },
+      ],
+      hasSource: !!r.sourceUrl,
+      sourceUrl: r.sourceUrl || '',
       focus: () => { this.setState({ panelOpen: false }); this.focusSelected(true); },
     } : {};
 
-    const legendRows = [
-      ...Object.keys(this.STATUS).map(k => ({ label: this.STATUS[k].label, shape: k === 'Moratorium' ? 'sq' : '', dotStyle: dot(k) })),
-    ];
+    const legendRows = Object.keys(this.STATUS).map(k => ({
+      label: this.STATUS[k].label,
+      shape: (k === 'Moratorium' || k === 'Meeting') ? 'sq' : '',
+      dotStyle: dot(k),
+    }));
 
     return {
-      stats, moratoriaCount,
+      stats,
       bmDark: seg('dark'), bmDay: seg('day'), bmSat: seg('sat'),
       setDark: () => { try { window.MDCTTheme?.set('dark'); } catch (e) {} this.setState({ basemap: 'dark' }); },
       setDay: () => { try { window.MDCTTheme?.set('light'); } catch (e) {} this.setState({ basemap: 'day' }); },
@@ -882,7 +1017,7 @@ class Component extends DCLogic {
       regions, statusRows, layerRows, directory, sel, legendRows,
       hasSelected: !!r && inView,
       query: s.query, onQuery: (e) => this.setState({ query: e.target.value }),
-      resetStatus: () => this.setState({ status: { Operating: true, Construction: true, Permitting: true, Proposed: true, Moratorium: true } }),
+      resetStatus: () => this.setState({ status: { Operating: true, Construction: true, Proposed: true, Withdrawn: true, Moratorium: true, Meeting: true } }),
       resultLabel: list.length + ' / ' + this.RECORDS.length,
       legendOpen: s.legendOpen, toggleLegend: () => this.setState(st => ({ legendOpen: !st.legendOpen })),
       panelCls: s.panelOpen ? 'open' : '', togglePanel: () => this.setState(st => ({ panelOpen: !st.panelOpen })),

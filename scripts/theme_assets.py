@@ -8,6 +8,9 @@ from pathlib import Path
 
 SITE_BASE = "/mi-data-center-tracker/"
 THEME_CSS_LINK = f'<link rel="stylesheet" href="{SITE_BASE}theme.css">'
+CONTENT_DATA_SCRIPT = f'<script src="{SITE_BASE}content-data.js"></script>'
+EDITORIAL_SCRIPT = f'<script src="{SITE_BASE}mdct-editorial.js"></script>'
+MAP_DATA_SCRIPT = f'<script src="{SITE_BASE}map-points-data.js"></script>'
 
 THEME_TOGGLE = (
     '<button type="button" class="mdct-theme-btn" aria-label="Switch to light mode" '
@@ -70,6 +73,7 @@ def wrap_bundle_document(
     support_uuid: str,
     *,
     base_href: str = SITE_BASE,
+    extra_head: str = "",
 ) -> str:
     """Wrap x-dc inner markup in the full HTML document the bundler expects."""
     tpl = (
@@ -78,6 +82,9 @@ def wrap_bundle_document(
         f'<base href="{base_href}">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
         f"{THEME_HEAD_SCRIPTS}\n"
+        f"{CONTENT_DATA_SCRIPT}\n"
+        f"{EDITORIAL_SCRIPT}\n"
+        f"{extra_head}"
         f'<script src="{support_uuid}"></script>\n'
         "</head>\n<body>\n<x-dc>\n"
         f"{inner}\n"

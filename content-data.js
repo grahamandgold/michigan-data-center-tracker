@@ -1,0 +1,210 @@
+/**
+ * Michigan Data Center Tracker — editorial content data
+ * ------------------------------------------------------
+ * This is the ONE file to edit for routine daily updates (see EDITORIAL-GUIDE.md).
+ * Every headline below is ORIGINAL tracker language — never a copied source
+ * headline — and every item links to the source that supports it.
+ *
+ * regions: 'metro' = SE Michigan (incl. Ann Arbor) · 'west' = West Michigan
+ *          'mid'   = Mid-Michigan (Tri-Cities, Lansing, Jackson)
+ *          'north' = Northern Michigan (Mt Pleasant northward + UP)
+ *
+ * Consumed by: index.html (Live Wire, On Deck, By the Numbers),
+ *              stories.html (Hot Right Now, Regional News, story grid),
+ *              meetings.html (Upcoming + Watch list).
+ */
+window.MDCT_UPDATED = '2026-07-08T09:00:00-04:00';
+
+/* ---- Live Wire / Stories ------------------------------------------------ */
+window.MDCT_HEADLINES = [
+  {
+    iso: '2026-07-07T16:00', region: 'metro', cat: 'Washtenaw Co.', tag: 'Power & Grid',
+    title: 'Consumers Energy withdraws plan for a 1.4 GW gas plant on Lima Township farmland after months of resident pushback',
+    dek: 'The utility pulled its proposal for 120 acres near Chelsea on July 1. Residents suspected a link to the Saline data center campus; Consumers denied one.',
+    source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/07/07/how-a-rural-michigan-community-stopped-a-proposed-1-4-gigawatt-power-plant/',
+    breaking: true, lead: true
+  },
+  {
+    iso: '2026-06-18T12:00', region: 'statewide', cat: 'STATEWIDE', tag: 'Policy',
+    title: 'Senate Democrats introduce an eight-bill package putting water caps, cost guarantees, and labor rules on data centers',
+    dek: 'SB 1046–1051 would cap water use at 2M gallons a day, make data centers pay full power costs, ban officials from signing NDAs, and require community benefits agreements. Gov. Whitmer endorsed the package.',
+    source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/18/senate-democrats-propose-tighter-regulations-on-data-centers-amid-statewide-backlash/'
+  },
+  {
+    iso: '2026-06-26T12:00', region: 'statewide', cat: 'STATEWIDE', tag: 'Policy',
+    title: 'House Democrats follow with their own guardrail package — HB 6135–6142 adds a noise study to the mix',
+    dek: 'The House bills cover full-cost-of-service power, community benefits, water rules, an NDA ban tied to tax incentives, and decommissioning funds. Three more bills are expected.',
+    source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/26/michigan-house-democrats-pitch-transparency-community-benefit-requirements-for-data-centers/'
+  },
+  {
+    iso: '2026-06-24T12:00', region: 'statewide', cat: 'STATEWIDE', tag: 'Policy',
+    title: 'Bipartisan Capitol rally renews the push for a one-year statewide data center moratorium',
+    dek: 'Sen. Runestad and Rep. Wortz hosted residents and local officials on the Capitol lawn June 23. His SB 1018–1020 moratorium package sits in a committee unlikely to hear it.',
+    source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/24/michigan-lawmakers-residents-renew-push-for-statewide-data-center-moratorium/'
+  },
+  {
+    iso: '2026-06-25T12:00', region: 'metro', cat: 'Macomb Co.', tag: 'Local Government',
+    title: 'FOIA’d emails show Washington Township coordinated with Prologis for months on a withdrawn 800 MW campus',
+    dek: '1,642 pages of records fueled resident demands for transparency. Prologis pulled its application May 19; the township then passed a six-month moratorium.',
+    source: 'WDIV ClickOnDetroit', url: 'https://www.clickondetroit.com/news/investigations/2026/06/25/washington-township-residents-demand-transparency-after-data-center-emails-exposed/'
+  },
+  {
+    iso: '2026-06-01T12:00', region: 'metro', cat: 'Washtenaw Co.', tag: 'Power & Grid',
+    title: 'Altman and Whitmer mark construction at the $16B, 1.4 GW Stargate campus in Saline Township',
+    dek: 'Related Digital, Oracle, and OpenAI celebrated the 250-acre build June 1, announcing $22M in community investments and 2,500 union construction jobs.',
+    source: 'The Detroit News', url: 'https://www.detroitnews.com/story/news/local/michigan/2026/06/01/openai-ceo-sam-altman-oracle-clay-magouyrk-visit-saline-township-data-center-site/90296951007/'
+  },
+  {
+    iso: '2026-05-06T12:00', region: 'metro', cat: 'Washtenaw Co.', tag: 'Local Government',
+    title: 'Saline Township voters rejected the Stargate project — construction began anyway under a consent judgment',
+    dek: 'A pre-existing legal settlement let the project proceed despite the referendum result, a case study in how binding township votes actually are.',
+    source: 'Fortune', url: 'https://fortune.com/2026/05/06/ai-data-center-michigan-saline-politics-farmland/'
+  },
+  {
+    iso: '2026-06-18T09:00', region: 'metro', cat: 'Wayne Co.', tag: 'Water',
+    title: "Google's 1 GW Van Buren Township project would fill 13.5 acres of wetlands, state filings show",
+    dek: "The 'Project Cannoli' wetland permit is contested; the township approved its DTE substation in May after a five-hour meeting.",
+    source: 'Planet Detroit', url: 'https://planetdetroit.org/2026/06/google-data-center-wetlands/'
+  },
+  {
+    iso: '2026-06-26T09:00', region: 'metro', cat: 'Washtenaw Co.', tag: 'Policy',
+    title: "Lawmakers move to end U-M's zoning exemption as its $1.2B Ypsilanti Township data center advances",
+    dek: 'Rep. Jimmie Wilson Jr. cites the university’s 124-acre purchase. The township opposes the project and the local water authority has a 12-month service moratorium.',
+    source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/26/democrats-seek-to-end-university-of-michigans-exemption-from-local-zoning-laws/'
+  },
+  {
+    iso: '2026-07-01T12:00', region: 'metro', cat: 'Oakland Co.', tag: 'Local Government',
+    title: 'Oakland University trustees advance a campus data center to the due-diligence phase',
+    dek: 'The Fairmount Properties project near Lot 37 moves to environmental study before any final approval.',
+    source: 'WXYZ Detroit', url: 'https://www.wxyz.com/news/data-centers/oakland-university-board-votes-to-advance-campus-data-center-project-to-due-diligence-phase'
+  },
+  {
+    iso: '2026-04-16T12:00', region: 'west', cat: 'Kent Co.', tag: 'Local Government',
+    title: "Gaines Township tables Microsoft's data center rezoning after an hours-long public hearing",
+    dek: 'Microsoft offered binding commitments — a 65 dB noise cap, 150-ft setbacks, no groundwater use, no tax abatements. The request remains tabled with no new date.',
+    source: 'WWMT', url: 'https://wwmt.com/news/local/microsoft-data-center-decision-vote-planning-commission-public-hearing-gaines-township-kent-county-caledonia-byron-center-wwmt'
+  },
+  {
+    iso: '2026-06-17T12:00', region: 'west', cat: 'Kent Co.', tag: 'Local Government',
+    title: 'Recall petitions approved against three Lowell Township board members who voted down a data center moratorium',
+    dek: 'The Kent County Election Commission cleared the petitions as Microsoft eyes a five-building campus in the township.',
+    source: 'MLive', url: 'https://www.mlive.com/news/grand-rapids/2026/06/recall-petition-targets-3-lowell-township-board-members-over-data-center.html'
+  },
+  {
+    iso: '2026-06-20T12:00', region: 'west', cat: 'Kent Co.', tag: 'Local Government',
+    title: 'Solon Township tables the fifth draft of its data center zoning ordinance as an August moratorium deadline nears',
+    dek: 'Residents demanded stricter rules; an unnamed developer is interested in an 800+ acre site.',
+    source: 'MLive', url: 'https://www.mlive.com/news/grand-rapids/2026/06/west-michigan-town-tables-data-center-vote-after-residents-demand-stricter-rules.html'
+  },
+  {
+    iso: '2026-07-05T09:00', region: 'west', cat: 'Kalamazoo Co.', tag: 'Local Government',
+    title: 'Texas Township’s 12-month data center moratorium takes effect, joining Portage and Oshtemo',
+    dek: 'The pause took effect July 5 while the township writes zoning standards for large-load development.',
+    source: 'MLive', url: 'https://www.mlive.com/news/kalamazoo/2026/06/township-near-kalamazoo-approves-12-month-moratorium-blocking-data-centers.html'
+  },
+  {
+    iso: '2026-06-08T12:00', region: 'west', cat: 'Kalamazoo Co.', tag: 'Money',
+    title: 'A Kalamazoo cannabis processor pitches its power-hungry grow facility to AI data center developers',
+    dek: 'Harbor Farmz is marketing 1 MW now — up to 15 MW in three years — for inference computing. The city says no formal proposal has been filed.',
+    source: "Crain's Detroit", url: 'https://www.crainsdetroit.com/cannabis/cdb-harbor-farmz-looks-to-data-centers-20260608/'
+  },
+  {
+    iso: '2026-05-27T12:00', region: 'west', cat: 'Cass Co.', tag: 'Local Government',
+    title: 'Federal class action targets nonstop noise from the Dowagiac Bitcoin-mining campus now pivoting to AI',
+    dek: 'Residents compare the hum to living next to a highway that never sleeps. Hyperscale Data has since bought 48.5 more acres.',
+    source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/05/27/federal-class-action-lawsuit-filed-over-dowagiac-data-center-noise/'
+  },
+  {
+    iso: '2026-06-23T18:00', region: 'mid', cat: 'Ingham Co.', tag: 'Local Government',
+    title: 'Lansing moves toward a 182-day data center moratorium after Deep Green pulled its downtown proposal',
+    dek: 'The UK firm withdrew its 24 MW, $120M project April 6, just before a rezoning vote. A public hearing on the pause is set for July 13.',
+    source: 'Lansing State Journal', url: 'https://www.lansingstatejournal.com/story/news/local/2026/06/23/data-center-moratorium-lansing-city-council/90656448007/'
+  },
+  {
+    iso: '2026-06-16T12:00', region: 'mid', cat: 'Ingham Co.', tag: 'Local Government',
+    title: 'Press association says Mason’s 60-day FOIA delays on data center records are illegal',
+    dek: 'The city cited a surge of data-center-driven records requests; the Michigan Press Association says the law does not allow that timeline.',
+    source: 'WKAR', url: 'https://www.wkar.org/wkar-news/2026-06-16/michigan-press-association-raises-concerns-over-mason-foia-delays-tied-to-data-centers'
+  },
+  {
+    iso: '2026-01-13T12:00', region: 'mid', cat: 'Saginaw Co.', tag: 'Local Government',
+    title: 'Saginaw’s six-month blanket prohibition on data centers nears its expiration window',
+    dek: 'Council adopted the unanimous pause January 13. What replaces it — new standards or an extension — is now the question.',
+    source: 'WNEM', url: 'https://www.wnem.com/2026/01/13/city-saginaw-placing-moratorium-data-centers/'
+  },
+  {
+    iso: '2026-06-23T09:00', region: 'north', cat: 'NORTHERN MI', tag: 'Explainers',
+    title: 'How easily could a hyperscale data center land in northern Michigan? Zoning gaps leave the door open',
+    dek: 'Interlochen Public Radio examines which northern townships have rules on the books — and which would be caught flat-footed.',
+    source: 'Michigan Advance / IPR', url: 'https://michiganadvance.com/2026/06/23/how-easily-could-a-big-data-center-set-up-in-northern-michigan/'
+  },
+  {
+    iso: '2026-06-15T12:00', region: 'north', cat: 'Marquette Co.', tag: 'Local Government',
+    title: 'Data center rumors pack a UP township meeting — officials say no application has been filed',
+    dek: 'A speculative ~1,000-acre concept near the former K.I. Sawyer base drew an overflow crowd in West Branch Township. No permits, no named end users.',
+    source: 'My UP Now', url: 'https://www.myupnow.com/news/local/data-center-rumors-pack-up-township-meeting-what-we-know-so-far/article_ecad47da-1476-428d-9844-6641509ada9d.html'
+  },
+  {
+    iso: '2026-06-10T12:00', region: 'north', cat: 'Grand Traverse Co.', tag: 'Local Government',
+    title: 'Traverse City-area townships start writing data center rules before anyone asks to build',
+    dek: 'Garfield and East Bay townships are updating zoning now so they are not reacting to a live application later.',
+    source: 'The Ticker', url: 'https://www.traverseticker.com/news/we-ought-to-be-ready-communities-start-preparing-for-data-centers/'
+  },
+  {
+    iso: '2025-11-20T12:00', region: 'north', cat: 'Kalkaska Co.', tag: 'Local Government',
+    title: 'The 1 GW Kalkaska proposal is dead — DNR refused state land and public opposition finished it',
+    dek: 'Rocklocker’s 1,440-acre concept collapsed in November, the north’s clearest signal yet that siting is not a formality.',
+    source: '9&10 News', url: 'https://www.9and10news.com/2025/11/20/kalkaska-county-data-center-project-halted-after-public-opposition/'
+  }
+];
+
+/* ---- Meetings / On Deck -------------------------------------------------- */
+/* status containing "vote" or urgent:true renders red. flag: shows an
+   unconfirmed-date warning. link: official agenda page or source article.   */
+window.MDCT_MEETINGS = [
+  { iso: '2026-07-08', body: 'Saline Township Board', topic: 'Regular meeting — Stargate construction updates possible', region: 'SE Michigan', regionKey: 'metro', county: 'Washtenaw', time: '7:00 PM', status: 'Board meeting', urgent: false, link: 'https://salinetownship.org/meeting-agendas.php', linkLabel: 'Agenda' },
+  { iso: '2026-07-09', body: 'Lenox Township Board', topic: 'Regular meeting — data center zoning on the radar', region: 'SE Michigan', regionKey: 'metro', county: 'Macomb', time: '7:00 PM', status: 'Board meeting', urgent: false, link: 'https://www.lenox-mi.gov/agendacenter', linkLabel: 'Agenda' },
+  { iso: '2026-07-10', body: 'MI Public Service Commission', topic: 'Open meeting — oversees large-load electric agreements', region: 'Mid-Michigan', regionKey: 'mid', county: 'Ingham', time: '9:00 AM', status: 'State hearing', urgent: false, link: 'https://www.michigan.gov/mpsc/commission/meetings', linkLabel: 'Agenda' },
+  { iso: '2026-07-13', body: 'Lansing City Council — Development & Planning', topic: 'Public hearing: 182-day data center moratorium', region: 'Mid-Michigan', regionKey: 'mid', county: 'Ingham', time: '7:00 PM', status: 'Public hearing', urgent: true, link: 'https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/', linkLabel: 'Details' },
+];
+
+/* Watch list — no confirmed date, but decisions are pending. */
+window.MDCT_WATCHLIST = [
+  { body: 'Gaines Township Planning Commission', topic: 'Microsoft campus rezoning — tabled since April 15, no new date', region: 'West Michigan', county: 'Kent', status: 'Tabled', link: 'https://wwmt.com/news/local/microsoft-data-center-decision-vote-planning-commission-public-hearing-gaines-township-kent-county-caledonia-byron-center-wwmt' },
+  { body: 'Solon Township Planning Commission', topic: 'Data center zoning ordinance (draft 5) — moratorium expires in August', region: 'West Michigan', county: 'Kent', status: 'Deadline: Aug', link: 'https://www.mlive.com/news/grand-rapids/2026/06/west-michigan-town-tables-data-center-vote-after-residents-demand-stricter-rules.html' },
+  { body: 'Senate Energy & Environment Committee', topic: 'SB 1046–1051 regulation package — introduced June 18, awaiting a hearing', region: 'Statewide', county: '—', status: 'Awaiting hearing', link: 'https://michiganadvance.com/2026/06/18/senate-democrats-propose-tighter-regulations-on-data-centers-amid-statewide-backlash/' },
+  { body: 'Senate Government Operations Committee', topic: 'SB 1018–1020 one-year statewide moratorium — no hearing scheduled', region: 'Statewide', county: '—', status: 'Stalled', link: 'https://www.legislature.mi.gov/Bills/Bill?ObjectName=2026-SB-1018' },
+  { body: 'City of Saginaw', topic: 'Six-month moratorium reaches its expiration window — next step unannounced', region: 'Mid-Michigan', county: 'Saginaw', status: 'Expiring', link: 'https://www.wnem.com/2026/01/13/city-saginaw-placing-moratorium-data-centers/' },
+];
+
+/* ---- Community discussion feed ------------------------------------------ */
+/* Per EDITORIAL-GUIDE.md: no API keys in this repo, and never invent posts.
+   Point public_monitor_url at a read-only JSON endpoint to go live.
+   Until then the UI renders honest "connect" placeholders with live search
+   links so readers can find the conversation themselves.                    */
+window.MDCT_SOCIAL = {
+  public_monitor_url: '',
+  discover: [
+    { platform: 'Reddit', label: 'r/Michigan — “data center” discussions', url: 'https://www.reddit.com/r/Michigan/search/?q=data%20center&sort=new' },
+    { platform: 'Reddit', label: 'r/Detroit — “data center” discussions', url: 'https://www.reddit.com/r/Detroit/search/?q=data%20center&sort=new' },
+    { platform: 'X', label: 'Live X search: Michigan data centers', url: 'https://x.com/search?q=michigan%20data%20center&f=live' },
+  ]
+};
+
+/* ---- By the Numbers (computed from map-data.json, updated 2026-06-29) ---- */
+/* Rebuild by hand or with: node scripts/compute-stats.mjs                    */
+window.MDCT_STATS = {
+  projects: 19, activeProjects: 15, disclosedGW: '2.5', pauses: 32, communities: 72,
+  statusBreakdown: [
+    { label: 'Under construction', count: 1, color: '#dd8048' },
+    { label: 'Approved', count: 3, color: '#E03131' },
+    { label: 'Proposed / under review', count: 11, color: '#bda35f' },
+    { label: 'Withdrawn / rejected', count: 4, color: '#6f6a64' }
+  ],
+  byRegion: [
+    { label: 'SE Michigan', projects: 12, pauses: 21 },
+    { label: 'West Michigan', projects: 4, pauses: 3 },
+    { label: 'Mid-Michigan', projects: 2, pauses: 4 },
+    { label: 'Northern Michigan', projects: 1, pauses: 4 }
+  ]
+};

@@ -2,7 +2,7 @@
 
 Independent public-source tracking of Michigan data center projects, public meetings, moratoria, power, water, and policy.
 
-**Live site:** https://midatacentertracker.github.io/mi-data-center-tracker/
+**Live site:** https://grahamandgold.github.io/mi-data-center-tracker/
 
 **AI assistants:** read [`AI_HANDOFF.md`](AI_HANDOFF.md) and [`docs/REPO_BOUNDARIES.md`](docs/REPO_BOUNDARIES.md).
 
@@ -35,8 +35,11 @@ Coverage language should say **tracked**, **monitored**, or **updated as records
 
 ## Data layers
 
+- `content-data.js` — **daily editorial updates** (wire, stories, meetings, watch list, stats)
+- `mdct-editorial.js` — shared render helpers (recency badges, date formatting)
+- `map-data.json` — sourced map export (projects, moratoria, meetings)
 - `geo/` — Michigan county and infrastructure GeoJSON
-- `map-points-data.js` — sourced project and moratorium pins
+- `map-points-data.js` — sync fallback for map pins
 - `map-layers-data.js` — transmission and grid overlays
 - `map-data.json` — consolidated map records
 

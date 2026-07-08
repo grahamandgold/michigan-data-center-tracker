@@ -53,6 +53,9 @@
   .chip.on { background:#E03131; border-color:#E03131; color:#100f0e; font-weight:700; }
   .mrow { display:grid; grid-template-columns:96px 1fr auto; gap:24px; align-items:center; padding:22px 24px; border:1px solid #221f1b; border-radius:0; background:#16140f; transition:border-color .18s ease, transform .18s ease; }
   .mrow:hover { border-color:#45403a; transform:translateY(-2px); }
+  .mrow.urgent { border-color:#4a2626; border-left:3px solid #E03131; }
+  .wrow { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; padding:22px 24px; border:1px solid #221f1b; border-radius:0; background:#16140f; transition:border-color .18s ease, transform .18s ease; }
+  .wrow:hover { border-color:#45403a; transform:translateY(-2px); }
   .wrap { max-width:1080px; margin:0 auto; padding:0 44px; }
   .datechip { display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid #2b2824; border-radius:0; padding:10px 0; background:#13110d; }
   @media (max-width:760px) {
@@ -130,31 +133,54 @@
     </div>
   </div>
 
-  <!-- county filter -->
+  <!-- region filter -->
   <div class="wrap" style="padding-top:40px;">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap;">
       <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:26px;margin:0;color:#f4f1ee;">Upcoming</h2>
       <span style="font-family:'Space Mono',monospace;font-size:12px;color:#7d7975;">{{ count }} scheduled</span>
     </div>
     <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;">
-      <sc-for list="{{ counties }}" as="c" hint-placeholder-count="5">
-        <button class="chip {{ c.cls }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+      <sc-for list="{{ regions }}" as="r" hint-placeholder-count="5">
+        <button class="chip {{ r.cls }}" onClick="{{ r.onClick }}">{{ r.label }}</button>
       </sc-for>
     </div>
   </div>
 
   <!-- meeting list -->
-  <div class="wrap" style="padding-top:22px;padding-bottom:60px;">
+  <div class="wrap" style="padding-top:22px;padding-bottom:40px;">
     <div style="display:flex;flex-direction:column;gap:14px;">
       <sc-for list="{{ meetings }}" as="m" hint-placeholder-count="5">
-        <div class="mrow">
+        <div class="mrow {{ m.urgentCls }}">
           <div class="datechip"><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#E03131;">{{ m.mon }}</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;line-height:1;color:#f4f1ee;">{{ m.day }}</span></div>
           <div style="min-width:0;">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:7px;flex-wrap:wrap;"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:{{ m.tagColor }};border:1px solid {{ m.tagBorder }};border-radius:0;padding:2px 7px;">{{ m.type }}</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#7d7975;">{{ m.time }} · {{ m.county }} County</span></div>
-            <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.06;color:#f4f1ee;margin-bottom:4px;">{{ m.title }}</div>
-            <div style="font-size:13.5px;color:#8c8884;line-height:1.5;">{{ m.where }} · {{ m.agenda }}</div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:7px;flex-wrap:wrap;"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:{{ m.tagColor }};border:1px solid {{ m.tagBorder }};border-radius:0;padding:2px 7px;">{{ m.status }}</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#7d7975;">{{ m.time }} · {{ m.loc }}</span><span style="font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9b9794;border:1px solid #322e29;padding:2px 8px;">{{ m.region }}</span></div>
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.06;color:#f4f1ee;margin-bottom:4px;">{{ m.body }}</div>
+            <div style="font-size:13.5px;color:#8c8884;line-height:1.5;">{{ m.topic }}</div>
           </div>
-          <a class="mcta" href="#" style="justify-self:end;text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#cbc7c3;border:1px solid #3a3733;border-radius:0;padding:11px 16px;white-space:nowrap;transition:border-color .15s,color .15s;" style-hover="border-color:#6f6b67;color:#f4f1ee;">Agenda &amp; how to comment →</a>
+          <a class="mcta" href="{{ m.link }}" target="_blank" rel="noopener" style="justify-self:end;text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#cbc7c3;border:1px solid #3a3733;border-radius:0;padding:11px 16px;white-space:nowrap;transition:border-color .15s,color .15s;" style-hover="border-color:#6f6b67;color:#f4f1ee;">{{ m.linkLabel }} →</a>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- watch list -->
+  <div class="wrap" style="padding-bottom:60px;">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap;">
+      <div>
+        <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:26px;margin:0 0 6px;color:#f4f1ee;">Watch list</h2>
+        <p style="margin:0;color:#8c8884;font-size:14.5px;line-height:1.55;max-width:520px;">No confirmed date yet — but decisions are pending. We add these to the calendar the moment a hearing is posted.</p>
+      </div>
+      <span style="font-family:'Space Mono',monospace;font-size:12px;color:#7d7975;flex-shrink:0;">{{ watchCount }} tracking</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ watchlist }}" as="w" hint-placeholder-count="3">
+        <div class="wrow">
+          <div style="min-width:0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:7px;flex-wrap:wrap;"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:{{ w.tagColor }};border:1px solid {{ w.tagBorder }};border-radius:0;padding:2px 7px;">{{ w.status }}</span><span style="font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9b9794;border:1px solid #322e29;padding:2px 8px;">{{ w.region }}</span></div>
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.06;color:#f4f1ee;margin-bottom:4px;">{{ w.body }}</div>
+            <div style="font-size:13.5px;color:#8c8884;line-height:1.5;">{{ w.topic }}</div>
+          </div>
+          <a href="{{ w.link }}" target="_blank" rel="noopener" style="justify-self:end;text-decoration:none;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em;color:#cbc7c3;border:1px solid #3a3733;border-radius:0;padding:11px 16px;white-space:nowrap;transition:border-color .15s,color .15s;" style-hover="border-color:#6f6b67;color:#f4f1ee;">Source ↗</a>
         </div>
       </sc-for>
     </div>
@@ -192,35 +218,87 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { menuOpen: false, county: 'All', alertPending: true, alertDone: false };
+  state = { menuOpen: false, region: 'all', alertPending: true, alertDone: false };
 
   renderVals() {
     const s = this.state;
+    const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const TYPE = {
+      'Board meeting': { c: '#7fb0e0', b: '#26384a' },
+      'State hearing': { c: '#E03131', b: '#4a2626' },
+      'Public hearing': { c: '#E03131', b: '#4a2626' },
       'Planning Commission': { c: '#bda35f', b: '#4a4226' },
       'Township Board': { c: '#7fb0e0', b: '#26384a' },
       'State Hearing': { c: '#E03131', b: '#4a2626' },
       'Public Comment': { c: '#9bc49b', b: '#2a4a2a' },
+      'Tabled': { c: '#bda35f', b: '#4a4226' },
+      'Deadline: Aug': { c: '#dd8048', b: '#4a3426' },
+      'Awaiting hearing': { c: '#7fb0e0', b: '#26384a' },
+      'Stalled': { c: '#6f6b67', b: '#2b2824' },
+      'Expiring': { c: '#dd8048', b: '#4a3426' },
     };
-    const ALL = [
-      { mon: 'Jul', day: '08', type: 'Planning Commission', time: '7:00 PM', county: 'Genesee', title: 'Mundy Township — 600 MW campus rezoning', where: 'Mundy Twp Hall', agenda: 'Site-plan review & public comment' },
-      { mon: 'Jul', day: '10', type: 'State Hearing', time: '1:00 PM', county: 'Ingham', title: 'MPSC — DTE special-rate contract docket', where: 'Lansing, MPSC', agenda: 'Saline Twp 1,383 MW load' },
-      { mon: 'Jul', day: '14', type: 'Township Board', time: '6:30 PM', county: 'Washtenaw', title: 'Saline Township — moratorium extension', where: 'Saline Twp Hall', agenda: 'Vote to extend interim pause' },
-      { mon: 'Jul', day: '16', type: 'Public Comment', time: '6:00 PM', county: 'Ottawa', title: 'Holland Bay — water withdrawal agreement', where: 'Holland City Hall', agenda: 'EGLE comment window opens' },
-      { mon: 'Jul', day: '21', type: 'Planning Commission', time: '7:00 PM', county: 'Oakland', title: 'Pontiac North — site-plan review', where: 'Pontiac City Hall', agenda: 'Brownfield redevelopment plan' },
-      { mon: 'Jul', day: '24', type: 'Township Board', time: '7:00 PM', county: 'Genesee', title: 'Grand Blanc — moratorium expiration', where: 'Grand Blanc Twp Hall', agenda: 'Adopt new zoning standards' },
+    const REGIONS = [
+      { key: 'all', label: 'All' },
+      { key: 'metro', label: 'SE Michigan' },
+      { key: 'west', label: 'West Michigan' },
+      { key: 'mid', label: 'Mid-Michigan' },
+      { key: 'north', label: 'Northern Michigan' },
     ];
-    const counties = ['All', 'Genesee', 'Washtenaw', 'Oakland', 'Ingham', 'Ottawa'];
-    const meetings = (s.county === 'All' ? ALL : ALL.filter(m => m.county === s.county)).map(m => {
-      const t = TYPE[m.type] || { c: '#9b9794', b: '#2b2824' };
-      return Object.assign({}, m, { tagColor: t.c, tagBorder: t.b });
+    const statusStyle = (status, urgent) => {
+      if (urgent) return { c: '#E03131', b: '#4a2626' };
+      const t = TYPE[status];
+      if (t) return t;
+      const low = (status || '').toLowerCase();
+      if (/state|commission|hearing|vote/.test(low)) return TYPE['State hearing'];
+      if (/planning/.test(low)) return TYPE['Planning Commission'];
+      if (/board|township|city|council/.test(low)) return TYPE['Board meeting'];
+      if (/comment/.test(low)) return TYPE['Public Comment'];
+      return { c: '#9b9794', b: '#2b2824' };
+    };
+    const isUrgent = (m) => !!(m.urgent || /vote|hearing/i.test(m.status || ''));
+    const locLabel = (county) => (county && county !== '—') ? county + ' County' : 'Statewide';
+
+    const MDCT = (typeof window !== 'undefined' && window.MDCT) || {};
+    const rawMeetings = MDCT.meetings ? MDCT.meetings() : [];
+    const filtered = s.region === 'all'
+      ? rawMeetings
+      : rawMeetings.filter(m => m.regionKey === s.region);
+    const meetings = filtered.map(m => {
+      const d = new Date(m.iso + 'T00:00:00');
+      const urgent = isUrgent(m);
+      const t = statusStyle(m.status, urgent);
+      return Object.assign({}, m, {
+        mon: MON[d.getMonth()],
+        day: String(d.getDate()).padStart(2, '0'),
+        loc: locLabel(m.county),
+        tagColor: t.c,
+        tagBorder: t.b,
+        urgentCls: urgent ? 'urgent' : '',
+        link: m.link || '#',
+        linkLabel: m.linkLabel || 'Agenda',
+      });
     });
+
+    const watchSrc = (typeof window !== 'undefined' && window.MDCT_WATCHLIST) || [];
+    const watchlist = watchSrc.map(w => {
+      const t = TYPE[w.status] || statusStyle(w.status, false);
+      return Object.assign({}, w, { tagColor: t.c, tagBorder: t.b, link: w.link || '#' });
+    });
+
     return {
       menuOpen: s.menuOpen,
       toggleMenu: () => this.setState(p => ({ menuOpen: !p.menuOpen })),
-      counties: counties.map(label => ({ label, cls: s.county === label ? 'on' : '', onClick: () => this.setState({ county: label }) })),
-      meetings, count: meetings.length,
-      alertPending: s.alertPending, alertDone: s.alertDone,
+      regions: REGIONS.map(r => ({
+        label: r.label,
+        cls: s.region === r.key ? 'on' : '',
+        onClick: () => this.setState({ region: r.key }),
+      })),
+      meetings,
+      count: meetings.length,
+      watchlist,
+      watchCount: watchlist.length,
+      alertPending: s.alertPending,
+      alertDone: s.alertDone,
       subscribeAlerts: () => this.setState({ alertPending: false, alertDone: true }),
     };
   }
