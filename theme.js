@@ -1,3 +1,5 @@
+try { history.scrollRestoration = 'manual'; } catch (e) {}
+window.addEventListener('load', function () { if (!location.hash) setTimeout(function () { window.scrollTo(0, 0); }, 60); });
 (function () {
   var KEY = "mdct-theme";
   var root = document.documentElement;

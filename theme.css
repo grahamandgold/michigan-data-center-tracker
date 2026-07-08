@@ -296,3 +296,64 @@
     display: none;
   }
 }
+/* ---- Daylight coverage for 2026-07 additions (wire, regional, hot, meetings, watch) ---- */
+[data-theme="light"] [style*="background:#16140f"],
+[data-theme="light"] [style*="background:#13110d"],
+[data-theme="light"] [style*="background:#0f0e0d"],
+[data-theme="light"] [style*="background: #16140f"] {
+  background: #ffffff !important;
+  border-color: #ddd8d2 !important;
+}
+[data-theme="light"] [style*="radial-gradient"] {
+  background: #f4f1ee !important;
+}
+[data-theme="light"] [style*="color:#f4f1ee"],
+[data-theme="light"] [style*="color:#f6f3f0"],
+[data-theme="light"] [style*="color:#dad6d1"],
+[data-theme="light"] [style*="color:#e7e3df"],
+[data-theme="light"] [style*="color:#cbc7c3"] {
+  color: #1a1813 !important;
+}
+[data-theme="light"] [style*="color:#a39e99"],
+[data-theme="light"] [style*="color:#9b9794"],
+[data-theme="light"] [style*="color:#98938e"],
+[data-theme="light"] [style*="color:#8c8884"] {
+  color: #5c5854 !important;
+}
+[data-theme="light"] .wire-grid { border-color: #ddd8d2 !important; }
+[data-theme="light"] .wire-lead {
+  background: linear-gradient(140deg, #fdf5f2 0%, #ffffff 58%) !important;
+  border-right-color: #e5e0da !important;
+}
+[data-theme="light"] .wire-lead::after { border-color: rgba(224,49,49,.08); }
+[data-theme="light"] .wire-lead-dek { color: #4a4640 !important; }
+[data-theme="light"] .wire-list { background: #faf9f5 !important; }
+[data-theme="light"] .wire-list-item { border-bottom-color: #e5e0da !important; }
+[data-theme="light"] .wire-row:hover { background: #f4f1ee !important; }
+[data-theme="light"] .wire-list-title, [data-theme="light"] .wire-lead-hl { color: #1a1813 !important; }
+[data-theme="light"] .wire-row:hover .wire-hl { color: #000 !important; }
+[data-theme="light"] .wire-head-title { color: #1a1813 !important; }
+[data-theme="light"] .wire-src-cat, [data-theme="light"] .county-chip {
+  color: #4a4640 !important; background: #f0ede8 !important; border-color: #d5d0c9 !important;
+}
+[data-theme="light"] .wire-src-line, [data-theme="light"] .wire-src-label { color: #7d7975 !important; }
+[data-theme="light"] .wire-src-link.src-x { color: #1a1813 !important; background: #f0ede8 !important; border-color: #ccc7c1 !important; }
+[data-theme="light"] .wire-tag-fresh { color: #100f0e !important; }
+[data-theme="light"] .hot-card, [data-theme="light"] .rcard, [data-theme="light"] .lead-card, [data-theme="light"] .text-card,
+[data-theme="light"] .mrow, [data-theme="light"] .wrow, [data-theme="light"] .discover-card, [data-theme="light"] .social-card {
+  background: #ffffff !important; border-color: #ddd8d2 !important;
+}
+[data-theme="light"] .hot-title, [data-theme="light"] .hc-title { color: #1a1813 !important; }
+[data-theme="light"] .hot-dek, [data-theme="light"] .text-card-dek { color: #5c5854 !important; }
+[data-theme="light"] .hot-date, [data-theme="light"] .text-card-date { color: #8a857f !important; }
+[data-theme="light"] .section-eyebrow h2, [data-theme="light"] .hot-head, [data-theme="light"] .disc-head { color: #1a1813 !important; }
+[data-theme="light"] .source-link { color: #8a6d1f !important; border-bottom-color: rgba(138,109,31,.35) !important; }
+[data-theme="light"] .mcta { color: #4a4640 !important; border-color: #ccc7c1 !important; }
+[data-theme="light"] .mcta:hover { color: #1a1813 !important; border-color: #8a857f !important; }
+[data-theme="light"] .sponsor-block, [data-theme="light"] .closing-cta {
+  background: #f4f1ee !important; border-color: #ddd8d2 !important;
+}
+[data-theme="light"] .pod-inner, [data-theme="light"] .pod {
+  background: linear-gradient(180deg, #fdf3f0, #faf9f5) !important; border-bottom-color: #e5e0da !important;
+}
+[data-theme="light"] footer { background: #f0ede8 !important; border-top-color: #ddd8d2 !important; }
