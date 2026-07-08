@@ -121,10 +121,22 @@
     return meta;
   };
 
+  // Homepage freshness: only show stories from the last FRESH_HOURS. Stale
+  // stories drop off automatically so the wire never looks frozen. A floor
+  // (MIN_STORIES) keeps the page from going empty on a slow news hour —
+  // it tops up with the next-newest so the lead is always the freshest we have.
+  g.MDCT.FRESH_HOURS = 12;
+  g.MDCT.MIN_STORIES = 5;
   g.MDCT.headlines = function () {
-    return (g.MDCT_HEADLINES || []).slice().sort(function (a, b) {
+    var all = (g.MDCT_HEADLINES || []).slice().sort(function (a, b) {
       return new Date(b.iso) - new Date(a.iso);
     });
+    var now = Date.now();
+    var fresh = all.filter(function (s) {
+      return (now - new Date(s.iso).getTime()) / 36e5 <= g.MDCT.FRESH_HOURS;
+    });
+    if (fresh.length >= g.MDCT.MIN_STORIES) return fresh;
+    return all.slice(0, g.MDCT.MIN_STORIES);  // never leave the homepage empty
   };
 
   g.MDCT.meetings = function () {

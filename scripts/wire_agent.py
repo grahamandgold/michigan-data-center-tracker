@@ -152,7 +152,7 @@ def call_grok() -> dict | None:
         "model": MODEL,
         "messages": [{"role": "user", "content": PROMPT.format(now=datetime.now(timezone.utc).isoformat()) + director_notes()}],
         "search_parameters": {"mode": "on", "return_citations": True,
-                              "from_date": (datetime.now(timezone.utc) - timedelta(days=8)).strftime("%Y-%m-%d")},
+                              "from_date": (datetime.now(timezone.utc) - timedelta(days=2)).strftime("%Y-%m-%d")},
         "temperature": 0.2,
     }
     import xai_client

@@ -43,6 +43,13 @@ jobs:
           JUDGE_THRESHOLD: ${{ vars.JUDGE_THRESHOLD || '6' }}
         run: python scripts/news_judge.py
 
+      - name: Auto-publish high-confidence fresh items (keeps the homepage current)
+        env:
+          AUTO_PUBLISH_MIN: ${{ vars.AUTO_PUBLISH_MIN || '8' }}
+          AUTO_FRESH_HOURS: ${{ vars.AUTO_FRESH_HOURS || '12' }}
+          AUTO_MAX_LIVE: ${{ vars.AUTO_MAX_LIVE || '11' }}
+        run: python scripts/auto_publish.py
+
       - name: Commit if changed
         run: |
           if git status --porcelain live-data.json live-data-pending.json desk-decisions.json | grep -q .; then
