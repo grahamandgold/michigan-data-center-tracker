@@ -1,23 +1,7 @@
 {
- "updated_at": "2026-07-08T16:25:47+00:00",
+ "updated_at": "2026-07-08T16:28:06Z",
  "generator": "grok-wire-agent",
  "items": [
-  {
-   "iso": "2026-07-07T10:00:00+00:00",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "Gubernatorial Candidate John James Received Over $100,000 From Data Center Builders While Criticizing Projects",
-   "dek": "Campaign finance records show Republican John James accepted at least $107,300 from Walbridge executives and family members tied to major Michigan data center projects, including the Saline Township campus, even as he attacks rivals on the issue.",
-   "source": "Metro Times",
-   "url": "https://www.metrotimes.com/news/john-james-attacks-data-centers-while-taking-money-from-their-builders/",
-   "breaking": false,
-   "lead": false,
-   "id": "25cb64a38c6a",
-   "kind": "story",
-   "filed_at": "2026-07-08T16:25:47+00:00",
-   "accuracy": "checked"
-  },
   {
    "iso": "2026-07-08T03:00:00+00:00",
    "region": "west",
