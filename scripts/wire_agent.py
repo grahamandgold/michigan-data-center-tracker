@@ -91,6 +91,8 @@ site labels the destination automatically.
    "tag": "Power & Grid|Local Government|Policy|Water|Money|Explainers",
    "title": "<original headline>", "dek": "<original 1-2 sentence summary>",
    "source": "<outlet or X>", "url": "<https link>", "breaking": <bool>, "lead": <true on exactly one>}}],
+ "national": {{one item — the biggest U.S. (non-Michigan) data center story of the \
+last 24 hours, pushing ahead to what happens next; same fields and rules as stories}},
  "meetings": [future-dated only: {{"iso": "YYYY-MM-DD", "body": "<government body>",
    "topic": "<what is decided>", "region": "SE Michigan|West Michigan|Mid-Michigan|Northern Michigan",
    "regionKey": "metro|west|mid|north", "county": "<county>", "time": "<h:mm AM/PM>",
@@ -266,10 +268,18 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         print(f"::warning::meeting accumulate skipped: {e}")
 
+    national = out.get("national")
+    if not (isinstance(national, dict) and valid_story(dict(national, region="statewide"))):
+        try:
+            national = json.loads(LIVE.read_text(encoding="utf-8")).get("national")
+        except Exception:  # noqa: BLE001
+            national = None
+
     payload = {
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "generator": "grok-wire-agent",
         "stories": checked,
+        "national": national,
         "meetings": meetings,
     }
     LIVE.write_text(json.dumps(payload, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")

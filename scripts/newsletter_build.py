@@ -34,6 +34,7 @@ today_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 todays = [m for m in meetings if m.get("iso") == today_iso]
 ahead = [m for m in meetings if m.get("iso", "") > today_iso][:4]
 
+national = live.get("national")
 lead = next((s for s in stories if s.get("lead")), stories[0] if stories else None)
 others = [s for s in stories if s is not lead][:3]
 today = datetime.now(timezone.utc).strftime("%A, %B %-d, %Y")
@@ -72,9 +73,18 @@ else:
         "padding:14px 18px;font:400 13px/1.5 Arial,sans-serif;color:#a39e99;\">No data center hearings on today's calendars"
         + nxt + ". We're watching.</div></td></tr>")
 
+NATIONAL_BLOCK = ""
+if national:
+    NATIONAL_BLOCK = ("<tr><td style=\"padding:0 28px 24px;\">"
+        "<div style=\"font:700 10px/1 'Courier New',monospace;letter-spacing:3px;color:#100f0e;background:#7c9cc4;display:inline-block;padding:5px 10px;\">THE NATIONAL PICTURE</div>"
+        "<a href=\"" + esc(national.get('url')) + "\" style=\"display:block;font:800 20px/1.25 Arial,sans-serif;color:#f4f1ee;text-decoration:none;padding-top:10px;\">" + esc(national.get('title')) + "</a>"
+        "<div style=\"font:400 13px/1.5 Arial,sans-serif;color:#a39e99;padding-top:6px;\">" + esc(national.get('dek', ''))[:200] + "</div>"
+        "<div style=\"font:700 11px/1 'Courier New',monospace;color:#c9a24b;padding-top:8px;\">Source: " + esc(national.get('source')) + " &#8594;</div>"
+        "</td></tr>")
+
 html = f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Michigan Data Wire — Daily Briefing</title></head>
+<title>Data Center Intelligence Report</title></head>
 <body style="margin:0;padding:0;background:#0c0b0a;">
 <center>
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:100%;background:#100f0e;">
@@ -83,7 +93,7 @@ html = f"""<!DOCTYPE html>
   <tr><td style="padding:26px 28px 18px;border-bottom:2px solid #E03131;">
     <div style="font:900 26px/1 Arial Black,Arial,sans-serif;color:#f4f1ee;letter-spacing:1px;">MICHIGAN</div>
     <div style="font:700 11px/1.6 Arial,sans-serif;color:#f4f1ee;letter-spacing:4px;">DATA CENTER TRACKER</div>
-    <div style="font:400 11px/2 'Courier New',monospace;color:#7d7975;">THE DAILY BRIEFING · {today} · Powered by Graham &amp; Gold</div>
+    <div style="font:400 11px/2 'Courier New',monospace;color:#7d7975;">DATA CENTER INTELLIGENCE REPORT · {today} · Powered by Graham &amp; Gold</div>
   </td></tr>
 
   <!-- ============ MODULE: HAPPENING TODAY (7am forward focus) ============ -->
@@ -103,6 +113,9 @@ html = f"""<!DOCTYPE html>
   <!-- ============ MODULE: HEADLINES ============ -->
   <tr><td style="padding:0 28px 6px;"><div style="font:700 12px/1 'Courier New',monospace;letter-spacing:3px;color:#7d7975;border-bottom:1px solid #262320;padding-bottom:8px;margin-bottom:18px;">ALSO ON THE WIRE</div></td></tr>
   {''.join(headline_row(s) for s in others)}
+
+  <!-- ============ MODULE: NATIONAL ============ -->
+  {NATIONAL_BLOCK}
 
   <!-- ============ MODULE: STATS ============ -->
   <tr><td style="padding:6px 28px 24px;">
@@ -146,8 +159,8 @@ html = f"""<!DOCTYPE html>
   <tr><td style="padding:18px 28px 26px;">
     <a href="{SITE}" style="display:block;background:linear-gradient(90deg,#1d0f0c,#16140f);border:1px solid #262320;text-decoration:none;padding:16px 20px;">
       <span style="font:800 22px/1 Arial,sans-serif;color:#100f0e;background:#E03131;padding:8px 13px;">&#9654;</span>
-      <span style="font:800 15px/1 Arial,sans-serif;color:#f4f1ee;">&nbsp; MICHIGAN DATA WIRE</span>
-      <span style="font:400 11px/1 'Courier New',monospace;color:#8c8884;">&nbsp; Graham &amp; Emmy · new episode daily</span>
+      <span style="font:800 15px/1 Arial,sans-serif;color:#f4f1ee;">&nbsp; MORNINGS WITH GRAHAM &amp; EMMY</span>
+      <span style="font:400 11px/1 'Courier New',monospace;color:#8c8884;">&nbsp; the Michigan Data Wire podcast · new episode every morning · tap to listen</span>
     </a>
   </td></tr>
 
