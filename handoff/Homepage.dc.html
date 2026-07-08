@@ -225,7 +225,7 @@
 
     <!-- aggregator policy -->
     <div style="background:#1a1813;border-bottom:1px solid #2b2824;padding:11px 44px;font-size:13px;line-height:1.5;color:#cbc7c3;text-align:center;">
-      We are a transparent aggregator. We rewrite all headlines in our own words and always link to the original sources.
+      Transparent aggregator • All headlines rewritten in our own words • We always link to the original source
     </div>
 
     <!-- breaking ticker -->
@@ -335,25 +335,25 @@
         <a class="flink" href="Stories.dc.html" style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:#E03131;">All stories →</a>
       </div>
       <div class="wire-grid" style="display:grid;grid-template-columns:1.05fr 1fr;border:1px solid #262320;">
-        <a class="wire-row" href="{{ lead.url }}" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;justify-content:center;border-right:1px solid #262320;border-left:3px solid #E03131;background:#16140f;padding:32px 30px;text-decoration:none;">
+        <div class="wire-row" style="display:flex;flex-direction:column;justify-content:center;border-right:1px solid #262320;border-left:3px solid #E03131;background:#16140f;padding:32px 30px;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap;">
             <sc-if value="{{ lead.breaking }}" hint-placeholder-val="{{ true }}"><span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#100f0e;background:#E03131;padding:4px 9px;">Breaking</span></sc-if>
             <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:{{ lead.catColor }};border:1px solid {{ lead.catColor }};padding:3px 9px;">{{ lead.cat }}</span>
             <span style="font-family:'Space Mono',monospace;font-size:11px;color:{{ lead.timeColor }};">{{ lead.timeAgo }}</span>
           </div>
           <div class="wire-hl" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:32px;line-height:1.03;color:#f4f1ee;letter-spacing:.005em;margin-bottom:14px;">{{ lead.title }}</div>
-          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:#8c8884;">Source: {{ lead.source }} →</div>
-        </a>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.02em;color:#8c8884;line-height:1.5;">Source: {{ lead.source }} — <a href="{{ lead.url }}" target="_blank" rel="noopener noreferrer" style="color:#c9a24b;text-decoration:underline;word-break:break-all;">{{ lead.url }}</a></div>
+        </div>
         <div style="display:flex;flex-direction:column;background:#13110d;">
           <sc-for list="{{ wireList }}" as="w" hint-placeholder-count="5">
-            <a class="wire-row" href="{{ w.url }}" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;justify-content:center;gap:6px;padding:14px 18px;min-height:74px;border-bottom:1px solid #1f1c18;border-left:2px solid {{ w.rowAccent }};text-decoration:none;">
+            <div class="wire-row" style="display:flex;flex-direction:column;justify-content:center;gap:6px;padding:14px 18px;min-height:74px;border-bottom:1px solid #1f1c18;border-left:2px solid {{ w.rowAccent }};">
               <div style="display:flex;align-items:flex-start;gap:16px;width:100%;">
                 <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.02em;color:{{ w.timeColor }};width:62px;flex-shrink:0;padding-top:2px;">{{ w.timeAgo }}</span>
                 <span class="wire-hl" style="flex:1;min-width:0;font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:17px;line-height:1.12;color:#dad6d1;letter-spacing:.01em;">{{ w.title }}</span>
                 <span style="font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:{{ w.catColor }};border:1px solid {{ w.catColor }};padding:3px 7px;flex-shrink:0;">{{ w.cat }}</span>
               </div>
-              <div style="font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.04em;color:#7d7975;padding-left:78px;">Source: {{ w.source }} →</div>
-            </a>
+              <div style="font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.02em;color:#7d7975;padding-left:78px;line-height:1.45;">Source: {{ w.source }} — <a href="{{ w.url }}" target="_blank" rel="noopener noreferrer" style="color:#c9a24b;text-decoration:underline;word-break:break-all;">{{ w.url }}</a></div>
+            </div>
           </sc-for>
         </div>
       </div>
@@ -708,16 +708,16 @@ class Component extends DCLogic {
       Grid: '#E03131', Local: '#7fb0e0', Policy: '#c9a24b', Water: '#5bb3a6', Community: '#b07fd0', Development: '#dd8048',
     };
     const rawWire = this.state.cmsWire || (typeof window !== 'undefined' && window.MDCT_HEADLINES) || [
-      { iso: '2026-07-06T10:00', title: 'Capitol rally presses Lansing to freeze new hyperscale projects until local water and grid rules are settled.', source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/24/michigan-lawmakers-residents-renew-push-for-statewide-data-center-moratorium/', cat: 'Policy', breaking: true, lead: true },
-      { iso: '2026-07-05T14:30', title: 'Senate Democrats offer an eight-bill plan to limit facility water use and keep hyperscale power costs off household bills.', source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/18/senate-democrats-propose-tighter-regulations-on-data-centers-amid-statewide-backlash/', cat: 'Policy' },
-      { iso: '2026-07-04T09:15', title: 'House Democrats seek stricter public notice and community-benefit terms before controversial rezonings move forward.', source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/26/michigan-house-democrats-pitch-transparency-community-benefit-requirements-for-data-centers/', cat: 'Policy' },
-      { iso: '2026-07-03T11:40', title: 'DTE says another large-load contract is nearing completion as townships keep writing their own zoning pauses.', source: 'WKAR', url: 'https://www.wkar.org/wkar-news/2026-02-20/dte-advances-new-data-center-agreements-as-michigan-communities-set-ground-rules', cat: 'Grid' },
-      { iso: '2026-07-02T08:20', title: 'WKAR maps where Michigan communities have paused permits alongside pending utility filings and state bills.', source: 'WKAR', url: 'https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact', cat: 'STATEWIDE' },
-      { iso: '2026-07-01T16:00', title: 'Mundy Township leaders say their megasite will not host hyperscale development even as site work continues.', source: 'Bridge Michigan', url: 'https://www.bridgemi.com/business-watch/mundy-township-megasite-wont-house-data-center-demolitions-continue/', cat: 'Genesee Co.' },
-      { iso: '2026-06-30T13:10', title: 'A Livingston County rezoning bid linked to a major campus was withdrawn after sustained public opposition.', source: 'Detroit News', url: 'https://www.detroitnews.com/story/news/local/michigan/2025/12/10/data-center-developers-pull-request-in-howell-township/87686433007/', cat: 'Livingston Co.' },
-      { iso: '2026-06-29T10:45', title: 'Mundy trustees disagree on when to impose a temporary zoning halt while permanent standards are drafted.', source: 'Genesee County View', url: 'https://geneseecountyview.com/articles/news/mundy-board-debates-timing-of-data-center-moratorium/', cat: 'Local' },
-      { iso: '2026-06-28T12:30', title: 'New state bills would block fresh facility approvals until 2027 so agencies can review environmental impacts.', source: 'Planet Detroit', url: 'https://planetdetroit.org/2026/03/lawmakers-propose-michigan-data-center-moratorium/', cat: 'Policy' },
-      { iso: '2026-06-27T15:00', title: 'Bridge Michigan counts about 19 communities with active permit holds as lawyers question how long pauses can last.', source: 'Bridge Michigan', url: 'https://bridgemi.com/michigan-environment-watch/at-least-19-michigan-towns-pause-data-centers-no-one-knows-if-itll-work/', cat: 'STATEWIDE' },
+      { iso: '2026-07-06T10:00', title: 'Elected officials and residents gathered at the Capitol to call for a statewide pause on new large-load facilities.', source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/24/michigan-lawmakers-residents-renew-push-for-statewide-data-center-moratorium/', cat: 'Policy', breaking: true, lead: true },
+      { iso: '2026-07-05T14:30', title: 'Senate Democrats filed a multi-bill package to restrict industrial water withdrawals and keep expansion costs off residential ratepayers.', source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/18/senate-democrats-propose-tighter-regulations-on-data-centers-amid-statewide-backlash/', cat: 'Policy' },
+      { iso: '2026-07-04T09:15', title: 'House Democrats are pushing stronger disclosure requirements and local benefit deals before high-stakes rezoning votes.', source: 'Michigan Advance', url: 'https://michiganadvance.com/2026/06/26/michigan-house-democrats-pitch-transparency-community-benefit-requirements-for-data-centers/', cat: 'Policy' },
+      { iso: '2026-07-03T11:40', title: 'DTE told reporters it is close to another major load contract while townships continue adopting local zoning pauses.', source: 'WKAR', url: 'https://www.wkar.org/wkar-news/2026-02-20/dte-advances-new-data-center-agreements-as-michigan-communities-set-ground-rules', cat: 'Grid' },
+      { iso: '2026-07-02T08:20', title: 'Public radio compiled a statewide snapshot of permit holds, utility filings, and bills still moving through Lansing.', source: 'WKAR', url: 'https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact', cat: 'STATEWIDE' },
+      { iso: '2026-07-01T16:00', title: 'Genesee County leaders said a major industrial park is no longer being marketed for server-farm development.', source: 'Bridge Michigan', url: 'https://www.bridgemi.com/business-watch/mundy-township-megasite-wont-house-data-center-demolitions-continue/', cat: 'Genesee Co.' },
+      { iso: '2026-06-30T13:10', title: 'Developers abandoned a Howell-area zoning request after repeated packed hearings and organized resident opposition.', source: 'Detroit News', url: 'https://www.detroitnews.com/story/news/local/michigan/2025/12/10/data-center-developers-pull-request-in-howell-township/87686433007/', cat: 'Livingston Co.' },
+      { iso: '2026-06-29T10:45', title: 'Mundy Township board members split over whether to enact a short-term zoning freeze before permanent rules are finished.', source: 'Genesee County View', url: 'https://geneseecountyview.com/articles/news/mundy-board-debates-timing-of-data-center-moratorium/', cat: 'Local' },
+      { iso: '2026-06-28T12:30', title: 'Legislation introduced in Lansing would suspend new facility approvals into 2027 while agencies study resource impacts.', source: 'Planet Detroit', url: 'https://planetdetroit.org/2026/03/lawmakers-propose-michigan-data-center-moratorium/', cat: 'Policy' },
+      { iso: '2026-06-27T15:00', title: 'A statewide review found roughly 19 local governments with temporary permit stops now facing questions about enforceability.', source: 'Bridge Michigan', url: 'https://bridgemi.com/michigan-environment-watch/at-least-19-michigan-towns-pause-data-centers-no-one-knows-if-itll-work/', cat: 'STATEWIDE' },
     ];
     const ago = (iso) => {
       const h = Math.round((NOW - new Date(iso)) / 36e5);
