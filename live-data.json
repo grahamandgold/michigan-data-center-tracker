@@ -157,6 +157,58 @@
    "link": "https://www.hayestownshipmi.gov/data-center-advisory-group-meeting-2/",
    "linkLabel": "Agenda",
    "stream": ""
+  },
+  {
+   "iso": "2026-07-08",
+   "body": "Saline Township Board",
+   "topic": "Regular meeting — Stargate construction updates possible",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Washtenaw",
+   "time": "7:00 PM",
+   "status": "Board meeting",
+   "urgent": false,
+   "link": "https://salinetownship.org/meeting-agendas.php",
+   "linkLabel": "Agenda"
+  },
+  {
+   "iso": "2026-07-09",
+   "body": "Lenox Township Board",
+   "topic": "Regular meeting — data center zoning on the radar",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Macomb",
+   "time": "7:00 PM",
+   "status": "Board meeting",
+   "urgent": false,
+   "link": "https://www.lenox-mi.gov/agendacenter",
+   "linkLabel": "Agenda"
+  },
+  {
+   "iso": "2026-07-10",
+   "body": "MI Public Service Commission",
+   "topic": "Open meeting — oversees large-load electric agreements",
+   "region": "Mid-Michigan",
+   "regionKey": "mid",
+   "county": "Ingham",
+   "time": "9:00 AM",
+   "status": "State hearing",
+   "urgent": false,
+   "link": "https://www.michigan.gov/mpsc/commission/meetings",
+   "linkLabel": "Agenda"
+  },
+  {
+   "iso": "2026-07-13",
+   "body": "Lansing City Council — Development & Planning",
+   "topic": "Public hearing: 182-day data center moratorium",
+   "region": "Mid-Michigan",
+   "regionKey": "mid",
+   "county": "Ingham",
+   "time": "7:00 PM",
+   "status": "Public hearing",
+   "urgent": true,
+   "link": "https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/",
+   "linkLabel": "Details"
   }
  ],
  "accuracy_checked_at": "2026-07-08T08:45:16+00:00"
