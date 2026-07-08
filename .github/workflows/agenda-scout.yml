@@ -1,0 +1,44 @@
+name: Agenda investigator (tonight & tomorrow)
+
+on:
+  schedule:
+    - cron: "30 20 * * *"   # 4:30 PM ET — preview tonight's meetings
+    - cron: "45 9 * * *"    # 5:45 AM ET — fresh intel before the 7 AM newsletter
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agenda-scout
+  cancel-in-progress: false
+
+jobs:
+  investigate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Investigate agendas (PDFs, packets, renderings)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          XAI_MODEL: ${{ vars.XAI_MODEL || 'grok-4' }}
+        run: python scripts/agenda_scout.py
+
+      - name: Commit if changed
+        run: |
+          if git status --porcelain live-data-pending.json agenda-brief.json | grep -q .; then
+            git config user.name "agenda-scout"
+            git config user.email "agenda-scout@users.noreply.github.com"
+            git add live-data-pending.json agenda-brief.json
+            git commit -m "Agenda intel $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push
+          else
+            echo "No agenda intel this run."
+          fi
