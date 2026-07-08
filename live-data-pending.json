@@ -1,23 +1,6 @@
 {
- "updated_at": "2026-07-08T19:27:41Z",
+ "updated_at": "2026-07-08T19:28:18Z",
  "generator": "grok-wire-agent",
- "items": [
-  {
-   "iso": "2026-07-07T20:00:00+00:00",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "Lawmakers in 20+ States Propose Rules on Data Centers Amid Local Pushback",
-   "dek": "Officials seek guardrails on water and energy use; Rep. Dylan Wegela (D-MI) cites bipartisan concerns while Michigan governor continues to support development",
-   "source": "WKAR",
-   "url": "https://www.wkar.org/2026-07-07/data-centers-on-the-fast-track-have-officials-racing-to-catch-up-and-offer-regulations",
-   "breaking": false,
-   "lead": false,
-   "id": "d121f461972a",
-   "kind": "story",
-   "filed_at": "2026-07-08T16:50:29+00:00",
-   "accuracy": "checked-corrected"
-  }
- ],
+ "items": [],
  "accuracy_checked_at": "2026-07-08T18:45:59+00:00"
 }
