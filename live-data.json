@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-08T07:37:32+00:00",
+ "updated_at": "2026-07-08T08:44:37+00:00",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -12,7 +12,46 @@
    "source": "WOOD TV",
    "url": "https://www.facebook.com/woodtv/posts/abdul-el-sayed-on-the-potential-of-data-centers-being-built-in-michigan-misendeb/1553653276794512/",
    "breaking": false,
+   "lead": false,
+   "accuracy": "unverified-source-unfetchable"
+  },
+  {
+   "iso": "2026-07-08T04:00:00+00:00",
+   "region": "metro",
+   "cat": "Washtenaw Co.",
+   "tag": "Power & Grid",
+   "title": "Resident notes scale of Saline data center during drive",
+   "dek": "A Michigan resident described the Saline data center as rivaling Michigan International Speedway in size while passing the site.",
+   "source": "X",
+   "url": "https://x.com/Susan_M_J/status/2074709539694211570",
+   "breaking": false,
    "lead": true,
+   "accuracy": "checked-corrected"
+  },
+  {
+   "iso": "2026-07-08T00:00:00+00:00",
+   "region": "west",
+   "cat": "Cass Co.",
+   "tag": "Money",
+   "title": "GPUS advances AI data center plans at Dowagiac campus with major service agreement",
+   "dek": "The company detailed a 20 MW AI data center deal potentially worth $1.2 billion, with expansion options up to 52 MW at its Michigan site.",
+   "source": "X",
+   "url": "https://x.com/TBullTraderZ/status/2074651827249770530",
+   "breaking": false,
+   "lead": false,
+   "accuracy": "checked"
+  },
+  {
+   "iso": "2026-07-07T20:00:00+00:00",
+   "region": "metro",
+   "cat": "Washtenaw Co.",
+   "tag": "Local Government",
+   "title": "Saline Township to hold public hearing on Oracle data center tax exemption",
+   "dek": "The board will consider an Industrial Facilities Tax Exemption Certificate for Oracle America's $43 billion project near Ann Arbor on July 8.",
+   "source": "MLive",
+   "url": "https://www.mlive.com/news/ann-arbor/2026/07/oracle-applies-for-tax-break-as-data-center-project-cost-reaches-43b-near-ann-arbor.html",
+   "breaking": false,
+   "lead": false,
    "accuracy": "unverified-source-unfetchable"
   },
   {
@@ -30,6 +69,19 @@
   },
   {
    "iso": "2026-07-07T12:00:00+00:00",
+   "region": "north",
+   "cat": "Charlevoix Co.",
+   "tag": "Local Government",
+   "title": "Hayes Township Data Center Advisory Group meets to review report draft",
+   "dek": "The group convenes July 8 to assess proposed report structure and plan next steps on local data center issues.",
+   "source": "Hayes Township",
+   "url": "https://www.hayestownshipmi.gov/data-center-advisory-group-meeting-2/",
+   "breaking": false,
+   "lead": false,
+   "accuracy": "unverified-source-unfetchable"
+  },
+  {
+   "iso": "2026-07-07T12:00:00+00:00",
    "region": "metro",
    "cat": "Wayne Co.",
    "tag": "Power & Grid",
@@ -42,6 +94,33 @@
    "accuracy": "checked"
   }
  ],
- "meetings": [],
- "accuracy_checked_at": "2026-07-08T07:56:02+00:00"
+ "national": {
+  "iso": "2026-07-07T12:00:00+00:00",
+  "region": "statewide",
+  "cat": "STATEWIDE",
+  "tag": "Power & Grid",
+  "title": "Data centers on fast track prompt states to consider pausing incentives",
+  "dek": "Michigan and other states weigh regulations as data center projects advance rapidly, with some pausing or repealing tax breaks amid energy and community concerns.",
+  "source": "WEMU",
+  "url": "https://www.wemu.org/2026-07-07/data-centers-on-the-fast-track-have-officials-racing-to-catch-up-and-offer-regulations",
+  "breaking": false,
+  "lead": false
+ },
+ "meetings": [
+  {
+   "iso": "2026-07-08",
+   "body": "Hayes Township Data Center Advisory Group",
+   "topic": "Review draft report structure and schedule next meeting on data center issues",
+   "region": "Northern Michigan",
+   "regionKey": "north",
+   "county": "Charlevoix",
+   "time": "TBD",
+   "status": "Board meeting",
+   "urgent": false,
+   "link": "https://www.hayestownshipmi.gov/data-center-advisory-group-meeting-2/",
+   "linkLabel": "Agenda",
+   "stream": ""
+  }
+ ],
+ "accuracy_checked_at": "2026-07-08T08:45:16+00:00"
 }
