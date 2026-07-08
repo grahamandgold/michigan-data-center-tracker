@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/mark.svg">
+<meta name="theme-color" content="#100f0e">
+<title>Michigan Data Center Tracker — Every Data Center, Every Permit, Every Megawatt</title>
+<meta name="description" content="Independent, nonpartisan public record of every data center, permit, and local moratorium reshaping Michigan’s grid, land, and water. Tracking the public record.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Michigan Data Center Tracker — Every Data Center, Every Permit, Every Megawatt">
+<meta property="og:description" content="Independent, nonpartisan public record of every data center, permit, and local moratorium reshaping Michigan’s grid, land, and water. Tracking the public record.">
+<meta property="og:image" content="assets/mark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Michigan Data Center Tracker — Every Data Center, Every Permit, Every Megawatt">
+<meta name="twitter:description" content="Independent, nonpartisan public record of every data center, permit, and local moratorium reshaping Michigan’s grid, land, and water. Tracking the public record.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #100f0e; -webkit-font-smoothing: antialiased; }
+  .navlink { position: relative; color: #9b9794; text-decoration: none; transition: color .18s ease; }
+  .navlink:hover { color: #f4f1ee; }
+  .navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; background: #E03131; transition: right .22s ease; }
+  .navlink:hover::after { right: 0; }
+  .navlink.is-active { color: #f4f1ee; }
+  .navlink.is-active::after { right: 0; }
+  .cta { transition: background .18s ease, transform .18s ease; }
+  .cta:hover { background: #f24343; transform: translateY(-1px); }
+  .ghost { transition: border-color .18s ease, color .18s ease; }
+  .ghost:hover { border-color: #6f6b67; color: #f4f1ee; }
+  .tile { transition: border-color .18s ease, transform .18s ease, background .18s ease; }
+  .tile:hover { border-color: #45403a; background: #1d1a15; transform: translateY(-3px); }
+  .tile:hover .tarrow { transform: translateX(4px); color: #f4f1ee; }
+  .tarrow { transition: transform .18s ease, color .18s ease; }
+  .hrow { transition: background .15s ease; }
+  .hrow:hover { background: #1a1813; }
+  .hrow:hover .hl { color: #fff; }
+  .hl { transition: color .15s ease; }
+  .card { transition: border-color .2s ease; }
+  .card:hover { border-color: #322e29; }
+  .mlink { color:#e7e3df; text-decoration:none; font-family:'Saira Condensed',sans-serif; }
+  .flink { color:#8c8884; text-decoration:none; transition: color .15s ease; }
+  .flink:hover { color:#e7e3df; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(224,49,49,.55); } 70% { box-shadow: 0 0 0 14px rgba(224,49,49,0); } 100% { box-shadow: 0 0 0 0 rgba(224,49,49,0); } }
+  @keyframes drift { 0%,100% { opacity:.5; } 50% { opacity:1; } }
+  @keyframes radar-sweep { to { transform: translate(-50%,-50%) rotate(360deg); } }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes live-glow { 0%,100% { box-shadow:0 0 0 0 rgba(224,49,49,0); } 50% { box-shadow:0 0 16px 1px rgba(224,49,49,.5); } }
+  @keyframes live-dot { 0%,100% { opacity:.5; transform:scale(.82); } 50% { opacity:1; transform:scale(1.12); } }
+  .live-wire-tag { animation: live-glow 2.6s ease-in-out infinite; }
+  .live-wire-tag .ld { animation: live-dot 1.6s ease-in-out infinite; }
+  .ticker-track:hover { animation-play-state: paused; }
+  .wire-row:hover { background:#1a1813 !important; }
+  .wire-row:hover .wire-hl { color:#fff !important; }
+  .wire-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:13px; border-bottom:2px solid #E03131; padding-bottom:9px; flex-wrap:wrap; }
+  .wire-head-meta { display:flex; align-items:center; gap:10px; flex-wrap:wrap; min-width:0; }
+  .wire-head-title { font-family:'Saira Condensed',sans-serif; font-weight:800; font-size:20px; letter-spacing:.02em; color:#f4f1ee; margin:0; text-transform:uppercase; }
+  .wire-head-updated { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#7d7975; }
+  .wire-lead { display:flex; flex-direction:column; justify-content:center; border-right:1px solid #262320; border-left:3px solid #E03131; background:radial-gradient(140% 130% at 0% 0%, #201a15 0%, #16140f 58%); padding:26px 26px 24px; min-height:100%; position:relative; overflow:hidden; }
+  .wire-lead::after { content:""; position:absolute; right:-70px; bottom:-70px; width:230px; height:230px; border-radius:50%; border:26px solid rgba(224,49,49,.05); pointer-events:none; }
+  .wire-lead-dek { margin:0 0 16px; color:#a39e99; font-size:14.5px; line-height:1.6; max-width:520px; }
+  .wire-lead-hl-link { text-decoration:none; display:block; }
+  .wire-lead-hl-link:hover .wire-lead-hl { color:#fff; }
+  .wire-lead-foot { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-top:2px; }
+  .wire-lead-cta { display:inline-block; font-family:'Space Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#f4f1ee; background:#E03131; padding:9px 15px; text-decoration:none; transition:background .15s ease, transform .15s ease; }
+  .wire-lead-cta:hover { background:#f24343; transform:translateY(-1px); }
+  .wire-lead-meta { display:flex; align-items:center; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+  .wire-lead-hl { font-family:'Saira Condensed',sans-serif; font-weight:700; font-size:clamp(22px,2.4vw,30px); line-height:1.06; color:#f4f1ee; letter-spacing:.005em; margin:0 0 12px; }
+  .wire-list { display:flex; flex-direction:column; background:#13110d; }
+  .wire-list-item { padding:11px 14px 11px 12px; border-bottom:1px solid #1f1c18; border-left:2px solid transparent; }
+  .wire-list-item:last-child { border-bottom:none; }
+  .wire-list-item.is-hot { border-left-color:#E03131; }
+  .wire-list-top { display:grid; grid-template-columns:54px minmax(0,1fr); gap:10px 12px; align-items:start; }
+  .wire-list-time { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.02em; color:#7d7975; padding-top:3px; white-space:nowrap; }
+  .wire-list-item.is-hot .wire-list-time { color:#E03131; }
+  .wire-list-title { cursor:pointer; font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:15.5px; line-height:1.18; color:#dad6d1; letter-spacing:.01em; margin:0 0 6px; }
+  .wire-src-line { font-family:'Space Mono',monospace; font-size:9.5px; letter-spacing:.03em; color:#6f6b67; line-height:1.5; display:flex; align-items:center; flex-wrap:wrap; gap:4px 6px; }
+  .wire-src-label { color:#6f6b67; }
+  .wire-src-link { color:#c9a24b; text-decoration:none; border-bottom:1px solid rgba(201,162,75,.35); transition:border-color .15s ease,color .15s ease; }
+  .wire-src-link:hover { color:#e0c989; border-bottom-color:#e0c989; }
+  .wire-src-link.src-x { color:#f4f1ee; font-weight:800; font-size:10px; letter-spacing:.1em; padding:1px 7px 0; border:1px solid #3a3733; background:#100f0e; border-bottom:1px solid #3a3733; border-radius:0; line-height:1.45; }
+  .wire-src-link.src-x:hover { border-color:#6f6b67; color:#fff; }
+  .wire-src-link.src-reddit { color:#ff8b6a; border-bottom-color:rgba(255,139,106,.4); }
+  .wire-src-link.src-reddit:hover { color:#ffb199; }
+  .wire-src-arrow { color:#5f5b57; }
+  .wire-src-dot { color:#3a3733; }
+  .wire-src-cat { color:#c3beb9; font-size:10px; letter-spacing:.07em; text-transform:uppercase; background:#221f1b; border:1px solid #35312b; padding:2px 7px; white-space:nowrap; }
+  .wire-tag { font-family:'Space Mono',monospace; font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:2px 7px; border:1px solid; white-space:nowrap; }
+  .wire-tag-breaking { color:#100f0e; background:#E03131; border-color:#E03131; }
+  .wire-tag-fresh { color:#100f0e; background:#c9a24b; border-color:#c9a24b; }
+  .deck-card:hover { border-color:#45403a !important; transform:translateY(-2px); }
+  .deck-card { transition:border-color .18s ease, transform .18s ease; }
+  .deck-row:hover { background:#1a1813; }
+  .deck-act { font-family:'Space Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#cbc7c3; border:1px solid #322e29; padding:5px 9px; text-decoration:none; white-space:nowrap; transition:border-color .15s ease, color .15s ease, background .15s ease; }
+  .deck-act:hover { border-color:#E03131; color:#fff; background:#1f1c18; }
+  .deck-act.watch { color:#E03131; border-color:#4a2626; }
+  .deck-act.watch:hover { background:#E03131; color:#100f0e; border-color:#E03131; }
+  .map-cta { position:absolute; inset:0; z-index:470; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-decoration:none; cursor:pointer; transition:background .25s ease; }
+  .map-cta:hover { background:rgba(224,49,49,.10); }
+  .map-arrow { width:78px; height:78px; display:grid; place-items:center; background:#E03131; color:#100f0e; font-size:44px; line-height:1; font-weight:700; box-shadow:0 16px 44px rgba(0,0,0,.5); transition:transform .22s ease, background .22s ease, box-shadow .22s ease; }
+  .map-cta:hover .map-arrow { transform:scale(1.08) translateX(4px); background:#f24343; box-shadow:0 22px 60px rgba(224,49,49,.45); }
+  .map-cap { font-family:'Space Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#fff; background:rgba(12,11,10,.85); border:1px solid #322e29; padding:7px 13px; backdrop-filter:blur(3px); transition:border-color .2s ease, background .2s ease; }
+  .map-cta:hover .map-cap { border-color:#E03131; background:rgba(12,11,10,.92); }
+  .map-arrow.sm { width:62px; height:62px; font-size:34px; }
+  @keyframes wave { 0%,100% { transform:scaleY(.3); } 50% { transform:scaleY(1); } }
+  .podbar { width:3px; background:#E03131; transform-origin:bottom; opacity:.8; flex-shrink:0; animation:wave 1.2s ease-in-out infinite; }
+  .pod.playing .podbar { animation-duration:.68s; opacity:1; }
+  @keyframes podpulse { 0%,100% { box-shadow:0 0 0 0 rgba(224,49,49,.45); } 50% { box-shadow:0 0 22px 3px rgba(224,49,49,.55); } }
+  .pod-play { transition:background .15s ease, transform .15s ease; animation:podpulse 2.2s ease-in-out infinite; }
+  .pod-play:hover { background:#f24343; transform:scale(1.05); }
+  .pod-sub { font-family:'Space Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#cbc7c3; border:1px solid #322e29; padding:6px 11px; text-decoration:none; white-space:nowrap; transition:border-color .15s ease,color .15s ease; }
+  .pod-sub:hover { border-color:#E03131; color:#fff; }
+  .lockup { display:inline-flex; align-items:center; line-height:1; }
+  .lockup .mark { height:1.55em; width:auto; display:block; }
+  .lockup .divider { width:2px; align-self:stretch; background:#E03131; margin:.12em .5em .12em .28em; border-radius:0; }
+  .lockup .words { display:flex; flex-direction:column; justify-content:center; }
+  .lockup .mi { font-family:'Archivo',sans-serif; font-weight:800; font-size:1em; letter-spacing:.035em; color:#f6f4f1; line-height:.92; }
+  .lockup .rule { height:2px; background:#E03131; margin:.14em 0 .1em; border-radius:0; }
+  .lockup .sub { font-family:'Archivo',sans-serif; font-weight:600; font-size:.36em; letter-spacing:.24em; color:#f6f4f1; white-space:nowrap; }
+  .leaflet-container { background:#13110d !important; font-family:'Archivo',sans-serif; }
+  .leaflet-popup-content-wrapper { border-radius:0; }
+  .leaflet-bar a { background:#16140f; color:#cbc7c3; border-color:#2b2824; }
+  .leaflet-bar a:hover { background:#221f1b; }
+
+  a { color: inherit; }
+  .site-header { display:flex; align-items:center; justify-content:space-between; height:96px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+  .desktop-nav { display:flex; align-items:center; gap:28px; font-size:13px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; }
+  .hamburger { display:none; flex-direction:column; gap:5px; width:28px; height:44px; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
+  .hamburger span { height:2px; background:#cbc7c3; border-radius:0; }
+  .navlink { font-size:14px; }
+  .hero-section { display:flex; gap:48px; }
+  .hero-copy h2 { font-size:clamp(28px, 5vw, 42px) !important; }
+  .wire-grid { display:grid; grid-template-columns:1.05fr 1fr; }
+  .tile-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+  .stats-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  .sponsor-block { display:flex; gap:44px; }
+  .signup-row { display:flex; align-items:center; justify-content:space-between; gap:36px; }
+  .deck-actions { display:flex; gap:8px; flex-shrink:0; }
+  .deck-meta { display:flex; align-items:center; gap:16px; }
+  .pod-inner { display:flex; align-items:center; justify-content:center; gap:20px; }
+  .pod-wave { flex-shrink:0; display:flex; align-items:flex-end; gap:3px; height:30px; width:200px; overflow:hidden; }
+  @media (max-width: 1100px) {
+    .tile-grid { grid-template-columns:repeat(2, 1fr); }
+    .stats-grid { grid-template-columns:1fr; }
+    .sponsor-block { flex-direction:column; }
+  }
+  @media (max-width: 900px) {
+    .wire-grid { grid-template-columns:1fr; }
+    .wire-grid .wire-row { border-right:none !important; }
+    .signup-row { flex-direction:column; align-items:stretch !important; }
+    .signup-row > div:last-child { width:100% !important; }
+    .pod-wave { display:none; }
+    .pod-hosts { display:none !important; }
+    .deck-row .deck-actions { display:none; }
+  }
+  @media (max-width: 860px) {
+    .desktop-nav { display:none !important; }
+    .hamburger { display:flex !important; }
+    .hero-section { flex-direction:column-reverse !important; padding:12px 14px 8px !important; gap:12px !important; }
+    .hero-copy { display:none !important; }
+    .hero-stats { display:none !important; }
+    .hero-map-wrap { min-height:320px !important; }
+    .wire-grid { grid-template-columns:1fr !important; }
+    .tile-grid { grid-template-columns:repeat(2,1fr) !important; gap:10px !important; }
+    .tile-grid > * { padding:16px 14px !important; }
+    .stats-grid { grid-template-columns:1fr !important; gap:12px !important; }
+    .deck-head-sub { display:none !important; }
+    .deck-row { display:grid !important; grid-template-columns:54px minmax(0,1fr) !important; grid-auto-rows:auto; gap:5px 12px !important; align-items:start !important; padding:13px 10px 12px 14px !important; }
+    .deck-date { grid-row:1 / span 3; width:auto !important; flex-direction:column !important; align-items:flex-start !important; gap:0 !important; }
+    .deck-body { grid-column:2 !important; grid-row:1 !important; }
+    .deck-title { white-space:normal !important; overflow:visible !important; text-overflow:clip !important; font-size:17.5px !important; }
+    .deck-status { grid-column:2 !important; grid-row:2 !important; width:auto !important; border-left:none !important; padding-left:0 !important; }
+    .deck-side { grid-column:2 !important; grid-row:3 !important; }
+    .deck-row .deck-actions { display:flex !important; grid-column:2 !important; grid-row:4 !important; margin-top:2px; }
+    .wire-lead { padding:20px 18px 18px !important; }
+    .wire-lead-dek { font-size:14px !important; }
+    .pod-teaser { display:none !important; }
+    .site-header { height:68px; padding:0 20px !important; }
+    .lockup { font-size:28px !important; }
+    .hero-section { flex-direction:column !important; padding:22px 20px 18px !important; gap:24px !important; }
+    .hero-map-wrap { min-height:280px !important; }
+    .section-pad { padding-left:20px !important; padding-right:20px !important; }
+    .section-pad-lg { padding-left:20px !important; padding-right:20px !important; }
+    .inset-pad { margin-left:20px !important; margin-right:20px !important; }
+    .hero-cta-row { flex-direction:column !important; }
+    .hero-cta-row a { text-align:center; }
+    .sponsor-strip { flex-wrap:wrap; gap:12px !important; }
+    .sponsor-strip .logo-row { display:none; }
+    .closing-cta { flex-direction:column !important; align-items:flex-start !important; }
+    .footer-cols { flex-direction:column !important; gap:28px !important; }
+    .deck-row { flex-wrap:wrap; gap:10px !important; }
+    .deck-row .deck-body { white-space:normal !important; }
+    .pod-inner { flex-wrap:wrap; justify-content:flex-start !important; padding:11px 20px !important; gap:12px !important; }
+    .ticker-hide-label { display:none; }
+  }
+  @media (max-width: 600px) {
+    .tile-grid { grid-template-columns:1fr; }
+    .hero-stats { flex-direction:column; }
+    .hero-stats > div { border-right:none !important; border-bottom:1px solid #221f1b; }
+    .hero-stats > div:last-child { border-bottom:none; }
+  }
+
+</style>
+</helmet>
+<div style="min-height:100vh;background:#100f0e;font-family:'Archivo',sans-serif;padding:0;">
+  <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#16140f"/><rect x="28" y="28" width="44" height="44" rx="9" fill="#E03131"/><text x="50" y="65" font-family="Arial, sans-serif" font-weight="800" font-size="32" fill="#fff" text-anchor="middle">M</text></svg></template>
+<!-- 10-second fly-in: email + ZIP capture -->
+  <sc-if value="{{ flyOpen }}" hint-placeholder-val="{{ false }}">
+    <div data-mdct-flyin style="position:fixed;inset:0;z-index:1400;background:rgba(8,7,6,.74);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;">
+      <div data-mdct-flyin-panel style="position:relative;width:min(460px,100%);background:#16140f;border:1px solid #2b2824;border-top:3px solid #E03131;box-shadow:0 30px 90px rgba(0,0,0,.6);">
+        <button type="button" data-mdct-flyin-close aria-label="Close" style="position:absolute;top:10px;right:12px;background:none;border:none;color:#7d7975;font-size:24px;line-height:1;cursor:pointer;">×</button>
+        <div style="padding:32px 30px 28px;">
+          <sc-if value="{{ flyPending }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;"><span style="width:7px;height:7px;border-radius:50%;background:#E03131;" class="ld"></span><span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E03131;">Daily intelligence brief</span></div>
+            <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:30px;line-height:1.02;color:#f6f3f0;margin:0 0 10px;text-transform:uppercase;">Know what's coming to your town.</h2>
+            <p style="margin:0 0 20px;color:#a39e99;font-size:14.5px;line-height:1.55;">Data center filings, hearings, and rate cases near you — every morning. Add your ZIP and we'll flag what's local.</p>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <input type="email" placeholder="you@email.com" id="mc-fly-email" aria-label="Email address" style="width:100%;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:48px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:15px;outline:none;" style-focus="border-color:#E03131;" />
+              <div style="display:flex;gap:10px;">
+                <input type="text" inputmode="numeric" id="mc-fly-zip" maxlength="5" placeholder="ZIP" aria-label="ZIP code" style="width:108px;flex-shrink:0;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:48px;color:#f4f1ee;font-family:'Space Mono',monospace;font-size:15px;letter-spacing:.1em;outline:none;" style-focus="border-color:#E03131;" />
+                <button type="button" data-mdct-flyin-submit style="flex:1;border:none;cursor:pointer;color:#100f0e;background:#E03131;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;letter-spacing:.03em;text-transform:uppercase;height:48px;" style-hover="background:#f24343;">Get the brief</button>
+              </div>
+            </div>
+            <div style="font-family:'Space Mono',monospace;font-size:10px;color:#6f6b67;margin-top:12px;letter-spacing:.04em;">No spam · unsubscribe anytime</div>
+          </sc-if>
+          <sc-if value="{{ flyDone }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:14px 0;">
+              <span style="width:46px;height:46px;border-radius:50%;background:rgba(120,170,120,.15);color:#9bc49b;display:grid;place-items:center;font-size:22px;margin-bottom:16px;">✓</span>
+              <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:26px;color:#f6f3f0;margin:0 0 8px;text-transform:uppercase;">You're on the list.</h2>
+              <p style="margin:0;color:#a39e99;font-size:14.5px;line-height:1.55;">First brief lands tomorrow morning. We'll flag anything filed near your ZIP.</p>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+<!-- header -->
+    <header class="site-header">
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;">
+        <a class="lockup" href="index.html" style="font-size:40px;text-decoration:none;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a>
+        <a href="https://grahamandgold.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;" onmouseover="this.style.color='#8c8884'" onmouseout="this.style.color='#56524e'">Powered by Graham & Gold</a>
+      </div>
+      <nav class="desktop-nav">
+        <a class="navlink is-active" href="index.html">Home</a>
+        <a class="navlink" href="map/">Live Map</a>
+        <a class="navlink" href="stories.html">Stories</a>
+        <a class="navlink" href="meetings.html">Meetings</a>
+        <a class="navlink" href="learn.html">Learn</a>
+        <a class="cta" href="sponsor.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;padding:11px 19px;border-radius:0;letter-spacing:.04em;">Sponsor</a>
+      </nav>
+      <button class="hamburger" onclick="{{ toggleMenu }}" aria-label="Menu"><span></span><span></span><span></span></button>
+    </header>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:60;background:rgba(12,11,10,.97);padding:24px 20px;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;">
+        <span class="lockup" style="font-size:26px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+        <button onclick="{{ toggleMenu }}" aria-label="Close" style="background:none;border:none;color:#cbc7c3;font-size:30px;cursor:pointer;line-height:1;">×</button>
+      </div>
+      <nav style="display:flex;flex-direction:column;gap:4px;">
+        <a href="index.html" onclick="{{ toggleMenu }}" style="text-decoration:none;color:#f4f1ee;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Home</a>
+        <a href="map/" onclick="{{ toggleMenu }}" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Live Map</a>
+        <a href="stories.html" onclick="{{ toggleMenu }}" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Stories</a>
+        <a href="meetings.html" onclick="{{ toggleMenu }}" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Meetings</a>
+        <a href="learn.html" onclick="{{ toggleMenu }}" style="text-decoration:none;color:#cbc7c3;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;padding:13px 0;border-bottom:1px solid #1a1813;">Learn</a>
+        <a href="sponsor.html" onclick="{{ toggleMenu }}" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;text-align:center;font-size:16px;text-transform:uppercase;letter-spacing:.04em;padding:15px;border-radius:0;margin-top:20px;">Sponsor the tracker</a>
+        <a href="https://grahamandgold.com" target="_blank" rel="noopener" style="text-decoration:none;color:#9b9794;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:16px 0 0;">Powered by Graham & Gold ↗</a>
+      </nav>
+    </div>
+  </sc-if>
+
+    <!-- aggregator policy -->
+    <div style="background:#1a1813;border-bottom:1px solid #2b2824;padding:11px 44px;font-size:13px;line-height:1.5;color:#cbc7c3;text-align:center;">
+      Transparent aggregator • All headlines rewritten in our own words • We always link to the original source
+    </div>
+
+    <!-- breaking ticker -->
+    <div style="display:flex;align-items:stretch;height:38px;background:#0c0b0a;border-bottom:1px solid #221f1b;overflow:hidden;">
+      <div class="live-wire-tag" style="display:flex;align-items:center;gap:9px;flex-shrink:0;background:#E03131;color:#100f0e;padding:0 18px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;"><span class="ld" style="width:7px;height:7px;border-radius:50%;background:#100f0e;"></span>Live Wire</div>
+      <div style="position:relative;flex:1;overflow:hidden;display:flex;align-items:center;">
+        <div class="ticker-track" style="display:flex;align-items:center;white-space:nowrap;animation:ticker 64s linear infinite;will-change:transform;">
+          <sc-for list="{{ tickerItems }}" as="t" hint-placeholder-count="6">
+            <a href="{{ t.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:11px;padding:0 24px;text-decoration:none;border-right:1px solid #221f1b;"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:{{ t.timeColor }};">{{ t.timeAgo }}</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.01em;color:#dad6d1;">{{ t.title }}</span></a>
+          </sc-for>
+          <sc-for list="{{ tickerItems }}" as="t" hint-placeholder-count="6">
+            <a href="{{ t.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:11px;padding:0 24px;text-decoration:none;border-right:1px solid #221f1b;"><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.04em;color:{{ t.timeColor }};">{{ t.timeAgo }}</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.01em;color:#dad6d1;">{{ t.title }}</span></a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- podcast bar -->
+    <div class="pod {{ podCls }} pod-inner" style="display:flex;align-items:center;justify-content:center;gap:20px;padding:11px 44px;background:linear-gradient(180deg,#1d0f0c,#16140f);border-bottom:1px solid #2b2824;">
+      <button onclick="{{ togglePod }}" class="pod-play" aria-label="Play the latest episode" style="flex-shrink:0;width:46px;height:46px;display:grid;place-items:center;background:#E03131;color:#100f0e;border:none;cursor:pointer;font-size:16px;">{{ podIcon }}</button>
+      <span class="pod-hosts" aria-hidden="true" style="flex-shrink:0;display:flex;align-items:center;"><span style="width:34px;height:34px;border-radius:50%;background:#2a1714;border:2px solid #E03131;display:grid;place-items:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:14px;color:#f4b3b3;">G</span><span style="width:34px;height:34px;border-radius:50%;background:#16202a;border:2px solid #7fb0e0;display:grid;place-items:center;font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:14px;color:#b9d4ec;margin-left:-9px;">E</span></span>
+      <div style="flex-shrink:0;text-align:left;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px;"><span style="width:6px;height:6px;border-radius:50%;background:#E03131;" class="ld"></span><span style="font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E03131;">On the Radio · New daily</span></div>
+        <div style="display:flex;align-items:baseline;gap:10px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:19px;line-height:1;letter-spacing:.01em;color:#f6f3f0;text-transform:uppercase;">Michigan Data Wire</span><span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.04em;color:#8c8884;">{{ podDate }} · {{ podDur }}</span></div>
+      </div>
+      <div class="pod-wave" style="flex-shrink:0;display:flex;align-items:flex-end;gap:3px;height:30px;width:200px;overflow:hidden;">
+        <sc-for list="{{ bars }}" as="b" hint-placeholder-count="40"><span class="podbar" style="height:{{ b.h }};animation-delay:{{ b.delay }};"></span></sc-for>
+      </div>
+      <audio id="pod-audio" preload="none" src="pod/latest.mp3"></audio>
+    </div>
+
+    <!-- hero -->
+    <section class="hero-section section-pad" style="display:flex;gap:48px;padding:26px 44px 18px;position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(120% 120% at 80% -10%, #1c1a15 0%, #100f0e 60%);">
+      <div style="position:absolute;top:54%;left:32%;width:820px;height:820px;transform:translate(-50%,-50%);border-radius:50%;background:repeating-radial-gradient(circle at center, transparent 0 64px, rgba(224,49,49,.07) 64px 66px);pointer-events:none;z-index:0;"></div>
+      <div style="position:absolute;top:54%;left:32%;width:820px;height:820px;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 0deg, rgba(224,49,49,.26), rgba(224,49,49,.04) 26%, transparent 44%);animation:radar-sweep 12s linear infinite;pointer-events:none;z-index:0;"></div>
+      <div class="hero-copy" style="position:relative;z-index:1;flex:1 1 52%;min-width:0;display:flex;flex-direction:column;justify-content:center;">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#E03131;margin-bottom:20px;">Tracking the public record</span>
+        <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:29px;line-height:1.04;letter-spacing:.005em;color:#f6f3f0;margin:0 0 14px;">EVERY DATA CENTER.<br>EVERY PERMIT.<br>EVERY MEGAWATT.</h2>
+        <p style="max-width:460px;margin:0 0 20px;color:#a39e99;font-size:15px;line-height:1.55;">Know what's being built near you — and what it means for your electric bill, your water, and your community. A transparent aggregator — every headline rewritten in our own words and linked to its original source.</p>
+        <div class="hero-cta-row" style="display:flex;gap:12px;margin-bottom:24px;">
+          <a class="cta" href="Live Map.dc.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;font-size:15px;letter-spacing:.03em;padding:14px 26px;border-radius:0;">Explore the map</a>
+          <a class="ghost" href="Stories.dc.html" style="text-decoration:none;color:#cbc7c3;border:1px solid #3a3733;font-weight:600;font-size:15px;letter-spacing:.03em;padding:14px 26px;border-radius:0;">Read the latest</a>
+        </div>
+        <div class="hero-stats" style="display:flex;align-items:stretch;border:1px solid #221f1b;border-radius:0;overflow:hidden;background:#16140f;">
+          <div style="flex:1;padding:18px 22px;border-right:1px solid #221f1b;">
+            <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:27px;color:#f4f1ee;line-height:1;">{{ statsProjects }}</span></div>
+            <div style="font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#7d7975;margin-top:6px;">Tracked projects</div>
+          </div>
+          <div style="flex:1;padding:18px 22px;border-right:1px solid #221f1b;">
+            <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:27px;color:#f4f1ee;line-height:1;">{{ statsGW }}<span style="font-size:17px;color:#a39e99;"> GW</span></span></div>
+            <div style="font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#7d7975;margin-top:6px;">Disclosed load</div>
+          </div>
+          <div style="flex:1;padding:18px 22px;">
+            <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:27px;color:#f4f1ee;line-height:1;">{{ statsCommunities }}</span></div>
+            <div style="font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#7d7975;margin-top:6px;">Communities</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-map-wrap" style="position:relative;z-index:1;flex:1 1 48%;min-width:0;border:1px solid #2b2824;border-radius:0;overflow:hidden;min-height:400px;background:#13110d;">
+        <div id="hero-map" style="position:absolute;inset:0;z-index:0;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(16,15,14,.5) 100%);pointer-events:none;z-index:450;"></div>
+        <div style="position:absolute;top:16px;left:16px;z-index:460;display:inline-flex;align-items:center;gap:8px;background:rgba(16,15,14,.78);border:1px solid #2b2824;border-radius:0;padding:6px 12px;backdrop-filter:blur(4px);pointer-events:none;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#E03131;animation:drift 1.8s ease-in-out infinite;"></span>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#cbc7c3;">LIVE</span>
+        </div>
+        <a class="map-cta" href="Live Map.dc.html" aria-label="Open the live map"><span class="map-arrow" aria-hidden="true">→</span><span class="map-cap">Open the live map</span></a>
+      </div>
+    </section>
+
+    <!-- hero email signup -->
+    <div class="signup-row inset-pad" style="display:flex;align-items:center;justify-content:space-between;gap:36px;margin:0 44px 8px;padding:22px 28px;border:1px solid #2b2824;border-radius:0;background:linear-gradient(100deg,#1b1813,#16140f);">
+      <div style="min-width:0;">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:6px;"><span style="width:7px;height:7px;border-radius:50%;background:#E03131;"></span><span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#cbc7c3;">The daily briefing</span></div>
+        <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:24px;color:#f4f1ee;letter-spacing:.01em;line-height:1.05;">Get daily intelligence on Michigan's data center buildout.</div>
+        <div style="font-size:13px;color:#8c8884;margin-top:5px;">New proposals, permits, and hearings — in your inbox every morning. Free.</div>
+      </div>
+      <div style="flex-shrink:0;width:400px;">
+        <sc-if value="{{ heroPending }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:10px;"><input type="email" id="mc-hero-email" placeholder="you@email.com" style="flex:1;min-width:0;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:46px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:14px;outline:none;" style-focus="border-color:#E03131;" /><button type="button" onclick="{{ subscribeHero }}" style-hover="border-color:#E03131;color:#fff;background:#241f1b;" style="flex-shrink:0;cursor:pointer;color:#f4f1ee;background:#1f1c18;border:1px solid #3a3733;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;padding:0 22px;height:46px;border-radius:0;">Subscribe</button></div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;color:#6f6b67;margin-top:8px;letter-spacing:.04em;">No spam · unsubscribe anytime</div>
+        </sc-if>
+        <sc-if value="{{ heroSubscribed }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;min-height:46px;font-size:15px;color:#9bc49b;"><span style="width:22px;height:22px;border-radius:50%;background:rgba(120,170,120,.16);color:#9bc49b;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">✓</span>You're on the list — check your inbox to confirm.</div></sc-if>
+      </div>
+    </div>
+
+    <!-- sponsor strip (near hero) -->
+    <div class="sponsor-strip inset-pad" style="display:flex;align-items:center;gap:24px;margin:0 44px 8px;padding:18px 24px;border:1px solid #221f1b;border-radius:0;background:rgba(26,24,19,.5);backdrop-filter:blur(4px);">
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d7975;white-space:nowrap;">Independently funded</span>
+      <span style="width:1px;height:26px;background:#2b2824;"></span>
+      <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5f5b57;white-space:nowrap;">Supported by</span>
+      <div class="logo-row" style="display:flex;align-items:center;gap:14px;flex:1;">
+        <span style="flex:1;max-width:160px;height:32px;border:1px dashed #322e29;border-radius:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:10px;color:#5f5b57;">[ logo ]</span>
+        <span style="flex:1;max-width:160px;height:32px;border:1px dashed #322e29;border-radius:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:10px;color:#5f5b57;">[ logo ]</span>
+        <span style="flex:1;max-width:160px;height:32px;border:1px dashed #322e29;border-radius:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:10px;color:#5f5b57;">[ logo ]</span>
+      </div>
+      <a class="flink" href="Sponsor.dc.html" style="font-size:13px;font-weight:700;color:#E03131;white-space:nowrap;text-decoration:none;">Become a sponsor →</a>
+    </div>
+
+    <!-- THE WIRE -->
+    <section class="section-pad" style="padding:18px 44px 2px;">
+      <div class="wire-head">
+        <div class="wire-head-meta">
+          <h3 class="wire-head-title" style="white-space:nowrap;">The Wire</h3>
+          <span class="wire-head-updated">Updated {{ wireUpdated }}</span>
+        </div>
+        <a class="flink" href="Stories.dc.html" style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:#E03131;white-space:nowrap;">All stories →</a>
+      </div>
+      <div class="wire-grid" style="border:1px solid #262320;">
+        <div class="wire-row wire-lead">
+          <div class="wire-lead-meta">
+            <sc-if value="{{ lead.breaking }}" hint-placeholder-val="{{ true }}"><span class="wire-tag wire-tag-breaking">Breaking</span></sc-if>
+            <span class="wire-tag" style="color:{{ lead.catColor }};border-color:{{ lead.catColor }};">{{ lead.cat }}</span>
+            <span class="wire-list-time" style="color:{{ lead.timeColor }};padding-top:0;">{{ lead.timeAgo }}</span>
+          </div>
+          <a class="wire-lead-hl-link" href="{{ lead.url }}" target="_blank" rel="noopener noreferrer"><h4 class="wire-hl wire-lead-hl">{{ lead.title }}</h4></a>
+          <p class="wire-lead-dek">{{ lead.dek }}</p>
+          <div class="wire-lead-foot">
+            <div class="wire-src-line">
+              <span class="wire-src-label">Source:</span>
+              <a class="wire-src-link {{ lead.sourceKind }}" href="{{ lead.url }}" target="_blank" rel="noopener noreferrer">{{ lead.source }}</a><span class="wire-src-arrow"> →</span>
+            </div>
+            <a class="wire-lead-cta" href="{{ lead.url }}" target="_blank" rel="noopener noreferrer">Read the story →</a>
+          </div>
+        </div>
+        <div class="wire-list">
+          <sc-for list="{{ wireList }}" as="w" hint-placeholder-count="5">
+            <div class="wire-row wire-list-item {{ w.hotCls }}">
+              <div class="wire-list-top">
+                <span class="wire-list-time">{{ w.timeAgo }}</span>
+                <div>
+                  <a class="wire-hl wire-list-title" href="{{ w.url }}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;">{{ w.title }}</a>
+                  <div class="wire-src-line">
+                    <span class="wire-src-label">Source:</span>
+                    <a class="wire-src-link {{ w.sourceKind }}" href="{{ w.url }}" target="_blank" rel="noopener noreferrer">{{ w.source }}</a><span class="wire-src-arrow"> →</span>
+                    <span class="wire-src-dot">·</span>
+                    <span class="wire-src-cat">{{ w.cat }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- ON DECK -->
+    <section class="section-pad" style="padding:16px 44px 2px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;border-bottom:2px solid #E03131;padding-bottom:9px;">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:.02em;color:#f4f1ee;margin:0;text-transform:uppercase;white-space:nowrap;">On Deck</h3>
+          <span class="deck-head-sub" style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7d7975;">Next hearings · live calendar</span>
+        </div>
+        <a class="flink" href="Meetings.dc.html" style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:#E03131;">View all meetings →</a>
+      </div>
+      <div style="border-top:1px solid #262320;">
+        <sc-for list="{{ onDeck }}" as="m" hint-placeholder-count="4">
+          <div class="deck-row" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;min-height:54px;padding:7px 8px;border-bottom:1px solid #1f1c18;border-left:3px solid {{ m.topColor }};padding-left:16px;">
+            <span class="deck-date" style="display:flex;align-items:baseline;gap:6px;width:70px;flex-shrink:0;"><span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#E03131;">{{ m.mon }}</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:26px;line-height:1;color:#f4f1ee;">{{ m.day }}</span></span>
+            <span class="deck-status" style="width:118px;flex-shrink:0;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:{{ m.statusColor }};border-left:2px solid {{ m.statusBorder }};padding-left:12px;">{{ m.status }}</span>
+            <span class="deck-body" style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;"><span class="deck-title" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:19px;line-height:1.05;color:#f4f1ee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.body }}</span><span style="font-size:12.5px;color:#8c8884;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.topic }}</span></span>
+            <span class="deck-side" style="display:flex;align-items:center;gap:14px;flex-shrink:0;"><span style="font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9b9794;border:1px solid #322e29;padding:3px 9px;">{{ m.region }}</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#7d7975;">{{ m.time }}</span></span>
+            <span class="deck-actions" style="display:flex;gap:8px;flex-shrink:0;"><sc-if value="{{ m.agendaUrl }}" hint-placeholder-val="{{ true }}"><a class="deck-act" href="{{ m.agendaUrl }}" target="_blank" rel="noopener noreferrer" aria-label="View agenda">{{ m.agendaLabel }} ↗</a></sc-if><sc-if value="{{ m.streamUrl }}" hint-placeholder-val="{{ false }}"><a class="deck-act watch" href="{{ m.streamUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Watch the stream">Watch ↗</a></sc-if></span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- explore tiles -->
+    <section class="section-pad" style="padding:18px 44px 6px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
+        <div style="display:flex;align-items:center;gap:11px;"><span style="width:9px;height:9px;background:#E03131;border-radius:0;flex-shrink:0;"></span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;letter-spacing:.02em;color:#f4f1ee;margin:0;">EXPLORE THE TRACKER</h3></div>
+        <a class="flink" href="Live Map.dc.html" style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;">All tools →</a>
+      </div>
+      <div class="tile-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+        <a class="tile" href="Live Map.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">01</span>
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Live Map</span>
+          <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Every facility, permit &amp; proposed site, mapped.</span>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
+            <span><span style="display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7d7975;margin-bottom:3px;">Tracked</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;color:#f4f1ee;">{{ statsProjects }} <span style="font-size:12px;color:#8c8884;font-weight:600;">sites</span></span></span>
+            <span class="tarrow" style="color:#6f6b67;font-size:18px;">→</span>
+          </div>
+        </a>
+        <a class="tile" href="Live Map.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">02</span>
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Facilities</span>
+          <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Searchable database: ownership, load &amp; status.</span>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
+            <span><span style="display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7d7975;margin-bottom:3px;">Total load</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;color:#f4f1ee;">{{ statsGW }} <span style="font-size:12px;color:#8c8884;font-weight:600;">GW</span></span></span>
+            <span class="tarrow" style="color:#6f6b67;font-size:18px;">→</span>
+          </div>
+        </a>
+        <a class="tile" href="Live Map.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">03</span>
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Power &amp; Grid</span>
+          <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Megawatts proposed vs. grid capacity by region.</span>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
+            <span><span style="display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7d7975;margin-bottom:3px;">Utilities</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;color:#f4f1ee;">12 <span style="font-size:12px;color:#8c8884;font-weight:600;">tracked</span></span></span>
+            <span class="tarrow" style="color:#6f6b67;font-size:18px;">→</span>
+          </div>
+        </a>
+        <a class="tile" href="Meetings.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">04</span>
+          <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Meetings</span>
+          <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Township &amp; PUC hearings, agendas and dates.</span>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
+            <span><span style="display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7d7975;margin-bottom:3px;">Next hearing</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;color:#f4f1ee;">Jul 8 <span style="font-size:12px;color:#8c8884;font-weight:600;">Saline</span></span></span>
+            <span class="tarrow" style="color:#6f6b67;font-size:18px;">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- by the numbers -->
+    <section class="section-pad" style="padding:18px 44px 6px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
+        <div style="display:flex;align-items:center;gap:11px;"><span style="width:9px;height:9px;background:#E03131;border-radius:0;flex-shrink:0;"></span><h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;letter-spacing:.02em;color:#f4f1ee;margin:0;">BY THE NUMBERS</h3></div>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;color:#7d7975;letter-spacing:.04em;">{{ statsUpdated }}</span>
+      </div>
+      <div class="stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+
+        <div class="card" style="border:1px solid #262320;border-radius:0;background:#16140f;padding:24px 22px;">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7d7975;margin-bottom:20px;">Facilities by status</div>
+          <div style="display:flex;justify-content:center;margin-bottom:14px;">
+            <div style="position:relative;width:150px;height:150px;border-radius:50%;background:conic-gradient({{ donutGradient }});">
+              <div style="position:absolute;inset:27px;border-radius:50%;background:#16140f;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:36px;color:#f4f1ee;line-height:1;">{{ statsProjects }}</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7d7975;margin-top:3px;">sites</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;">
+            <sc-for list="{{ statusRows }}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:9px;"><span style="width:9px;height:9px;border-radius:0;background:{{ s.color }};"></span><span style="flex:1;font-size:12px;color:#cbc7c3;">{{ s.label }}</span><span style="font-family:'Space Mono',monospace;font-size:12px;color:#f4f1ee;">{{ s.count }}</span></div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div class="card" style="border:1px solid #262320;border-radius:0;background:#16140f;padding:24px 22px;">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7d7975;margin-bottom:14px;">Projects by region</div>
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <sc-for list="{{ regionRows }}" as="r" hint-placeholder-count="4">
+              <div><div style="display:flex;justify-content:space-between;margin-bottom:7px;"><span style="font-size:13px;color:#cbc7c3;">{{ r.label }}</span><span style="font-family:'Space Mono',monospace;font-size:13px;color:#f4f1ee;">{{ r.value }}</span></div><div style="height:8px;border-radius:0;background:#221f1b;"><div style="height:8px;width:{{ r.pct }}%;border-radius:0;background:linear-gradient(90deg,#E03131,#f24343);"></div></div></div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div class="card" style="border:1px solid #262320;border-radius:0;background:#16140f;padding:24px 22px;display:flex;flex-direction:column;">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7d7975;margin-bottom:20px;">Legislative status</div>
+          <div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;line-height:1.1;margin-bottom:10px;">{{ legislativeCard.priority }}</div>
+          <p style="font-size:13px;color:#8c8884;line-height:1.55;margin:0 0 18px;">{{ legislativeCard.summary }}</p>
+          <a class="flink" href="{{ legislativeCard.storiesUrl }}" style="font-size:13px;font-weight:700;color:#E03131;margin-bottom:auto;">Read the policy stories →</a>
+          <div style="margin-top:22px;padding-top:18px;border-top:1px solid #221f1b;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7d7975;margin-bottom:8px;">Watch list</div>
+            <p style="font-size:13px;color:#cbc7c3;margin:0 0 12px;line-height:1.5;">{{ legislativeCard.watchNote }}</p>
+            <a class="flink" href="{{ legislativeCard.watchUrl }}" style="font-size:13px;font-weight:700;color:#c9a24b;">View watch list →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- dedicated sponsorship -->
+    <section class="sponsor-block section-pad-lg" style="margin:30px 44px 4px;border:1px solid #2b2824;border-radius:0;overflow:hidden;background:radial-gradient(130% 150% at 100% 0%, #241f18 0%, #16140f 55%);display:flex;gap:44px;padding:44px 40px;">
+      <div style="flex:1 1 54%;min-width:0;display:flex;flex-direction:column;justify-content:center;">
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#E03131;margin-bottom:16px;">Partnership</span>
+        <h3 style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:37px;line-height:1;color:#f6f3f0;margin:0 0 16px;">THE PEOPLE DECIDING MICHIGAN'S DATA CENTER FUTURE READ THIS EVERY WEEK.</h3>
+        <p style="max-width:460px;margin:0 0 22px;color:#a39e99;font-size:16px;line-height:1.6;">Township boards, state regulators, reporters, and energy executives rely on it. Your support keeps it independent and rigorous.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:26px;">
+          <div style="display:flex;align-items:center;gap:11px;"><span style="width:19px;height:19px;border-radius:50%;background:rgba(224,49,49,.16);color:#E03131;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;">✓</span><span style="font-size:14px;color:#cbc7c3;">Logo on every page and facility profile</span></div>
+          <div style="display:flex;align-items:center;gap:11px;"><span style="width:19px;height:19px;border-radius:50%;background:rgba(224,49,49,.16);color:#E03131;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;">✓</span><span style="font-size:14px;color:#cbc7c3;">Named in the daily briefing — 11,000+ subscribers</span></div>
+          <div style="display:flex;align-items:center;gap:11px;"><span style="width:19px;height:19px;border-radius:50%;background:rgba(224,49,49,.16);color:#E03131;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;">✓</span><span style="font-size:14px;color:#cbc7c3;">Featured in the quarterly impact report</span></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center;">
+          <a href="Sponsor.dc.html" style="text-decoration:none;color:#cf6a66;background:transparent;border:1px solid #4a2723;font-weight:700;font-size:15px;padding:14px 26px;border-radius:0;" style-hover="border-color:#E03131;color:#fff;">Sponsor the tracker</a>
+          <a class="ghost" href="Sponsor.dc.html" style="text-decoration:none;color:#cbc7c3;border:1px solid #3a3733;font-weight:600;font-size:15px;padding:14px 26px;border-radius:0;">Request the media kit</a>
+        </div>
+        <!-- partner email capture -->
+        <div style="margin-top:22px;padding-top:20px;border-top:1px solid #2b2824;max-width:470px;">
+          <div style="font-size:13px;color:#8c8884;margin-bottom:10px;">Not ready to commit? Get the media kit and daily briefing by email.</div>
+          <sc-if value="{{ partnerPending }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:10px;"><input type="email" placeholder="you@work-email.com" id="mc-kit-email" style="flex:1;min-width:0;background:#0f0e0d;border:1px solid #322e29;border-radius:0;padding:0 14px;height:46px;color:#f4f1ee;font-family:'Archivo',sans-serif;font-size:14px;outline:none;" style-focus="border-color:#E03131;" /><button type="button" onclick="{{ subscribePartner }}" style-hover="border-color:#E03131;color:#fff;background:#241f1b;" style="flex-shrink:0;cursor:pointer;color:#f4f1ee;background:#1f1c18;border:1px solid #3a3733;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;padding:0 22px;height:46px;border-radius:0;">Send the kit</button></div></sc-if>
+          <sc-if value="{{ partnerSubscribed }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;min-height:46px;font-size:15px;color:#9bc49b;"><span style="width:22px;height:22px;border-radius:50%;background:rgba(120,170,120,.16);color:#9bc49b;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">✓</span>On its way — check your inbox for the media kit.</div></sc-if>
+        </div>
+      </div>
+      <div style="flex:1 1 46%;min-width:0;border:1px solid #322e29;border-radius:0;background:rgba(16,15,14,.6);backdrop-filter:blur(6px);padding:24px;display:flex;flex-direction:column;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7d7975;margin-bottom:6px;">Sponsorship tiers</div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #221f1b;">
+          <div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;color:#f4f1ee;">Founding Partner</div><div style="font-size:12.5px;color:#8c8884;margin-top:4px;line-height:1.45;">Top logo placement, named in every briefing and the quarterly report.</div></div>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#cbc7c3;white-space:nowrap;padding-top:4px;">Annual</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #221f1b;">
+          <div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;color:#f4f1ee;">Supporting</div><div style="font-size:12.5px;color:#8c8884;margin-top:4px;line-height:1.45;">A section sponsorship and a recurring slot in the newsletter.</div></div>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#cbc7c3;white-space:nowrap;padding-top:4px;">Quarterly</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 0;">
+          <div><div style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:21px;color:#f4f1ee;">Community</div><div style="font-size:12.5px;color:#8c8884;margin-top:4px;line-height:1.45;">For individuals and local businesses who want it to keep going.</div></div>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#cbc7c3;white-space:nowrap;padding-top:4px;">Any amount</span>
+        </div>
+        <div style="font-size:12px;color:#6f6b67;margin-top:14px;padding-top:14px;border-top:1px solid #1a1813;line-height:1.5;">Every tier includes a linked logo and a listing on the Supporters page.</div>
+      </div>
+    </section>
+
+    <!-- closing support CTA -->
+    <section class="closing-cta inset-pad" style="margin:20px 44px 0;border:1px solid #E03131;background:radial-gradient(130% 180% at 50% 0%, #2a1714 0%, #16140f 60%);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div style="min-width:0;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#E03131;margin-bottom:10px;">Keep the watchdog funded</div>
+        <h2 style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:34px;line-height:1;color:#f6f3f0;margin:0;text-transform:uppercase;">Powered by sponsors &amp; supporters.</h2>
+      </div>
+      <div style="display:flex;gap:12px;flex-shrink:0;">
+        <a href="Sponsor.dc.html" style="text-decoration:none;color:#cf6a66;background:transparent;border:1px solid #4a2723;font-weight:800;font-size:15px;letter-spacing:.03em;text-transform:uppercase;padding:15px 26px;" style-hover="border-color:#E03131;color:#fff;">Sponsor the tracker →</a>
+        <a class="ghost" href="Sponsor.dc.html" style="text-decoration:none;color:#f4f1ee;border:1px solid #6f6b67;font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase;padding:15px 26px;">Support us</a>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer style="margin-top:44px;padding:44px 44px 30px;background:#0c0b0a;border-top:1px solid #221f1b;">
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+        <div style="max-width:320px;">
+          <div style="margin-bottom:14px;">
+            <span class="lockup" style="font-size:24px;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo" /><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></span>
+          </div>
+          <p style="color:#6f6b67;font-size:13px;line-height:1.6;margin:0;">A public-interest record of Michigan's data center buildout. Sourced, cited, and corrected in the open.</p>
+        </div>
+        <div class="footer-cols" style="display:flex;gap:56px;">
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">Explore</span>
+            <a class="flink" href="Live Map.dc.html" style="font-size:14px;">Live Map</a>
+            <a class="flink" href="Live Map.dc.html" style="font-size:14px;">Facilities</a>
+            <a class="flink" href="Live Map.dc.html" style="font-size:14px;">Power &amp; Grid</a>
+            <a class="flink" href="Meetings.dc.html" style="font-size:14px;">Meetings</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">About</span>
+            <a class="flink" href="Learn.dc.html" style="font-size:14px;">Methodology</a>
+            <a class="flink" href="Learn.dc.html" style="font-size:14px;">Sources</a>
+            <a class="flink" href="Learn.dc.html" style="font-size:14px;">Learn</a>
+            <a class="flink" href="Learn.dc.html" style="font-size:14px;">Contact</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5f5b57;margin-bottom:3px;">Connect</span>
+            <a class="flink" href="Stories.dc.html" style="font-size:14px;">Newsletter</a>
+            <a class="flink" href="Homepage.dc.html" style="font-size:14px;">RSS</a>
+            <a class="flink" href="Homepage.dc.html" style="font-size:14px;">Bluesky</a>
+            <a class="flink" href="Homepage.dc.html" style="font-size:14px;">Send a tip</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:34px;padding-top:20px;border-top:1px solid #1a1813;">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7d7975;">Independent · Nonpartisan</span>
+        <span style="font-size:12px;color:#5f5b57;">© 2026 Michigan Data Center Tracker · Built in Michigan</span>
+      </div>
+    </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menuOpen: false, hero: false, hearings: false, partner: false, podPlaying: false, podMuted: true, cmsWire: null, cmsDeck: null, flyOpen: false, flyDone: false };
+
+  // CMS endpoints — set window.MDCT_CMS = 'http://127.0.0.1:8787' (your Grok Build desk) to go live.
+  // Falls back to the built-in editorial feed if unreachable (e.g. in preview).
+  cmsBase() { return (typeof window !== 'undefined' && window.MDCT_CMS) || ''; }
+
+  dismissFlyAction() {
+    try { localStorage.setItem('mdct_flyin_seen', '1'); } catch (e) {}
+    const root = document.querySelector('[data-mdct-flyin]');
+    if (root) root.__mdctBound = false;
+    this.setState({ flyOpen: false });
+  }
+  submitFlyAction() {
+    try { const e1 = document.getElementById('mc-fly-email'); const z1 = document.getElementById('mc-fly-zip'); if (window.MDCT && window.MDCT.subscribe) window.MDCT.subscribe(e1 ? e1.value : '', z1 ? z1.value : ''); } catch (e) {}
+    try { localStorage.setItem('mdct_flyin_seen', '1'); } catch (e) {}
+    this.setState({ flyDone: true });
+  }
+  bindFlyin() {
+    if (!this.state.flyOpen) return;
+    const root = document.querySelector('[data-mdct-flyin]');
+    if (!root || root.__mdctBound) return;
+    root.__mdctBound = true;
+    const dismiss = () => this.dismissFlyAction();
+    root.addEventListener('click', (e) => { if (e.target === root) dismiss(); });
+    const panel = root.querySelector('[data-mdct-flyin-panel]');
+    if (panel) panel.addEventListener('click', (e) => e.stopPropagation());
+    const close = root.querySelector('[data-mdct-flyin-close]');
+    if (close) close.addEventListener('click', (e) => { e.preventDefault(); dismiss(); });
+    const submit = root.querySelector('[data-mdct-flyin-submit]');
+    if (submit) submit.addEventListener('click', (e) => { e.preventDefault(); this.submitFlyAction(); });
+  }
+
+  componentDidMount() {
+    fetch('pod/latest.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(meta => {
+      if (meta && meta.title && !this._dead) this.setState({ podMeta: meta });
+    }).catch(() => {});
+    try { if (window.MDCT && window.MDCT.loadLive) window.MDCT.loadLive(() => { if (!this._dead) this.setState({ liveTick: Date.now() }); }); } catch (e) {}
+    this._wait = setInterval(() => {
+      if (window.L) { clearInterval(this._wait); this.initMaps(); }
+    }, 60);
+    this.loadCMS();
+    try {
+      if (!localStorage.getItem('mdct_flyin_seen')) {
+        this._flyTimer = setTimeout(() => { if (!this._dead) this.setState({ flyOpen: true }); }, 10000);
+      }
+    } catch (e) {}
+    setTimeout(() => this.bindFlyin(), 0);
+  }
+  componentDidUpdate() { this.bindFlyin(); }
+  componentWillUnmount() { clearInterval(this._wait); clearTimeout(this._flyTimer); this._dead = true; }
+
+  loadCMS() {
+    const base = this.cmsBase();
+    if (!base) return;
+    const grab = (path) => fetch(base + path, { headers: { 'Accept': 'application/json' } })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status));
+    // Stories / Wire feed
+    grab('/api/stories').then(d => {
+      if (this._dead) return;
+      const rows = Array.isArray(d) ? d : (d.stories || d.items || d.data || []);
+      const wire = rows.map((s, i) => ({
+        iso: s.iso || s.published_at || s.date || s.created_at,
+        title: s.title || s.headline || s.name,
+        source: s.source || s.byline || s.publication || '',
+        cat: s.cat || s.county || s.region || s.tag || 'STATEWIDE',
+        breaking: !!(s.breaking || s.is_breaking),
+        lead: i === 0 || !!s.lead || !!s.is_lead,
+      })).filter(w => w.title && w.iso);
+      if (wire.length) this.setState({ cmsWire: wire });
+    }).catch(() => {});
+    // On Deck / hearings feed
+    grab('/api/on-deck').catch(() => grab('/api/meetings')).then(d => {
+      if (this._dead || !d) return;
+      const rows = Array.isArray(d) ? d : (d.meetings || d.items || d.data || []);
+      const deck = rows.map(m => ({
+        iso: (m.iso || m.date || m.starts_at || '').slice(0, 10),
+        body: m.body || m.org || m.title || m.name,
+        topic: m.topic || m.summary || m.description || '',
+        region: m.region || m.area || '',
+        time: m.time || m.start_time || '',
+        status: m.status || m.type || 'Meeting',
+        urgent: !!(m.urgent || /vote/i.test(m.status || '')),
+        link: m.link || m.url || '',
+        linkLabel: m.linkLabel || m.link_label || 'Agenda',
+      })).filter(m => m.body && m.iso);
+      if (deck.length) this.setState({ cmsDeck: deck.slice(0, 6) });
+    }).catch(() => {});
+  }
+
+  initMaps() {
+    const MDCT = (typeof window !== 'undefined' && window.MDCT) || {};
+    const STATUS = {
+      Construction: '#dd8048', Operating: '#E03131', Proposed: '#bda35f', Withdrawn: '#6f6a64',
+    };
+    const dot = (color, size) => L.divIcon({ className: '', html: '<span style="display:block;width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:' + color + ';border:2px solid #100f0e;box-shadow:0 0 0 4px ' + color + '33;"></span>', iconSize: [size, size], iconAnchor: [size / 2, size / 2] });
+    const popup = (p, statusKey, color) => {
+      const mw = p.power_mw ? p.power_mw + ' MW' : 'Undisclosed';
+      const place = p.municipality || p.city || '';
+      return '<div style="font-family:Archivo,sans-serif;min-width:130px;"><div style="font-family:\'Saira Condensed\',sans-serif;font-weight:700;font-size:15px;color:#16140f;line-height:1.05;">' + (p.name || '') + '</div><div style="font-size:11px;color:#777;margin:2px 0 7px;">' + place + '</div><div style="display:flex;gap:14px;"><span><span style="display:block;font-family:\'Space Mono\',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#999;">Load</span><span style="font-weight:700;font-size:13px;color:#16140f;">' + mw + '</span></span><span><span style="display:block;font-family:\'Space Mono\',monospace;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#999;">Status</span><span style="font-weight:700;font-size:13px;color:' + color + ';">' + statusKey + '</span></span></div></div>';
+    };
+    const tileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
+    const tileOpt = { subdomains: 'abcd', maxZoom: 19, attribution: '© OpenStreetMap · © CARTO' };
+
+    const build = (id, opts, zoom, sites) => {
+      const el = document.getElementById(id);
+      if (!el || el._leaflet_id) return null;
+      const map = L.map(el, Object.assign({ zoomControl: false, scrollWheelZoom: false, attributionControl: false }, opts)).setView([43.7, -84.55], zoom);
+      L.tileLayer(tileUrl, tileOpt).addTo(map);
+      sites.forEach(p => {
+        const statusKey = MDCT.mapStatusKey ? MDCT.mapStatusKey(p.status, p.layer) : 'Proposed';
+        const color = STATUS[statusKey] || '#bda35f';
+        const mw = MDCT.parseMW ? MDCT.parseMW(p.power_mw) : 0;
+        const sz = mw >= 400 ? 15 : mw >= 200 ? 12 : 10;
+        L.marker([p.latitude, p.longitude], { icon: dot(color, sz) }).addTo(map).bindPopup(popup(p, statusKey, color));
+      });
+      setTimeout(() => map.invalidateSize(), 200);
+      return map;
+    };
+
+    const plot = (points) => {
+      const sites = (points || []).filter(p => (p.layer || 'projects') === 'projects' && p.latitude && p.longitude);
+      if (sites.length) build('hero-map', { dragging: false, doubleClickZoom: false, touchZoom: false, keyboard: false }, 6.3, sites);
+    };
+
+    const pts = MDCT.mapPoints ? MDCT.mapPoints() : [];
+    if (pts.length) {
+      plot(pts);
+    } else {
+      fetch('map-data.json').then(r => r.ok ? r.json() : Promise.reject()).then(d => plot(d.map_points || [])).catch(() => {});
+    }
+  }
+
+  renderVals() {
+    const go = (key) => () => this.setState({ [key]: true });
+    const MC = (v) => { try { const el = document.getElementById(v.id); if (window.MDCT && window.MDCT.subscribe) window.MDCT.subscribe(el ? el.value : '', v.zip ? (document.getElementById(v.zip) || {}).value : ''); } catch (e) {} };
+    const NOW = new Date();
+    const MDCT = (typeof window !== 'undefined' && window.MDCT) || {};
+    const mon = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    // ---- CMS feed: wire stories (newest first) ----
+    const CAT = {
+      Grid: '#E03131', Local: '#7fb0e0', Policy: '#c9a24b', Water: '#5bb3a6', Community: '#b07fd0', Development: '#dd8048',
+    };
+    const wireSrc = this.state.cmsWire || (MDCT.headlines ? MDCT.headlines() : []);
+    const rawWire = wireSrc.filter(w => w.iso);
+    const wire = rawWire.map((w) => {
+      const d = new Date(w.iso);
+      const rec = MDCT.recency ? MDCT.recency(w.iso, NOW) : { hot: false, breaking: !!w.breaking, cls: '', label: '' };
+      const sm = MDCT.sourceMeta ? MDCT.sourceMeta(w) : { source: w.source, sourceKind: 'src-news' };
+      const isHot = rec.hot;
+      return Object.assign({}, w, sm, {
+        timeAgo: MDCT.ago ? MDCT.ago(w.iso, NOW) : '',
+        dateLabel: mon[d.getMonth()] + ' ' + String(d.getDate()).padStart(2, '0'),
+        isNew: isHot,
+        catColor: CAT[w.cat] || '#cbc7c3',
+        url: w.url || 'stories.html',
+        timeColor: isHot ? '#E03131' : '#7d7975',
+        hotCls: isHot ? 'is-hot' : '',
+        breaking: !!(w.breaking || rec.breaking),
+        recencyCls: rec.cls,
+        recencyLabel: rec.label,
+      });
+    });
+    // Freshness guard: the wire and ticker only show the last 15 hours
+    // whenever at least 3 fresh items exist; otherwise newest-first honestly.
+    const FRESH_H = (MDCT.HOT_HOURS || 15);
+    const freshOnly = wire.filter(w => (NOW - new Date(w.iso)) / 36e5 <= FRESH_H);
+    const feed = freshOnly.length >= 3 ? freshOnly : wire;
+    const lead = feed.find(w => w.lead) || feed[0];
+    const wireList = feed.filter(w => w !== lead).slice(0, 5);
+    const tickerItems = feed.slice(0, 6);
+
+    // ---- CMS feed: upcoming hearings (On Deck) ----
+    const rawDeck = this.state.cmsDeck || (typeof window !== 'undefined' && window.MDCT_MEETINGS) || [];
+    const until = (iso) => {
+      const days = Math.round((new Date(iso + 'T00:00:00') - NOW) / 864e5);
+      if (days <= 0) return 'Today';
+      if (days === 1) return 'Tomorrow';
+      if (days < 7) return 'in ' + days + ' days';
+      return 'in ' + Math.round(days / 7) + ' wk';
+    };
+    const onDeck = rawDeck.map(m => {
+      const d = new Date(m.iso + 'T00:00:00');
+      return Object.assign({}, m, {
+        mon: mon[d.getMonth()], day: String(d.getDate()).padStart(2, '0'),
+        countdown: until(m.iso),
+        topColor: m.urgent ? '#E03131' : '#2b2824',
+        cdColor: m.urgent ? '#E03131' : '#7d7975',
+        statusColor: m.urgent ? '#E03131' : '#9b9794',
+        statusBorder: m.urgent ? '#E03131' : '#322e29',
+        agendaUrl: m.link || '',
+        agendaLabel: m.linkLabel || 'Agenda',
+        streamUrl: (m.stream && /^https:\/\//.test(m.stream)) ? m.stream : '',
+      });
+    });
+
+    // ---- By the Numbers stats ----
+    const stats = MDCT.stats ? MDCT.stats() : { projects: 0, disclosedGW: '0', pauses: 0, communities: 0, statusBreakdown: [], byRegion: [] };
+    const statsProjects = stats.projects;
+    const statsGW = stats.disclosedGW;
+    const statsCommunities = stats.communities;
+    const statsPauses = stats.pauses;
+    const formatStatsUpdated = () => {
+      if (!window.MDCT_UPDATED) return '';
+      const d = new Date(window.MDCT_UPDATED);
+      return 'Updated ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    };
+    const statsUpdated = formatStatsUpdated();
+    const total = statsProjects || 1;
+    let acc = 0;
+    const statusRows = (stats.statusBreakdown || []).map(s => ({ label: s.label, count: s.count, color: s.color }));
+    const donutParts = (stats.statusBreakdown || []).map(s => {
+      const start = acc;
+      acc += (s.count / total) * 100;
+      return s.color + ' ' + start + '% ' + acc + '%';
+    });
+    const donutGradient = donutParts.join(', ') || '#45403a 0 100%';
+    const maxRegion = Math.max.apply(null, (stats.byRegion || []).map(r => r.projects).concat([1]));
+    const regionRows = (stats.byRegion || []).map(r => ({
+      label: r.label,
+      value: r.projects,
+      pct: Math.round((r.projects / maxRegion) * 100),
+    }));
+    const watchList = (typeof window !== 'undefined' && window.MDCT_WATCHLIST) || [];
+    const legislativeCard = {
+      priority: 'Senate SB 1046–1051',
+      summary: 'Eight-bill guardrail package — water caps, full-cost power, NDA ban, and community benefits. Priority item in the Senate Energy & Environment Committee.',
+      storiesUrl: 'Stories.dc.html',
+      watchNote: watchList.length + ' pending decisions with no confirmed date — from Gaines Township to statewide moratorium bills.',
+      watchUrl: 'Meetings.dc.html',
+    };
+
+    const wireUpdated = (MDCT.updatedLabel && MDCT.updatedLabel()) || (rawWire[0] && MDCT.ago ? MDCT.ago(rawWire[0].iso, NOW) : '');
+
+    return {
+      menuOpen: this.state.menuOpen,
+      podCls: this.state.podPlaying ? 'playing' : '',
+      podIcon: this.state.podPlaying ? '❚❚' : '▶',
+      togglePod: () => { const next = !this.state.podPlaying; this.setState({ podPlaying: next }); try { const a = document.getElementById('pod-audio'); if (a) { if (next) { a.muted = false; a.play && a.play().catch(()=>{}); } else { a.pause && a.pause(); } } } catch(e){} },
+      podDate: (this.state.podMeta && this.state.podMeta.date)
+        ? (() => { const d = new Date(this.state.podMeta.date + 'T12:00:00'); return mon[d.getMonth()].charAt(0)+mon[d.getMonth()].slice(1).toLowerCase() + ' ' + d.getDate(); })()
+        : mon[NOW.getMonth()].charAt(0)+mon[NOW.getMonth()].slice(1).toLowerCase() + ' ' + NOW.getDate(),
+      podDur: (this.state.podMeta && this.state.podMeta.minutes) ? this.state.podMeta.minutes + ' min' : 'Daily',
+      podTeaser: (this.state.podMeta && this.state.podMeta.teaser) || 'Ada & Mack talk through the day’s verified Michigan data center headlines.',
+      podMuteLabel: this.state.podMuted ? 'Listen' : 'Mute',
+      toggleMute: () => { const next = !this.state.podMuted; this.setState({ podMuted: next, podPlaying: true }); try { const a = document.getElementById('pod-audio'); if (a) { a.muted = next; if (!next) { a.play && a.play().catch(()=>{}); } } } catch(e){} },
+      bars: Array.from({length: 40}, (_, i) => ({ h: (22 + Math.round(Math.abs(Math.sin(i*1.7)*Math.cos(i*0.6))*78)) + '%', delay: (i % 9 * 0.08).toFixed(2) + 's' })),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      heroPending: !this.state.hero, heroSubscribed: this.state.hero, subscribeHero: () => { MC({ id: 'mc-hero-email' }); this.setState({ hero: true }); },
+      hearingsPending: !this.state.hearings, hearingsSubscribed: this.state.hearings, subscribeHearings: go('hearings'),
+      partnerPending: !this.state.partner, partnerSubscribed: this.state.partner, subscribePartner: () => { MC({ id: 'mc-kit-email' }); this.setState({ partner: true }); },
+      lead, wireList, tickerItems, onDeck,
+      wireUpdated,
+      statsProjects, statsGW, statsCommunities, statsPauses, statsUpdated,
+      statusRows, regionRows, donutGradient, legislativeCard,
+      flyOpen: this.state.flyOpen, flyPending: !this.state.flyDone, flyDone: this.state.flyDone,
+      dismissFly: () => this.dismissFlyAction(),
+      submitFly: () => this.submitFlyAction(),
+    };
+  }
+}
+</script>
+</body>
+</html>

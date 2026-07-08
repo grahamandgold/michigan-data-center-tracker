@@ -67,6 +67,13 @@
         if (stories.length >= 3) g.MDCT_HEADLINES = stories;
         if (meetings.length) {
           meetings.forEach(function (m) { if (m.stream && !/^https:\/\//.test(m.stream)) delete m.stream; });
+          // merge with the curated list (agent finds + hand-tracked), dedupe by date+body
+          var seen = {};
+          meetings.forEach(function (m) { seen[(m.iso + '|' + m.body).toLowerCase()] = true; });
+          (g.MDCT_MEETINGS || []).forEach(function (m) {
+            var k = (m.iso + '|' + m.body).toLowerCase();
+            if (!seen[k]) { seen[k] = true; meetings.push(m); }
+          });
           g.MDCT_MEETINGS = meetings;
         }
         if (d.updated_at && !isNaN(new Date(d.updated_at))) g.MDCT_UPDATED = d.updated_at;
