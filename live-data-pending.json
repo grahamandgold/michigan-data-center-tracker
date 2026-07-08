@@ -1,6 +1,39 @@
 {
- "updated_at": "2026-07-08T16:29:47Z",
+ "updated_at": "2026-07-08T16:50:29+00:00",
  "generator": "grok-wire-agent",
- "items": [],
- "accuracy_checked_at": "2026-07-08T16:26:07+00:00"
+ "items": [
+  {
+   "iso": "2026-07-07T19:59:00+00:00",
+   "region": "north",
+   "cat": "Delta Co.",
+   "tag": "Local Government",
+   "title": "Delta County Planning Commission Backs 12-Month Data Center Moratorium",
+   "dek": "The panel approved a pause on new data center and cryptocurrency mining projects to allow time for zoning ordinance development; the measure remains in effect for a year or until rules are adopted.",
+   "source": "Upper Michigan's Source",
+   "url": "https://www.uppermichiganssource.com/2026/07/07/delta-county-planning-commission-approves-data-center-moratorium/",
+   "breaking": false,
+   "lead": true,
+   "id": "f0ad815cd4a8",
+   "kind": "story",
+   "filed_at": "2026-07-08T16:50:29+00:00",
+   "accuracy": "checked"
+  },
+  {
+   "iso": "2026-07-07T20:00:00+00:00",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "tag": "Policy",
+   "title": "Lawmakers in 20+ States Propose Rules on Data Centers Amid Local Pushback",
+   "dek": "Officials seek guardrails on water and energy use; Rep. Dylan Wegela (D-MI) cites bipartisan concerns while Michigan governor continues to support development",
+   "source": "WKAR",
+   "url": "https://www.wkar.org/2026-07-07/data-centers-on-the-fast-track-have-officials-racing-to-catch-up-and-offer-regulations",
+   "breaking": false,
+   "lead": false,
+   "id": "d121f461972a",
+   "kind": "story",
+   "filed_at": "2026-07-08T16:50:29+00:00",
+   "accuracy": "checked-corrected"
+  }
+ ],
+ "accuracy_checked_at": "2026-07-08T16:50:57+00:00"
 }
