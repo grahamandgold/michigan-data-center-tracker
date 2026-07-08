@@ -1,0 +1,36 @@
+name: Training report (is the newsroom learning?)
+
+on:
+  schedule:
+    - cron: "0 10 * * 1"   # Mondays, 6 AM ET
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compute training metrics
+        run: python scripts/training_report.py
+
+      - name: Commit if changed
+        run: |
+          if git status --porcelain training-report.json | grep -q .; then
+            git config user.name "training-report"
+            git config user.email "training-report@users.noreply.github.com"
+            git add training-report.json
+            git commit -m "Training report $(date -u +'%Y-%m-%d')"
+            git pull --rebase origin main
+            git push
+          else
+            echo "No change."
+          fi

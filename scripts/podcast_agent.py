@@ -52,16 +52,24 @@ def post_json(url: str, body: dict, headers: dict, timeout: int = 420) -> dict:
 
 def director_notes() -> str:
     """Standing notes from the News Director (agent-notes.json, set from the
-    Intel Desk). Injected into the prompt as hard instructions."""
+    Intel Desk) + the compiled training memory. Injected as hard instructions."""
+    out = ""
     try:
         notes = json.loads((ROOT / "agent-notes.json").read_text(encoding="utf-8")).get("notes", [])
+        mine = [n for n in notes if n.get("agent") in ("All agents", "Streaming Producer")]
+        if mine:
+            out += ("\n\nSTANDING NOTES FROM THE NEWS DIRECTOR (obey these):\n"
+                    + "\n".join(f"- {n['text']}" for n in mine))
     except Exception:  # noqa: BLE001
-        return ""
-    mine = [n for n in notes if n.get("agent") in ("All agents", "Streaming Producer")]
-    if not mine:
-        return ""
-    return ("\n\nSTANDING NOTES FROM THE NEWS DIRECTOR (obey these):\n"
-            + "\n".join(f"- {n['text']}" for n in mine))
+        pass
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import lessons_util
+        out += lessons_util.lessons_block(agent="podcast")
+    except Exception:  # noqa: BLE001
+        pass
+    return out
 
 
 def script_override() -> dict | None:

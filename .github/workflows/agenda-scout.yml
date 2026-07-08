@@ -16,7 +16,7 @@ concurrency:
 jobs:
   investigate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
@@ -24,13 +24,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install PDF text extraction
-        run: pip install pypdf
+      - name: Install extraction stack (PDF text, PDF rendering, headless browser)
+        run: |
+          pip install pypdf pypdfium2 pillow playwright
+          python -m playwright install chromium --with-deps
 
-      - name: Investigate agendas (PDFs, packets, renderings)
+      - name: Investigate agendas (portals, packets, scanned PDFs, background)
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-          XAI_MODEL: ${{ vars.XAI_MODEL || 'grok-4' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_MODEL: ${{ vars.XAI_MODEL || '' }}
         run: python scripts/agenda_scout.py
 
       - name: Commit if changed

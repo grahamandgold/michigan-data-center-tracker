@@ -1,0 +1,44 @@
+name: Lessons audit (compile the style guide)
+
+on:
+  schedule:
+    - cron: "0 8 1 * *"    # 1st of each month, 4 AM ET
+  workflow_dispatch: {}     # run anytime from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lessons-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile raw corrections into structured rules
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: python scripts/lessons_audit.py
+
+      - name: Commit if changed
+        run: |
+          if git status --porcelain desk-lessons.json | grep -q .; then
+            git config user.name "lessons-audit"
+            git config user.email "lessons-audit@users.noreply.github.com"
+            git add desk-lessons.json
+            git commit -m "Lessons audit: recompiled style guide $(date -u +'%Y-%m-%d')"
+            git pull --rebase origin main
+            git push
+          else
+            echo "Style guide unchanged."
+          fi

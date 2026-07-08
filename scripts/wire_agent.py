@@ -125,12 +125,16 @@ def director_notes() -> str:
     except Exception:  # noqa: BLE001
         pass
     try:
-        lessons = json.loads((ROOT / "desk-lessons.json").read_text(encoding="utf-8")).get("lessons", [])
-        if lessons:
-            out += ("\n\nLESSONS FROM PAST FEEDBACK (the News Director corrected these before — "
-                    "do not repeat the mistakes):\n" + "\n".join(f"- {l['text']}" for l in lessons[-15:]))
+        import lessons_util
+        out += lessons_util.lessons_block(agent="wire")
     except Exception:  # noqa: BLE001
-        pass
+        try:
+            lessons = json.loads((ROOT / "desk-lessons.json").read_text(encoding="utf-8")).get("lessons", [])
+            if lessons:
+                out += ("\n\nLESSONS FROM PAST FEEDBACK (the News Director corrected these before — "
+                        "do not repeat the mistakes):\n" + "\n".join(f"- {l['text']}" for l in lessons[-15:]))
+        except Exception:  # noqa: BLE001
+            pass
     try:
         reqs = json.loads((ROOT / "desk-rework.json").read_text(encoding="utf-8")).get("requests", [])
         fresh = [r for r in reqs if fresh_enough(r.get("at", ""), hours=48.0)]
