@@ -1,0 +1,42 @@
+name: Capitol watch (Michigan Legislature)
+
+on:
+  schedule:
+    - cron: "45 4,10,16,22 * * *"   # four times daily
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: capitol-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check legislative actions
+        env:
+          LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
+        run: python scripts/capitol_watch.py
+
+      - name: Commit if changed
+        run: |
+          if git status --porcelain live-data.json capitol-state.json | grep -q .; then
+            git config user.name "capitol-watch"
+            git config user.email "capitol-watch@users.noreply.github.com"
+            git add live-data.json capitol-state.json
+            git commit -m "Capitol watch $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push
+          else
+            echo "No legislative changes."
+          fi
