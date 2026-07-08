@@ -1,7 +1,21 @@
 {
- "updated_at": "2026-07-08T10:36:16Z",
+ "updated_at": "2026-07-08T10:46:27Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "iso": "2026-07-08T00:00:00+00:00",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "tag": "Policy",
+   "title": "Democratic Senate candidates clash over data centers in latest debate",
+   "dek": "U.S. Rep. Haley Stevens and Abdul El-Sayed offered contrasting views on data center development during the Michigan U.S. Senate debate, with clips highlighting affordability concerns and corporate influence.",
+   "source": "X",
+   "url": "https://x.com/WOODTV/status/2074654637559333333",
+   "breaking": true,
+   "lead": true,
+   "id": "54965300adb6",
+   "accuracy": "social-post"
+  },
   {
    "iso": "2026-07-08T05:00:00+00:00",
    "region": "statewide",
@@ -12,7 +26,6 @@
    "source": "WOOD TV",
    "url": "https://www.facebook.com/woodtv/posts/abdul-el-sayed-on-the-potential-of-data-centers-being-built-in-michigan-misendeb/1553653276794512/",
    "breaking": false,
-   "lead": false,
    "accuracy": "unverified-source-unfetchable"
   },
   {
@@ -25,7 +38,6 @@
    "source": "X",
    "url": "https://x.com/Susan_M_J/status/2074709539694211570",
    "breaking": false,
-   "lead": true,
    "accuracy": "checked-corrected"
   },
   {
@@ -38,7 +50,6 @@
    "source": "X",
    "url": "https://x.com/TBullTraderZ/status/2074651827249770530",
    "breaking": false,
-   "lead": false,
    "accuracy": "checked"
   },
   {
@@ -51,7 +62,6 @@
    "source": "MLive",
    "url": "https://www.mlive.com/news/ann-arbor/2026/07/oracle-applies-for-tax-break-as-data-center-project-cost-reaches-43b-near-ann-arbor.html",
    "breaking": false,
-   "lead": false,
    "accuracy": "unverified-source-unfetchable"
   },
   {
@@ -64,7 +74,6 @@
    "source": "X",
    "url": "https://x.com/Grimillionaire/status/2074500251629547570",
    "breaking": false,
-   "lead": false,
    "accuracy": "checked"
   },
   {
@@ -77,7 +86,6 @@
    "source": "Hayes Township",
    "url": "https://www.hayestownshipmi.gov/data-center-advisory-group-meeting-2/",
    "breaking": false,
-   "lead": false,
    "accuracy": "unverified-source-unfetchable"
   },
   {
@@ -90,7 +98,6 @@
    "source": "WDET",
    "url": "https://wdet.org/2026/07/07/the-metro-after-a-week-of-outages-a-bigger-question-about-michigans-grid/2/",
    "breaking": false,
-   "lead": false,
    "accuracy": "checked"
   }
  ],
