@@ -98,19 +98,23 @@ def pdf_text(data: bytes) -> str:
         return ""
 
 
-def build_dossier(meeting: dict) -> str:
-    """Download the agenda page + its packet PDFs; return extracted text."""
+def build_dossier(meeting: dict) -> tuple[str, list]:
+    """Download the agenda page + its packet PDFs.
+    Returns (extracted text, [{label, url}] of documents actually read —
+    so the News Director can open the same documents when approving)."""
     url = meeting.get("link", "")
-    parts = []
+    parts, docs = [], []
     try:
         raw = fetch(url)
     except Exception as e:  # noqa: BLE001
         print(f"::warning::agenda page unreachable {url}: {e}")
-        return ""
+        return "", []
     if url.lower().split("?")[0].endswith(".pdf"):
         parts.append(("AGENDA PDF", pdf_text(raw)))
+        docs.append({"label": "Agenda (PDF)", "url": url})
     else:
         parts.append(("AGENDA PAGE", html_text(raw)[:6000]))
+        docs.append({"label": "Agenda page", "url": url})
         pdfs = find_pdf_links(raw, url)
         print(f"  {meeting.get('body')}: {len(pdfs)} candidate documents")
         grabbed = 0
@@ -122,13 +126,15 @@ def build_dossier(meeting: dict) -> str:
                 if data[:4] == b"%PDF":
                     text = pdf_text(data)
                     if len(text) > 200:
-                        parts.append((f"DOCUMENT: {label or purl.rsplit('/', 1)[-1]}", text[:12000]))
+                        nice = label or purl.rsplit("/", 1)[-1]
+                        parts.append((f"DOCUMENT: {nice}", text[:12000]))
+                        docs.append({"label": nice[:70], "url": purl})
                         grabbed += 1
-                        print(f"    read PDF: {label or purl[-60:]} ({len(text)} chars)")
+                        print(f"    read PDF: {nice[:60]} ({len(text)} chars)")
             except Exception as e:  # noqa: BLE001
                 print(f"    skip {purl[-60:]}: {e}")
     dossier = "\n\n".join(f"===== {label} =====\n{text}" for label, text in parts if text)
-    return dossier[:30000]
+    return dossier[:30000], docs
 
 
 def tracker_context(meeting: dict) -> str:
@@ -249,7 +255,7 @@ def main() -> int:
     for m in targets[:6]:
         label = "Tonight" if m.get("iso") == today else "Tomorrow"
         print(f"Investigating: {m.get('body')} ({label})")
-        dossier = build_dossier(m)
+        dossier, docs_read = build_dossier(m)
         context = tracker_context(m)
         r = write_story(m, label, dossier, context)
         if not r:
@@ -276,6 +282,7 @@ def main() -> int:
             "filed_at": now_iso, "accuracy": "document-based",
             "findings": r.get("findings", "")[:800],
             "perspective": r.get("perspective", "")[:400],
+            "documents": docs_read[:4],
         }
         pending["items"].insert(0, item)
         filed += 1
