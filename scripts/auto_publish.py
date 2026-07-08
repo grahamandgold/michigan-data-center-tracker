@@ -51,8 +51,9 @@ def _age_h(iso: str, now: datetime) -> float:
 
 
 def _clean_story(it: dict) -> dict:
-    """Strip desk-only fields so the live payload stays lean."""
-    drop = {"kind", "filed_at", "judge_score", "judge_note", "auto_approve_at",
+    """Strip desk-only fields so the live payload stays lean. judge_score is
+    KEPT — it drives which story leads the homepage (the 'top story')."""
+    drop = {"kind", "filed_at", "judge_note", "auto_approve_at", "headline_rewritten",
             "auto_lane", "auto_link_attempts", "link_verified_at", "held", "ago"}
     return {k: v for k, v in it.items() if k not in drop}
 
@@ -88,10 +89,14 @@ def main() -> int:
         # still scored it and the headline was rewritten from the real outlet
         # title, so it's fine to publish and Andy can kill it if wrong.
         acc = str(it.get("accuracy", "")).lower()
+        # Google News items must have a genuinely rewritten headline to go
+        # straight up; paraphrases wait for a human rewrite on the desk.
+        rewritten_ok = it.get("origin") != "google-news" or it.get("headline_rewritten", True)
         ok = (
             it.get("kind") == "story"
             and int(it.get("judge_score", 0)) >= AUTO_MIN
             and "thin" not in acc and "inaccurate" not in acc
+            and rewritten_ok
             and _age_h(it.get("iso") or it.get("filed_at", ""), now) <= FRESH_HOURS
             and url and url not in live_urls and url not in killed_urls
         )
@@ -104,10 +109,12 @@ def main() -> int:
     if promoted:
         stories = [_clean_story(p) for p in promoted] + stories
 
-    # freshness sweep on the live site: drop > FRESH_HOURS, but keep MIN_LIVE
+    # News Director's rule: a story never leaves the homepage until a fresh one
+    # REPLACES it. So we only ever prepend fresh stories and cap the list — the
+    # oldest falls off exactly when a newer story pushes it past MAX_LIVE. No
+    # age-based blanking: if nothing fresh arrives, the current stories stay put.
     stories.sort(key=lambda s: s.get("iso", ""), reverse=True)
-    fresh = [s for s in stories if _age_h(s.get("iso", ""), now) <= FRESH_HOURS]
-    stories = (fresh if len(fresh) >= MIN_LIVE else stories[:MIN_LIVE])[:MAX_LIVE]
+    stories = stories[:MAX_LIVE]
 
     changed = bool(promoted) or stories != live.get("stories", [])
     if not changed:

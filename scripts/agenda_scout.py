@@ -111,8 +111,15 @@ findings and perspective) in the style of a sharp local reporter — the agenda 
 Michigan Data Center Tracker, writing about a public meeting {when_label.lower()}.
 
 STRUCTURE — every layer required:
-1. LEDE: a headline + dek that make a civilian 30 minutes away care. Specific hook from
-   the documents, never generic.
+1. LEDE: a headline + dek that make a civilian 30 minutes away care. The headline must
+   lead with the STAKE — the dollars, megawatts, acreage, water, who-wins/loses — NOT
+   procedural jargon. NEVER write "Board to Review", "weighs", "considers", "IFEC",
+   "application", acronyms, or agenda language; the News Director rejects those as boring
+   meeting jargon. Never use "update" or "latest".
+   BAD (rejected): "Saline Board to Review IFEC Application on Data Center Project"
+   GOOD: "Oracle asks Saline to skip 12 years of taxes on its $43B data center"
+   BAD (rejected): "Lenox Township Board regular meeting — data center zoning"
+   GOOD: "Lenox weighs zoning rules that could gate the next data center"
 2. FINDINGS: concrete stakes from the actual packet + our map records + prior votes —
    parcels, acreage, megawatts, dollar figures, abatement terms — each attributed
    ("per the staff report", "the packet shows", "the draft resolution would…").

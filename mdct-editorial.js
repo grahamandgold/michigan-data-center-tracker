@@ -67,14 +67,20 @@
         if (stories.length >= 3) g.MDCT_HEADLINES = stories;
         if (meetings.length) {
           meetings.forEach(function (m) { if (m.stream && !/^https:\/\//.test(m.stream)) delete m.stream; });
-          // merge with the curated list (agent finds + hand-tracked), dedupe by date+body
-          var seen = {};
-          meetings.forEach(function (m) { seen[(m.iso + '|' + m.body).toLowerCase()] = true; });
-          (g.MDCT_MEETINGS || []).forEach(function (m) {
-            var k = (m.iso + '|' + m.body).toLowerCase();
-            if (!seen[k]) { seen[k] = true; meetings.push(m); }
+          // Dedupe by date + TOWN (not exact body) so "Saline Township Board of
+          // Trustees" and "Saline Township Board" on the same night collapse to one.
+          var townKey = function (m) {
+            var t = (m.body || '').toLowerCase()
+              .replace(/board of trustees|board|planning commission|city council|advisory group|commission|committee|meeting|hearing|—.*$/g, '')
+              .replace(/[^a-z ]/g, '').trim().split(/\s+/).slice(0, 2).join(' ');
+            return m.iso + '|' + t;
+          };
+          var seen = {}, merged = [];
+          meetings.concat(g.MDCT_MEETINGS || []).forEach(function (m) {
+            var k = townKey(m);
+            if (!seen[k]) { seen[k] = true; merged.push(m); }
           });
-          g.MDCT_MEETINGS = meetings;
+          g.MDCT_MEETINGS = merged;
         }
         if (d.updated_at && !isNaN(new Date(d.updated_at))) g.MDCT_UPDATED = d.updated_at;
       })
@@ -121,22 +127,15 @@
     return meta;
   };
 
-  // Homepage freshness: only show stories from the last FRESH_HOURS. Stale
-  // stories drop off automatically so the wire never looks frozen. A floor
-  // (MIN_STORIES) keeps the page from going empty on a slow news hour —
-  // it tops up with the next-newest so the lead is always the freshest we have.
-  g.MDCT.FRESH_HOURS = 12;
-  g.MDCT.MIN_STORIES = 5;
+  // Homepage rule (News Director): a story never leaves until a fresh one
+  // replaces it. So we simply show the newest stories, sorted — fresh items
+  // published by the wire push the oldest off the bottom. The page is never
+  // blanked by age; freshness comes from replacement, not expiry.
+  g.MDCT.MAX_STORIES = 11;
   g.MDCT.headlines = function () {
-    var all = (g.MDCT_HEADLINES || []).slice().sort(function (a, b) {
+    return (g.MDCT_HEADLINES || []).slice().sort(function (a, b) {
       return new Date(b.iso) - new Date(a.iso);
-    });
-    var now = Date.now();
-    var fresh = all.filter(function (s) {
-      return (now - new Date(s.iso).getTime()) / 36e5 <= g.MDCT.FRESH_HOURS;
-    });
-    if (fresh.length >= g.MDCT.MIN_STORIES) return fresh;
-    return all.slice(0, g.MDCT.MIN_STORIES);  // never leave the homepage empty
+    }).slice(0, g.MDCT.MAX_STORIES);
   };
 
   g.MDCT.meetings = function () {

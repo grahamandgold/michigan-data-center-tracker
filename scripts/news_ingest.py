@@ -102,6 +102,21 @@ def _resolve(link: str) -> str:
     return link
 
 
+def _headline_original(ours: str, source: str) -> bool:
+    """True when our headline is genuinely different from the outlet's — not a
+    reword. Compares significant-word overlap (Jaccard); high overlap = a
+    paraphrase, which must go to the desk for a real rewrite, not auto-publish."""
+    stop = {"the", "a", "an", "to", "of", "in", "on", "for", "and", "as", "at",
+            "its", "it", "with", "over", "data", "center", "centers", "michigan"}
+    def toks(s):
+        return {w for w in re.findall(r"[a-z0-9$]+", s.lower()) if w not in stop and len(w) > 2}
+    a, b = toks(ours), toks(source)
+    if not a or not b:
+        return True
+    overlap = len(a & b) / len(a | b)
+    return overlap < 0.5
+
+
 def _known_urls() -> set:
     urls = set()
     for path, key in ((LIVE, "stories"), (PENDING, "items")):
@@ -145,10 +160,21 @@ about Michigan's data-center buildout (projects, moratoria, hearings, power/wate
 politics) and (b) genuinely newsworthy to a Michigan reader. Skip national trend pieces
 with no Michigan hook, pure PR, and duplicates.
 
-For each one you keep, rewrite the headline IN OUR OWN WORDS (never copy the outlet's
-headline; never use the words "update" or "latest"), write a 3-4 sentence dek, and tag it.
+WRITE A GENUINELY ORIGINAL HEADLINE FOR EACH — this is the golden rule and the News
+Director rejects anything that fails it:
+- Do NOT paraphrase or lightly reword the outlet's headline. Start from the FACTS and
+  write a fresh headline from scratch, in our own voice.
+- Lead with the STAKE a resident feels — the dollars, megawatts, water, who-wins/loses —
+  NOT procedural jargon. Never write "weighs", "considers", "Board to Review", "IFEC",
+  acronyms, or agenda language. Never use "update" or "latest".
+- Make a civilian 30 minutes away care. Be specific: the figure, the town, the consequence.
+  BAD (rejected, copies source): "Saline Township weighs 12-year tax break for Oracle"
+  GOOD: "Oracle wants Saline to skip 12 years of taxes on its $43B campus"
+  BAD (rejected, copies source): "Adrian enacts year-long pause on data center proposals"
+  GOOD: "Adrian slams the brakes: no new data centers for a year"
+Then write a 3-4 sentence dek and tag it.
 
-FRESH HEADLINES:
+FRESH HEADLINES (the outlet's wording — do NOT echo it, write your own from the facts):
 {catalog}
 
 Respond ONLY with a JSON array:
@@ -184,12 +210,17 @@ Keep at most {MAX_CANDIDATES}. If none qualify, return [].
             continue
         region = p.get("region") if p.get("region") in {"metro", "west", "mid", "north", "statewide"} else "statewide"
         tag = p.get("tag") if p.get("tag") in {"Power & Grid", "Local Government", "Policy", "Water", "Money", "Explainers"} else "Policy"
+        # Originality gate: Google News stories only auto-publish when the headline
+        # is genuinely rewritten, not a paraphrase of the outlet's. If our title
+        # still overlaps the source too much, keep it as a desk candidate (needs
+        # a human rewrite) instead of letting it go straight to the homepage.
+        rewritten = _headline_original(title, src.get("title", ""))
         item = {
             "title": title[:130], "dek": str(p.get("dek", ""))[:600], "url": url,
             "source": src.get("source") or "News", "region": region, "cat": "STATEWIDE",
             "tag": tag, "iso": now_iso, "kind": "story",
             "id": hashlib.sha1(url.encode()).hexdigest()[:12], "filed_at": now_iso,
-            "origin": "google-news",
+            "origin": "google-news", "headline_rewritten": rewritten,
         }
         pending.setdefault("items", []).insert(0, item)
         known.add(url)
