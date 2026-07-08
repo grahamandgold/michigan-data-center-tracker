@@ -1,7 +1,21 @@
 {
- "updated_at": "2026-07-08T11:00:21Z",
+ "updated_at": "2026-07-08T11:00:45Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "iso": "2026-07-07T13:00:00+00:00",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "tag": "Explainers",
+   "title": "University expert highlights community resistance to data centers",
+   "dek": "Debates over water, power and local control continue as AI demand drives new proposals across the state.",
+   "source": "X",
+   "url": "https://x.com/UMichiganNews/status/2074492659469607388",
+   "breaking": false,
+   "lead": false,
+   "id": "be5d80cefe75",
+   "accuracy": "social-post"
+  },
   {
    "iso": "2026-07-07T23:00:00+00:00",
    "region": "statewide",
