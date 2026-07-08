@@ -30,10 +30,10 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git status --porcelain live-data.json capitol-state.json | grep -q .; then
+          if git status --porcelain live-data.json live-data-pending.json capitol-state.json | grep -q .; then
             git config user.name "capitol-watch"
             git config user.email "capitol-watch@users.noreply.github.com"
-            git add live-data.json capitol-state.json
+            git add live-data.json live-data-pending.json capitol-state.json
             git commit -m "Capitol watch $(date -u +'%Y-%m-%d %H:%M UTC')"
             git pull --rebase origin main
             git push

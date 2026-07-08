@@ -37,13 +37,13 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet live-data.json; then
+          if git status --porcelain live-data.json live-data-pending.json | grep -q .; then
+            git config user.name "grok-wire-agent"
+            git config user.email "wire-agent@users.noreply.github.com"
+            git add live-data.json live-data-pending.json
+            git commit -m "Wire: file to desk queue $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push
+          else
             echo "No changes — skipping commit."
-            exit 0
           fi
-          git config user.name "grok-wire-agent"
-          git config user.email "wire-agent@users.noreply.github.com"
-          git add live-data.json
-          git commit -m "Live wire refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git pull --rebase origin main
-          git push
