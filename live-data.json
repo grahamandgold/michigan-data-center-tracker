@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-08T07:25:44+00:00",
+ "updated_at": "2026-07-08T07:37:32+00:00",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -16,17 +16,17 @@
    "accuracy": "unverified-source-unfetchable"
   },
   {
-   "iso": "2026-07-07T14:00:00+00:00",
+   "iso": "2026-07-07T14:26:00+00:00",
    "region": "statewide",
    "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "John James faces scrutiny over data center donations amid criticism of projects",
-   "dek": "The Republican Senate candidate has criticized data centers while accepting over $100,000 from executives and relatives tied to a major Michigan builder, according to campaign finance reports.",
+   "tag": "Money",
+   "title": "John James faces scrutiny over data center builder donations",
+   "dek": "The Republican U.S. Senate candidate criticized data centers while having accepted over $100,000 from executives and relatives tied to a major Michigan data center builder, according to a Detroit Metro Times report shared on X.",
    "source": "X",
    "url": "https://x.com/Grimillionaire/status/2074500251629547570",
    "breaking": false,
    "lead": false,
-   "accuracy": "checked"
+   "accuracy": "unverified-judge-error"
   },
   {
    "iso": "2026-07-07T12:00:00+00:00",
@@ -42,35 +42,6 @@
    "accuracy": "checked"
   }
  ],
- "meetings": [
-  {
-   "iso": "2026-07-08",
-   "body": "Saline Township Board of Trustees",
-   "topic": "Oracle America Industrial Facilities Tax Exemption Certificate application",
-   "region": "SE Michigan",
-   "regionKey": "metro",
-   "county": "Washtenaw",
-   "time": "7:00 PM",
-   "status": "Public hearing",
-   "urgent": true,
-   "link": "https://www.mlive.com/news/ann-arbor/2026/07/oracle-applies-for-tax-break-as-data-center-project-cost-reaches-43b-near-ann-arbor.html",
-   "linkLabel": "Details",
-   "stream": null
-  },
-  {
-   "iso": "2026-07-08",
-   "body": "Hayes Township Data Center Advisory Group",
-   "topic": "Review proposed report structure and schedule next steps on data center policy",
-   "region": "Northern Michigan",
-   "regionKey": "north",
-   "county": "Charlevoix",
-   "time": "TBD",
-   "status": "Board meeting",
-   "urgent": false,
-   "link": "https://www.hayestownshipmi.gov/data-center-advisory-group-meeting-2/",
-   "linkLabel": "Agenda",
-   "stream": null
-  }
- ],
- "accuracy_checked_at": "2026-07-08T07:25:56+00:00"
+ "meetings": [],
+ "accuracy_checked_at": "2026-07-08T07:38:01+00:00"
 }
