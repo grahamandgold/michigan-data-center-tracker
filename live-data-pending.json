@@ -1,23 +1,7 @@
 {
- "updated_at": "2026-07-08T14:35:34Z",
+ "updated_at": "2026-07-08T14:35:52Z",
  "generator": "grok-wire-agent",
  "items": [
-  {
-   "iso": "2026-07-08T01:00:00+00:00",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "Haley Stevens non-answer on data centers prompts essay reference",
-   "dek": "A post highlighted candidate responses on AI data centers during the Senate race, linking to analysis of Michigan's growing debate.",
-   "source": "X",
-   "url": "https://x.com/NikosMohammadi/status/2074659870855381144",
-   "breaking": false,
-   "lead": false,
-   "id": "30872d5b422c",
-   "kind": "story",
-   "filed_at": "2026-07-08T11:17:55+00:00",
-   "accuracy": "social-post"
-  },
   {
    "iso": "2026-07-07T23:00:00+00:00",
    "region": "metro",
