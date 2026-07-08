@@ -1,25 +1,6 @@
 {
- "updated_at": "2026-07-08T21:19:51Z",
+ "updated_at": "2026-07-08T21:20:31Z",
  "generator": "grok-wire-agent",
- "items": [
-  {
-   "iso": "2026-07-07T15:00:00+00:00",
-   "region": "north",
-   "cat": "Delta Co.",
-   "tag": "Local Government",
-   "title": "Delta County Planners Approve Year-Long Pause on Data Centers and Crypto Mining",
-   "dek": "The Delta County Planning Commission voted July 7 to recommend a 12-month moratorium on new data center and cryptocurrency mining projects while officials develop zoning rules. The pause aims to give the rural Upper Peninsula county time to assess impacts on land use, power and water before any large-scale facilities advance.",
-   "source": "Upper Michigan's Source",
-   "url": "https://www.uppermichiganssource.com/2026/07/07/delta-county-planning-commission-approves-data-center-moratorium/",
-   "breaking": false,
-   "lead": true,
-   "id": "f0ad815cd4a8",
-   "kind": "story",
-   "filed_at": "2026-07-08T20:38:17+00:00",
-   "accuracy": "unverified-judge-error",
-   "judge_score": 9,
-   "judge_note": "Planning commission vote to recommend 12-month moratorium is a concrete local decision with no matching live or killed items."
-  }
- ],
+ "items": [],
  "accuracy_checked_at": "2026-07-08T20:38:42+00:00"
 }
