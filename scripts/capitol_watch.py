@@ -21,6 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LIVE = ROOT / "live-data.json"
+PENDING = ROOT / "live-data-pending.json"
 STATE = ROOT / "capitol-state.json"
 KEY = os.environ.get("LEGISCAN_API_KEY", "")
 
@@ -99,20 +100,36 @@ def main() -> int:
         print("no new legislative actions")
         return 0
 
+    # Desk approval model: legislative stories file into the pending queue
+    # for Andy's sign-off in the Michigan Intel Desk — nothing auto-publishes.
+    import hashlib
+    now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
     try:
-        live = json.loads(LIVE.read_text(encoding="utf-8"))
+        pending = json.loads(PENDING.read_text(encoding="utf-8"))
     except Exception:  # noqa: BLE001
-        live = {"stories": [], "meetings": []}
-    have = {s.get("url") + "|" + s.get("title", "") for s in live.get("stories", [])}
+        pending = {"items": []}
+    try:
+        published = {s.get("url") + "|" + s.get("title", "")
+                     for s in json.loads(LIVE.read_text(encoding="utf-8")).get("stories", [])}
+    except Exception:  # noqa: BLE001
+        published = set()
+    have = {str(it.get("url")) + "|" + str(it.get("title", "")) for it in pending.get("items", [])}
     added = 0
     for s in stories:
-        if s["url"] + "|" + s["title"] not in have:
-            live.setdefault("stories", []).insert(0, s)
-            added += 1
-    live["stories"] = sorted(live["stories"], key=lambda x: str(x.get("iso", "")), reverse=True)[:14]
-    live["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-    LIVE.write_text(json.dumps(live, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"added {added} legislative action stor{'y' if added == 1 else 'ies'} to the wire")
+        key = s["url"] + "|" + s["title"]
+        if key in have or key in published:
+            continue
+        item = dict(s)
+        item["id"] = hashlib.sha1(key.encode()).hexdigest()[:12]
+        item["kind"] = "capitol"
+        item["filed_at"] = now_iso
+        item["accuracy"] = "checked"  # deterministic template from LegiScan data
+        pending.setdefault("items", []).insert(0, item)
+        added += 1
+    pending["items"] = pending["items"][:20]
+    pending["updated_at"] = now_iso
+    PENDING.write_text(json.dumps(pending, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"filed {added} legislative action stor{'y' if added == 1 else 'ies'} to the desk queue")
     return 0
 
 

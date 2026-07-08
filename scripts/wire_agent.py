@@ -11,6 +11,7 @@ Uses only the Python standard library.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -23,6 +24,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 ROOT = Path(__file__).resolve().parents[1]
 LIVE = ROOT / "live-data.json"
+PENDING = ROOT / "live-data-pending.json"
+DECISIONS = ROOT / "desk-decisions.json"
 API_URL = "https://api.x.ai/v1/chat/completions"
 MODEL = os.environ.get("XAI_MODEL", "grok-4")
 KEY = os.environ.get("XAI_API_KEY", "")
@@ -243,22 +246,70 @@ def main() -> int:
         s["lead"] = False
     (leads[0] if leads else checked[0])["lead"] = True
 
-    # Accumulate: keep previously published stories that are still fresh (<24h)
+    # ------------------------------------------------------------------
+    # DESK APPROVAL MODEL: new stories file into live-data-pending.json
+    # for sign-off in the Michigan Intel Desk. live-data.json (the live
+    # site) keeps only stories the desk has approved. Meetings remain
+    # auto-published: they are deterministic and every link is checked.
+    # ------------------------------------------------------------------
+    now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    prev_payload = {}
     try:
-        prev = json.loads(LIVE.read_text(encoding="utf-8")).get("stories", [])
-        have = {x["url"] for x in checked}
-        for old_story in prev:
-            if old_story.get("url") not in have and fresh_enough(old_story.get("iso", ""), hours=24.0):
-                old_story["lead"] = False
-                checked.append(old_story)
-        checked.sort(key=lambda x: str(x.get("iso", "")), reverse=True)
-        checked = checked[:12]
+        prev_payload = json.loads(LIVE.read_text(encoding="utf-8"))
     except Exception as e:  # noqa: BLE001
-        print(f"::warning::accumulate skipped: {e}")
+        print(f"::warning::no previous live-data.json: {e}")
+    published_urls = {s.get("url") for s in prev_payload.get("stories", [])}
 
-    # Meetings accumulate too: keep previously listed future meetings
+    killed_urls = set()
     try:
-        prev_m = json.loads(LIVE.read_text(encoding="utf-8")).get("meetings", [])
+        killed_urls = {k.get("url") for k in json.loads(DECISIONS.read_text(encoding="utf-8")).get("killed", [])}
+    except Exception:  # noqa: BLE001
+        pass
+
+    pend_items = []
+    try:
+        pend_items = json.loads(PENDING.read_text(encoding="utf-8")).get("items", [])
+    except Exception:  # noqa: BLE001
+        pass
+    # prune queue: already published, killed by the desk, or stale (>36h)
+    pend_items = [it for it in pend_items
+                  if it.get("url") not in published_urls and it.get("url") not in killed_urls
+                  and fresh_enough(it.get("iso", ""), hours=36.0)]
+    pend_urls = {it.get("url") for it in pend_items}
+
+    added = 0
+    for s in checked:
+        if s["url"] in published_urls or s["url"] in pend_urls or s["url"] in killed_urls:
+            continue
+        item = dict(s)
+        item["id"] = hashlib.sha1(s["url"].encode()).hexdigest()[:12]
+        item["kind"] = "story"
+        item["filed_at"] = now_iso
+        pend_items.append(item)
+        pend_urls.add(s["url"])
+        added += 1
+
+    national = out.get("national")
+    if isinstance(national, dict) and valid_story(dict(national, region="statewide")):
+        prev_nat_url = (prev_payload.get("national") or {}).get("url")
+        if national.get("url") not in (prev_nat_url,) and national.get("url") not in pend_urls \
+                and national.get("url") not in killed_urls:
+            item = dict(national)
+            item["id"] = hashlib.sha1(str(national.get("url", "")).encode()).hexdigest()[:12]
+            item["kind"] = "national"
+            item["filed_at"] = now_iso
+            pend_items.append(item)
+            added += 1
+
+    pend_items.sort(key=lambda x: str(x.get("filed_at", "")), reverse=True)
+    PENDING.write_text(json.dumps(
+        {"updated_at": now_iso, "generator": "grok-wire-agent", "items": pend_items[:20]},
+        indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Filed {added} new items to the desk queue ({len(pend_items[:20])} waiting)")
+
+    # Meetings accumulate + auto-publish; approved stories pass through untouched
+    try:
+        prev_m = prev_payload.get("meetings", [])
         have_m = {(m.get("iso"), str(m.get("body", "")).lower()) for m in meetings}
         for om in prev_m:
             k = (om.get("iso"), str(om.get("body", "")).lower())
@@ -268,22 +319,13 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         print(f"::warning::meeting accumulate skipped: {e}")
 
-    national = out.get("national")
-    if not (isinstance(national, dict) and valid_story(dict(national, region="statewide"))):
-        try:
-            national = json.loads(LIVE.read_text(encoding="utf-8")).get("national")
-        except Exception:  # noqa: BLE001
-            national = None
-
-    payload = {
-        "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "generator": "grok-wire-agent",
-        "stories": checked,
-        "national": national,
-        "meetings": meetings,
-    }
+    payload = dict(prev_payload)
+    payload["updated_at"] = now_iso
+    payload["generator"] = "grok-wire-agent"
+    payload.setdefault("stories", [])
+    payload["meetings"] = meetings
     LIVE.write_text(json.dumps(payload, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Wrote live-data.json: {len(checked)} stories, {len(meetings)} meetings")
+    print(f"Wrote live-data.json: {len(payload['stories'])} approved stories kept, {len(meetings)} meetings")
     return 0
 
 

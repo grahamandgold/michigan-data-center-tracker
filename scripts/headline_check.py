@@ -29,7 +29,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 ROOT = Path(__file__).resolve().parents[1]
-LIVE = ROOT / "live-data.json"
+LIVE = ROOT / "live-data-pending.json"  # desk model: check the queue before Andy sees it
 API_URL = "https://api.x.ai/v1/chat/completions"
 MODEL = os.environ.get("XAI_MODEL", "grok-4")
 KEY = os.environ.get("XAI_API_KEY", "")
@@ -86,12 +86,19 @@ def main() -> int:
         print("::error::XAI_API_KEY secret is not set")
         return 1
     if not LIVE.exists():
-        print("No live-data.json — nothing to check.")
+        print("No pending queue — nothing to check.")
         return 0
     data = json.loads(LIVE.read_text(encoding="utf-8"))
     kept, dropped, fixed, unfetchable = [], [], [], []
 
-    for s in data.get("stories", []):
+    for s in data.get("items", []):
+        if s.get("accuracy", "").startswith("checked"):
+            kept.append(s)  # already verified on a previous hourly pass
+            continue
+        if any(d in str(s.get("url", "")) for d in ("x.com/", "twitter.com/", "reddit.com/")):
+            s["accuracy"] = "social-post"  # social posts are quoted, not judged
+            kept.append(s)
+            continue
         article = fetch_text(s.get("url", ""))
         if len(article) < 300:
             s["accuracy"] = "unverified-source-unfetchable"
@@ -117,13 +124,7 @@ def main() -> int:
             s["accuracy"] = "unverified-judge-error"
             kept.append(s)
 
-    if len(kept) < 3:
-        print("::warning::fewer than 3 stories survived the accuracy check — keeping previous file")
-        return 0
-
-    if not any(x.get("lead") for x in kept):
-        kept[0]["lead"] = True
-    data["stories"] = kept
+    data["items"] = kept
     data["accuracy_checked_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     LIVE.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
