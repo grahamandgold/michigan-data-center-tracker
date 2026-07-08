@@ -45,4 +45,5 @@ jobs:
           git config user.email "wire-agent@users.noreply.github.com"
           git add live-data.json
           git commit -m "Live wire refresh $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main
           git push
