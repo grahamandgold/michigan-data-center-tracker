@@ -37,24 +37,25 @@ MEET_REGIONS = {"SE Michigan", "West Michigan", "Mid-Michigan", "Northern Michig
 PROMPT = """You are the wire editor for the Michigan Data Center Tracker \
 (https://grahamandgold.github.io/mi-data-center-tracker/). Current UTC time: {now}.
 
-MISSION: fill the homepage wire with what is happening RIGHT NOW.
-Aim for a LIVELY mix: each refresh should include 2-4 X or Reddit items when real
-conversations exist — posts from officials, candidates, reporters, utilities, and
-high-engagement community threads. Social items make the wire feel urgent; include
-them whenever they document something real.
-START by running x_search for "Michigan data center", "Michigan Senate debate",
-and "Grand Rapids debate" over the last 15 hours — live political events (a Senate
-debate where data centers came up, for example) are exactly the lead we want.
+MISSION: fill the homepage wire with what is happening RIGHT NOW — real
+reporting first. The News Director's standing rule: NO MORE THAN ONE X or
+Reddit item per run, and only when it documents something genuinely
+newsworthy (an official's statement, a hot community fight). NEVER pad a
+thin news cycle with social posts. When outlet news is thin, the right
+fill is TONIGHT'S AND TOMORROW'S MEETING PREVIEWS — what's on the agendas
+(rezonings, tax abatements, moratorium votes), written from the agenda
+pages themselves as preview stories ("Tonight in Saline: …").
 
-1. SEARCH (use web_search AND x_search) for Michigan data center news from the \
-LAST 15 HOURS ONLY. Priorities, in order:
-   a. HOT community conversations on X AND Reddit right now (r/Michigan, r/Detroit, r/grandrapids, r/lansing, r/kzoo): debates, hearings, votes, outages, resident fights — debates, hearings, \
-votes, candidate statements (e.g., a U.S. Senate debate touching data centers).
-   b. Fresh reporting: MLive, Michigan Advance, Bridge Michigan, Crain's, Detroit News, \
+1. SEARCH (use web_search first, x_search second) for Michigan data center
+news from the LAST 15 HOURS ONLY. Priorities, in order:
+   a. Fresh reporting: MLive, Michigan Advance, Bridge Michigan, Crain's, Detroit News, \
 Free Press, Lansing State Journal, City Pulse, WOOD TV, WWMT, WXYZ, WKAR, WILX, WNEM, \
 IPR, Traverse Ticker, UP outlets.
-   c. Official postings: township/city agendas, legislature.mi.gov (SB 1018-1020, \
-SB 1046-1051, HB 6135-6142), MPSC filings.
+   b. Official postings and TONIGHT'S/TOMORROW'S agendas: township/city agenda pages, \
+legislature.mi.gov (SB 1018-1020, SB 1046-1051, HB 6135-6142), MPSC filings — file \
+preview stories about what those bodies decide tonight/tomorrow.
+   c. AT MOST ONE X or Reddit item (r/Michigan, r/Detroit, r/grandrapids, r/lansing), \
+and only if it's genuinely newsworthy on its own.
 For EVERY meeting you report: "link" must be the official agenda page — or the
 page where that body posts agendas (AgendaCenter, clerk page). Also check whether
 the body streams meetings (YouTube channel, Granicus/Zoom, public-access cable
@@ -65,8 +66,8 @@ link are not publishable.
 
 2. HARD RULES:
 - NEWS items: target the last 15 hours; stretch to 24 hours to fill. \
-- X/REDDIT items: allowed up to 36 hours old IF the conversation is still active — \
-community reaction to yesterday's news is itself news. Use these to reach 8-12 items. \
+- X/REDDIT: maximum ONE item per run, ≤24 hours old, genuinely newsworthy. \
+- To reach 8-12 items, use outlet reporting and meeting-preview stories — never more social posts. \
 - Never backfill anything older; find TODAY's development instead.
 - Write every headline and dek in ORIGINAL, neutral, journalistic language. NEVER \
 copy or lightly rearrange a publisher's headline or a post.
