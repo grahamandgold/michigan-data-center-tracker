@@ -82,10 +82,16 @@ def main() -> int:
     promoted, kept_pending = [], []
     for it in items:
         url = it.get("url", "")
+        # Block only genuinely bad accuracy: "thin" (agenda needs a human) or
+        # "inaccurate". "unverified-source-unfetchable" just means the outlet
+        # blocked our server fetch (normal for WXYZ/MLive/paywalls) — the judge
+        # still scored it and the headline was rewritten from the real outlet
+        # title, so it's fine to publish and Andy can kill it if wrong.
+        acc = str(it.get("accuracy", "")).lower()
         ok = (
             it.get("kind") == "story"
             and int(it.get("judge_score", 0)) >= AUTO_MIN
-            and not str(it.get("accuracy", "")).lower().startswith(("thin", "unverified"))
+            and "thin" not in acc and "inaccurate" not in acc
             and _age_h(it.get("iso") or it.get("filed_at", ""), now) <= FRESH_HOURS
             and url and url not in live_urls and url not in killed_urls
         )
