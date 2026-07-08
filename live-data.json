@@ -1,7 +1,21 @@
 {
- "updated_at": "2026-07-08T10:46:27Z",
+ "updated_at": "2026-07-08T11:00:21Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "iso": "2026-07-07T23:00:00+00:00",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "tag": "Policy",
+   "title": "Citizens Research Council evaluates data center economic impact",
+   "dek": "A new report examines how large data centers affect Michigan's tax base and local economies amid growing development.",
+   "source": "X",
+   "url": "https://x.com/dbusiness/status/2074463592078885132",
+   "breaking": false,
+   "lead": false,
+   "id": "8a342fa23399",
+   "accuracy": "social-post"
+  },
   {
    "iso": "2026-07-08T00:00:00+00:00",
    "region": "statewide",
