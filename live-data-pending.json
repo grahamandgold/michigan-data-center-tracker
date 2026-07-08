@@ -1,23 +1,7 @@
 {
- "updated_at": "2026-07-08T14:34:36Z",
+ "updated_at": "2026-07-08T14:35:34Z",
  "generator": "grok-wire-agent",
  "items": [
-  {
-   "iso": "2026-07-08T11:00:00+00:00",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "Democratic Senate candidates clash over AI data center regulation in debate",
-   "dek": "U.S. Rep. Haley Stevens and Abdul El-Sayed offered contrasting views on data centers and AI during last night's Michigan Senate debate, with Stevens emphasizing federal tax fairness and El-Sayed calling for strict community protections and union labor requirements.",
-   "source": "X",
-   "url": "https://x.com/tsspangler/status/2074812585107419529",
-   "breaking": false,
-   "lead": true,
-   "id": "8512a6eae325",
-   "kind": "story",
-   "filed_at": "2026-07-08T11:17:55+00:00",
-   "accuracy": "social-post"
-  },
   {
    "iso": "2026-07-08T01:00:00+00:00",
    "region": "statewide",
