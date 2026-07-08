@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-08T18:45:52+00:00",
+ "updated_at": "2026-07-08T20:38:17+00:00",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -160,6 +160,20 @@
  "meetings": [
   {
    "iso": "2026-07-08",
+   "body": "Saline Township Board",
+   "topic": "Public hearing on Oracle America Industrial Facilities Tax Exemption Certificate application for data center project",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Washtenaw",
+   "time": "7:00 PM",
+   "status": "Board meeting",
+   "urgent": true,
+   "link": "https://salinetownship.org/meeting-agendas.php",
+   "linkLabel": "Agenda",
+   "stream": null
+  },
+  {
+   "iso": "2026-07-08",
    "body": "Saline Township Board of Trustees",
    "topic": "Public hearing on Oracle America's application for Industrial Facilities Tax Exemption Certificate for hyperscale data center project",
    "region": "SE Michigan",
@@ -185,19 +199,6 @@
    "link": "https://www.hayestownshipmi.gov/data-center-advisory-group-meeting-2/",
    "linkLabel": "Agenda",
    "stream": ""
-  },
-  {
-   "iso": "2026-07-08",
-   "body": "Saline Township Board",
-   "topic": "Regular meeting — Stargate construction updates possible",
-   "region": "SE Michigan",
-   "regionKey": "metro",
-   "county": "Washtenaw",
-   "time": "7:00 PM",
-   "status": "Board meeting",
-   "urgent": false,
-   "link": "https://salinetownship.org/meeting-agendas.php",
-   "linkLabel": "Agenda"
   },
   {
    "iso": "2026-07-09",

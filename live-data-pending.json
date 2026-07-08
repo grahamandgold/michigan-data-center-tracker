@@ -1,31 +1,25 @@
 {
- "updated_at": "2026-07-08T20:29:31+00:00",
+ "updated_at": "2026-07-08T20:38:17+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
-   "title": "Saline Township Board Meets July 8 at 7 p.m.",
-   "dek": "Residents within 30 minutes of Saline Township Hall face potential effects from decisions at the July 8 board meeting. The Township Board meets on the second Wednesday of each month at 7:00 PM in the Saline Township Hall.",
-   "url": "https://salinetownship.org/meeting-agendas.php",
-   "source": "Saline Township Board agenda",
-   "region": "Southeast Michigan",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-08T20:29:31+00:00",
-   "kind": "agenda",
-   "id": "0719d37e5cc3",
-   "filed_at": "2026-07-08T20:29:31+00:00",
-   "accuracy": "thin — needs human background",
-   "findings": "The agenda page lists the July 8, 2026 Township Board meeting with no attached materials or staff reports | The packet shows consent agenda items including accounts payable and minutes | No project specifics appear in the July 8 agenda document",
-   "perspective": "The update occurs under the regular meeting format with citizen comments and board member comments scheduled after the listed items.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://salinetownship.org/meeting-agendas.php"
-    }
-   ],
-   "depth_score": 0,
-   "extraction_method": "plain"
+   "iso": "2026-07-07T15:00:00+00:00",
+   "region": "north",
+   "cat": "Delta Co.",
+   "tag": "Local Government",
+   "title": "Delta County Planners Approve Year-Long Pause on Data Centers and Crypto Mining",
+   "dek": "The Delta County Planning Commission voted July 7 to recommend a 12-month moratorium on new data center and cryptocurrency mining projects while officials develop zoning rules. The pause aims to give the rural Upper Peninsula county time to assess impacts on land use, power and water before any large-scale facilities advance.",
+   "source": "Upper Michigan's Source",
+   "url": "https://www.uppermichiganssource.com/2026/07/07/delta-county-planning-commission-approves-data-center-moratorium/",
+   "breaking": false,
+   "lead": true,
+   "id": "f0ad815cd4a8",
+   "kind": "story",
+   "filed_at": "2026-07-08T20:38:17+00:00",
+   "accuracy": "unverified-judge-error",
+   "judge_score": 9,
+   "judge_note": "Planning commission vote to recommend 12-month moratorium is a concrete local decision with no matching live or killed items."
   }
  ],
- "accuracy_checked_at": "2026-07-08T18:45:59+00:00"
+ "accuracy_checked_at": "2026-07-08T20:38:42+00:00"
 }
