@@ -1,24 +1,7 @@
 {
- "updated_at": "2026-07-08T21:58:01Z",
+ "updated_at": "2026-07-08T21:58:46Z",
  "generator": "grok-wire-agent",
  "items": [
-  {
-   "title": "Saline Township weighs 12-year tax break for Oracle's $43 billion project",
-   "dek": "The board will decide whether to grant major tax relief for one of the largest data center investments in state history. The outcome affects local school funding and services for years. Voters and businesses are watching how the deal balances jobs against tax revenue.",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNWGtiUG1BMmJaakNVdlV1eWhaNnNQTkZJSERzNmpiZV9mcW5MOFZlRWxVbWt2czFMOTJ1N2lVMVdtbm1KSTAxSnBDbGE0YXpmZGlDbjdSZFdrX0ZFd3AySE5ZN0NLUlc1b2xHMGhHNzFoSkxvUGN1dG9ENDJQX3pjb3pJSm9yMlMwM3doTFNtRlRkNy0zT0dFOTg0c19kaE5EQTdSaEV4UWtEYWl4QWZ3MEVjdzI5Q0ViVnJDS0JuNXI3b1o0Zm9GQllR?oc=5",
-   "source": "WXYZ Channel 7",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "tag": "Money",
-   "iso": "2026-07-08T21:53:37Z",
-   "kind": "story",
-   "id": "b810070616d3",
-   "filed_at": "2026-07-08T21:53:37Z",
-   "origin": "google-news",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9,
-   "judge_note": "Major pending decision on $43 billion project tax break with significant fiscal implications for schools and services."
-  },
   {
    "title": "Girard Township OKs data center rules as Coldwater starts drafting its own",
    "dek": "Two southwest Michigan townships move forward on zoning and permitting standards for data centers. The actions signal how local governments are responding to rapid industry interest. Residents will see clearer rules on where and how these projects can proceed.",
