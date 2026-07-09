@@ -79,13 +79,14 @@ const monthKey = d => d.slice(0, 7);
 const monthLabel = k => new Date(k + "-15").toLocaleDateString("en-US", { month: "short", year: "2-digit" });
 
 // Real dark basemap — same CARTO tiles as the site's Live Map.
-const map = L.map("map", { zoomControl: true, scrollWheelZoom: false, attributionControl: true })
+const map = L.map("map", { zoomControl: false, scrollWheelZoom: false, attributionControl: true })
   .setView([44.3, -85.6], 6);
 L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
   attribution: '© OpenStreetMap © CARTO', subdomains: "abcd", maxZoom: 19,
 }).addTo(map);
 // Fit to the Lower + Upper Peninsula
 map.fitBounds([[41.7, -90.5], [47.5, -82.3]], { padding: [10, 10] });
+L.control.zoom({ position: "topright" }).addTo(map);
 
 async function loadData() {
   for (const u of ["../map-data.json", SITE + "/map-data.json"]) {

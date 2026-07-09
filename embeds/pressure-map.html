@@ -70,12 +70,13 @@ const SITE = "https://grahamandgold.github.io/mi-data-center-tracker";
 const EMBED_URL = SITE + "/embeds/pressure-map.html";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 
-const map = L.map("map", { zoomControl: true, scrollWheelZoom: false })
+const map = L.map("map", { zoomControl: false, scrollWheelZoom: false })
   .setView([44.3, -85.6], 6);
 L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
   attribution: '© OpenStreetMap © CARTO', subdomains: "abcd", maxZoom: 19,
 }).addTo(map);
 map.fitBounds([[41.7, -90.5], [47.5, -82.3]], { padding: [10, 10] });
+L.control.zoom({ position: "topright" }).addTo(map);
 
 async function grab(rel) {
   for (const u of [rel, SITE + "/" + rel.replace(/^\.\.\//, "")]) {
