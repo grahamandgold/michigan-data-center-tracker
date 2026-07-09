@@ -104,6 +104,8 @@
   @keyframes dotpop { 0%,100% { opacity:0; transform:scale(.5); } 45%,55% { opacity:.85; transform:scale(1); } }
   .dotfield.gold i { background:#c9a24b; box-shadow:0 0 9px rgba(201,162,75,.5); }
   .mi-mark { position:absolute; right:-46px; top:50%; transform:translateY(-50%); height:150%; opacity:.07; pointer-events:none; z-index:0; filter:brightness(1.4); }
+  .tile { position:relative; overflow:hidden; isolation:isolate; }
+  .tile-bignum { position:absolute; right:-10px; bottom:-38px; z-index:-1; font-family:'Saira Condensed',sans-serif; font-weight:800; font-size:150px; line-height:.8; color:#fff; opacity:.05; letter-spacing:-.04em; pointer-events:none; }
   .deck-card:hover { border-color:#45403a !important; transform:translateY(-2px); }
   .deck-card { transition:border-color .18s ease, transform .18s ease; }
   .deck-row:hover { background:#1a1813; }
@@ -374,7 +376,7 @@
     </div>
 
     <!-- sponsor strip (near hero) -->
-    <div class="sponsor-strip inset-pad" style="display:flex;align-items:center;gap:24px;margin:0 44px 8px;padding:18px 24px;border:1px solid #221f1b;border-radius:0;background:rgba(26,24,19,.5);backdrop-filter:blur(4px);">
+    <div class="sponsor-strip inset-pad" style="display:flex;align-items:center;gap:24px;margin:0 44px 8px;padding:18px 24px;border:1px solid #E03131;border-radius:0;background:rgba(26,24,19,.5);backdrop-filter:blur(4px);">
       <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d7975;white-space:nowrap;">Independently funded</span>
       <span style="width:1px;height:26px;background:#2b2824;"></span>
       <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5f5b57;white-space:nowrap;">Supported by</span>
@@ -465,7 +467,7 @@
       </div>
       <div class="tile-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
         <a class="tile" href="Live Map.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">01</span>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">01</span><span class="tile-bignum">{{ statsProjects }}</span>
           <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Live Map</span>
           <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Every facility, permit &amp; proposed site, mapped.</span>
           <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
@@ -474,7 +476,7 @@
           </div>
         </a>
         <a class="tile" href="Live Map.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">02</span>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">02</span><span class="tile-bignum">{{ statsGW }}</span>
           <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Facilities</span>
           <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Searchable database: ownership, load &amp; status.</span>
           <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
@@ -483,7 +485,7 @@
           </div>
         </a>
         <a class="tile" href="Live Map.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">03</span>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">03</span><span class="tile-bignum">12</span>
           <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Power &amp; Grid</span>
           <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Megawatts proposed vs. grid capacity by region.</span>
           <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
@@ -492,7 +494,7 @@
           </div>
         </a>
         <a class="tile" href="Meetings.dc.html" style="text-decoration:none;border:1px solid #262320;border-radius:0;background:#16140f;padding:22px 20px;display:flex;flex-direction:column;min-height:142px;">
-          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">04</span>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#E03131;margin-bottom:auto;">04</span><span class="tile-bignum">8</span>
           <span style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:22px;color:#f4f1ee;margin-top:18px;">Meetings</span>
           <span style="color:#8c8884;font-size:13px;line-height:1.5;margin-top:6px;">Township &amp; PUC hearings, agendas and dates.</span>
           <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid #221f1b;">
