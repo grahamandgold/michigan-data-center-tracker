@@ -67,7 +67,7 @@
   .wire-head-meta { display:flex; align-items:center; gap:10px; flex-wrap:wrap; min-width:0; }
   .wire-head-title { font-family:'Saira Condensed',sans-serif; font-weight:800; font-size:20px; letter-spacing:.02em; color:#f4f1ee; margin:0; text-transform:uppercase; }
   .wire-head-updated { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#7d7975; }
-  .wire-lead { display:flex; flex-direction:column; justify-content:center; border-right:1px solid #262320; border-left:3px solid #E03131; background:linear-gradient(105deg, rgba(16,20,15,.95) 0%, rgba(16,20,15,.85) 46%, rgba(16,20,15,.60) 100%), url('michigan-night-lights.jpg') right center/cover no-repeat; padding:26px 26px 24px; min-height:100%; position:relative; overflow:hidden; }
+  .wire-lead { display:flex; flex-direction:column; justify-content:center; border-right:1px solid #262320; border-left:3px solid #E03131; background:linear-gradient(105deg, rgba(16,20,15,.9) 0%, rgba(16,20,15,.68) 48%, rgba(16,20,15,.28) 100%), url('michigan-night-lights.jpg') right center/cover no-repeat; padding:26px 26px 24px; min-height:100%; position:relative; overflow:hidden; }
   .wire-lead-dek { margin:0 0 16px; color:#a39e99; font-size:14.5px; line-height:1.6; max-width:520px; }
   .wire-lead-hl-link { text-decoration:none; display:block; }
   .wire-lead-hl-link:hover .wire-lead-hl { color:#fff; }
@@ -99,6 +99,11 @@
   .wire-tag-breaking { color:#100f0e; background:#E03131; border-color:#E03131; }
   .wire-tag-fresh { color:#100f0e; background:#c9a24b; border-color:#c9a24b; }
   .wire-tag-county { color:#c3beb9; background:#221f1b; border-color:#35312b; }
+  .dotfield { position:absolute; inset:0; z-index:0; pointer-events:none; }
+  .dotfield i { position:absolute; width:9px; height:9px; border-radius:50%; background:#E03131; box-shadow:0 0 8px rgba(224,49,49,.55); opacity:0; animation:dotpop 3.4s ease-in-out infinite; }
+  @keyframes dotpop { 0%,100% { opacity:0; transform:scale(.5); } 45%,55% { opacity:.85; transform:scale(1); } }
+  .dotfield.gold i { background:#c9a24b; box-shadow:0 0 9px rgba(201,162,75,.5); }
+  .mi-mark { position:absolute; right:-46px; top:50%; transform:translateY(-50%); height:150%; opacity:.07; pointer-events:none; z-index:0; filter:brightness(1.4); }
   .deck-card:hover { border-color:#45403a !important; transform:translateY(-2px); }
   .deck-card { transition:border-color .18s ease, transform .18s ease; }
   .deck-row:hover { background:#1a1813; }
@@ -505,17 +510,24 @@
         <a href="embeds/" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:#E03131;text-decoration:none;">All diagrams →</a>
       </div>
       <div class="viz-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <a href="embeds/moratorium-wave.html" style="text-decoration:none;border:1px solid #262320;background:linear-gradient(150deg,#1c1712,#16140f);padding:24px;display:block;transition:border-color .15s;">
-          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#E03131;margin-bottom:9px;">Animated · plays over time</div>
-          <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;color:#f4f1ee;line-height:1.03;">The Moratorium Wave</div>
-          <div style="font-size:13px;color:#8c8884;margin-top:9px;max-width:440px;line-height:1.5;">Watch 30+ Michigan communities pause data-center development, month by month, spreading across a live map of the state.</div>
-          <div style="margin-top:16px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#E03131;letter-spacing:.04em;">▶ Watch the wave →</div>
+        <a href="embeds/moratorium-wave.html" style="text-decoration:none;border:1px solid #262320;background:linear-gradient(150deg,#1c1712,#16140f);padding:24px;display:block;position:relative;overflow:hidden;transition:border-color .15s;">
+          <span class="dotfield" aria-hidden="true"><i style="top:20%;left:60%;animation-delay:0s"></i><i style="top:38%;left:80%;animation-delay:.6s"></i><i style="top:66%;left:70%;animation-delay:1.3s"></i><i style="top:28%;left:90%;animation-delay:1.9s"></i><i style="top:76%;left:86%;animation-delay:.9s"></i><i style="top:50%;left:64%;animation-delay:2.2s"></i><i style="top:84%;left:68%;animation-delay:1.6s"></i><i style="top:14%;left:76%;animation-delay:2.7s"></i><i style="top:58%;left:92%;animation-delay:.3s"></i></span>
+          <div style="position:relative;z-index:1">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#E03131;margin-bottom:9px;">Animated · plays over time</div>
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;color:#f4f1ee;line-height:1.03;">The Moratorium Wave</div>
+            <div style="font-size:13px;color:#8c8884;margin-top:9px;max-width:440px;line-height:1.5;">Watch 30+ Michigan communities pause data-center development, month by month, spreading across a live map of the state.</div>
+            <div style="margin-top:16px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#E03131;letter-spacing:.04em;">▶ Watch the wave →</div>
+          </div>
         </a>
-        <a href="embeds/pressure-map.html" style="text-decoration:none;border:1px solid #262320;background:linear-gradient(150deg,#1b1813,#16140f);padding:24px;display:block;transition:border-color .15s;">
-          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#c9a24b;margin-bottom:9px;">Live heat map</div>
-          <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;color:#f4f1ee;line-height:1.03;">Communities Under Pressure</div>
-          <div style="font-size:13px;color:#8c8884;margin-top:9px;max-width:440px;line-height:1.5;">Every community weighted by active projects, local pauses, and upcoming hearings — see who is facing the most right now.</div>
-          <div style="margin-top:16px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#c9a24b;letter-spacing:.04em;">See the map →</div>
+        <a href="embeds/pressure-map.html" style="text-decoration:none;border:1px solid #262320;background:linear-gradient(150deg,#1b1813,#16140f);padding:24px;display:block;position:relative;overflow:hidden;transition:border-color .15s;">
+          <img class="mi-mark" src="assets/mark.svg" alt="" aria-hidden="true">
+          <span class="dotfield gold" aria-hidden="true"><i style="top:34%;left:66%;width:16px;height:16px;animation-delay:.2s"></i><i style="top:56%;left:80%;width:11px;height:11px;animation-delay:1.1s"></i><i style="top:70%;left:70%;width:8px;height:8px;animation-delay:1.9s"></i><i style="top:44%;left:88%;width:13px;height:13px;animation-delay:.7s"></i><i style="top:24%;left:82%;width:8px;height:8px;animation-delay:2.4s"></i></span>
+          <div style="position:relative;z-index:1">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#c9a24b;margin-bottom:9px;">Live heat map</div>
+            <div style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;color:#f4f1ee;line-height:1.03;">Communities Under Pressure</div>
+            <div style="font-size:13px;color:#8c8884;margin-top:9px;max-width:440px;line-height:1.5;">Every community weighted by active projects, local pauses, and upcoming hearings — see who is facing the most right now.</div>
+            <div style="margin-top:16px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#c9a24b;letter-spacing:.04em;">See the map →</div>
+          </div>
         </a>
       </div>
     </section>
