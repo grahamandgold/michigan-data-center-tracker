@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-09T01:46:54Z",
+ "updated_at": "2026-07-09T10:47:35Z",
  "map_points": [
   {
    "name": "Saline Township campus (Stargate)",
@@ -896,22 +896,6 @@
    "verified_date": "2026-01-26",
    "confidence": "Confirmed",
    "note": "Community listening sessions Jan. 26–27 at Okemos Event Center."
-  },
-  {
-   "name": "Saline Township board meeting",
-   "municipality": "Saline Township",
-   "county": "Washtenaw",
-   "status": "Public meeting",
-   "layer": "meetings",
-   "developer": "",
-   "power_mw": "",
-   "latitude": 42.166,
-   "longitude": -83.782,
-   "source_url": "https://salinetownship.org/meeting-agendas.php",
-   "source_name": "Saline Township",
-   "verified_date": "2026-07-08",
-   "confidence": "Confirmed",
-   "note": "July 8 board meeting — active construction updates possible."
   },
   {
    "name": "Lenox Township board meeting",
