@@ -102,11 +102,9 @@
   .dotfield { position:absolute; inset:0; z-index:0; pointer-events:none; }
   .dotfield i { position:absolute; width:9px; height:9px; border-radius:50%; background:#E03131; box-shadow:0 0 8px rgba(224,49,49,.55); opacity:0; animation:dotpop 3.4s ease-in-out infinite; }
   @keyframes dotpop { 0%,100% { opacity:0; transform:scale(.5); } 45%,55% { opacity:.85; transform:scale(1); } }
-    .giga-waves { position:absolute; left:150px; top:50%; transform:translateY(-50%); width:420px; height:420px; pointer-events:none; z-index:0; }
-    .giga-w1, .giga-w2, .giga-w3 { position:absolute; left:0; top:50%; transform:translateY(-50%); border:2px solid rgba(224,49,49,.30); border-radius:50%; width:44px; height:44px; opacity:0; animation:giga-radio 3.8s ease-out infinite; }
-    .giga-w2 { animation-delay:1.27s; }
-    .giga-w3 { animation-delay:2.54s; }
-    @keyframes giga-radio { 0% { width:44px; height:44px; opacity:.5; } 100% { width:420px; height:420px; opacity:0; } }
+    .giga-card::before, .giga-card::after { content:""; position:absolute; left:170px; top:50%; width:46px; height:46px; margin:-23px 0 0 -23px; border:2px solid rgba(224,49,49,.32); border-radius:50%; opacity:0; pointer-events:none; z-index:0; animation:giga-radio 3.8s ease-out infinite; }
+    .giga-card::after { animation-delay:1.9s; }
+    @keyframes giga-radio { 0% { transform:scale(1); opacity:.5; } 100% { transform:scale(9); opacity:0; } }
   .dotfield.gold i { background:#c9a24b; box-shadow:0 0 9px rgba(201,162,75,.5); }
   .mi-mark { position:absolute; right:-46px; top:50%; transform:translateY(-50%); height:150%; opacity:.07; pointer-events:none; z-index:0; filter:brightness(1.4); }
   .logo-ph { position:relative; overflow:hidden; }
@@ -322,7 +320,6 @@
     <!-- podcast bar -->
     <div class="pod {{ podCls }} pod-inner" style="padding:20px 44px;background:#100f0e;border-bottom:1px solid #201d19;">
       <div class="giga-card" style="position:relative;overflow:hidden;background:linear-gradient(118deg,#20140f,#15110d 60%);border:1px solid #4a352c;border-left:3px solid #E03131;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.5),0 0 60px rgba(224,49,49,.10);">
-        <span class="giga-waves" aria-hidden="true"><span class="giga-w1"></span><span class="giga-w2"></span><span class="giga-w3"></span></span>
         <div class="giga-inner" style="position:relative;z-index:1;display:flex;align-items:center;gap:24px;padding:16px 26px;">
           <div class="giga-hosts" onclick="{{ togglePod }}" role="button" tabindex="0" aria-label="Play the latest episode" style="flex-shrink:0;width:190px;height:116px;border-radius:10px;overflow:hidden;border:1px solid #4a352c;box-sizing:border-box;box-shadow:0 2px 12px rgba(0,0,0,.4);cursor:pointer;background:#16140f;position:relative;">
             <video src="pod/gigacast-hosts.mp4" poster="img/gigacast-hosts.jpg" autoplay loop muted playsinline preload="metadata" aria-hidden="true" style="width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block;"></video>
