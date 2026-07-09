@@ -216,11 +216,18 @@ Keep at most {MAX_CANDIDATES}. If none qualify, return [].
         # still overlaps the source too much, keep it as a desk candidate (needs
         # a human rewrite) instead of letting it go straight to the homepage.
         rewritten = _headline_original(title, src.get("title", ""))
+        # The timestamp must be the TRUTH: the source's real publish time, not
+        # when we ingested it. Otherwise every story from one run shows the same
+        # "Nh ago". Fall back to now only if the feed gave no usable date.
+        try:
+            pub_iso = parsedate_to_datetime(src.get("pub", "")).astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        except Exception:  # noqa: BLE001
+            pub_iso = now_iso
         item = {
             "title": title[:130], "dek": str(p.get("dek", ""))[:600], "url": url,
             "source": src.get("source") or "News", "region": region, "cat": "STATEWIDE",
             "county": str(p.get("county", "")).strip(),
-            "tag": tag, "iso": now_iso, "kind": "story",
+            "tag": tag, "iso": pub_iso, "kind": "story",
             "id": hashlib.sha1(url.encode()).hexdigest()[:12], "filed_at": now_iso,
             "origin": "google-news", "headline_rewritten": rewritten,
         }

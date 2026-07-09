@@ -823,7 +823,9 @@ class Component extends DCLogic {
     // ---- CMS feed: upcoming hearings (On Deck) ----
     const rawDeck = this.state.cmsDeck || (typeof window !== 'undefined' && window.MDCT_MEETINGS) || [];
     const until = (iso) => {
-      const days = Math.round((new Date(iso + 'T00:00:00') - NOW) / 864e5);
+      const t0 = new Date(NOW); t0.setHours(0, 0, 0, 0);
+      const md = new Date(iso + 'T00:00:00'); md.setHours(0, 0, 0, 0);
+      const days = Math.round((md - t0) / 864e5);
       if (days <= 0) return 'Today';
       if (days === 1) return 'Tomorrow';
       if (days < 7) return 'in ' + days + ' days';

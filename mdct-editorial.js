@@ -156,12 +156,27 @@
     return [lead].concat(all.filter(function (s) { return s !== lead; }));
   };
 
+  // Actual start datetime of a meeting from its date + "7:00 PM" time.
+  // No time -> end of that day (so an all-day/undated item stays till midnight).
+  g.MDCT.meetingStart = function (m) {
+    var d = new Date(m.iso + 'T00:00:00');
+    var t = String(m.time || '').match(/(\d{1,2}):(\d{2})\s*(a|p)?/i);
+    if (t) {
+      var h = (+t[1]) % 12;
+      if (t[3] && /p/i.test(t[3])) h += 12;
+      d.setHours(h, +t[2], 0, 0);
+    } else {
+      d.setHours(23, 59, 0, 0);
+    }
+    return d;
+  };
   g.MDCT.meetings = function () {
-    var now = new Date();
-    now.setHours(0, 0, 0, 0);
+    // A meeting is "upcoming" until ~2h after it starts (still relevant while in
+    // session); once it's genuinely past it drops off — no more stale "TONIGHT".
+    var cutoff = Date.now() - 2 * 36e5;
     return (g.MDCT_MEETINGS || []).filter(function (m) {
-      return new Date(m.iso + 'T00:00:00') >= now;
-    }).sort(function (a, b) { return a.iso.localeCompare(b.iso); });
+      return g.MDCT.meetingStart(m).getTime() >= cutoff;
+    }).sort(function (a, b) { return g.MDCT.meetingStart(a) - g.MDCT.meetingStart(b); });
   };
 
   g.MDCT.stats = function () {
