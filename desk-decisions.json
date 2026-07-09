@@ -104,6 +104,20 @@
    "at": "2026-07-09T08:45:52+00:00",
    "by": "news_judge",
    "note": "score 3/10, duplicate: This is the same Oracle/Saline Township tax break story already live ('Oracle asks Saline Twp to skip 12 years of taxes on $43B campus') and also matches the ki"
+  },
+  {
+   "url": "https://www.cbsnews.com/detroit/video/tense-meeting-over-possible-tax-break-for-saline-township-data-center/",
+   "title": "Saline Township Board Faces Heated Debate Over Potential Tax Break for Massive Oracle Data Center",
+   "at": "2026-07-09T12:23:32+00:00",
+   "by": "news_judge",
+   "note": "score 3/10, duplicate: Duplicate of already-live 'Oracle asks Saline Twp to skip 12 years of taxes on $43B campus' and killed 'Saline residents pack meeting to fight Oracle tax break'"
+  },
+  {
+   "url": "https://www.newsfromthestates.com/article/researchers-stress-case-case-approach-when-evaluating-michigan-data-center-deals",
+   "title": "U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure Buildout",
+   "at": "2026-07-09T12:23:32+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Exact duplicate of already-killed national trend piece 'U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure Buildout' — generic nat"
   }
  ],
  "auto_published": [
@@ -142,6 +156,18 @@
    "title": "Michigan GOP candidates split on taking state money for AI data centers",
    "judge_score": 6,
    "at": "2026-07-09T02:22:55Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTWprakVKamYtUGx3N2xFRU1BQzJfX3VVUERGX1dLcm5veUk1WEptT1JKVEFMMnlXRjRVT2NDd3drOGRnSUpPUXNjTkZuSUtMMDJJcFRqZnJGbW16UmdObE1HLXI2YnVHbFJlQk9pbF9UejNKM0FNRng2LWhjT0RlckFjUTVsV3JyNkJQSTFST1hocU1hekhKc0F6VHFpZUtQcENuQ3NxNHBKb1NMRWVfUGtQYmptYTlpTGJ2SDFpNFI2X2l4SE80bmprOHg?oc=5",
+   "title": "York Township schedules hearing on data center moratorium",
+   "judge_score": 7,
+   "at": "2026-07-09T12:23:32Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOd3BCOGJOX1cwYWtSdmtUaGFKOHRaeXEwSGd4MUFnQ1E0TW1yYWFodWFvLWxNSWJMWHFmOUdkRHpJWUVRNHVKb1hZN1hlWVpSYVkyRGJuMDhYOW9EeWlhS2MwTnRMUmFPWHhPOC0zZXQ1UDVPdHZHQ29IeXpNbDBQOVUyZUY3TW9XUVRqeEVrcDVBMWxCVkN1VHhnc3VENkJQNHJmN0lxY1E5d0VoVjRURmdxWUJ5UQ?oc=5",
+   "title": "State officials may decide Mason-area data center instead of locals",
+   "judge_score": 8,
+   "at": "2026-07-09T12:23:32Z"
   }
  ]
 }

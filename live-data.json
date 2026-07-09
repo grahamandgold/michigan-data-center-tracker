@@ -1,7 +1,37 @@
 {
- "updated_at": "2026-07-09T08:45:48+00:00",
+ "updated_at": "2026-07-09T12:23:32Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "State officials may decide Mason-area data center instead of locals",
+   "dek": "A proposal near Mason could bypass township review and go straight to state regulators. Ingham County residents fear losing input on power use and tax deals. The shift raises questions about local control over big industrial projects.",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOd3BCOGJOX1cwYWtSdmtUaGFKOHRaeXEwSGd4MUFnQ1E0TW1yYWFodWFvLWxNSWJMWHFmOUdkRHpJWUVRNHVKb1hZN1hlWVpSYVkyRGJuMDhYOW9EeWlhS2MwTnRMUmFPWHhPOC0zZXQ1UDVPdHZHQ29IeXpNbDBQOVUyZUY3TW9XUVRqeEVrcDVBMWxCVkN1VHhnc3VENkJQNHJmN0lxY1E5d0VoVjRURmdxWUJ5UQ?oc=5",
+   "source": "Lansing State Journal",
+   "region": "mid",
+   "cat": "STATEWIDE",
+   "county": "Ingham",
+   "tag": "Local Government",
+   "iso": "2026-07-09T10:02:00Z",
+   "id": "95ebd090351e",
+   "origin": "google-news",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
+  {
+   "title": "York Township schedules hearing on data center moratorium",
+   "dek": "Residents will weigh a temporary ban after similar pauses passed in nearby Adrian and other towns. The hearing comes as Washtenaw County sees rising opposition to large server farms. People want time to assess impacts on roads, water and electricity rates.",
+   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTWprakVKamYtUGx3N2xFRU1BQzJfX3VVUERGX1dLcm5veUk1WEptT1JKVEFMMnlXRjRVT2NDd3drOGRnSUpPUXNjTkZuSUtMMDJJcFRqZnJGbW16UmdObE1HLXI2YnVHbFJlQk9pbF9UejNKM0FNRng2LWhjT0RlckFjUTVsV3JyNkJQSTFST1hocU1hekhKc0F6VHFpZUtQcENuQ3NxNHBKb1NMRWVfUGtQYmptYTlpTGJ2SDFpNFI2X2l4SE80bmprOHg?oc=5",
+   "source": "TheLCN.com",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Washtenaw",
+   "tag": "Local Government",
+   "iso": "2026-07-09T08:45:00Z",
+   "id": "d9a9225c27ba",
+   "origin": "google-news",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Hundreds pack hearing as Garfield Township pushes data-center moratorium",
    "dek": "Grand Traverse County planners recommended a temporary ban after residents filled the room to protest power lines and industrial noise near homes and farms. The proposed rules would give the township time to study water and electric-grid limits before any large project moves forward. Locals 30 minutes away are tracking the vote because any approved campus could affect regional electric rates.",
@@ -124,32 +154,6 @@
    "breaking": true,
    "lead": true,
    "id": "54965300adb6",
-   "accuracy": "social-post"
-  },
-  {
-   "iso": "2026-07-08T00:00:00+00:00",
-   "region": "west",
-   "cat": "Cass Co.",
-   "tag": "Money",
-   "title": "GPUS advances AI data center plans at Dowagiac campus with major service agreement",
-   "dek": "The company detailed a 20 MW AI data center deal potentially worth $1.2 billion, with expansion options up to 52 MW at its Michigan site.",
-   "source": "X",
-   "url": "https://x.com/TBullTraderZ/status/2074651827249770530",
-   "breaking": false,
-   "accuracy": "checked"
-  },
-  {
-   "iso": "2026-07-07T23:00:00+00:00",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "Citizens Research Council evaluates data center economic impact",
-   "dek": "A new report examines how large data centers affect Michigan's tax base and local economies amid growing development.",
-   "source": "X",
-   "url": "https://x.com/dbusiness/status/2074463592078885132",
-   "breaking": false,
-   "lead": false,
-   "id": "8a342fa23399",
    "accuracy": "social-post"
   }
  ],
