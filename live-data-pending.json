@@ -1,25 +1,6 @@
 {
- "updated_at": "2026-07-09T05:06:49+00:00",
+ "updated_at": "2026-07-09T05:50:54Z",
  "generator": "grok-wire-agent",
- "items": [
-  {
-   "iso": "2026-07-08T17:00:00+00:00",
-   "region": "metro",
-   "cat": "Wayne Co.",
-   "tag": "Policy",
-   "title": "Detroit Planners Begin Crafting Rules to Govern Future Data Center Growth",
-   "dek": "The City Planning Commission is drafting zoning policies after a cross-sector working group highlighted the need for oversight on large developments that could reshape neighborhoods and infrastructure.",
-   "source": "BridgeDetroit",
-   "url": "https://www.bridgedetroit.com/detroit-begins-drafting-data-center-regulations/",
-   "breaking": false,
-   "lead": true,
-   "id": "9ccababfc0f9",
-   "kind": "story",
-   "filed_at": "2026-07-09T05:06:40+00:00",
-   "accuracy": "checked",
-   "judge_score": 7,
-   "judge_note": "Detroit Planning Commission drafting zoning policies is a concrete institutional development, though no vote or formal proposal yet."
-  }
- ],
+ "items": [],
  "accuracy_checked_at": "2026-07-09T05:06:45+00:00"
 }
