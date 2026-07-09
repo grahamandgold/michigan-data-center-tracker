@@ -1,10 +1,10 @@
 {
- "title": "Senate Hopefuls Spar on Data Center Rules",
- "teaser": "Stevens and El-Sayed clash on data centers in the Dem Senate debate.",
+ "title": "Mornings with Graham & Emmy",
+ "teaser": "Lansing may decide Mason project as townships weigh bans and tax breaks.",
  "lines": [
   {
    "host": "Graham",
-   "text": "You're listening to the Michigan Data Wire — your daily podcast on Michigan's data center buildout. I'm Graham."
+   "text": "Good morning, and welcome to Mornings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
   },
   {
    "host": "Emmy",
@@ -12,115 +12,218 @@
   },
   {
    "host": "Graham",
-   "text": "Today the Democratic U.S. Senate candidates went head-to-head on how to handle the wave of data center proposals."
+   "text": "Today we're digging into a big shift: state officials could take the lead on a Mason-area data center instead of leaving it to locals."
   },
   {
    "host": "Emmy",
-   "text": "That debate sounds like it got right to the heart of what a lot of communities are wrestling with."
+   "text": "Graham, this Mason story feels like it could change how these projects get approved across the state. What's the core of it?"
   },
   {
    "host": "Graham",
-   "text": "Exactly. U.S. Rep. Haley Stevens and Abdul El-Sayed offered pretty different takes during their first one-on-one debate."
+   "text": "Ingham County residents near Mason are worried a proposal might skip township review and head straight to state regulators. That means less say on power use and tax deals right in their backyard."
   },
   {
    "host": "Emmy",
-   "text": "What did each of them actually say about the projects themselves?"
+   "text": "Why would the state step in like that? Is this something we've seen before with big industrial projects?"
   },
   {
    "host": "Graham",
-   "text": "Both agreed that any development needs community benefit agreements and that residents should have a real voice in decisions."
+   "text": "It's part of a broader pattern where large facilities sometimes get routed through state processes for consistency on energy and infrastructure. Locals fear it cuts out their input on how much power gets pulled and what kind of tax breaks get offered."
   },
   {
    "host": "Emmy",
-   "text": "That lines up with the pushback we've been hearing in townships across the state."
+   "text": "And those tax deals matter a lot for the towns. What kind of impact are people talking about on electric bills or water?"
   },
   {
    "host": "Graham",
-   "text": "Stevens emphasized protecting Michiganders from higher costs while still competing on technology."
+   "text": "Data centers are huge power users, so any big new load can ripple into rates for everyone on the grid. Water use for cooling is another flashpoint, especially in areas already thinking about limits."
   },
   {
    "host": "Emmy",
-   "text": "And El-Sayed went further, calling for union labor requirements, no utility rate hikes for residents, water protections, and enforceable agreements."
+   "text": "Farmland and small towns are often right in the path too. How does this fit with what's happening in places like Washtenaw or Grand Traverse?"
   },
   {
    "host": "Graham",
-   "text": "Right. He framed it as needing strict guardrails before anything moves forward."
+   "text": "Exactly. York Township is holding a hearing today on a temporary moratorium, similar to pauses already in Adrian and elsewhere. Garfield Township had a packed room pushing for the same thing over noise and power lines."
   },
   {
    "host": "Emmy",
-   "text": "So the bigger question is how these positions play out for local electric bills and water supplies."
+   "text": "So the Mason move might accelerate that push for local control. What happens next if the state does take over the decision?"
   },
   {
    "host": "Graham",
-   "text": "Data centers can pull massive amounts of power and water, and recent heat and storms already showed how tight the grid is."
+   "text": "Residents could lose leverage on community benefits or environmental reviews. On the flip side, it might speed up approvals or bring in state-level standards for utilities. The Ingham County fight shows how fast these can turn personal."
   },
   {
    "host": "Emmy",
-   "text": "Who ends up paying for the upgrades if these projects scale up?"
+   "text": "There's already a recall effort against the mayor over this. How does that tie in?"
   },
   {
    "host": "Graham",
-   "text": "That's exactly the debate — whether ratepayers foot the bill or the companies do through those agreements."
+   "text": "Petitions are still circulating from yesterday's momentum. If they get enough signatures, voters could decide the mayor's fate. It shows these projects quickly become election issues."
   },
   {
    "host": "Emmy",
-   "text": "And farmland and small towns are in the middle of it too."
+   "text": "And the recall is just one example. Across the state, candidates are being forced to take positions."
   },
   {
    "host": "Graham",
-   "text": "We've seen resistance in places like Washtenaw and Charlevoix counties over exactly those issues."
+   "text": "Right. In the GOP governor primary debate yesterday, hopefuls split on whether they'd accept state or federal incentives for hyperscale AI projects. Some want full support, others stricter local oversight."
   },
   {
    "host": "Emmy",
-   "text": "What happens next after this debate?"
+   "text": "On the Democratic side, Abdul El-Sayed laid out strict conditions in his Senate debate with Haley Stevens."
   },
   {
    "host": "Graham",
-   "text": "Voters will be watching how the candidates turn these positions into policy if they win the primary."
+   "text": "Yes, union labor, no rate hikes for residents, water protections, and real community benefits agreements. It shows data centers are now a campaign staple."
   },
   {
    "host": "Emmy",
-   "text": "Meanwhile, a new report from the Citizens Research Council is looking at the tax and economic side of these projects."
+   "text": "Meanwhile, Oracle is asking Saline Township for a 12-year tax break on a massive $43 billion campus. That's a lot to forgo in property taxes."
   },
   {
    "host": "Graham",
-   "text": "That one dropped today and examines impacts on local economies."
+   "text": "The board decides soon. Residents would give up millions while the project taps local power and water heavily. It tests how much communities are willing to trade for the investment."
   },
   {
    "host": "Emmy",
-   "text": "Also today, GPUS moved forward on a 20-megawatt AI data center deal in Dowagiac that could be worth over a billion dollars."
+   "text": "Adrian already approved a full year-long pause on new proposals yesterday. Why the rush for these moratoriums?"
   },
   {
    "host": "Graham",
-   "text": "And in Saline Township, the board is holding a public hearing tonight on a tax exemption for Oracle's big project."
+   "text": "To buy time for permanent rules on roads, electricity, and land use. Lenawee County residents pushed back hard on demand and sprawl. No new applications during the pause."
   },
   {
    "host": "Emmy",
-   "text": "Yesterday a University expert pointed to growing community resistance statewide over water, power, and local control."
+   "text": "Girard Township has already adopted standards while Coldwater is just starting to draft theirs. Different speeds in the same region."
   },
   {
    "host": "Graham",
-   "text": "A resident also noted how enormous the Saline site looks — basically the size of Michigan International Speedway."
+   "text": "Those rules will decide where facilities can go and what they must give back. Southwest Michigan is watching closely."
   },
   {
    "host": "Emmy",
-   "text": "And in Cass County, that same company is advancing plans with major service agreements."
+   "text": "One resident even compared the Saline site to Michigan International Speedway in scale during a drive-by yesterday."
   },
   {
    "host": "Graham",
-   "text": "Yesterday John James faced questions about donations from data center builder executives while criticizing the projects."
+   "text": "That visual puts the footprint in perspective for folks passing through Washtenaw County."
   },
   {
    "host": "Emmy",
-   "text": "Hayes Township's advisory group meets tonight to review their draft report on local data center issues."
+   "text": "So the Mason decision could set a precedent. If the state overrides locals there, will other townships accelerate their own pauses?"
   },
   {
    "host": "Graham",
-   "text": "That's one listeners can actually attend."
+   "text": "Very possible. York and Garfield hearings today show the momentum. People want time to study grid limits and protect farmland before anything gets locked in."
   },
   {
    "host": "Emmy",
+   "text": "What about the bigger picture on electric rates? A gigawatt-scale project affects more than just the host town."
+  },
+  {
+   "host": "Graham",
+   "text": "Regional rates can shift when new large loads come online. That's why listeners 30 minutes away from Garfield are paying attention too."
+  },
+  {
+   "host": "Emmy",
+   "text": "And water protections keep coming up. Are there statewide guidelines or is it all local so far?"
+  },
+  {
+   "host": "Graham",
+   "text": "Mostly local right now, which is why these moratoriums are popping up fast. Communities want enforceable limits before projects scale up."
+  },
+  {
+   "host": "Emmy",
+   "text": "The recall drive in Mason keeps the pressure on. How many signatures are they aiming for?"
+  },
+  {
+   "host": "Graham",
+   "text": "Enough valid ones to force a vote. Organizers are still collecting, and it underscores how these fights can directly challenge elected officials."
+  },
+  {
+   "host": "Emmy",
+   "text": "Shifting to quick hits, York Township's hearing today on a moratorium—what are residents hoping to assess?"
+  },
+  {
+   "host": "Graham",
+   "text": "Impacts on roads, water, and electricity rates. Washtenaw County opposition is rising, and they want a pause like Adrian's."
+  },
+  {
+   "host": "Emmy",
+   "text": "Garfield Township had hundreds at their hearing pushing the same thing."
+  },
+  {
+   "host": "Graham",
+   "text": "Planners recommended the ban after protests over power lines and noise near homes and farms. The vote gives time to study limits."
+  },
+  {
+   "host": "Emmy",
+   "text": "Adrian's year-long pause is already in effect after yesterday's approval."
+  },
+  {
+   "host": "Graham",
+   "text": "No new proposals accepted while they write permanent rules. Small towns are moving quickly."
+  },
+  {
+   "host": "Emmy",
+   "text": "On the Oracle ask in Saline, the board will weigh that long tax break soon."
+  },
+  {
+   "host": "Graham",
+   "text": "Residents stand to lose millions in revenue. The decision shows the trade-offs communities face."
+  },
+  {
+   "host": "Emmy",
+   "text": "Girard has rules in place, Coldwater is drafting. Different approaches in neighboring townships."
+  },
+  {
+   "host": "Graham",
+   "text": "That will shape future locations and required benefits in southwest Michigan."
+  },
+  {
+   "host": "Emmy",
+   "text": "The GOP debate showed a split on incentives for AI centers."
+  },
+  {
+   "host": "Graham",
+   "text": "From full support to calls for more local control. It's becoming a live issue in the primary."
+  },
+  {
+   "host": "Emmy",
+   "text": "El-Sayed's conditions in the Senate debate add another layer."
+  },
+  {
+   "host": "Graham",
+   "text": "Union requirements, rate protections, and community agreements. Voters are hearing clear contrasts."
+  },
+  {
+   "host": "Emmy",
+   "text": "Now for on deck, what meetings can listeners actually attend?"
+  },
+  {
+   "host": "Graham",
+   "text": "Today Lenox Township has its regular board meeting with data center zoning on the radar."
+  },
+  {
+   "host": "Emmy",
+   "text": "Tomorrow the Michigan Public Service Commission meets and oversees large-load electric agreements."
+  },
+  {
+   "host": "Graham",
+   "text": "And on the 13th, Lansing City Council Development & Planning holds a public hearing on a proposed 182-day data center moratorium."
+  },
+  {
+   "host": "Emmy",
+   "text": "Those are the ones where folks can show up and weigh in directly."
+  },
+  {
+   "host": "Graham",
    "text": "Full sources and the live map at the Michigan Data Center Tracker. We're back tomorrow."
   }
- ]
+ ],
+ "episode_title": "State Eyes Override on Mason Data Center Amid Local Moratorium Push",
+ "show": "Mornings with Graham & Emmy",
+ "daypart": "Mornings"
 }
