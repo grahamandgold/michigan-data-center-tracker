@@ -181,21 +181,17 @@ document.addEventListener('DOMContentLoaded', async function() {
   </script>
 
 <!-- ============================================================= -->
-<!-- Question the Tracker — Website Manager helper widget          -->
+<!-- Ask Emmy — reader feedback helper (Data Center Editor)         -->
 <!-- Self-contained: drop this whole block right before </body>.   -->
-<!-- Endpoint is configurable: set window.MDCT_FEEDBACK_URL to the  -->
-<!-- desk's /api/community-question URL (e.g. the cloudflared tunnel-->
-<!-- URL). If unset or unreachable, it falls back to an email draft -->
-<!-- so a reader's message is never lost.                           -->
+<!-- Submissions POST to window.MDCT_FEEDBACK_URL (the desk's       -->
+<!-- /api/community-question, e.g. a cloudflared tunnel URL). If    -->
+<!-- unset/unreachable it falls back to an email draft so a         -->
+<!-- reader's note is never lost.                                   -->
 <!-- ============================================================= -->
 <div id="wm-widget" aria-live="polite">
-  <button id="wm-fab" type="button" aria-label="Question the Tracker — message the Website Manager">
+  <button id="wm-fab" type="button" aria-label="Ask Emmy, the Data Center Editor — flag a problem or send a tip">
     <span class="wm-ring"></span>
-    <span class="wm-av" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#f4f1ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path>
-      </svg>
-    </span>
+    <span class="wm-av"><img src="/mi-data-center-tracker/img/team/emmy.jpg" alt="Emmy, Data Center Editor"></span>
     <span class="wm-dot" aria-hidden="true"></span>
   </button>
 </div>
@@ -205,24 +201,20 @@ document.addEventListener('DOMContentLoaded', async function() {
   <div class="wm-card" role="document">
     <button class="wm-x" type="button" aria-label="Close" data-wm-close>×</button>
     <div class="wm-head">
-      <span class="wm-av lg" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#f4f1ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path>
-        </svg>
-      </span>
+      <span class="wm-av lg"><img src="/mi-data-center-tracker/img/team/emmy.jpg" alt="Emmy, Data Center Editor"></span>
       <div>
-        <div class="wm-name" id="wm-title">Website Manager here</div>
-        <div class="wm-role">Michigan Data Center Tracker · usually replies fast</div>
+        <div class="wm-name" id="wm-title">Emmy here</div>
+        <div class="wm-role">Data Center Editor · Michigan Data Center Tracker</div>
       </div>
     </div>
-    <p class="wm-copy">Spot something wrong? Missing data? Have a lead? Send it to me — I'll route it to the editor immediately.</p>
+    <p class="wm-copy">I keep the map honest. Spot a wrong number, a missing project, or have a lead? Send it straight to me — it goes into the newsroom queue and I'll get it on the map.</p>
     <form id="wm-form" novalidate>
       <textarea id="wm-msg" required rows="4" placeholder="What did you spot? A wrong number, a missing project, a tip…"></textarea>
       <input id="wm-email" type="email" placeholder="Email (optional — only if you want a reply)" autocomplete="email">
       <input id="wm-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
-      <button type="submit" class="wm-send" id="wm-send">Send it to the editor →</button>
+      <button type="submit" class="wm-send" id="wm-send">Send it to Emmy →</button>
     </form>
-    <div id="wm-success" class="wm-success" hidden>✅ Sent. The editor will review it and the agents will learn.</div>
+    <div id="wm-success" class="wm-success" hidden>✅ Got it — thank you. It's in the newsroom queue; Emmy will review it and the map will follow.</div>
     <div id="wm-error" class="wm-error" hidden></div>
   </div>
 </div>
@@ -230,16 +222,16 @@ document.addEventListener('DOMContentLoaded', async function() {
 <style>
   #wm-widget { position:fixed; right:20px; bottom:20px; z-index:99998; }
   #wm-fab { position:relative; width:60px; height:60px; border-radius:50%; border:2px solid #E03131;
-    background:radial-gradient(120% 120% at 30% 25%, #241412, #14100e); cursor:pointer; padding:0;
+    background:#14100e; cursor:pointer; padding:0; overflow:hidden;
     display:grid; place-items:center; box-shadow:0 8px 26px rgba(0,0,0,.5); transition:transform .18s ease; }
   #wm-fab:hover { transform:translateY(-2px) scale(1.04); }
-  .wm-av { display:grid; place-items:center; width:100%; height:100%; }
-  .wm-av.lg { width:44px; height:44px; border-radius:50%; border:2px solid #E03131;
-    background:radial-gradient(120% 120% at 30% 25%, #241412, #14100e); flex-shrink:0; }
+  .wm-av { display:block; width:100%; height:100%; border-radius:50%; overflow:hidden; }
+  .wm-av img { width:100%; height:100%; object-fit:cover; display:block; }
+  .wm-av.lg { width:46px; height:46px; border-radius:50%; border:2px solid #E03131; flex-shrink:0; overflow:hidden; }
   .wm-ring { position:absolute; inset:-2px; border-radius:50%; border:2px solid #E03131; opacity:0;
     animation:wm-pulse 2.8s ease-out infinite; pointer-events:none; }
-  .wm-dot { position:absolute; top:2px; right:2px; width:12px; height:12px; border-radius:50%;
-    background:#3fb950; border:2px solid #14100e; }
+  .wm-dot { position:absolute; bottom:2px; right:2px; width:12px; height:12px; border-radius:50%;
+    background:#3fb950; border:2px solid #14100e; z-index:2; }
   @keyframes wm-pulse { 0% { transform:scale(1); opacity:.7; } 70%,100% { transform:scale(1.55); opacity:0; } }
   @media (prefers-reduced-motion: reduce) { .wm-ring { animation:none; } }
 
@@ -247,7 +239,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     padding:20px; font-family:Archivo,system-ui,sans-serif; }
   #wm-modal[hidden] { display:none; }
   .wm-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.5); }
-  .wm-card { position:relative; width:min(380px,92vw); background:#16140f; border:1px solid #322e29;
+  .wm-card { position:relative; width:min(384px,92vw); background:#16140f; border:1px solid #322e29;
     border-radius:10px; padding:20px; box-shadow:0 20px 60px rgba(0,0,0,.6); color:#f4f1ee;
     animation:wm-in .22s cubic-bezier(.2,.9,.3,1.1); }
   @keyframes wm-in { from { transform:translateY(14px) scale(.98); opacity:0; } to { transform:none; opacity:1; } }
@@ -255,7 +247,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     line-height:1; cursor:pointer; }
   .wm-x:hover { color:#f4f1ee; }
   .wm-head { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
-  .wm-name { font-family:'Saira Condensed',sans-serif; font-weight:800; font-size:20px; text-transform:uppercase; letter-spacing:.01em; }
+  .wm-name { font-family:'Saira Condensed',sans-serif; font-weight:800; font-size:21px; text-transform:uppercase; letter-spacing:.01em; }
   .wm-role { font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.06em; color:#8a847c; text-transform:uppercase; margin-top:2px; }
   .wm-copy { font-size:14px; line-height:1.55; color:#c3beb9; margin:0 0 14px; }
   #wm-form { display:flex; flex-direction:column; gap:10px; }
@@ -298,7 +290,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     var payload = {
       message: text, email: (email.value || '').trim(),
       website: (document.getElementById('wm-hp').value || ''),
-      source: 'Community feedback from Website Manager widget',
+      source: 'Reader tip → Emmy (Data Center Editor)',
       url: location.href, at: new Date().toISOString()
     };
     var endpoint = window.MDCT_FEEDBACK_URL || '/api/community-question';
@@ -310,16 +302,16 @@ document.addEventListener('DOMContentLoaded', async function() {
       form.hidden = true; ok.hidden = false;
     }).catch(function () {
       // Public static site can't reach the desk endpoint? Never lose the note:
-      // fall back to an email draft addressed to the editor.
-      var subject = encodeURIComponent('Tracker feedback via Website Manager widget');
+      // fall back to an email draft addressed to the newsroom.
+      var subject = encodeURIComponent('Tracker tip for Emmy (Data Center Editor)');
       var body = encodeURIComponent(text + '\n\n— sent from ' + location.href + (payload.email ? ('\nreply to: ' + payload.email) : ''));
       window.location.href = 'mailto:andy@fortlauderdalesignal.com?subject=' + subject + '&body=' + body;
       form.hidden = true; ok.hidden = false;
-    }).then(function(){ sendBtn.disabled = false; sendBtn.textContent = 'Send it to the editor →'; });
+    }).then(function(){ sendBtn.disabled = false; sendBtn.textContent = 'Send it to Emmy →'; });
   });
 })();
 </script>
-<!-- ============ end Website Manager widget ============ -->
+<!-- ============ end Ask Emmy widget ============ -->
 
 </body>
 </html>
