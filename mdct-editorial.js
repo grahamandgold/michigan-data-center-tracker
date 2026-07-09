@@ -409,8 +409,8 @@
     fab.id = 'wm-fab'; fab.type = 'button';
     // On the Live Map, lift Emmy above the legend/share in the bottom-right corner.
     if (/\/map(\/|\.html|$)/.test(location.pathname)) fab.className = 'wm-onmap';
-    fab.setAttribute('aria-label', 'Ask us — send the newsroom a tip or correction');
-    fab.innerHTML = '<span class="wm-label">Ask Us</span>' +
+    fab.setAttribute('aria-label', 'Ask Emmy — send the newsroom a tip or correction');
+    fab.innerHTML = '<span class="wm-label">Ask Emmy</span>' +
       '<span class="wm-ava"><span class="wm-ring"></span>' +
       '<span class="wm-pic"><img src="' + AV + '" alt="Emmy, Data Center Editor"></span><span class="wm-dot"></span></span>';
     var modal = document.createElement('div');
