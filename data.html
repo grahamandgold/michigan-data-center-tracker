@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0d">
+  <title>The Data — Michigan Data Center Tracker</title>
+  <meta name="description" content="Every tracked Michigan data center project — searchable and filterable, with status, developer, disclosed load, and the source for each record.">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css?v=20260709a">
+  <link rel="stylesheet" href="tracker-site.css?v=20260709a">
+  <style>
+    .db-tools { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:0 0 18px; }
+    .db-search { flex:1 1 260px; min-width:220px; }
+    .db-search input { width:100%; box-sizing:border-box; background:#0f0e0d; border:1px solid #322e29; border-radius:6px;
+      color:#f4f1ee; font:inherit; font-size:15px; padding:12px 14px; outline:none; }
+    .db-search input:focus { border-color:#E03131; }
+    .db-select { position:relative; }
+    .db-select select { appearance:none; background:#0f0e0d; border:1px solid #322e29; border-radius:6px; color:#f4f1ee;
+      font:inherit; font-size:14px; padding:12px 34px 12px 13px; outline:none; cursor:pointer; }
+    .db-select select:focus { border-color:#E03131; }
+    .db-select::after { content:"▾"; position:absolute; right:13px; top:50%; transform:translateY(-50%); color:#8a847c; pointer-events:none; }
+    .db-count { margin-left:auto; font-size:13px; color:#8a847c; font-family:'Space Mono',monospace; }
+    .db-count b { color:#E03131; }
+    .db-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:0 0 22px; }
+    .db-stat { border:1px solid #262320; background:#141210; border-radius:8px; padding:14px 16px; }
+    .db-stat .n { font-family:'Saira Condensed',sans-serif; font-weight:800; font-size:30px; color:#f4f1ee; line-height:1; }
+    .db-stat .n .u { font-size:15px; color:#E03131; margin-left:3px; }
+    .db-stat .l { font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#8a847c; margin-top:7px; }
+    .db-table-wrap { border:1px solid #262320; border-radius:8px; overflow-x:auto; background:#100f0e; }
+    table.db { width:100%; border-collapse:collapse; font-size:14px; min-width:820px; }
+    table.db thead th { text-align:left; font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:.07em;
+      text-transform:uppercase; color:#8a847c; padding:13px 16px; border-bottom:1px solid #262320; white-space:nowrap; cursor:pointer; user-select:none; background:#141210; position:sticky; top:0; }
+    table.db thead th:hover { color:#f4f1ee; }
+    table.db thead th .ar { color:#E03131; margin-left:4px; }
+    table.db tbody td { padding:13px 16px; border-bottom:1px solid #1c1a17; color:#d7d2cc; vertical-align:top; }
+    table.db tbody tr:hover { background:#16140f; }
+    table.db tbody tr:last-child td { border-bottom:none; }
+    .db-name { font-weight:700; color:#f4f1ee; }
+    .db-note { display:block; font-size:12px; color:#8a847c; margin-top:3px; max-width:320px; line-height:1.4; }
+    .db-pill { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.02em; padding:3px 9px; border-radius:999px; white-space:nowrap; border:1px solid; }
+    .db-mw { font-family:'Space Mono',monospace; font-weight:700; color:#f4f1ee; white-space:nowrap; }
+    .db-src a { color:#E03131; text-decoration:none; font-weight:700; font-size:12.5px; white-space:nowrap; }
+    .db-src a:hover { text-decoration:underline; }
+    .db-conf { font-size:11px; font-family:'Space Mono',monospace; color:#8a847c; }
+    .db-empty { padding:40px 16px; text-align:center; color:#8a847c; }
+    @media (max-width:720px){ .db-stats{ grid-template-columns:repeat(2,1fr);} .db-count{ margin-left:0; width:100%;} }
+  </style>
+</head>
+<body class="site-page" data-page="data">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="drawer-shade" data-drawer-close></div>
+  <aside class="drawer" id="site-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+    <button class="drawer-close" type="button" data-drawer-close aria-label="Close menu">×</button>
+    <a class="drawer-brand" href="index.html" aria-label="Michigan Data Center Tracker home">
+      <img src="brand-logo-light.png" alt="">
+    </a>
+    <nav aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="map/?v=20260706c">Live map</a>
+      <a href="data.html">The Data</a>
+      <a href="stories.html">Stories</a>
+      <a href="meetings.html">Meetings</a>
+      <a href="learn.html">Learn</a>
+      <a href="your-voice-2026.html">Your Voice 2026</a>
+      <a href="sponsorship.html">Sponsorship</a>
+      <a href="index.html#briefing">Email alerts</a>
+    </nav>
+    <a class="button button-red drawer-briefing" href="index.html#briefing">Sign up now</a>
+  </aside>
+
+  <nav class="primary-nav" aria-label="Primary navigation">
+    <div class="primary-nav-inner">
+      <button class="menu-button" type="button" data-drawer-open aria-controls="site-drawer" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="nav-brand" href="index.html" aria-label="Michigan Data Center Tracker home">
+        <span class="nav-brand-logo-wrap">
+          <img class="nav-brand-logo" src="brand-logo-light.png" alt="" width="1934" height="604">
+        </span>
+        <span class="nav-brand-tag" aria-label="Independent, nonpartisan, with documented methodology">
+          <span class="nav-brand-tag-item">Independent</span>
+          <span class="nav-brand-tag-item">Nonpartisan</span>
+          <a class="nav-brand-tag-item nav-brand-tag-link" href="methodology.html">Methodology</a>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="data.html">The Data</a>
+        <a href="stories.html">Stories</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="learn.html">Learn</a>
+        <a href="your-voice-2026.html">Your Voice 2026</a>
+        <a href="sponsorship.html">Sponsor</a>
+      </div>
+      <a class="live-map-link" href="map/?v=20260706c"><span class="live-dot"></span>Live map</a>
+      <a class="nav-alerts-mobile" href="index.html#briefing">Alerts</a>
+      <a class="button button-red nav-briefing" href="index.html#briefing">Sign up</a>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <span class="eyebrow">The public record</span>
+      <h1>THE DATA</h1>
+      <p class="page-hero-lead">Every Michigan data center project we track — searchable, filterable, and sourced. The same records that power the live map.</p>
+      <p class="page-hero-lead" style="margin-top:12px;font-size:0.82rem;opacity:0.85;" id="db-updated"></p>
+    </div>
+  </header>
+
+  <main class="page-body" id="main">
+    <section class="page-section">
+      <div class="page-wrap">
+        <div class="db-stats" id="db-stats"></div>
+
+        <div class="db-tools">
+          <div class="db-search"><input type="search" id="db-q" placeholder="Search project, developer, town, county…" aria-label="Search projects"></div>
+          <div class="db-select"><select id="db-status" aria-label="Filter by status"><option value="">All statuses</option></select></div>
+          <div class="db-select"><select id="db-region" aria-label="Filter by region"><option value="">All regions</option></select></div>
+          <div class="db-count" id="db-count"></div>
+        </div>
+
+        <div class="db-table-wrap">
+          <table class="db">
+            <thead>
+              <tr>
+                <th data-sort="name">Project</th>
+                <th data-sort="place">Location</th>
+                <th data-sort="region">Region</th>
+                <th data-sort="status">Status</th>
+                <th data-sort="developer">Developer</th>
+                <th data-sort="mw">Load (MW)</th>
+                <th data-sort="confidence">Source</th>
+              </tr>
+            </thead>
+            <tbody id="db-body"></tbody>
+          </table>
+        </div>
+        <p style="margin-top:14px;font-size:12.5px;color:#8a847c;line-height:1.5;">Every figure links to its public source. Disclosed load reflects only what developers or filings have made public — blanks mean no figure has been disclosed. Spot something off? <a href="mailto:michigandatacentertracker@gmail.com" style="color:#E03131;">Email the newsroom</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <a class="footer-brand" href="index.html">Michigan Data Center Tracker</a>
+        <p class="footer-tag">Independent public-source tracking</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="map/?v=20260706c">Live map</a>
+        <a href="data.html">The Data</a>
+        <a href="stories.html">Stories</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="learn.html">Learn</a>
+        <a href="your-voice-2026.html">Your Voice 2026</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="sponsorship.html">Sponsor</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Michigan Data Center Tracker</p>
+      <time class="footer-updated" id="footer-updated"></time>
+    </div>
+  </footer>
+
+  <script src="content-data.js?v=20260709a"></script>
+  <script src="app.js?v=20260709a"></script>
+  <script src="site-chrome.js?v=20260709a"></script>
+  <script src="data.js?v=20260709a"></script>
+</body>
+</html>
