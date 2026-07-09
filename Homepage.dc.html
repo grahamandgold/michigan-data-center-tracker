@@ -98,6 +98,7 @@
   .wire-tag { font-family:'Space Mono',monospace; font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:2px 7px; border:1px solid; white-space:nowrap; }
   .wire-tag-breaking { color:#100f0e; background:#E03131; border-color:#E03131; }
   .wire-tag-fresh { color:#100f0e; background:#c9a24b; border-color:#c9a24b; }
+  .wire-tag-county { color:#c3beb9; background:#221f1b; border-color:#35312b; }
   .deck-card:hover { border-color:#45403a !important; transform:translateY(-2px); }
   .deck-card { transition:border-color .18s ease, transform .18s ease; }
   .deck-row:hover { background:#1a1813; }
@@ -393,7 +394,8 @@
         <div class="wire-row wire-lead">
           <div class="wire-lead-meta">
             <sc-if value="{{ lead.breaking }}" hint-placeholder-val="{{ true }}"><span class="wire-tag wire-tag-breaking">Breaking</span></sc-if>
-            <span class="wire-tag" style="color:{{ lead.catColor }};border-color:{{ lead.catColor }};">{{ lead.cat }}</span>
+            <span class="wire-tag" style="color:{{ lead.regionColor }};border-color:{{ lead.regionColor }};">{{ lead.regionLabel }}</span>
+            <sc-if value="{{ lead.countyLabel }}" hint-placeholder-val="{{ true }}"><span class="wire-tag wire-tag-county">{{ lead.countyLabel }}</span></sc-if>
             <span class="wire-list-time" style="color:{{ lead.timeColor }};padding-top:0;">{{ lead.timeAgo }}</span>
           </div>
           <a class="wire-lead-hl-link" href="{{ lead.url }}" target="_blank" rel="noopener noreferrer"><h4 class="wire-hl wire-lead-hl">{{ lead.title }}</h4></a>
@@ -417,7 +419,8 @@
                     <span class="wire-src-label">Source:</span>
                     <a class="wire-src-link {{ w.sourceKind }}" href="{{ w.url }}" target="_blank" rel="noopener noreferrer">{{ w.source }}</a><span class="wire-src-arrow"> →</span>
                     <span class="wire-src-dot">·</span>
-                    <span class="wire-src-cat">{{ w.cat }}</span>
+                    <span class="wire-src-cat">{{ w.regionLabel }}</span>
+                    <sc-if value="{{ w.countyLabel }}" hint-placeholder-val="{{ true }}"><span class="wire-src-cat">{{ w.countyLabel }}</span></sc-if>
                   </div>
                 </div>
               </div>
@@ -441,8 +444,8 @@
           <div class="deck-row" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;min-height:54px;padding:7px 8px;border-bottom:1px solid #1f1c18;border-left:3px solid {{ m.topColor }};padding-left:16px;">
             <span class="deck-date" style="display:flex;align-items:baseline;gap:6px;width:70px;flex-shrink:0;"><span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#E03131;">{{ m.mon }}</span><span style="font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:26px;line-height:1;color:#f4f1ee;">{{ m.day }}</span></span>
             <span class="deck-status" style="width:118px;flex-shrink:0;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:{{ m.statusColor }};border-left:2px solid {{ m.statusBorder }};padding-left:12px;">{{ m.status }}</span>
-            <span class="deck-body" style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;"><span class="deck-title" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:19px;line-height:1.05;color:#f4f1ee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.body }}</span><span style="font-size:12.5px;color:#8c8884;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.topic }}</span></span>
-            <span class="deck-side" style="display:flex;align-items:center;gap:14px;flex-shrink:0;"><span style="font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9b9794;border:1px solid #322e29;padding:3px 9px;">{{ m.region }}</span><span style="font-family:'Space Mono',monospace;font-size:11px;color:#7d7975;">{{ m.time }}</span></span>
+            <span class="deck-body" style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;"><span class="deck-title" style="font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:19px;line-height:1.05;color:#f4f1ee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.body }}</span><span style="display:flex;align-items:center;gap:9px;min-width:0;"><span style="font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9b9794;border:1px solid #322e29;padding:2px 8px;flex-shrink:0;">{{ m.region }}</span><span style="font-size:12.5px;color:#8c8884;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.topic }}</span></span></span>
+            <span class="deck-side" style="display:flex;align-items:center;gap:14px;flex-shrink:0;"><span style="font-family:'Space Mono',monospace;font-size:11px;color:#7d7975;">{{ m.time }}</span></span>
             <span class="deck-actions" style="display:flex;gap:8px;flex-shrink:0;"><sc-if value="{{ m.agendaUrl }}" hint-placeholder-val="{{ true }}"><a class="deck-act" href="{{ m.agendaUrl }}" target="_blank" rel="noopener noreferrer" aria-label="View agenda">{{ m.agendaLabel }} ↗</a></sc-if><sc-if value="{{ m.streamUrl }}" hint-placeholder-val="{{ false }}"><a class="deck-act watch" href="{{ m.streamUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Watch the stream">Watch ↗</a></sc-if></span>
           </div>
         </sc-for>
@@ -716,7 +719,8 @@ class Component extends DCLogic {
         iso: (m.iso || m.date || m.starts_at || '').slice(0, 10),
         body: m.body || m.org || m.title || m.name,
         topic: m.topic || m.summary || m.description || '',
-        region: m.region || m.area || '',
+        region: (m.county && window.MDCT && MDCT.regionLabel) ? MDCT.regionLabel(MDCT.countyRegion(m.county)) : (m.region || m.area || ''),
+        county: m.county || '',
         time: m.time || m.start_time || '',
         status: m.status || m.type || 'Meeting',
         urgent: !!(m.urgent || /vote/i.test(m.status || '')),
@@ -782,6 +786,7 @@ class Component extends DCLogic {
     const CAT = {
       Grid: '#E03131', Local: '#7fb0e0', Policy: '#c9a24b', Water: '#5bb3a6', Community: '#b07fd0', Development: '#dd8048',
     };
+    const REGCOL = { se: '#E03131', west: '#5bb3a6', capital: '#c9a24b', mid: '#7fb0e0', north: '#b07fd0', statewide: '#9b9794' };
     const wireSrc = this.state.cmsWire || (MDCT.headlines ? MDCT.headlines() : []);
     const rawWire = wireSrc.filter(w => w.iso);
     const wire = rawWire.map((w) => {
@@ -789,11 +794,15 @@ class Component extends DCLogic {
       const rec = MDCT.recency ? MDCT.recency(w.iso, NOW) : { hot: false, breaking: !!w.breaking, cls: '', label: '' };
       const sm = MDCT.sourceMeta ? MDCT.sourceMeta(w) : { source: w.source, sourceKind: 'src-news' };
       const isHot = rec.hot;
+      const rk = (w.county && MDCT.countyRegion) ? MDCT.countyRegion(w.county) : (w.region || 'statewide');
       return Object.assign({}, w, sm, {
         timeAgo: MDCT.ago ? MDCT.ago(w.iso, NOW) : '',
         dateLabel: mon[d.getMonth()] + ' ' + String(d.getDate()).padStart(2, '0'),
         isNew: isHot,
         catColor: CAT[w.cat] || '#cbc7c3',
+        regionLabel: MDCT.regionLabel ? MDCT.regionLabel(rk) : '',
+        countyLabel: (MDCT.countyLabel && w.county) ? MDCT.countyLabel(w.county) : '',
+        regionColor: REGCOL[rk] || '#9b9794',
         url: w.url || 'stories.html',
         timeColor: isHot ? '#E03131' : '#7d7975',
         hotCls: isHot ? 'is-hot' : '',
@@ -824,6 +833,7 @@ class Component extends DCLogic {
       const d = new Date(m.iso + 'T00:00:00');
       return Object.assign({}, m, {
         mon: mon[d.getMonth()], day: String(d.getDate()).padStart(2, '0'),
+        region: (m.county && window.MDCT && MDCT.regionLabel) ? MDCT.regionLabel(MDCT.countyRegion(m.county)) : (m.region || ''),
         countdown: until(m.iso),
         topColor: m.urgent ? '#E03131' : '#2b2824',
         cdColor: m.urgent ? '#E03131' : '#7d7975',

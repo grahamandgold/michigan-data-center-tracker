@@ -180,6 +180,7 @@ FRESH HEADLINES (the outlet's wording — do NOT echo it, write your own from th
 Respond ONLY with a JSON array:
 [{{"i": <index>, "title": "<original rewrite <=100 chars>",
    "dek": "<3-4 sentences, factual, why a Michigan reader cares>",
+   "county": "<the Michigan county this story is about — e.g. Washtenaw, Lenawee, Ingham; empty only if truly statewide>",
    "region": "metro|west|mid|north|statewide",
    "tag": "Power & Grid|Local Government|Policy|Water|Money|Explainers"}}]
 Keep at most {MAX_CANDIDATES}. If none qualify, return [].
@@ -218,6 +219,7 @@ Keep at most {MAX_CANDIDATES}. If none qualify, return [].
         item = {
             "title": title[:130], "dek": str(p.get("dek", ""))[:600], "url": url,
             "source": src.get("source") or "News", "region": region, "cat": "STATEWIDE",
+            "county": str(p.get("county", "")).strip(),
             "tag": tag, "iso": now_iso, "kind": "story",
             "id": hashlib.sha1(url.encode()).hexdigest()[:12], "filed_at": now_iso,
             "origin": "google-news", "headline_rewritten": rewritten,

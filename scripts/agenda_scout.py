@@ -257,6 +257,7 @@ def main() -> int:
         item = {
             "title": r["title"][:130], "dek": r["dek"][:600], "url": url,
             "source": f"{m.get('body', 'Meeting')} agenda", "region": r.get("region", "statewide"),
+            "county": m.get("county", ""),
             "cat": "Meetings", "tag": "Agenda watch", "iso": now_iso,
             "kind": "agenda", "id": hashlib.sha1((url + m.get("iso", "") + "v3").encode()).hexdigest()[:12],
             "filed_at": now_iso,
