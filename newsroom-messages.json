@@ -3,12 +3,17 @@
   {
    "id": "54c4c93cd352",
    "to": "Managing Editor",
-   "status": "open",
+   "status": "answered",
    "messages": [
     {
      "from": "Andy",
      "text": "why am i not getting any stories for approval?",
      "at": "2026-07-09T19:57:31Z"
+    },
+    {
+     "from": "Managing Editor",
+     "text": "Looking into it now. Could be writers are still working through their drafts, or there's a bottleneck in the queue I'm not seeing. Let me check with the Head Writer on what's in progress and chase down anything that should've hit your desk already — I'll have an answer for you in 10 minutes.",
+     "at": "2026-07-09T19:57:47Z"
     }
    ]
   },
@@ -30,5 +35,5 @@
    ]
   }
  ],
- "updated_at": "2026-07-09T19:57:31Z"
+ "updated_at": "2026-07-09T19:57:47Z"
 }
