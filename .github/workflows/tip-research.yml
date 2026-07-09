@@ -1,0 +1,42 @@
+name: Emmy researches reader tips
+
+on:
+  push:
+    branches: [main]
+    paths: ["community-tips.json"]
+  schedule:
+    - cron: "*/30 * * * *"   # safety net: pick up any tip the push trigger missed
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tip-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Emmy fact-checks new reader tips (web-grounded)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_MODEL: ${{ vars.XAI_MODEL || '' }}
+        run: python scripts/tip_research.py
+
+      - name: Commit if changed
+        env:
+          GIT_NAME: emmy-tip-desk
+          GIT_EMAIL: emmy-tip-desk@users.noreply.github.com
+        run: |
+          bash scripts/safe_commit.sh "Emmy: researched reader tips $(date -u +'%Y-%m-%d %H:%M UTC')" community-tips.json
