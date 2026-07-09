@@ -1,6 +1,26 @@
 {
- "updated_at": "2026-07-09T16:12:32+00:00",
+ "updated_at": "2026-07-09T16:41:10+00:00",
  "generator": "grok-wire-agent",
- "items": [],
- "accuracy_checked_at": "2026-07-09T16:12:27+00:00"
+ "items": [
+  {
+   "title": "Girard Township passes strict new zoning rules for data centers",
+   "dek": "Girard Township approved zoning changes that tighten where data centers can locate. The rules add buffers and review steps after public concerns over industrial-scale projects. Nearby Coldwater is now drafting its own regulations.",
+   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE4yZEo1RURocXVKaDhXcW8zNnh3Z1hkTkV6LWpKendDUkd0ZFB0SmVodkNFaDlZREY3eGVob0V2WXlfbWZtbk1zbk9iU00tUQ?oc=5",
+   "source": "WTVB",
+   "region": "mid",
+   "cat": "STATEWIDE",
+   "county": "Branch",
+   "tag": "Local Government",
+   "iso": "2026-07-09T13:28:43Z",
+   "kind": "story",
+   "id": "30463379b2ca",
+   "filed_at": "2026-07-09T16:40:03Z",
+   "origin": "google-news",
+   "headline_rewritten": false,
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8,
+   "judge_note": "Concrete new development: Girard Township actually passed (not just drafted) zoning rules, which is a completed legislative action distinct from the already-liv"
+  }
+ ],
+ "accuracy_checked_at": "2026-07-09T16:41:06+00:00"
 }
