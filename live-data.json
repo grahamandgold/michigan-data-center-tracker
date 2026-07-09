@@ -1,7 +1,22 @@
 {
- "updated_at": "2026-07-09T00:22:20+00:00",
+ "updated_at": "2026-07-09T02:18:33Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Hundreds pack hearing as Garfield Township pushes data-center moratorium",
+   "dek": "Grand Traverse County planners recommended a temporary ban after residents filled the room to protest power lines and industrial noise near homes and farms. The proposed rules would give the township time to study water and electric-grid limits before any large project moves forward. Locals 30 minutes away are tracking the vote because any approved campus could affect regional electric rates.",
+   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQd3FWb1ZTdkoyd2FaRGU1UDBhVWxuVGFJbmRLVGxPT0J2cjJGOFBTREFiOUluSVRZN2xjNWJWdmpPLU1nbThqQ1hvUi1xRnYyaWtjZlNEU3loOHpHdENOTFFqWGNWMUZiS1ZJTENDNmxSYlNpb2x4ZmJQLWZ0ZVZTYVh3N0t1dnNTeWdXVWdRZ3BZTjZkWUxYTkJ2OTlrVV9TeGc2MW5kampyQm4wYlZJSnprQ2dVQUtiN2pQRkxQblJubEVXTlkybm4yeHBmMjZ2a0l3SFpJRGlPbnptN2pxS1R6WQ?oc=5",
+   "source": "9and10News.com",
+   "region": "north",
+   "cat": "STATEWIDE",
+   "county": "Grand Traverse",
+   "tag": "Local Government",
+   "iso": "2026-07-09T02:17:24Z",
+   "id": "0e452a3c290d",
+   "origin": "google-news",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "Mason recall drive keeps pressure on mayor over data center fight",
    "dek": "Petition organizers continue collecting signatures to remove the mayor after disputes over a proposed data center in the Ingham County city. The effort shows how quickly local data center fights can turn into direct challenges to elected officials. Voters will decide whether the mayor stays if enough valid signatures are gathered.",
