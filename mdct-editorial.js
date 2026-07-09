@@ -52,7 +52,14 @@
         typeof s.url === 'string' && /^https:\/\//.test(s.url) &&
         s.iso && !isNaN(new Date(s.iso)) &&
         typeof s.source === 'string' && s.source &&
-        /^(metro|west|mid|north|statewide)$/.test(s.region || '');
+        /^(se|metro|west|capital|mid|north|statewide)$/.test(s.region || '');
+    };
+    // Legacy → new region keys, so old data + old agent output keep working.
+    var normalizeRegion = function (s) {
+      if (s.region === 'metro') s.region = 'se';
+      // if a county is present, region is always derived from it (single source of truth)
+      if (s.county) s.region = g.MDCT.countyRegion(s.county);
+      return s;
     };
     var validMeeting = function (m) {
       return m && m.iso && !isNaN(new Date(m.iso + 'T00:00:00')) &&
@@ -62,7 +69,7 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) {
         if (!d) return;
-        var stories = (d.stories || []).filter(validStory);
+        var stories = (d.stories || []).filter(validStory).map(normalizeRegion);
         var meetings = (d.meetings || []).filter(validMeeting);
         if (stories.length >= 3) g.MDCT_HEADLINES = stories;
         if (meetings.length) {
@@ -171,14 +178,42 @@
     return [];
   };
 
+  // Canonical Michigan region map (News Director's taxonomy). Every county maps
+  // to exactly one region; region is always DERIVED from county so the two tags
+  // never disagree. Regions: se · west · capital · mid · north.
+  g.MDCT.REGIONS = {
+    se: 'SE Michigan', west: 'West Michigan', capital: 'Capital Region',
+    mid: 'Mid-Michigan', north: 'Northern Michigan', statewide: 'Statewide'
+  };
+  g.MDCT.COUNTY_REGION = (function () {
+    var m = {}, add = function (region, list) { list.forEach(function (c) { m[c.toLowerCase()] = region; }); };
+    add('se', ['Wayne', 'Oakland', 'Macomb', 'Washtenaw', 'Monroe', 'Livingston', 'St. Clair', 'St Clair', 'Lenawee']);
+    add('capital', ['Ingham', 'Clinton', 'Eaton', 'Jackson', 'Shiawassee', 'Gratiot']);
+    add('west', ['Berrien', 'Cass', 'St. Joseph', 'St Joseph', 'Branch', 'Hillsdale', 'Van Buren',
+      'Kalamazoo', 'Calhoun', 'Allegan', 'Barry', 'Ottawa', 'Kent', 'Ionia', 'Muskegon',
+      'Montcalm', 'Newaygo', 'Oceana', 'Mecosta', 'Mason', 'Lake', 'Osceola']);
+    add('mid', ['Genesee', 'Saginaw', 'Midland', 'Bay', 'Isabella', 'Tuscola', 'Lapeer',
+      'Sanilac', 'Huron', 'Arenac', 'Gladwin', 'Clare']);
+    add('north', ['Oscoda', 'Ogemaw', 'Iosco', 'Roscommon', 'Missaukee', 'Wexford', 'Manistee',
+      'Benzie', 'Grand Traverse', 'Leelanau', 'Kalkaska', 'Crawford', 'Antrim', 'Otsego',
+      'Montmorency', 'Alpena', 'Alcona', 'Charlevoix', 'Emmet', 'Cheboygan', 'Presque Isle',
+      'Mackinac', 'Luce', 'Chippewa', 'Schoolcraft', 'Delta', 'Alger', 'Marquette', 'Dickinson',
+      'Menominee', 'Iron', 'Baraga', 'Houghton', 'Keweenaw', 'Ontonagon', 'Gogebic']);
+    return m;
+  })();
   g.MDCT.countyRegion = function (county) {
-    var west = ['Kent','Kalamazoo','Ottawa','Cass','Mecosta','Muskegon','Allegan','Berrien','Van Buren'];
-    var mid = ['Ingham','Saginaw','Genesee','Jackson','Livingston','Shiawassee','Bay','Clinton'];
-    var north = ['Marquette','Grand Traverse','Kalkaska','Otsego','Antrim','Chippewa','Delta','Emmet','Mackinac'];
-    if (west.indexOf(county) >= 0) return 'west';
-    if (mid.indexOf(county) >= 0) return 'mid';
-    if (north.indexOf(county) >= 0) return 'north';
-    return 'metro';
+    if (!county) return 'statewide';
+    var key = String(county).toLowerCase().replace(/\s+county$/, '').replace(/\s+co\.?$/, '').trim();
+    return g.MDCT.COUNTY_REGION[key] || 'statewide';
+  };
+  g.MDCT.regionLabel = function (region) {
+    return g.MDCT.REGIONS[region] || g.MDCT.REGIONS[g.MDCT.countyRegion(region)] || 'Statewide';
+  };
+  // Clean county chip label, e.g. "Lenawee Co."
+  g.MDCT.countyLabel = function (county) {
+    if (!county) return '';
+    var c = String(county).replace(/\s+county$/i, '').replace(/\s+co\.?$/i, '').trim();
+    return c ? c + ' Co.' : '';
   };
 
   g.MDCT.mapStatusKey = function (status, layer) {
