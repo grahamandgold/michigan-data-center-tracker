@@ -1,0 +1,42 @@
+name: Newsroom replies to the News Director
+
+on:
+  push:
+    branches: [main]
+    paths: ["newsroom-messages.json"]
+  schedule:
+    - cron: "*/15 * * * *"   # safety net: catch any message the push trigger missed
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agent-reply
+  cancel-in-progress: false
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Agents reply to the News Director (and file directives as lessons)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          XAI_MODEL: ${{ vars.XAI_MODEL || '' }}
+        run: python scripts/agent_reply.py
+
+      - name: Commit if changed
+        env:
+          GIT_NAME: newsroom-desk
+          GIT_EMAIL: newsroom-desk@users.noreply.github.com
+        run: |
+          bash scripts/safe_commit.sh "Newsroom: replies to the News Director $(date -u +'%Y-%m-%d %H:%M UTC')" newsroom-messages.json desk-lessons.json
