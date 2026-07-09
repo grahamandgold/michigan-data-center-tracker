@@ -367,6 +367,9 @@
       var st = document.createElement('style'); st.id = 'wm-style';
       st.textContent = [
         '#wm-fab{position:fixed;right:20px;bottom:84px;z-index:9998;display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;}',
+        /* On the live map the bottom-right corner holds the legend + share — lift Emmy above them so she never covers the key. */
+        '#wm-fab.wm-onmap{bottom:372px;}',
+        '@media (max-width:760px){#wm-fab.wm-onmap{bottom:300px;}}',
         '#wm-fab .wm-label{background:#16140f;color:#f4f1ee;border:1px solid #E03131;border-radius:999px;padding:9px 14px;font-family:\'Space Mono\',monospace;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 6px 18px rgba(0,0,0,.4);white-space:nowrap;transition:transform .18s ease;}',
         '#wm-fab:hover .wm-label{transform:translateY(-1px);}',
         '#wm-fab .wm-ava{position:relative;width:56px;height:56px;border-radius:50%;flex-shrink:0;transition:transform .18s ease;}',
@@ -404,6 +407,8 @@
     }
     var fab = document.createElement('button');
     fab.id = 'wm-fab'; fab.type = 'button';
+    // On the Live Map, lift Emmy above the legend/share in the bottom-right corner.
+    if (/\/map(\/|\.html|$)/.test(location.pathname)) fab.className = 'wm-onmap';
     fab.setAttribute('aria-label', 'Ask us — send the newsroom a tip or correction');
     fab.innerHTML = '<span class="wm-label">Ask Us</span>' +
       '<span class="wm-ava"><span class="wm-ring"></span>' +
