@@ -115,7 +115,11 @@ def main() -> int:
         if not v:
             kept.append(it)  # never drop on a missing verdict
             continue
-        score = int(v.get("score", 5))
+        try:
+            score = int(v.get("score", 5))
+        except (TypeError, ValueError):  # model returned null / non-numeric
+            score = 5
+        note = str(v.get("note") or "")[:160]
         dup = bool(v.get("duplicate"))
         # document-based agenda previews are our product — only drop clear junk
         floor = 4 if it.get("kind") == "agenda" and it.get("accuracy") == "document-based" else THRESHOLD
@@ -124,11 +128,11 @@ def main() -> int:
             decisions.setdefault("killed", []).append({
                 "url": it.get("url", ""), "title": it.get("title", ""),
                 "at": now, "by": "news_judge",
-                "note": f"score {score}/10{', duplicate' if dup else ''}: {v.get('note', '')[:160]}"})
+                "note": f"score {score}/10{', duplicate' if dup else ''}: {note}"})
             print(f"  SPIKED ({score}/10{' dup' if dup else ''}): {it.get('title', '')[:80]}")
         else:
             it["judge_score"] = score
-            it["judge_note"] = str(v.get("note", ""))[:160]
+            it["judge_note"] = note
             kept.append(it)
 
     if dropped:

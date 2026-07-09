@@ -116,6 +116,14 @@ def main() -> int:
     stories.sort(key=lambda s: s.get("iso", ""), reverse=True)
     stories = stories[:MAX_LIVE]
 
+    # Never silently lose a story: if a "promoted" item got truncated off the
+    # live list (older than the MAX_LIVE freshest), keep it in the desk queue
+    # instead of dropping it from both live and pending.
+    live_final_urls = {s.get("url") for s in stories}
+    for p in promoted:
+        if p.get("url") not in live_final_urls:
+            kept_pending.append(p)
+
     changed = bool(promoted) or stories != live.get("stories", [])
     if not changed:
         print(f"Auto-publish: nothing met the bar (>= {AUTO_MIN}/10, < {FRESH_HOURS:.0f}h). Homepage unchanged.")

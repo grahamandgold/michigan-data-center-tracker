@@ -88,9 +88,13 @@ def main() -> int:
     reg_order = ["se", "west", "capital", "mid", "north"]
     by = {r: {"projects": 0, "pauses": 0} for r in reg_order}
     for p in proj:
-        by.get(county_region(p.get("county")), by["se"])["projects"] += 1
+        r = county_region(p.get("county"))
+        if r in by:  # statewide/unknown-county records don't belong to any region bar
+            by[r]["projects"] += 1
     for p in mor:
-        by.get(county_region(p.get("county")), by["se"])["pauses"] += 1
+        r = county_region(p.get("county"))
+        if r in by:
+            by[r]["pauses"] += 1
     by_region = [{"label": REGION_LABEL[r], "projects": by[r]["projects"], "pauses": by[r]["pauses"]}
                  for r in reg_order if by[r]["projects"] or by[r]["pauses"]]
 
@@ -101,13 +105,17 @@ def main() -> int:
 
     js = "window.MDCT_STATS = " + json.dumps(stats, indent=2) + ";"
     content = CONTENT.read_text(encoding="utf-8")
-    new = re.sub(r"window\.MDCT_STATS\s*=\s*\{.*?\n\};", js, content, count=1, flags=re.S)
-    if new == content:
-        print("::warning::could not locate MDCT_STATS block — content-data.js unchanged")
+    new, n = re.subn(r"window\.MDCT_STATS\s*=\s*\{.*?\n\};", lambda m: js, content, count=1, flags=re.S)
+    if n == 0:
+        print("::error::could not locate the MDCT_STATS block in content-data.js")
         return 1
+    summary = (f"Stats from map: projects={projects}, {disclosed_gw} GW, pauses={pauses}, "
+               f"communities={communities}, regions={len(by_region)}")
+    if new == content:
+        print(f"{summary} — already in sync, no change.")
+        return 0
     CONTENT.write_text(new, encoding="utf-8")
-    print(f"Stats from map: projects={projects}, {disclosed_gw} GW, pauses={pauses}, "
-          f"communities={communities}, regions={len(by_region)}")
+    print(summary)
     return 0
 
 
