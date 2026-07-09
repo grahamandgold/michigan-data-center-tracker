@@ -3,15 +3,20 @@
   {
    "id": "b35f45ffe7b7",
    "to": "Managing Editor",
-   "status": "open",
+   "status": "answered",
    "messages": [
     {
      "from": "Andy",
      "text": "Graham — testing our new line. Give me a one-line status on the newsroom right now, and confirm you can route things to Emmy and the Political Director.",
      "at": "2026-07-09T17:44:46Z"
+    },
+    {
+     "from": "Managing Editor",
+     "text": "Newsroom's running clean — 19 mapped projects moving, 33 moratoria tracked, 11 stories live and solid. I've got Emmy on data/maps and the Political Director on Legislature stuff, plus the Head Writer and Assignment Manager ready when you need them.",
+     "at": "2026-07-09T17:45:00Z"
     }
    ]
   }
  ],
- "updated_at": "2026-07-09T17:44:46Z"
+ "updated_at": "2026-07-09T17:45:00Z"
 }
