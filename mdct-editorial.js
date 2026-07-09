@@ -404,8 +404,8 @@
     }
     var fab = document.createElement('button');
     fab.id = 'wm-fab'; fab.type = 'button';
-    fab.setAttribute('aria-label', 'Have an idea? Ask Emmy, the Data Center Editor — send a tip or correction');
-    fab.innerHTML = '<span class="wm-label">Have an idea?</span>' +
+    fab.setAttribute('aria-label', 'Idea? Ask Emmy, the Data Center Editor — send a tip or correction');
+    fab.innerHTML = '<span class="wm-label">Idea?</span>' +
       '<span class="wm-ava"><span class="wm-ring"></span><span class="wm-ring r2"></span>' +
       '<span class="wm-pic"><img src="' + AV + '" alt="Emmy, Data Center Editor"></span><span class="wm-dot"></span></span>';
     var modal = document.createElement('div');
