@@ -253,6 +253,10 @@ Keep at most {MAX_CANDIDATES}. If none qualify, return [].
             "tag": tag, "iso": pub_iso, "kind": "story",
             "id": hashlib.sha1(url.encode()).hexdigest()[:12], "filed_at": now_iso,
             "origin": "google-news", "headline_rewritten": rewritten,
+            # Keep the outlet's own headline so the desk can show ours vs theirs
+            # side-by-side — the editor's proof we're writing new, not copying.
+            "source_title": str(src.get("title", "")).strip()[:200],
+            "source_url": url,
         }
         pending.setdefault("items", []).insert(0, item)
         known.add(url)
