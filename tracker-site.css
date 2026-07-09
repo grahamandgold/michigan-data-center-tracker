@@ -1058,3 +1058,27 @@
   .site-page .footer-bottom p + time,
   .site-page .footer-bottom time + p { margin-top: 12px; display: block; }
 }
+/* ---- Shared site header (matches the homepage banner) ---- */
+.site-header { display:flex; align-items:center; justify-content:space-between; height:96px; padding:0 44px; background:#16140f; border-bottom:1px solid #221f1b; position:sticky; top:0; z-index:50; }
+.site-header .lockup { display:inline-flex; align-items:center; line-height:1; font-size:40px; }
+.site-header .lockup .mark { height:1.55em; width:auto; display:block; }
+.site-header .lockup .divider { width:2px; align-self:stretch; background:#E03131; margin:.12em .5em .12em .28em; }
+.site-header .lockup .words { display:flex; flex-direction:column; justify-content:center; }
+.site-header .lockup .mi { font-family:'Archivo',sans-serif; font-weight:800; font-size:1em; letter-spacing:.035em; color:#f6f4f1; line-height:.92; }
+.site-header .lockup .rule { height:2px; background:#E03131; margin:.14em 0 .1em; }
+.site-header .lockup .sub { font-family:'Archivo',sans-serif; font-weight:600; font-size:.36em; letter-spacing:.24em; color:#f6f4f1; white-space:nowrap; }
+.site-header .desktop-nav { display:flex; align-items:center; gap:28px; font-size:13px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; }
+.site-header .navlink { position:relative; color:#9b9794; text-decoration:none; transition:color .18s ease; }
+.site-header .navlink:hover, .site-header .navlink.is-active { color:#f4f1ee; }
+.site-header .navlink::after { content:""; position:absolute; left:0; right:100%; bottom:-7px; height:2px; background:#E03131; transition:right .22s ease; }
+.site-header .navlink:hover::after, .site-header .navlink.is-active::after { right:0; }
+.site-header .cta { transition:background .18s ease, transform .18s ease; }
+.site-header .cta:hover { transform:translateY(-1px); }
+.site-header .hamburger { display:none; flex-direction:column; gap:5px; width:28px; height:44px; justify-content:center; background:none; border:none; cursor:pointer; padding:0; }
+.site-header .hamburger span { height:2px; background:#cbc7c3; display:block; }
+@media (max-width:860px){
+  .site-header { height:68px; padding:0 20px; }
+  .site-header .lockup { font-size:28px; }
+  .site-header .desktop-nav { display:none; }
+  .site-header .hamburger { display:flex; }
+}

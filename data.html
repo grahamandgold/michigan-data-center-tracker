@@ -9,7 +9,8 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css?v=20260709a">
-  <link rel="stylesheet" href="tracker-site.css?v=20260709a">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tracker-site.css?v=20260709d">
   <style>
     .db-tools { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:0 0 18px; }
     .db-search { flex:1 1 260px; min-width:220px; }
@@ -71,35 +72,23 @@
     <a class="button button-red drawer-briefing" href="index.html#briefing">Sign up now</a>
   </aside>
 
-  <nav class="primary-nav" aria-label="Primary navigation">
-    <div class="primary-nav-inner">
-      <button class="menu-button" type="button" data-drawer-open aria-controls="site-drawer" aria-expanded="false" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <a class="nav-brand" href="index.html" aria-label="Michigan Data Center Tracker home">
-        <span class="nav-brand-logo-wrap">
-          <img class="nav-brand-logo" src="brand-logo-light.png" alt="" width="1934" height="604">
-        </span>
-        <span class="nav-brand-tag" aria-label="Independent, nonpartisan, with documented methodology">
-          <span class="nav-brand-tag-item">Independent</span>
-          <span class="nav-brand-tag-item">Nonpartisan</span>
-          <a class="nav-brand-tag-item nav-brand-tag-link" href="methodology.html">Methodology</a>
-        </span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="data.html">The Data</a>
-        <a href="stories.html">Stories</a>
-        <a href="meetings.html">Meetings</a>
-        <a href="learn.html">Learn</a>
-        <a href="your-voice-2026.html">Your Voice 2026</a>
-        <a href="sponsorship.html">Sponsor</a>
+  <header class="site-header">
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;">
+        <a class="lockup" href="index.html" style="font-size:40px;text-decoration:none;"><img class="mark" src="assets/mark.svg" alt="Michigan Data Center Tracker logo"><span class="divider"></span><span class="words"><span class="mi">MICHIGAN</span><span class="rule"></span><span class="sub">DATA CENTER TRACKER</span></span></a>
+        <a href="https://grahamandgold.com" target="_blank" rel="noopener" style="font-family:'Space Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#56524e;text-decoration:none;">Powered by Graham &amp; Gold</a>
       </div>
-      <a class="live-map-link" href="map/?v=20260706c"><span class="live-dot"></span>Live map</a>
-      <a class="nav-alerts-mobile" href="index.html#briefing">Alerts</a>
-      <a class="button button-red nav-briefing" href="index.html#briefing">Sign up</a>
-    </div>
-  </nav>
+      <nav class="desktop-nav">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="map/">Live Map</a>
+        <a class="navlink is-active" href="data.html">The Data</a>
+        <a class="navlink" href="stories.html">Stories</a>
+        <a class="navlink" href="meetings.html">Meetings</a>
+        <a class="navlink" href="learn.html">Learn</a>
+        <a class="navlink" href="embeds/">Diagrams</a>
+        <a class="cta" href="sponsorship.html" style="text-decoration:none;color:#100f0e;background:#E03131;font-weight:700;padding:11px 19px;border-radius:0;letter-spacing:.04em;">Sponsor</a>
+      </nav>
+      <button class="hamburger" type="button" data-drawer-open aria-controls="site-drawer" aria-label="Menu"><span></span><span></span><span></span></button>
+    </header>
 
   <header class="page-hero">
     <div class="page-hero-inner">
