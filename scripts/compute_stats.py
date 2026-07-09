@@ -18,15 +18,17 @@ MAPD = ROOT / "map-data.json"
 CONTENT = ROOT / "content-data.js"
 
 # Canonical county -> region (mirrors mdct-editorial.js COUNTY_REGION).
-REGION_LABEL = {"se": "SE Michigan", "west": "West Michigan", "capital": "Capital Region",
+REGION_LABEL = {"se": "SE Michigan", "west": "West Michigan",
                 "mid": "Mid-Michigan", "north": "Northern Michigan", "statewide": "Statewide"}
 _R = {
     "se": ["Wayne", "Oakland", "Macomb", "Washtenaw", "Monroe", "Livingston", "St. Clair", "St Clair", "Lenawee"],
-    "capital": ["Ingham", "Clinton", "Eaton", "Jackson", "Shiawassee", "Gratiot"],
     "west": ["Berrien", "Cass", "St. Joseph", "St Joseph", "Branch", "Hillsdale", "Van Buren", "Kalamazoo",
              "Calhoun", "Allegan", "Barry", "Ottawa", "Kent", "Ionia", "Muskegon", "Montcalm", "Newaygo",
              "Oceana", "Mecosta", "Mason", "Lake", "Osceola"],
-    "mid": ["Genesee", "Saginaw", "Midland", "Bay", "Isabella", "Tuscola", "Lapeer", "Sanilac", "Huron",
+    # Mid-Michigan: former Capital counties (Lansing/Jackson) merged with the
+    # Tri-Cities/Flint/Thumb belt — matches TV/radio market identity.
+    "mid": ["Ingham", "Clinton", "Eaton", "Jackson", "Shiawassee", "Gratiot",
+            "Genesee", "Saginaw", "Midland", "Bay", "Isabella", "Tuscola", "Lapeer", "Sanilac", "Huron",
             "Arenac", "Gladwin", "Clare"],
     "north": ["Oscoda", "Ogemaw", "Iosco", "Roscommon", "Missaukee", "Wexford", "Manistee", "Benzie",
               "Grand Traverse", "Leelanau", "Kalkaska", "Crawford", "Antrim", "Otsego", "Montmorency",

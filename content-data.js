@@ -283,14 +283,9 @@ window.MDCT_STATS = {
       "pauses": 3
     },
     {
-      "label": "Capital Region",
-      "projects": 2,
-      "pauses": 2
-    },
-    {
       "label": "Mid-Michigan",
-      "projects": 0,
-      "pauses": 2
+      "projects": 2,
+      "pauses": 4
     },
     {
       "label": "Northern Michigan",

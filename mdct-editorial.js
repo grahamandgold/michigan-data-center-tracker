@@ -52,11 +52,12 @@
         typeof s.url === 'string' && /^https:\/\//.test(s.url) &&
         s.iso && !isNaN(new Date(s.iso)) &&
         typeof s.source === 'string' && s.source &&
-        /^(se|metro|west|capital|mid|north|statewide)$/.test(s.region || '');
+        /^(se|metro|west|capital|mid|north|statewide)$/.test(s.region || ''); // 'capital' accepted as legacy → normalized to 'mid'
     };
     // Legacy → new region keys, so old data + old agent output keep working.
     var normalizeRegion = function (s) {
       if (s.region === 'metro') s.region = 'se';
+      if (s.region === 'capital') s.region = 'mid'; // Capital Region folded into Mid-Michigan
       // if a county is present, region is always derived from it (single source of truth)
       if (s.county) s.region = g.MDCT.countyRegion(s.county);
       return s;
@@ -195,19 +196,22 @@
 
   // Canonical Michigan region map (News Director's taxonomy). Every county maps
   // to exactly one region; region is always DERIVED from county so the two tags
-  // never disagree. Regions: se · west · capital · mid · north.
+  // never disagree. Regions: se · west · mid · north. (Mid-Michigan spans the
+  // Lansing/Jackson/Flint/Saginaw/Bay City/Midland/Mt. Pleasant broadcast belt.)
   g.MDCT.REGIONS = {
-    se: 'SE Michigan', west: 'West Michigan', capital: 'Capital Region',
+    se: 'SE Michigan', west: 'West Michigan',
     mid: 'Mid-Michigan', north: 'Northern Michigan', statewide: 'Statewide'
   };
   g.MDCT.COUNTY_REGION = (function () {
     var m = {}, add = function (region, list) { list.forEach(function (c) { m[c.toLowerCase()] = region; }); };
     add('se', ['Wayne', 'Oakland', 'Macomb', 'Washtenaw', 'Monroe', 'Livingston', 'St. Clair', 'St Clair', 'Lenawee']);
-    add('capital', ['Ingham', 'Clinton', 'Eaton', 'Jackson', 'Shiawassee', 'Gratiot']);
     add('west', ['Berrien', 'Cass', 'St. Joseph', 'St Joseph', 'Branch', 'Hillsdale', 'Van Buren',
       'Kalamazoo', 'Calhoun', 'Allegan', 'Barry', 'Ottawa', 'Kent', 'Ionia', 'Muskegon',
       'Montcalm', 'Newaygo', 'Oceana', 'Mecosta', 'Mason', 'Lake', 'Osceola']);
-    add('mid', ['Genesee', 'Saginaw', 'Midland', 'Bay', 'Isabella', 'Tuscola', 'Lapeer',
+    // Mid-Michigan: former Capital-area counties (Lansing/Jackson) merged with the
+    // Tri-Cities/Flint/Thumb belt — one region, matching TV/radio market identity.
+    add('mid', ['Ingham', 'Clinton', 'Eaton', 'Jackson', 'Shiawassee', 'Gratiot',
+      'Genesee', 'Saginaw', 'Midland', 'Bay', 'Isabella', 'Tuscola', 'Lapeer',
       'Sanilac', 'Huron', 'Arenac', 'Gladwin', 'Clare']);
     add('north', ['Oscoda', 'Ogemaw', 'Iosco', 'Roscommon', 'Missaukee', 'Wexford', 'Manistee',
       'Benzie', 'Grand Traverse', 'Leelanau', 'Kalkaska', 'Crawford', 'Antrim', 'Otsego',
