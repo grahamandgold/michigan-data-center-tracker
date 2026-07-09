@@ -317,7 +317,7 @@
     <!-- podcast bar -->
     <div class="pod {{ podCls }} pod-inner" style="padding:20px 44px;background:#100f0e;border-bottom:1px solid #201d19;">
       <div class="giga-card" style="position:relative;overflow:hidden;background:linear-gradient(118deg,#20140f,#15110d 60%);border:1px solid #4a352c;border-left:3px solid #E03131;border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.5),0 0 60px rgba(224,49,49,.10);">
-        <svg class="giga-waves" aria-hidden="true" viewBox="0 0 220 220" style="position:absolute;left:150px;top:50%;transform:translateY(-50%);width:300px;height:300px;pointer-events:none;z-index:0;overflow:visible;"><circle cx="0" cy="110" r="16" fill="none" stroke="#E03131" stroke-width="1.6" opacity="0"><animate attributeName="r" values="16;150" dur="3.8s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0" dur="3.8s" begin="0s" repeatCount="indefinite"/></circle><circle cx="0" cy="110" r="16" fill="none" stroke="#E03131" stroke-width="1.6" opacity="0"><animate attributeName="r" values="16;150" dur="3.8s" begin="1.27s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0" dur="3.8s" begin="1.27s" repeatCount="indefinite"/></circle><circle cx="0" cy="110" r="16" fill="none" stroke="#E03131" stroke-width="1.6" opacity="0"><animate attributeName="r" values="16;150" dur="3.8s" begin="2.54s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0" dur="3.8s" begin="2.54s" repeatCount="indefinite"/></circle></svg>
+        <svg class="giga-waves" aria-hidden="true" viewBox="0 0 220 220" style="position:absolute;left:162px;top:50%;transform:translateY(-50%);width:206px;height:206px;pointer-events:none;z-index:0;overflow:visible;"><circle cx="0" cy="110" r="16" fill="none" stroke="#E03131" stroke-width="1.6" opacity="0"><animate attributeName="r" values="14;74" dur="3.8s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0" dur="3.8s" begin="0s" repeatCount="indefinite"/></circle><circle cx="0" cy="110" r="16" fill="none" stroke="#E03131" stroke-width="1.6" opacity="0"><animate attributeName="r" values="14;74" dur="3.8s" begin="1.27s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0" dur="3.8s" begin="1.27s" repeatCount="indefinite"/></circle><circle cx="0" cy="110" r="16" fill="none" stroke="#E03131" stroke-width="1.6" opacity="0"><animate attributeName="r" values="14;74" dur="3.8s" begin="2.54s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0" dur="3.8s" begin="2.54s" repeatCount="indefinite"/></circle></svg>
         <div class="giga-inner" style="position:relative;z-index:1;display:flex;align-items:center;gap:24px;padding:16px 26px;">
           <div class="giga-hosts" onclick="{{ togglePod }}" role="button" tabindex="0" aria-label="Play the latest episode" style="flex-shrink:0;width:190px;height:116px;border-radius:10px;overflow:hidden;border:1px solid #4a352c;box-sizing:border-box;box-shadow:0 2px 12px rgba(0,0,0,.4);cursor:pointer;background:#16140f;position:relative;">
             <video src="pod/gigacast-hosts.mp4" poster="img/gigacast-hosts.jpg" autoplay loop muted playsinline preload="metadata" aria-hidden="true" style="width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block;"></video>
@@ -768,15 +768,15 @@ class Component extends DCLogic {
       const el = document.getElementById(id);
       if (!el || el._leaflet_id) return null;
       const map = L.map(el, Object.assign({ zoomControl: false, scrollWheelZoom: false, attributionControl: false }, opts)).setView([43.7, -84.55], zoom);
-      L.tileLayer(tileUrl, tileOpt).addTo(map);
+      L.tileLayer(tileUrl, tileOpt).addTo(map); const _bounds = [];
       sites.forEach(p => {
         const statusKey = MDCT.mapStatusKey ? MDCT.mapStatusKey(p.status, p.layer) : 'Proposed';
         const color = STATUS[statusKey] || '#bda35f';
         const mw = MDCT.parseMW ? MDCT.parseMW(p.power_mw) : 0;
         const sz = mw >= 400 ? 15 : mw >= 200 ? 12 : 10;
-        L.marker([p.latitude, p.longitude], { icon: dot(color, sz) }).addTo(map).bindPopup(popup(p, statusKey, color));
+        L.marker([p.latitude, p.longitude], { icon: dot(color, sz) }).addTo(map).bindPopup(popup(p, statusKey, color)); _bounds.push([p.latitude, p.longitude]);
       });
-      setTimeout(() => map.invalidateSize(), 200);
+      setTimeout(() => { map.invalidateSize(); if (_bounds.length) { try { map.fitBounds(_bounds, { padding: [30, 30], maxZoom: 8.2 }); } catch (e) {} } }, 200);
       return map;
     };
 
