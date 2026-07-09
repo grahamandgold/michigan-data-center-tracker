@@ -1,8 +1,16 @@
 {
- "generated_at": "2026-07-09T03:47:21+00:00",
+ "generated_at": "2026-07-09T21:53:41+00:00",
  "for_dates": [
-  "2026-07-08",
-  "2026-07-09"
+  "2026-07-09",
+  "2026-07-10"
  ],
- "items": []
+ "items": [
+  {
+   "iso": "2026-07-09",
+   "time": "7:00 PM",
+   "meeting": "Lenox Township Board",
+   "bullet": "Lenox Township Board holds first reading July 13 on I-94 Development District ordinance.",
+   "link": "https://www.lenox-mi.gov/agendacenter"
+  }
+ ]
 }

@@ -1,6 +1,44 @@
 {
- "updated_at": "2026-07-09T20:54:06Z",
+ "updated_at": "2026-07-09T21:53:41+00:00",
  "generator": "grok-wire-agent",
- "items": [],
+ "items": [
+  {
+   "title": "Lenox Township takes first reading on I-94 Development District ordinance",
+   "dek": "The Lenox Township Board will conduct the first reading of Section 719.58 creating an I-94 Development District at its July 13 meeting. Residents within 30 minutes should track how these rules shape future development on township land near the interstate.",
+   "url": "https://www.lenox-mi.gov/agendacenter",
+   "source": "Lenox Township Board agenda",
+   "region": "Southeast Michigan",
+   "county": "Macomb",
+   "cat": "Meetings",
+   "tag": "Agenda watch",
+   "iso": "2026-07-09T21:53:41+00:00",
+   "kind": "agenda",
+   "id": "fac3199aaded",
+   "filed_at": "2026-07-09T21:53:41+00:00",
+   "accuracy": "document-based",
+   "findings": "July 13 Board of Trustees agenda lists first reading of Section 719.58 I-94 Development District under new business | June 2 public notice posted proposed High Resource Demand Facilities Ordinance for public hearing | June 2 notice also covered Proposed I-94 Development District Ordinance public hearing",
+   "perspective": "The first reading opens the formal legislative path for the I-94 district rules, with public comment available at the meeting and further readings expected before any final adoption.",
+   "documents": [
+    {
+     "label": "Agenda page",
+     "url": "https://www.lenox-mi.gov/agendacenter"
+    },
+    {
+     "label": "Miss Dig",
+     "url": "https://www.lenox-mi.gov/DocumentCenter/View/783/Miss-Dig"
+    },
+    {
+     "label": "July Board of Trustees",
+     "url": "https://www.lenox-mi.gov/AgendaCenter/ViewFile/Agenda/_07132026-778"
+    },
+    {
+     "label": "Special Board of Trustees Meeting",
+     "url": "https://www.lenox-mi.gov/AgendaCenter/ViewFile/Agenda/_07082026-776"
+    }
+   ],
+   "depth_score": 8,
+   "extraction_method": "plain"
+  }
+ ],
  "accuracy_checked_at": "2026-07-09T20:54:01+00:00"
 }
