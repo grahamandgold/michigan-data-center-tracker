@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-09T18:56:08Z",
+ "updated_at": "2026-07-09T20:54:06Z",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -18,6 +18,23 @@
    "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNTGNDVl8yQWhSclVKa1BNNUExNGw5b0VqYjdHWmpnR09IbWdzYURoSkhDYmxyRDB0M0JLS1NxUzJvNFRBV282cGd2N2d5dnZ4dlZNZUhwZTVILVdVMjlXMmxBeWdIYU1LMFVCOXZYQzJEa2lyZjB5TWVqWXZsRGU4OF80bXltUV9mdEwxTnBxWENYME1jMG9qSTU4SS04RWFDeDFF?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 6
+  },
+  {
+   "title": "Rural township hits pause on data-center tax deal after backlash",
+   "dek": "A Michigan township delayed its vote on a major data-center tax abatement after dozens of residents packed the meeting to object. The project would consume large amounts of electricity and water while delivering limited local tax revenue for years. The postponement keeps the outcome uncertain for nearby homeowners facing possible rate hikes.",
+   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOczE0S0RtUU1zR3FiYzFMcFpOaTlpQ3h1SzhVc1lEMkxnUHA0aHNONjNsbUdhQ09wdW45WWN6cFd4RWhYWjV6UlVGakNma1RwZEVZRzhqTlFNc1VpMDZaOXdldWRzNHdZUmlWbENMLTVSV1djWEFUSHJFOW5XZVU1cWJzVTZaWXJCeHhHWW5wel9OV0dTdURaeXBITjNrZTNVOXZfbUtSTVRTTGxWdk9Ma2xyY3hPUlFQcDFiQVBsYnVsY1RPVkpwSkFnR19HS3VoNnNXYUNRdXctbFdBUHllckRkWkzSAeQBQVVfeXFMTnMxNEtEbVFNc0dxYmMxTHBaTmk5aUN4dUs4VXNZRDJMZ1BwNGhzTjYzbG1HYUNPcHVuOVljenBXeEVoWFo1elJVRmpDZmtUcGRFWUc4ak5RTXNVaTA2Wjl3ZXVkczR3WVJpVmxDTC01UldXY1hBVEhyRTluV2VVNXFic1U2WllyQnh4R1lucHpfTldHU3VEWnlwSE4za2UzVTl2X21LUk1UU0xsVnZPTGtscmN4T1JRUHAxYkFQbGJ1bGNUT1ZKcEpBZ0dfR0t1aDZzV2FDUXV3LWxXQVB5ZXJEZFpM?oc=5",
+   "source": "MLive.com",
+   "region": "mid",
+   "cat": "STATEWIDE",
+   "county": "Livingston",
+   "tag": "Money",
+   "iso": "2026-07-09T17:59:00Z",
+   "id": "b7021ee557ce",
+   "origin": "google-news",
+   "source_title": "5 takeaways: Rural township postpones data center tax abatement decision amid backlash - MLive.com",
+   "source_url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOczE0S0RtUU1zR3FiYzFMcFpOaTlpQ3h1SzhVc1lEMkxnUHA0aHNONjNsbUdhQ09wdW45WWN6cFd4RWhYWjV6UlVGakNma1RwZEVZRzhqTlFNc1VpMDZaOXdldWRzNHdZUmlWbENMLTVSV1djWEFUSHJFOW5XZVU1cWJzVTZaWXJCeHhHWW5wel9OV0dTdURaeXBITjNrZTNVOXZfbUtSTVRTTGxWdk9Ma2xyY3hPUlFQcDFiQVBsYnVsY1RPVkpwSkFnR19HS3VoNnNXYUNRdXctbFdBUHllckRkWkzSAeQBQVVfeXFMTnMxNEtEbVFNc0dxYmMxTHBaTmk5aUN4dUs4VXNZRDJMZ1BwNGhzTjYzbG1HYUNPcHVuOVljenBXeEVoWFo1elJVRmpDZmtUcGRFWUc4ak5RTXNVaTA2Wjl3ZXVkczR3WVJpVmxDTC01UldXY1hBVEhyRTluV2VVNXFic1U2WllyQnh4R1lucHpfTldHU3VEWnlwSE4za2UzVTl2X21LUk1UU0xsVnZPTGtscmN4T1JRUHAxYkFQbGJ1bGNUT1ZKcEpBZ0dfR0t1aDZzV2FDUXV3LWxXQVB5ZXJEZFpM?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
   },
   {
    "title": "Michigan town sues over nonstop data-center noise in federal court",
@@ -154,20 +171,6 @@
    "origin": "google-news",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 6
-  },
-  {
-   "title": "Adrian bars new data center proposals for the next year",
-   "dek": "City leaders approved a 12-month pause to give themselves time to write permanent rules before more projects arrive. The move follows resident pushback over power demand and land use in the small Lenawee County community. No new applications will be accepted while the moratorium is in effect.",
-   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQQ0xCMzZYQmFuVXNfcXBMZnBhc1JaVXJXeE9sRW1MLWgydkF1dmtJSHBKNHpZYzZPNWkyejctNHhXOHN3VXdMSXZoZTNSZl9XWDhpS3FlcU5kRzB4SkFHazg0b3BDcE9veEhZRG00bFduLUZma3JuZmYybzgyWkd4UXhHZFJqUWFfcnJuNHFURjAyTS1YYW9kQk1OVnhQSmNPVFJlelJWYnA4MlVVMDNZQmZ3SkNkWE9CalhtcGZHdXh2UGFYZEotZkFWSE5xcnNsZnZZMWMxQ2NCbUR0?oc=5",
-   "source": "lenconnect.com",
-   "region": "mid",
-   "cat": "STATEWIDE",
-   "tag": "Local Government",
-   "iso": "2026-07-08T22:07:27Z",
-   "id": "00e3c1aeb45a",
-   "origin": "google-news",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9
   }
  ],
  "national": {

@@ -167,6 +167,20 @@
    "at": "2026-07-09T18:56:08+00:00",
    "by": "news_judge",
    "note": "score 3/10: Carlton County is not in Michigan; this is a national/other-state item with no Michigan relevance."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPRExxYnFsX29tcndXM2dXeGZXUHdXSlM0MW5pemVWaHY5ZkhES1o4YWI5Z21WVWRRUGxacGlidkZoS3lvcTR0cGlHanowUEZXSVViU3hOcllfdXJlLWtxcW1OZ3pOWjJBeDh2cFFnbXdFSDVFNVNtdmlMWnFsUXhsaUdBYkgxS3hwanVLR1pYOV9IQXdfVmZXVURnc3ZUS1QtRTdKVklvM1Jhakg5WjBjTmFUbGdVbW5PcEM5aXBROUhad3BDMjdkTFJ1WnduYS1xcEhiSGdwanRoODgzcmN5TDljWWRVNXVQcWhTU1JhMXhZRk8tZ0N2X1l2bDVNT2cxZExiRFFJZ2dzT09t?oc=5",
+   "title": "SE Michigan communities weigh data-center moratoriums",
+   "at": "2026-07-09T20:54:06+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Regional roundup of multiple moratoriums lacks a specific new decision or filing; too vague about which towns are doing what when."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPMmszUDZCSk5lV3RpdnkzdW9KS204Y3pQUXBsQmhDUjFvS2h4QnU3SFpxbjg1U0gydzR5blozYlBDNU9EU2Z3YlpBQjRDb0tQcVFpTFVKWHVnOWFEWnlCQ3RtT0lfeGwyd2c3Qmo1el9DYXU5c3ZKd3lRNnQ2X0ZFbnZPS2hyQU9UUmZJOGZIMGtVc3kzTXF4V2VmcmM?oc=5",
+   "title": "Portage drafts zoning rules to block new data centers",
+   "at": "2026-07-09T20:54:06+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Already live: 'Portage drafts rules to keep data centers out of neighborhoods' reports this same Portage zoning effort."
   }
  ],
  "auto_published": [
@@ -247,6 +261,12 @@
    "title": "Portage drafts rules to keep data centers out of neighborhoods",
    "judge_score": 6,
    "at": "2026-07-09T18:56:08Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOczE0S0RtUU1zR3FiYzFMcFpOaTlpQ3h1SzhVc1lEMkxnUHA0aHNONjNsbUdhQ09wdW45WWN6cFd4RWhYWjV6UlVGakNma1RwZEVZRzhqTlFNc1VpMDZaOXdldWRzNHdZUmlWbENMLTVSV1djWEFUSHJFOW5XZVU1cWJzVTZaWXJCeHhHWW5wel9OV0dTdURaeXBITjNrZTNVOXZfbUtSTVRTTGxWdk9Ma2xyY3hPUlFQcDFiQVBsYnVsY1RPVkpwSkFnR19HS3VoNnNXYUNRdXctbFdBUHllckRkWkzSAeQBQVVfeXFMTnMxNEtEbVFNc0dxYmMxTHBaTmk5aUN4dUs4VXNZRDJMZ1BwNGhzTjYzbG1HYUNPcHVuOVljenBXeEVoWFo1elJVRmpDZmtUcGRFWUc4ak5RTXNVaTA2Wjl3ZXVkczR3WVJpVmxDTC01UldXY1hBVEhyRTluV2VVNXFic1U2WllyQnh4R1lucHpfTldHU3VEWnlwSE4za2UzVTl2X21LUk1UU0xsVnZPTGtscmN4T1JRUHAxYkFQbGJ1bGNUT1ZKcEpBZ0dfR0t1aDZzV2FDUXV3LWxXQVB5ZXJEZFpM?oc=5",
+   "title": "Rural township hits pause on data-center tax deal after backlash",
+   "judge_score": 8,
+   "at": "2026-07-09T20:54:06Z"
   }
  ]
 }
