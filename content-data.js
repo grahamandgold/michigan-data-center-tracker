@@ -244,11 +244,11 @@ window.MDCT_SOCIAL = {
 /* ---- By the Numbers (computed from map-data.json, updated 2026-06-29) ---- */
 /* Rebuild by hand or with: node scripts/compute-stats.mjs                    */
 window.MDCT_STATS = {
-  "projects": 19,
-  "activeProjects": 14,
-  "disclosedGW": "2.5",
+  "projects": 20,
+  "activeProjects": 15,
+  "disclosedGW": "3.0",
   "pauses": 33,
-  "communities": 73,
+  "communities": 74,
   "statusBreakdown": [
     {
       "label": "Under construction",
@@ -262,7 +262,7 @@ window.MDCT_STATS = {
     },
     {
       "label": "Proposed / under review",
-      "count": 10,
+      "count": 11,
       "color": "#bda35f"
     },
     {
@@ -279,7 +279,7 @@ window.MDCT_STATS = {
     },
     {
       "label": "West Michigan",
-      "projects": 4,
+      "projects": 5,
       "pauses": 4
     },
     {
