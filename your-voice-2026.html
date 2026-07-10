@@ -460,53 +460,6 @@
     </div>
   </section>
 
-  <!-- BALLOT / CONTROLS -->
-  <section id="ballot" style="max-width:1200px; margin:0 auto; padding:40px 26px 10px;">
-    <div style="border-left:3px solid var(--cherry); padding:4px 0 4px 20px; margin-bottom:30px; max-width:80ch;">
-      <p style="font-size:20px; line-height:1.5; font-weight:600; color:var(--ink); margin:0;">Michigan's facing a wave of data centers — and what they mean for your <b>power bill</b>, your <b>water</b>, and who controls your <b>zoning</b> is on this ballot. Here's where the people who'll decide it stand.</p>
-      <div style="margin-top:16px; display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--pine); border:1px solid var(--pine); padding:6px 12px;"><span style="width:7px; height:7px; border-radius:50%; background:var(--pine);"></span><span id="onrec-top">&mdash; candidates on record</span></div>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 320px; gap:40px; align-items:end;">
-      <div>
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cherry); margin-bottom:10px;">Find your ballot</div>
-        <h2 style="font-size:34px; font-weight:800; letter-spacing:-0.02em; margin:0 0 8px;">Who's on the record near you</h2>
-        <p style="font-size:15px; color:var(--soft); margin:0; max-width:52ch; line-height:1.5;">Enter your ZIP to narrow to your region's races, or browse everyone below.</p>
-      </div>
-      <div>
-        <div style="display:flex; border:1px solid var(--navy);">
-          <input id="zip" type="text" inputmode="numeric" maxlength="5" placeholder="e.g. 48176" style="flex:1; border:none; background:var(--paper); padding:13px 14px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink); outline:none;">
-          <button id="zip-go" style="border:none; background:var(--cherry); color:#fff; padding:0 18px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer;">See my races</button>
-        </div>
-        <div id="zip-note" style="display:none; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em; color:var(--pine); margin-top:8px;"></div>
-      </div>
-    </div>
-
-    <div style="border-top:2px solid var(--navy); margin-top:26px; padding-top:16px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-      <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Race</span>
-      <div style="display:flex; gap:7px; flex-wrap:wrap;">
-        <span class="chip rc" data-race="all" data-active="1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">All races</span>
-        <span class="chip rc" data-race="us-senate" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">U.S. Senate</span>
-        <span class="chip rc" data-race="governor" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">Governor</span>
-        <span class="chip rc" data-race="legislature" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">State House &amp; Senate</span>
-      </div>
-      <span style="width:1px; height:20px; background:var(--hair);"></span>
-      <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Party</span>
-      <div style="display:flex; gap:7px;">
-        <span class="chip pc" data-party="all" data-active="1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">All</span>
-        <span class="chip pc" data-party="Democratic" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">Dem</span>
-        <span class="chip pc" data-party="Republican" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">Rep</span>
-      </div>
-      <span style="width:1px; height:20px; background:var(--hair);"></span>
-      <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Record</span>
-      <div style="display:flex; gap:7px;">
-        <span class="chip xc" data-record="all" data-active="1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">All</span>
-        <span class="chip xc" data-record="on" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">On record</span>
-        <span class="chip xc" data-record="none" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">No position</span>
-      </div>
-      <span id="cand-count" style="margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--faint);"></span>
-    </div>
-  </section>
-
   <!-- STATE OF THE RECORD (charts) -->
   <section style="max-width:1200px; margin:0 auto; padding:30px 26px 4px;">
     <div style="display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:20px; flex-wrap:wrap;">
@@ -598,6 +551,53 @@
     <div style="border:1px dashed var(--hair); background:var(--panel); padding:14px 18px; margin-top:16px; display:flex; gap:22px; align-items:baseline; flex-wrap:wrap;">
       <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); flex:none;">Quick tips</span>
       <span style="font-size:13px; color:var(--soft); line-height:1.5;">Absentee ballots must be <strong style="color:var(--ink);">received by 8 p.m.</strong> on Election Day — not just postmarked. Check your registration and see your exact ballot anytime at <a href="https://mvic.sos.state.mi.us" target="_blank" rel="noopener">mvic.sos.state.mi.us</a>.</span>
+    </div>
+  </section>
+
+  <!-- BALLOT / CONTROLS -->
+  <section id="ballot" style="max-width:1200px; margin:0 auto; padding:40px 26px 10px;">
+    <div style="border-left:3px solid var(--cherry); padding:4px 0 4px 20px; margin-bottom:30px; max-width:80ch;">
+      <p style="font-size:20px; line-height:1.5; font-weight:600; color:var(--ink); margin:0;">Michigan's facing a wave of data centers — and what they mean for your <b>power bill</b>, your <b>water</b>, and who controls your <b>zoning</b> is on this ballot. Here's where the people who'll decide it stand.</p>
+      <div style="margin-top:16px; display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--pine); border:1px solid var(--pine); padding:6px 12px;"><span style="width:7px; height:7px; border-radius:50%; background:var(--pine);"></span><span id="onrec-top">&mdash; candidates on record</span></div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 320px; gap:40px; align-items:end;">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cherry); margin-bottom:10px;">Find your ballot</div>
+        <h2 style="font-size:34px; font-weight:800; letter-spacing:-0.02em; margin:0 0 8px;">Who's on the record near you</h2>
+        <p style="font-size:15px; color:var(--soft); margin:0; max-width:52ch; line-height:1.5;">Enter your ZIP to narrow to your region's races, or browse everyone below.</p>
+      </div>
+      <div>
+        <div style="display:flex; border:1px solid var(--navy);">
+          <input id="zip" type="text" inputmode="numeric" maxlength="5" placeholder="e.g. 48176" style="flex:1; border:none; background:var(--paper); padding:13px 14px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--ink); outline:none;">
+          <button id="zip-go" style="border:none; background:var(--cherry); color:#fff; padding:0 18px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; cursor:pointer;">See my races</button>
+        </div>
+        <div id="zip-note" style="display:none; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em; color:var(--pine); margin-top:8px;"></div>
+      </div>
+    </div>
+
+    <div style="border-top:2px solid var(--navy); margin-top:26px; padding-top:16px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Race</span>
+      <div style="display:flex; gap:7px; flex-wrap:wrap;">
+        <span class="chip rc" data-race="all" data-active="1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">All races</span>
+        <span class="chip rc" data-race="us-senate" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">U.S. Senate</span>
+        <span class="chip rc" data-race="governor" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">Governor</span>
+        <span class="chip rc" data-race="legislature" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">State House &amp; Senate</span>
+      </div>
+      <span style="width:1px; height:20px; background:var(--hair);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Party</span>
+      <div style="display:flex; gap:7px;">
+        <span class="chip pc" data-party="all" data-active="1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">All</span>
+        <span class="chip pc" data-party="Democratic" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">Dem</span>
+        <span class="chip pc" data-party="Republican" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">Rep</span>
+      </div>
+      <span style="width:1px; height:20px; background:var(--hair);"></span>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Record</span>
+      <div style="display:flex; gap:7px;">
+        <span class="chip xc" data-record="all" data-active="1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">All</span>
+        <span class="chip xc" data-record="on" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">On record</span>
+        <span class="chip xc" data-record="none" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">No position</span>
+      </div>
+      <span id="cand-count" style="margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--faint);"></span>
     </div>
   </section>
 
@@ -1030,6 +1030,7 @@ class Component extends DCLogic {
       t.addEventListener("mouseenter", () => { if (t !== active) { t.style.borderColor = "var(--lake)"; t.style.color = "var(--lake)"; } });
       t.addEventListener("mouseleave", () => { if (t !== active) { t.style.borderColor = "var(--hair)"; t.style.color = "var(--ink)"; } });
     });
+    const _br = document.getElementById("bracket"); if (_br) _br.addEventListener("click", e => { const a = e.target.closest("a[data-slug]"); if (!a) return; const el = document.getElementById("cand-" + a.getAttribute("data-slug")); if (el) { e.preventDefault(); el.scrollIntoView({ behavior:"smooth", block:"start" }); } });
     active = document.querySelector('.btab[data-b="governor"]'); paint();
   }
 
@@ -1045,7 +1046,7 @@ class Component extends DCLogic {
         const badge = c.stances.length
           ? `<span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--pine);">&#10003; On record</span>`
           : `<span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; color:var(--faint);">&mdash;</span>`;
-        return `<div style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-top:1px solid var(--hair);">${this._avatar(c, 30, 10, '2px solid ' + color)}<span style="flex:1; font-size:14px; font-weight:600;">${c.name}</span>${badge}</div>`;
+        return `<a href="#cand-${this._slug(c.name)}" data-slug="${this._slug(c.name)}" title="See ${c.name}&#39;s record" style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-top:1px solid var(--hair); text-decoration:none; color:inherit; cursor:pointer;">${this._avatar(c, 30, 10, '2px solid ' + color)}<span style="flex:1; font-size:14px; font-weight:600;">${c.name}</span>${badge}<span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--faint); margin-left:8px;">&rarr;</span></a>`;
       }).join("") : `<div style="padding:14px; font-size:12px; color:var(--faint);">No tracked candidates</div>`;
       return `<div style="border:1px solid var(--hair); background:var(--paper);"><div style="background:${color}; color:#fff; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; padding:9px 13px;">${label} primary &middot; Aug 4</div>${rows}</div>`;
     };
