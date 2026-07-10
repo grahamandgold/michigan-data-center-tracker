@@ -1,10 +1,10 @@
 {
- "title": "Evenings with Graham & Emmy",
- "teaser": "Portage drafts zoning to block data centers from neighborhoods amid rising local resistance.",
+ "title": "Mornings with Graham & Emmy",
+ "teaser": "Houghton enacts a one-year data center ban amid electricity shortages and resident pushback.",
  "lines": [
   {
    "host": "Graham",
-   "text": "Good evening, and welcome to Evenings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
+   "text": "Good morning and welcome to Mornings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
   },
   {
    "host": "Emmy",
@@ -12,202 +12,178 @@
   },
   {
    "host": "Graham",
-   "text": "Tonight we're looking at how one city is taking concrete steps to keep large facilities out of residential zones while communities across the state push back."
+   "text": "Today we're diving into Houghton's brand-new one-year moratorium on data centers, a move driven by residents worried about power and water."
   },
   {
    "host": "Emmy",
-   "text": "Graham, the lead story out of Portage really caught my eye. They're drafting new zoning language to block big data centers from most residential and agricultural areas."
+   "text": "That's a big step for the Upper Peninsula, Graham. Why now, and what does it really change for the region?"
   },
   {
    "host": "Graham",
-   "text": "That's right. The changes follow months of complaints about industrial projects creeping into rural edges of the city."
+   "text": "The city council voted yesterday to hit pause while they draft rules on power use, noise, and water. Houghton already struggles with electricity supply, so folks want time to figure out if these massive facilities belong there."
   },
   {
    "host": "Emmy",
-   "text": "Why is this move significant for residents? What exactly are they trying to protect?"
+   "text": "How did we get here? Has this kind of pushback been building for a while?"
   },
   {
    "host": "Graham",
-   "text": "Kalamazoo area residents are worried about noise, increased traffic, and extra strain on the local electric grid if the rules get watered down."
+   "text": "Resident concerns have been growing as proposals pop up. People are looking at the strain on the local grid and asking whether one big project could tie up transmission capacity for years."
   },
   {
    "host": "Emmy",
-   "text": "So it's not just about keeping things quiet at night. The power demands could hit everyone's bills."
+   "text": "That makes sense. What exactly are the stakes for electric bills if a large data center moves in?"
   },
   {
    "host": "Graham",
-   "text": "Exactly. These facilities use enormous amounts of electricity and water, and local officials are hearing that directly from neighbors."
+   "text": "Data centers are huge power users. In a place already short on electricity, adding one could mean higher rates or even reliability issues for everyone else on the system."
   },
   {
    "host": "Emmy",
-   "text": "How does this fit into the bigger picture we've seen lately? Are other places doing something similar?"
+   "text": "And water is another big piece, right? These facilities need a lot for cooling."
   },
   {
    "host": "Graham",
-   "text": "Today alone we've got several townships hitting pause or passing strict new rules. Girard Township in Branch County approved tight setbacks, noise limits, and height caps that make large projects much harder."
+   "text": "Exactly. The moratorium gives the city breathing room to write protections around water use too, so residents aren't left guessing about long-term supply."
   },
   {
    "host": "Emmy",
-   "text": "That sounds like a strong signal. What do those rules actually allow?"
+   "text": "What about farmland and smaller towns nearby? Does this ripple out?"
   },
   {
    "host": "Graham",
-   "text": "Officials say smaller facilities can still go in if they meet the standards, but hyperscale campuses would face real hurdles near Coldwater."
+   "text": "It already is. Neighboring townships are now looking at their own pauses after seeing Houghton's action, according to the Mining Journal."
   },
   {
    "host": "Emmy",
-   "text": "And over in Eaton County, planners are flagging power and water risks from an Amazon-linked site."
+   "text": "So it's moving from one city to a broader conversation about who controls this kind of growth."
   },
   {
    "host": "Graham",
-   "text": "Commissioners questioned the project in a study session and told staff to start drafting the county's first zoning rules for data centers."
+   "text": "Right. The debate has shifted to a multi-township level, with residents asking how much local say they keep when these projects arrive."
   },
   {
    "host": "Emmy",
-   "text": "Nearby residents are looking at higher utility bills and strained water supplies if it moves forward."
+   "text": "Who are the main players pushing for the rules versus those wanting the projects?"
   },
   {
    "host": "Graham",
-   "text": "That's the common thread. People are asking what these projects deliver locally versus what they take."
+   "text": "On one side you have city council and residents focused on protecting existing infrastructure and quality of life. On the other, developers see economic potential, though the pause puts that on hold for now."
   },
   {
    "host": "Emmy",
-   "text": "Let's talk about Saline Township. They delayed a 12-year tax cut for an Oracle data center after residents raised concerns."
+   "text": "What happens next in Houghton itself?"
   },
   {
    "host": "Graham",
-   "text": "The board postponed action on the 50% abatement for the $43 billion project. Folks questioned the consent judgment and impacts on water, noise, and local costs."
+   "text": "They'll spend the year writing those specific rules on power, noise, and water. Similar discussions are already starting in nearby areas."
   },
   {
    "host": "Emmy",
-   "text": "That delay keeps the outcome uncertain for homeowners who could see rate hikes."
+   "text": "And if other townships follow suit, how might that affect the bigger picture across the UP?"
   },
   {
    "host": "Graham",
-   "text": "A rural township also hit pause on a major tax deal after dozens of residents showed up to object. The project would use huge amounts of power and water while delivering limited tax revenue for years."
+   "text": "It could slow the pace of new builds while communities decide what fits their capacity. That gives everyone more time to weigh the trade-offs."
   },
   {
    "host": "Emmy",
-   "text": "How long has this kind of pushback been building?"
+   "text": "Sounds like a pattern we're seeing elsewhere too. Let's move to some quick hits from around the state."
   },
   {
    "host": "Graham",
-   "text": "The Portage changes come after months of complaints about industrial creep. Similar concerns have surfaced in multiple counties this week."
+   "text": "Starting with Portage, where new zoning language would keep large data centers out of most residential and agricultural zones."
   },
   {
    "host": "Emmy",
-   "text": "What happens next in Portage? Is this language likely to pass?"
+   "text": "Kalamazoo residents have been complaining about noise, traffic, and grid strain. This comes after months of concerns about industrial creep into rural edges."
   },
   {
    "host": "Graham",
-   "text": "The draft aims to keep large facilities out of neighborhoods. Residents are watching closely to make sure it stays strong."
+   "text": "Next, a rural township delayed its vote on a major data-center tax deal after dozens of residents showed up to object."
   },
   {
    "host": "Emmy",
-   "text": "And in York Township they're scheduling a hearing on a data center moratorium."
+   "text": "The project would use lots of electricity and water but deliver limited local tax revenue for years. Homeowners are worried about possible rate hikes."
   },
   {
    "host": "Graham",
-   "text": "Residents will weigh a temporary ban after similar pauses passed in nearby Adrian and other towns. They want time to study roads, water, and electricity rates."
+   "text": "In another community, residents filed a federal lawsuit claiming nonstop noise from an AI data center has made normal life impossible."
   },
   {
    "host": "Emmy",
-   "text": "That makes sense. People want breathing room before any big decisions."
+   "text": "They're asking a judge to step in after local officials didn't act. That could set a precedent if it moves forward."
   },
   {
    "host": "Graham",
-   "text": "In Ingham County, a proposal near Mason could bypass township review and go straight to state regulators."
+   "text": "Eaton County commissioners questioned an Amazon-linked data center project and told staff to draft the county's first zoning rules for the use."
   },
   {
    "host": "Emmy",
-   "text": "Residents there fear losing local input on power use and tax deals."
+   "text": "Nearby residents could face higher utility bills and strained water if it proceeds. This is the first time the county has moved on formal rules."
   },
   {
    "host": "Graham",
-   "text": "The shift raises real questions about who gets the final say on these industrial projects."
+   "text": "In Saline Township, the board postponed action on a 50% tax abatement for an Oracle data center after residents raised concerns over water, noise, and local costs for the big project."
   },
   {
    "host": "Emmy",
-   "text": "Yesterday in Garfield Township, hundreds packed a hearing pushing for a moratorium."
+   "text": "That 12-year break is now on hold while they sort through those issues."
   },
   {
    "host": "Graham",
-   "text": "Grand Traverse County planners recommended a temporary ban after residents protested power lines and industrial noise near homes and farms."
+   "text": "Girard Township approved strict new rules including setbacks, noise limits, and height caps that make large projects much harder to build."
   },
   {
    "host": "Emmy",
-   "text": "Locals even 30 minutes away are tracking it because any approved campus could affect regional electric rates."
+   "text": "Branch County officials say smaller facilities can still go forward if they meet the standards, giving residents near Coldwater clearer protections."
   },
   {
    "host": "Graham",
-   "text": "And yesterday Michigan GOP candidates for governor split on whether they'd accept state or federal incentives for AI data centers."
+   "text": "A proposal near Mason could bypass township review and go straight to state regulators, which has Ingham County residents worried about losing input on power use and tax deals."
   },
   {
    "host": "Emmy",
-   "text": "Answers ranged from full support to calls for stricter local control. It's clearly becoming a campaign issue."
+   "text": "That raises bigger questions about local control over these industrial-scale projects."
   },
   {
    "host": "Graham",
-   "text": "We don't have every candidate's full remarks yet, but the debate shows the topic is live in the primary."
+   "text": "Finally, York Township scheduled a hearing on its own data center moratorium after similar pauses passed in nearby Adrian and other towns."
   },
   {
    "host": "Emmy",
-   "text": "Shifting to quick hits, another community is suing in federal court over nonstop data-center noise."
+   "text": "Washtenaw County is seeing rising opposition, and residents want time to assess impacts on roads, water, and electricity rates."
   },
   {
    "host": "Graham",
-   "text": "Residents claim an AI facility's constant hum has made normal life impossible. They're asking a judge to step in after local officials didn't act."
+   "text": "Let's look ahead to what's coming up that listeners can actually attend."
   },
   {
    "host": "Emmy",
-   "text": "Homeowners within earshot could finally get relief or face years of disrupted sleep."
+   "text": "Today the Michigan Public Service Commission has an open meeting that covers large-load electric agreements."
   },
   {
    "host": "Graham",
-   "text": "That's a tough spot for any neighborhood."
+   "text": "That's directly tied to how these data centers connect to the grid and what agreements get approved."
   },
   {
    "host": "Emmy",
-   "text": "On deck tonight and tomorrow, listeners can actually attend these meetings."
+   "text": "Then on Monday the 13th, Lansing City Council Development & Planning holds a public hearing on a proposed 182-day data center moratorium."
   },
   {
    "host": "Graham",
-   "text": "Lenox Township Board meets tonight with data center zoning on the radar."
+   "text": "Anyone in the area can weigh in there on how the city should handle future proposals."
   },
   {
    "host": "Emmy",
-   "text": "Tomorrow the Michigan Public Service Commission holds an open meeting overseeing large-load electric agreements."
+   "text": "Plenty of chances for residents to stay involved."
   },
   {
    "host": "Graham",
-   "text": "And on July 13, Lansing City Council Development & Planning has a public hearing on a 182-day data center moratorium."
-  },
-  {
-   "host": "Emmy",
-   "text": "Those are the kinds of sessions where residents can speak directly."
-  },
-  {
-   "host": "Graham",
-   "text": "Full sources and the live map at the Michigan Data Center Tracker."
-  },
-  {
-   "host": "Emmy",
-   "text": "We're back tomorrow."
-  },
-  {
-   "host": "Graham",
-   "text": "Thanks for listening tonight."
-  },
-  {
-   "host": "Emmy",
-   "text": "Stay informed on these projects shaping Michigan's future."
-  },
-  {
-   "host": "Graham",
-   "text": "Have a good evening."
+   "text": "Full sources and the live map at the Michigan Data Center Tracker. We're back tomorrow."
   }
  ],
- "episode_title": "Portage Draws the Line as Michigan Townships Tighten Data Center Rules",
- "show": "Evenings with Graham & Emmy",
- "daypart": "Evenings"
+ "episode_title": "Houghton Pauses Data Centers for a Year as Power Concerns Grow",
+ "show": "Mornings with Graham & Emmy",
+ "daypart": "Mornings"
 }
