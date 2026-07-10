@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-10T15:59:18Z",
+ "updated_at": "2026-07-10T17:55:37Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Mason residents accuse outsiders of faking support in data center fight",
+   "dek": "A local debate over a proposed data center in Mason has turned heated after claims that fake grassroots support is being manufactured. Ingham County neighbors worry about noise, power strain and lost farmland if the project advances. The accusations are fracturing trust just as officials weigh next steps.",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPTUJaeGtLbFM2elhlU1g3emNfejBCMzVSRUg0em1ublJHby03dzdxZzFOU1RrMm1ZMFB0ak1tNFhZbDhxOE0yalNFaGpLQmFrWU1HaDMyUUNNT1o3djBzbU1HLWVadHlzSnh2eWZvLVBQTFcxdGd5WWNnUDhoLUJ0a2JMcXQ1TkVuU2x0NG5Tczh4SUxKX3JqZXR0VU9mTGRtWFduUkFlN0sxc1Z6OWRISjNqS2w0MXlTTDBwOFBGRFhCalAySFBwQ3F0QQ?oc=5",
+   "source": "WKAR",
+   "region": "mid",
+   "cat": "STATEWIDE",
+   "county": "Ingham",
+   "tag": "Local Government",
+   "iso": "2026-07-10T16:06:53Z",
+   "id": "2ecf7784e70d",
+   "origin": "google-news",
+   "source_title": "Tensions boil over amid astroturfing claim in Mason data center debate - WKAR",
+   "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPTUJaeGtLbFM2elhlU1g3emNfejBCMzVSRUg0em1ublJHby03dzdxZzFOU1RrMm1ZMFB0ak1tNFhZbDhxOE0yalNFaGpLQmFrWU1HaDMyUUNNT1o3djBzbU1HLWVadHlzSnh2eWZvLVBQTFcxdGd5WWNnUDhoLUJ0a2JMcXQ1TkVuU2x0NG5Tczh4SUxKX3JqZXR0VU9mTGRtWFduUkFlN0sxc1Z6OWRISjNqS2w0MXlTTDBwOFBGRFhCalAySFBwQ3F0QQ?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 6
+  },
   {
    "title": "Monroe expert warns data-center load could spike bills",
    "dek": "A local utility analyst told Monroe officials that unchecked data-center growth will require new power plants and transmission upgrades. Those costs typically flow straight to residential ratepayers through DTE and Consumers Energy filings. The warning comes as several large projects eye southeast Michigan sites.",
@@ -165,21 +182,6 @@
    "origin": "google-news",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 7
-  },
-  {
-   "iso": "2026-07-09T15:00:00+00:00",
-   "region": "metro",
-   "cat": "Washtenaw Co.",
-   "tag": "Money",
-   "title": "Saline Township Delays 12-Year Tax Cut for Oracle Data Center",
-   "dek": "Board postponed action on the 50% abatement after residents questioned the consent judgment and raised concerns over water, noise and local costs for the $43 billion project.",
-   "source": "The Sun Times News",
-   "url": "https://thesuntimesnews.com/saline-township-delays-vote-on-oracle-data-center-tax-break/",
-   "breaking": false,
-   "lead": false,
-   "id": "0c1b706157ec",
-   "accuracy": "checked-rewritten",
-   "judge_score": 8
   }
  ],
  "national": {

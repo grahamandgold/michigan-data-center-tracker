@@ -314,6 +314,13 @@
    "at": "2026-07-10T15:59:18+00:00",
    "by": "news_judge",
    "note": "score 4/10: Scheduled protest event is thin; more about national coordination than Michigan-specific development or decision."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1vZDNBRV9lY1dnbW5ONEpvV0t2Ukd3Z0dLLUVfM25FcnVCSnYtbFBWck52WnlwTUZHbk9ybnp4d2J5NlhTaGRtU2hlTVJiM1dxamxHbEdrWFdST185ZkpHREgyZThUaDNXUGVscGFQMjZwa2lxZ3NQX2JMUQ?oc=5",
+   "title": "Grand Rapids joins nationwide protest against AI data center buildout",
+   "at": "2026-07-10T17:55:37+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Already killed as 'Grand Rapids joins nationwide protest against AI power hunger' — same July 18 rally event."
   }
  ],
  "auto_published": [
@@ -436,6 +443,12 @@
    "title": "Monroe expert warns data-center load could spike bills",
    "judge_score": 7,
    "at": "2026-07-10T15:59:18Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPTUJaeGtLbFM2elhlU1g3emNfejBCMzVSRUg0em1ublJHby03dzdxZzFOU1RrMm1ZMFB0ak1tNFhZbDhxOE0yalNFaGpLQmFrWU1HaDMyUUNNT1o3djBzbU1HLWVadHlzSnh2eWZvLVBQTFcxdGd5WWNnUDhoLUJ0a2JMcXQ1TkVuU2x0NG5Tczh4SUxKX3JqZXR0VU9mTGRtWFduUkFlN0sxc1Z6OWRISjNqS2w0MXlTTDBwOFBGRFhCalAySFBwQ3F0QQ?oc=5",
+   "title": "Mason residents accuse outsiders of faking support in data center fight",
+   "judge_score": 6,
+   "at": "2026-07-10T17:55:37Z"
   }
  ]
 }
