@@ -69,7 +69,35 @@
   @media (max-width:640px) {
     #c-cumul + div { gap:8px; font-size:8px !important; }
     [style*="font-size:44px"] { font-size:34px !important; }
+    .dash-hero { padding:28px 18px 12px !important; }
+    .dash-hero h1 { font-size:34px !important; line-height:1.04 !important; }
+    .dash-hero p { font-size:16px !important; line-height:1.45 !important; }
+    .dash-status { padding-top:10px !important; margin-bottom:10px !important; }
+    .dash-status-meta { display:none !important; }
+    .dash-kpis { grid-template-columns:1fr 1fr !important; gap:8px !important; margin-bottom:8px !important; }
+    .dash-kpis > div { min-height:104px; padding:14px !important; }
+    .dash-kpis > div > div:first-child { font-size:29px !important; }
+    .dash-kpis > div > div:last-child { font-size:9.5px !important; line-height:1.35; }
+    .dash-mini-grid { grid-template-columns:1fr !important; gap:8px !important; }
+    .dash-mini-card { min-height:132px; padding:16px !important; }
+    .dash-trend { background:#F4F8FC !important; color:var(--ink) !important; border:1px solid #C9D9E8; }
+    .dash-trend-kicker { color:var(--lake) !important; }
+    .dash-trend-range { color:var(--faint) !important; }
+    .dash-trend-range span:last-child { color:var(--ink) !important; }
+    .dash-method { display:none !important; }
+    .dash-shareable { margin-bottom:12px; }
+    .dash-share-button { top:10px; right:10px; min-height:32px; padding:0 9px; background:rgba(255,255,255,.96); }
+    .dash-shareable > [style*="padding:22px 26px"] { padding-right:76px !important; }
+    #wave-map, #press-map { height:320px !important; }
   }
+  .dash-shareable { position:relative; }
+  .dash-share-button { position:absolute; z-index:8; top:14px; right:14px; display:inline-flex; align-items:center; gap:5px; min-height:34px; padding:0 10px; border:1px solid var(--hair); background:var(--paper); color:var(--lake); font:500 9px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; box-shadow:0 3px 12px rgba(12,30,51,.08); }
+  .dash-share-button:hover { border-color:var(--lake); color:var(--cherry); }
+  .dash-mini-card > div:first-child { padding-right:66px; min-height:25px; }
+  .dash-trend { background:#F4F8FC !important; color:var(--ink) !important; border:1px solid #C9D9E8; }
+  .dash-trend-kicker { color:var(--lake) !important; }
+  .dash-trend-range { color:var(--faint) !important; }
+  .dash-trend-range span:last-child { color:var(--ink) !important; }
 </style>
 <!--ANALYTICS-->
 <script>
@@ -101,7 +129,7 @@
   </header>
 
   <!-- HERO -->
-  <section style="max-width:1180px; margin:0 auto; padding:34px 26px 12px;">
+  <section class="dash-hero" style="max-width:1180px; margin:0 auto; padding:34px 26px 12px;">
     <div style="display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cherry); margin-bottom:10px;"><span style="width:7px; height:7px; border-radius:50%; background:var(--cherry); animation:softPulse 1.6s ease-in-out infinite;"></span>Tracking the public record &middot; live data</div>
     <h1 style="font-size:44px; font-weight:800; letter-spacing:-0.025em; line-height:1; margin:0 0 12px;">Dashboard <span style="color:var(--faint); font-weight:600;">/</span> Live Diagrams</h1>
     <p style="font-size:16px; color:var(--soft); margin:0; max-width:62ch; line-height:1.5;">Our live diagrams — every chart drawn from the same sourced records that power the map. Press play, scrub the timeline, watch the fight move.</p>
@@ -109,13 +137,13 @@
 
   <!-- DASHBOARD GRID -->
   <section style="max-width:1180px; margin:0 auto; padding:16px 26px 6px;">
-    <div style="display:flex; align-items:center; gap:12px; border-top:2px solid var(--navy); padding-top:14px; margin-bottom:14px;">
+    <div class="dash-status" style="display:flex; align-items:center; gap:12px; border-top:2px solid var(--navy); padding-top:14px; margin-bottom:14px;">
       <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint);">The dashboard</span>
-      <span style="margin-left:auto; display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--soft);"><span style="width:6px; height:6px; border-radius:50%; background:var(--pine); animation:softPulse 1.8s ease-in-out infinite;"></span>Live &middot; <span id="dash-clock">—</span> &middot; auto-refresh 10 min</span>
+      <span class="dash-status-meta" style="margin-left:auto; display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--soft);"><span style="width:6px; height:6px; border-radius:50%; background:var(--pine); animation:softPulse 1.8s ease-in-out infinite;"></span>Live &middot; <span id="dash-clock">—</span> &middot; auto-refresh 10 min</span>
     </div>
 
     <!-- KPI ROW -->
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px;">
+    <div class="dash-kpis" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px;">
       <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--lake); padding:16px 18px;"><div style="font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1;">20</div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:7px;">Tracked projects <span style="color:var(--copper);">+1</span></div></div>
       <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--cherry); padding:16px 18px;"><div style="font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1;">2.9<span style="font-size:15px; color:var(--faint);">GW</span></div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:7px;">Disclosed load</div></div>
       <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--copper); padding:16px 18px;"><div style="font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1;">33</div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:7px;">Communities paused <span style="color:var(--cherry);">+1</span></div></div>
@@ -123,9 +151,9 @@
     </div>
 
     <!-- MINI DIAGRAM ROW -->
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+    <div class="dash-mini-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
       <!-- donut -->
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
+      <div class="dash-mini-card dash-shareable" data-share-title="Facilities by status" style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:12px;">Facilities by status</div>
         <div style="display:flex; align-items:center; gap:14px;">
           <div style="position:relative; width:74px; height:74px; flex:none; border-radius:50%; background:conic-gradient(var(--lake) 0 15.79%, var(--copper) 15.79% 21.05%, #C9A227 21.05% 73.68%, #9A8E86 73.68% 100%);"><div style="position:absolute; inset:13px; background:var(--paper); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800;">20</div></div>
@@ -133,7 +161,7 @@
         </div>
       </div>
       <!-- region bars -->
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
+      <div class="dash-mini-card dash-shareable" data-share-title="Projects by region" style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:14px;">Projects by region</div>
         <div style="display:flex; flex-direction:column; gap:9px;">
           <div><div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:3px;"><span>SE</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--soft);">12</span></div><div style="height:5px; background:var(--panel-2);"><div style="height:100%; width:100%; background:var(--lake);"></div></div></div>
@@ -143,21 +171,21 @@
         </div>
       </div>
       <!-- fuel mix -->
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
+      <div class="dash-mini-card dash-shareable" data-share-title="Michigan grid mix" style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:14px;">The grid they plug into</div>
         <div style="height:9px; display:flex; margin-bottom:12px;"><div style="width:12.5%; background:#C9A227;"></div><div style="width:16.67%; background:#6B7280;"></div><div style="width:20.83%; background:var(--copper);"></div><div style="width:25%; background:var(--lake);"></div><div style="width:20.83%; background:#E0B24A;"></div><div style="width:4.17%; background:var(--teal);"></div></div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 12px; font-size:10.5px; color:var(--soft);"><div><span style="display:inline-block; width:8px; height:8px; background:var(--lake); margin-right:5px;"></span>Wind 6</div><div><span style="display:inline-block; width:8px; height:8px; background:var(--copper); margin-right:5px;"></span>Gas 5</div><div><span style="display:inline-block; width:8px; height:8px; background:#E0B24A; margin-right:5px;"></span>Solar 5</div><div><span style="display:inline-block; width:8px; height:8px; background:#6B7280; margin-right:5px;"></span>Coal 4</div></div>
       </div>
       <!-- live sparkline -->
-      <div style="background:var(--navy); color:#fff; padding:16px 18px;">
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:#7FA8D4; margin-bottom:10px;">Disclosed MW &middot; trend</div>
+      <div class="dash-mini-card dash-shareable dash-trend" data-share-title="Disclosed megawatts trend" style="background:var(--navy); color:#fff; padding:16px 18px;">
+        <div class="dash-trend-kicker" style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:#7FA8D4; margin-bottom:10px;">Disclosed MW &middot; trend</div>
         <svg viewBox="0 0 200 54" style="width:100%; height:auto; display:block;"><polyline points="4,48 40,47 74,46 104,42 128,36 150,26 172,14 196,4" fill="none" stroke="var(--copper)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#7FA8D4; margin-top:10px; display:flex; justify-content:space-between;"><span>Jan '24</span><span style="color:#fff;">2.9 GW</span></div>
+        <div class="dash-trend-range" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#7FA8D4; margin-top:10px; display:flex; justify-content:space-between;"><span>Jan '24</span><span style="color:#fff;">2.9 GW</span></div>
       </div>
     </div>
 
     <!-- METHOD STRIP -->
-    <div style="display:flex; align-items:flex-start; gap:12px; background:var(--panel); border:1px solid var(--hair); border-left:3px solid var(--faint); padding:13px 16px; margin-top:12px;">
+    <div class="dash-method" style="display:flex; align-items:flex-start; gap:12px; background:var(--panel); border:1px solid var(--hair); border-left:3px solid var(--faint); padding:13px 16px; margin-top:12px;">
       <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--soft); font-weight:600; flex:none; padding-top:1px;">Method</span>
       <p style="margin:0; font-size:12.5px; line-height:1.6; color:var(--soft); max-width:96ch;">KPIs and the four panels above are drawn from our register of 20 tracked projects, built from municipal agendas &amp; minutes, MPSC filings, and utility disclosures. <b style="color:var(--ink);">Status &amp; region</b> reflect the latest public record. <b style="color:var(--ink);">Disclosed load</b> counts only the 6 of 20 projects that have published a nameplate figure &mdash; the real total runs higher. <b style="color:var(--ink);">The grid mix</b> shows Michigan's 2024 statewide generation (EIA), the pool new load draws on &mdash; not per-project sourcing. <a href="learn.html" style="white-space:nowrap;">Full methodology &rarr;</a></p>
     </div>
@@ -165,7 +193,7 @@
 
   <!-- MORATORIUM WAVE -->
   <section style="max-width:1180px; margin:0 auto; padding:22px 26px;">
-    <div style="border:1px solid var(--navy); background:var(--paper);">
+    <div class="dash-shareable" data-share-title="The Moratorium Wave" style="border:1px solid var(--navy); background:var(--paper);">
       <div style="padding:22px 26px; border-bottom:1px solid var(--hair); display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;">
         <div>
           <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:8px;">Animated &middot; plays over time</div>
@@ -188,7 +216,7 @@
 
   <!-- COMMUNITIES UNDER PRESSURE -->
   <section style="max-width:1180px; margin:0 auto; padding:8px 26px 22px;">
-    <div style="border:1px solid var(--navy); background:var(--paper);">
+    <div class="dash-shareable" data-share-title="Communities under pressure" style="border:1px solid var(--navy); background:var(--paper);">
       <div style="padding:22px 26px; border-bottom:1px solid var(--hair);">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:8px;">Live heat map</div>
         <h2 style="font-size:28px; font-weight:800; letter-spacing:-0.02em; margin:0 0 8px;">Communities under pressure</h2>
@@ -216,7 +244,7 @@
 
   <!-- BUILDOUT CURVE -->
   <section style="max-width:1180px; margin:0 auto; padding:8px 26px 22px;">
-    <div style="border:1px solid var(--hair); background:var(--paper); padding:24px 26px;">
+    <div class="dash-shareable" data-share-title="Michigan data-center buildout curve" style="border:1px solid var(--hair); background:var(--paper); padding:24px 26px;">
       <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:8px;">The buildout curve &middot; disclosed MW</div>
       <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:14px;"><span style="font-size:40px; font-weight:800; letter-spacing:-0.02em; line-height:1;">2.9<span style="font-size:18px; color:var(--faint);">GW</span></span><span style="font-size:13px; color:var(--soft);">verified &middot; &asymp; 2.3 million homes' worth of power</span></div>
       <svg viewBox="0 0 1100 150" style="width:100%; height:auto; display:block;"><polyline points="8,132 180,130 340,128 460,124 560,116 640,104 720,84 800,58 920,28 1092,8" fill="none" stroke="var(--cherry)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
@@ -235,25 +263,25 @@
       <a href="data.html" style="margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">See all 19 projects &rarr;</a>
     </div>
     <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px;">
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+      <div class="dash-shareable" data-share-title="Disclosed load by project" style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
         <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Disclosed load by project</div>
         <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Only 6 of 20 projects have disclosed a load. Two dwarf the rest.</div>
         <div id="c-load"></div>
         <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Nameplate load (MW) as stated in filings or agendas. 14 of 20 projects have disclosed no figure and are omitted here.</div>
       </div>
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+      <div class="dash-shareable" data-share-title="Who's driving Michigan data-center development" style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
         <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Who's driving it</div>
         <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Developers behind the tracked projects — Big Tech included.</div>
         <div id="c-dev"></div>
         <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Named applicant/developer per project. &ldquo;Undisclosed&rdquo; = shielded behind an LLC or NDA at time of filing.</div>
       </div>
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+      <div class="dash-shareable" data-share-title="Michigan data-center pipeline status" style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
         <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Where the pipeline stands</div>
         <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Every project by status — proposals lead, but withdrawals are close behind.</div>
         <div id="c-pipe"></div>
         <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Current permitting status from the latest public record. Withdrawn + rejected are counted separately from active proposals.</div>
       </div>
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+      <div class="dash-shareable" data-share-title="Michigan counties in play" style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
         <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Counties in play</div>
         <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Where the projects sit. Click any county to open it on the live map.</div>
         <div id="c-county"></div>
@@ -269,7 +297,7 @@
     </div>
 
     <!-- disclosure gap (full width) -->
-    <div style="background:var(--paper); border:1px solid var(--navy); padding:24px 26px; margin-bottom:12px;">
+    <div class="dash-shareable" data-share-title="The data-center disclosure gap" style="background:var(--paper); border:1px solid var(--navy); padding:24px 26px; margin-bottom:12px;">
       <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:6px;">
         <div style="font-size:18px; font-weight:800; letter-spacing:-0.01em;">The disclosure gap</div>
         <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--cherry);">What we still don't know</div>
@@ -281,14 +309,14 @@
 
     <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:12px;">
       <!-- MW concentration -->
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+      <div class="dash-shareable" data-share-title="Where data-center load concentrates" style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
         <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Where the load concentrates</div>
         <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Two projects account for nearly all disclosed megawatts.</div>
         <div id="c-mwshare"></div>
         <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Each disclosed project's MW as a share of the 2,550 MW disclosed to date.</div>
       </div>
       <!-- status funnel -->
-      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+      <div class="dash-shareable" data-share-title="From proposal to poured concrete" style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
         <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">From proposal to poured concrete</div>
         <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">How far projects get — and how many fall away.</div>
         <div id="c-funnel"></div>
@@ -297,7 +325,7 @@
     </div>
 
     <!-- region x status matrix -->
-    <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px; margin-bottom:12px;">
+    <div class="dash-shareable" data-share-title="Michigan region by project status" style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px; margin-bottom:12px;">
       <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Region &times; status</div>
       <div style="font-size:12px; color:var(--soft); margin-bottom:18px;">Where each kind of project sits. Southeast Michigan carries the active pipeline; the west is nearly all early proposals.</div>
       <div id="c-matrix"></div>
@@ -305,7 +333,7 @@
     </div>
 
     <!-- cumulative moratorium curve -->
-    <div style="background:var(--paper); border:1px solid var(--hair); padding:24px 26px;">
+    <div class="dash-shareable" data-share-title="Michigan community pauses over time" style="background:var(--paper); border:1px solid var(--hair); padding:24px 26px;">
       <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">The pause, cumulatively</div>
       <div style="font-size:12px; color:var(--soft); margin-bottom:18px;">Same moratorium data as the animated wave — here as a running total, so you can see the slope steepen.</div>
       <div id="c-cumul"></div>
@@ -325,7 +353,7 @@
 </div>
 
   <!-- ASK EMMY (floating) -->
-  <a href="#ask-emmy" aria-label="Ask Emmy — the tracker's assistant" style="position:fixed; right:22px; bottom:22px; z-index:9999; display:flex; align-items:center; gap:10px; background:#0C1E33; color:#FFFFFF; padding:11px 16px 11px 12px; border-radius:40px; box-shadow:0 6px 24px rgba(12,30,51,0.28); text-decoration:none;">
+  <a class="ask-emmy" href="#ask-emmy" aria-label="Ask Emmy — the tracker's assistant" style="position:fixed; right:22px; bottom:22px; z-index:9999; display:flex; align-items:center; gap:10px; background:#0C1E33; color:#FFFFFF; padding:11px 16px 11px 12px; border-radius:40px; box-shadow:0 6px 24px rgba(12,30,51,0.28); text-decoration:none;">
     <span style="width:30px; height:30px; flex:none; border-radius:50%; overflow:hidden; background:#1E6FC4;"><img src="emmy.jpg" alt="Emmy" style="width:100%; height:100%; border-radius:50%; object-fit:cover; display:block;"></span>
     <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;">Ask Emmy</span>
     <span style="width:7px; height:7px; border-radius:50%; background:#1E8E52;"></span>
@@ -334,7 +362,32 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
-  componentDidMount() { this._boot(0); this._clock(); this._ck = setInterval(() => this._clock(), 1000); this._charts(); }
+  componentDidMount() { this._boot(0); this._clock(); this._ck = setInterval(() => this._clock(), 1000); this._charts(); this._sharePanels(); }
+
+  _sharePanels() {
+    document.querySelectorAll('.dash-shareable[data-share-title]').forEach((panel, index) => {
+      if (panel.querySelector('.dash-share-button')) return;
+      if (!panel.id) panel.id = 'dashboard-diagram-' + (index + 1);
+      const title = panel.dataset.shareTitle + ' — Michigan Data Center Tracker';
+      const url = location.origin + location.pathname + '#' + panel.id;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'dash-share-button';
+      button.dataset.track = 'share-dashboard-diagram';
+      button.setAttribute('aria-label', 'Share ' + panel.dataset.shareTitle);
+      button.innerHTML = '<span aria-hidden="true">↗</span> Share';
+      button.addEventListener('click', async () => {
+        if (navigator.share) {
+          try { await navigator.share({ title, text: panel.dataset.shareTitle + ' from the Michigan Data Center Tracker.', url }); return; }
+          catch (_) { return; }
+        }
+        try { await navigator.clipboard.writeText(url); } catch (_) { return; }
+        button.innerHTML = '<span aria-hidden="true">✓</span> Copied';
+        setTimeout(() => { button.innerHTML = '<span aria-hidden="true">↗</span> Share'; }, 1600);
+      });
+      panel.appendChild(button);
+    });
+  }
 
   _projects() {
     return [
