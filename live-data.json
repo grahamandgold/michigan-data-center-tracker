@@ -1,7 +1,41 @@
 {
- "updated_at": "2026-07-10T00:14:13+00:00",
+ "updated_at": "2026-07-10T04:37:14Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Houghton bans new data centers for a year after resident pushback",
+   "dek": "City council voted a temporary moratorium while it writes rules on power use, noise, and water. The pause gives Houghton County residents time to weigh whether large facilities fit a city already short on electricity. Similar steps are now under discussion in nearby townships.",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZ250Zlo5dTB0cE40VXBjTnY4LTFXM2FVMTBjYkcyTjhXWmk5aW96MEF3MWtGWEVid0RwZnJBNjN1bzlZTktTYWh0WlNiY0tJZjFTS0hCal9iOVh1MWJKUG03UXROU05FR25MeUZNM2ZtQWE2MEcwSllQWnFJN1lXb2VBb2tCSVNOdUVsNXRLT1ZDNDE2MUFVeXdreFlub0tLV1RhalRFZGVfaEZBNFRhT25R0gHGAUFVX3lxTE9VVUVpTlozeG9IVTNXbTNsaUg2d3RWT00xT3A2VDdFeHd5U21qdXlNaTBHeW1keDFiMXJYVEMtVnZNMlBjMXJKRFdVc1V2aUg2ZVFRcDl3aVN3VWNNT0RVVFNSWEN3dlZCMjBQQlJ5TWRlR3RWV3VGNHZXYlpnYWlLNUJSWFJscW5MZjNwZ3ZVR25oSjZHeGVLQ0ZSaG14ZVA5S25fTE4tVmhLN0gwal85VVlYQzZSVURQWGVZVkJpbWJUaVJjdw?oc=5",
+   "source": "Upper Michigan's Source",
+   "region": "north",
+   "cat": "STATEWIDE",
+   "county": "Houghton",
+   "tag": "Local Government",
+   "iso": "2026-07-09T22:21:00Z",
+   "id": "d7030301f6ae",
+   "origin": "google-news",
+   "source_title": "Houghton City Council approves temporary data center moratorium - Upper Michigan's Source",
+   "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZ250Zlo5dTB0cE40VXBjTnY4LTFXM2FVMTBjYkcyTjhXWmk5aW96MEF3MWtGWEVid0RwZnJBNjN1bzlZTktTYWh0WlNiY0tJZjFTS0hCal9iOVh1MWJKUG03UXROU05FR25MeUZNM2ZtQWE2MEcwSllQWnFJN1lXb2VBb2tCSVNOdUVsNXRLT1ZDNDE2MUFVeXdreFlub0tLV1RhalRFZGVfaEZBNFRhT25R0gHGAUFVX3lxTE9VVUVpTlozeG9IVTNXbTNsaUg2d3RWT00xT3A2VDdFeHd5U21qdXlNaTBHeW1keDFiMXJYVEMtVnZNMlBjMXJKRFdVc1V2aUg2ZVFRcDl3aVN3VWNNT0RVVFNSWEN3dlZCMjBQQlJ5TWRlR3RWV3VGNHZXYlpnYWlLNUJSWFJscW5MZjNwZ3ZVR25oSjZHeGVLQ0ZSaG14ZVA5S25fTE4tVmhLN0gwal85VVlYQzZSVURQWGVZVkJpbWJUaVJjdw?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 9
+  },
+  {
+   "title": "Houghton moratorium ripples across Upper Peninsula townships",
+   "dek": "Mining Journal reports neighboring communities are now studying their own pauses after seeing Houghton's action. Residents fear one large project could lock up regional transmission capacity for years. The debate has moved from one city to a multi-township conversation about who controls growth.",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOdk1rYUVOZFZJUl9Zb2hxRXczb0pqZlZQOVMtMnEzZ3VRVUZTN3Y4SEc2Zkt0RldpVEV6bFpEOVdHTlliTWJGUVhLT1liWGFYS1hManl3WnI4Z3p3UXlZMEIxd2VYV2thVkRRMlFMbE1HYTFWQS12RW1OYUFZYXFyUFQtLU1Lazg?oc=5",
+   "source": "mininggazette.com",
+   "region": "north",
+   "cat": "STATEWIDE",
+   "county": "Houghton",
+   "tag": "Local Government",
+   "iso": "2026-07-09T21:33:18Z",
+   "id": "803a4d15cea5",
+   "origin": "google-news",
+   "source_title": "Bigger than just Houghton - mininggazette.com",
+   "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOdk1rYUVOZFZJUl9Zb2hxRXczb0pqZlZQOVMtMnEzZ3VRVUZTN3Y4SEc2Zkt0RldpVEV6bFpEOVdHTlliTWJGUVhLT1liWGFYS1hManl3WnI4Z3p3UXlZMEIxd2VYV2thVkRRMlFMbE1HYTFWQS12RW1OYUFZYXFyUFQtLU1Lazg?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 6
+  },
   {
    "title": "Portage drafts rules to keep data centers out of neighborhoods",
    "dek": "New zoning language would block large facilities from most residential and agricultural zones. Kalamazoo residents fear noise, traffic, and strain on the local grid if the rules are weakened. The changes come after months of complaints about industrial creep into rural edges of the city.",
@@ -142,35 +176,6 @@
    "origin": "google-news",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 8
-  },
-  {
-   "title": "Michigan GOP candidates split on taking state money for AI data centers",
-   "dek": "During a primary debate, hopefuls for governor were asked whether they would accept federal or state incentives to land hyperscale AI projects. Answers ranged from full-throated support to calls for stricter local control. The exchange shows data centers are now a live campaign issue.",
-   "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA1azJyT3F0R29wQk04ektaX2RpRE5RdjdPcXFLXzhHNVhDMEtIY21YZUlqMGhVbFlyMkJESlBlM3V4dHhaV19xaFV0Z3REQmJRY3luYjlUNGF6am1ta3lDZEIzUXrSAWpBVV95cUxOWEJmQXMtLXJzWVVvUmI2T0N1ZmloZmlDRUstRjhKLXpaUkZhMnNuUk1KSjBINHk2Q0hIRnVKallzd21DR2tUeXVaUHFZMDcySHZUdUN4enI0bXhHbVo1QTJSSzNIdUNMRmpn?oc=5",
-   "source": "FOX 2 Detroit",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "county": "",
-   "tag": "Policy",
-   "iso": "2026-07-09T00:22:50Z",
-   "id": "452bafa5b252",
-   "origin": "google-news",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 6
-  },
-  {
-   "title": "Mason recall drive keeps pressure on mayor over data center fight",
-   "dek": "Petition organizers continue collecting signatures to remove the mayor after disputes over a proposed data center in the Ingham County city. The effort shows how quickly local data center fights can turn into direct challenges to elected officials. Voters will decide whether the mayor stays if enough valid signatures are gathered.",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdEI5NDVGaEpkQVNPMnpSZjdFYzJDVFIwcTBWNzRHRF9RNXo1bXRXb1F1WmM1OTBPUk1Ta2dBMU9oZlp0aUk2X2hBSVV2RFJUSEZySTJOTFpJVGlPdURCeWVCd2hsakJFa2xpVzJKdHRLdEd6bVpEVXZfcjc0aFNsaUt1bUNhQkMyeUVvaFhGTDJxU3lEOXRraXY4UmdXQQ?oc=5",
-   "source": "WKAR",
-   "region": "mid",
-   "cat": "STATEWIDE",
-   "tag": "Local Government",
-   "iso": "2026-07-08T22:07:27Z",
-   "id": "85f5ee3d0c4f",
-   "origin": "google-news",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 6
   }
  ],
  "national": {
