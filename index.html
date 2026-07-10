@@ -106,6 +106,13 @@
   .front-map-link::after { content:"Open full map ↗"; position:absolute; right:12px; top:12px; padding:7px 9px; background:rgba(12,30,51,.92); color:#fff; font:500 9px/1 'IBM Plex Mono',monospace; letter-spacing:.11em; text-transform:uppercase; opacity:0; transform:translateY(-4px); transition:opacity .16s ease, transform .16s ease; }
   .front-map:hover .front-map-link::after, .front-map-link:focus-visible::after { opacity:1; transform:translateY(0); }
 
+  /* Dashboard diagrams are shortcuts, not decorative dead ends. */
+  .dashboard-diagram { position:relative; transition:background .16s ease; }
+  .dashboard-diagram:hover { background:var(--panel) !important; }
+  .dashboard-diagram-link { position:absolute; inset:0; z-index:2; text-decoration:none; }
+  .dashboard-diagram-link::after { content:"Open dashboard ↗"; position:absolute; right:14px; top:14px; padding:6px 8px; background:var(--accent); color:#fff; font:500 8.5px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; opacity:0; transform:translateY(-4px); transition:opacity .16s ease, transform .16s ease; }
+  .dashboard-diagram:hover .dashboard-diagram-link::after, .dashboard-diagram-link:focus-visible::after { opacity:1; transform:translateY(0); }
+
   /* ===== Tablet & down ===== */
   @media (max-width: 1080px) {
     .nav-tagline { display:none !important; }
@@ -461,7 +468,7 @@
 
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); margin-bottom:1px;">
       <!-- donut -->
-      <div style="background:var(--surface); padding:24px;">
+      <div class="dashboard-diagram" style="background:var(--surface); padding:24px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:18px;">Facilities by status</div>
         <div style="display:flex; align-items:center; gap:22px;">
           <div style="position:relative; width:118px; height:118px; flex:none; border-radius:50%; background:conic-gradient(var(--accent) 0 20%, var(--gold) 20% 26.67%, var(--slate) 26.67% 90%, var(--gray) 90% 100%);">
@@ -474,16 +481,18 @@
             <div style="display:flex; align-items:center; gap:8px;"><span style="width:9px; height:9px; background:var(--gold);"></span>Under construction <span style="font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); margin-left:auto;">2</span></div>
           </div>
         </div>
+        <a class="dashboard-diagram-link" href="dashboard.html" data-track="dashboard-diagram-status" aria-label="Open the dashboard for facility status details"></a>
       </div>
 
       <!-- buildout curve -->
-      <div style="background:var(--surface); padding:24px;">
+      <div class="dashboard-diagram" style="background:var(--surface); padding:24px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:14px;">The buildout curve &middot; disclosed MW</div>
         <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:10px;"><span style="font-size:34px; font-weight:800; letter-spacing:-0.02em; line-height:1;">2.9<span style="font-size:15px; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; margin-left:3px;">GW</span></span><span style="font-size:11px; color:var(--ink-soft); line-height:1.3;">verified &middot; &asymp; 2 million homes' worth of power</span></div>
         <svg viewBox="0 0 300 96" style="width:100%; height:auto; display:block;">
           <polyline points="4,84 60,82 110,80 150,79 190,75 210,70 235,62 255,46 275,22 296,7" fill="none" stroke="var(--alert)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="650" stroke-dashoffset="650" style="animation:drawLine 2s ease-out 0.3s forwards;"></polyline>
         </svg>
         <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:6px;"><span>Jan 24</span><span>Jun 26</span></div>
+        <a class="dashboard-diagram-link" href="dashboard.html" data-track="dashboard-diagram-buildout" aria-label="Open the dashboard for the data-center buildout curve"></a>
       </div>
 
       <!-- legislative status -->
@@ -498,7 +507,7 @@
 
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); border-top:none;">
       <!-- where the fight is (by county) -->
-      <div style="background:var(--surface); padding:24px;">
+      <div class="dashboard-diagram" style="background:var(--surface); padding:24px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px;">Where the fight is &middot; by county</div>
         <div style="display:flex; flex-direction:column; gap:11px;">
           <div><div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:5px;"><span style="font-weight:600;">Washtenaw</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">12</span></div><div style="height:7px; background:var(--panel-2); display:flex;"><div style="width:41.7%; background:var(--alert); transform-origin:left; animation:barGrow 1s ease .0s both;"></div><div style="width:58.3%; background:var(--accent); transform-origin:left; animation:barGrow 1s ease .05s both;"></div></div></div>
@@ -508,10 +517,11 @@
           <div><div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:5px;"><span style="font-weight:600;">Monroe</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">4</span></div><div style="height:7px; background:var(--panel-2); display:flex;"><div style="width:16.7%; background:var(--alert); transform-origin:left; animation:barGrow 1s ease .4s both;"></div><div style="width:16.7%; background:var(--accent); transform-origin:left; animation:barGrow 1s ease .45s both;"></div></div></div>
         </div>
         <div style="display:flex; gap:16px; margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint);"><span style="display:flex; align-items:center; gap:6px;"><span style="width:9px; height:9px; background:var(--alert);"></span>Projects</span><span style="display:flex; align-items:center; gap:6px;"><span style="width:9px; height:9px; background:var(--accent);"></span>Pauses</span></div>
+        <a class="dashboard-diagram-link" href="dashboard.html" data-track="dashboard-diagram-county" aria-label="Open the dashboard for county activity details"></a>
       </div>
 
       <!-- the grid they plug into -->
-      <div style="background:var(--surface); padding:24px;">
+      <div class="dashboard-diagram" style="background:var(--surface); padding:24px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:16px;">The grid they plug into &middot; tracked plants</div>
         <div style="height:10px; display:flex; margin-bottom:18px;">
           <div style="width:12.5%; background:var(--gold);"></div><div style="width:16.67%; background:#6B7280;"></div><div style="width:20.83%; background:#C2703B;"></div><div style="width:25%; background:var(--accent);"></div><div style="width:20.83%; background:#E0B24A;"></div><div style="width:4.17%; background:var(--teal);"></div>
@@ -525,6 +535,7 @@
           <div style="display:flex; align-items:center; gap:8px;"><span style="width:9px; height:9px; background:var(--teal);"></span>Hydro<span style="font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); margin-left:auto;">1</span></div>
         </div>
         <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.06em; color:var(--ink-faint); margin-top:16px; border-top:1px solid var(--hair); padding-top:12px;">Toggle "Power plants" on the map &rarr;</div>
+        <a class="dashboard-diagram-link" href="dashboard.html" data-track="dashboard-diagram-grid" aria-label="Open the dashboard for power generation details"></a>
       </div>
 
       <!-- gigacast + moratorium media -->
