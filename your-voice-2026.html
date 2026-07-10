@@ -273,12 +273,19 @@
   <section style="max-width:1200px; margin:0 auto; padding:22px 26px 40px; display:grid; grid-template-columns:1fr 360px; gap:34px; align-items:start;">
     <div id="cards"></div>
     <div style="position:sticky; top:84px;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:6px;">SE Michigan</div>
-      <div style="font-size:20px; font-weight:800; letter-spacing:-0.01em; margin-bottom:12px;">District map</div>
-      <div id="dmap" style="height:340px; border:1px solid var(--navy);"></div>
-      <div style="display:flex; gap:16px; margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--soft);">
-        <span style="display:flex; align-items:center; gap:7px;"><span style="width:11px; height:11px; border-radius:50%; background:var(--lake);"></span>Tracked district</span>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:6px;">Statewide</div>
+      <div style="font-size:20px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Hottest districts</div>
+      <div style="font-size:12px; color:var(--soft); line-height:1.5; margin-bottom:11px;">Michigan House &amp; Senate seats, shaded by the number of tracked data-center projects inside each district.</div>
+      <div style="display:flex; gap:6px; margin-bottom:10px;">
+        <button id="dm-house" style="flex:1; padding:7px 0; border:1px solid var(--navy); background:var(--navy); color:#fff; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;">House</button>
+        <button id="dm-senate" style="flex:1; padding:7px 0; border:1px solid var(--navy); background:#fff; color:var(--soft); font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;">Senate</button>
       </div>
+      <div id="dmap" style="height:340px; border:1px solid var(--navy);"></div>
+      <div style="margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:var(--soft);">
+        <div style="display:flex; align-items:center; gap:6px; margin-bottom:7px;"><span>Fewer</span><span style="flex:1; display:flex; height:11px; border:1px solid #C9D5E3;"><span style="flex:1; background:#EDF1F6;"></span><span style="flex:1; background:#7FA8D4;"></span><span style="flex:1; background:#1E6FC4;"></span><span style="flex:1; background:#124E8C;"></span><span style="flex:1; background:#0C1E33;"></span></span><span>More</span></div>
+        <div style="display:flex; align-items:center; gap:7px;"><span style="width:13px; height:13px; border:2px solid var(--copper); background:transparent; flex:none;"></span>Seat on the 2026 ballot</div>
+      </div>
+      <div style="margin-top:9px; font-size:10px; color:var(--faint); line-height:1.5;">Boundaries: Michigan House (2024 remedial plan) &amp; Senate (2021 plan), State of Michigan GIS. Heat = tracked data-center projects.</div>
       <!-- editorial standard -->
       <div style="border:1px solid var(--hair); background:var(--paper); padding:18px; margin-top:18px;">
         <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--pine); margin-bottom:8px;">&#10003; Editorial standard</div>
@@ -341,7 +348,7 @@
 class Component extends DCLogic {
   state = { race:"all", party:"all", region:null, record:"all" };
 
-  componentDidMount() { this.data = this._data(); const LK = this._links(); this.data.forEach(r => r.candidates.forEach(c => { c.links = LK[c.name] || []; })); this._wire(); this._render(); this._renderDash(); this._renderTable("race", 1); this._renderBracket("us-senate"); this._wireBracket(); this._wireChatter(); this._countdown(); this._cdIv = setInterval(() => this._countdown(), 60000); this._boot(0); }
+  componentDidMount() { this.data = this._data(); const LK = this._links(); this.data.forEach(r => r.candidates.forEach(c => { c.links = LK[c.name] || []; })); this._wire(); this._render(); this._renderDash(); this._renderTable("race", 1); this._renderBracket("us-senate"); this._wireBracket(); this._wireChatter(); this._countdown(); this._cdIv = setInterval(() => this._countdown(), 60000); this._boot(0); this._wireDmTabs(); }
   componentWillUnmount() { if (this.map) { this.map.remove(); this.map = null; } if (this._cdIv) clearInterval(this._cdIv); }
 
   _countdown() {
@@ -560,20 +567,58 @@ class Component extends DCLogic {
     if (!window.L) { if (t < 40) return void setTimeout(() => this._boot(t + 1), 100); return; }
     if (this.map) return;
     const L = window.L;
-    const map = L.map("dmap", { center:[44.7, -85.7], zoom:6, zoomControl:true, scrollWheelZoom:false });
+    const map = L.map("dmap", { center:[44.4, -85.6], zoom:6, zoomControl:true, scrollWheelZoom:false });
     this.map = map;
     L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", { subdomains:"abcd", attribution:"&copy; OSM &copy; CARTO" }).addTo(map);
+    this._layers = {}; this._tracked = { house:{}, senate:{} };
     const leg = this.data.find(r => r.id === "legislature");
-    leg.candidates.forEach(c => {
-      if (c.lat == null) return;
-      const color = this._pc(c.party);
-      const m = L.circleMarker([c.lat, c.lng], { radius:9, weight:2, color:"#fff", fillColor:color, fillOpacity:1 });
-      m.bindPopup(`<div style="font-family:Archivo; padding:12px 15px; min-width:170px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#5F6875;">${c.role} &middot; ${c.area}</div><div style="font-size:16px; font-weight:800; margin:5px 0 2px;">${c.name}</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:${color};">Click pin to view &rarr;</div></div>`);
-      m.on("click", () => this._focusCandidate(c.name));
-      m.addTo(map);
+    leg.candidates.forEach(c => { const m = (c.role || "").match(/^(HD|SD)-(\d+)$/); if (m) { const ch = m[1] === "HD" ? "house" : "senate"; this._tracked[ch][String(parseInt(m[2], 10))] = c; } });
+    Promise.all([
+      fetch("map-data.json").then(r => r.json()).catch(() => null),
+      fetch("geo/mi-house-districts.geojson").then(r => r.json()).catch(() => null),
+      fetch("geo/mi-senate-districts.geojson").then(r => r.json()).catch(() => null)
+    ]).then(([md, house, senate]) => {
+      const pts = this._projPoints(md);
+      this._heat(house, pts, "Name"); this._heat(senate, pts, "NAME");
+      this._layers.house = this._chLayer(L, house, "Name", "house");
+      this._layers.senate = this._chLayer(L, senate, "NAME", "senate");
+      this._showChamber("house");
+      setTimeout(() => { map.invalidateSize(); const b = this._layers.house && this._layers.house.getBounds(); if (b && b.isValid()) map.fitBounds(b, { padding:[6,6] }); }, 160);
     });
-    setTimeout(() => map.invalidateSize(), 200);
   }
+  _projPoints(md) { if (!md) return []; const arr = md.map_points || md || []; return arr.filter(p => p.layer === "projects" && p.latitude != null && p.longitude != null).map(p => ({ lat:+p.latitude, lng:+p.longitude, mw:parseFloat(String(p.power_mw || "").replace(/[^0-9.]/g, "")) || 0, name:p.name })); }
+  _dnum(v) { return String(parseInt(v, 10)); }
+  _pip(lng, lat, geom) { const polys = geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates; for (const poly of polys) { const ring = poly[0]; let inside = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1]; if (((yi > lat) !== (yj > lat)) && (lng < (xj - xi) * (lat - yi) / (yj - yi) + xi)) inside = !inside; } if (inside) return true; } return false; }
+  _heat(fc, pts, key) { if (!fc) return; fc.features.forEach(f => { f.properties._c = 0; f.properties._mw = 0; f.properties._top = []; }); pts.forEach(p => { for (const f of fc.features) { if (this._pip(p.lng, p.lat, f.geometry)) { f.properties._c++; f.properties._mw += p.mw; f.properties._top.push(p.name); break; } } }); }
+  _heatColor(c) { return c >= 4 ? "#0C1E33" : c === 3 ? "#124E8C" : c === 2 ? "#1E6FC4" : c === 1 ? "#7FA8D4" : "#EDF1F6"; }
+  _chLayer(L, fc, key, chamber) {
+    if (!fc) return null;
+    const self = this;
+    const lyr = L.geoJSON(fc, {
+      style: f => { const dn = self._dnum(f.properties[key]); const tr = self._tracked[chamber][dn]; return { color: tr ? "#C9781F" : "#9FB2C6", weight: tr ? 2.4 : 0.5, fillColor: self._heatColor(f.properties._c || 0), fillOpacity: 0.82 }; },
+      onEachFeature: (f, layer) => {
+        const dn = self._dnum(f.properties[key]); const tr = self._tracked[chamber][dn];
+        const chLabel = chamber === "house" ? "House District" : "Senate District";
+        const c = f.properties._c || 0, mw = Math.round(f.properties._mw || 0);
+        const top = (f.properties._top || []).slice(0, 3).join(", ");
+        const candHtml = tr
+          ? `<div style="font-size:15px; font-weight:800; margin:6px 0 1px;">${tr.name}</div><div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:${self._pc(tr.party)};">On the 2026 ballot &middot; click to view &rarr;</div>`
+          : `<div style="font-size:12px; color:#5F6875; margin-top:5px;">No tracked candidate in this seat.</div>`;
+        layer.bindPopup(`<div style="font-family:Archivo; padding:11px 14px; min-width:190px; max-width:230px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#5F6875;">Michigan ${chLabel} ${dn}</div><div style="font-size:13px; margin:6px 0 2px;"><b style="font-size:15px;">${c}</b> data-center project${c === 1 ? "" : "s"}${mw ? ` &middot; ${mw.toLocaleString()} MW` : ""}</div>${top ? `<div style="font-size:11px; color:#5F6875; line-height:1.4;">${top}</div>` : ""}${candHtml}</div>`);
+        if (tr) layer.on("click", () => self._focusCandidate(tr.name));
+        layer.on("mouseover", () => layer.setStyle({ weight: tr ? 3.2 : 1.4, fillOpacity:0.92 }));
+        layer.on("mouseout", () => lyr.resetStyle(layer));
+      }
+    });
+    return lyr;
+  }
+  _showChamber(ch) {
+    if (!this.map) return; this._chamber = ch;
+    ["house", "senate"].forEach(k => { const l = this._layers[k]; if (l) { if (k === ch) l.addTo(this.map); else this.map.removeLayer(l); } });
+    ["house", "senate"].forEach(k => { const b = document.getElementById("dm-" + k); if (b) { const on = k === ch; b.style.background = on ? "var(--navy)" : "#fff"; b.style.color = on ? "#fff" : "var(--soft)"; } });
+    const b = this._layers[ch] && this._layers[ch].getBounds(); if (b && b.isValid()) this.map.fitBounds(b, { padding:[6, 6] });
+  }
+  _wireDmTabs() { ["house", "senate"].forEach(ch => { const b = document.getElementById("dm-" + ch); if (b) b.addEventListener("click", () => this._showChamber(ch)); }); }
 
   _slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, "-"); }
   _roleText(c) { let r = c.role || ""; return r.replace(/^HD-(\d+)$/, "Michigan House District $1").replace(/^SD-(\d+)$/, "Michigan Senate District $1"); }
