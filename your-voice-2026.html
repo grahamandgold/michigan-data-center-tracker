@@ -577,13 +577,22 @@ class Component extends DCLogic {
 
   _slug(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, "-"); }
   _roleText(c) { let r = c.role || ""; return r.replace(/^HD-(\d+)$/, "Michigan House District $1").replace(/^SD-(\d+)$/, "Michigan Senate District $1"); }
+  _icon(k){const P={
+    x:'<path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.82-5.97 6.82H1.66l7.73-8.84L1.24 2.25h6.83l4.71 6.23 5.46-6.23Zm-1.16 17.52h1.83L7.01 4.13H5.05l13.03 15.64Z"/>',
+    facebook:'<path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.08 24 18.09 24 12.07Z"/>',
+    news:'<path d="M3 3h13a1 1 0 0 1 1 1v15a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a1 1 0 0 1 1-1Zm2 4v2h9V7H5Zm0 4v2h9v-2H5Zm0 4v2h6v-2H5Zm14-6h2v10a2 2 0 0 1-2 2V9Z"/>',
+    quote:'<path d="M6.5 17H10l1.5-4V6.5H5V13h3l-1.5 4Zm8 0H18l1.5-4V6.5H13V13h3l-1.5 4Z"/>',
+    campaign:'<path d="M20 4 8 8.5H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1l1.4 6.2 2.9-.6L8.2 14 20 18V4Z"/>'
+  };return P[k]||'<circle cx="12" cy="12" r="7"/>';}
   _recordHtml(c) {
-    const B = { quote:["QUOTE","#0C1E33"], news:["NEWS","#1E6FC4"], x:["X","#14212E"], facebook:["FACEBOOK","#1877F2"], campaign:["CAMPAIGN","#C9781F"] };
+    const B = { quote:["quote","#0C1E33","Sourced quote"], news:["news","#1E6FC4","News coverage"], x:["x","#14212E","Post on X"], facebook:["facebook","#1877F2","Facebook post"], campaign:["campaign","#C9781F","Campaign statement"] };
     const items = [];
     (c.stances||[]).forEach(st => items.push({ b:B.quote, text:"“"+st.quote+"”", outlet:st.context||st.source, date:st.date, url:st.url }));
-    (c.links||[]).forEach(l => { const bd = B[l.platform] || [(l.platform||"LINK").toUpperCase(),"#5F6875"]; items.push({ b:bd, text:l.headline, outlet:l.source, date:l.date, url:l.url }); });
+    (c.links||[]).forEach(l => { const bd = B[l.platform] || ["news","#5F6875",(l.platform||"Link")]; items.push({ b:bd, text:l.headline, outlet:l.source, date:l.date, url:l.url }); });
+    const dv = t => { const p = Date.parse(t||""); if (!isNaN(p)) return p; const q = Date.parse("1 "+(t||"")); return isNaN(q)?0:q; };
+    items.sort((a,b) => dv(b.date) - dv(a.date));
     if (!items.length) return `<div style="margin-top:14px; padding:12px 0; border-top:1px solid var(--hair); font-size:13px; color:var(--soft);">No sourced position on record yet. <a href="#" style="color:var(--lake); white-space:nowrap;">Have a source? &rarr;</a></div>`;
-    const row = it => `<div style="display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; padding:12px 0; border-top:1px solid var(--hair);"><span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.08em; color:#fff; background:${it.b[1]}; padding:4px 7px; white-space:nowrap; align-self:start;">${it.b[0]}</span><div><div style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.45;">${it.text}</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:5px;">${it.outlet} &middot; ${it.date} &middot; <a href="${it.url}" style="color:var(--lake);">Source &nearr;</a></div></div></div>`;
+    const row = it => `<div style="display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; padding:12px 0; border-top:1px solid var(--hair);"><span title="${it.b[2]}" aria-label="${it.b[2]}" style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:6px; background:${it.b[1]}; flex:none;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">${this._icon(it.b[0])}</svg></span><div><div style="font-size:14px; font-weight:600; color:var(--ink); line-height:1.45;">${it.text}</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:5px;">${it.outlet} &middot; ${it.date} &middot; <a href="${it.url}" style="color:var(--lake);">Source &nearr;</a></div></div></div>`;
     return `<div style="margin-top:14px;">${items.map(row).join("")}</div>`;
   }
 
