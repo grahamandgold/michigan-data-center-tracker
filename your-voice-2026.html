@@ -204,9 +204,16 @@
     <div style="display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:20px; flex-wrap:wrap;">
       <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry);">The field</span>
       <h2 style="font-size:24px; font-weight:800; letter-spacing:-0.01em; margin:0;">How the ballot breaks down</h2>
-      <div style="margin-left:auto; display:flex; gap:7px;">
-        <span class="chip btab" data-b="us-senate" data-active="1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">U.S. Senate</span>
-        <span class="chip btab" data-b="governor" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft);">Governor</span>
+      <div style="margin-left:auto; display:flex; gap:6px; flex-wrap:wrap;">
+        <span class="btab" data-b="governor" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">Governor</span>
+        <span class="btab" data-b="us-senate" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">U.S. Senate</span>
+        <span class="btab" data-b="leg-0" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">HD 31</span>
+        <span class="btab" data-b="leg-1" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">HD 33</span>
+        <span class="btab" data-b="leg-2" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">SD 15</span>
+        <span class="btab" data-b="leg-3" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">SD 16</span>
+        <span class="btab" data-b="leg-4" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">SD 18</span>
+        <span class="btab" data-b="leg-5" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">SD 20</span>
+        <span class="btab" data-b="leg-6" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; border:1px solid var(--hair); padding:7px 12px; color:var(--soft); cursor:pointer;">SD 23</span>
       </div>
     </div>
     <div id="bracket"></div>
@@ -363,7 +370,7 @@
 class Component extends DCLogic {
   state = { race:"all", party:"all", region:null, record:"all" };
 
-  componentDidMount() { this.data = this._data(); const _leg = this.data.find(r => r.id === "legislature"); if (_leg && _leg.districts) _leg.candidates = _leg.districts.flatMap(d => d.candidates); const LK = this._links(); this.data.forEach(r => r.candidates.forEach(c => { c.links = LK[c.name] || []; })); this._wire(); this._render(); this._renderDash(); this._renderTable("race", 1); this._renderBracket("us-senate"); this._wireBracket(); this._wireChatter(); this._countdown(); this._cdIv = setInterval(() => this._countdown(), 60000); this._boot(0); this._wireDmTabs(); }
+  componentDidMount() { this.data = this._data(); const _leg = this.data.find(r => r.id === "legislature"); if (_leg && _leg.districts) _leg.candidates = _leg.districts.flatMap(d => d.candidates); const LK = this._links(); this.data.forEach(r => r.candidates.forEach(c => { c.links = LK[c.name] || []; })); this._wire(); this._render(); this._renderDash(); this._renderTable("race", 1); this._renderBracket("governor"); this._wireBracket(); this._wireChatter(); this._countdown(); this._cdIv = setInterval(() => this._countdown(), 60000); this._boot(0); this._wireDmTabs(); }
   componentWillUnmount() { if (this.map) { this.map.remove(); this.map = null; } if (this._cdIv) clearInterval(this._cdIv); }
 
   _countdown() {
@@ -653,16 +660,20 @@ class Component extends DCLogic {
   }
 
   _wireBracket() {
-    document.querySelectorAll(".btab").forEach(t => t.addEventListener("click", () => {
-      document.querySelectorAll(".btab").forEach(x => x.setAttribute("data-active", x === t ? "1" : "0"));
-      this._renderBracket(t.getAttribute("data-b"));
-    }));
+    const tabs = [...document.querySelectorAll(".btab")];
+    const setActive = t => tabs.forEach(x => { const on = x === t; x.style.background = on ? "var(--navy)" : "transparent"; x.style.color = on ? "#fff" : "var(--soft)"; x.style.borderColor = on ? "var(--navy)" : "var(--hair)"; });
+    tabs.forEach(t => t.addEventListener("click", () => { setActive(t); this._renderBracket(t.getAttribute("data-b")); }));
+    const def = document.querySelector('.btab[data-b="governor"]'); if (def) setActive(def);
   }
 
   _renderBracket(rid) {
+    let bcands;
     const race = this.data.find(r => r.id === rid);
+    if (race) bcands = race.candidates;
+    else if (rid.indexOf("leg-") === 0) { const leg = this.data.find(r => r.id === "legislature"); bcands = ((leg.districts[+rid.slice(4)]) || {}).candidates || []; }
+    else bcands = [];
     const lane = (party, color, label) => {
-      const cands = race.candidates.filter(c => c.party === party);
+      const cands = bcands.filter(c => c.party === party);
       const rows = cands.length ? cands.map(c => {
         const badge = c.stances.length
           ? `<span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--pine);">&#10003; On record</span>`
