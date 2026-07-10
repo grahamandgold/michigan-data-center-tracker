@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#0C1E33; --ink:#14212E; --mist:#EDF1F6; --paper:#FFFFFF; --panel:#F5F8FC;
+    --lake:#1E6FC4; --harbor:#124E8C; --huron:#0E7C86; --pine:#1E8E52; --copper:#C9781F; --cherry:#C4342C;
+    --faint:#5F6875; --soft:#4C5661; --hair:rgba(12,30,51,0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body { background:var(--mist); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  a { color:var(--lake); text-decoration:none; }
+  a:hover { color:var(--cherry); }
+  ::selection { background:#D3E2F3; color:var(--ink); }
+  @keyframes ping { 0% { transform:scale(0.4); opacity:0.6; } 100% { transform:scale(3); opacity:0; } }
+  @keyframes softPulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+</style>
+<!--ANALYTICS-->
+<script>
+(function(){
+  window.dataLayer=window.dataLayer||[];
+  function pg(){window.dataLayer.push({event:'page_view',page:document.title||location.pathname,path:location.pathname});}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a,[data-track]');if(!a)return;
+    var h=a.getAttribute('href');
+    window.dataLayer.push({event:a.hasAttribute('data-track')?'cta_click':'link_click',label:a.getAttribute('data-track')||(a.textContent||'').trim().replace(/\s+/g,' ').slice(0,60),href:h||null,outbound:(/^https?:/.test(h||''))||null,page:document.title||location.pathname});
+  },true);
+  if(document.readyState!=='loading')pg();else document.addEventListener('DOMContentLoaded',pg);
+})();
+</script>
+</helmet>
+<div style="background:var(--mist); color:var(--ink); font-family:'Archivo',system-ui,sans-serif; min-height:100vh;">
+
+  <!-- ============ DOC HEADER ============ -->
+  <div style="max-width:1160px; margin:0 auto; padding:56px 44px 20px;">
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lake); margin-bottom:16px;">Brand System &middot; v1 &middot; Jul 2026</div>
+    <h1 style="font-size:52px; font-weight:800; letter-spacing:-0.025em; line-height:1.0; margin:0 0 18px;">Michigan Data Center Tracker</h1>
+    <p style="font-size:17px; line-height:1.6; color:var(--soft); max-width:70ch; margin:0;">A precise, light, engineered identity for a live public-record watchdog — built to run on data and typography, not stock photography. The palette is adapted from the <em>Signal</em> family and retuned to a Great Lakes story so this product sits beside its siblings while reading unmistakably Michigan.</p>
+  </div>
+
+  <!-- ============ 01 · LOGO ============ -->
+  <section style="max-width:1160px; margin:0 auto; padding:34px 44px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--navy); padding-bottom:10px; margin-bottom:28px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--cherry);">01</span>
+      <h2 style="font-size:15px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; margin:0;">The Logo</h2>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-left:auto;">Locator reticle + wordmark</span>
+    </div>
+
+    <!-- primary lockup -->
+    <div style="background:var(--paper); border:1px solid var(--hair); padding:56px; display:flex; align-items:center; justify-content:center; margin-bottom:14px;">
+      <div style="display:flex; align-items:center; gap:22px;">
+        <div style="position:relative; width:64px; height:64px; flex:none; background:var(--navy); border-radius:14px;">
+          <div style="position:absolute; left:50%; top:12px; bottom:12px; width:1.5px; background:var(--lake); transform:translateX(-0.75px); opacity:0.85;"></div>
+          <div style="position:absolute; top:50%; left:12px; right:12px; height:1.5px; background:var(--lake); transform:translateY(-0.75px); opacity:0.85;"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:22px; height:22px; border:1.5px solid var(--lake); border-radius:50%;"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:8px; height:8px; background:var(--copper); border-radius:50%;"></div>
+        </div>
+        <div style="line-height:0.98;">
+          <div style="font-size:34px; font-weight:800; letter-spacing:-0.01em; text-transform:uppercase; color:var(--ink);">Michigan</div>
+          <div style="font-size:34px; font-weight:800; letter-spacing:-0.01em; text-transform:uppercase; color:var(--lake); margin-top:2px;">Data Center Tracker</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--faint); margin-top:10px;">The public record, in plain view</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- variants row -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+      <div style="background:var(--navy); padding:40px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; min-height:220px;">
+        <div style="position:relative; width:56px; height:56px; flex:none; background:var(--paper); border-radius:13px;">
+          <div style="position:absolute; left:50%; top:11px; bottom:11px; width:1.5px; background:var(--lake); transform:translateX(-0.75px);"></div>
+          <div style="position:absolute; top:50%; left:11px; right:11px; height:1.5px; background:var(--lake); transform:translateY(-0.75px);"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:19px; height:19px; border:1.5px solid var(--lake); border-radius:50%;"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:7px; height:7px; background:var(--copper); border-radius:50%;"></div>
+        </div>
+        <div style="text-align:center; line-height:1.05;">
+          <div style="font-size:17px; font-weight:800; text-transform:uppercase; color:var(--paper);">Michigan</div>
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#8FB4DC; margin-top:3px;">Data Center Tracker</div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase; color:#5C7590;">Reverse / dark chrome</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:40px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; min-height:220px;">
+        <div style="position:relative; width:56px; height:56px; flex:none; background:var(--ink); border-radius:13px;">
+          <div style="position:absolute; left:50%; top:11px; bottom:11px; width:1.5px; background:var(--paper); transform:translateX(-0.75px); opacity:0.7;"></div>
+          <div style="position:absolute; top:50%; left:11px; right:11px; height:1.5px; background:var(--paper); transform:translateY(-0.75px); opacity:0.7;"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:19px; height:19px; border:1.5px solid var(--paper); border-radius:50%; opacity:0.7;"></div>
+          <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:7px; height:7px; background:var(--paper); border-radius:50%;"></div>
+        </div>
+        <div style="text-align:center; line-height:1.05;">
+          <div style="font-size:17px; font-weight:800; text-transform:uppercase; color:var(--ink);">Michigan</div>
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--soft); margin-top:3px;">Data Center Tracker</div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--faint);">Monochrome / stacked</div>
+      </div>
+      <!-- MICHIGAN + PIN alternate mark -->
+      <div style="background:var(--panel); border:1px solid var(--hair); padding:32px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; min-height:220px;">
+        <svg viewBox="0 0 220 260" style="width:92px; height:auto; display:block;">
+          <path d="M7.3,78 L19.1,65 L26.4,65 L32.3,52 L38.1,53.6 L39.6,65 L63.1,60.1 L88,58.5 L86.5,47.1 L93.9,40.6 L101.2,45.5 L102.7,58.5 L132,58.5 L165.7,61.8 L192.1,69.9 L211.2,79.6 L208.3,87.8 L181.9,82.9 L151.1,81.3 L123.2,82.9 L107.1,86.1 L88,87.8 L67.5,87.8 L44,87.8 L22,86.1 L11.7,84.5 Z" fill="var(--navy)"></path>
+          <path d="M92.4,89.4 L151.1,89.4 L155.5,113.8 L149.6,131.6 L162.8,121.9 L174.5,123.5 L177.5,134.9 L168.7,149.5 L155.5,147.9 L154,170.6 L151.1,195 L140.8,221 L126.1,240.5 L110,245.4 L95.3,238.9 L89.5,217.8 L86.5,185.3 L85.1,151.1 L86.5,118.6 L88,100.8 Z" fill="var(--navy)"></path>
+          <circle cx="150" cy="206" r="9" fill="var(--copper)"></circle>
+          <circle cx="150" cy="206" r="3.5" fill="var(--paper)"></circle>
+        </svg>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--faint); text-align:center;">Alt mark &middot; state + site-pin</div>
+      </div>
+    </div>
+
+    <!-- construction + app icons -->
+    <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:14px; margin-top:14px;">
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:30px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); margin-bottom:20px;">Construction &amp; clear space</div>
+        <div style="display:flex; align-items:center; gap:28px;">
+          <div style="position:relative; width:96px; height:96px; flex:none; background:var(--navy); border-radius:20px; outline:1px dashed var(--lake); outline-offset:12px;">
+            <div style="position:absolute; left:50%; top:18px; bottom:18px; width:1.5px; background:var(--lake); transform:translateX(-0.75px);"></div>
+            <div style="position:absolute; top:50%; left:18px; right:18px; height:1.5px; background:var(--lake); transform:translateY(-0.75px);"></div>
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:34px; height:34px; border:1.5px solid var(--lake); border-radius:50%;"></div>
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; background:var(--copper); border-radius:50%;"></div>
+          </div>
+          <div style="font-size:13.5px; line-height:1.6; color:var(--soft);">A targeting <strong style="color:var(--ink);">reticle</strong> — crosshair + ranging ring + a copper site-pin at dead center. Keep clear space equal to the ring radius on all sides. Corner radius ~21% of the tile. Never rotate, recolor the pin, or add effects.</div>
+        </div>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--hair); padding:30px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); margin-bottom:20px;">App icon &middot; favicon</div>
+        <div style="display:flex; align-items:flex-end; gap:18px;">
+          <div style="position:relative; width:56px; height:56px; flex:none; background:var(--navy); border-radius:13px;"><div style="position:absolute; left:50%; top:11px; bottom:11px; width:1.5px; background:var(--lake); transform:translateX(-0.75px);"></div><div style="position:absolute; top:50%; left:11px; right:11px; height:1.5px; background:var(--lake); transform:translateY(-0.75px);"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:19px; height:19px; border:1.5px solid var(--lake); border-radius:50%;"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:7px; height:7px; background:var(--copper); border-radius:50%;"></div></div>
+          <div style="position:relative; width:36px; height:36px; flex:none; background:var(--navy); border-radius:9px;"><div style="position:absolute; left:50%; top:7px; bottom:7px; width:1.2px; background:var(--lake); transform:translateX(-0.6px);"></div><div style="position:absolute; top:50%; left:7px; right:7px; height:1.2px; background:var(--lake); transform:translateY(-0.6px);"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:12px; height:12px; border:1.2px solid var(--lake); border-radius:50%;"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:5px; height:5px; background:var(--copper); border-radius:50%;"></div></div>
+          <div style="position:relative; width:24px; height:24px; flex:none; background:var(--navy); border-radius:6px;"><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:8px; height:8px; border:1px solid var(--lake); border-radius:50%;"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:4px; height:4px; background:var(--copper); border-radius:50%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 · COLOR ============ -->
+  <section style="max-width:1160px; margin:0 auto; padding:34px 44px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--navy); padding-bottom:10px; margin-bottom:28px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--cherry);">02</span>
+      <h2 style="font-size:15px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; margin:0;">Color</h2>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-left:auto;">Signal family, retuned to the Great Lakes</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); margin-bottom:14px;">
+      <div style="background:var(--paper);"><div style="height:96px; background:var(--lake);"></div><div style="padding:12px 14px;"><div style="font-size:13px; font-weight:700;">Great Lakes Blue</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#1E6FC4 · primary</div></div></div>
+      <div style="background:var(--paper);"><div style="height:96px; background:var(--harbor);"></div><div style="padding:12px 14px;"><div style="font-size:13px; font-weight:700;">Harbor</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#124E8C · deep</div></div></div>
+      <div style="background:var(--paper);"><div style="height:96px; background:var(--huron);"></div><div style="padding:12px 14px;"><div style="font-size:13px; font-weight:700;">Huron Teal</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#0E7C86 · data</div></div></div>
+      <div style="background:var(--paper);"><div style="height:96px; background:var(--pine);"></div><div style="padding:12px 14px;"><div style="font-size:13px; font-weight:700;">Pine</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#1E8E52 · healthy</div></div></div>
+      <div style="background:var(--paper);"><div style="height:96px; background:var(--copper);"></div><div style="padding:12px 14px;"><div style="font-size:13px; font-weight:700;">Copper</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#C9781F · accent</div></div></div>
+      <div style="background:var(--paper);"><div style="height:96px; background:var(--cherry);"></div><div style="padding:12px 14px;"><div style="font-size:13px; font-weight:700;">Cherry</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#C4342C · alert</div></div></div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair);">
+      <div style="background:var(--paper);"><div style="height:64px; background:var(--navy);"></div><div style="padding:11px 14px;"><div style="font-size:12.5px; font-weight:700;">Superior Navy</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#0C1E33 · chrome</div></div></div>
+      <div style="background:var(--paper);"><div style="height:64px; background:var(--ink);"></div><div style="padding:11px 14px;"><div style="font-size:12.5px; font-weight:700;">Ink</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#14212E · text</div></div></div>
+      <div style="background:var(--paper);"><div style="height:64px; background:var(--mist); border-bottom:1px solid var(--hair);"></div><div style="padding:11px 14px;"><div style="font-size:12.5px; font-weight:700;">Mist</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#EDF1F6 · surface</div></div></div>
+      <div style="background:var(--paper);"><div style="height:64px; background:var(--paper); border-bottom:1px solid var(--hair);"></div><div style="padding:11px 14px;"><div style="font-size:12.5px; font-weight:700;">Paper</div><div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-top:4px;">#FFFFFF · cards</div></div></div>
+    </div>
+    <p style="font-size:13.5px; line-height:1.6; color:var(--soft); max-width:74ch; margin:18px 0 0;">Mapped from the reference: azure &rarr; <strong style="color:var(--ink);">Great Lakes Blue</strong>, flat amber &rarr; warm <strong style="color:var(--ink);">Copper</strong>, generic purple retired in favor of <strong style="color:var(--ink);">Huron Teal</strong> + <strong style="color:var(--ink);">Pine</strong>. Blues lead; copper is the single warm highlight; cherry is reserved strictly for alerts and pauses.</p>
+  </section>
+
+  <!-- ============ 03 · TYPE ============ -->
+  <section style="max-width:1160px; margin:0 auto; padding:34px 44px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--navy); padding-bottom:10px; margin-bottom:28px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--cherry);">03</span>
+      <h2 style="font-size:15px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; margin:0;">Typography</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:30px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); margin-bottom:16px;">Display &amp; UI — Archivo</div>
+        <div style="font-size:52px; font-weight:800; letter-spacing:-0.025em; line-height:1;">Aa</div>
+        <div style="font-size:26px; font-weight:800; letter-spacing:-0.015em; margin-top:16px;">Every megawatt, tracked.</div>
+        <div style="font-size:15px; color:var(--soft); margin-top:10px; line-height:1.5;">Grotesque, engineered, confident. Weights 400–900. Headlines 800/900; body 400–500.</div>
+      </div>
+      <div style="background:var(--navy); padding:30px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:#5C7590; margin-bottom:16px;">Data &amp; labels — IBM Plex Mono</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:44px; font-weight:600; color:var(--paper); line-height:1;">2.9<span style="color:var(--lake);">GW</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#8FB4DC; margin-top:16px; letter-spacing:0.06em;">UPDATED 02:40 AM · AUTO-REFRESH 10 MIN</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#5C7590; margin-top:8px; letter-spacing:0.06em;">timestamps · counts · tags · kickers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · IMAGERY ============ -->
+  <section style="max-width:1160px; margin:0 auto; padding:34px 44px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--navy); padding-bottom:10px; margin-bottom:28px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--cherry);">04</span>
+      <h2 style="font-size:15px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; margin:0;">Imagery System</h2>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-left:auto;">No photos required</span>
+    </div>
+
+    <!-- Michigan coverage field (signature) -->
+    <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:14px; margin-bottom:14px;">
+      <div style="background:var(--navy); padding:36px; display:flex; align-items:center; gap:36px; position:relative; overflow:hidden;">
+        <svg viewBox="0 0 220 260" style="width:200px; height:auto; flex:none; display:block;">
+          <defs>
+            <pattern id="dotsA" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="#2E6FA8"></circle></pattern>
+            <clipPath id="miA"><path d="M7.3,78 L19.1,65 L26.4,65 L32.3,52 L38.1,53.6 L39.6,65 L63.1,60.1 L88,58.5 L86.5,47.1 L93.9,40.6 L101.2,45.5 L102.7,58.5 L132,58.5 L165.7,61.8 L192.1,69.9 L211.2,79.6 L208.3,87.8 L181.9,82.9 L151.1,81.3 L123.2,82.9 L107.1,86.1 L88,87.8 L67.5,87.8 L44,87.8 L22,86.1 L11.7,84.5 Z"></path><path d="M92.4,89.4 L151.1,89.4 L155.5,113.8 L149.6,131.6 L162.8,121.9 L174.5,123.5 L177.5,134.9 L168.7,149.5 L155.5,147.9 L154,170.6 L151.1,195 L140.8,221 L126.1,240.5 L110,245.4 L95.3,238.9 L89.5,217.8 L86.5,185.3 L85.1,151.1 L86.5,118.6 L88,100.8 Z"></path></clipPath>
+          </defs>
+          <g clip-path="url(#miA)"><rect width="220" height="260" fill="#0F2942"></rect><rect width="220" height="260" fill="url(#dotsA)"></rect></g>
+          <g fill="none" stroke="#4C86BE" stroke-width="1.4"><path d="M7.3,78 L19.1,65 L26.4,65 L32.3,52 L38.1,53.6 L39.6,65 L63.1,60.1 L88,58.5 L86.5,47.1 L93.9,40.6 L101.2,45.5 L102.7,58.5 L132,58.5 L165.7,61.8 L192.1,69.9 L211.2,79.6 L208.3,87.8 L181.9,82.9 L151.1,81.3 L123.2,82.9 L107.1,86.1 L88,87.8 L67.5,87.8 L44,87.8 L22,86.1 L11.7,84.5 Z"></path><path d="M92.4,89.4 L151.1,89.4 L155.5,113.8 L149.6,131.6 L162.8,121.9 L174.5,123.5 L177.5,134.9 L168.7,149.5 L155.5,147.9 L154,170.6 L151.1,195 L140.8,221 L126.1,240.5 L110,245.4 L95.3,238.9 L89.5,217.8 L86.5,185.3 L85.1,151.1 L86.5,118.6 L88,100.8 Z"></path></g>
+          <circle cx="150" cy="206" r="4.5" fill="#C9781F"></circle>
+          <circle cx="138" cy="182" r="3.5" fill="#1E6FC4"></circle>
+          <circle cx="120" cy="150" r="3.5" fill="#1E6FC4"></circle>
+          <circle cx="150" cy="150" r="3" fill="#0E7C86"></circle>
+          <circle cx="106" cy="196" r="3" fill="#C4342C"></circle>
+          <circle cx="66" cy="46" r="3" fill="#1E6FC4"></circle>
+        </svg>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:#5C7590; margin-bottom:12px;">Signature image</div>
+          <div style="font-size:26px; font-weight:800; letter-spacing:-0.015em; color:var(--paper); line-height:1.05;">The coverage field</div>
+          <p style="font-size:13.5px; line-height:1.6; color:#9DB2C7; margin:12px 0 0; max-width:34ch;">The state, filled with the dot-grid and dotted with live site-pins. This one image carries the OG cards, page headers, loaders and empty states.</p>
+        </div>
+      </div>
+
+      <!-- ping rings + silhouette variants -->
+      <div style="display:grid; grid-template-rows:1fr 1fr; gap:14px;">
+        <div style="background:var(--paper); border:1px solid var(--hair); position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; min-height:150px;">
+          <div style="position:relative; width:14px; height:14px;">
+            <div style="position:absolute; inset:0; border-radius:50%; background:var(--copper);"></div>
+            <div style="position:absolute; inset:0; border-radius:50%; background:var(--copper); animation:ping 2.6s ease-out infinite;"></div>
+            <div style="position:absolute; inset:0; border-radius:50%; background:var(--lake); animation:ping 2.6s ease-out 1.3s infinite;"></div>
+          </div>
+          <div style="position:absolute; bottom:12px; left:14px; font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint);">Signal rings · live pin</div>
+        </div>
+        <div style="background:var(--panel); border:1px solid var(--hair); display:flex; align-items:center; justify-content:space-around; padding:16px; min-height:150px;">
+          <svg viewBox="0 0 220 260" style="width:60px; height:auto;"><path d="M7.3,78 L19.1,65 L26.4,65 L32.3,52 L38.1,53.6 L39.6,65 L63.1,60.1 L88,58.5 L86.5,47.1 L93.9,40.6 L101.2,45.5 L102.7,58.5 L132,58.5 L165.7,61.8 L192.1,69.9 L211.2,79.6 L208.3,87.8 L181.9,82.9 L151.1,81.3 L123.2,82.9 L107.1,86.1 L88,87.8 L67.5,87.8 L44,87.8 L22,86.1 L11.7,84.5 Z" fill="var(--navy)"></path><path d="M92.4,89.4 L151.1,89.4 L155.5,113.8 L149.6,131.6 L162.8,121.9 L174.5,123.5 L177.5,134.9 L168.7,149.5 L155.5,147.9 L154,170.6 L151.1,195 L140.8,221 L126.1,240.5 L110,245.4 L95.3,238.9 L89.5,217.8 L86.5,185.3 L85.1,151.1 L86.5,118.6 L88,100.8 Z" fill="var(--navy)"></path></svg>
+          <svg viewBox="0 0 220 260" style="width:60px; height:auto;"><g fill="none" stroke="var(--lake)" stroke-width="2.5"><path d="M7.3,78 L19.1,65 L26.4,65 L32.3,52 L38.1,53.6 L39.6,65 L63.1,60.1 L88,58.5 L86.5,47.1 L93.9,40.6 L101.2,45.5 L102.7,58.5 L132,58.5 L165.7,61.8 L192.1,69.9 L211.2,79.6 L208.3,87.8 L181.9,82.9 L151.1,81.3 L123.2,82.9 L107.1,86.1 L88,87.8 L67.5,87.8 L44,87.8 L22,86.1 L11.7,84.5 Z"></path><path d="M92.4,89.4 L151.1,89.4 L155.5,113.8 L149.6,131.6 L162.8,121.9 L174.5,123.5 L177.5,134.9 L168.7,149.5 L155.5,147.9 L154,170.6 L151.1,195 L140.8,221 L126.1,240.5 L110,245.4 L95.3,238.9 L89.5,217.8 L86.5,185.3 L85.1,151.1 L86.5,118.6 L88,100.8 Z"></path></g></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- pattern strip -->
+    <div style="background:var(--paper); border:1px solid var(--hair); height:80px; background-image:radial-gradient(var(--lake) 1.2px, transparent 1.2px); background-size:14px 14px; position:relative;">
+      <span style="position:absolute; left:16px; top:50%; transform:translateY(-50%); background:var(--mist); padding:6px 12px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint);">Dot-grid texture · dividers & fills</span>
+    </div>
+  </section>
+
+  <!-- ============ 05 · IN USE ============ -->
+  <section style="max-width:1160px; margin:0 auto; padding:34px 44px 72px;">
+    <div style="display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--navy); padding-bottom:10px; margin-bottom:28px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--cherry);">05</span>
+      <h2 style="font-size:15px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; margin:0;">In Use</h2>
+    </div>
+
+    <!-- OG / social card -->
+    <div style="border:1px solid var(--hair); background:var(--navy); aspect-ratio:1200/630; position:relative; overflow:hidden; margin-bottom:14px;">
+      <div style="position:absolute; inset:0; background-image:radial-gradient(#1B3B58 1.4px, transparent 1.4px); background-size:22px 22px; opacity:0.6;"></div>
+      <svg viewBox="0 0 220 260" style="position:absolute; right:-10px; bottom:-40px; width:52%; height:auto; opacity:0.9;">
+        <defs><clipPath id="miB"><path d="M7.3,78 L19.1,65 L26.4,65 L32.3,52 L38.1,53.6 L39.6,65 L63.1,60.1 L88,58.5 L86.5,47.1 L93.9,40.6 L101.2,45.5 L102.7,58.5 L132,58.5 L165.7,61.8 L192.1,69.9 L211.2,79.6 L208.3,87.8 L181.9,82.9 L151.1,81.3 L123.2,82.9 L107.1,86.1 L88,87.8 L67.5,87.8 L44,87.8 L22,86.1 L11.7,84.5 Z"></path><path d="M92.4,89.4 L151.1,89.4 L155.5,113.8 L149.6,131.6 L162.8,121.9 L174.5,123.5 L177.5,134.9 L168.7,149.5 L155.5,147.9 L154,170.6 L151.1,195 L140.8,221 L126.1,240.5 L110,245.4 L95.3,238.9 L89.5,217.8 L86.5,185.3 L85.1,151.1 L86.5,118.6 L88,100.8 Z"></path></clipPath><pattern id="dotsB" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="1.4" cy="1.4" r="1.4" fill="#3A79B0"></circle></pattern></defs>
+        <g clip-path="url(#miB)"><rect width="220" height="260" fill="#12314C"></rect><rect width="220" height="260" fill="url(#dotsB)"></rect></g>
+        <circle cx="150" cy="206" r="5" fill="#C9781F"></circle><circle cx="120" cy="150" r="4" fill="#1E6FC4"></circle><circle cx="106" cy="196" r="3.5" fill="#C4342C"></circle>
+      </svg>
+      <div style="position:absolute; left:52px; top:48px; display:flex; align-items:center; gap:12px;">
+        <div style="position:relative; width:40px; height:40px; background:var(--paper); border-radius:9px;"><div style="position:absolute; left:50%; top:8px; bottom:8px; width:1.3px; background:var(--lake); transform:translateX(-0.65px);"></div><div style="position:absolute; top:50%; left:8px; right:8px; height:1.3px; background:var(--lake); transform:translateY(-0.65px);"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:13px; height:13px; border:1.3px solid var(--lake); border-radius:50%;"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:5px; height:5px; background:var(--copper); border-radius:50%;"></div></div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:#8FB4DC;">Michigan Data Center Tracker</div>
+      </div>
+      <div style="position:absolute; left:52px; bottom:56px; max-width:60%;">
+        <div style="font-size:54px; font-weight:800; letter-spacing:-0.03em; line-height:0.98; color:var(--paper);">Every data center.<br>Every megawatt.</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.08em; color:#9DB2C7; margin-top:18px;">30 tracked · 2.9 GW disclosed · 33 local pauses</div>
+      </div>
+    </div>
+
+    <!-- stat cards + section band -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:14px;">
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--lake); padding:22px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Tracked projects</div><div style="font-size:40px; font-weight:800; color:var(--lake); letter-spacing:-0.02em; margin-top:10px;">19</div></div>
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--huron); padding:22px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Disclosed load</div><div style="font-size:40px; font-weight:800; color:var(--huron); letter-spacing:-0.02em; margin-top:10px;">2.9<span style="font-size:18px;">GW</span></div></div>
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--copper); padding:22px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Communities</div><div style="font-size:40px; font-weight:800; color:var(--copper); letter-spacing:-0.02em; margin-top:10px;">72</div></div>
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--cherry); padding:22px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Local pauses</div><div style="font-size:40px; font-weight:800; color:var(--cherry); letter-spacing:-0.02em; margin-top:10px;">33</div></div>
+    </div>
+
+    <div style="background:var(--navy); padding:22px 28px; display:flex; align-items:center; gap:16px;">
+      <div style="position:relative; width:34px; height:34px; flex:none; background:var(--paper); border-radius:8px;"><div style="position:absolute; left:50%; top:7px; bottom:7px; width:1.2px; background:var(--lake); transform:translateX(-0.6px);"></div><div style="position:absolute; top:50%; left:7px; right:7px; height:1.2px; background:var(--lake); transform:translateY(-0.6px);"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:11px; height:11px; border:1.2px solid var(--lake); border-radius:50%;"></div><div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:4.5px; height:4.5px; background:var(--copper); border-radius:50%;"></div></div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--paper);">Section band</div>
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#5C7590; margin-left:auto; display:flex; align-items:center; gap:8px;"><span style="width:6px; height:6px; border-radius:50%; background:var(--pine); animation:softPulse 2s ease-in-out infinite;"></span>Live</span>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>

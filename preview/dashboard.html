@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · Live Diagrams — Michigan Data Center Tracker</title>
+<meta name="description" content="Live diagrams of Michigan’s data-center buildout — status, region, disclosed load and grid mix, drawn from the same sourced records that power the map.">
+<meta name="theme-color" content="#111417">
+<meta name="author" content="Graham & Gold">
+<link rel="canonical" href="https://michigandatacentertracker.com/dashboard">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201000%201015%22%3E%3Crect%20width%3D%221000%22%20height%3D%221015%22%20rx%3D%22150%22%20fill%3D%22%23111417%22%2F%3E%3Cg%20transform%3D%22translate(110%2C90)%20scale(0.78)%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M880.5%2C983.6L872.1%2C994.3L874.0%2C1007.0L870.3%2C1008.4L701.3%2C1014.8L699.7%2C1003.6L449.0%2C1003.5L474.7%2C980.1L491.5%2C940.7L507.6%2C916.9L519.4%2C883.6L523.9%2C857.1L526.3%2C835.2L523.0%2C783.2L484.5%2C674.9L498.2%2C642.8L494.2%2C615.6L487.8%2C600.3L499.5%2C587.8L518.5%2C549.9L524.5%2C511.1L520.2%2C489.1L541.0%2C480.4L543.8%2C451.6L553.0%2C452.6L560.7%2C440.5L568.4%2C445.8L576.2%2C443.9L599.8%2C402.3L603.9%2C403.4L608.2%2C398.1L610.7%2C404.0L600.3%2C412.7L606.3%2C427.4L602.5%2C427.9L599.4%2C434.3L601.8%2C447.9L598.9%2C448.9L595.6%2C461.5L597.0%2C474.4L602.2%2C476.1L610.5%2C457.3L610.8%2C454.4L606.5%2C453.4L612.1%2C439.6L617.7%2C436.6L614.3%2C460.4L607.6%2C467.0L605.0%2C477.1L611.2%2C479.2L627.6%2C447.2L631.3%2C423.0L628.5%2C393.8L630.6%2C387.5L652.5%2C371.8L673.0%2C371.7L687.6%2C366.1L686.8%2C361.0L672.0%2C358.4L662.6%2C340.4L662.3%2C334.1L667.7%2C324.7L684.1%2C310.4L683.2%2C305.8L676.2%2C301.2L701.2%2C304.1L704.4%2C301.5L702.9%2C298.1L710.3%2C296.8L744.4%2C320.6L748.6%2C317.6L760.9%2C318.5L775.1%2C323.7L785.9%2C336.4L790.1%2C347.8L809.6%2C348.5L826.2%2C361.5L836.8%2C362.5L852.1%2C373.2L865.9%2C372.6L879.3%2C387.9L875.5%2C393.1L881.6%2C405.9L887.5%2C410.2L893.8%2C430.4L877.1%2C422.7L870.3%2C429.5L873.1%2C433.7L870.8%2C436.8L872.9%2C446.8L887.0%2C456.0L892.8%2C485.3L887.7%2C503.7L885.5%2C550.8L873.3%2C563.2L864.5%2C562.0L859.8%2C567.0L854.0%2C600.6L842.1%2C604.2L842.0%2C611.6L823.4%2C612.4L817.3%2C617.7L812.4%2C628.2L810.9%2C649.6L807.5%2C652.8L813.4%2C668.0L843.8%2C682.3L859.5%2C661.6L868.3%2C659.1L876.1%2C640.0L885.5%2C631.5L883.6%2C625.9L891.7%2C621.4L894.3%2C615.2L918.8%2C609.9L931.1%2C598.9L937.5%2C598.2L958.7%2C611.2L972.8%2C640.1L977.3%2C682.5L984.6%2C709.2L986.6%2C746.5L991.2%2C768.0L1000.0%2C785.0L993.3%2C805.8L988.3%2C849.6L979.0%2C864.3L973.9%2C863.7L966.2%2C870.5L969.0%2C865.6L962.9%2C856.6L966.6%2C854.5L965.8%2C851.4L973.1%2C848.8L973.1%2C843.3L964.4%2C840.5L950.3%2C849.0L954.2%2C862.4L947.7%2C861.8L942.7%2C869.6L940.3%2C893.1L936.5%2C899.7L917.0%2C907.3L911.0%2C919.6L910.3%2C946.0L903.4%2C949.8L903.6%2C960.1L893.3%2C972.2L887.5%2C972.7L884.3%2C982.5L880.5%2C983.6Z%20M185.6%2C246.7L161.6%2C234.2L37.2%2C200.5L26.7%2C175.5L2.2%2C164.1L0.0%2C160.3L11.3%2C153.0L48.7%2C141.3L78.4%2C116.0L125.3%2C111.5L148.7%2C99.4L161.1%2C85.4L180.6%2C83.8L191.1%2C66.5L218.2%2C45.7L230.5%2C41.0L249.9%2C19.0L279.5%2C3.8L311.0%2C0.1L332.6%2C3.3L337.7%2C6.9L338.1%2C13.7L307.6%2C16.2L309.3%2C25.2L294.7%2C32.2L281.8%2C46.2L273.6%2C49.2L273.2%2C58.5L267.0%2C59.9L265.0%2C66.8L258.5%2C70.7L255.5%2C82.0L246.7%2C89.0L241.7%2C113.7L244.4%2C121.5L247.4%2C121.5L255.2%2C109.2L284.2%2C90.0L278.8%2C98.3L280.3%2C100.9L292.0%2C98.1L314.6%2C100.0L334.5%2C107.8L336.3%2C114.4L342.1%2C111.8L352.8%2C122.2L354.3%2C131.4L364.3%2C146.0L370.7%2C153.3L379.2%2C155.5L377.9%2C166.0L383.3%2C171.7L411.2%2C172.9L426.1%2C166.1L431.6%2C169.0L433.8%2C176.8L445.9%2C183.4L456.1%2C175.5L464.9%2C182.6L466.7%2C172.2L463.5%2C164.2L467.4%2C161.1L473.7%2C165.9L471.3%2C174.4L476.0%2C173.1L478.9%2C178.3L493.5%2C162.8L508.4%2C158.2L531.9%2C142.1L539.6%2C144.7L567.4%2C138.4L613.4%2C141.0L645.0%2C127.4L682.8%2C124.2L673.6%2C137.2L673.9%2C163.7L670.1%2C167.2L673.9%2C174.8L684.9%2C173.7L698.4%2C181.7L723.2%2C174.5L733.1%2C186.2L743.1%2C183.4L749.5%2C171.7L769.0%2C172.7L773.8%2C165.9L785.9%2C166.6L788.1%2C171.1L783.8%2C186.2L788.5%2C217.3L783.4%2C220.3L774.6%2C218.9L770.6%2C228.7L774.4%2C231.0L779.9%2C227.3L786.4%2C228.0L790.1%2C233.7L798.7%2C236.5L793.1%2C243.4L814.5%2C259.8L818.5%2C260.5L821.4%2C255.1L827.8%2C260.3L831.4%2C256.4L825.1%2C240.6L830.6%2C243.6L847.7%2C241.4L854.4%2C243.9L860.4%2C257.6L867.9%2C262.3L862.4%2C273.0L856.8%2C274.9L844.8%2C269.2L830.9%2C271.5L816.9%2C265.2L799.9%2C266.8L788.2%2C263.3L760.8%2C267.3L755.0%2C271.5L741.6%2C261.7L735.5%2C265.0L734.0%2C255.6L725.9%2C255.0L720.0%2C250.4L715.5%2C254.9L716.4%2C264.3L709.7%2C269.1L714.4%2C285.4L708.7%2C288.4L698.2%2C282.0L675.3%2C257.7L635.1%2C243.3L614.6%2C242.6L590.0%2C266.6L575.8%2C263.1L565.5%2C265.3L561.8%2C268.7L562.9%2C273.7L543.1%2C265.7L526.1%2C266.1L517.4%2C269.8L511.6%2C276.1L508.2%2C295.0L500.1%2C295.8L491.4%2C304.1L487.8%2C303.1L485.0%2C310.8L479.5%2C310.1L478.7%2C318.1L473.6%2C319.4L475.0%2C328.6L466.2%2C323.8L462.4%2C316.2L468.9%2C311.8L473.3%2C297.8L479.2%2C298.5L482.5%2C293.3L486.1%2C284.7L484.5%2C278.9L479.2%2C277.4L471.4%2C288.7L458.4%2C282.8L454.4%2C284.1L455.5%2C292.7L447.3%2C308.3L434.1%2C313.0L431.6%2C317.0L428.6%2C292.8L423.2%2C288.2L420.0%2C292.5L419.7%2C310.7L402.5%2C323.4L386.2%2C360.4L352.1%2C409.3L353.4%2C418.3L344.7%2C416.2L334.5%2C400.3L346.2%2C375.5L345.0%2C370.4L340.4%2C366.6L333.2%2C373.3L320.9%2C375.3L316.2%2C372.8L328.1%2C347.3L328.2%2C326.8L324.2%2C319.3L329.6%2C315.7L326.3%2C310.8L303.3%2C295.5L290.4%2C297.2L285.2%2C291.3L292.9%2C281.4L280.2%2C269.3L270.9%2C266.1L265.2%2C268.1L255.1%2C261.4L241.0%2C261.1L235.7%2C255.9L218.9%2C261.7L217.3%2C257.2L200.3%2C255.7L185.6%2C246.7Z%22%2F%3E%3Ccircle%20cx%3D%22732.6%22%20cy%3D%22832.9%22%20r%3D%2226%22%20fill%3D%22%23C8362B%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Michigan Data Center Tracker">
+<meta property="og:title" content="Dashboard · Live Diagrams — Michigan Data Center Tracker">
+<meta property="og:description" content="Live diagrams of Michigan’s data-center buildout — status, region, disclosed load and grid mix, drawn from the same sourced records that power the map.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://michigandatacentertracker.com/dashboard">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dashboard · Live Diagrams — Michigan Data Center Tracker">
+<meta name="twitter:description" content="Live diagrams of Michigan’s data-center buildout — status, region, disclosed load and grid mix, drawn from the same sourced records that power the map.">
+<meta name="twitter:image" content="og-image.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root {
+    --navy:#0C1E33; --ink:#14212E; --mist:#EDF1F6; --paper:#FFFFFF; --surface:#FFFFFF; --panel:#F5F8FC; --panel-2:#E7EEF6;
+    --lake:#1E6FC4; --faint:#5F6875; --soft:#4C5661; --hair:rgba(12,30,51,0.13);
+    --cherry:#C4342C; --copper:#C9781F; --pine:#1E8E52; --teal:#0E7C86;
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; }
+  body { background:var(--mist); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  a { color:var(--lake); text-decoration:none; } a:hover { color:var(--cherry); }
+  ::selection { background:#D3E2F3; color:var(--ink); }
+  .leaflet-container { background:#DCE6F0; font-family:'Archivo',sans-serif; }
+  @keyframes softPulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+  input[type=range] { -webkit-appearance:none; appearance:none; height:4px; background:var(--panel-2); outline:none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--cherry); cursor:pointer; }
+</style>
+<!--ANALYTICS-->
+<script>
+(function(){
+  window.dataLayer=window.dataLayer||[];
+  function pg(){window.dataLayer.push({event:'page_view',page:document.title||location.pathname,path:location.pathname});}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a,[data-track]');if(!a)return;
+    var h=a.getAttribute('href');
+    window.dataLayer.push({event:a.hasAttribute('data-track')?'cta_click':'link_click',label:a.getAttribute('data-track')||(a.textContent||'').trim().replace(/\s+/g,' ').slice(0,60),href:h||null,outbound:(/^https?:/.test(h||''))||null,page:document.title||location.pathname});
+  },true);
+  if(document.readyState!=='loading')pg();else document.addEventListener('DOMContentLoaded',pg);
+})();
+</script>
+<script src="image-slot.js"></script>
+</helmet>
+<div style="background:var(--mist); color:var(--ink); font-family:'Archivo',system-ui,sans-serif; min-height:100vh;">
+
+  <!-- MASTHEAD -->
+  <header style="background:var(--paper); border-bottom:2px solid var(--navy); padding:0 26px; position:sticky; top:0; z-index:100;">
+    <div style="max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:64px; gap:24px;">
+      <div style="display:flex; align-items:center; gap:13px;">
+        <a href="index.html" style="width:38px; height:38px; flex:none; background:var(--navy); border-radius:9px; display:flex; align-items:center; justify-content:center; text-decoration:none; color:inherit;">
+          <svg viewBox="0 0 1000 1015" aria-label="Michigan" preserveAspectRatio="xMidYMid meet" style="width:22px; height:auto; flex:none; display:block;"><path d="M880.5,983.6L872.1,994.3L874.0,1007.0L870.3,1008.4L701.3,1014.8L699.7,1003.6L449.0,1003.5L474.7,980.1L491.5,940.7L507.6,916.9L519.4,883.6L523.9,857.1L526.3,835.2L523.0,783.2L484.5,674.9L498.2,642.8L494.2,615.6L487.8,600.3L499.5,587.8L518.5,549.9L524.5,511.1L520.2,489.1L541.0,480.4L543.8,451.6L553.0,452.6L560.7,440.5L568.4,445.8L576.2,443.9L599.8,402.3L603.9,403.4L608.2,398.1L610.7,404.0L600.3,412.7L606.3,427.4L602.5,427.9L599.4,434.3L601.8,447.9L598.9,448.9L595.6,461.5L597.0,474.4L602.2,476.1L610.5,457.3L610.8,454.4L606.5,453.4L612.1,439.6L617.7,436.6L614.3,460.4L607.6,467.0L605.0,477.1L611.2,479.2L627.6,447.2L631.3,423.0L628.5,393.8L630.6,387.5L652.5,371.8L673.0,371.7L687.6,366.1L686.8,361.0L672.0,358.4L662.6,340.4L662.3,334.1L667.7,324.7L684.1,310.4L683.2,305.8L676.2,301.2L701.2,304.1L704.4,301.5L702.9,298.1L710.3,296.8L744.4,320.6L748.6,317.6L760.9,318.5L775.1,323.7L785.9,336.4L790.1,347.8L809.6,348.5L826.2,361.5L836.8,362.5L852.1,373.2L865.9,372.6L879.3,387.9L875.5,393.1L881.6,405.9L887.5,410.2L893.8,430.4L877.1,422.7L870.3,429.5L873.1,433.7L870.8,436.8L872.9,446.8L887.0,456.0L892.8,485.3L887.7,503.7L885.5,550.8L873.3,563.2L864.5,562.0L859.8,567.0L854.0,600.6L842.1,604.2L842.0,611.6L823.4,612.4L817.3,617.7L812.4,628.2L810.9,649.6L807.5,652.8L813.4,668.0L843.8,682.3L859.5,661.6L868.3,659.1L876.1,640.0L885.5,631.5L883.6,625.9L891.7,621.4L894.3,615.2L918.8,609.9L931.1,598.9L937.5,598.2L958.7,611.2L972.8,640.1L977.3,682.5L984.6,709.2L986.6,746.5L991.2,768.0L1000.0,785.0L993.3,805.8L988.3,849.6L979.0,864.3L973.9,863.7L966.2,870.5L969.0,865.6L962.9,856.6L966.6,854.5L965.8,851.4L973.1,848.8L973.1,843.3L964.4,840.5L950.3,849.0L954.2,862.4L947.7,861.8L942.7,869.6L940.3,893.1L936.5,899.7L917.0,907.3L911.0,919.6L910.3,946.0L903.4,949.8L903.6,960.1L893.3,972.2L887.5,972.7L884.3,982.5L880.5,983.6Z M185.6,246.7L161.6,234.2L37.2,200.5L26.7,175.5L2.2,164.1L0.0,160.3L11.3,153.0L48.7,141.3L78.4,116.0L125.3,111.5L148.7,99.4L161.1,85.4L180.6,83.8L191.1,66.5L218.2,45.7L230.5,41.0L249.9,19.0L279.5,3.8L311.0,0.1L332.6,3.3L337.7,6.9L338.1,13.7L307.6,16.2L309.3,25.2L294.7,32.2L281.8,46.2L273.6,49.2L273.2,58.5L267.0,59.9L265.0,66.8L258.5,70.7L255.5,82.0L246.7,89.0L241.7,113.7L244.4,121.5L247.4,121.5L255.2,109.2L284.2,90.0L278.8,98.3L280.3,100.9L292.0,98.1L314.6,100.0L334.5,107.8L336.3,114.4L342.1,111.8L352.8,122.2L354.3,131.4L364.3,146.0L370.7,153.3L379.2,155.5L377.9,166.0L383.3,171.7L411.2,172.9L426.1,166.1L431.6,169.0L433.8,176.8L445.9,183.4L456.1,175.5L464.9,182.6L466.7,172.2L463.5,164.2L467.4,161.1L473.7,165.9L471.3,174.4L476.0,173.1L478.9,178.3L493.5,162.8L508.4,158.2L531.9,142.1L539.6,144.7L567.4,138.4L613.4,141.0L645.0,127.4L682.8,124.2L673.6,137.2L673.9,163.7L670.1,167.2L673.9,174.8L684.9,173.7L698.4,181.7L723.2,174.5L733.1,186.2L743.1,183.4L749.5,171.7L769.0,172.7L773.8,165.9L785.9,166.6L788.1,171.1L783.8,186.2L788.5,217.3L783.4,220.3L774.6,218.9L770.6,228.7L774.4,231.0L779.9,227.3L786.4,228.0L790.1,233.7L798.7,236.5L793.1,243.4L814.5,259.8L818.5,260.5L821.4,255.1L827.8,260.3L831.4,256.4L825.1,240.6L830.6,243.6L847.7,241.4L854.4,243.9L860.4,257.6L867.9,262.3L862.4,273.0L856.8,274.9L844.8,269.2L830.9,271.5L816.9,265.2L799.9,266.8L788.2,263.3L760.8,267.3L755.0,271.5L741.6,261.7L735.5,265.0L734.0,255.6L725.9,255.0L720.0,250.4L715.5,254.9L716.4,264.3L709.7,269.1L714.4,285.4L708.7,288.4L698.2,282.0L675.3,257.7L635.1,243.3L614.6,242.6L590.0,266.6L575.8,263.1L565.5,265.3L561.8,268.7L562.9,273.7L543.1,265.7L526.1,266.1L517.4,269.8L511.6,276.1L508.2,295.0L500.1,295.8L491.4,304.1L487.8,303.1L485.0,310.8L479.5,310.1L478.7,318.1L473.6,319.4L475.0,328.6L466.2,323.8L462.4,316.2L468.9,311.8L473.3,297.8L479.2,298.5L482.5,293.3L486.1,284.7L484.5,278.9L479.2,277.4L471.4,288.7L458.4,282.8L454.4,284.1L455.5,292.7L447.3,308.3L434.1,313.0L431.6,317.0L428.6,292.8L423.2,288.2L420.0,292.5L419.7,310.7L402.5,323.4L386.2,360.4L352.1,409.3L353.4,418.3L344.7,416.2L334.5,400.3L346.2,375.5L345.0,370.4L340.4,366.6L333.2,373.3L320.9,375.3L316.2,372.8L328.1,347.3L328.2,326.8L324.2,319.3L329.6,315.7L326.3,310.8L303.3,295.5L290.4,297.2L285.2,291.3L292.9,281.4L280.2,269.3L270.9,266.1L265.2,268.1L255.1,261.4L241.0,261.1L235.7,255.9L218.9,261.7L217.3,257.2L200.3,255.7L185.6,246.7Z" fill="#FFFFFF"></path><circle cx="732.6" cy="832.9" r="30" fill="#CF102D"></circle><circle cx="732.6" cy="832.9" r="12" fill="#FFFFFF"></circle></svg>
+        </a>
+        <div style="font-size:15px; font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;">Michigan Data Center Tracker</div>
+      </div>
+      <nav class="site-nav" style="display:flex; align-items:center; flex-wrap:wrap; gap:12px 18px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;"><a href="index.html" data-track="nav-home" style="color:#4C5661;" style-hover="color:#14212E;">Home</a><a href="live-map.html" data-track="nav-map" style="color:#4C5661;" style-hover="color:#14212E;">Live Map</a><a href="meetings.html" data-track="nav-meetings" style="color:#4C5661;" style-hover="color:#14212E;">Meetings</a><a href="data.html" data-track="nav-data" style="color:#4C5661;" style-hover="color:#14212E;">The Data</a><a href="stories.html" data-track="nav-stories" style="color:#4C5661;" style-hover="color:#14212E;">Stories</a><a href="dashboard.html" data-track="nav-dashboard" style="color:#14212E; font-weight:600; border-bottom:2px solid #C4342C; padding-bottom:4px;">Dashboard</a><a href="learn.html" data-track="nav-learn" style="color:#4C5661;" style-hover="color:#14212E;">Learn</a><a href="your-voice-2026.html" data-track="nav-elections" style="color:#C4342C; font-weight:600;" style-hover="color:#14212E;">Elections ’26</a><a href="subscribe.html" data-track="nav-alerts" style="color:#FFFFFF; background:#1E6FC4; padding:9px 15px; letter-spacing:0.14em;" style-hover="background:#C4342C;">Get alerts</a></nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="max-width:1180px; margin:0 auto; padding:34px 26px 12px;">
+    <div style="display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cherry); margin-bottom:10px;"><span style="width:7px; height:7px; border-radius:50%; background:var(--cherry); animation:softPulse 1.6s ease-in-out infinite;"></span>Tracking the public record &middot; live data</div>
+    <h1 style="font-size:44px; font-weight:800; letter-spacing:-0.025em; line-height:1; margin:0 0 12px;">Dashboard <span style="color:var(--faint); font-weight:600;">/</span> Live Diagrams</h1>
+    <p style="font-size:16px; color:var(--soft); margin:0; max-width:62ch; line-height:1.5;">Our live diagrams — every chart drawn from the same sourced records that power the map. Press play, scrub the timeline, watch the fight move.</p>
+  </section>
+
+  <!-- DASHBOARD GRID -->
+  <section style="max-width:1180px; margin:0 auto; padding:16px 26px 6px;">
+    <div style="display:flex; align-items:center; gap:12px; border-top:2px solid var(--navy); padding-top:14px; margin-bottom:14px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint);">The dashboard</span>
+      <span style="margin-left:auto; display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--soft);"><span style="width:6px; height:6px; border-radius:50%; background:var(--pine); animation:softPulse 1.8s ease-in-out infinite;"></span>Live &middot; <span id="dash-clock">—</span> &middot; auto-refresh 10 min</span>
+    </div>
+
+    <!-- KPI ROW -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px;">
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--lake); padding:16px 18px;"><div style="font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1;">19</div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:7px;">Tracked projects <span style="color:var(--copper);">+1</span></div></div>
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--cherry); padding:16px 18px;"><div style="font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1;">2.9<span style="font-size:15px; color:var(--faint);">GW</span></div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:7px;">Disclosed load</div></div>
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--copper); padding:16px 18px;"><div style="font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1;">33</div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:7px;">Communities paused <span style="color:var(--cherry);">+1</span></div></div>
+      <div style="background:var(--paper); border:1px solid var(--hair); border-left:3px solid var(--pine); padding:16px 18px;"><div style="font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1;">1.7&times;</div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:7px;">Pauses per project</div></div>
+    </div>
+
+    <!-- MINI DIAGRAM ROW -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+      <!-- donut -->
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:12px;">Facilities by status</div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="position:relative; width:74px; height:74px; flex:none; border-radius:50%; background:conic-gradient(var(--lake) 0 15.79%, var(--copper) 15.79% 21.05%, #C9A227 21.05% 73.68%, #9A8E86 73.68% 100%);"><div style="position:absolute; inset:13px; background:var(--paper); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800;">19</div></div>
+          <div style="font-size:10.5px; line-height:1.7; color:var(--soft);"><div><span style="display:inline-block; width:8px; height:8px; background:#C9A227; margin-right:5px;"></span>Proposed 10</div><div><span style="display:inline-block; width:8px; height:8px; background:#9A8E86; margin-right:5px;"></span>Withdrawn 5</div><div><span style="display:inline-block; width:8px; height:8px; background:var(--lake); margin-right:5px;"></span>Approved 3</div></div>
+        </div>
+      </div>
+      <!-- region bars -->
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:14px;">Projects by region</div>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <div><div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:3px;"><span>SE</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--soft);">12</span></div><div style="height:5px; background:var(--panel-2);"><div style="height:100%; width:100%; background:var(--lake);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:3px;"><span>West</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--soft);">4</span></div><div style="height:5px; background:var(--panel-2);"><div style="height:100%; width:33%; background:var(--lake);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:3px;"><span>Mid</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--soft);">2</span></div><div style="height:5px; background:var(--panel-2);"><div style="height:100%; width:17%; background:var(--lake);"></div></div></div>
+          <div><div style="display:flex; justify-content:space-between; font-size:11px; margin-bottom:3px;"><span>North</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--soft);">1</span></div><div style="height:5px; background:var(--panel-2);"><div style="height:100%; width:8%; background:var(--lake);"></div></div></div>
+        </div>
+      </div>
+      <!-- fuel mix -->
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:16px 18px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:14px;">The grid they plug into</div>
+        <div style="height:9px; display:flex; margin-bottom:12px;"><div style="width:12.5%; background:#C9A227;"></div><div style="width:16.67%; background:#6B7280;"></div><div style="width:20.83%; background:var(--copper);"></div><div style="width:25%; background:var(--lake);"></div><div style="width:20.83%; background:#E0B24A;"></div><div style="width:4.17%; background:var(--teal);"></div></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px 12px; font-size:10.5px; color:var(--soft);"><div><span style="display:inline-block; width:8px; height:8px; background:var(--lake); margin-right:5px;"></span>Wind 6</div><div><span style="display:inline-block; width:8px; height:8px; background:var(--copper); margin-right:5px;"></span>Gas 5</div><div><span style="display:inline-block; width:8px; height:8px; background:#E0B24A; margin-right:5px;"></span>Solar 5</div><div><span style="display:inline-block; width:8px; height:8px; background:#6B7280; margin-right:5px;"></span>Coal 4</div></div>
+      </div>
+      <!-- live sparkline -->
+      <div style="background:var(--navy); color:#fff; padding:16px 18px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:#7FA8D4; margin-bottom:10px;">Disclosed MW &middot; trend</div>
+        <svg viewBox="0 0 200 54" style="width:100%; height:auto; display:block;"><polyline points="4,48 40,47 74,46 104,42 128,36 150,26 172,14 196,4" fill="none" stroke="var(--copper)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#7FA8D4; margin-top:10px; display:flex; justify-content:space-between;"><span>Jan '24</span><span style="color:#fff;">2.9 GW</span></div>
+      </div>
+    </div>
+
+    <!-- METHOD STRIP -->
+    <div style="display:flex; align-items:flex-start; gap:12px; background:var(--panel); border:1px solid var(--hair); border-left:3px solid var(--faint); padding:13px 16px; margin-top:12px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--soft); font-weight:600; flex:none; padding-top:1px;">Method</span>
+      <p style="margin:0; font-size:12.5px; line-height:1.6; color:var(--soft); max-width:96ch;">KPIs and the four panels above are drawn from our register of 19 tracked projects, built from municipal agendas &amp; minutes, MPSC filings, and utility disclosures. <b style="color:var(--ink);">Status &amp; region</b> reflect the latest public record. <b style="color:var(--ink);">Disclosed load</b> counts only the 5 of 19 projects that have published a nameplate figure &mdash; the real total runs higher. <b style="color:var(--ink);">The grid mix</b> shows Michigan's 2024 statewide generation (EIA), the pool new load draws on &mdash; not per-project sourcing. <a href="learn.html" style="white-space:nowrap;">Full methodology &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- MORATORIUM WAVE -->
+  <section style="max-width:1180px; margin:0 auto; padding:22px 26px;">
+    <div style="border:1px solid var(--navy); background:var(--paper);">
+      <div style="padding:22px 26px; border-bottom:1px solid var(--hair); display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:8px;">Animated &middot; plays over time</div>
+          <h2 style="font-size:28px; font-weight:800; letter-spacing:-0.02em; margin:0 0 8px;">The Moratorium Wave</h2>
+          <p style="font-size:14px; color:var(--soft); margin:0; max-width:58ch; line-height:1.5;">33 communities have paused data-center development. Press play to watch the wave spread, month by month.</p>
+        </div>
+        <div style="text-align:right;"><div id="wave-count" style="font-size:52px; font-weight:900; letter-spacing:-0.03em; line-height:0.9; color:var(--cherry);">0</div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); margin-top:6px;">Communities paused &middot; <span id="wave-month">Jan '24</span></div></div>
+      </div>
+      <div id="wave-map" style="height:420px;"></div>
+      <div style="padding:16px 26px; display:flex; align-items:center; gap:16px; border-top:1px solid var(--hair);">
+        <button id="wave-play" style="border:none; background:var(--cherry); color:#fff; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; padding:11px 20px; cursor:pointer; display:flex; align-items:center; gap:8px;">&#9654; Play</button>
+        <input id="wave-scrub" type="range" min="0" max="29" value="0" style="flex:1;">
+      </div>
+      <div style="display:flex; align-items:flex-start; gap:12px; padding:13px 26px; border-top:1px solid var(--hair); background:var(--panel);">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--soft); font-weight:600; flex:none; padding-top:1px;">Method</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.6; color:var(--soft);">Each dot is a Michigan community that adopted a formal data-center moratorium, pause, or ban, placed at the community and dated to the month the measure passed. Built from municipal ordinances and meeting minutes; a community is counted once, at its first pause.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITIES UNDER PRESSURE -->
+  <section style="max-width:1180px; margin:0 auto; padding:8px 26px 22px;">
+    <div style="border:1px solid var(--navy); background:var(--paper);">
+      <div style="padding:22px 26px; border-bottom:1px solid var(--hair);">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:8px;">Live heat map</div>
+        <h2 style="font-size:28px; font-weight:800; letter-spacing:-0.02em; margin:0 0 8px;">Communities under pressure</h2>
+        <p style="font-size:14px; color:var(--soft); margin:0; max-width:60ch; line-height:1.5;">Every community weighted by what it faces right now — active projects, local pauses, and upcoming hearings. Bigger, hotter dots = more pressure.</p>
+      </div>
+      <div id="press-map" style="height:400px;"></div>
+      <div style="padding:14px 26px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--hair); flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; gap:18px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--soft);">
+          <span style="display:flex; align-items:center; gap:7px;"><span style="width:11px; height:11px; border-radius:50%; background:var(--cherry);"></span>High</span>
+          <span style="display:flex; align-items:center; gap:7px;"><span style="width:11px; height:11px; border-radius:50%; background:#C97B5A;"></span>Moderate</span>
+          <span style="display:flex; align-items:center; gap:7px;"><span style="width:11px; height:11px; border-radius:50%; background:#9A8E86;"></span>Watching</span>
+        </div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint);">Size = projects + pauses + hearings</span>
+      </div>
+      <div style="padding:6px 26px 24px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); margin:14px 0 6px;">Most pressure right now</div>
+        <div id="press-list"></div>
+        <div style="display:flex; align-items:flex-start; gap:12px; padding:13px 0 0; margin-top:8px; border-top:1px dotted var(--hair);">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--soft); font-weight:600; flex:none; padding-top:1px;">Method</span>
+          <p style="margin:0; font-size:12.5px; line-height:1.6; color:var(--soft);">Pressure score = active projects + adopted local pauses + hearings scheduled in the next 30 days, summed per community. It is an editorial index for triage &mdash; a relative signal of where to look, not an official measurement. Dot size and color scale with the score.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILDOUT CURVE -->
+  <section style="max-width:1180px; margin:0 auto; padding:8px 26px 22px;">
+    <div style="border:1px solid var(--hair); background:var(--paper); padding:24px 26px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry); margin-bottom:8px;">The buildout curve &middot; disclosed MW</div>
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:14px;"><span style="font-size:40px; font-weight:800; letter-spacing:-0.02em; line-height:1;">2.9<span style="font-size:18px; color:var(--faint);">GW</span></span><span style="font-size:13px; color:var(--soft);">verified &middot; &asymp; 2.3 million homes' worth of power</span></div>
+      <svg viewBox="0 0 1100 150" style="width:100%; height:auto; display:block;"><polyline points="8,132 180,130 340,128 460,124 560,116 640,104 720,84 800,58 920,28 1092,8" fill="none" stroke="var(--cherry)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+      <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-top:6px;"><span>Jan 2024</span><span>Jun 2026</span></div>
+      <div style="display:flex; align-items:flex-start; gap:12px; padding-top:13px; margin-top:16px; border-top:1px dotted var(--hair);">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--soft); font-weight:600; flex:none; padding-top:1px;">Method</span>
+        <p style="margin:0; font-size:12.5px; line-height:1.6; color:var(--soft);">Cumulative disclosed nameplate load (MW) across tracked projects, plotted by the month each figure entered the public record. Only projects with a published load appear; the 14 undisclosed projects are excluded, so the curve is a floor, not a ceiling. Home-equivalent uses the U.S. average of ~10.8 MWh/home/yr.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE BREAKDOWN -->
+  <section style="max-width:1180px; margin:0 auto; padding:8px 26px 4px;">
+    <div style="display:flex; align-items:center; gap:12px; border-top:2px solid var(--navy); padding-top:14px; margin-bottom:16px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint);">The breakdown &middot; from the record</span>
+      <a href="data.html" style="margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">See all 19 projects &rarr;</a>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px;">
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+        <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Disclosed load by project</div>
+        <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Only 5 of 19 projects have disclosed a load. Two dwarf the rest.</div>
+        <div id="c-load"></div>
+        <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Nameplate load (MW) as stated in filings or agendas. 14 of 19 projects have disclosed no figure and are omitted here.</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+        <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Who's driving it</div>
+        <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Developers behind the tracked projects — Big Tech included.</div>
+        <div id="c-dev"></div>
+        <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Named applicant/developer per project. &ldquo;Undisclosed&rdquo; = shielded behind an LLC or NDA at time of filing.</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+        <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Where the pipeline stands</div>
+        <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Every project by status — proposals lead, but withdrawals are close behind.</div>
+        <div id="c-pipe"></div>
+        <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Current permitting status from the latest public record. Withdrawn + rejected are counted separately from active proposals.</div>
+      </div>
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+        <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Counties in play</div>
+        <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Where the projects sit. Click any county to open it on the live map.</div>
+        <div id="c-county"></div>
+        <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Project count by county of record. Click a county to open its pins on the live map.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEEPER CUTS -->
+  <section style="max-width:1180px; margin:0 auto; padding:22px 26px 4px;">
+    <div style="display:flex; align-items:center; gap:12px; border-top:2px solid var(--navy); padding-top:14px; margin-bottom:16px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint);">Deeper cuts &middot; reading the record</span>
+    </div>
+
+    <!-- disclosure gap (full width) -->
+    <div style="background:var(--paper); border:1px solid var(--navy); padding:24px 26px; margin-bottom:12px;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:6px;">
+        <div style="font-size:18px; font-weight:800; letter-spacing:-0.01em;">The disclosure gap</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--cherry);">What we still don't know</div>
+      </div>
+      <div style="font-size:13px; color:var(--soft); margin-bottom:18px; max-width:80ch;">Of 19 tracked projects, most have never published how much power they'll draw. You can't weigh a data center's impact on the grid, water, or your bill without its load.</div>
+      <div id="c-gap"></div>
+      <div style="margin-top:16px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;A project is &ldquo;disclosed&rdquo; if a nameplate load (MW) appears anywhere in its public filings or agendas. Share-of-load computed across the five disclosed projects only.</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:12px;">
+      <!-- MW concentration -->
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+        <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Where the load concentrates</div>
+        <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">Two projects account for nearly all disclosed megawatts.</div>
+        <div id="c-mwshare"></div>
+        <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Each disclosed project's MW as a share of the 2,550 MW disclosed to date.</div>
+      </div>
+      <!-- status funnel -->
+      <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px;">
+        <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">From proposal to poured concrete</div>
+        <div style="font-size:12px; color:var(--soft); margin-bottom:16px;">How far projects get — and how many fall away.</div>
+        <div id="c-funnel"></div>
+        <div style="margin-top:14px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Projects grouped by furthest stage reached. Withdrawn + rejected shown as attrition, not a stage.</div>
+      </div>
+    </div>
+
+    <!-- region x status matrix -->
+    <div style="background:var(--paper); border:1px solid var(--hair); padding:20px 22px; margin-bottom:12px;">
+      <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">Region &times; status</div>
+      <div style="font-size:12px; color:var(--soft); margin-bottom:18px;">Where each kind of project sits. Southeast Michigan carries the active pipeline; the west is nearly all early proposals.</div>
+      <div id="c-matrix"></div>
+      <div style="margin-top:16px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Count of projects in each region/status cell. Darker = more projects. Region assigned by county.</div>
+    </div>
+
+    <!-- cumulative moratorium curve -->
+    <div style="background:var(--paper); border:1px solid var(--hair); padding:24px 26px;">
+      <div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; margin-bottom:4px;">The pause, cumulatively</div>
+      <div style="font-size:12px; color:var(--soft); margin-bottom:18px;">Same moratorium data as the animated wave — here as a running total, so you can see the slope steepen.</div>
+      <div id="c-cumul"></div>
+      <div style="margin-top:16px; padding-top:11px; border-top:1px dotted var(--hair); font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.55; color:var(--faint);"><span style="color:var(--soft); font-weight:600;">METHOD</span> &nbsp;Running count of communities with an adopted pause, by month of adoption. Same source register as the Moratorium Wave above.</div>
+    </div>
+  </section>
+
+  <!-- SPONSOR -->
+  <section style="max-width:1180px; margin:0 auto; padding:0 26px 50px;">
+    <div style="border:1px dashed var(--hair); background:var(--paper); padding:20px; display:flex; align-items:center; justify-content:center; gap:18px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--faint);">Dashboard sponsored by</span>
+      <span style="width:120px; height:32px; border:1px dashed var(--hair); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Your logo</span>
+      <a href="#" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;">Become a sponsor &rarr;</a>
+    </div>
+  </section>
+
+</div>
+
+  <!-- ASK EMMY (floating) -->
+  <a href="#ask-emmy" aria-label="Ask Emmy — the tracker's assistant" style="position:fixed; right:22px; bottom:22px; z-index:9999; display:flex; align-items:center; gap:10px; background:#0C1E33; color:#FFFFFF; padding:11px 16px 11px 12px; border-radius:40px; box-shadow:0 6px 24px rgba(12,30,51,0.28); text-decoration:none;">
+    <span style="width:30px; height:30px; flex:none; border-radius:50%; overflow:hidden; background:#1E6FC4;"><image-slot id="emmy-avatar" shape="circle" fit="cover" placeholder="Emmy"></image-slot></span>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;">Ask Emmy</span>
+    <span style="width:7px; height:7px; border-radius:50%; background:#1E8E52;"></span>
+  </a>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() { this._boot(0); this._clock(); this._ck = setInterval(() => this._clock(), 1000); this._charts(); }
+
+  _projects() {
+    return [
+      { name:"Saline Township (Stargate)", county:"Washtenaw", region:"SE Michigan", status:"Under construction", mw:1400, dev:"Related Digital" },
+      { name:"Van Buren Township Google", county:"Wayne", region:"SE Michigan", status:"Proposed", mw:1000, dev:"Google" },
+      { name:"Lyon Township Project Flex", county:"Oakland", region:"SE Michigan", status:"Conditionally approved", mw:0, dev:"Verrus" },
+      { name:"Southfield Metrobloks", county:"Oakland", region:"SE Michigan", status:"Approved", mw:100, dev:"Metrobloks" },
+      { name:"Allen Park Solstice", county:"Wayne", region:"SE Michigan", status:"Rejected", mw:26, dev:"Solstice Data" },
+      { name:"Mason-area proposal", county:"Ingham", region:"Mid-Michigan", status:"Proposed", mw:0, dev:"Undisclosed" },
+      { name:"Howell Township Meta", county:"Livingston", region:"SE Michigan", status:"Withdrawn", mw:0, dev:"Meta" },
+      { name:"Augusta Township Thor", county:"Washtenaw", region:"SE Michigan", status:"Approved", mw:0, dev:"Thor Equities" },
+      { name:"York Township Sansone", county:"Washtenaw", region:"SE Michigan", status:"Proposed", mw:0, dev:"Sansone Group" },
+      { name:"Ypsilanti Twp U-M / Los Alamos", county:"Washtenaw", region:"SE Michigan", status:"Under review", mw:0, dev:"U-M / Los Alamos" },
+      { name:"Gaines Township Microsoft", county:"Kent", region:"West Michigan", status:"Proposed", mw:0, dev:"Microsoft" },
+      { name:"Dorr Township Microsoft", county:"Allegan", region:"West Michigan", status:"Proposed", mw:0, dev:"Microsoft" },
+      { name:"Lowell Township Franklin", county:"Kent", region:"West Michigan", status:"Proposed", mw:0, dev:"Franklin Partners" },
+      { name:"Pavilion Township Franklin", county:"Kalamazoo", region:"West Michigan", status:"Withdrawn", mw:0, dev:"Franklin Partners" },
+      { name:"Lansing Deep Green", county:"Ingham", region:"Mid-Michigan", status:"Withdrawn", mw:24, dev:"Deep Green" },
+      { name:"Frenchtown Cherry Blossom", county:"Monroe", region:"SE Michigan", status:"Proposed", mw:0, dev:"Cloverleaf" },
+      { name:"Dundee Township Ironwood", county:"Monroe", region:"SE Michigan", status:"Proposed", mw:0, dev:"Cloverleaf" },
+      { name:"Kalkaska Rocklocker", county:"Kalkaska", region:"Northern Michigan", status:"Withdrawn", mw:0, dev:"Rocklocker LLC" },
+      { name:"Springfield Township campus", county:"Oakland", region:"SE Michigan", status:"Proposed", mw:0, dev:"Undisclosed" }
+    ];
+  }
+
+  _statusColor(s) {
+    return { "Under construction":"#C9781F", "Proposed":"#1E6FC4", "Approved":"#1E8E52", "Conditionally approved":"#5FA86F", "Under review":"#0E7C86", "Withdrawn":"#9A8E86", "Rejected":"#C4342C" }[s] || "#9A8E86";
+  }
+
+  _charts() {
+    const P = this._projects();
+    const bar = (label, val, max, color, right) => `<div style="margin-bottom:11px;"><div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;"><span style="font-size:12.5px; color:var(--ink);">${label}</span><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--soft);">${right}</span></div><div style="height:7px; background:var(--panel-2);"><div style="height:100%; width:${Math.max(3, val / max * 100)}%; background:${color};"></div></div></div>`;
+
+    // A — disclosed load
+    const load = P.filter(p => p.mw > 0).sort((a, b) => b.mw - a.mw);
+    const maxL = load[0].mw;
+    document.getElementById("c-load").innerHTML = load.map(p => bar(p.name, p.mw, maxL, "var(--cherry)", p.mw.toLocaleString() + " MW")).join("");
+
+    // B — developers
+    const devMap = {};
+    P.forEach(p => { const d = p.dev === "Undisclosed" ? "Undisclosed" : p.dev; devMap[d] = (devMap[d] || 0) + 1; });
+    const devs = Object.entries(devMap).sort((a, b) => b[1] - a[1]).slice(0, 8);
+    const maxD = devs[0][1];
+    document.getElementById("c-dev").innerHTML = devs.map(([d, n]) => bar(d, n, maxD, "var(--navy)", n + (n > 1 ? " projects" : " project"))).join("");
+
+    // C — pipeline by status
+    const order = ["Proposed", "Under construction", "Conditionally approved", "Approved", "Under review", "Withdrawn", "Rejected"];
+    const stMap = {};
+    P.forEach(p => { stMap[p.status] = (stMap[p.status] || 0) + 1; });
+    const total = P.length;
+    const segs = order.filter(s => stMap[s]).map(s => `<div style="width:${stMap[s] / total * 100}%; background:${this._statusColor(s)};" title="${s}: ${stMap[s]}"></div>`).join("");
+    const legend = order.filter(s => stMap[s]).map(s => `<div style="display:flex; align-items:center; gap:7px; font-size:12px; color:var(--soft);"><span style="width:9px; height:9px; background:${this._statusColor(s)}; flex:none;"></span><span style="flex:1;">${s}</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--ink);">${stMap[s]}</span></div>`).join("");
+    document.getElementById("c-pipe").innerHTML = `<div style="height:14px; display:flex; margin-bottom:16px; border:1px solid var(--hair);">${segs}</div><div style="display:flex; flex-direction:column; gap:8px;">${legend}</div>`;
+
+    // D — counties (links to map)
+    const cMap = {};
+    P.forEach(p => { cMap[p.county] = (cMap[p.county] || 0) + 1; });
+    const counties = Object.entries(cMap).sort((a, b) => b[1] - a[1]);
+    const maxC = counties[0][1];
+    document.getElementById("c-county").innerHTML = counties.map(([c, n]) => `<a href="live-map.html" style="display:block; text-decoration:none;">${bar(c + " Co.", n, maxC, "var(--lake)", n + " &rarr;")}</a>`).join("");
+
+    // E — disclosure gap
+    const disclosed = P.filter(p => p.mw > 0).length, undisclosed = P.length - disclosed;
+    const gapPct = Math.round(undisclosed / P.length * 100);
+    document.getElementById("c-gap").innerHTML =
+      `<div style="display:flex; height:52px; border:1px solid var(--hair); overflow:hidden;">
+        <div style="width:${disclosed / P.length * 100}%; background:var(--lake); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:15px; min-width:64px;">${disclosed}</div>
+        <div style="width:${undisclosed / P.length * 100}%; background:repeating-linear-gradient(45deg,#E7EEF6,#E7EEF6 8px,#DCE6F0 8px,#DCE6F0 16px); display:flex; align-items:center; justify-content:center; color:var(--soft); font-weight:800; font-size:15px;">${undisclosed}</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; margin-top:9px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;">
+        <span style="color:var(--lake);">&#9632; Disclosed load</span>
+        <span style="color:var(--soft);">Undisclosed &mdash; ${gapPct}% of projects &#9632;</span>
+      </div>`;
+
+    // F — MW concentration
+    const totMW = load.reduce((s, p) => s + p.mw, 0);
+    document.getElementById("c-mwshare").innerHTML = load.map((p, i) => {
+      const pct = p.mw / totMW * 100;
+      return `<div style="margin-bottom:11px;"><div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;"><span style="font-size:12.5px;">${p.name}</span><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--soft);">${pct.toFixed(1)}%</span></div><div style="height:7px; background:var(--panel-2);"><div style="height:100%; width:${Math.max(2, pct)}%; background:${i < 2 ? "var(--cherry)" : "var(--copper)"};"></div></div></div>`;
+    }).join("") + `<div style="font-size:12px; color:var(--soft); margin-top:4px;">Top two = <b style="color:var(--ink);">${((load[0].mw + load[1].mw) / totMW * 100).toFixed(0)}%</b> of all disclosed load.</div>`;
+
+    // G — status funnel
+    const stages = [["Proposed / under review", ["Proposed","Under review"]], ["Approved", ["Approved","Conditionally approved"]], ["Under construction", ["Under construction"]]];
+    const fmax = P.length;
+    let funnel = stages.map(([label, keys]) => {
+      const n = P.filter(p => keys.includes(p.status)).length;
+      return `<div style="margin-bottom:10px;"><div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:4px;"><span>${label}</span><span style="font-family:'IBM Plex Mono',monospace; color:var(--soft);">${n}</span></div><div style="height:22px; background:var(--panel-2);"><div style="height:100%; width:${n / fmax * 100}%; background:var(--pine);"></div></div></div>`;
+    }).join("");
+    const lost = P.filter(p => p.status === "Withdrawn" || p.status === "Rejected").length;
+    funnel += `<div style="margin-top:14px; padding-top:12px; border-top:1px dotted var(--hair); display:flex; justify-content:space-between; align-items:baseline;"><span style="font-size:12.5px; color:var(--cherry); font-weight:600;">Fell away (withdrawn / rejected)</span><span style="font-family:'IBM Plex Mono',monospace; font-size:15px; font-weight:800; color:var(--cherry);">${lost}</span></div>`;
+    document.getElementById("c-funnel").innerHTML = funnel;
+
+    // H — region x status matrix
+    const regions = ["SE Michigan", "West Michigan", "Mid-Michigan", "Northern Michigan"];
+    const cols = [["Proposed","Proposed"], ["Under review","Review"], ["Approved","Approved"], ["Conditionally approved","Cond."], ["Under construction","Building"], ["Withdrawn","Withdrawn"], ["Rejected","Rejected"]];
+    const cell = (r, sKeys) => P.filter(p => p.region === r && sKeys.some(k => p.status === k)).length;
+    const grpCols = [["Proposed",["Proposed"]],["Review",["Under review"]],["Approved",["Approved","Conditionally approved"]],["Building",["Under construction"]],["Dropped",["Withdrawn","Rejected"]]];
+    let mx = 1; regions.forEach(r => grpCols.forEach(([, ks]) => { mx = Math.max(mx, cell(r, ks)); }));
+    const head = `<div style="display:grid; grid-template-columns:150px repeat(${grpCols.length},1fr); gap:4px; margin-bottom:4px;"><div></div>${grpCols.map(([l]) => `<div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); text-align:center;">${l}</div>`).join("")}</div>`;
+    const rows = regions.map(r => {
+      const cells = grpCols.map(([, ks]) => {
+        const n = cell(r, ks);
+        const a = n === 0 ? 0.05 : 0.18 + (n / mx) * 0.82;
+        return `<div style="aspect-ratio:1.6; background:rgba(30,111,196,${a}); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:${a > 0.5 ? "#fff" : (n ? "var(--ink)" : "var(--faint)")};">${n || ""}</div>`;
+      }).join("");
+      return `<div style="display:grid; grid-template-columns:150px repeat(${grpCols.length},1fr); gap:4px; margin-bottom:4px;"><div style="font-size:12.5px; display:flex; align-items:center;">${r.replace(" Michigan","")}</div>${cells}</div>`;
+    }).join("");
+    document.getElementById("c-matrix").innerHTML = head + rows;
+
+    // I — cumulative moratorium curve
+    const wave = this._wave(), months = this._months();
+    const counts = months.map((_, i) => wave.filter(p => p[2] <= i).length);
+    const W = 1080, H = 190, pad = 8, maxN = counts[counts.length - 1];
+    const px = i => pad + i / (counts.length - 1) * (W - pad * 2);
+    const py = v => H - pad - v / maxN * (H - pad * 2);
+    const line = counts.map((v, i) => `${px(i).toFixed(1)},${py(v).toFixed(1)}`).join(" ");
+    const area = `${pad},${H - pad} ${line} ${W - pad},${H - pad}`;
+    const idxs = [0, 6, 12, 18, 24, counts.length - 1];
+    document.getElementById("c-cumul").innerHTML =
+      `<svg viewBox="0 0 ${W} ${H}" style="width:100%; height:auto; display:block;">
+        <polygon points="${area}" fill="rgba(196,52,44,0.10)"></polygon>
+        <polyline points="${line}" fill="none" stroke="var(--cherry)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <circle cx="${px(counts.length - 1)}" cy="${py(maxN)}" r="5" fill="var(--cherry)"></circle>
+      </svg>
+      <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin-top:6px;">${idxs.map(i => `<span>${months[i]}</span>`).join("")}</div>`;
+  }
+
+  componentWillUnmount() { if (this._iv) clearInterval(this._iv); if (this._ck) clearInterval(this._ck); if (this.wmap) this.wmap.remove(); if (this.pmap) this.pmap.remove(); }
+
+  _clock() { const el = document.getElementById("dash-clock"); if (!el) return; const d = new Date(); const p = n => String(n).padStart(2, "0"); let h = d.getHours(); const ap = h >= 12 ? "PM" : "AM"; h = ((h + 11) % 12) + 1; el.textContent = h + ":" + p(d.getMinutes()) + ":" + p(d.getSeconds()) + " " + ap; }
+
+  _months() { const a = []; const mn = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; for (let y = 24; y <= 26; y++) for (let m = 0; m < 12; m++) { if (y === 26 && m > 5) break; a.push(mn[m] + " '" + y); } return a; }
+
+  _wave() {
+    return [
+      [45.02,-85.20,2],[43.90,-86.44,5],[44.72,-85.60,7],[43.01,-86.24,9],[42.96,-85.67,11],
+      [42.79,-85.57,13],[42.20,-85.58,15],[42.29,-85.63,16],[41.93,-85.02,17],[42.20,-85.47,18],
+      [42.73,-84.55,19],[42.60,-84.44,20],[42.58,-84.44,21],[42.73,-84.56,22],[42.25,-84.40,23],
+      [42.60,-83.85,24],[42.66,-83.55,25],[42.53,-83.65,25],[42.33,-83.05,26],[42.47,-83.24,26],
+      [42.22,-83.61,27],[42.13,-83.65,27],[42.21,-83.48,28],[42.72,-82.74,28],[41.96,-83.35,28],
+      [41.96,-83.66,29],[42.26,-83.21,29],[43.01,-83.76,29],[42.16,-83.78,29],[42.64,-83.29,29],
+      [42.60,-83.93,29],[42.31,-83.18,29],[42.13,-83.66,29]
+    ];
+  }
+
+  _press() {
+    return [
+      { name:"Lansing", county:"Ingham", lat:42.73, lng:-84.55, score:9, meta:"1 project · 2 hearings · next: 2026-07-13" },
+      { name:"Lenox Township", county:"Macomb", lat:42.72, lng:-82.74, score:8, meta:"1 pause · 2 hearings · next: 2026-07-09" },
+      { name:"Ypsilanti Township", county:"Washtenaw", lat:42.22, lng:-83.61, score:6, meta:"1 project · 1 pause" },
+      { name:"Dundee Township", county:"Monroe", lat:41.96, lng:-83.66, score:6, meta:"1 project · 1 pause" },
+      { name:"Saline Township", county:"Washtenaw", lat:42.16, lng:-83.78, score:5, meta:"1 project · under construction" },
+      { name:"Portage", county:"Kalamazoo", lat:42.20, lng:-85.58, score:5, meta:"1 pause · 1 hearing" },
+      { name:"Gaines Township", county:"Kent", lat:42.79, lng:-85.57, score:4, meta:"1 project" },
+      { name:"Girard Township", county:"Branch", lat:41.93, lng:-85.02, score:3, meta:"1 pause" },
+      { name:"Traverse City", county:"Grand Traverse", lat:44.72, lng:-85.60, score:2, meta:"watching" },
+      { name:"Kalkaska", county:"Kalkaska", lat:44.73, lng:-85.17, score:1, meta:"watching" }
+    ];
+  }
+
+  _pcolor(s) { return s >= 6 ? "#C4342C" : s >= 3 ? "#C97B5A" : "#9A8E86"; }
+
+  _boot(t) {
+    if (!window.L) { if (t < 40) return void setTimeout(() => this._boot(t + 1), 100); return; }
+    const L = window.L;
+    // WAVE
+    const wmap = L.map("wave-map", { center:[44.4, -84.6], zoom:6, zoomControl:true, scrollWheelZoom:false, attributionControl:false });
+    this.wmap = wmap;
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", { subdomains:"abcd" }).addTo(wmap);
+    const pts = this._wave(), months = this._months();
+    this.wLayer = L.layerGroup().addTo(wmap);
+    const draw = (cur) => {
+      this.wLayer.clearLayers();
+      let n = 0;
+      pts.forEach(p => { if (p[2] <= cur) { n++; const fresh = p[2] === cur; L.circleMarker([p[0], p[1]], { radius:fresh ? 11 : 7, weight:fresh ? 3 : 1.5, color:"#fff", fillColor:"#C4342C", fillOpacity:fresh ? 1 : 0.75 }).addTo(this.wLayer); } });
+      document.getElementById("wave-count").textContent = n;
+      document.getElementById("wave-month").textContent = months[cur] || "";
+      document.getElementById("wave-scrub").value = cur;
+    };
+    let cur = 0; draw(0);
+    const scrub = document.getElementById("wave-scrub"), btn = document.getElementById("wave-play");
+    scrub.addEventListener("input", () => { cur = +scrub.value; draw(cur); if (this._iv) { clearInterval(this._iv); this._iv = null; btn.innerHTML = "&#9654; Play"; } });
+    btn.addEventListener("click", () => {
+      if (this._iv) { clearInterval(this._iv); this._iv = null; btn.innerHTML = "&#9654; Play"; return; }
+      if (cur >= 29) cur = 0;
+      btn.innerHTML = "&#10073;&#10073; Pause";
+      this._iv = setInterval(() => { cur++; draw(cur); if (cur >= 29) { clearInterval(this._iv); this._iv = null; btn.innerHTML = "&#9654; Replay"; } }, 380);
+    });
+    setTimeout(() => wmap.invalidateSize(), 200);
+
+    // PRESSURE
+    const pmap = L.map("press-map", { center:[43.6, -84.2], zoom:6, zoomControl:true, scrollWheelZoom:false, attributionControl:false });
+    this.pmap = pmap;
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", { subdomains:"abcd" }).addTo(pmap);
+    const press = this._press();
+    press.forEach(c => {
+      L.circleMarker([c.lat, c.lng], { radius:8 + c.score * 3.4, weight:2, color:"#fff", fillColor:this._pcolor(c.score), fillOpacity:0.72 })
+        .bindPopup(`<div style="font-family:Archivo; padding:11px 14px;"><b>${c.name}</b> <span style="color:#5F6875;">· ${c.county} Co.</span><br><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#4C5661;">${c.meta}</span></div>`)
+        .addTo(pmap);
+    });
+    setTimeout(() => pmap.invalidateSize(), 200);
+    const top = press.slice().sort((a, b) => b.score - a.score).slice(0, 5);
+    document.getElementById("press-list").innerHTML = top.map((c, i) => `<div style="display:flex; align-items:baseline; gap:16px; padding:13px 0; border-top:1px solid var(--hair);"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--cherry); flex:none; width:18px;">${i + 1}</span><div style="flex:1;"><span style="font-size:15px; font-weight:800;">${c.name}</span> <span style="font-size:13px; color:var(--soft);">· ${c.county} Co.</span></div><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--soft);">${c.meta}</span></div>`).join("");
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

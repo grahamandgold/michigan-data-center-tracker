@@ -1,0 +1,2048 @@
+{
+ "updated_at": "2026-07-09T17:31:56+00:00",
+ "map_points": [
+  {
+   "name": "Saline Township campus (Stargate)",
+   "municipality": "Saline Township",
+   "county": "Washtenaw",
+   "status": "Under construction",
+   "layer": "projects",
+   "developer": "Related Digital / Oracle / OpenAI",
+   "power_mw": "1,400",
+   "latitude": 42.166,
+   "longitude": -83.782,
+   "source_url": "https://www.enr.com/articles/63087-record-16b-data-center-project-advances-in-michigan",
+   "source_name": "Engineering News-Record",
+   "verified_date": "2026-06-02",
+   "confidence": "Confirmed",
+   "note": "250-acre build on 575-acre property. Full construction targeted early 2026."
+  },
+  {
+   "name": "Marshall Technology & Energy Center",
+   "municipality": "Marshall",
+   "county": "Calhoun",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Alterra Development",
+   "power_mw": "400",
+   "latitude": 42.272,
+   "longitude": -84.963,
+   "source_url": "https://wwmt.com/news/local/story/data-center-gas-generation-plant-proposed-in-marshall-alterra-development-calhoun-county-energy-electricity-water",
+   "source_name": "WWMT",
+   "verified_date": "2026-07-09",
+   "confidence": "Reported",
+   "note": "Data center + on-site gas generation on 200+ acres in Brooks Industrial Park. ~400 MW grid import at peak; up to ~1,400 MW including on-site gas if fully built out. Due diligence expected through Q3 2026; significant local opposition over wetlands and water."
+  },
+  {
+   "name": "Van Buren Township Google proposal",
+   "municipality": "Van Buren Township",
+   "county": "Wayne",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Google (Project Cannoli)",
+   "power_mw": "1,000",
+   "latitude": 42.232,
+   "longitude": -83.486,
+   "source_url": "https://planetdetroit.org/2026/06/google-data-center-wetlands/",
+   "source_name": "Planet Detroit",
+   "verified_date": "2026-06-17",
+   "confidence": "Confirmed",
+   "note": "~280 acres near Belleville. State wetland permit review pending."
+  },
+  {
+   "name": "Lyon Township Project Flex",
+   "municipality": "Lyon Township",
+   "county": "Oakland",
+   "status": "Conditionally approved",
+   "layer": "projects",
+   "developer": "Verrus / Walbridge",
+   "power_mw": "",
+   "latitude": 42.52,
+   "longitude": -83.65,
+   "source_url": "https://www.crainsdetroit.com/economic-development/verrus-data-center-planned-lyon-township",
+   "source_name": "Crain's Detroit",
+   "verified_date": "2025-09-01",
+   "confidence": "Reported",
+   "note": "~172 acres, 1.8M sq ft. Alphabet-backed Sidewalk Infrastructure ties reported."
+  },
+  {
+   "name": "Southfield Metrobloks data center",
+   "municipality": "Southfield",
+   "county": "Oakland",
+   "status": "Approved",
+   "layer": "projects",
+   "developer": "Metrobloks",
+   "power_mw": "100",
+   "latitude": 42.473,
+   "longitude": -83.221,
+   "source_url": "https://www.mlive.com/news/2025/12/100k-square-foot-data-center-proposed-for-vacant-southfield-parcel-near-i-696.html",
+   "source_name": "MLive",
+   "verified_date": "2025-12-16",
+   "confidence": "Confirmed",
+   "note": "~110,000 sq ft near I-696. City council approved site plan Dec. 2025."
+  },
+  {
+   "name": "Allen Park Solstice proposal",
+   "municipality": "Allen Park",
+   "county": "Wayne",
+   "status": "Rejected by planning commission",
+   "layer": "projects",
+   "developer": "Solstice Data",
+   "power_mw": "26",
+   "latitude": 42.257,
+   "longitude": -83.211,
+   "source_url": "https://planetdetroit.org/2026/06/allen-park-planners-reject-data-center/",
+   "source_name": "Planet Detroit",
+   "verified_date": "2026-06-05",
+   "confidence": "Confirmed",
+   "note": "Planning commission voted 7–2 against; city recommended 6-month pause."
+  },
+  {
+   "name": "Mason-area proposal",
+   "municipality": "Mason area",
+   "county": "Ingham",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Undisclosed",
+   "power_mw": "",
+   "latitude": 42.58,
+   "longitude": -84.443,
+   "source_url": "https://www.wilx.com/2026/06/03/data-center-developer-requests-mason-utilities-promises-1b-investment/",
+   "source_name": "WILX",
+   "verified_date": "2026-06-03",
+   "confidence": "Reported",
+   "note": "Developer requested city utilities; $1B investment pledged."
+  },
+  {
+   "name": "Howell Township Meta proposal",
+   "municipality": "Howell Township",
+   "county": "Livingston",
+   "status": "Withdrawn",
+   "layer": "projects",
+   "developer": "Randee LLC / Meta (reported)",
+   "power_mw": "",
+   "latitude": 42.607,
+   "longitude": -84.089,
+   "source_url": "https://www.mlive.com/news/ann-arbor/2025/12/rezoning-request-for-meta-backed-data-center-near-howell-withdrawn-officials-say.html",
+   "source_name": "MLive",
+   "verified_date": "2025-12-08",
+   "confidence": "Reported",
+   "note": "1,000+ acre proposal withdrawn Dec. 2025 amid opposition."
+  },
+  {
+   "name": "Augusta Township Thor Equities",
+   "municipality": "Augusta Township",
+   "county": "Washtenaw",
+   "status": "Approved",
+   "layer": "projects",
+   "developer": "Thor Equities",
+   "power_mw": "",
+   "latitude": 42.11,
+   "longitude": -83.74,
+   "source_url": "https://www.mlive.com/news/ann-arbor/2025/07/farmland-rezoned-for-proposed-1b-data-center-in-southeast-washtenaw-county.html",
+   "source_name": "MLive",
+   "verified_date": "2025-07-01",
+   "confidence": "Confirmed",
+   "note": "522 acres rezoned within 810-acre site. Referendum expected 2026."
+  },
+  {
+   "name": "York Township Sansone / Toyota land",
+   "municipality": "York Township",
+   "county": "Washtenaw",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Sansone Group",
+   "power_mw": "",
+   "latitude": 42.14,
+   "longitude": -83.85,
+   "source_url": "https://www.mlive.com/news/ann-arbor/2025/12/developers-seek-another-ai-data-center-on-land-owned-by-toyota-south-of-ann-arbor.html",
+   "source_name": "MLive",
+   "verified_date": "2025-12-01",
+   "confidence": "Reported",
+   "note": "412 acres off Platt Road. No formal township application yet."
+  },
+  {
+   "name": "Ypsilanti Township UM / Los Alamos facility",
+   "municipality": "Ypsilanti Township",
+   "county": "Washtenaw",
+   "status": "Under review",
+   "layer": "projects",
+   "developer": "University of Michigan / Los Alamos",
+   "power_mw": "",
+   "latitude": 42.24,
+   "longitude": -83.61,
+   "source_url": "https://www.mlive.com/news/ann-arbor/2024/12/price-tag-is-12b-for-university-of-michigan-los-alamos-project-to-build-fastest-computer.html",
+   "source_name": "MLive",
+   "verified_date": "2025-12-01",
+   "confidence": "Reported",
+   "note": "$1.2B high-performance computing facility. Township opposes Textile Road site."
+  },
+  {
+   "name": "Gaines Township Microsoft",
+   "municipality": "Gaines Township",
+   "county": "Kent",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Microsoft",
+   "power_mw": "",
+   "latitude": 42.85,
+   "longitude": -85.68,
+   "source_url": "https://www.mlive.com/news/grand-rapids/2025/12/microsoft-confirms-data-center-plans-in-kent-county.html",
+   "source_name": "MLive",
+   "verified_date": "2025-12-01",
+   "confidence": "Confirmed",
+   "note": "316-acre former Steelcase property. Rezoning hearing Dec. 2025."
+  },
+  {
+   "name": "Dorr Township Microsoft",
+   "municipality": "Dorr Township",
+   "county": "Allegan",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Microsoft",
+   "power_mw": "",
+   "latitude": 42.72,
+   "longitude": -85.75,
+   "source_url": "https://www.crainsgrandrapids.com/news/real-estate/microsoft-buys-a-second-large-property-in-west-michigan-for-potential-data-center/",
+   "source_name": "Crain's Grand Rapids",
+   "verified_date": "2024-01-01",
+   "confidence": "Reported",
+   "note": "272 acres along U.S. 131. No formal plan filed."
+  },
+  {
+   "name": "Lowell Township Franklin Partners",
+   "municipality": "Lowell Township",
+   "county": "Kent",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Franklin Partners",
+   "power_mw": "",
+   "latitude": 42.93,
+   "longitude": -85.34,
+   "source_url": "https://www.mlive.com/news/grand-rapids/2025/12/controversial-1b-kent-county-data-center-faces-public-hearing-in-january.html",
+   "source_name": "MLive",
+   "verified_date": "2025-12-01",
+   "confidence": "Reported",
+   "note": "235-acre parcel. Tenant described as top-10 U.S. company."
+  },
+  {
+   "name": "Pavilion Township Franklin Partners",
+   "municipality": "Pavilion Township",
+   "county": "Kalamazoo",
+   "status": "Withdrawn",
+   "layer": "projects",
+   "developer": "Franklin Partners",
+   "power_mw": "",
+   "latitude": 42.3,
+   "longitude": -85.52,
+   "source_url": "https://www.mlive.com/news/kalamazoo/2025/11/data-center-plans-near-kalamazoo-put-on-hold-after-community-backlash.html",
+   "source_name": "MLive",
+   "verified_date": "2025-11-01",
+   "confidence": "Confirmed",
+   "note": "265-acre industrial site. Request withdrawn after backlash."
+  },
+  {
+   "name": "Lansing Deep Green data center",
+   "municipality": "Lansing",
+   "county": "Ingham",
+   "status": "Withdrawn",
+   "layer": "projects",
+   "developer": "Deep Green",
+   "power_mw": "24",
+   "latitude": 42.732,
+   "longitude": -84.555,
+   "source_url": "https://michiganadvance.com/2026/04/06/deep-green-pulls-request-to-rezone-downtown-lansing-parcel-axing-data-center-proposal/",
+   "source_name": "Michigan Advance",
+   "verified_date": "2026-04-06",
+   "confidence": "Confirmed",
+   "note": "$120M, 24 MW downtown proposal with BWL heat-reuse partnership. Deep Green WITHDREW the purchase and rezoning applications in early April 2026; City Council never voted. Project dead."
+  },
+  {
+   "name": "Frenchtown Township Project Cherry Blossom",
+   "municipality": "Frenchtown Township",
+   "county": "Monroe",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Cloverleaf",
+   "power_mw": "",
+   "latitude": 41.92,
+   "longitude": -83.38,
+   "source_url": "https://www.mlive.com/news/ann-arbor/2025/11/proposed-ai-data-center-in-monroe-county-faces-community-pushback.html",
+   "source_name": "MLive",
+   "verified_date": "2025-11-01",
+   "confidence": "Reported",
+   "note": "200-acre former golf course near I-75."
+  },
+  {
+   "name": "Dundee Township Project Ironwood",
+   "municipality": "Dundee Township",
+   "county": "Monroe",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Cloverleaf",
+   "power_mw": "",
+   "latitude": 41.96,
+   "longitude": -83.66,
+   "source_url": "https://www.monroenews.com/story/news/2025/11/26/dundee-township-data-center-continues-to-be-hot-topic/87479493007/",
+   "source_name": "Monroe News",
+   "verified_date": "2025-11-26",
+   "confidence": "Reported",
+   "note": "350-acre site. Township has temporary moratorium."
+  },
+  {
+   "name": "Kalkaska County Rocklocker proposal",
+   "municipality": "Kalkaska area",
+   "county": "Kalkaska",
+   "status": "Withdrawn",
+   "layer": "projects",
+   "developer": "Rocklocker LLC",
+   "power_mw": "",
+   "latitude": 44.73,
+   "longitude": -85.18,
+   "source_url": "https://www.mlive.com/environment/2025/11/northern-michigan-data-center-idea-scrapped-following-community-rejection.html",
+   "source_name": "MLive",
+   "verified_date": "2025-11-01",
+   "confidence": "Confirmed",
+   "note": "Proposal scrapped after community rejection."
+  },
+  {
+   "name": "Springfield Township 84-acre campus",
+   "municipality": "Springfield Township",
+   "county": "Oakland",
+   "status": "Proposed",
+   "layer": "projects",
+   "developer": "Undisclosed",
+   "power_mw": "",
+   "latitude": 42.75,
+   "longitude": -83.48,
+   "source_url": "https://www.detroitnews.com/story/news/local/oakland-county/2026/01/07/springfield-twp-passes-temporary-data-center-moratorium/88049214007/",
+   "source_name": "Detroit News",
+   "verified_date": "2026-01-07",
+   "confidence": "Reported",
+   "note": "84-acre proposed campus triggered 180-day moratorium."
+  },
+  {
+   "name": "City of Northville moratorium",
+   "municipality": "Northville",
+   "county": "Wayne",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.431,
+   "longitude": -83.483,
+   "source_url": "https://www.wxyz.com/news/data-centers/northville-city-council-unanimously-approves-12-month-data-center-moratorium",
+   "source_name": "WXYZ",
+   "verified_date": "2026-01-06",
+   "confidence": "Confirmed",
+   "note": "12-month preemptive moratorium."
+  },
+  {
+   "name": "Springfield Township moratorium",
+   "municipality": "Springfield Township",
+   "county": "Oakland",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.755,
+   "longitude": -83.485,
+   "source_url": "https://www.detroitnews.com/story/news/local/oakland-county/2026/01/07/springfield-twp-passes-temporary-data-center-moratorium/88049214007/",
+   "source_name": "Detroit News",
+   "verified_date": "2026-01-07",
+   "confidence": "Confirmed",
+   "note": "180-day moratorium."
+  },
+  {
+   "name": "City of Pontiac moratorium",
+   "municipality": "Pontiac",
+   "county": "Oakland",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.638,
+   "longitude": -83.291,
+   "source_url": "https://www.detroitnews.com/story/news/local/oakland-county/2026/01/21/pontiac-latest-community-to-pass-data-center-moratorium/88286730007/",
+   "source_name": "Detroit News",
+   "verified_date": "2026-01-21",
+   "confidence": "Confirmed",
+   "note": "6-month moratorium."
+  },
+  {
+   "name": "City of Sterling Heights moratorium",
+   "municipality": "Sterling Heights",
+   "county": "Macomb",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.58,
+   "longitude": -83.03,
+   "source_url": "https://www.detroitnews.com/story/news/local/macomb-county/2026/02/03/sterling-heights-passes-moratorium-on-data-centers/88493407007/",
+   "source_name": "Detroit News",
+   "verified_date": "2026-02-04",
+   "confidence": "Confirmed",
+   "note": "1-year moratorium."
+  },
+  {
+   "name": "City of Detroit moratorium (proposed)",
+   "municipality": "Detroit",
+   "county": "Wayne",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.331,
+   "longitude": -83.046,
+   "source_url": "https://planetdetroit.org/2026/04/detroit-data-center-zoning/",
+   "source_name": "Planet Detroit",
+   "verified_date": "2026-04-16",
+   "confidence": "Reported",
+   "note": "Council voted 6–2 to request 2-year moratorium. Mayor convened working group."
+  },
+  {
+   "name": "Ypsilanti Township water moratorium",
+   "municipality": "Ypsilanti Township",
+   "county": "Washtenaw",
+   "status": "Utility pause",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.245,
+   "longitude": -83.62,
+   "source_url": "https://planetdetroit.org/2026/04/data-center-water-moratorium-ypsilanti/",
+   "source_name": "Planet Detroit",
+   "verified_date": "2026-04-22",
+   "confidence": "Confirmed",
+   "note": "YCUA 12-month pause on water/sewer for new data centers."
+  },
+  {
+   "name": "City of Ypsilanti moratorium",
+   "municipality": "Ypsilanti",
+   "county": "Washtenaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.241,
+   "longitude": -83.613,
+   "source_url": "https://www.wemu.org/wemu-news/2026-03-04/city-of-ypsilanti-passes-data-center-moratorium",
+   "source_name": "WEMU",
+   "verified_date": "2026-03-03",
+   "confidence": "Confirmed",
+   "note": "60-day emergency + 365-day resolution."
+  },
+  {
+   "name": "City of East Lansing moratorium",
+   "municipality": "East Lansing",
+   "county": "Ingham",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.737,
+   "longitude": -84.484,
+   "source_url": "https://www.wkar.org/wkar-news/2026-03-18/east-lansing-passes-data-center-moratorium-while-evaluating-zoning-ordinances",
+   "source_name": "WKAR",
+   "verified_date": "2026-03-17",
+   "confidence": "Confirmed",
+   "note": "6-month preemptive moratorium."
+  },
+  {
+   "name": "Armada Township moratorium",
+   "municipality": "Armada Township",
+   "county": "Macomb",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.845,
+   "longitude": -82.884,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-14",
+   "confidence": "Confirmed",
+   "note": "180-day moratorium."
+  },
+  {
+   "name": "Dundee Township moratorium",
+   "municipality": "Dundee Township",
+   "county": "Monroe",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 41.965,
+   "longitude": -83.655,
+   "source_url": "https://bridgemi.com/michigan-environment-watch/at-least-19-michigan-towns-pause-data-centers-no-one-knows-if-itll-work/",
+   "source_name": "Bridge Michigan",
+   "verified_date": "2025-10-01",
+   "confidence": "Reported",
+   "note": "90-day moratorium, subsequently extended."
+  },
+  {
+   "name": "Grand Blanc Township moratorium",
+   "municipality": "Grand Blanc Township",
+   "county": "Genesee",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.927,
+   "longitude": -83.629,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-21",
+   "confidence": "Confirmed",
+   "note": "1-year moratorium."
+  },
+  {
+   "name": "Green Charter Township moratorium",
+   "municipality": "Green Charter Township",
+   "county": "Mecosta",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 43.25,
+   "longitude": -85.75,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2025-12-09",
+   "confidence": "Confirmed",
+   "note": "1-year moratorium."
+  },
+  {
+   "name": "Hayes Township moratorium",
+   "municipality": "Hayes Township",
+   "county": "Charlevoix",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 45.28,
+   "longitude": -85.1,
+   "source_url": "https://www.interlochenpublicradio.org/ipr-news/2026-02-10/charlevoix-area-township-passes-data-center-moratorium",
+   "source_name": "IPR",
+   "verified_date": "2026-02-10",
+   "confidence": "Confirmed",
+   "note": "180-day moratorium."
+  },
+  {
+   "name": "Lenox Township moratorium",
+   "municipality": "Lenox Township",
+   "county": "Macomb",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.694,
+   "longitude": -82.804,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-02-02",
+   "confidence": "Confirmed",
+   "note": "4-month moratorium with extension option."
+  },
+  {
+   "name": "Lodi Township moratorium",
+   "municipality": "Lodi Township",
+   "county": "Washtenaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.18,
+   "longitude": -84.08,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-02-03",
+   "confidence": "Confirmed",
+   "note": "180-day moratorium."
+  },
+  {
+   "name": "Manchester Township moratorium",
+   "municipality": "Manchester Township",
+   "county": "Washtenaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.15,
+   "longitude": -84.04,
+   "source_url": "https://themanchestermirror.com/2026/02/09/data-center-moratoriums-pile-up-in-michigan-no-one-knows-if-theyll-work/",
+   "source_name": "Manchester Mirror",
+   "verified_date": "2025-10-14",
+   "confidence": "Confirmed",
+   "note": "2-year moratorium."
+  },
+  {
+   "name": "Pittsfield Township moratorium",
+   "municipality": "Pittsfield Township",
+   "county": "Washtenaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.25,
+   "longitude": -83.72,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2025-11-18",
+   "confidence": "Confirmed",
+   "note": "180-day moratorium."
+  },
+  {
+   "name": "City of Saginaw moratorium",
+   "municipality": "Saginaw",
+   "county": "Saginaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 43.419,
+   "longitude": -83.951,
+   "source_url": "https://www.wnem.com/2026/01/13/city-saginaw-placing-moratorium-data-centers/",
+   "source_name": "WNEM",
+   "verified_date": "2026-01-13",
+   "confidence": "Confirmed",
+   "note": "6-month moratorium, unanimous."
+  },
+  {
+   "name": "City of Saline moratorium",
+   "municipality": "Saline",
+   "county": "Washtenaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.167,
+   "longitude": -83.781,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-12",
+   "confidence": "Confirmed",
+   "note": "12-month moratorium (city, separate from township campus)."
+  },
+  {
+   "name": "City of South Lyon moratorium",
+   "municipality": "South Lyon",
+   "county": "Oakland",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.46,
+   "longitude": -83.651,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-02-01",
+   "confidence": "Confirmed",
+   "note": "12-month moratorium."
+  },
+  {
+   "name": "Sylvan Township moratorium",
+   "municipality": "Sylvan Township",
+   "county": "Washtenaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.08,
+   "longitude": -84.13,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-01",
+   "confidence": "Confirmed",
+   "note": "6-month moratorium."
+  },
+  {
+   "name": "City of Taylor moratorium",
+   "municipality": "Taylor",
+   "county": "Wayne",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.24,
+   "longitude": -83.27,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-01",
+   "confidence": "Confirmed",
+   "note": "1-year moratorium."
+  },
+  {
+   "name": "Tyrone Township moratorium",
+   "municipality": "Tyrone Township",
+   "county": "Kent",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.74,
+   "longitude": -83.63,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-01",
+   "confidence": "Confirmed",
+   "note": "6-month moratorium."
+  },
+  {
+   "name": "Ann Arbor Township moratorium",
+   "municipality": "Ann Arbor Township",
+   "county": "Washtenaw",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.3,
+   "longitude": -83.72,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-02-01",
+   "confidence": "Confirmed",
+   "note": "12-month moratorium."
+  },
+  {
+   "name": "Erie Township moratorium",
+   "municipality": "Erie Township",
+   "county": "Monroe",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 41.8,
+   "longitude": -83.5,
+   "source_url": "https://www.wkar.org/wkar-news/2026-02-27/michigan-data-center-tracker-moratoria-legislation-and-grid-impact",
+   "source_name": "WKAR",
+   "verified_date": "2026-02-10",
+   "confidence": "Confirmed",
+   "note": "Limited moratorium."
+  },
+  {
+   "name": "Meridian Township moratorium",
+   "municipality": "Meridian Township",
+   "county": "Ingham",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.72,
+   "longitude": -84.41,
+   "source_url": "https://www.wkar.org/wkar-news/2026-05-28/meridian-township-is-officially-putting-a-pause-on-any-data-centers-that-might-come-to-town",
+   "source_name": "WKAR",
+   "verified_date": "2026-05-19",
+   "confidence": "Confirmed",
+   "note": "6-month moratorium on data centers and battery storage."
+  },
+  {
+   "name": "Washington Township moratorium",
+   "municipality": "Washington Township",
+   "county": "Macomb",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.77,
+   "longitude": -83.03,
+   "source_url": "https://www.detroitnews.com/story/news/local/macomb-county/2026/05/23/washington-township-passes-six-month-moratorium-on-data-centers/90213646007/",
+   "source_name": "Detroit News",
+   "verified_date": "2026-05-23",
+   "confidence": "Confirmed",
+   "note": "6-month moratorium."
+  },
+  {
+   "name": "Stronach Township moratorium",
+   "municipality": "Stronach Township",
+   "county": "Manistee",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 44.215,
+   "longitude": -86.292,
+   "source_url": "https://www.manisteenews.com/news/article/stronach-township-approves-six-month-data-center-22301704.php",
+   "source_name": "Manistee News Advocate",
+   "verified_date": "2026-06-12",
+   "confidence": "Confirmed",
+   "note": "Six-month pause through Dec. 31, 2026."
+  },
+  {
+   "name": "Filer Township moratorium",
+   "municipality": "Filer Charter Township",
+   "county": "Manistee",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 44.181,
+   "longitude": -86.321,
+   "source_url": "https://www.manisteenews.com/news/article/filer-township-approves-one-year-data-center-22282763.php",
+   "source_name": "Manistee News Advocate",
+   "verified_date": "2026-06-08",
+   "confidence": "Confirmed",
+   "note": "One-year moratorium."
+  },
+  {
+   "name": "Big Rapids Township moratorium",
+   "municipality": "Big Rapids Township",
+   "county": "Mecosta",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 43.69,
+   "longitude": -85.48,
+   "source_url": "https://www.bigrapidsnews.com/news/article/big-rapids-township-michigan-enacts-temporary-21938856.php",
+   "source_name": "Big Rapids Pioneer",
+   "verified_date": "2026-02-23",
+   "confidence": "Reported",
+   "note": "One-year pause."
+  },
+  {
+   "name": "City of Wixom moratorium",
+   "municipality": "Wixom",
+   "county": "Oakland",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.525,
+   "longitude": -83.536,
+   "source_url": "https://www.wixomgov.org/departments/construction-development-services-building/data-center-moratorium-ordinance",
+   "source_name": "City of Wixom",
+   "verified_date": "2026-06-25",
+   "confidence": "Confirmed",
+   "note": "Moving from moratorium to permanent zoning rules; June 29 hearing."
+  },
+  {
+   "name": "Delta County moratorium (draft)",
+   "municipality": "Delta County",
+   "county": "Delta",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 45.77,
+   "longitude": -86.91,
+   "source_url": "https://www.uppermichiganssource.com/2026/07/07/delta-county-planning-commission-approves-data-center-moratorium/",
+   "source_name": "Upper Michigan's Source",
+   "verified_date": "2026-07-07",
+   "confidence": "Reported",
+   "note": "Planning commission approved 12-month moratorium."
+  },
+  {
+   "name": "MPSC Consumers Energy data center tariff",
+   "municipality": "Lansing",
+   "county": "Ingham",
+   "status": "Approved",
+   "layer": "policy",
+   "developer": "Consumers Energy",
+   "power_mw": "100",
+   "latitude": 42.725,
+   "longitude": -84.62,
+   "source_url": "https://www.michigan.gov/mpsc/commission/news-releases/2025/11/06/mpsc-approves-terms-of-service-between-consumers-energy-and-data-centers",
+   "source_name": "Michigan PSC",
+   "verified_date": "2025-11-06",
+   "confidence": "Confirmed",
+   "note": "100 MW large-load threshold for data center tariff."
+  },
+  {
+   "name": "ITC Oneida substation (start)",
+   "municipality": "Oneida Township",
+   "county": "Eaton",
+   "status": "Under review",
+   "layer": "transmission",
+   "developer": "ITC Michigan",
+   "power_mw": "",
+   "latitude": 42.695,
+   "longitude": -84.872,
+   "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2025-12-22/routes-proposed-for-high-voltage-transmission-line-in-eaton-ingham-livingston-counties",
+   "source_name": "Michigan Public",
+   "verified_date": "2025-12-22",
+   "confidence": "Confirmed",
+   "note": "Western terminus of proposed 50-mile Oneida–Sabine Lake corridor."
+  },
+  {
+   "name": "ITC Sabine Lake substation (end)",
+   "municipality": "near Fowlerville",
+   "county": "Livingston",
+   "status": "Under review",
+   "layer": "transmission",
+   "developer": "ITC Michigan",
+   "power_mw": "",
+   "latitude": 42.705,
+   "longitude": -84.015,
+   "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2025-12-22/routes-proposed-for-high-voltage-transmission-line-in-eaton-ingham-livingston-counties",
+   "source_name": "Michigan Public",
+   "verified_date": "2025-12-22",
+   "confidence": "Confirmed",
+   "note": "Planned new substation northeast of Fowlerville."
+  },
+  {
+   "name": "Grand Ledge corridor area",
+   "municipality": "Grand Ledge",
+   "county": "Eaton",
+   "status": "Under review",
+   "layer": "transmission",
+   "developer": "ITC Michigan",
+   "power_mw": "",
+   "latitude": 42.755,
+   "longitude": -84.746,
+   "source_url": "https://www.wkar.org/wkar-news/2026-01-25/proposed-transmission-line-would-cross-15-townships-mid-michigan-residents-demand-answers-as-meetings-start-monday",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-25",
+   "confidence": "Reported",
+   "note": "Proposed routes pass just southwest of Grand Ledge."
+  },
+  {
+   "name": "Okemos listening session hub",
+   "municipality": "Okemos",
+   "county": "Ingham",
+   "status": "Public meeting",
+   "layer": "transmission",
+   "developer": "ITC Michigan",
+   "power_mw": "",
+   "latitude": 42.717,
+   "longitude": -84.427,
+   "source_url": "https://www.wkar.org/wkar-news/2026-01-25/proposed-transmission-line-would-cross-15-townships-mid-michigan-residents-demand-answers-as-meetings-start-monday",
+   "source_name": "WKAR",
+   "verified_date": "2026-01-26",
+   "confidence": "Confirmed",
+   "note": "Community listening sessions Jan. 26–27 at Okemos Event Center."
+  },
+  {
+   "name": "Lenox Township board meeting",
+   "municipality": "Lenox Township",
+   "county": "Macomb",
+   "status": "Public meeting",
+   "layer": "meetings",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.694,
+   "longitude": -82.804,
+   "source_url": "https://www.lenox-mi.gov/agendacenter",
+   "source_name": "Lenox Township",
+   "verified_date": "2026-07-09",
+   "confidence": "Confirmed",
+   "note": "July 9 board meeting."
+  },
+  {
+   "name": "MPSC open meeting",
+   "municipality": "Lansing",
+   "county": "Ingham",
+   "status": "Public meeting",
+   "layer": "meetings",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.725,
+   "longitude": -84.62,
+   "source_url": "https://www.michigan.gov/mpsc/commission/meetings",
+   "source_name": "Michigan PSC",
+   "verified_date": "2026-07-10",
+   "confidence": "Confirmed",
+   "note": "July 10 open meeting — oversees large-load electric agreements."
+  },
+  {
+   "name": "Donald C. Cook Nuclear Plant",
+   "municipality": "Bridgman",
+   "county": "Berrien",
+   "status": "Nuclear",
+   "layer": "generation",
+   "developer": "Indiana Michigan Power (AEP)",
+   "power_mw": "2,198",
+   "latitude": 41.9756,
+   "longitude": -86.5653,
+   "source_url": "https://www.eia.gov/electricity/state/michigan/",
+   "source_name": "U.S. EIA",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Two-unit PWR plant on Lake Michigan. Michigan's largest single-site nuclear generator."
+  },
+  {
+   "name": "Fermi 2 Nuclear Plant",
+   "municipality": "Frenchtown Township",
+   "county": "Monroe",
+   "status": "Nuclear",
+   "layer": "generation",
+   "developer": "DTE Energy",
+   "power_mw": "1,098",
+   "latitude": 41.9764,
+   "longitude": -83.2594,
+   "source_url": "https://www.dteenergy.com/us/en/business/about-dte/fermi-2-power-plant/fermi-2-power-plant.html",
+   "source_name": "DTE Energy",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Boiling-water reactor on Lake Erie. DTE studying uprates and potential Fermi 3."
+  },
+  {
+   "name": "Palisades Nuclear Plant",
+   "municipality": "Covert Township",
+   "county": "Van Buren",
+   "status": "Nuclear",
+   "layer": "generation",
+   "developer": "Holtec International",
+   "power_mw": "800",
+   "latitude": 42.3222,
+   "longitude": -86.3181,
+   "source_url": "https://www.michiganpublic.org/environment-climate-change/2025-12-17/palisades-nuclear-plant-restart-plans-pushed-back-to-early-2026",
+   "source_name": "Michigan Public",
+   "verified_date": "2025-12-17",
+   "confidence": "Reported",
+   "note": "Shut down 2022; federal-backed restart underway — would be first U.S. reactor restart."
+  },
+  {
+   "name": "Monroe Power Plant",
+   "municipality": "Monroe",
+   "county": "Monroe",
+   "status": "Coal",
+   "layer": "generation",
+   "developer": "DTE Energy",
+   "power_mw": "3,400",
+   "latitude": 41.9142,
+   "longitude": -83.3519,
+   "source_url": "https://en.wikipedia.org/wiki/Monroe_Power_Plant",
+   "source_name": "Wikipedia / EIA",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Four-unit coal plant on Lake Erie. Scheduled retirement 2032."
+  },
+  {
+   "name": "J.H. Campbell Generating Plant",
+   "municipality": "Port Sheldon Township",
+   "county": "Ottawa",
+   "status": "Coal",
+   "layer": "generation",
+   "developer": "Consumers Energy",
+   "power_mw": "1,560",
+   "latitude": 42.92,
+   "longitude": -86.128,
+   "source_url": "https://www.eia.gov/electricity/state/michigan/",
+   "source_name": "U.S. EIA",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Three-unit coal plant on Lake Michigan. Units 1–3 slated for closure."
+  },
+  {
+   "name": "Belle River Power Plant",
+   "municipality": "East China Township",
+   "county": "St. Clair",
+   "status": "Coal",
+   "layer": "generation",
+   "developer": "DTE Energy",
+   "power_mw": "1,395",
+   "latitude": 42.69,
+   "longitude": -82.52,
+   "source_url": "https://en.wikipedia.org/wiki/Belle_River_Power_Plant",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Coal units with adjacent gas peakers. Repowering to natural gas planned."
+  },
+  {
+   "name": "Blue Water Energy Center",
+   "municipality": "East China Township",
+   "county": "St. Clair",
+   "status": "Natural gas",
+   "layer": "generation",
+   "developer": "DTE Energy",
+   "power_mw": "1,150",
+   "latitude": 42.768,
+   "longitude": -82.492,
+   "source_url": "https://www.eia.gov/electricity/state/michigan/",
+   "source_name": "U.S. EIA",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Combined-cycle gas plant online 2022. Replaced St. Clair coal units."
+  },
+  {
+   "name": "D.E. Karn Generating Complex",
+   "municipality": "Hampton Township",
+   "county": "Bay",
+   "status": "Natural gas",
+   "layer": "generation",
+   "developer": "Consumers Energy",
+   "power_mw": "816",
+   "latitude": 43.61,
+   "longitude": -82.82,
+   "source_url": "https://www.consumersenergy.com/",
+   "source_name": "Consumers Energy",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Gas and oil units on Saginaw Bay. Former coal units retired 2023."
+  },
+  {
+   "name": "Alpine Generating Facility",
+   "municipality": "Elmira Township",
+   "county": "Otsego",
+   "status": "Natural gas",
+   "layer": "generation",
+   "developer": "Wolverine Power Cooperative",
+   "power_mw": "440",
+   "latitude": 45.055,
+   "longitude": -84.902,
+   "source_url": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Michigan",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Northern Michigan combined-cycle plant serving co-op members."
+  },
+  {
+   "name": "Presque Isle Power Plant",
+   "municipality": "Marquette",
+   "county": "Marquette",
+   "status": "Coal",
+   "layer": "generation",
+   "developer": "Wolverine Power Cooperative",
+   "power_mw": "431",
+   "latitude": 46.568,
+   "longitude": -87.395,
+   "source_url": "https://www.michiganpublic.org/environment-climate-change/2025-12-17/palisades-nuclear-plant-restart-plans-pushed-back-to-early-2026",
+   "source_name": "Michigan Public",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "UP coal plant on Lake Superior. Only generation site in Upper Peninsula on this map."
+  },
+  {
+   "name": "Zeeland Generating Station",
+   "municipality": "Zeeland",
+   "county": "Ottawa",
+   "status": "Natural gas",
+   "layer": "generation",
+   "developer": "Consumers Energy",
+   "power_mw": "114",
+   "latitude": 42.818,
+   "longitude": -86.002,
+   "source_url": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Michigan",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Replaced Holland's James De Young coal plant in West Michigan."
+  },
+  {
+   "name": "Dearborn Industrial Generation",
+   "municipality": "Dearborn",
+   "county": "Wayne",
+   "status": "Natural gas",
+   "layer": "generation",
+   "developer": "DTE Energy",
+   "power_mw": "710",
+   "latitude": 42.298,
+   "longitude": -83.158,
+   "source_url": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Michigan",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Industrial cogeneration serving Ford Rouge complex and grid."
+  },
+  {
+   "name": "Ludington Pumped Storage Plant",
+   "municipality": "Ludington",
+   "county": "Mason",
+   "status": "Hydroelectric",
+   "layer": "generation",
+   "developer": "Consumers Energy / DTE",
+   "power_mw": "1,872",
+   "latitude": 43.888,
+   "longitude": -86.456,
+   "source_url": "https://www.consumersenergy.com/about-us/sustainability/our-hometown-stories/ludington-pumped-storage-plant",
+   "source_name": "Consumers Energy",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "World-class pumped storage on Lake Michigan. Major grid-balancing asset."
+  },
+  {
+   "name": "Gratiot Farms Wind Project",
+   "municipality": "Wheeler Township",
+   "county": "Gratiot",
+   "status": "Wind",
+   "layer": "generation",
+   "developer": "NextEra Energy",
+   "power_mw": "213",
+   "latitude": 43.248,
+   "longitude": -84.582,
+   "source_url": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Michigan",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Among Michigan's largest wind farms. Part of Gratiot County wind belt."
+  },
+  {
+   "name": "Lake Winds Energy Park",
+   "municipality": "Summit Township",
+   "county": "Mason",
+   "status": "Wind",
+   "layer": "generation",
+   "developer": "Consumers Energy",
+   "power_mw": "101",
+   "latitude": 43.18,
+   "longitude": -86.28,
+   "source_url": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Michigan",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "56 turbines near Lake Michigan. Consumers' first owned wind park."
+  },
+  {
+   "name": "Cross Winds Energy Park",
+   "municipality": "Tuscola Township",
+   "county": "Tuscola",
+   "status": "Wind",
+   "layer": "generation",
+   "developer": "DTE Energy",
+   "power_mw": "155",
+   "latitude": 43.42,
+   "longitude": -83.38,
+   "source_url": "https://www.dteenergy.com/us/en/business/community-and-news/renewable-energy/wind-energy.html",
+   "source_name": "DTE Energy",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Thumb-region wind farm. Part of DTE's 1 GW wind portfolio."
+  },
+  {
+   "name": "Apple Blossom Wind Farm",
+   "municipality": "McKinley Township",
+   "county": "Huron",
+   "status": "Wind",
+   "layer": "generation",
+   "developer": "Huron Wind LLC",
+   "power_mw": "100",
+   "latitude": 43.75,
+   "longitude": -82.95,
+   "source_url": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Michigan",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Thumb wind development in Michigan's highest-wind county."
+  },
+  {
+   "name": "Crescent Wind Farm",
+   "municipality": "Adams Township",
+   "county": "Hillsdale",
+   "status": "Wind",
+   "layer": "generation",
+   "developer": "Consumers Energy",
+   "power_mw": "166",
+   "latitude": 41.95,
+   "longitude": -84.65,
+   "source_url": "https://www.consumersenergy.com/",
+   "source_name": "Consumers Energy",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Southern Michigan wind. Online 2020."
+  },
+  {
+   "name": "Beebe Wind Farm",
+   "municipality": "Fulton Township",
+   "county": "Gratiot",
+   "status": "Wind",
+   "layer": "generation",
+   "developer": "Beebe Community Wind LLC",
+   "power_mw": "81",
+   "latitude": 43.15,
+   "longitude": -84.55,
+   "source_url": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Michigan",
+   "source_name": "Wikipedia",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Community-scale wind in Gratiot County corridor."
+  },
+  {
+   "name": "River Bend Solar Park",
+   "municipality": "Vernon Township",
+   "county": "Shiawassee",
+   "status": "Solar",
+   "layer": "generation",
+   "developer": "Ranger Power",
+   "power_mw": "213",
+   "latitude": 42.98,
+   "longitude": -84.14,
+   "source_url": "https://www.mccarthy.com/insights/mccarthy-completes-construction-of-michigans-largest-solar-farm-in-shiawassee-county",
+   "source_name": "McCarthy Building",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Michigan's largest operating solar farm. ~1,800 acres."
+  },
+  {
+   "name": "Sauk Solar Park",
+   "municipality": "Adams Township",
+   "county": "Hillsdale",
+   "status": "Solar",
+   "layer": "generation",
+   "developer": "Consumers Energy",
+   "power_mw": "150",
+   "latitude": 41.78,
+   "longitude": -84.62,
+   "source_url": "https://www.bartonmalow.com/projects/sauk-solar-park/",
+   "source_name": "Barton Malow",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Consumers' large-scale solar build in southern Michigan."
+  },
+  {
+   "name": "Muskegon Solar Energy Center",
+   "municipality": "Muskegon Township",
+   "county": "Muskegon",
+   "status": "Solar",
+   "layer": "generation",
+   "developer": "Consumers Energy",
+   "power_mw": "250",
+   "latitude": 43.23,
+   "longitude": -86.22,
+   "source_url": "https://www.environmentenergyleader.com/stories/consumers-energy-launches-250-mw-muskegon-solar-project,110996",
+   "source_name": "Environment + Energy Leader",
+   "verified_date": "2026-06-01",
+   "confidence": "Reported",
+   "note": "250 MW project on former B.C. Cobb coal plant site."
+  },
+  {
+   "name": "Polaris Solar Park",
+   "municipality": "Coldwater Township",
+   "county": "Branch",
+   "status": "Solar",
+   "layer": "generation",
+   "developer": "CleanVision / Ranger Power",
+   "power_mw": "128",
+   "latitude": 41.94,
+   "longitude": -84.89,
+   "source_url": "https://cleanview.co/power-projects/operating/solar-farms/michigan/67757/polaris-solar-park",
+   "source_name": "Cleanview",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Utility-scale solar in southern Michigan."
+  },
+  {
+   "name": "Ford Rouge Solar Array",
+   "municipality": "Dearborn",
+   "county": "Wayne",
+   "status": "Solar",
+   "layer": "generation",
+   "developer": "DTE Energy / Ford",
+   "power_mw": "2.6",
+   "latitude": 42.295,
+   "longitude": -83.172,
+   "source_url": "https://ir.dteenergy.com/news/press-release-details/2025/DTE-Energy-breaks-ground-on-new-solar-park-to-help-meet-Ford-Motor-Companys-needs-for-100-carbon-free-and-renewable-energy/default.aspx",
+   "source_name": "DTE Energy",
+   "verified_date": "2026-06-01",
+   "confidence": "Confirmed",
+   "note": "Rooftop + carport solar at Rouge complex. Symbolic of industrial load shifting to renewables."
+  },
+  {
+   "name": "Texas Township moratorium",
+   "municipality": "Texas Township",
+   "county": "Kalamazoo",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.21222,
+   "longitude": -85.69639,
+   "source_url": "https://www.mlive.com/news/kalamazoo/2026/06/township-near-kalamazoo-approves-12-month-moratorium-blocking-data-centers.html",
+   "source_name": "MLive",
+   "verified_date": "2026-07-05",
+   "confidence": "Confirmed",
+   "note": "12-month moratorium effective July 5, 2026 (approximate centroid)."
+  }
+ ],
+ "map_meta": {
+  "version": "2026-06-29",
+  "external_map": {
+   "label": "ITC official route map",
+   "url": "https://www.mifuturegrid.com/oneida-sabine-lake/"
+  },
+  "tagline": "The most complete public-source map of Michigan's data center build-out",
+  "badge": "Independent · Sourced · Nonpartisan"
+ },
+ "map_stories": [
+  {
+   "id": "itc-oneida-sabine",
+   "title": "50 miles of new power lines through Mid-Michigan",
+   "kicker": "Grid proposals",
+   "summary": "ITC Michigan is proposing a high-voltage line from Oneida Township to Sabine Lake near Fowlerville - crossing 15 townships.",
+   "region": "Mid-Michigan",
+   "source_name": "WKAR Public Media",
+   "source_url": "https://www.wkar.org/wkar-news/2026-01-25/proposed-transmission-line-would-cross-15-townships-mid-michigan-residents-demand-answers-as-meetings-start-monday",
+   "layer": "transmission",
+   "fly_to": {
+    "lat": 42.72,
+    "lng": -84.45,
+    "zoom": 9
+   }
+  },
+  {
+   "id": "moratorium-wave",
+   "title": "~50 communities have hit pause",
+   "kicker": "Local response",
+   "summary": "Temporary moratoria now cover an area comparable to Rhode Island.",
+   "region": "Statewide",
+   "source_name": "Michigan Public",
+   "source_url": "https://www.michiganpublic.org/environment-climate-change/2026-06-10/as-data-centers-expand-in-michigan-so-do-environmental-and-economic-concerns",
+   "layer": "moratoria",
+   "fly_to": {
+    "lat": 43.0,
+    "lng": -84.5,
+    "zoom": 7
+   }
+  },
+  {
+   "id": "saline-stargate",
+   "title": "Saline Township: Michigan's first hyperscale build",
+   "kicker": "Active construction",
+   "summary": "Related Digital's 1.4 GW campus for Oracle and OpenAI broke ground in June 2026.",
+   "region": "Southeast Michigan",
+   "source_name": "Engineering News-Record",
+   "source_url": "https://www.enr.com/articles/63087-record-16b-data-center-project-advances-in-michigan",
+   "layer": "projects",
+   "fly_to": {
+    "lat": 42.166,
+    "lng": -83.782,
+    "zoom": 11
+   }
+  },
+  {
+   "id": "mi-power-mix",
+   "title": "Where Michigan's electricity actually comes from",
+   "kicker": "Power generation",
+   "summary": "Gas (41%), coal (23%), nuclear (21%), wind (8%), solar (2%). Data centers need to know what's on the grid.",
+   "region": "Statewide",
+   "source_name": "U.S. EIA",
+   "source_url": "https://www.eia.gov/electricity/state/michigan/",
+   "layer": "generation",
+   "fly_to": {
+    "lat": 43.5,
+    "lng": -85.0,
+    "zoom": 6
+   }
+  },
+  {
+   "id": "power-water-nexus",
+   "title": "Power lines and groundwater often overlap",
+   "kicker": "Water & grid",
+   "summary": "Transmission corridors cross the same aquifers and townships debating data centers. Toggle aquifers + transmission lines to see the overlap.",
+   "region": "Statewide",
+   "source_name": "Michigan EGLE",
+   "source_url": "https://gis-egle.hub.arcgis.com/datasets/egle::aquifer-characteristics-of-glacial-drift",
+   "layer": "transmission",
+   "fly_to": {
+    "lat": 42.7,
+    "lng": -84.4,
+    "zoom": 8
+   }
+  }
+ ],
+ "map_layers": [
+  {
+   "id": "projects",
+   "label": "Data center sites",
+   "description": "Proposed, approved, under construction and operational data center facilities",
+   "color": "#cf102d",
+   "default_on": true
+  },
+  {
+   "id": "moratoria",
+   "label": "Moratoria & pauses",
+   "description": "Local temporary bans and zoning pauses",
+   "color": "#e09820",
+   "default_on": true
+  },
+  {
+   "id": "meetings",
+   "label": "Public meetings",
+   "description": "Upcoming hearings and government sessions",
+   "color": "#5b9cf5",
+   "default_on": false
+  },
+  {
+   "id": "transmission",
+   "label": "Grid proposals",
+   "description": "Transmission corridors and grid build-out proposals",
+   "color": "#9c5fc9",
+   "default_on": false
+  },
+  {
+   "id": "policy",
+   "label": "Capitol & policy",
+   "description": "State-level rallies, legislation and regulatory actions",
+   "color": "#22a86a",
+   "default_on": false
+  },
+  {
+   "id": "generation",
+   "label": "Power generation",
+   "description": "Nuclear, coal, gas, wind, solar and hydro plants",
+   "color": "#14b8a6",
+   "default_on": false
+  }
+ ],
+ "boundary_layers": [
+  {
+   "id": "counties",
+   "label": "County lines",
+   "description": "County boundaries for orientation",
+   "color": "#64748b",
+   "url": "geo/mi-counties.geojson",
+   "default_on": false
+  },
+  {
+   "id": "congressional",
+   "label": "Congressional districts",
+   "description": "118th Congress maps (2022 redistricting)",
+   "color": "#818cf8",
+   "url": "geo/mi-congressional-districts.geojson",
+   "default_on": false,
+   "label_zoom": 7
+  },
+  {
+   "id": "townships",
+   "label": "Township lines",
+   "description": "1,240 civil townships — zoom in to view",
+   "color": "#94a3b8",
+   "url": "geo/mi-townships.geojson",
+   "default_on": false,
+   "min_zoom": 8
+  }
+ ],
+ "overlay_layers": [
+  {
+   "id": "transmission_grid",
+   "label": "Major transmission lines",
+   "description": "1,700+ lines at 100kV+ across Michigan (HIFLD)",
+   "geometry_type": "line",
+   "color": "#7c3aed",
+   "url": "geo/mi-transmission-grid.geojson",
+   "default_on": false,
+   "min_zoom": 7,
+   "style_by": "voltage_class",
+   "style_map": {
+    "345": {
+     "color": "#f0abfc",
+     "weight": 3.2,
+     "opacity": 0.9
+    },
+    "220-287": {
+     "color": "#c084fc",
+     "weight": 2.6,
+     "opacity": 0.85
+    },
+    "100-161": {
+     "color": "#7c3aed",
+     "weight": 1.6,
+     "opacity": 0.65
+    }
+   },
+   "source_name": "Homeland Infrastructure Foundation-Level Data",
+   "source_url": "https://hifld-geoplatform.opendata.arcgis.com/datasets/geoplatform::electric-power-transmission-lines"
+  },
+  {
+   "id": "aquifers",
+   "label": "Glacial aquifers",
+   "description": "EGLE geology classes — how likely glacial soil holds groundwater (not water quality)",
+   "geometry_type": "polygon",
+   "color": "#38bdf8",
+   "url": "geo/mi-aquifers.geojson",
+   "default_on": false,
+   "min_zoom": 8,
+   "style_by": "category",
+   "category_labels": {
+    "I": "Thin drift over bedrock (0–30 ft)",
+    "II": "Usually not groundwater-bearing",
+    "IIIa": "Often unconfined water near surface",
+    "IIIb": "Mixed — may or may not hold water",
+    "IV": "May be aquifer down to bedrock"
+   },
+   "style_map": {
+    "I": {
+     "fillColor": "#f87171",
+     "fillOpacity": 0.16,
+     "color": "#fca5a5"
+    },
+    "II": {
+     "fillColor": "#60a5fa",
+     "fillOpacity": 0.16,
+     "color": "#93c5fd"
+    },
+    "IIIa": {
+     "fillColor": "#34d399",
+     "fillOpacity": 0.16,
+     "color": "#6ee7b7"
+    },
+    "IIIb": {
+     "fillColor": "#2dd4bf",
+     "fillOpacity": 0.16,
+     "color": "#5eead4"
+    },
+    "IV": {
+     "fillColor": "#a78bfa",
+     "fillOpacity": 0.14,
+     "color": "#c4b5fd"
+    }
+   },
+   "source_name": "Michigan EGLE",
+   "source_url": "https://gis-egle.hub.arcgis.com/datasets/egle::aquifer-characteristics-of-glacial-drift"
+  },
+  {
+   "id": "water_wells",
+   "label": "Public water sources",
+   "description": "Major municipal wells, wellfields & Great Lakes intakes",
+   "geometry_type": "point",
+   "color": "#0ea5e9",
+   "url": "geo/mi-water-sources.geojson",
+   "default_on": false,
+   "min_zoom": 7,
+   "icon_type": "water",
+   "source_name": "Michigan utilities / EGLE",
+   "source_url": "https://www.michigan.gov/egle/about/organization/geologic-resources-management/resources-and-data"
+  },
+  {
+   "id": "noaa_buoys",
+   "label": "NOAA buoys",
+   "description": "Great Lakes observing buoys — hover for surface water temp (°F)",
+   "geometry_type": "point",
+   "color": "#22d3ee",
+   "url": "geo/mi-noaa-buoys.geojson",
+   "default_on": false,
+   "min_zoom": 6,
+   "icon_type": "buoy",
+   "live_data": "buoys",
+   "source_name": "NOAA NDBC",
+   "source_url": "https://www.ndbc.noaa.gov/"
+  },
+  {
+   "id": "airports",
+   "label": "Commercial airports",
+   "description": "14 public-use commercial airports — orientation anchors",
+   "geometry_type": "point",
+   "color": "#94a3b8",
+   "url": "geo/mi-airports.geojson",
+   "default_on": false,
+   "min_zoom": 6,
+   "icon_type": "airport",
+   "source_name": "FAA / public data",
+   "source_url": "https://www.faa.gov/"
+  },
+  {
+   "id": "substations",
+   "label": "Major substations",
+   "description": "15 curated grid nodes at plants & corridors",
+   "geometry_type": "point",
+   "color": "#fbbf24",
+   "url": "geo/mi-substations.geojson",
+   "default_on": false,
+   "min_zoom": 7,
+   "icon_type": "substation",
+   "source_name": "Curated from utility filings",
+   "source_url": "https://hifld-geoplatform.opendata.arcgis.com/"
+  }
+ ],
+ "lake_levels": [
+  {
+   "id": "superior",
+   "label": "Superior",
+   "lake": "Lake Superior",
+   "station": "9099018",
+   "name": "Marquette"
+  },
+  {
+   "id": "michigan",
+   "label": "Michigan",
+   "lake": "Lake Michigan",
+   "station": "9087031",
+   "name": "Holland"
+  },
+  {
+   "id": "huron",
+   "label": "Huron",
+   "lake": "Lake Huron",
+   "station": "9075014",
+   "name": "Harbor Beach"
+  },
+  {
+   "id": "erie",
+   "label": "Erie",
+   "lake": "Lake Erie",
+   "station": "9063038",
+   "name": "Erie"
+  }
+ ],
+ "live_map_links": [
+  {
+   "label": "Live ship traffic",
+   "href": "https://ais.boatnerd.com/",
+   "desc": "BoatNerd AIS — Great Lakes vessels"
+  },
+  {
+   "label": "GLOS Seagull",
+   "href": "https://glos.org/seagull/",
+   "desc": "Buoys, temps & lake obs"
+  },
+  {
+   "label": "NOAA lake levels",
+   "href": "https://www.glerl.noaa.gov/data/now/wlevels/dbd/",
+   "desc": "Official Great Lakes levels"
+  },
+  {
+   "label": "ITC corridor map",
+   "href": "https://www.mifuturegrid.com/oneida-sabine-lake/",
+   "desc": "Oneida–Sabine transmission"
+  }
+ ],
+ "transmission_lines": [
+  {
+   "id": "itc-oneida-sabine-route-a",
+   "name": "ITC Oneida-Sabine Lake (Route A)",
+   "operator": "ITC Michigan",
+   "status": "Proposed - route under review",
+   "voltage": "High voltage",
+   "length_mi": 50,
+   "counties": [
+    "Eaton",
+    "Ingham",
+    "Livingston"
+   ],
+   "townships": 15,
+   "note": "Preliminary route option. MPSC will select final path.",
+   "source_name": "Michigan Public",
+   "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2025-12-22/routes-proposed-for-high-voltage-transmission-line-in-eaton-ingham-livingston-counties",
+   "official_map_url": "https://www.mifuturegrid.com/oneida-sabine-lake/",
+   "coordinates": [
+    [
+     42.695,
+     -84.872
+    ],
+    [
+     42.71,
+     -84.82
+    ],
+    [
+     42.755,
+     -84.746
+    ],
+    [
+     42.748,
+     -84.62
+    ],
+    [
+     42.737,
+     -84.555
+    ],
+    [
+     42.717,
+     -84.427
+    ],
+    [
+     42.705,
+     -84.32
+    ],
+    [
+     42.698,
+     -84.22
+    ],
+    [
+     42.7,
+     -84.12
+    ],
+    [
+     42.705,
+     -84.015
+    ]
+   ]
+  },
+  {
+   "id": "itc-oneida-sabine-route-b",
+   "name": "ITC Oneida-Sabine Lake (Route B)",
+   "operator": "ITC Michigan",
+   "status": "Proposed - alternate route",
+   "voltage": "High voltage",
+   "length_mi": 50,
+   "counties": [
+    "Eaton",
+    "Ingham",
+    "Livingston"
+   ],
+   "townships": 15,
+   "note": "Second preliminary option published by ITC.",
+   "source_name": "WKAR Public Media",
+   "source_url": "https://www.wkar.org/wkar-news/2026-01-25/proposed-transmission-line-would-cross-15-townships-mid-michigan-residents-demand-answers-as-meetings-start-monday",
+   "official_map_url": "https://www.mifuturegrid.com/oneida-sabine-lake/",
+   "coordinates": [
+    [
+     42.695,
+     -84.872
+    ],
+    [
+     42.73,
+     -84.78
+    ],
+    [
+     42.78,
+     -84.65
+    ],
+    [
+     42.77,
+     -84.52
+    ],
+    [
+     42.75,
+     -84.4
+    ],
+    [
+     42.735,
+     -84.28
+    ],
+    [
+     42.72,
+     -84.15
+    ],
+    [
+     42.71,
+     -84.05
+    ],
+    [
+     42.705,
+     -84.015
+    ]
+   ]
+  },
+  {
+   "id": "lbwl-south-reinforcement",
+   "name": "BWL South Reinforcement (Lansing)",
+   "operator": "Lansing Board of Water & Light",
+   "status": "Planned",
+   "voltage": "Transmission reinforcement",
+   "length_mi": null,
+   "counties": [
+    "Ingham"
+   ],
+   "townships": null,
+   "note": "BWL transmission reinforcement in Lansing area.",
+   "source_name": "Lansing BWL",
+   "source_url": "https://www.lbwl.com/about-bwl/lansing-energy-tomorrow/south-reinforcement-transmission-line-project",
+   "official_map_url": "https://www.lbwl.com/about-bwl/lansing-energy-tomorrow/south-reinforcement-transmission-line-project",
+   "coordinates": [
+    [
+     42.732,
+     -84.555
+    ],
+    [
+     42.715,
+     -84.52
+    ],
+    [
+     42.69,
+     -84.49
+    ],
+    [
+     42.665,
+     -84.47
+    ]
+   ]
+  }
+ ],
+ "stats_ribbon": [
+  {
+   "label": "On map now",
+   "value_key": "total",
+   "suffix": ""
+  },
+  {
+   "label": "Sites",
+   "value_key": "projects",
+   "suffix": ""
+  },
+  {
+   "label": "Moratoria",
+   "value_key": "moratoria",
+   "suffix": ""
+  }
+ ],
+ "site_links": [
+  {
+   "label": "Full tracker",
+   "href": "index.html",
+   "desc": "Latest news & meetings"
+  },
+  {
+   "label": "Methodology",
+   "href": "methodology.html",
+   "desc": "How we source records"
+  },
+  {
+   "label": "Subscribe",
+   "href": "index.html#briefing",
+   "desc": "Email alerts"
+  },
+  {
+   "label": "Capitol watch",
+   "href": "index.html#capitol",
+   "desc": "Legislation & policy"
+  }
+ ],
+ "industry_stats": [
+  {
+   "value": "4%",
+   "label": "U.S. grid share (2024)",
+   "column": 0,
+   "source": "Pew Research / IEA",
+   "source_url": "https://www.pewresearch.org/short-reads/2024/11/22/what-we-know-about-data-centers-and-their-impact-on-the-us-power-grid/"
+  },
+  {
+   "value": "2×+",
+   "label": "U.S. demand by 2030",
+   "column": 0,
+   "source": "IEA",
+   "source_url": "https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks"
+  },
+  {
+   "value": "4,200+",
+   "label": "U.S. data centers",
+   "column": 0,
+   "source": "Statista",
+   "source_url": "https://www.statista.com/statistics/1228433/number-of-data-centers-in-the-united-states/"
+  },
+  {
+   "value": "1,000",
+   "label": "TWh globally by 2030",
+   "column": 0,
+   "source": "IEA",
+   "source_url": "https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks"
+  },
+  {
+   "value": "5M",
+   "label": "Gal/day — large DC cooling",
+   "column": 1,
+   "source": "EESI",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "value": "300K",
+   "label": "Gal/day — hyperscale avg",
+   "column": 1,
+   "source": "Industry estimates",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "value": "17B",
+   "label": "U.S. gal water (2023)",
+   "column": 1,
+   "source": "EESI",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "value": "66%",
+   "label": "New builds in water stress",
+   "column": 2,
+   "source": "Industry reports",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "value": "74K",
+   "label": "Virginia jobs / year",
+   "column": 2,
+   "source": "VEDP",
+   "source_url": "https://www.vedp.org/industry/data-centers"
+  },
+  {
+   "value": "50%",
+   "label": "AI workloads by 2030 (est.)",
+   "column": 2,
+   "source": "JLL",
+   "source_url": "https://www.us.jll.com/en/trends-and-insights/research/data-center-outlook"
+  },
+  {
+   "value": "$70B",
+   "label": "U.S. build spend / quarter",
+   "column": 2,
+   "source": "Industry forecasts",
+   "source_url": "https://www.us.jll.com/en/trends-and-insights/research/data-center-outlook"
+  }
+ ],
+ "context_facts": [
+  {
+   "text": "U.S. data centers consumed roughly 4% of total U.S. electricity in 2024, with demand expected to more than double by 2030.",
+   "source": "Pew Research / IEA",
+   "source_url": "https://www.pewresearch.org/short-reads/2024/11/22/what-we-know-about-data-centers-and-their-impact-on-the-us-power-grid/"
+  },
+  {
+   "text": "A single large data center can use up to 5 million gallons of water per day for cooling.",
+   "source": "EESI",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "text": "Global data center electricity use is projected to reach nearly 1,000 TWh by 2030 — roughly Japan's annual usage today.",
+   "source": "IEA",
+   "source_url": "https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks"
+  },
+  {
+   "text": "The U.S. has more than 4,200 data centers — more than any other country.",
+   "source": "Statista",
+   "source_url": "https://www.statista.com/statistics/1228433/number-of-data-centers-in-the-united-states/"
+  },
+  {
+   "text": "Data centers in Virginia alone support roughly 74,000 jobs annually.",
+   "source": "VEDP",
+   "source_url": "https://www.vedp.org/industry/data-centers"
+  },
+  {
+   "text": "A typical hyperscale data center uses about 300,000 gallons of water per day — roughly 1,000 average U.S. households.",
+   "source": "Industry estimates",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "text": "In 2023, U.S. data centers directly consumed an estimated 17 billion gallons of water.",
+   "source": "EESI",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "text": "Some individual AI model training runs have used as much electricity as hundreds of U.S. households use in a year.",
+   "source": "Industry research",
+   "source_url": "https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks"
+  },
+  {
+   "text": "U.S. data center construction spending is projected to average over $70 billion per quarter from 2025–2028.",
+   "source": "JLL",
+   "source_url": "https://www.us.jll.com/en/trends-and-insights/research/data-center-outlook"
+  },
+  {
+   "text": "Roughly 66% of new U.S. data centers built since 2022 are in areas already experiencing high water stress.",
+   "source": "Industry reports",
+   "source_url": "https://www.eesi.org/papers/view/fact-sheet-data-centers-and-water-consumption"
+  },
+  {
+   "text": "AI-related workloads could represent up to half of data center energy use by 2030, per industry forecasts.",
+   "source": "JLL",
+   "source_url": "https://www.us.jll.com/en/trends-and-insights/research/data-center-outlook"
+  }
+ ],
+ "sponsors": {
+  "section_title": "Sponsorship & Partners",
+  "section_lead": "Premium placement for law firms, utilities, economic development & civic orgs reaching communities tracking data centers.",
+  "inquire_url": "mailto:info@michigandatacentertracker.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20Michigan%20Data%20Center%20Map",
+  "topbar": {
+   "partner_name": "Partner placement available"
+  },
+  "presenting": {
+   "status": "available",
+   "name": "Presenting partner",
+   "description": "Featured logo · map visibility · newsletter mention"
+  },
+  "supporting": [
+   {
+    "status": "available",
+    "name": "Supporting partner",
+    "description": "Sidebar recognition · category exclusivity"
+   },
+   {
+    "status": "available",
+    "name": "Supporting partner",
+    "description": "Sidebar recognition · regional targeting"
+   },
+   {
+    "status": "available",
+    "name": "Supporting partner",
+    "description": "Sidebar recognition · event tie-ins"
+   }
+  ]
+ }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  doc-page:not(:defined){visibility:hidden}
+  html,body{margin:0;padding:0;background:#Eaeef2;}
+  .rpt{font-family:'Archivo',sans-serif;color:#111417;font-size:15px;line-height:1.65;}
+  .rpt h1{font-size:33px;font-weight:900;letter-spacing:-0.025em;line-height:1.04;margin:0 0 8px;}
+  .rpt .sub{font-size:16px;line-height:1.55;color:#4C5661;margin:0 0 16px;max-width:60ch;}
+  .rpt .kicker{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#15487B;margin:0 0 12px;}
+  .rpt .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.04em;color:#5F6875;border-top:1px solid rgba(17,20,23,0.14);border-bottom:1px solid rgba(17,20,23,0.14);padding:9px 0;margin:0 0 26px;display:flex;flex-wrap:wrap;gap:6px 20px;}
+  .rpt h2{font-size:20px;font-weight:800;letter-spacing:-0.01em;margin:34px 0 4px;padding-top:13px;border-top:2px solid #111417;}
+  .rpt h2 .n{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#15487B;font-weight:600;margin-right:10px;}
+  .rpt h3{font-size:14.5px;font-weight:800;margin:20px 0 7px;letter-spacing:-0.01em;}
+  .rpt p{margin:0 0 12px;}
+  .rpt ul,.rpt ol{margin:0 0 13px;padding-left:20px;}
+  .rpt li{margin:0 0 5px;}
+  .rpt strong{font-weight:700;}
+  .rpt a{color:#15487B;text-decoration:underline;text-underline-offset:2px;}
+  .rpt table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:12px;}
+  .rpt th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:0.11em;text-transform:uppercase;color:#15487B;border-bottom:1.5px solid #111417;padding:0 12px 7px 0;vertical-align:bottom;}
+  .rpt td{border-bottom:1px solid rgba(17,20,23,0.11);padding:8px 12px 8px 0;vertical-align:top;line-height:1.42;}
+  .rpt td:last-child,.rpt th:last-child{padding-right:0;}
+  .rpt code{font-family:'IBM Plex Mono',monospace;font-size:11.5px;background:#F1F5F9;padding:1px 5px;border-radius:3px;color:#0F2E4E;}
+  .rpt .chip{font-family:'IBM Plex Mono',monospace;font-size:8.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:2px 6px;border-radius:2px;white-space:nowrap;}
+  .rpt .callout{background:#F4F7FB;border-left:3px solid #15487B;padding:14px 17px;margin:8px 0 18px;font-size:14px;line-height:1.55;}
+  .rpt .callout.warn{border-left-color:#C8362B;background:#FBF2F1;}
+  .rpt .callout .lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#15487B;display:block;margin-bottom:5px;}
+  .rpt .callout.warn .lbl{color:#C8362B;}
+  .rpt .tier{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:18px 0 2px;display:flex;align-items:center;gap:9px;}
+  .rpt .dot{width:8px;height:8px;border-radius:50%;flex:none;}
+  .rpt .foot{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#5F6875;display:flex;justify-content:space-between;width:100%;padding-top:6px;border-top:1px solid rgba(17,20,23,0.14);}
+</style>
+</helmet>
+<x-import component-from-global-scope="doc-page" from="./doc-page.js" size="letter" margin="0.8in" hint-size="100%,100%">
+<div slot="footer" class="foot"><span>Michigan Data Center Tracker &mdash; Daily Data Operations</span><span>Internal handoff &middot; v1</span></div>
+<div class="rpt">
+
+<div class="kicker">Operations Runbook &middot; Handoff to Claude Code</div>
+<h1>Keeping the Tracker Live: Daily Data Operations &amp; Agent Plan</h1>
+<p class="sub">Everything that has to be watched, verified, and refreshed to keep the Tracker current &mdash; and how to hand that work to a small team of automated agents instead of doing it by hand.</p>
+<div class="meta"><span>Source of truth: <code>map-data.json</code></span><span>83 sourced points &middot; 6 layers</span><span>Non-negotiable rule: every record cites a source</span></div>
+
+<h2><span class="n">01</span>The model, in one paragraph</h2>
+<p>The whole site is drawn from a handful of version-controlled JSON files. <code>map-data.json</code> holds <strong>83 point records</strong> across six layers (projects, moratoria, generation, transmission, meetings, policy); <code>live-data.json</code> holds stories + meetings; <code>water-live.json</code> holds live Great Lakes levels; <code>geo/*.geojson</code> holds boundaries and the grid. The homepage counts, the map pins, the ticker, and every project page are <strong>computed</strong> from those files &mdash; no number is typed by hand. So "updating the site" is really "keeping those files fresh and correct." Every plotted record carries <code>source_url</code>, <code>source_name</code>, <code>verified_date</code>, and <code>confidence</code>. That sourcing discipline <em>is</em> the product; automation must preserve it, never shortcut it.</p>
+
+<h2><span class="n">02</span>What has to be checked through the day</h2>
+<p>Grouped by how often it actually moves. Frequency is set by the real-world clock: township boards meet on weeknights, filings post in business hours, water gauges tick hourly, news breaks continuously.</p>
+
+<div class="tier"><span class="dot" style="background:#C8362B;"></span>Tier 1 &middot; Continuous / hourly</div>
+<table>
+<thead><tr><th style="width:20%">Feed</th><th style="width:34%">What to check</th><th style="width:26%">Source</th><th style="width:20%">Writes to</th></tr></thead>
+<tbody>
+<tr><td><strong>News wire</strong></td><td>New coverage naming a tracked town, developer, or "data center"; dedupe against what's already posted; one-line summary + outlet.</td><td>Local outlet feeds, Google News queries per municipality/keyword.</td><td><code>live-data.json</code> stories &rarr; The Wire + ticker</td></tr>
+<tr><td><strong>Great Lakes levels</strong></td><td>Current gauge readings for the five lakes; flag anomalies.</td><td>NOAA CO-OPS / GLERL station IDs in <code>lake_levels</code>.</td><td><code>water-live.json</code></td></tr>
+<tr><td><strong>Live outbound tools</strong></td><td>Link health only (AIS ships, GLOS buoys, NOAA). No ingest &mdash; verify URLs resolve.</td><td><code>live_map_links</code>.</td><td>&mdash; (monitor)</td></tr>
+</tbody>
+</table>
+
+<div class="tier"><span class="dot" style="background:#C0872E;"></span>Tier 2 &middot; Morning &amp; evening sweeps (2&ndash;4&times;/day)</div>
+<table>
+<thead><tr><th style="width:20%">Feed</th><th style="width:34%">What to check</th><th style="width:26%">Source</th><th style="width:20%">Writes to</th></tr></thead>
+<tbody>
+<tr><td><strong>Project filings &amp; status</strong></td><td>New site plans / special-land-use apps; status moves (Proposed &rarr; Under review &rarr; Approved / Withdrawn / Rejected); developer reveals; acreage/$ in the note.</td><td>County &amp; township planning-commission agendas &amp; portals (Washtenaw, Oakland, Wayne, Kent, Monroe, Allegan, Livingston&hellip;); ENR; MLive / Bridge.</td><td><code>map_points</code> <code>layer:"projects"</code> (19)</td></tr>
+<tr><td><strong>Moratoria &amp; pauses</strong></td><td>Board votes enacting / extending / lifting a pause or ban; effective + expiry dates.</td><td>Township &amp; county board minutes and ordinance postings.</td><td><code>layer:"moratoria"</code> (33)</td></tr>
+<tr><td><strong>Public meetings</strong></td><td>Newly-posted agendas mentioning data centers; hearing dates, times, locations, watch links.</td><td>Municipal meeting portals; MPSC hearing calendar.</td><td><code>layer:"meetings"</code> + Meetings page</td></tr>
+</tbody>
+</table>
+
+<div class="tier"><span class="dot" style="background:#15487B;"></span>Tier 3 &middot; Daily</div>
+<table>
+<thead><tr><th style="width:20%">Feed</th><th style="width:34%">What to check</th><th style="width:26%">Source</th><th style="width:20%">Writes to</th></tr></thead>
+<tbody>
+<tr><td><strong>MPSC dockets</strong></td><td>New filings, tariffs, interconnection &amp; rate cases touching large load.</td><td>Michigan Public Service Commission e-docket.</td><td><code>layer:"policy"</code></td></tr>
+<tr><td><strong>Interconnection queue</strong></td><td>New / revised load requests that disclose megawatts &rarr; fills the <code>power_mw</code> blanks (14/19 undisclosed today).</td><td>MISO generator/load interconnection queue.</td><td><code>power_mw</code> on projects</td></tr>
+<tr><td><strong>Water-use permits</strong></td><td>Large-quantity withdrawal registrations near a tracked site &mdash; the #1 reader concern, largely untracked today.</td><td>EGLE water withdrawal / permits.</td><td>project <code>note</code> / new <code>water_use</code> field</td></tr>
+<tr><td><strong>Legislation</strong></td><td>Bills on data centers, tax abatement, or local-control preemption moving in Lansing.</td><td>Michigan Legislature bill tracker.</td><td>policy / context</td></tr>
+<tr><td><strong>Elections 2026</strong></td><td>Candidate statements on record, new filings, campaign-finance disclosures by race/region.</td><td>MI Bureau of Elections; FEC; candidate sites.</td><td>Your Voice 2026 dataset</td></tr>
+</tbody>
+</table>
+
+<div class="tier"><span class="dot" style="background:#3B8B98;"></span>Tier 4 &middot; Weekly / as-needed</div>
+<table>
+<thead><tr><th style="width:20%">Feed</th><th style="width:34%">What to check</th><th style="width:26%">Source</th><th style="width:20%">Writes to</th></tr></thead>
+<tbody>
+<tr><td><strong>Generation plants</strong></td><td>Retirements / additions / fuel changes to the 24 tracked plants.</td><td>EIA-860M; utility IRPs.</td><td><code>layer:"generation"</code></td></tr>
+<tr><td><strong>Transmission</strong></td><td>New HV line routes &amp; substation proposals (e.g. ITC).</td><td>MISO MTEP; ITC filings.</td><td><code>layer:"transmission"</code> + <code>transmission_lines</code></td></tr>
+<tr><td><strong>Boundaries &amp; context</strong></td><td>County/township/district polygons (near-static); national context stats.</td><td>Census/TIGER; industry reports.</td><td><code>geo/*.geojson</code>, <code>industry_stats</code></td></tr>
+</tbody>
+</table>
+
+<h2><span class="n">03</span>Trust rules every check must obey</h2>
+<ul>
+<li><strong>Every point cites a source.</strong> No <code>source_url</code>, no publish &mdash; the record goes to a "needs source" holding list, not the map.</li>
+<li><strong>Confidence stays visible.</strong> <code>"Reported"</code> is never silently promoted to <code>"Confirmed"</code>; promotion requires a second independent source.</li>
+<li><strong>Blanks stay blank.</strong> Undisclosed load renders "Undisclosed," never <code>0</code>. Don't infer numbers.</li>
+<li><strong>Stats are computed, not typed.</strong> Counts and disclosed-load totals are recomputed from <code>map_points</code> on every write; humans never edit the ribbon numbers.</li>
+<li><strong>Stamp freshness.</strong> Every touched record gets a new <code>verified_date</code>; <code>updated_at</code> at the top of the file bumps on any change.</li>
+</ul>
+
+<h2><span class="n">04</span>Recommended agents to split the work</h2>
+<p>Seven narrow collector agents, one orchestrator, and a human gate. Each collector owns one slice, knows its own sources, and does exactly one job: propose sourced changes to the files it owns. None of them publish &mdash; they open proposals.</p>
+<table>
+<thead><tr><th style="width:15%">Agent</th><th style="width:26%">Owns</th><th style="width:37%">Sources it watches</th><th style="width:22%">Cadence</th></tr></thead>
+<tbody>
+<tr><td><strong>A1 &middot; Sites</strong></td><td>projects layer, <code>power_mw</code></td><td>Planning-commission agendas &amp; portals, ENR, regional news.</td><td>Morning + evening</td></tr>
+<tr><td><strong>A2 &middot; Moratoria</strong></td><td>moratoria layer</td><td>Board minutes, ordinance postings.</td><td>Morning + evening</td></tr>
+<tr><td><strong>A3 &middot; Meetings</strong></td><td>meetings layer, Meetings page</td><td>Municipal agenda portals, MPSC calendar.</td><td>Morning + evening</td></tr>
+<tr><td><strong>A4 &middot; Grid &amp; Policy</strong></td><td>generation, transmission, policy</td><td>MPSC e-docket, MISO queue/MTEP, EIA, Legislature.</td><td>Daily (weekly for plants)</td></tr>
+<tr><td><strong>A5 &middot; Water</strong></td><td><code>water-live.json</code>, water fields</td><td>NOAA/GLERL gauges, EGLE withdrawals.</td><td>Hourly (levels) + daily (permits)</td></tr>
+<tr><td><strong>A6 &middot; Wire</strong></td><td>stories + ticker</td><td>Outlet feeds, keyword/municipality news queries.</td><td>Hourly</td></tr>
+<tr><td><strong>A7 &middot; Elections</strong></td><td>Your Voice 2026</td><td>Bureau of Elections, FEC, candidate statements.</td><td>Daily</td></tr>
+<tr><td><strong>Orchestrator</strong></td><td>merge, validate, stats, deploy</td><td>Runs agents on schedule; schema-validates; dedupes; recomputes stats; bumps <code>updated_at</code>; opens one PR per sweep.</td><td>On every run</td></tr>
+<tr><td><strong>Human Editor</strong></td><td>the publish gate</td><td>Reviews the PR diff + source links; sets Confirmed/Reported; approves &amp; merges.</td><td>2&times;/day</td></tr>
+</tbody>
+</table>
+
+<h3>A day on the schedule (Eastern)</h3>
+<table>
+<thead><tr><th style="width:16%">Time</th><th style="width:30%">Run</th><th style="width:30%">Agents</th><th style="width:24%">Result</th></tr></thead>
+<tbody>
+<tr><td><code>06:00</code></td><td>Morning sweep (full)</td><td>A1&ndash;A7</td><td>Draft PR opens for the day</td></tr>
+<tr><td><code>07&ndash;21h</code></td><td>Hourly pulse</td><td>A5 (levels), A6 (wire)</td><td>Live files refresh; wire queued</td></tr>
+<tr><td><code>12:00</code></td><td>Midday delta</td><td>A1, A2, A3</td><td>New filings/votes appended to PR</td></tr>
+<tr><td><code>18:00</code></td><td>Evening sweep (full)</td><td>A1&ndash;A7</td><td>Editor reviews &amp; merges &rarr; publish</td></tr>
+<tr><td><code>Mon 05:00</code></td><td>Weekly deep pass</td><td>A4 (plants/transmission), boundaries</td><td>Tier-4 refresh</td></tr>
+</tbody>
+</table>
+<div class="callout"><span class="lbl">Why this split works</span>Each agent's sources, schema, and failure modes are narrow enough to reason about and to source-check. The orchestrator is the only thing that writes the published files, so validation and the "everything is sourced" rule are enforced in exactly one place &mdash; not seven.</div>
+
+<h2><span class="n">05</span>Where this should live (not your desktop)</h2>
+<p>The desktop is the single riskiest place for the source of truth: no history, no backup, no audit trail, and the site can't deploy from it. The fix is to make <strong>the Git repo the canonical store and the deploy target at once</strong> &mdash; the site already publishes from GitHub Pages at <code>/mi-data-center-tracker/</code>, so the data belongs in that same repo.</p>
+<h3>Recommended setup</h3>
+<ul>
+<li><strong>Canonical store &rarr; the GitHub repo.</strong> <code>map-data.json</code>, <code>live-data.json</code>, <code>water-live.json</code>, and <code>geo/</code> live in-repo. Git history becomes the audit trail: who changed which point, when, and citing what. That history <em>is</em> the credibility model.</li>
+<li><strong>Agents &rarr; GitHub Actions (cron).</strong> Tier 2&ndash;4 runs are scheduled Actions that execute the agents and open a PR. No server to babysit; the automation lives beside the code it edits.</li>
+<li><strong>High-frequency Tier 1 &rarr; a tiny always-on worker.</strong> Hourly wire + water levels are better on a small always-on host (Fly.io / Railway / a $5 VPS, or Val Town for the simplest cron) that commits <code>water-live.json</code> and queues stories &mdash; Actions cron granularity is coarse for hourly work.</li>
+<li><strong>Staging vs. live.</strong> Agents write to <code>data/staging/*.json</code>; the orchestrator validates and opens a PR; on merge, the published <code>data/*.json</code> updates and Pages redeploys. Nothing reaches readers without passing validation and the human gate.</li>
+<li><strong>Secrets &amp; backup.</strong> Any model/API keys go in repo secrets (sources are keyless today). The repo history is the backup; optionally mirror <code>map-data.json</code> nightly to cheap object storage (R2/S3).</li>
+</ul>
+<div class="callout warn"><span class="lbl">The one rule for hosting</span>The repo is the source of truth <strong>and</strong> the thing that deploys. Agents propose via pull request, you approve, Pages publishes. Nothing the site depends on should exist only on a laptop.</div>
+
+<h2><span class="n">06</span>First build for Claude Code</h2>
+<ol>
+<li><strong>Move data into the repo</strong> under <code>data/</code> with a <code>staging/</code> + published split, a JSON Schema for the point model, and a <code>npm run validate</code> that fails on a missing <code>source_url</code>, a bad <code>confidence</code>, or a hand-typed stat.</li>
+<li><strong>Add <code>id</code>/<code>slug</code> + <code>sources[]</code></strong> to project records &mdash; needed for stable project permalinks and multi-citation detail pages.</li>
+<li><strong>Scaffold the Orchestrator</strong> as a Node runner: execute agent modules &rarr; validate &rarr; dedupe &rarr; recompute stats &rarr; write staging &rarr; open a PR (wired as a GitHub Action).</li>
+<li><strong>Ship A6 Wire + A5 Water first</strong> &mdash; highest frequency, lowest risk, keyless sources &mdash; to prove the propose-validate-approve-publish loop end to end.</li>
+<li><strong>Add a review view</strong> (PR template or a <code>/review</code> diff page) that shows each proposed change beside its source link, so the human gate is a two-minute approve.</li>
+</ol>
+
+</div>
+</x-import>
+</x-dc>
+</body>
+</html>
