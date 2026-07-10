@@ -425,7 +425,7 @@ class Component extends DCLogic {
   _avatar(c, size, fs, extraBorder) {
     const s = size, brd = extraBorder || "1px solid var(--hair)";
     if (c.photo) {
-      return `<img src="${c.photo}" alt="${c.name}" loading="lazy" style="width:${s}px; height:${s}px; border-radius:50%; object-fit:cover; border:${brd}; flex:none;">`;
+      return `<img src="${c.photo}" alt="${c.name}" loading="lazy" style="width:${s}px; height:${s}px; border-radius:50%; object-fit:cover; object-position:50% 22%; border:${brd}; flex:none;">`;
     }
     return `<span style="width:${s}px; height:${s}px; border-radius:50%; background:var(--panel-2); border:${brd}; display:flex; align-items:center; justify-content:center; font-size:${fs}px; font-weight:800; color:var(--soft); flex:none;">${this._initials(c.name)}</span>`;
   }
