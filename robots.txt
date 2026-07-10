@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://grahamandgold.github.io/mi-data-center-tracker/sitemap.xml
+Sitemap: https://michigandatacentertracker.com/sitemap.xml
