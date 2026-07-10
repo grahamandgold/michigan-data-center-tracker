@@ -376,62 +376,47 @@ class Component extends DCLogic {
 
   _data() {
     return [
-      { id:"governor", title:"Governor", sub:"Open seat · General election Nov. 3, 2026", region:"statewide", candidates:[
-        { name:"Jocelyn Benson", photo:"img/candidates/jocelyn-benson.jpg", photoCredit:"Michigan Department of State", party:"Democratic", role:"Governor candidate · Secretary of State", stances:[] },
-        { name:"Dana Nessel", photo:"img/candidates/dana-nessel.jpg", photoCredit:"Democratic Attorneys General Association", party:"Democratic", role:"Governor candidate · Attorney General", stances:[] },
-        { name:"Tom Leonard", photo:"img/candidates/tom-leonard.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Governor candidate", stances:[] }
+      { id:"governor", title:"Governor", sub:"Open seat \u00b7 Primary Aug 4 \u00b7 General Nov 3, 2026", region:"statewide", candidates:[
+        { name:"Jocelyn Benson", photo:"img/candidates/jocelyn-benson.jpg", photoCredit:"Michigan Department of State", party:"Democratic", role:"Governor candidate \u00b7 Secretary of State", stances:[] },
+        { name:"Chris Swanson", party:"Democratic", role:"Governor candidate \u00b7 Genesee County Sheriff", stances:[] },
+        { name:"John James", party:"Republican", role:"Governor candidate \u00b7 U.S. Rep (MI-10)", stances:[] },
+        { name:"Mike Cox", party:"Republican", role:"Governor candidate \u00b7 Former Attorney General", stances:[] },
+        { name:"Perry Johnson", party:"Republican", role:"Governor candidate", stances:[] },
+        { name:"Aric Nesbitt", party:"Republican", role:"Governor candidate \u00b7 Campaign suspended", stances:[] }
       ]},
-      { id:"us-senate", title:"U.S. Senate", sub:"Open seat · General election Nov. 3, 2026", region:"statewide", candidates:[
-        { name:"Abdul El-Sayed", photo:"img/candidates/abdul-el-sayed.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"U.S. Senate candidate", stances:[
-          { topic:"Federal AI & data-center regulation", quote:"We need legislation now. We need leaders who understand the technology, are willing to stand up on it, and protect humanity from that oncoming tsunami.", source:"Michigan Advance", date:"May 28, 2026", context:"Mackinac Policy Conference debate", url:"#" },
-          { topic:"Public-utility model for AI", quote:"I think we need to regulate AI and AI corporations as public utilities. It is too dangerous to be left up to control of the government.", source:"Michigan Advance", date:"May 28, 2026", context:"Response to rival plans at the same debate", url:"#" }
-        ]},
-        { name:"Mallory McMorrow", photo:"img/candidates/mallory-mcmorrow.jpg", photoCredit:"Wikimedia Commons", party:"Democratic", role:"U.S. Senate candidate · State Senator (SD-13)", stances:[
-          { topic:"Data Centers Done Right plan", quote:"When it comes to data centers, Michigan has an opportunity to show the country how to do it right. That means data center companies, not Michigan families, will pay for their own energy and grid upgrades; pay their fair share in taxes; and pay our workers by creating good-paying union jobs.", source:"Campaign statement", date:"Jun 2026", context:"McMorrow for Michigan", url:"#" }
-        ]},
-        { name:"Haley Stevens", photo:"img/candidates/haley-stevens.jpg", photoCredit:"U.S. House (public domain)", party:"Democratic", role:"U.S. Senate candidate · U.S. Rep (MI-11)", stances:[] },
-        { name:"Mike Rogers", photo:"img/candidates/mike-rogers.jpg", photoCredit:"Wikimedia Commons", party:"Republican", role:"U.S. Senate candidate", stances:[] }
+      { id:"us-senate", title:"U.S. Senate", sub:"Open seat \u00b7 Primary Aug 4 \u00b7 General Nov 3, 2026", region:"statewide", candidates:[
+        { name:"Abdul El-Sayed", photo:"img/candidates/abdul-el-sayed.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"U.S. Senate candidate", stances:[] },
+        { name:"Haley Stevens", photo:"img/candidates/haley-stevens.jpg", photoCredit:"U.S. House (public domain)", party:"Democratic", role:"U.S. Senate candidate \u00b7 U.S. Rep (MI-11)", stances:[] },
+        { name:"Mallory McMorrow", photo:"img/candidates/mallory-mcmorrow.jpg", photoCredit:"Wikimedia Commons", party:"Democratic", role:"U.S. Senate candidate \u00b7 State Senator (SD-8) \u00b7 Campaign suspended", stances:[] },
+        { name:"Mike Rogers", photo:"img/candidates/mike-rogers.jpg", photoCredit:"Wikimedia Commons", party:"Republican", role:"U.S. Senate candidate \u00b7 Former U.S. Rep", stances:[] }
       ]},
-      { id:"legislature", title:"State House & Senate", sub:"Tracked data-center districts", region:"districts", candidates:[
-        { name:"Dylan Wegela", photo:"img/candidates/dylan-wegela.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"HD-26", reg:"SE Michigan", area:"SE Michigan · Metro Detroit", px:150, py:206, lat:42.36, lng:-83.16, stances:[] },
-        { name:"Jim DeSana", photo:"img/candidates/jim-desana.jpg", photoCredit:"Michigan House Republicans", party:"Republican", role:"HD-27", reg:"SE Michigan", area:"SE Michigan · Monroe area", px:150, py:230, lat:42.05, lng:-83.34, stances:[] },
-        { name:"Jim Runestad", photo:"img/candidates/jim-runestad.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"SD-15", reg:"SE Michigan", area:"SE Michigan · Oakland County", px:148, py:191, lat:42.62, lng:-83.44, stances:[] },
-        { name:"Jennifer Conlin", photo:"img/candidates/jennifer-conlin.jpg", photoCredit:"Michigan House Democrats", party:"Democratic", role:"HD-48", reg:"SE Michigan", area:"SE Michigan · Washtenaw / Livingston", px:132, py:205, lat:42.45, lng:-83.90, stances:[] },
-        { name:"Joey Andrews", photo:"img/candidates/joey-andrews.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"HD-53", reg:"West Michigan", area:"West Michigan · Southwest / Berrien", px:90, py:236, lat:42.10, lng:-86.40, stances:[] },
-        { name:"Erin Byrnes", photo:"img/candidates/erin-byrnes.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"HD-14", reg:"SE Michigan", area:"SE Michigan · Dearborn", px:150, py:210, lat:42.31, lng:-83.20, stances:[] }
+      { id:"legislature", title:"State House & Senate", sub:"Seats where data centers are proposed \u00b7 Primary Aug 4", region:"districts", candidates:[
+        { name:"Shannon Wayne", party:"Democratic", role:"Michigan House District 31 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Laura Perry", party:"Republican", role:"Michigan House District 31 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Morgan Foreman", party:"Democratic", role:"Michigan House District 33 \u00b7 Incumbent", reg:"SE Michigan", stances:[] },
+        { name:"Catherine Rogers", party:"Republican", role:"Michigan House District 33", reg:"SE Michigan", stances:[] },
+        { name:"Felicia Brabec", party:"Democratic", role:"Michigan Senate District 15 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Michael White", party:"Democratic", role:"Michigan Senate District 15 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Jason Rogers", party:"Republican", role:"Michigan Senate District 15 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Deandre Barnes", party:"Democratic", role:"Michigan Senate District 16", reg:"SE Michigan", stances:[] },
+        { name:"Joseph Bellino", party:"Republican", role:"Michigan Senate District 16 \u00b7 Incumbent", reg:"SE Michigan", stances:[] },
+        { name:"Anthony Pennock", party:"Democratic", role:"Michigan Senate District 18", reg:"Mid-Michigan", stances:[] },
+        { name:"Thomas Albert", party:"Republican", role:"Michigan Senate District 18 \u00b7 Incumbent", reg:"Mid-Michigan", stances:[] },
+        { name:"Dale Murney", party:"Democratic", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
+        { name:"Curtis Clark", party:"Republican", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
+        { name:"Kenny Clevenger", party:"Republican", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
+        { name:"Chris Moraitis", party:"Republican", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
+        { name:"Margarette Gupta", party:"Democratic", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Greg Hill", party:"Democratic", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Daniel Lawless", party:"Republican", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] },
+        { name:"Donni Steele", party:"Republican", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] }
       ]}
     ];
   }
 
-  _pc(party) { return party === "Republican" ? "#C4342C" : "#1E6FC4"; }
+    _pc(party) { return party === "Republican" ? "#C4342C" : "#1E6FC4"; }
 
-  _links() {
-    return {
-      "Abdul El-Sayed": [
-        { headline:"El-Sayed presses federal data-center standards at Detroit forum", source:"Detroit News", platform:"news", date:"Jun 12, 2026", url:"#" },
-        { headline:"Thread: why AI compute needs utility-style oversight", source:"@AbdulElSayed", platform:"x", date:"Jun 3, 2026", url:"#" }
-      ],
-      "Mallory McMorrow": [
-        { headline:"McMorrow rolls out \u201CData Centers Done Right\u201D plan", source:"MLive", platform:"news", date:"Jun 9, 2026", url:"#" },
-        { headline:"Town hall recap: who pays for the grid?", source:"Campaign", platform:"facebook", date:"May 30, 2026", url:"#" }
-      ],
-      "Haley Stevens": [
-        { headline:"Stevens asked about Amazon-linked site at Oakland stop", source:"Crain's Detroit", platform:"news", date:"Jun 20, 2026", url:"#" }
-      ],
-      "Mike Rogers": [
-        { headline:"Rogers: Michigan should compete for these jobs", source:"Bridge Michigan", platform:"news", date:"Jun 18, 2026", url:"#" }
-      ],
-      "Jocelyn Benson": [
-        { headline:"Benson campaign posts on transparency in siting", source:"Campaign", platform:"facebook", date:"Jun 15, 2026", url:"#" }
-      ],
-      "Dana Nessel": [
-        { headline:"Nessel flags consumer-protection angle on utility deals", source:"Michigan Advance", platform:"news", date:"Jun 11, 2026", url:"#" }
-      ],
-      "Dylan Wegela": [
-        { headline:"Wegela posts on constituent water concerns", source:"@RepWegela", platform:"x", date:"Jun 22, 2026", url:"#" }
-      ]
-    };
-  }
+  _links() { return {}; }
 
   _linksHtml(links) {
     if (!links || !links.length) return "";
