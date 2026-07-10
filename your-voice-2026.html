@@ -363,7 +363,7 @@
 class Component extends DCLogic {
   state = { race:"all", party:"all", region:null, record:"all" };
 
-  componentDidMount() { this.data = this._data(); const LK = this._links(); this.data.forEach(r => r.candidates.forEach(c => { c.links = LK[c.name] || []; })); this._wire(); this._render(); this._renderDash(); this._renderTable("race", 1); this._renderBracket("us-senate"); this._wireBracket(); this._wireChatter(); this._countdown(); this._cdIv = setInterval(() => this._countdown(), 60000); this._boot(0); this._wireDmTabs(); }
+  componentDidMount() { this.data = this._data(); const _leg = this.data.find(r => r.id === "legislature"); if (_leg && _leg.districts) _leg.candidates = _leg.districts.flatMap(d => d.candidates); const LK = this._links(); this.data.forEach(r => r.candidates.forEach(c => { c.links = LK[c.name] || []; })); this._wire(); this._render(); this._renderDash(); this._renderTable("race", 1); this._renderBracket("us-senate"); this._wireBracket(); this._wireChatter(); this._countdown(); this._cdIv = setInterval(() => this._countdown(), 60000); this._boot(0); this._wireDmTabs(); }
   componentWillUnmount() { if (this.map) { this.map.remove(); this.map = null; } if (this._cdIv) clearInterval(this._cdIv); }
 
   _countdown() {
@@ -390,25 +390,39 @@ class Component extends DCLogic {
         { name:"Mallory McMorrow", photo:"img/candidates/mallory-mcmorrow.jpg", photoCredit:"Wikimedia Commons", party:"Democratic", role:"U.S. Senate candidate \u00b7 State Senator (SD-8) \u00b7 Campaign suspended", stances:[ { topic:"Data centers", quote:"Data center companies, not Michigan families, should pay for their own energy [and] grid upgrades... pay their fair share in taxes... and pay our workers by creating good-paying union jobs.", source:"McMorrow campaign", date:"2026", context:"Campaign: Data Centers Done Right", url:"https://www.mcmorrowformichigan.com/data-centers-done-right" } ] },
         { name:"Mike Rogers", photo:"img/candidates/mike-rogers.jpg", photoCredit:"Wikimedia Commons", party:"Republican", role:"U.S. Senate candidate \u00b7 Former U.S. Rep", stances:[] }
       ]},
-      { id:"legislature", title:"State House & Senate", sub:"Seats where data centers are proposed \u00b7 Primary Aug 4", region:"districts", candidates:[
-        { name:"Shannon Wayne", photo:"img/candidates/shannon-wayne.jpg", photoCredit:"Shannon Dare Wayne campaign", party:"Democratic", role:"Michigan House District 31 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Laura Perry", photo:"img/candidates/laura-perry.jpg", photoCredit:"Laura Perry campaign", party:"Republican", role:"Michigan House District 31 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Morgan Foreman", photo:"img/candidates/morgan-foreman.jpg", photoCredit:"Michigan House Democrats", party:"Democratic", role:"Michigan House District 33 \u00b7 Incumbent", reg:"SE Michigan", stances:[ { topic:"Data centers", kind:"position", quote:"Sponsored HB 6140, part of the Michigan House Democrats\u2019 data-center guardrails package, which would bar local officials from signing nondisclosure agreements tied to data-center projects.", source:"Michigan House Democrats", date:"Jun 2026", context:"Data-center guardrails package (HB 6135\u20136142)", url:"https://housedems.com/morgan-foreman/" } ] },
-        { name:"Felicia Brabec", photo:"img/candidates/felicia-brabec.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"Michigan Senate District 15 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Michael White", photo:"img/candidates/michael-white.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"Michigan Senate District 15 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Jason Rogers", photo:"img/candidates/jason-rogers.jpg", photoCredit:"Campaign", party:"Republican", role:"Michigan Senate District 15 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Deandre Barnes", photo:"img/candidates/deandre-barnes.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"Michigan Senate District 16", reg:"SE Michigan", stances:[] },
-        { name:"Joseph Bellino", photo:"img/candidates/joseph-bellino.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Michigan Senate District 16 \u00b7 Incumbent", reg:"SE Michigan", stances:[] },
-        { name:"Anthony Pennock", photo:"img/candidates/anthony-pennock.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"Michigan Senate District 18", reg:"Mid-Michigan", stances:[] },
-        { name:"Thomas Albert", photo:"img/candidates/thomas-albert.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Michigan Senate District 18 \u00b7 Incumbent", reg:"Mid-Michigan", stances:[] },
-        { name:"Dale Murney", photo:"img/candidates/dale-murney.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
-        { name:"Curtis Clark", photo:"img/candidates/curtis-clark.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
-        { name:"Kenny Clevenger", photo:"img/candidates/kenny-clevenger.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
-        { name:"Chris Moraitis", photo:"img/candidates/chris-moraitis.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Michigan Senate District 20 \u00b7 open seat", reg:"West Michigan", stances:[] },
-        { name:"Margarette Gupta", photo:"img/candidates/margarette-gupta.jpg", photoCredit:"Margarette Gupta campaign", party:"Democratic", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Greg Hill", photo:"img/candidates/greg-hill.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Daniel Lawless", photo:"img/candidates/daniel-lawless.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] },
-        { name:"Donni Steele", photo:"img/candidates/donni-steele.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Michigan Senate District 23 \u00b7 open seat", reg:"SE Michigan", stances:[] }
+      { id:"legislature", title:"State House & Senate", sub:"Seats where data centers are proposed \u00b7 Primary Aug 4", region:"districts", districts:[
+        { name:"Michigan House District 31", meta:"Open seat &middot; Western Wayne County", summary:"Open seat &mdash; Rep. Reggie Miller is retiring. The district covers western Wayne County, including Van Buren Township, where Google has proposed a roughly 1-gigawatt data center (&ldquo;Project Cannoli&rdquo;) on ~280 acres near Belleville, pending a state wetland permit. It also takes in Augusta Township&rsquo;s approved Thor Equities campus and the proposed Dundee Township site.", candidates:[
+          { name:"Shannon Wayne", photo:"img/candidates/shannon-wayne.jpg", photoCredit:"Shannon Dare Wayne campaign", party:"Democratic", role:"", reg:"SE Michigan", stances:[] },
+          { name:"Laura Perry", photo:"img/candidates/laura-perry.jpg", photoCredit:"Laura Perry campaign", party:"Republican", role:"", reg:"SE Michigan", stances:[] }
+        ] },
+        { name:"Michigan House District 33", meta:"Ann Arbor / Saline &middot; Washtenaw County", summary:"Home to the state&rsquo;s highest-profile data-center fight: the Saline Township &ldquo;Stargate&rdquo; campus (Related Digital with Oracle and OpenAI), a ~1,400 MW project now under construction, plus a proposed York Township site. Incumbent Morgan Foreman authored HB 6140 (NDA transparency) in the House Democrats&rsquo; guardrails package; her Republican challenger withdrew.", candidates:[
+          { name:"Morgan Foreman", photo:"img/candidates/morgan-foreman.jpg", photoCredit:"Michigan House Democrats", party:"Democratic", role:"Incumbent", reg:"SE Michigan", stances:[ { topic:"Data centers", kind:"position", quote:"Sponsored HB 6140, part of the Michigan House Democrats\u2019 data-center guardrails package, which would bar local officials from signing nondisclosure agreements tied to data-center projects.", source:"Michigan House Democrats", date:"Jun 2026", context:"Data-center guardrails package (HB 6135\u20136142)", url:"https://housedems.com/morgan-foreman/" } ] }
+        ] },
+        { name:"Michigan Senate District 15", meta:"Open seat &middot; Washtenaw County", summary:"Open seat &mdash; Sen. Jeff Irwin is term-limited. This Washtenaw County district overlaps the densest cluster in the state: Saline &ldquo;Stargate&rdquo; (under construction), the approved Augusta Thor Equities site, a proposed York Township project, and the University of Michigan / Los Alamos computing facility under review in Ypsilanti Township.", candidates:[
+          { name:"Felicia Brabec", photo:"img/candidates/felicia-brabec.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"", reg:"SE Michigan", stances:[] },
+          { name:"Michael White", photo:"img/candidates/michael-white.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"", reg:"SE Michigan", stances:[] },
+          { name:"Jason Rogers", photo:"img/candidates/jason-rogers.jpg", photoCredit:"Campaign", party:"Republican", role:"", reg:"SE Michigan", stances:[] }
+        ] },
+        { name:"Michigan Senate District 16", meta:"Monroe County", summary:"A Monroe County district with two proposals: &ldquo;Project Cherry Blossom&rdquo; on a former Frenchtown Township golf course, and &ldquo;Project Ironwood&rdquo; in Dundee Township, which has a temporary moratorium.", candidates:[
+          { name:"Deandre Barnes", photo:"img/candidates/deandre-barnes.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"", reg:"SE Michigan", stances:[] },
+          { name:"Joseph Bellino", photo:"img/candidates/joseph-bellino.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Incumbent", reg:"SE Michigan", stances:[] }
+        ] },
+        { name:"Michigan Senate District 18", meta:"West-central Michigan", summary:"A west-central Michigan district facing the Marshall Technology &amp; Energy Center (Calhoun County &mdash; a data center with on-site gas generation, drawing opposition over wetlands and water) and a Franklin Partners site in Lowell Township (Kent County).", candidates:[
+          { name:"Anthony Pennock", photo:"img/candidates/anthony-pennock.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"", reg:"Mid-Michigan", stances:[] },
+          { name:"Thomas Albert", photo:"img/candidates/thomas-albert.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"Incumbent", reg:"Mid-Michigan", stances:[] }
+        ] },
+        { name:"Michigan Senate District 20", meta:"Open seat &middot; Kent &amp; Allegan counties", summary:"Open seat &mdash; Sen. Aric Nesbitt left it to run for governor. This West Michigan district (Kent and Allegan counties) has drawn two Microsoft proposals &mdash; a former Steelcase site in Gaines Township and a Dorr Township site.", candidates:[
+          { name:"Dale Murney", photo:"img/candidates/dale-murney.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"", reg:"West Michigan", stances:[] },
+          { name:"Curtis Clark", photo:"img/candidates/curtis-clark.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"", reg:"West Michigan", stances:[] },
+          { name:"Kenny Clevenger", photo:"img/candidates/kenny-clevenger.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"", reg:"West Michigan", stances:[] },
+          { name:"Chris Moraitis", photo:"img/candidates/chris-moraitis.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"", reg:"West Michigan", stances:[] }
+        ] },
+        { name:"Michigan Senate District 23", meta:"Open seat &middot; Oakland County", summary:"Open Oakland County seat &mdash; Sen. Jim Runestad is term-limited and now chairs the state GOP. Includes Lyon Township&rsquo;s conditionally approved &ldquo;Project Flex&rdquo; (1.8M sq ft, reported Alphabet/Sidewalk ties) and a proposed Springfield Township site.", candidates:[
+          { name:"Margarette Gupta", photo:"img/candidates/margarette-gupta.jpg", photoCredit:"Margarette Gupta campaign", party:"Democratic", role:"", reg:"SE Michigan", stances:[] },
+          { name:"Greg Hill", photo:"img/candidates/greg-hill.jpg", photoCredit:"Ballotpedia", party:"Democratic", role:"", reg:"SE Michigan", stances:[] },
+          { name:"Daniel Lawless", photo:"img/candidates/daniel-lawless.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"", reg:"SE Michigan", stances:[] },
+          { name:"Donni Steele", photo:"img/candidates/donni-steele.jpg", photoCredit:"Ballotpedia", party:"Republican", role:"", reg:"SE Michigan", stances:[] }
+        ] }
       ]}
     ];
   }
@@ -466,54 +480,42 @@ class Component extends DCLogic {
   _render() {
     const s = this.state;
     const el = document.getElementById("cards");
-    let html = "";
-    let count = 0;
+    let html = "", count = 0;
+    const passF = c => (s.party === "all" || c.party === s.party) && (s.record === "all" || (s.record === "on" ? c.stances.length > 0 : c.stances.length === 0));
     this.data.forEach(race => {
       if (s.race !== "all" && s.race !== race.id) return;
-      let cands = race.candidates.filter(c => s.party === "all" || c.party === s.party);
-      if (s.region && race.region === "districts") cands = cands.filter(c => c.reg === s.region);
-      if (s.record !== "all") cands = cands.filter(c => s.record === "on" ? c.stances.length > 0 : c.stances.length === 0);
-      if (!cands.length) return;
-      count += cands.length;
-      html += `<div style="margin-bottom:34px;">
-        <div style="display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:18px;">
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry);">${race.region === "statewide" ? "Statewide" : "Districts"}</span>
-          <h3 style="font-size:24px; font-weight:800; letter-spacing:-0.01em; margin:0;">${race.title}</h3>
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-left:auto;">${race.sub}</span>
-        </div>`;
-      cands.forEach((c, ci) => {
-        const pc = this._pc(c.party);
-        const hasStance = c.stances.length > 0;
-        html += `<div id="cand-${this._slug(c.name)}" style="border:1px solid var(--hair); background:var(--paper); margin-bottom:14px; display:grid; grid-template-columns:120px 1fr; gap:0; scroll-margin-top:90px;" id="cand-${this._slug(c.name)}">
-          <div style="border-right:1px solid var(--hair); padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; background:var(--panel);">
-            ${this._avatar(c, 72, 22)}
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:10px;">${c.photo ? "" : "Photo soon"}</div>
-          </div>
-          <div style="padding:20px 22px;">
-            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-              <div style="font-size:20px; font-weight:800; letter-spacing:-0.01em;">${c.name}</div>
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:${pc}; border:1px solid ${pc}; padding:3px 8px;">${c.party === "Republican" ? "Rep" : "Dem"}</span>
-              <button class="trk" data-name="${c.name}" style="margin-left:auto; border:1px solid var(--hair); background:transparent; color:var(--soft); font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 10px; cursor:pointer;">&#9734; Track</button>
-            </div>
-            <div style="font-size:12.5px; color:var(--soft); margin-top:5px;">${this._roleText(c)}</div>
-            ${this._recordHtml(c)}
-          </div>
-        </div>`;
-      });
-      html += `</div>`;
+      const header = `<div style="display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--navy); padding-bottom:8px; margin-bottom:18px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--cherry);">${race.region === "statewide" ? "Statewide" : "Districts"}</span><h3 style="font-size:24px; font-weight:800; letter-spacing:-0.01em; margin:0;">${race.title}</h3><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--faint); margin-left:auto;">${race.sub}</span></div>`;
+      if (race.districts) {
+        let body = "", any = 0;
+        race.districts.forEach(d => {
+          let cands = d.candidates.filter(passF);
+          if (s.region) cands = cands.filter(c => c.reg === s.region);
+          if (!cands.length) return;
+          any += cands.length; count += cands.length;
+          body += `<div style="margin:6px 0 20px;"><div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;"><span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--lake); font-weight:600;">${d.name}</span><span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--faint);">${d.meta}</span></div><p style="font-size:13px; line-height:1.62; color:var(--ink); margin:8px 0 15px; border-left:3px solid var(--copper); padding-left:13px;">${d.summary}</p>${cands.map(c => this._card(c)).join("")}</div>`;
+        });
+        if (any) html += `<div style="margin-bottom:34px;">${header}${body}</div>`;
+      } else {
+        const cands = race.candidates.filter(passF);
+        if (!cands.length) return;
+        count += cands.length;
+        html += `<div style="margin-bottom:34px;">${header}${cands.map(c => this._card(c)).join("")}</div>`;
+      }
     });
     el.innerHTML = html || `<div style="padding:50px 0; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint);">No candidates match these filters.</div>`;
     document.getElementById("cand-count").textContent = count + " candidates";
-
-    el.querySelectorAll(".more-btn").forEach(b => b.addEventListener("click", () => {
-      const rid = b.getAttribute("data-race"), ci = +b.getAttribute("data-ci");
-      const race = this.data.find(r => r.id === rid);
-      const c = race.candidates.filter(x => this.state.party === "all" || x.party === this.state.party)[ci];
-      const body = el.querySelector(`.stance-body[data-body="${rid}-${ci}"]`);
-      body.innerHTML = this._stanceHtml(c, this._pc(c.party), true);
-      b.style.display = "none";
-    }));
     this._wireTrack();
+  }
+  _card(c) {
+    const pc = this._pc(c.party), roleT = this._roleText(c);
+    return `<div id="cand-${this._slug(c.name)}" style="border:1px solid var(--hair); background:var(--paper); margin-bottom:14px; display:grid; grid-template-columns:120px 1fr; gap:0; scroll-margin-top:90px;">
+      <div style="border-right:1px solid var(--hair); padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; background:var(--panel);">${this._avatar(c, 72, 22)}<div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:10px;">${c.photo ? "" : "Photo soon"}</div></div>
+      <div style="padding:20px 22px;">
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;"><div style="font-size:20px; font-weight:800; letter-spacing:-0.01em;">${c.name}</div><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:${pc}; border:1px solid ${pc}; padding:3px 8px;">${c.party === "Republican" ? "Rep" : "Dem"}</span><button class="trk" data-name="${c.name}" style="margin-left:auto; border:1px solid var(--hair); background:transparent; color:var(--soft); font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 10px; cursor:pointer;">&#9734; Track</button></div>
+        ${roleT ? `<div style="font-size:12.5px; color:var(--soft); margin-top:5px;">${roleT}</div>` : ""}
+        ${this._recordHtml(c)}
+      </div>
+    </div>`;
   }
 
   _all() { const a = []; this.data.forEach(r => r.candidates.forEach(c => a.push(Object.assign({ raceTitle:r.title, raceId:r.id, region:r.region }, c)))); return a; }
