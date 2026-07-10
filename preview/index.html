@@ -80,6 +80,26 @@
   .nav-panel.open { display:flex !important; }
   .mobile-signup-bar { display:none; }
 
+  /* ===== On Deck — editorial event cards ===== */
+  .ondeck-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; border-top:0 !important; }
+  .ondeck-row {
+    display:flex !important; flex-direction:column; align-items:flex-start !important; gap:13px !important;
+    min-height:264px; padding:20px !important; border:1px solid var(--hair) !important;
+    border-top:3px solid var(--accent) !important; background:var(--surface) !important;
+    box-shadow:none !important; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .ondeck-row:hover { transform:translateY(-2px); border-color:var(--accent) !important; box-shadow:0 10px 24px rgba(17,20,23,.08) !important; }
+  .ondeck-row > :nth-child(1) { display:flex; align-items:baseline; gap:9px; width:100%; padding-bottom:11px; border-bottom:1px solid var(--hair); }
+  .ondeck-row > :nth-child(1) > div:first-child { font-size:21px !important; line-height:1 !important; }
+  .ondeck-row > :nth-child(1) > div:last-child { margin-top:0 !important; }
+  .ondeck-row > :nth-child(2) { padding:0 0 0 10px !important; border-left:2px solid var(--alert) !important; font-size:9px !important; }
+  .ondeck-row > :nth-child(3) { flex:1; }
+  .ondeck-row > :nth-child(3) > div:first-child { font-size:19px !important; line-height:1.1; letter-spacing:-.01em; }
+  .ondeck-row > :nth-child(3) > div:last-child { margin-top:5px; line-height:1.4; }
+  .ondeck-row > :nth-child(4) { margin-top:auto; }
+  .ondeck-btn { width:100%; align-self:stretch; margin-top:0; background:var(--trim); color:var(--surface) !important; border-color:var(--trim) !important; transition:background .18s ease, border-color .18s ease; }
+  .ondeck-btn:hover { background:var(--alert) !important; border-color:var(--alert) !important; }
+
   /* ===== Tablet & down ===== */
   @media (max-width: 1080px) {
     .nav-tagline { display:none !important; }
@@ -87,6 +107,7 @@
   @media (max-width: 1024px) {
     .wrap-pad { padding-left:28px !important; padding-right:28px !important; }
     .front-grid { gap:26px !important; }
+    .ondeck-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
   @media (max-width: 900px) {
     .wrap-pad { padding-left:22px !important; padding-right:22px !important; }
@@ -123,10 +144,11 @@
     .footer-grid { grid-template-columns:1fr !important; }
     .section-h2 { font-size:21px !important; }
 
-    /* On Deck rows: stack from 5-col grid to a card */
-    .ondeck-row { grid-template-columns:1fr !important; gap:8px !important; padding:16px 0 !important; }
-    .ondeck-row > * { justify-self:start !important; }
-    .ondeck-btn { width:100%; }
+    .ondeck-list { grid-template-columns:1fr; gap:10px; }
+    .ondeck-row { min-height:0; gap:11px !important; padding:18px !important; }
+    .ondeck-row:hover { transform:none; box-shadow:none !important; }
+    .ondeck-row > :nth-child(1) > div:first-child { font-size:20px !important; }
+    .ondeck-row > :nth-child(3) > div:first-child { font-size:18px !important; }
 
     .ondeck-head { align-items:flex-start !important; gap:10px !important; flex-direction:column; }
     .ondeck-head > div { align-items:flex-start !important; gap:5px !important; flex-direction:column; }
@@ -436,7 +458,7 @@
         </sc-for>
       </div>
 
-      <div style="border-top:1px solid var(--hair);">
+      <div class="ondeck-list" style="border-top:1px solid var(--hair);">
         <sc-for list="{{ visibleMeetings }}" as="m" hint-placeholder-count="5">
           <div class="ondeck-row" style="{{ m.rowStyle }}">
             <div style="{{ m.datePad }}"><div style="font-size:16px; font-weight:800; letter-spacing:-0.01em; {{ m.relColor }}">{{ m.rel }}</div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:3px;">{{ m.dateTime }}</div></div>

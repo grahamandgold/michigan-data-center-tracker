@@ -356,19 +356,19 @@ class Component extends DCLogic {
   _data() {
     return [
       { id:"us-senate", title:"U.S. Senate", sub:"Open seat · General election Nov. 3, 2026", region:"statewide", candidates:[
-        { name:"Abdul El-Sayed", party:"Democratic", role:"U.S. Senate candidate", stances:[
+        { name:"Abdul El-Sayed", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Abdul_El-Sayed_meet-and-greet_by_Conlan_Houston_5_%28cropped%29.jpg/400px-Abdul_El-Sayed_meet-and-greet_by_Conlan_Houston_5_%28cropped%29.jpg", photoCredit:"Conlan Houston / Wikimedia Commons", party:"Democratic", role:"U.S. Senate candidate", stances:[
           { topic:"Federal AI & data-center regulation", quote:"We need legislation now. We need leaders who understand the technology, are willing to stand up on it, and protect humanity from that oncoming tsunami.", source:"Michigan Advance", date:"May 28, 2026", context:"Mackinac Policy Conference debate", url:"#" },
           { topic:"Public-utility model for AI", quote:"I think we need to regulate AI and AI corporations as public utilities. It is too dangerous to be left up to control of the government.", source:"Michigan Advance", date:"May 28, 2026", context:"Response to rival plans at the same debate", url:"#" }
         ]},
-        { name:"Mallory McMorrow", party:"Democratic", role:"U.S. Senate candidate · State Senator (SD-13)", stances:[
+        { name:"Mallory McMorrow", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Mallory_McMorrow_in_2023_-_8R4A5252.jpg/400px-Mallory_McMorrow_in_2023_-_8R4A5252.jpg", photoCredit:"Wikimedia Commons", party:"Democratic", role:"U.S. Senate candidate · State Senator (SD-13)", stances:[
           { topic:"Data Centers Done Right plan", quote:"When it comes to data centers, Michigan has an opportunity to show the country how to do it right. That means data center companies, not Michigan families, will pay for their own energy and grid upgrades; pay their fair share in taxes; and pay our workers by creating good-paying union jobs.", source:"Campaign statement", date:"Jun 2026", context:"McMorrow for Michigan", url:"#" }
         ]},
-        { name:"Haley Stevens", party:"Democratic", role:"U.S. Senate candidate · U.S. Rep (MI-11)", stances:[] },
-        { name:"Mike Rogers", party:"Republican", role:"U.S. Senate candidate", stances:[] }
+        { name:"Haley Stevens", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Haley_Stevens%2C_official_portrait%2C_116th_Congress.jpg/400px-Haley_Stevens%2C_official_portrait%2C_116th_Congress.jpg", photoCredit:"U.S. House (public domain)", party:"Democratic", role:"U.S. Senate candidate · U.S. Rep (MI-11)", stances:[] },
+        { name:"Mike Rogers", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Mike-Rogers-Head-Shot-2_%283x4_cropped%29.jpg/400px-Mike-Rogers-Head-Shot-2_%283x4_cropped%29.jpg", photoCredit:"Wikimedia Commons", party:"Republican", role:"U.S. Senate candidate", stances:[] }
       ]},
       { id:"governor", title:"Governor", sub:"Open seat · General election Nov. 3, 2026", region:"statewide", candidates:[
-        { name:"Jocelyn Benson", party:"Democratic", role:"Governor candidate · Secretary of State", stances:[] },
-        { name:"Dana Nessel", party:"Democratic", role:"Governor candidate · Attorney General", stances:[] },
+        { name:"Jocelyn Benson", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/SOS_Jocelyn_Benson_web.jpg/400px-SOS_Jocelyn_Benson_web.jpg", photoCredit:"Michigan Dept. of State", party:"Democratic", role:"Governor candidate · Secretary of State", stances:[] },
+        { name:"Dana Nessel", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Dana_Nessel_Michigan_Is_Preparing_for_%27Every_Scenario%27_on_Election_Day_THE_CIRCUS_SHOWTIME_0-25_screenshot_%28cropped%29.jpg/400px-Dana_Nessel_Michigan_Is_Preparing_for_%27Every_Scenario%27_on_Election_Day_THE_CIRCUS_SHOWTIME_0-25_screenshot_%28cropped%29.jpg", photoCredit:"Wikimedia Commons", party:"Democratic", role:"Governor candidate · Attorney General", stances:[] },
         { name:"Tom Leonard", party:"Republican", role:"Governor candidate", stances:[] }
       ]},
       { id:"legislature", title:"State House & Senate", sub:"Tracked data-center districts", region:"districts", candidates:[
@@ -422,6 +422,13 @@ class Component extends DCLogic {
     return `<div style="margin-top:16px; border-top:1px solid var(--hair); padding-top:2px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); padding:12px 0 2px;">More on the record</div>${rows}</div>`;
   }
   _initials(name) { return name.split(" ").map(w => w[0]).slice(0,2).join(""); }
+  _avatar(c, size, fs, extraBorder) {
+    const s = size, brd = extraBorder || "1px solid var(--hair)";
+    if (c.photo) {
+      return `<img src="${c.photo}" alt="${c.name}" loading="lazy" style="width:${s}px; height:${s}px; border-radius:50%; object-fit:cover; border:${brd}; flex:none;">`;
+    }
+    return `<span style="width:${s}px; height:${s}px; border-radius:50%; background:var(--panel-2); border:${brd}; display:flex; align-items:center; justify-content:center; font-size:${fs}px; font-weight:800; color:var(--soft); flex:none;">${this._initials(c.name)}</span>`;
+  }
 
   _miniMap(px, py) {
     return `<svg viewBox="0 0 220 260" aria-hidden="true" style="width:30px; height:auto; flex:none; display:block;"><path d="M7.3,78 L19.1,65 L26.4,65 L32.3,52 L38.1,53.6 L39.6,65 L63.1,60.1 L88,58.5 L86.5,47.1 L93.9,40.6 L101.2,45.5 L102.7,58.5 L132,58.5 L165.7,61.8 L192.1,69.9 L211.2,79.6 L208.3,87.8 L181.9,82.9 L151.1,81.3 L123.2,82.9 L107.1,86.1 L88,87.8 L67.5,87.8 L44,87.8 L22,86.1 L11.7,84.5 Z" fill="#D7E3F0"></path><path d="M92.4,89.4 L151.1,89.4 L155.5,113.8 L149.6,131.6 L162.8,121.9 L174.5,123.5 L177.5,134.9 L168.7,149.5 L155.5,147.9 L154,170.6 L151.1,195 L140.8,221 L126.1,240.5 L110,245.4 L95.3,238.9 L89.5,217.8 L86.5,185.3 L85.1,151.1 L86.5,118.6 L88,100.8 Z" fill="#D7E3F0"></path><circle cx="${px}" cy="${py}" r="18" fill="#C9781F" stroke="#fff" stroke-width="4"></circle></svg>`;
@@ -474,8 +481,8 @@ class Component extends DCLogic {
         const hasStance = c.stances.length > 0;
         html += `<div id="cand-${this._slug(c.name)}" style="border:1px solid var(--hair); background:var(--paper); margin-bottom:14px; display:grid; grid-template-columns:120px 1fr; gap:0;">
           <div style="border-right:1px solid var(--hair); padding:20px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; text-align:center; background:var(--panel);">
-            <div style="width:72px; height:72px; border-radius:50%; background:var(--panel-2); border:1px solid var(--hair); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; color:var(--soft);">${this._initials(c.name)}</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:10px;">Photo soon</div>
+            ${this._avatar(c, 72, 22)}
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:7.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-top:10px;">${c.photo ? "" : "Photo soon"}</div>
           </div>
           <div style="padding:20px 22px;">
             <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
@@ -605,7 +612,7 @@ class Component extends DCLogic {
         const badge = c.stances.length
           ? `<span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--pine);">&#10003; On record</span>`
           : `<span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; color:var(--faint);">&mdash;</span>`;
-        return `<div style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-top:1px solid var(--hair);"><span style="width:30px; height:30px; border-radius:50%; background:var(--panel-2); border:2px solid ${color}; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; color:var(--soft); flex:none;">${this._initials(c.name)}</span><span style="flex:1; font-size:14px; font-weight:600;">${c.name}</span>${badge}</div>`;
+        return `<div style="display:flex; align-items:center; gap:11px; padding:10px 13px; border-top:1px solid var(--hair);">${this._avatar(c, 30, 10, '2px solid ' + color)}<span style="flex:1; font-size:14px; font-weight:600;">${c.name}</span>${badge}</div>`;
       }).join("") : `<div style="padding:14px; font-size:12px; color:var(--faint);">No tracked candidates</div>`;
       return `<div style="border:1px solid var(--hair); background:var(--paper);"><div style="background:${color}; color:#fff; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; padding:9px 13px;">${label} primary &middot; Aug 4</div>${rows}</div>`;
     };
