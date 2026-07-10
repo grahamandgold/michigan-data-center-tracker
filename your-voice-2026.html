@@ -283,7 +283,7 @@
       <div id="dmap" style="height:340px; border:1px solid var(--navy);"></div>
       <div style="margin-top:11px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:var(--soft);">
         <div style="display:flex; align-items:center; gap:6px; margin-bottom:7px;"><span>Fewer</span><span style="flex:1; display:flex; height:11px; border:1px solid #C9D5E3;"><span style="flex:1; background:#EDF1F6;"></span><span style="flex:1; background:#CBDDF0;"></span><span style="flex:1; background:#7FA8D4;"></span><span style="flex:1; background:#1E6FC4;"></span><span style="flex:1; background:#0C1E33;"></span></span><span>More</span></div>
-        <div style="display:flex; align-items:center; gap:7px;"><span style="width:13px; height:13px; border:2px solid var(--copper); background:transparent; flex:none;"></span>Seat on the 2026 ballot</div>
+        
       </div>
       <div style="margin-top:9px; font-size:10px; color:var(--faint); line-height:1.5;">Boundaries: Michigan House (2024 remedial plan) &amp; Senate (2021 plan), State of Michigan GIS. Heat = tracked data-center projects.</div>
       <!-- editorial standard -->
@@ -330,6 +330,21 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section id="methodology" style="background:var(--paper); border-top:1px solid var(--hair);">
+    <div style="max-width:1200px; margin:0 auto; padding:44px 26px 52px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cherry); margin-bottom:12px;">How we built this</div>
+      <div style="font-size:26px; font-weight:800; letter-spacing:-0.01em; margin-bottom:8px;">Methodology</div>
+      <div style="font-size:13.5px; color:var(--soft); line-height:1.6; max-width:640px; margin-bottom:26px;">A nonpartisan record of where data centers are proposed in Michigan and what the people on your 2026 ballot have said about them. Here is exactly how it is put together.</div>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:26px 44px;">
+        <div><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--lake); margin-bottom:9px;">The voter guide</div><p style="font-size:14px; line-height:1.65; color:var(--ink); margin:0;">We track what 2026 candidates for Governor, U.S. Senate, and the state Legislature have said, on the record, about data centers. Every entry links to a public source &mdash; news coverage, a debate, a campaign statement, or an official post. We quote candidates and cite the source; we do not rate, rank, or endorse.</p></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--lake); margin-bottom:9px;">The district map</div><p style="font-size:14px; line-height:1.65; color:var(--ink); margin:0;">Each Michigan House and Senate seat is shaded by the number of <b>active and proposed</b> data-center projects inside its boundaries, drawn from our project tracker. Withdrawn, rejected, and cancelled proposals are excluded, so the map reflects live development pressure &mdash; not every idea ever floated. Megawatts shown on hover are the developer&rsquo;s disclosed capacity; many have disclosed none.</p></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--lake); margin-bottom:9px;">District boundaries</div><p style="font-size:14px; line-height:1.65; color:var(--ink); margin:0;">Michigan House districts use the 2024 court-ordered remedial plan; Senate districts use the 2021 Independent Citizens Redistricting Commission plan &mdash; both published by the State of Michigan GIS. Each project is matched to its district by mapped coordinates (point-in-polygon).</p></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--lake); margin-bottom:9px;">Corrections</div><p style="font-size:14px; line-height:1.65; color:var(--ink); margin:0;">This is a living record and we will sometimes get things wrong. If a quote, source, project, or district looks off, tell us and we will fix it &mdash; corrections are logged publicly. <a href="corrections.html" style="color:var(--lake); white-space:nowrap;">Corrections policy &rarr;</a></p></div>
       </div>
     </div>
   </section>
@@ -595,18 +610,14 @@ class Component extends DCLogic {
     if (!fc) return null;
     const self = this;
     const lyr = L.geoJSON(fc, {
-      style: f => { const dn = self._dnum(f.properties[key]); const tr = self._tracked[chamber][dn]; return { color: tr ? "#C9781F" : "#9FB2C6", weight: tr ? 2.4 : 0.5, fillColor: self._heatColor(f.properties._c || 0), fillOpacity: 0.82 }; },
+      style: f => ({ color: "#9FB2C6", weight: 0.6, fillColor: self._heatColor(f.properties._c || 0), fillOpacity: 0.82 }),
       onEachFeature: (f, layer) => {
-        const dn = self._dnum(f.properties[key]); const tr = self._tracked[chamber][dn];
+        const dn = self._dnum(f.properties[key]);
         const chLabel = chamber === "house" ? "House District" : "Senate District";
         const c = f.properties._c || 0, mw = Math.round(f.properties._mw || 0);
         const top = (f.properties._top || []).slice(0, 3).join(", ");
-        const candHtml = tr
-          ? `<div style="font-size:15px; font-weight:800; margin:6px 0 1px;">${tr.name}</div><div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:${self._pc(tr.party)};">On the 2026 ballot &middot; click to view &rarr;</div>`
-          : `<div style="font-size:12px; color:#5F6875; margin-top:5px;">No tracked candidate in this seat.</div>`;
-        layer.bindPopup(`<div style="font-family:Archivo; padding:11px 14px; min-width:190px; max-width:230px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#5F6875;">Michigan ${chLabel} ${dn}</div><div style="font-size:13px; margin:6px 0 2px;"><b style="font-size:15px;">${c}</b> active data-center project${c === 1 ? "" : "s"}${mw ? ` &middot; ${mw.toLocaleString()} MW` : ""}</div>${top ? `<div style="font-size:11px; color:#5F6875; line-height:1.4;">${top}</div>` : ""}${candHtml}</div>`);
-        if (tr) layer.on("click", () => self._focusCandidate(tr.name));
-        layer.on("mouseover", () => layer.setStyle({ weight: tr ? 3.2 : 1.4, fillOpacity:0.92 }));
+        layer.bindPopup(`<div style="font-family:Archivo; padding:11px 14px; min-width:190px; max-width:240px;"><div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#5F6875;">Michigan ${chLabel} ${dn}</div><div style="font-size:13px; margin:6px 0 2px;"><b style="font-size:15px;">${c}</b> active data-center project${c === 1 ? "" : "s"}${mw ? ` &middot; ${mw.toLocaleString()} MW` : ""}</div>${top ? `<div style="font-size:11px; color:#5F6875; line-height:1.4;">${top}</div>` : `<div style="font-size:12px; color:#8A94A2; margin-top:4px;">No tracked projects in this seat.</div>`}</div>`);
+        layer.on("mouseover", () => layer.setStyle({ weight: 1.6, fillOpacity: 0.92 }));
         layer.on("mouseout", () => lyr.resetStyle(layer));
       }
     });
