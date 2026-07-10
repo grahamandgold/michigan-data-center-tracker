@@ -1,6 +1,26 @@
 {
- "updated_at": "2026-07-10T08:30:10+00:00",
+ "updated_at": "2026-07-10T11:28:40+00:00",
  "generator": "grok-wire-agent",
- "items": [],
- "accuracy_checked_at": "2026-07-10T08:30:07+00:00"
+ "items": [
+  {
+   "iso": "2026-07-09T19:00:00+00:00",
+   "region": "metro",
+   "cat": "Washtenaw Co.",
+   "tag": "Money",
+   "title": "Saline Township continues data center meetings on groundwater and site monitoring",
+   "dek": "After a consent judgment allowing the project, township leaders schedule repeated advisory sessions to review water well data and related plans.",
+   "source": "Saline Township",
+   "url": "https://salinetownship.org/data-center-update",
+   "breaking": false,
+   "lead": false,
+   "id": "0bfe5372f80e",
+   "kind": "story",
+   "filed_at": "2026-07-10T11:27:55+00:00",
+   "accuracy": "checked-rewritten",
+   "headline_rewritten": true,
+   "judge_score": 6,
+   "judge_note": "Incremental follow-up on Saline with scheduled advisory sessions and monitoring—real next step after the consent judgment, not a duplicate of the tax break stor"
+  }
+ ],
+ "accuracy_checked_at": "2026-07-10T11:28:31+00:00"
 }
