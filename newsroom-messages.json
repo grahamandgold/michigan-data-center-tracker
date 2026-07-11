@@ -3,7 +3,7 @@
   {
    "id": "b7bd8c74ab0f",
    "to": "Managing Editor",
-   "status": "answered",
+   "status": "open",
    "messages": [
     {
      "from": "Andy",
@@ -34,6 +34,11 @@
      "from": "Managing Editor",
      "text": "That sounds like a layout or display bug. I'm flagging it for Emmy to check the data center side — could be a CSS issue or column width problem in the approval queue view. Can you screenshot it so we can see exactly what's overlapping?",
      "at": "2026-07-11T00:27:43Z"
+    },
+    {
+     "from": "Andy",
+     "text": "wouldnt that be the website manager's job?",
+     "at": "2026-07-11T00:28:23Z"
     }
    ],
    "lesson_filed": "Meeting stories should be pulled from the queue once their scheduled time has passed."
@@ -73,5 +78,5 @@
    ]
   }
  ],
- "updated_at": "2026-07-11T00:27:43Z"
+ "updated_at": "2026-07-11T00:28:23Z"
 }
