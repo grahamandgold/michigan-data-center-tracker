@@ -3,7 +3,7 @@
   {
    "id": "b7bd8c74ab0f",
    "to": "Managing Editor",
-   "status": "answered",
+   "status": "open",
    "messages": [
     {
      "from": "Andy",
@@ -14,6 +14,11 @@
      "from": "Managing Editor",
      "text": "Things are solid. We've got 11 stories live and holding steady, 20 mapped projects in the pipeline, and 33 moratoria we're tracking. Nothing's on fire, and the team's moving through the queue. Anything specific you want me to tighten up?",
      "at": "2026-07-11T00:24:59Z"
+    },
+    {
+     "from": "Andy",
+     "text": "why is there a 9am meeting in the next up cue when it's 8:25pm ?",
+     "at": "2026-07-11T00:26:23Z"
     }
    ]
   },
@@ -52,5 +57,5 @@
    ]
   }
  ],
- "updated_at": "2026-07-11T00:24:59Z"
+ "updated_at": "2026-07-11T00:26:23Z"
 }
