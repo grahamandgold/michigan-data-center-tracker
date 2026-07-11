@@ -1,6 +1,18 @@
 {
  "threads": [
   {
+   "id": "b7bd8c74ab0f",
+   "to": "Managing Editor",
+   "status": "open",
+   "messages": [
+    {
+     "from": "Andy",
+     "text": "how are things looking?",
+     "at": "2026-07-11T00:24:44Z"
+    }
+   ]
+  },
+  {
    "id": "54c4c93cd352",
    "to": "Managing Editor",
    "status": "answered",
@@ -35,5 +47,5 @@
    ]
   }
  ],
- "updated_at": "2026-07-09T19:57:47Z"
+ "updated_at": "2026-07-11T00:24:44Z"
 }
