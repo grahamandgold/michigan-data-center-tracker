@@ -1,10 +1,10 @@
 {
- "title": "Mornings with Graham & Emmy",
- "teaser": "Union support for STREAM raises stakes on jobs versus power and water strains in mid-Michigan",
+ "title": "Evenings with Graham & Emmy",
+ "teaser": "Garfield Twp advances moratorium while Saline hits $16B and more pauses emerge.",
  "lines": [
   {
    "host": "Graham",
-   "text": "Good morning and welcome to Mornings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
+   "text": "Good evening and welcome to Evenings with Graham & Emmy, the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
   },
   {
    "host": "Emmy",
@@ -12,222 +12,286 @@
   },
   {
    "host": "Graham",
-   "text": "It's Saturday, July 11, and we're diving into fresh developments as the sun comes up on another busy week for data centers across the state."
-  },
-  {
-   "host": "Emmy",
-   "text": "The big story today is that the carpenters union has thrown its support behind the STREAM data center project."
+   "text": "Tonight we're digging into why one northwest Michigan township just backed a pause on new data centers and what that signals for communities statewide."
   },
   {
    "host": "Graham",
-   "text": "Exactly. That endorsement signals hundreds of construction jobs if the project gets approved, but it also highlights the trade-offs communities in mid-Michigan are facing on roads, water, and electricity."
+   "text": "Emmy, the big story today comes out of Garfield Township in Grand Traverse County."
   },
   {
    "host": "Emmy",
-   "text": "Graham, why does union backing matter so much here? Is this a new wrinkle in these fights?"
+   "text": "Right, their planning commission advanced a moratorium proposal while residents hash out how these big facilities hit local power and land use."
   },
   {
    "host": "Graham",
-   "text": "It's significant because it brings organized labor into the conversation at a time when several townships are already pausing projects to study the impacts."
+   "text": "Exactly, and this isn't happening in isolation."
   },
   {
    "host": "Emmy",
-   "text": "Right, like Haring Township in Wexford County voting today on a six-month moratorium to block new applications while they write permanent rules."
+   "text": "No, we've seen similar moves in other spots recently."
   },
   {
    "host": "Graham",
-   "text": "Residents there are worried about sudden spikes in power demand and noise from these hyperscale facilities, so the pause lets officials dig into water use and tax effects first."
+   "text": "Let's start with the facts on Garfield. The panel recommended freezing new applications so folks can debate the impacts properly."
   },
   {
    "host": "Emmy",
-   "text": "And how does the STREAM endorsement fit with that bigger picture of local pushback?"
+   "text": "Why does this matter so much right now? Data center interest is growing fast in northwest Michigan."
   },
   {
    "host": "Graham",
-   "text": "It raises the stakes because the union sees steady paychecks for local workers, but nearby towns still have to weigh those gains against new demands on infrastructure."
+   "text": "It is, and residents there are worried about sudden spikes in electricity demand and what that does to their bills."
   },
   {
    "host": "Emmy",
-   "text": "We've seen this tension before with other proposals. What kind of history are we looking at for these projects in Michigan?"
+   "text": "Plus the land itself. These projects take up a lot of space that could stay farmland or open space."
   },
   {
    "host": "Graham",
-   "text": "Data centers have been eyeing sites across the state for a while now, with debates popping up in places like Ingham and Washtenaw counties over noise, power strain, and lost farmland."
+   "text": "That's the core tension. Townships are trying to hit pause before decisions get locked in."
   },
   {
    "host": "Emmy",
-   "text": "And the power side is huge. A local analyst in Monroe warned yesterday that unchecked growth will mean new plants and upgrades, with costs flowing to residential ratepayers through the utilities."
+   "text": "How long have these conversations been building? It feels like more than just one township reacting."
   },
   {
    "host": "Graham",
-   "text": "That's the core worry for many households — higher electric bills without enough oversight on how much these facilities will draw."
+   "text": "It has been rolling for weeks now. Yesterday Haring Township in Wexford County set up a vote on a full six-month moratorium to block new applications while they write permanent rules."
   },
   {
    "host": "Emmy",
-   "text": "Water is another big one. In Saline, construction at one site has already raised questions about dewatering and impacts on nearby ponds and groundwater."
+   "text": "And they want time to study water use and tax impacts first."
   },
   {
    "host": "Graham",
-   "text": "Officials there reported a resident pond dropping about two feet while groundwater levels fell four to five feet, and the township is monitoring through the summer."
+   "text": "Right, same concerns about noise from hyperscale facilities and power strain."
   },
   {
    "host": "Emmy",
-   "text": "So for a place like STREAM, if approved, what does that mean for the surrounding area in practical terms?"
+   "text": "Solon Township also shelved rules that would have limited where these big places can go."
   },
   {
    "host": "Graham",
-   "text": "Hundreds of construction jobs in the short term, plus potential long-term property tax revenue, but also added pressure on local roads, water supplies, and the grid."
+   "text": "They delayed the ordinance, so the status quo stays while officials figure out next steps on roads and power."
   },
   {
    "host": "Emmy",
-   "text": "And we've got ratepayers rallying next week in Kent County and beyond to highlight exactly those concerns about AI facilities draining resources."
+   "text": "That uncertainty is tough for neighbors who just want clarity."
   },
   {
    "host": "Graham",
-   "text": "More than 50 communities are involved in that July 18 event, showing the debate is moving beyond town halls into the streets."
+   "text": "It is. And this pattern shows up in multiple counties now."
   },
   {
    "host": "Emmy",
-   "text": "Meanwhile in Mason, residents are accusing outsiders of faking grassroots support in their local fight. How does that kind of friction affect decision-making?"
+   "text": "So what's driving all these pauses at once?"
   },
   {
    "host": "Graham",
-   "text": "It fractures trust right when officials are weighing next steps on noise, power, and farmland issues in Ingham County."
+   "text": "Mainly the scale of what's proposed. Look at Saline Township today. Their project just locked in financing and swelled to sixteen billion dollars."
   },
   {
    "host": "Emmy",
-   "text": "On the political side, all four GOP governor candidates backed tax breaks for data centers during their Grand Rapids debate yesterday."
+   "text": "Sixteen billion? That rivals the biggest campuses in the country."
   },
   {
    "host": "Graham",
-   "text": "They pointed to construction jobs and revenue for rural townships, though voters didn't hear much detail on household electric rates or water supplies."
+   "text": "It does, and it will shape Washtenaw County growth for years, including any tax incentives that hit local taxpayers."
   },
   {
    "host": "Emmy",
-   "text": "And yesterday Rep. Debbie Dingell released letters probing a University of Michigan data center plan with Los Alamos ties, flagging power and water worries."
+   "text": "How does that connect to electric bills for regular folks?"
   },
   {
    "host": "Graham",
-   "text": "That exchange keeps the spotlight on university involvement and what it could mean for residents near potential sites."
+   "text": "A Monroe utility analyst warned yesterday that unchecked growth means new power plants and transmission upgrades, and those costs flow straight to residential ratepayers through DTE and Consumers Energy."
   },
   {
    "host": "Emmy",
-   "text": "Also yesterday, Meta's big Wyoming project in Kent County cleared early hurdles — a 715,000-square-foot campus that will pull substantial electricity."
+   "text": "So the bigger the project, the bigger the potential hit on monthly bills."
   },
   {
    "host": "Graham",
-   "text": "Neighbors there are already asking what the power draw means for their bills as the facility reshapes local tax rolls and grid planning."
+   "text": "That's the fear, and it's why ratepayers are rallying next week with activists from more than fifty communities."
   },
   {
    "host": "Emmy",
-   "text": "So pulling it together, Graham, the union support for STREAM adds momentum on the jobs front, but the moratorium in Haring and the rallies show communities are hitting pause to study the downsides."
+   "text": "The July eighteenth event in Kent County is highlighting exactly those power and water demands from AI facilities."
   },
   {
    "host": "Graham",
-   "text": "Right, and what happens next depends on those local votes and whether projects can address the infrastructure concerns before moving forward."
+   "text": "Yes, and it's showing the debate is moving beyond township halls into the streets."
   },
   {
    "host": "Emmy",
-   "text": "Let's shift to some quick hits from the last day or so."
+   "text": "Water is another big piece, right? These facilities use a lot for cooling."
   },
   {
    "host": "Graham",
-   "text": "Haring Township supervisors are set to vote today on that six-month moratorium to halt new data center proposals while they draft permanent rules."
+   "text": "They do, and Haring residents specifically called that out along with noise when they pushed for their moratorium."
   },
   {
    "host": "Emmy",
-   "text": "Residents there are focused on power spikes and noise, giving officials time to study water and tax impacts first."
+   "text": "Farmland loss is the other side of the land-use coin."
   },
   {
    "host": "Graham",
-   "text": "Yesterday in Mason, accusations flew that fake grassroots support is being manufactured in the data center debate."
+   "text": "In Ingham County, Mason residents are already accusing outsiders of faking grassroots support in their local fight, and they're worried about exactly that, plus noise and power strain."
   },
   {
    "host": "Emmy",
-   "text": "Ingham County neighbors are worried about noise, power strain, and lost farmland as officials weigh the next steps."
+   "text": "The trust issues there sound pretty raw."
   },
   {
    "host": "Graham",
-   "text": "Also yesterday, all four Republican candidates for governor voiced support for tax incentives during their Grand Rapids debate."
+   "text": "They are, and it's fracturing the conversation just as officials weigh next steps."
   },
   {
    "host": "Emmy",
-   "text": "They highlighted jobs and revenue for rural areas, but details on electric rates and water were light."
+   "text": "Meanwhile, the political side is lining up too."
   },
   {
    "host": "Graham",
-   "text": "A Monroe utility analyst warned yesterday that data-center growth will require new power plants and upgrades, costs that hit ratepayers through DTE and Consumers filings."
+   "text": "Yesterday all four Republican candidates for governor said they support tax incentives during a Grand Rapids debate, arguing the projects bring construction jobs and long-term property tax revenue to rural townships."
   },
   {
    "host": "Emmy",
-   "text": "That comes as several large projects look at southeast Michigan sites."
+   "text": "They didn't get into the details on household electric rates or water supplies though."
   },
   {
    "host": "Graham",
-   "text": "Ratepayers are rallying July 18 across more than 50 communities, with Kent County activists leading the charge on power and water demands from AI facilities."
+   "text": "Not much detail there, which leaves voters to fill in the gaps."
   },
   {
    "host": "Emmy",
-   "text": "It shows the debate is reaching the streets now."
+   "text": "And on the federal side, Rep. Debbie Dingell is probing a University of Michigan data center plan with Los Alamos ties."
   },
   {
    "host": "Graham",
-   "text": "Meta's Wyoming campus cleared early city hurdles yesterday — a massive 715,000-square-foot facility in Kent County."
+   "text": "She released letters raising concerns about power demand, water use, and university involvement."
   },
   {
    "host": "Emmy",
-   "text": "The power draw is already prompting questions from neighbors about their bills."
+   "text": "That adds another layer for communities near potential sites."
   },
   {
    "host": "Graham",
-   "text": "And in Saline, construction digging has threatened ponds and groundwater, with a resident pond reportedly dropping two feet."
+   "text": "It does. And the carpenters union threw support behind the STREAM project yesterday, signaling hundreds of construction jobs if it gets approved."
   },
   {
    "host": "Emmy",
-   "text": "The township is continuing summer monitoring after the contractor added water without prior notice."
+   "text": "Steady paychecks for local workers, but new demands on roads, water, and electricity for nearby towns."
   },
   {
    "host": "Graham",
-   "text": "Rep. Debbie Dingell released letters yesterday probing the U-M data center plan with Los Alamos ties."
+   "text": "That's the trade-off communities keep coming back to."
   },
   {
    "host": "Emmy",
-   "text": "The exchange spotlights local concerns over power, water, and university involvement."
+   "text": "So where does Garfield go from here? The planners backed the freeze option, but what happens next?"
   },
   {
    "host": "Graham",
-   "text": "Now let's look ahead to what's on deck for listeners who want to weigh in."
+   "text": "Township leaders still need to adopt the recommendation before any pause takes effect, and residents will keep debating the power and land impacts."
   },
   {
    "host": "Emmy",
-   "text": "Monday, July 13, the Lansing City Council Development & Planning committee has a public hearing on a proposed 182-day data center moratorium."
+   "text": "It gives everyone a window to look at the bigger picture."
   },
   {
    "host": "Graham",
-   "text": "That's a chance for residents to speak directly on the pause."
+   "text": "Exactly, and with similar pauses popping up elsewhere, the pattern suggests more townships may follow suit while they study the numbers."
   },
   {
    "host": "Emmy",
-   "text": "Then on Tuesday, July 14, the Saline Township Board of Trustees will vote on a 12-year, 50% tax abatement for Oracle America Cloud Services tied to the Related Digital AI data center project."
+   "text": "What about the scale of these facilities overall? A gigawatt-scale campus is enormous."
   },
   {
    "host": "Graham",
-   "text": "There's also a public hearing that day on the Industrial Facilities Exemption Certificate."
+   "text": "It is, and when you stack that against existing grid capacity, the upgrades needed become a statewide conversation."
   },
   {
    "host": "Emmy",
-   "text": "Those are real opportunities for folks in the area to show up and share their thoughts on the incentives and the project."
+   "text": "Especially with multiple projects eyeing different regions at once."
   },
   {
    "host": "Graham",
+   "text": "Right, from northwest Michigan down to Washtenaw and Ingham Counties."
+  },
+  {
+   "host": "Emmy",
+   "text": "So the moratorium trend might be the first real pushback we're seeing."
+  },
+  {
+   "host": "Graham",
+   "text": "It looks that way today, and it will be interesting to watch how many more townships pick up the same approach."
+  },
+  {
+   "host": "Emmy",
+   "text": "Listeners should keep an eye on those upcoming votes."
+  },
+  {
+   "host": "Graham",
+   "text": "Let's shift to a few quick hits from the last day or so."
+  },
+  {
+   "host": "Emmy",
+   "text": "Saline Township locked in that sixteen-billion-dollar financing today, so the project is moving forward with major tax incentive questions still on the table."
+  },
+  {
+   "host": "Graham",
+   "text": "And Solon Township delayed its restrictive ordinance, leaving the status quo in place for now."
+  },
+  {
+   "host": "Emmy",
+   "text": "Haring Township is voting tomorrow on its six-month moratorium to study water and power impacts."
+  },
+  {
+   "host": "Graham",
+   "text": "Carpenters union endorsement for STREAM came yesterday, highlighting the job side of the ledger."
+  },
+  {
+   "host": "Emmy",
+   "text": "Dingell's letters on the U-M and Los Alamos plan also surfaced yesterday, focusing on infrastructure strain."
+  },
+  {
+   "host": "Graham",
+   "text": "Ratepayers are rallying July eighteenth across more than fifty communities worried about AI power and water demands."
+  },
+  {
+   "host": "Emmy",
+   "text": "Mason residents are pushing back on what they call fake grassroots support in their local debate."
+  },
+  {
+   "host": "Graham",
+   "text": "And all four GOP governor candidates backed tax breaks in yesterday's Grand Rapids debate."
+  },
+  {
+   "host": "Emmy",
+   "text": "Now let's look ahead to meetings listeners can actually attend."
+  },
+  {
+   "host": "Graham",
+   "text": "Tomorrow, July thirteenth, Lansing City Council Development and Planning holds a public hearing on a one-hundred-eighty-two-day data center moratorium."
+  },
+  {
+   "host": "Emmy",
+   "text": "And on July fourteenth, Saline Township Board of Trustees will vote on a twelve-year, fifty-percent tax abatement for the Oracle America Cloud Services project tied to the Related Digital AI data center, plus a public hearing on the Industrial Facilities Exemption Certificate."
+  },
+  {
+   "host": "Graham",
+   "text": "Plenty for folks to weigh in on if they're in those areas."
+  },
+  {
+   "host": "Emmy",
    "text": "Full sources and the live map at the Michigan Data Center Tracker."
   },
   {
-   "host": "Emmy",
+   "host": "Graham",
    "text": "We're back tomorrow."
   }
  ],
- "episode_title": "Carpenters Union Backs STREAM Project as Townships Weigh Moratoriums",
- "show": "Mornings with Graham & Emmy",
- "daypart": "Mornings"
+ "episode_title": "Garfield Township Eyes Data Center Freeze as Power, Water and Farmland Pressures Build Acr",
+ "show": "Evenings with Graham & Emmy",
+ "daypart": "Evenings"
 }
