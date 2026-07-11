@@ -1,10 +1,10 @@
 {
- "title": "Evenings with Graham & Emmy",
- "teaser": "Dingell questions U-M's Los Alamos-linked data center amid ratepayer alarms over bills and resources.",
+ "title": "Mornings with Graham & Emmy",
+ "teaser": "Union support for STREAM raises stakes on jobs versus power and water strains in mid-Michigan",
  "lines": [
   {
    "host": "Graham",
-   "text": "Good evening and welcome to Evenings with Graham & Emmy, the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
+   "text": "Good morning and welcome to Mornings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
   },
   {
    "host": "Emmy",
@@ -12,170 +12,222 @@
   },
   {
    "host": "Graham",
-   "text": "Tonight we're digging into a fresh congressional probe that ties the University of Michigan to a proposed hyperscale data center with Los Alamos connections."
+   "text": "It's Saturday, July 11, and we're diving into fresh developments as the sun comes up on another busy week for data centers across the state."
   },
   {
    "host": "Emmy",
-   "text": "That's the one raising big questions about power demand and water use right here in Michigan."
+   "text": "The big story today is that the carpenters union has thrown its support behind the STREAM data center project."
   },
   {
    "host": "Graham",
-   "text": "Rep. Debbie Dingell released letters today from U-M and Los Alamos leaders after she raised concerns about the project."
+   "text": "Exactly. That endorsement signals hundreds of construction jobs if the project gets approved, but it also highlights the trade-offs communities in mid-Michigan are facing on roads, water, and electricity."
   },
   {
    "host": "Emmy",
-   "text": "Why is a member of Congress getting involved in what sounds like a local siting fight?"
+   "text": "Graham, why does union backing matter so much here? Is this a new wrinkle in these fights?"
   },
   {
    "host": "Graham",
-   "text": "Dingell is highlighting local worries over how much electricity and water a facility like this would pull, plus the university's role in backing it."
+   "text": "It's significant because it brings organized labor into the conversation at a time when several townships are already pausing projects to study the impacts."
   },
   {
    "host": "Emmy",
-   "text": "So what's the bigger picture here for regular folks near potential sites?"
+   "text": "Right, like Haring Township in Wexford County voting today on a six-month moratorium to block new applications while they write permanent rules."
   },
   {
    "host": "Graham",
-   "text": "Residents could see higher utility bills and strained infrastructure if the project moves forward, according to the concerns laid out in the letters."
+   "text": "Residents there are worried about sudden spikes in power demand and noise from these hyperscale facilities, so the pause lets officials dig into water use and tax effects first."
   },
   {
    "host": "Emmy",
-   "text": "We've seen this pattern before with big power users. How does a data center actually drive up costs for everyone else?"
+   "text": "And how does the STREAM endorsement fit with that bigger picture of local pushback?"
   },
   {
    "host": "Graham",
-   "text": "These facilities need massive amounts of electricity around the clock and water for cooling. When demand spikes, utilities often build new plants or lines, and those costs get passed along through rate cases at the Public Service Commission."
+   "text": "It raises the stakes because the union sees steady paychecks for local workers, but nearby towns still have to weigh those gains against new demands on infrastructure."
   },
   {
    "host": "Emmy",
-   "text": "And the water side? Michigan has plenty, but local wells and ponds matter too."
+   "text": "We've seen this tension before with other proposals. What kind of history are we looking at for these projects in Michigan?"
   },
   {
    "host": "Graham",
-   "text": "Exactly. In places like Saline, construction dewatering has already dropped nearby ponds by about two feet and lowered groundwater four to five feet. That's hitting farms and homes directly."
+   "text": "Data centers have been eyeing sites across the state for a while now, with debates popping up in places like Ingham and Washtenaw counties over noise, power strain, and lost farmland."
   },
   {
    "host": "Emmy",
-   "text": "What about the university angle? Why would U-M be tied to something with Los Alamos?"
+   "text": "And the power side is huge. A local analyst in Monroe warned yesterday that unchecked growth will mean new plants and upgrades, with costs flowing to residential ratepayers through the utilities."
   },
   {
    "host": "Graham",
-   "text": "The letters show Dingell is asking for details on any research or partnership links. Universities sometimes get involved in tech infrastructure, but residents want to know if public institutions are steering projects that could affect local resources."
+   "text": "That's the core worry for many households — higher electric bills without enough oversight on how much these facilities will draw."
   },
   {
    "host": "Emmy",
-   "text": "Has this kind of pushback worked elsewhere in the state?"
+   "text": "Water is another big one. In Saline, construction at one site has already raised questions about dewatering and impacts on nearby ponds and groundwater."
   },
   {
    "host": "Graham",
-   "text": "Yesterday Houghton put a one-year moratorium on new data centers after residents pushed back over power shortages. Neighboring Upper Peninsula townships are now looking at similar pauses."
+   "text": "Officials there reported a resident pond dropping about two feet while groundwater levels fell four to five feet, and the township is monitoring through the summer."
   },
   {
    "host": "Emmy",
-   "text": "So the Dingell probe could add momentum to those local efforts?"
+   "text": "So for a place like STREAM, if approved, what does that mean for the surrounding area in practical terms?"
   },
   {
    "host": "Graham",
-   "text": "It keeps the spotlight on oversight and who pays the tab. The exchange is out there now, and it lines up with rallies planned for July 18 across more than fifty communities worried about AI facilities draining power and water."
+   "text": "Hundreds of construction jobs in the short term, plus potential long-term property tax revenue, but also added pressure on local roads, water supplies, and the grid."
   },
   {
    "host": "Emmy",
-   "text": "That rally sounds like it's turning into a statewide movement."
+   "text": "And we've got ratepayers rallying next week in Kent County and beyond to highlight exactly those concerns about AI facilities draining resources."
   },
   {
    "host": "Graham",
-   "text": "Kent County activists are leading one in the Grand Rapids area, and the message is consistent: more oversight before these projects lock in big grid upgrades."
+   "text": "More than 50 communities are involved in that July 18 event, showing the debate is moving beyond town halls into the streets."
   },
   {
    "host": "Emmy",
-   "text": "What happens next with the U-M project specifically?"
+   "text": "Meanwhile in Mason, residents are accusing outsiders of faking grassroots support in their local fight. How does that kind of friction affect decision-making?"
   },
   {
    "host": "Graham",
-   "text": "Dingell is seeking more answers, so we could see follow-up letters or hearings. In the meantime, several southeast Michigan sites are still under review, including proposals in Mason and Taylor."
+   "text": "It fractures trust right when officials are weighing next steps on noise, power, and farmland issues in Ingham County."
   },
   {
    "host": "Emmy",
-   "text": "Mason has its own drama with accusations of fake grassroots support."
+   "text": "On the political side, all four GOP governor candidates backed tax breaks for data centers during their Grand Rapids debate yesterday."
   },
   {
    "host": "Graham",
-   "text": "Yes, Ingham County neighbors say outside groups are manufacturing letters of support while locals worry about noise, power strain, and lost farmland."
+   "text": "They pointed to construction jobs and revenue for rural townships, though voters didn't hear much detail on household electric rates or water supplies."
   },
   {
    "host": "Emmy",
-   "text": "That kind of trust issue can stall projects fast."
+   "text": "And yesterday Rep. Debbie Dingell released letters probing a University of Michigan data center plan with Los Alamos ties, flagging power and water worries."
   },
   {
    "host": "Graham",
-   "text": "It already is. Officials are weighing next steps amid the fractured debate."
+   "text": "That exchange keeps the spotlight on university involvement and what it could mean for residents near potential sites."
   },
   {
    "host": "Emmy",
-   "text": "Over in Monroe, a utility analyst just warned officials about bill spikes."
+   "text": "Also yesterday, Meta's big Wyoming project in Kent County cleared early hurdles — a 715,000-square-foot campus that will pull substantial electricity."
   },
   {
    "host": "Graham",
-   "text": "Right. The expert told city leaders that unchecked growth means new power plants and transmission upgrades, with costs flowing to DTE and Consumers Energy customers."
+   "text": "Neighbors there are already asking what the power draw means for their bills as the facility reshapes local tax rolls and grid planning."
   },
   {
    "host": "Emmy",
-   "text": "Taylor residents are trying to write their own rules to block one."
+   "text": "So pulling it together, Graham, the union support for STREAM adds momentum on the jobs front, but the moratorium in Haring and the rallies show communities are hitting pause to study the downsides."
   },
   {
    "host": "Graham",
-   "text": "They pitched a citizen ordinance adding zoning hurdles that could stop or reshape a proposed facility to protect property values and keep industrial-scale use out."
+   "text": "Right, and what happens next depends on those local votes and whether projects can address the infrastructure concerns before moving forward."
   },
   {
    "host": "Emmy",
-   "text": "And Meta just cleared early hurdles for a giant campus in Wyoming."
+   "text": "Let's shift to some quick hits from the last day or so."
   },
   {
    "host": "Graham",
-   "text": "That's a 715,000-square-foot facility in Kent County. It will pull substantial electricity, and neighbors are already asking what it means for their bills and local tax rolls."
+   "text": "Haring Township supervisors are set to vote today on that six-month moratorium to halt new data center proposals while they draft permanent rules."
   },
   {
    "host": "Emmy",
-   "text": "Saline has the groundwater questions too."
+   "text": "Residents there are focused on power spikes and noise, giving officials time to study water and tax impacts first."
   },
   {
    "host": "Graham",
-   "text": "Township officials are monitoring after construction dropped a resident pond roughly two feet. The contractor added water without prior notice, and summer checks continue."
+   "text": "Yesterday in Mason, accusations flew that fake grassroots support is being manufactured in the data center debate."
   },
   {
    "host": "Emmy",
-   "text": "So across the state the same themes keep coming up: power, water, and who decides."
+   "text": "Ingham County neighbors are worried about noise, power strain, and lost farmland as officials weigh the next steps."
   },
   {
    "host": "Graham",
-   "text": "That's why the Dingell letters land at a moment when more communities are stepping in with their own rules."
+   "text": "Also yesterday, all four Republican candidates for governor voiced support for tax incentives during their Grand Rapids debate."
   },
   {
    "host": "Emmy",
-   "text": "What should listeners watch for in the coming days?"
+   "text": "They highlighted jobs and revenue for rural areas, but details on electric rates and water were light."
   },
   {
    "host": "Graham",
-   "text": "The Michigan Public Service Commission meets today on large-load electric agreements. That directly affects how these data centers get hooked up to the grid."
+   "text": "A Monroe utility analyst warned yesterday that data-center growth will require new power plants and upgrades, costs that hit ratepayers through DTE and Consumers filings."
   },
   {
    "host": "Emmy",
-   "text": "And later this week?"
+   "text": "That comes as several large projects look at southeast Michigan sites."
   },
   {
    "host": "Graham",
-   "text": "Lansing City Council has a public hearing Monday on a 182-day data center moratorium. Saline Township trustees vote Tuesday on a 12-year tax abatement for the Oracle America Cloud Services project tied to the Related Digital site, plus a hearing on the Industrial Facilities Exemption Certificate."
+   "text": "Ratepayers are rallying July 18 across more than 50 communities, with Kent County activists leading the charge on power and water demands from AI facilities."
   },
   {
    "host": "Emmy",
-   "text": "Those are the meetings where residents can actually show up and speak."
+   "text": "It shows the debate is reaching the streets now."
   },
   {
    "host": "Graham",
-   "text": "Exactly. Full sources and the live map at the Michigan Data Center Tracker. We're back tomorrow."
+   "text": "Meta's Wyoming campus cleared early city hurdles yesterday — a massive 715,000-square-foot facility in Kent County."
+  },
+  {
+   "host": "Emmy",
+   "text": "The power draw is already prompting questions from neighbors about their bills."
+  },
+  {
+   "host": "Graham",
+   "text": "And in Saline, construction digging has threatened ponds and groundwater, with a resident pond reportedly dropping two feet."
+  },
+  {
+   "host": "Emmy",
+   "text": "The township is continuing summer monitoring after the contractor added water without prior notice."
+  },
+  {
+   "host": "Graham",
+   "text": "Rep. Debbie Dingell released letters yesterday probing the U-M data center plan with Los Alamos ties."
+  },
+  {
+   "host": "Emmy",
+   "text": "The exchange spotlights local concerns over power, water, and university involvement."
+  },
+  {
+   "host": "Graham",
+   "text": "Now let's look ahead to what's on deck for listeners who want to weigh in."
+  },
+  {
+   "host": "Emmy",
+   "text": "Monday, July 13, the Lansing City Council Development & Planning committee has a public hearing on a proposed 182-day data center moratorium."
+  },
+  {
+   "host": "Graham",
+   "text": "That's a chance for residents to speak directly on the pause."
+  },
+  {
+   "host": "Emmy",
+   "text": "Then on Tuesday, July 14, the Saline Township Board of Trustees will vote on a 12-year, 50% tax abatement for Oracle America Cloud Services tied to the Related Digital AI data center project."
+  },
+  {
+   "host": "Graham",
+   "text": "There's also a public hearing that day on the Industrial Facilities Exemption Certificate."
+  },
+  {
+   "host": "Emmy",
+   "text": "Those are real opportunities for folks in the area to show up and share their thoughts on the incentives and the project."
+  },
+  {
+   "host": "Graham",
+   "text": "Full sources and the live map at the Michigan Data Center Tracker."
+  },
+  {
+   "host": "Emmy",
+   "text": "We're back tomorrow."
   }
  ],
- "episode_title": "Dingell Probes U-M Data Center Plan as Ratepayers Face Power and Water Risks",
- "show": "Evenings with Graham & Emmy",
- "daypart": "Evenings"
+ "episode_title": "Carpenters Union Backs STREAM Project as Townships Weigh Moratoriums",
+ "show": "Mornings with Graham & Emmy",
+ "daypart": "Mornings"
 }
