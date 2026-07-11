@@ -3,7 +3,7 @@
   {
    "id": "b7bd8c74ab0f",
    "to": "Managing Editor",
-   "status": "answered",
+   "status": "open",
    "messages": [
     {
      "from": "Andy",
@@ -24,6 +24,11 @@
      "from": "Managing Editor",
      "text": "Good catch — that's stale. I'm pulling it out of the queue now and flagging it with the Assignment Manager so we tighten up the meeting timing logic. We shouldn't have daytime meetings sitting in prime evening slots.",
      "at": "2026-07-11T00:26:41Z"
+    },
+    {
+     "from": "Andy",
+     "text": "thank you! also a lot of the text is going over each other in my for approval cue",
+     "at": "2026-07-11T00:27:26Z"
     }
    ],
    "lesson_filed": "Meeting stories should be pulled from the queue once their scheduled time has passed."
@@ -63,5 +68,5 @@
    ]
   }
  ],
- "updated_at": "2026-07-11T00:26:41Z"
+ "updated_at": "2026-07-11T00:27:26Z"
 }
