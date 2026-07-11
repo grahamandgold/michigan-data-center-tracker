@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-10T23:38:38+00:00",
+ "updated_at": "2026-07-11T01:04:20Z",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -20,24 +20,6 @@
    "headline_rewritten": true,
    "judge_score": 8,
    "judge_note": "Concrete new development: residents testifying against a specific $43B tax abatement proposal in Saline, a clear next step beyond the earlier delay story."
-  },
-  {
-   "iso": "2026-07-09T12:00:00+00:00",
-   "region": "metro",
-   "cat": "Lenawee Co.",
-   "tag": "Local Government",
-   "title": "Adrian Hits Pause on New Data Centers to Safeguard Water, Power and Neighborhoods",
-   "dek": "City enacts year-long moratorium on proposals, giving officials time to craft rules before big projects strain resources.",
-   "source": "Google News",
-   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQQ0xCMzZYQmFuVXNfcXBMZnBhc1JaVXJXeE9sRW1MLWgydkF1dmtJSHBKNHpZYzZPNWkyejctNHhXOHN3VXdMSXZoZTNSZl9XWDhpS3FlcU5kRzB4SkFHazg0b3BDcE9veEhZRG00bFduLUZma3JuZmYybzgyWkd4UXhHZFJqUWFfcnJuNHFURjAyTS1YYW9kQk1OVnhQSmNPVFJlelJWYnA4MlVVMDNZQmZ3SkNkWE9CalhtcGZHdXh2UGFYZEotZkFWSE5xcnNsZnZZMWMxQ2NCbUR0?oc=5",
-   "breaking": false,
-   "lead": false,
-   "id": "00e3c1aeb45a",
-   "kind": "story",
-   "filed_at": "2026-07-10T21:15:24+00:00",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9,
-   "judge_note": "Adrian enacts a year-long moratorium—a definitive vote/decision in a new municipality, directly parallel to the Houghton action already live."
   },
   {
    "iso": "2026-07-10T15:00:00+00:00",
@@ -133,5 +115,5 @@
    "judge_note": "Incremental follow-up on Saline with scheduled advisory sessions and monitoring—real next step after the consent judgment, not a duplicate of the tax break stor"
   }
  ],
- "accuracy_checked_at": "2026-07-10T23:38:34+00:00"
+ "accuracy_checked_at": "2026-07-11T01:04:15+00:00"
 }

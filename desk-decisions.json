@@ -391,6 +391,13 @@
    "at": "2026-07-10T23:38:38+00:00",
    "by": "news_judge",
    "note": "score 3/10: National trend piece with generic survey findings, no Michigan-specific development or decision."
+  },
+  {
+   "url": "https://www.detroitnews.com/story/news/local/michigan/2026/06/25/michigan-detroit-chamber-commission-data-center-development-regulations/90680723007/",
+   "title": "U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure",
+   "at": "2026-07-11T01:04:20+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece with no Michigan-specific decision, filing, or development."
   }
  ],
  "auto_published": [
@@ -537,6 +544,18 @@
    "title": "Dingell probes U-M data center plan with Los Alamos ties",
    "judge_score": 8,
    "at": "2026-07-10T21:15:56Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeC1paElwOUVfNlFhRlliUkZRWWkwQWtOeG02a3VVN2JvY0c4REM3cDdHTnRnRnVhN2huQTZXMm1aQlktR2dmUU1ZLVY5eHA4QUJCNThsbVVKWkhLUHlnUmlQbEFvNm1rVThmNy1sYjFXTTZZck9wai1oWUpwN2RETm5SdEpNNnRHSlB1dk1OY0hEUjBDcFVySzJ5Z193YUJLdE5qelNtNGlYektkdkJHQ0tHcTBub0hVSVZr?oc=5",
+   "title": "GOP governor candidates back tax breaks for data centers in Grand Rapids debate",
+   "judge_score": 7,
+   "at": "2026-07-11T01:04:20Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaHZMQ0hWMU8zZU9TN1Y4Y3VMdFdRZnprQWE0YmdURlZLSkVxeFFnanprTGpxUWYzTzJtTkpsR0F4cHJMNUpiUGVuREh5bHE4Q2dCMXFFWUhzZjRIRmpxZ3BBNVBkbFJfd0lSdnVFeFg4RFRsbFJCajV6ei1MVEprMmJpdGpyd0tKS29IVldfX1NaWE1JQlVmaGJrY01xMDQ?oc=5",
+   "title": "Haring Township set to halt all data center proposals for six months",
+   "judge_score": 8,
+   "at": "2026-07-11T01:04:20Z"
   }
  ]
 }

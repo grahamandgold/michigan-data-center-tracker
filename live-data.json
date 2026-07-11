@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-10T23:38:16+00:00",
+ "updated_at": "2026-07-11T01:04:20Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Haring Township set to halt all data center proposals for six months",
+   "dek": "Haring Township supervisors will vote on a six-month moratorium that would block new data center applications while the township writes permanent rules. Residents in this Wexford County community worry about sudden spikes in power demand and noise from hyperscale facilities. The pause gives local officials time to study water use and tax impacts before any project advances.",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaHZMQ0hWMU8zZU9TN1Y4Y3VMdFdRZnprQWE0YmdURlZLSkVxeFFnanprTGpxUWYzTzJtTkpsR0F4cHJMNUpiUGVuREh5bHE4Q2dCMXFFWUhzZjRIRmpxZ3BBNVBkbFJfd0lSdnVFeFg4RFRsbFJCajV6ei1MVEprMmJpdGpyd0tKS29IVldfX1NaWE1JQlVmaGJrY01xMDQ?oc=5",
+   "source": "9and10News.com",
+   "region": "north",
+   "cat": "STATEWIDE",
+   "county": "Wexford",
+   "tag": "Local Government",
+   "iso": "2026-07-10T22:44:39Z",
+   "id": "7ab4f14f67f1",
+   "origin": "google-news",
+   "source_title": "Haring Township to vote on six-month data center moratorium - 9and10News.com",
+   "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaHZMQ0hWMU8zZU9TN1Y4Y3VMdFdRZnprQWE0YmdURlZLSkVxeFFnanprTGpxUWYzTzJtTkpsR0F4cHJMNUpiUGVuREh5bHE4Q2dCMXFFWUhzZjRIRmpxZ3BBNVBkbFJfd0lSdnVFeFg4RFRsbFJCajV6ei1MVEprMmJpdGpyd0tKS29IVldfX1NaWE1JQlVmaGJrY01xMDQ?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "Dingell probes U-M data center plan with Los Alamos ties",
    "dek": "Rep. Debbie Dingell released letters from University of Michigan and Los Alamos leaders after raising concerns about a proposed Michigan data center. The exchange highlights local worries over power demand, water use, and university involvement in a hyperscale project. Michigan residents near potential sites could see higher utility bills and strained infrastructure if the facility moves forward.",
@@ -52,6 +69,23 @@
    "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPTUJaeGtLbFM2elhlU1g3emNfejBCMzVSRUg0em1ublJHby03dzdxZzFOU1RrMm1ZMFB0ak1tNFhZbDhxOE0yalNFaGpLQmFrWU1HaDMyUUNNT1o3djBzbU1HLWVadHlzSnh2eWZvLVBQTFcxdGd5WWNnUDhoLUJ0a2JMcXQ1TkVuU2x0NG5Tczh4SUxKX3JqZXR0VU9mTGRtWFduUkFlN0sxc1Z6OWRISjNqS2w0MXlTTDBwOFBGRFhCalAySFBwQ3F0QQ?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 6
+  },
+  {
+   "title": "GOP governor candidates back tax breaks for data centers in Grand Rapids debate",
+   "dek": "All four Republican candidates for governor said they support tax incentives to attract data centers during a debate in Grand Rapids. They argued the projects would bring construction jobs and long-term property tax revenue to struggling rural townships. Voters heard little detail on how the facilities would affect household electric rates or local water supplies.",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeC1paElwOUVfNlFhRlliUkZRWWkwQWtOeG02a3VVN2JvY0c4REM3cDdHTnRnRnVhN2huQTZXMm1aQlktR2dmUU1ZLVY5eHA4QUJCNThsbVVKWkhLUHlnUmlQbEFvNm1rVThmNy1sYjFXTTZZck9wai1oWUpwN2RETm5SdEpNNnRHSlB1dk1OY0hEUjBDcFVySzJ5Z193YUJLdE5qelNtNGlYektkdkJHQ0tHcTBub0hVSVZr?oc=5",
+   "source": "Civic Media",
+   "region": "west",
+   "cat": "STATEWIDE",
+   "county": "Kent",
+   "tag": "Money",
+   "iso": "2026-07-10T15:21:00Z",
+   "id": "137fd9ec5634",
+   "origin": "google-news",
+   "source_title": "GOP gubernatorial candidates trade personal blows, agree on taxes and data centers - Civic Media",
+   "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeC1paElwOUVfNlFhRlliUkZRWWkwQWtOeG02a3VVN2JvY0c4REM3cDdHTnRnRnVhN2huQTZXMm1aQlktR2dmUU1ZLVY5eHA4QUJCNThsbVVKWkhLUHlnUmlQbEFvNm1rVThmNy1sYjFXTTZZck9wai1oWUpwN2RETm5SdEpNNnRHSlB1dk1OY0hEUjBDcFVySzJ5Z193YUJLdE5qelNtNGlYektkdkJHQ0tHcTBub0hVSVZr?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
   },
   {
    "title": "Monroe expert warns data-center load could spike bills",
@@ -152,40 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZ250Zlo5dTB0cE40VXBjTnY4LTFXM2FVMTBjYkcyTjhXWmk5aW96MEF3MWtGWEVid0RwZnJBNjN1bzlZTktTYWh0WlNiY0tJZjFTS0hCal9iOVh1MWJKUG03UXROU05FR25MeUZNM2ZtQWE2MEcwSllQWnFJN1lXb2VBb2tCSVNOdUVsNXRLT1ZDNDE2MUFVeXdreFlub0tLV1RhalRFZGVfaEZBNFRhT25R0gHGAUFVX3lxTE9VVUVpTlozeG9IVTNXbTNsaUg2d3RWT00xT3A2VDdFeHd5U21qdXlNaTBHeW1keDFiMXJYVEMtVnZNMlBjMXJKRFdVc1V2aUg2ZVFRcDl3aVN3VWNNT0RVVFNSWEN3dlZCMjBQQlJ5TWRlR3RWV3VGNHZXYlpnYWlLNUJSWFJscW5MZjNwZ3ZVR25oSjZHeGVLQ0ZSaG14ZVA5S25fTE4tVmhLN0gwal85VVlYQzZSVURQWGVZVkJpbWJUaVJjdw?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 9
-  },
-  {
-   "title": "Houghton moratorium ripples across Upper Peninsula townships",
-   "dek": "Mining Journal reports neighboring communities are now studying their own pauses after seeing Houghton's action. Residents fear one large project could lock up regional transmission capacity for years. The debate has moved from one city to a multi-township conversation about who controls growth.",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOdk1rYUVOZFZJUl9Zb2hxRXczb0pqZlZQOVMtMnEzZ3VRVUZTN3Y4SEc2Zkt0RldpVEV6bFpEOVdHTlliTWJGUVhLT1liWGFYS1hManl3WnI4Z3p3UXlZMEIxd2VYV2thVkRRMlFMbE1HYTFWQS12RW1OYUFZYXFyUFQtLU1Lazg?oc=5",
-   "source": "mininggazette.com",
-   "region": "north",
-   "cat": "STATEWIDE",
-   "county": "Houghton",
-   "tag": "Local Government",
-   "iso": "2026-07-09T21:33:18Z",
-   "id": "803a4d15cea5",
-   "origin": "google-news",
-   "source_title": "Bigger than just Houghton - mininggazette.com",
-   "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOdk1rYUVOZFZJUl9Zb2hxRXczb0pqZlZQOVMtMnEzZ3VRVUZTN3Y4SEc2Zkt0RldpVEV6bFpEOVdHTlliTWJGUVhLT1liWGFYS1hManl3WnI4Z3p3UXlZMEIxd2VYV2thVkRRMlFMbE1HYTFWQS12RW1OYUFZYXFyUFQtLU1Lazg?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 6
-  },
-  {
-   "title": "Portage drafts rules to keep data centers out of neighborhoods",
-   "dek": "New zoning language would block large facilities from most residential and agricultural zones. Kalamazoo residents fear noise, traffic, and strain on the local grid if the rules are weakened. The changes come after months of complaints about industrial creep into rural edges of the city.",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNTGNDVl8yQWhSclVKa1BNNUExNGw5b0VqYjdHWmpnR09IbWdzYURoSkhDYmxyRDB0M0JLS1NxUzJvNFRBV282cGd2N2d5dnZ4dlZNZUhwZTVILVdVMjlXMmxBeWdIYU1LMFVCOXZYQzJEa2lyZjB5TWVqWXZsRGU4OF80bXltUV9mdEwxTnBxWENYME1jMG9qSTU4SS04RWFDeDFF?oc=5",
-   "source": "nwitimes.com",
-   "region": "west",
-   "cat": "STATEWIDE",
-   "county": "Kalamazoo",
-   "tag": "Local Government",
-   "iso": "2026-07-09T18:45:00Z",
-   "id": "3c30350a7fc6",
-   "origin": "google-news",
-   "source_title": "Read Portage's proposed zoning changes to restrict data centers in the community - nwitimes.com",
-   "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNTGNDVl8yQWhSclVKa1BNNUExNGw5b0VqYjdHWmpnR09IbWdzYURoSkhDYmxyRDB0M0JLS1NxUzJvNFRBV282cGd2N2d5dnZ4dlZNZUhwZTVILVdVMjlXMmxBeWdIYU1LMFVCOXZYQzJEa2lyZjB5TWVqWXZsRGU4OF80bXltUV9mdEwxTnBxWENYME1jMG9qSTU4SS04RWFDeDFF?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 6
   }
  ],
  "national": {
@@ -203,19 +203,6 @@
   "accuracy": "checked"
  },
  "meetings": [
-  {
-   "iso": "2026-07-10",
-   "body": "MI Public Service Commission",
-   "topic": "Open meeting — oversees large-load electric agreements",
-   "region": "Mid-Michigan",
-   "regionKey": "mid",
-   "county": "Ingham",
-   "time": "9:00 AM",
-   "status": "State hearing",
-   "urgent": false,
-   "link": "https://www.michigan.gov/mpsc/commission/meetings",
-   "linkLabel": "Agenda"
-  },
   {
    "iso": "2026-07-13",
    "body": "Lansing City Council — Development & Planning",
