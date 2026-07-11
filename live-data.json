@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-11T11:33:28Z",
+ "updated_at": "2026-07-11T12:34:37Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Solon Township shelves rules meant to curb data centers",
+   "dek": "The board delayed an ordinance that would have restricted where large facilities could locate. Residents in the township now face continued uncertainty over future projects and their impact on local roads and power use. The pause keeps the status quo while officials weigh next steps.",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMWswM2dPU19iV3RNSEhPdm1uMkcxRHl2T3k5R21NRHlhdVlpQjRUYUVUUVgwcHpuS0lfWFJxRmVOaTlMTkF3RXpzNlZiWlF4alhEN0h2Qmk5d0RCdGZZUGg1cS1qc0J6SmdpY2x0dHpqMW5PMkh2ODdnYklBUlBwSDlSMVpvNGVl?oc=5",
+   "source": "AOL.com",
+   "region": "north",
+   "cat": "STATEWIDE",
+   "county": "Wexford",
+   "tag": "Local Government",
+   "iso": "2026-07-11T10:03:11Z",
+   "id": "3e3d087e3eac",
+   "origin": "google-news",
+   "source_title": "Solon Township board tables ordinance proposal to limit data centers - AOL.com",
+   "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMWswM2dPU19iV3RNSEhPdm1uMkcxRHl2T3k5R21NRHlhdVlpQjRUYUVUUVgwcHpuS0lfWFJxRmVOaTlMTkF3RXpzNlZiWlF4alhEN0h2Qmk5d0RCdGZZUGg1cS1qc0J6SmdpY2x0dHpqMW5PMkh2ODdnYklBUlBwSDlSMVpvNGVl?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Carpenters union throws support behind STREAM data center build",
    "dek": "The union backing the STREAM project signals hundreds of construction jobs could come to the area if the data center is approved. Local workers would gain steady paychecks, but nearby towns would also face new demands on roads, water, and electricity. The endorsement raises the stakes for communities weighing the trade-offs in mid-Michigan.",
@@ -168,23 +185,6 @@
    "lead": false,
    "id": "2770f7a57517",
    "accuracy": "checked-rewritten",
-   "judge_score": 7
-  },
-  {
-   "title": "Taylor residents push own rules to block proposed data center",
-   "dek": "City of Taylor leaders heard a citizen-written ordinance aimed at stopping a data center from moving forward. The proposal would add new zoning hurdles that could kill the project or force major changes. Neighbors see it as their best shot at protecting property values and keeping industrial-scale power and water use out of their community.",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNOGlOWWh5V3ZjRzJBYS0tYzRiU3lTbmM2QVZtWV9sWW9JLUVWeGNuVWxFVF9MVElFRWZUQUhWb2hTczhUWTl5OXIzSGVnSVE0M3dsWVJvRkdNYzdwRGVjVHc5ZFZfWWZBZEhkOGpBLXJhd2VwME82dTZuYzlGYUpuVDFmeGNFR2RtLWR3WWw2UUhkSFNZYWJfMWtZMWtmQXF6MW0tZXhGaExNWmRwNGlfcURxTDg?oc=5",
-   "source": "MSN",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Wayne",
-   "tag": "Local Government",
-   "iso": "2026-07-10T07:59:57Z",
-   "id": "fc7e88d42318",
-   "origin": "google-news",
-   "source_title": "City of Taylor discuss citizen-led ordinance on proposed data center - MSN",
-   "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNOGlOWWh5V3ZjRzJBYS0tYzRiU3lTbmM2QVZtWV9sWW9JLUVWeGNuVWxFVF9MVElFRWZUQUhWb2hTczhUWTl5OXIzSGVnSVE0M3dsWVJvRkdNYzdwRGVjVHc5ZFZfWWZBZEhkOGpBLXJhd2VwME82dTZuYzlGYUpuVDFmeGNFR2RtLWR3WWw2UUhkSFNZYWJfMWtZMWtmQXF6MW0tZXhGaExNWmRwNGlfcURxTDg?oc=5",
-   "accuracy": "unverified-source-unfetchable",
    "judge_score": 7
   }
  ],

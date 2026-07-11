@@ -1,7 +1,28 @@
 {
- "updated_at": "2026-07-11T11:33:28Z",
+ "updated_at": "2026-07-11T12:34:37Z",
  "generator": "grok-wire-agent",
  "items": [
+  {
+   "title": "STREAM data center study draws fire in new letter to officials",
+   "dek": "Critics say the analysis understates power and traffic burdens on nearby residents. The letter urges local leaders to demand better data before any approvals. The dispute adds to growing pushback against the project in the area.",
+   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQQjJ4dEJ4R1d1OGxKMnRtaEgtMWRIbXlHQ2c3cEtSMFAxV0ZTZ1ZvaXBmcUlyNXJkbVA2SmN1XzFOTVdnQVhrZGwxdEFXUUxXa1BmNlhkdV9xS1JGb1F5LVQ4NmhfQW5Ia012MkxSSkNuOE5SQmFDaVlqMmtza1YzU2duT0x1U19aZFJkRUhrYk1zZk1SNUdpQ2NWV0pUQjVWa0c3MGFHeHI5dnF1RDN4cW1sWnhzS2tfLWlSdFptWmJ4NDNWQzVCb1pZdTdkZWc1dzNZTQ?oc=5",
+   "source": "TheDailyNewsOnline.com",
+   "region": "mid",
+   "cat": "STATEWIDE",
+   "county": "Branch",
+   "tag": "Local Government",
+   "iso": "2026-07-10T21:33:24Z",
+   "kind": "story",
+   "id": "ee56c7320772",
+   "filed_at": "2026-07-11T12:33:42Z",
+   "origin": "google-news",
+   "headline_rewritten": true,
+   "source_title": "Letter: STREAM data center study is misleading - TheDailyNewsOnline.com",
+   "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQQjJ4dEJ4R1d1OGxKMnRtaEgtMWRIbXlHQ2c3cEtSMFAxV0ZTZ1ZvaXBmcUlyNXJkbVA2SmN1XzFOTVdnQVhrZGwxdEFXUUxXa1BmNlhkdV9xS1JGb1F5LVQ4NmhfQW5Ia012MkxSSkNuOE5SQmFDaVlqMmtza1YzU2duT0x1U19aZFJkRUhrYk1zZk1SNUdpQ2NWV0pUQjVWa0c3MGFHeHI5dnF1RDN4cW1sWnhzS2tfLWlSdFptWmJ4NDNWQzVCb1pZdTdkZWc1dzNZTQ?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 6,
+   "judge_note": "A letter criticizing a study is incremental opposition activity rather than a concrete decision or filing, but it's document-based and adds a specific developme"
+  },
   {
    "iso": "2026-07-10T15:00:00+00:00",
    "region": "statewide",
@@ -59,5 +80,5 @@
    "judge_note": "Major new project confirmation: 1.4 GW OpenAI-Oracle campus with specific job numbers, acreage, and tax abatement details — concrete development."
   }
  ],
- "accuracy_checked_at": "2026-07-11T11:33:25+00:00"
+ "accuracy_checked_at": "2026-07-11T12:34:33+00:00"
 }
