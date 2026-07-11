@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-11T18:30:45+00:00",
+ "updated_at": "2026-07-11T19:45:02+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -62,5 +62,5 @@
    "judge_note": "Major new project confirmation: 1.4 GW OpenAI-Oracle campus with specific job numbers, acreage, and tax abatement details — concrete development."
   }
  ],
- "accuracy_checked_at": "2026-07-11T18:30:46+00:00"
+ "accuracy_checked_at": "2026-07-11T19:45:02+00:00"
 }
