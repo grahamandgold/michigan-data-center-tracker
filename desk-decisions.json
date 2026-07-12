@@ -475,6 +475,27 @@
    "at": "2026-07-12T10:57:40+00:00",
    "by": "news_judge",
    "note": "score 4/10: Speculative 'could be' framing about potential future tax breaks lacks the concrete development or decision that would make it newsworthy."
+  },
+  {
+   "url": "https://www.mlive.com/news/2026/07/data-center-tax-breaks-cost-michigan-at-least-13m-but-are-shrouded-in-secrecy.html",
+   "title": "Michigan Data Center Tax Breaks Wipe Out at Least $13 Million in State Revenue",
+   "at": "2026-07-12T12:05:35+00:00",
+   "by": "news_judge",
+   "note": "score 3/10, duplicate: Duplicate of already-live story 'Secret tax breaks for data centers already cost Michigan $13M' — same $13M figure and tax break disclosure issue."
+  },
+  {
+   "url": "https://www.mlive.com/news/2026/07/big-tech-spent-thousands-lobbying-now-its-michigan-data-centers-could-get-big-tax-breaks.html",
+   "title": "Big Tech Lobbying Pays Off as Michigan Expands Data Center Tax Incentives",
+   "at": "2026-07-12T12:05:35+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Duplicate of killed story 'Big Tech lobbying pays off: Michigan data centers eye major tax breaks' — same lobbying angle and tax incentive theme."
+  },
+  {
+   "url": "https://capitolcitynow.com/news/248842-data-centers-have-moved-into-rural-america-so-have-the-concerns/",
+   "title": "Rural Midwest Residents Brace for Higher Power Bills from Data Center Growth",
+   "at": "2026-07-12T12:05:35+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece with regional data but no Michigan-specific decision or development; speculative projections to 2030."
   }
  ],
  "auto_published": [
@@ -669,6 +690,12 @@
    "title": "Secret tax breaks for data centers already cost Michigan $13M",
    "judge_score": 8,
    "at": "2026-07-12T10:57:40Z"
+  },
+  {
+   "url": "https://www.wkar.org/election-2026/2026-07-12/what-roths-watching-lansing-weighs-data-center-freeze-small-communitys-library-at-risk-el-sayed-lawrence-get-boost-from-national-progressives",
+   "title": "Lansing hearing set on six-month data center pause after $120M project withdrawal",
+   "judge_score": 8,
+   "at": "2026-07-12T12:05:36Z"
   }
  ]
 }

@@ -1,7 +1,22 @@
 {
- "updated_at": "2026-07-12T10:57:40Z",
+ "updated_at": "2026-07-12T12:05:36Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "iso": "2026-07-12T11:00:00Z",
+   "region": "mid",
+   "cat": "Ingham Co.",
+   "tag": "Local Government",
+   "title": "Lansing hearing set on six-month data center pause after $120M project withdrawal",
+   "dek": "Council will consider the moratorium Monday to update zoning rules following resident backlash that killed a major proposed development.",
+   "source": "WKAR",
+   "url": "https://www.wkar.org/election-2026/2026-07-12/what-roths-watching-lansing-weighs-data-center-freeze-small-communitys-library-at-risk-el-sayed-lawrence-get-boost-from-national-progressives",
+   "breaking": false,
+   "lead": false,
+   "id": "86dff4470b01",
+   "accuracy": "checked-rewritten",
+   "judge_score": 8
+  },
   {
    "title": "Secret tax breaks for data centers already cost Michigan $13M",
    "dek": "The incentives stay hidden from public view while draining state coffers. Local services lose funding that would otherwise come from these large facilities. Michigan taxpayers foot the bill without knowing which projects benefit.",
@@ -171,23 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPTUJaeGtLbFM2elhlU1g3emNfejBCMzVSRUg0em1ublJHby03dzdxZzFOU1RrMm1ZMFB0ak1tNFhZbDhxOE0yalNFaGpLQmFrWU1HaDMyUUNNT1o3djBzbU1HLWVadHlzSnh2eWZvLVBQTFcxdGd5WWNnUDhoLUJ0a2JMcXQ1TkVuU2x0NG5Tczh4SUxKX3JqZXR0VU9mTGRtWFduUkFlN0sxc1Z6OWRISjNqS2w0MXlTTDBwOFBGRFhCalAySFBwQ3F0QQ?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 6
-  },
-  {
-   "title": "GOP governor candidates back tax breaks for data centers in Grand Rapids debate",
-   "dek": "All four Republican candidates for governor said they support tax incentives to attract data centers during a debate in Grand Rapids. They argued the projects would bring construction jobs and long-term property tax revenue to struggling rural townships. Voters heard little detail on how the facilities would affect household electric rates or local water supplies.",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeC1paElwOUVfNlFhRlliUkZRWWkwQWtOeG02a3VVN2JvY0c4REM3cDdHTnRnRnVhN2huQTZXMm1aQlktR2dmUU1ZLVY5eHA4QUJCNThsbVVKWkhLUHlnUmlQbEFvNm1rVThmNy1sYjFXTTZZck9wai1oWUpwN2RETm5SdEpNNnRHSlB1dk1OY0hEUjBDcFVySzJ5Z193YUJLdE5qelNtNGlYektkdkJHQ0tHcTBub0hVSVZr?oc=5",
-   "source": "Civic Media",
-   "region": "west",
-   "cat": "STATEWIDE",
-   "county": "Kent",
-   "tag": "Money",
-   "iso": "2026-07-10T15:21:00Z",
-   "id": "137fd9ec5634",
-   "origin": "google-news",
-   "source_title": "GOP gubernatorial candidates trade personal blows, agree on taxes and data centers - Civic Media",
-   "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeC1paElwOUVfNlFhRlliUkZRWWkwQWtOeG02a3VVN2JvY0c4REM3cDdHTnRnRnVhN2huQTZXMm1aQlktR2dmUU1ZLVY5eHA4QUJCNThsbVVKWkhLUHlnUmlQbEFvNm1rVThmNy1sYjFXTTZZck9wai1oWUpwN2RETm5SdEpNNnRHSlB1dk1OY0hEUjBDcFVySzJ5Z193YUJLdE5qelNtNGlYektkdkJHQ0tHcTBub0hVSVZr?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 7
   }
  ],
  "national": {
@@ -205,6 +203,20 @@
   "accuracy": "checked"
  },
  "meetings": [
+  {
+   "iso": "2026-07-13",
+   "body": "Lansing City Council",
+   "topic": "Public hearing on proposed 182-day moratorium on new data center development",
+   "region": "Mid-Michigan",
+   "regionKey": "mid",
+   "county": "Ingham",
+   "time": "7:00 PM",
+   "status": "City Council Meeting",
+   "urgent": true,
+   "link": "https://www.lansingmi.gov/agendas-minutes",
+   "linkLabel": "Agenda",
+   "stream": "https://www.lansingmi.gov/city-council-meetings"
+  },
   {
    "iso": "2026-07-13",
    "body": "Lenox Township Board of Trustees",

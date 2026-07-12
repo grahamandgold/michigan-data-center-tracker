@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-12T11:00:52+00:00",
+ "updated_at": "2026-07-12T12:05:36Z",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -15,7 +15,7 @@
    "kind": "agenda",
    "id": "077507ba11a3",
    "filed_at": "2026-07-12T11:00:52+00:00",
-   "accuracy": "document-based",
+   "accuracy": "checked",
    "findings": "Ordinance adds Chapter 878 to impose 182-day moratorium barring building permits and zoning applications for data centers as primary or accessory use | per the draft: high-intensity use with significant energy/water consumption, noise, infrastructure demands, and likely environmental/public health impacts from backup generators | Deep Green 24 MW, $120M downtown proposal on re-zoned parking lots at Kalamazoo/Cedar/Larch would have paid city $1.4M plus nearly $1M annual property taxes and $1M+ to BWL | BWL heat-reuse plan scrapped with proposal; without it, utility faced $5M cost for new 4,000-sq-ft heating station in Wentworth Park | Two residents raised air quality, noise/vibration, energy, water, transparency, and independent review concerns at council meeting | Public hearing set for 7 ",
    "perspective": "The ordinance was referred to the Committee on Development and Planning at Monday's meeting after the Deep Green rezoning request was withdrawn April 6 before a conditional rezoning vote; city leaders indicated at the time the vote was not likely to get the six-vote supermajority required to pass. The July 13 hearing allows public comment before any council vote on the ordinance, which would take ",
    "documents": [
@@ -29,7 +29,9 @@
     }
    ],
    "depth_score": 8,
-   "extraction_method": "plain"
+   "extraction_method": "plain",
+   "judge_score": 8,
+   "judge_note": "Document-based agenda preview with specific hearing date (July 13) and 182-day moratorium details for Lansing — concrete scheduled action."
   },
   {
    "title": "Pere Marquette Township weighs year-long data center freeze",
@@ -53,5 +55,5 @@
    "judge_note": "Concrete new development: Pere Marquette Township has a scheduled vote on a specific moratorium proposal, distinct from the already-covered Haring Township free"
   }
  ],
- "accuracy_checked_at": "2026-07-12T10:57:31+00:00"
+ "accuracy_checked_at": "2026-07-12T12:05:29+00:00"
 }
