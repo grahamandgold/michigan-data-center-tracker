@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-11T22:59:08+00:00",
+ "updated_at": "2026-07-12T00:03:25+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -43,5 +43,5 @@
    "judge_note": "House Democrats file specific bills with concrete provisions—a legislative filing is a tangible development, though national in scope."
   }
  ],
- "accuracy_checked_at": "2026-07-11T22:59:05+00:00"
+ "accuracy_checked_at": "2026-07-12T00:03:25+00:00"
 }
