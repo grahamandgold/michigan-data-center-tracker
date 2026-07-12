@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-12T13:50:38+00:00",
+ "updated_at": "2026-07-12T15:06:31+00:00",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -205,6 +205,34 @@
  "meetings": [
   {
    "iso": "2026-07-13",
+   "body": "Solon Township Board",
+   "topic": "Extension of data center moratorium and related ordinances",
+   "region": "West Michigan",
+   "regionKey": "west",
+   "county": "Kent",
+   "time": "7:00 PM",
+   "status": "Board meeting",
+   "urgent": true,
+   "link": "https://www.solontwp.org/township-calendar/",
+   "linkLabel": "Agenda",
+   "stream": null
+  },
+  {
+   "iso": "2026-07-13",
+   "body": "Lenox Township Board of Trustees",
+   "topic": "Data center ordinances, moratorium and related development proposals",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Macomb",
+   "time": "6:30 PM",
+   "status": "Board meeting",
+   "urgent": true,
+   "link": "https://www.lenox-mi.gov/calendar.aspx",
+   "linkLabel": "Agenda",
+   "stream": null
+  },
+  {
+   "iso": "2026-07-13",
    "body": "Lansing City Council",
    "topic": "Public hearing on proposed 182-day moratorium on new data center development",
    "region": "Mid-Michigan",
@@ -216,20 +244,6 @@
    "link": "https://www.lansingmi.gov/agendas-minutes",
    "linkLabel": "Agenda",
    "stream": "https://www.lansingmi.gov/city-council-meetings"
-  },
-  {
-   "iso": "2026-07-13",
-   "body": "Lenox Township Board of Trustees",
-   "topic": "Board meeting, including discussion of data center ordinance and related zoning matters amid resident opposition to proposed projects",
-   "region": "SE Michigan",
-   "regionKey": "metro",
-   "county": "Macomb",
-   "time": "6:30 PM",
-   "status": "Board meeting",
-   "urgent": true,
-   "link": "https://www.lenox-mi.gov/agendacenter",
-   "linkLabel": "Agenda",
-   "stream": null
   },
   {
    "iso": "2026-07-13",

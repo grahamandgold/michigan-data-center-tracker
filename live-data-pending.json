@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-12T13:50:43+00:00",
+ "updated_at": "2026-07-12T15:06:31+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -55,5 +55,5 @@
    "judge_note": "Concrete new development: Pere Marquette Township has a scheduled vote on a specific moratorium proposal, distinct from the already-covered Haring Township free"
   }
  ],
- "accuracy_checked_at": "2026-07-12T13:50:39+00:00"
+ "accuracy_checked_at": "2026-07-12T15:06:32+00:00"
 }
