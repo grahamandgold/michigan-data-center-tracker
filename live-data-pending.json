@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-12T00:03:25+00:00",
+ "updated_at": "2026-07-12T03:48:57+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -22,26 +22,7 @@
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 6,
    "judge_note": "A letter criticizing a study is incremental opposition activity rather than a concrete decision or filing, but it's document-based and adds a specific developme"
-  },
-  {
-   "iso": "2026-07-10T15:00:00+00:00",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "House Democrats File Data Center Rules on Power Costs, Water Use and Noise",
-   "dek": "Bills would require developers to cover full electricity expenses, sign community agreements and face water limits as projects advance across Michigan.",
-   "source": "Michigan Advance",
-   "url": "https://michiganadvance.com/2026/06/26/michigan-house-democrats-pitch-transparency-community-benefit-requirements-for-data-centers/",
-   "breaking": false,
-   "lead": false,
-   "id": "6e5931bfe1d8",
-   "kind": "national",
-   "filed_at": "2026-07-10T21:15:24+00:00",
-   "accuracy": "checked-rewritten",
-   "headline_rewritten": true,
-   "judge_score": 7,
-   "judge_note": "House Democrats file specific bills with concrete provisions—a legislative filing is a tangible development, though national in scope."
   }
  ],
- "accuracy_checked_at": "2026-07-12T00:03:25+00:00"
+ "accuracy_checked_at": "2026-07-12T03:48:57+00:00"
 }
