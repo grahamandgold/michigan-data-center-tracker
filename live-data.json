@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-12T19:43:49+00:00",
+ "updated_at": "2026-07-12T21:03:10Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Rural push kills Consumers 1.4 GW plant before it reaches grid",
+   "dek": "Residents in western Michigan blocked a major new gas plant that would have supplied power to data centers and other large users. The utility has now withdrawn the proposal entirely. Without the plant, ratepayers face tighter supply and possible higher costs as AI facilities keep demanding more electricity.",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObDduNnFaRk8tMFpBSC0yYS02WkJMV0JrLWhmQXlsYlZfR3JXTW9jZTduTUR1U1N1X3FPVEI4bnBXcFE2V3ItaUg3ZEVacHg4ekJFclQ5SFRzOTh0LTI3cWlRRUJnNUt6Q0hxa1dKemhPN2ZWZHdyTDl2bklWMm5rSTBYQWkyb0E?oc=5",
+   "source": "The Cool Down",
+   "region": "mid",
+   "cat": "STATEWIDE",
+   "county": "",
+   "tag": "Power & Grid",
+   "iso": "2026-07-12T20:31:00Z",
+   "id": "c7fcc8ab5b62",
+   "origin": "google-news",
+   "source_title": "Rural Michigan residents force Consumers Energy to drop 1.4GW power plant proposal - The Cool Down",
+   "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObDduNnFaRk8tMFpBSC0yYS02WkJMV0JrLWhmQXlsYlZfR3JXTW9jZTduTUR1U1N1X3FPVEI4bnBXcFE2V3ItaUg3ZEVacHg4ekJFclQ5SFRzOTh0LTI3cWlRRUJnNUt6Q0hxa1dKemhPN2ZWZHdyTDl2bklWMm5rSTBYQWkyb0E?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 9
+  },
   {
    "title": "State lawmakers eye new guardrails for Michigan data centers",
    "dek": "A legislative roundup shows bills that would set stricter rules on data-center power use and tax incentives. The measures would affect every township now fielding proposals from hyperscale developers. Passage would change what local boards can approve without state oversight.",
@@ -33,6 +50,23 @@
    "id": "86dff4470b01",
    "accuracy": "checked-rewritten",
    "judge_score": 8
+  },
+  {
+   "title": "Consumers warns rates will rise if tax fight with state drags on",
+   "dek": "The utility says it is paying millions in disputed taxes that it may pass to customers. The dispute centers on how data-center projects are valued for property taxes. Any increase would hit households across the Lower Peninsula this winter.",
+   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUU9Ib1pFUGY0YmhwSEJHb1BDZ1U1dXR0R053QklOZnhjWXhPODViLWJ2MzRsdjktdjdJVWFwaDlNUzJiamJhaXI0MF9VQlBCTDRnUXpqWERSWWQ3WkpXenpXeG1wSGlkSzZpWXQtU1RmZDFjMERieDdLMXRfdTc2X29sV2RjZVhXVkE?oc=5",
+   "source": "AOL.com",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "county": "",
+   "tag": "Power & Grid",
+   "iso": "2026-07-12T10:16:28Z",
+   "id": "c794e5152348",
+   "origin": "google-news",
+   "source_title": "Consumers Energy warns of increased rates amid tax dispute with state - AOL.com",
+   "source_url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUU9Ib1pFUGY0YmhwSEJHb1BDZ1U1dXR0R053QklOZnhjWXhPODViLWJ2MzRsdjktdjdJVWFwaDlNUzJiamJhaXI0MF9VQlBCTDRnUXpqWERSWWQ3WkpXenpXeG1wSGlkSzZpWXQtU1RmZDFjMERieDdLMXRfdTc2X29sV2RjZVhXVkE?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
   },
   {
    "title": "Secret tax breaks for data centers already cost Michigan $13M",
@@ -152,40 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaHZMQ0hWMU8zZU9TN1Y4Y3VMdFdRZnprQWE0YmdURlZLSkVxeFFnanprTGpxUWYzTzJtTkpsR0F4cHJMNUpiUGVuREh5bHE4Q2dCMXFFWUhzZjRIRmpxZ3BBNVBkbFJfd0lSdnVFeFg4RFRsbFJCajV6ei1MVEprMmJpdGpyd0tKS29IVldfX1NaWE1JQlVmaGJrY01xMDQ?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 8
-  },
-  {
-   "title": "Dingell probes U-M data center plan with Los Alamos ties",
-   "dek": "Rep. Debbie Dingell released letters from University of Michigan and Los Alamos leaders after raising concerns about a proposed Michigan data center. The exchange highlights local worries over power demand, water use, and university involvement in a hyperscale project. Michigan residents near potential sites could see higher utility bills and strained infrastructure if the facility moves forward.",
-   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBidUpqcFNSR09YdXlLT1ltTDZfcU1NT09DcjM3eDVyM2pQUFpneXlPV3NMbjhQRXBpby1qZWVRcGpmTnR2TFp6UUxwUV81T3BaRjJQVS1nYUJoQmpKVFpDZDR6dC1GaTNBTkloMkdQQzlSVVNFWDNYR0I2OEg?oc=5",
-   "source": "Representative Debbie Dingell (.gov)",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Washtenaw",
-   "tag": "Power & Grid",
-   "iso": "2026-07-10T20:55:56Z",
-   "id": "4d019ae13374",
-   "origin": "google-news",
-   "source_title": "Dingell Releases Responses from U-M, Los Alamos National Laboratory Leadership following Inquiry Over Concerns on Proposed Data Center - Representative Debbie Dingell (.gov)",
-   "source_url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBidUpqcFNSR09YdXlLT1ltTDZfcU1NT09DcjM3eDVyM2pQUFpneXlPV3NMbjhQRXBpby1qZWVRcGpmTnR2TFp6UUxwUV81T3BaRjJQVS1nYUJoQmpKVFpDZDR6dC1GaTNBTkloMkdQQzlSVVNFWDNYR0I2OEg?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
-  },
-  {
-   "title": "Ratepayers rally as Michigan activists warn AI facilities drain power and water",
-   "dek": "City residents will rally July 18 with more than 50 other communities worried about power and water demands from AI facilities. Kent County activists say the rapid buildout threatens ratepayers and local resources without enough oversight. The event shows Michigan's data center debate is now reaching the streets.",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5iVnFCdVd6a2RMd29CRTJ1dVh4U0NkX2NNM25yalV1OVpQeVJSWllocjd5akNXTms3encxRkpId0dzWmlBekpIb1JlMjFDdmlLTDl1WXZUTl8xWGdBTk9yRFd5TUhIamlJd2xKN0MzVy1XUm1qN3c?oc=5",
-   "source": "Mix 95.7",
-   "region": "west",
-   "cat": "STATEWIDE",
-   "county": "Kent",
-   "tag": "Policy",
-   "iso": "2026-07-10T19:06:01Z",
-   "id": "adf2e2813949",
-   "origin": "google-news",
-   "source_title": "Grand Rapids Joins 50+ Cities In A July 18 Protest Over AI Data Centers - Mix 95.7",
-   "source_url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5iVnFCdVd6a2RMd29CRTJ1dVh4U0NkX2NNM25yalV1OVpQeVJSWllocjd5akNXTms3encxRkpId0dzWmlBekpIb1JlMjFDdmlLTDl1WXZUTl8xWGdBTk9yRFd5TUhIamlJd2xKN0MzVy1XUm1qN3c?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 6
   }
  ],
  "national": {
