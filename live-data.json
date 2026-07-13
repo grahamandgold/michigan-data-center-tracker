@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-13T18:19:49Z",
+ "updated_at": "2026-07-13T20:01:43+00:00",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -279,6 +279,20 @@
    "urgent": true,
    "link": "https://salinetownship.org/",
    "linkLabel": "Agenda"
+  },
+  {
+   "iso": "2026-07-15",
+   "body": "Ypsilanti Township",
+   "topic": "Informational session and public comment on proposed U of M/Los Alamos computational data center project",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Washtenaw",
+   "time": "6:00 PM",
+   "status": "Public hearing",
+   "urgent": false,
+   "link": "https://ypsitownship.org/news_detail_T2_R250.php",
+   "linkLabel": "Agenda/Info",
+   "stream": ""
   }
  ],
  "accuracy_checked_at": "2026-07-08T08:45:16+00:00"
