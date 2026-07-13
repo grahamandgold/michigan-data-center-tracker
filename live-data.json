@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-13T21:07:55Z",
+ "updated_at": "2026-07-13T22:32:05Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Lowell Township residents face first data-center vote tonight",
+   "dek": "A project could arrive in Kent County with major power and land-use impacts. Neighbors want to know how much noise, traffic and tax revenue will actually reach them. The meeting decides whether the township opens the door or sets limits.",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOY2VjcEQteVJwZWxzRGVVNjRHZXc5NlRnanNjWXBCakd3Q093NDVmbXRyQTcySndZeThJRkcxWEdnb2R6b1d0ZUIwZU1HV2FTTGxZQjFvNHpjQWI4a1JSRWdCTjhrbk5IM1FJNHIxNEJaaTVlaFNMczEyWTczY05NWWJBYnV3aGZjcnlaMDMwTUN6NllPcGc3ZnlWZDg0S05GSzh5dHFyb0lnWF9YR2l1SDh5RjBGTmJiVXlTTTJ4SF9TbkZualZ5QQ?oc=5",
+   "source": "WZZM13.com",
+   "region": "west",
+   "cat": "STATEWIDE",
+   "county": "Kent",
+   "tag": "Local Government",
+   "iso": "2026-07-13T21:14:00Z",
+   "id": "727002d1ee24",
+   "origin": "google-news",
+   "source_title": "Data center discussion in Lowell Township tonight - WZZM13.com",
+   "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOY2VjcEQteVJwZWxzRGVVNjRHZXc5NlRnanNjWXBCakd3Q093NDVmbXRyQTcySndZeThJRkcxWEdnb2R6b1d0ZUIwZU1HV2FTTGxZQjFvNHpjQWI4a1JSRWdCTjhrbk5IM1FJNHIxNEJaaTVlaFNMczEyWTczY05NWWJBYnV3aGZjcnlaMDMwTUN6NllPcGc3ZnlWZDg0S05GSzh5dHFyb0lnWF9YR2l1SDh5RjBGTmJiVXlTTTJ4SF9TbkZualZ5QQ?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "Lyon Township delays data center vote, leaving residents waiting on power and noise impacts",
    "dek": "The board postponed action on the project proposal. Oakland County residents near the site face uncertainty over added electricity demand and potential noise. The delay gives locals more time to organize before any final decision.",
@@ -167,23 +184,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObDduNnFaRk8tMFpBSC0yYS02WkJMV0JrLWhmQXlsYlZfR3JXTW9jZTduTUR1U1N1X3FPVEI4bnBXcFE2V3ItaUg3ZEVacHg4ekJFclQ5SFRzOTh0LTI3cWlRRUJnNUt6Q0hxa1dKemhPN2ZWZHdyTDl2bklWMm5rSTBYQWkyb0E?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 9
-  },
-  {
-   "title": "State lawmakers eye new guardrails for Michigan data centers",
-   "dek": "A legislative roundup shows bills that would set stricter rules on data-center power use and tax incentives. The measures would affect every township now fielding proposals from hyperscale developers. Passage would change what local boards can approve without state oversight.",
-   "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQckQ1V0VQRWR1NXFlc0lqUVVIQ0NLRDFBQlV0VXdwZzZsUEJTVHZxczdjQzNqZi04TVI5aG90eEtVMjlUOVN2Z0xvMEdJYzUxYTlGSFNSdXFCeDBZOWxNeGo2dHVwa3JHNjBVUUZld3VBRW5CdUFIampyNDR6V0h2dGtPa215VEpFVTI4aHFjb1dLa0RiaUJITm1zTTA4LUQwV2tQVlk3QURmSUQweTNYVU1wVFRWRHdpNXVobFJiUkIwSzBXbkJ2bTAxekNuRGxUX3h6bGMwelh1ODdDVkpzaHdFY1VNV3RxVUE?oc=5",
-   "source": "The Michigan Daily",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "county": "Ingham",
-   "tag": "Policy",
-   "iso": "2026-07-12T16:40:37Z",
-   "id": "068f211a6a58",
-   "origin": "google-news",
-   "source_title": "June 2026 legislative roundup: Mail-in-vote laws, tuition reimbursement tax credit and data center guardrails - The Michigan Daily",
-   "source_url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxQckQ1V0VQRWR1NXFlc0lqUVVIQ0NLRDFBQlV0VXdwZzZsUEJTVHZxczdjQzNqZi04TVI5aG90eEtVMjlUOVN2Z0xvMEdJYzUxYTlGSFNSdXFCeDBZOWxNeGo2dHVwa3JHNjBVUUZld3VBRW5CdUFIampyNDR6V0h2dGtPa215VEpFVTI4aHFjb1dLa0RiaUJITm1zTTA4LUQwV2tQVlk3QURmSUQweTNYVU1wVFRWRHdpNXVobFJiUkIwSzBXbkJ2bTAxekNuRGxUX3h6bGMwelh1ODdDVkpzaHdFY1VNV3RxVUE?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 7
   }
  ],
  "national": {

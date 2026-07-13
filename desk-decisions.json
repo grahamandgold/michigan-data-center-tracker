@@ -580,6 +580,20 @@
    "at": "2026-07-13T18:19:49+00:00",
    "by": "news_judge",
    "note": "score 3/10: National voluntary pledge story with thin Michigan relevance; speculative on impact and lacks concrete local action or decision."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeFgwbEJFbjR4bVI4M0NONDlzWnBaMWdUTjJUVl9BRURsallBSnhBSWNqWGM2RHdWcjhWbElnY2k1dzNFTW5EQWIyUXBpZlpoeVZGVlBWX0RqRzlYbGlaSmllS1EzLXlkd2JhS3VlZmVNME5FOE4zSUtYMjh6YV8zNHdOOHFaY1hqdlhJ?oc=5",
+   "title": "Warren may block new data centers for a year",
+   "at": "2026-07-13T22:32:05+00:00",
+   "by": "news_judge",
+   "note": "score 4/10, duplicate: This is the same Warren moratorium story already live, just reworded with 'block' instead of 'pause.'"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOSG1xcGhtVGllNnZwZjVCNjhpa1BIQ0s0eWZ3VVpHdzJiWGNNVXVPM19KbWpnSllWcFRqZmU5UVNPb0d5SW1qWVZha0dMVTlUeVRhZmZtZElMbktfSk1yUFhoRGRra29KR1Bob1kwVXNBMlBYSWNOcm4yc0VuLTdFZTRMdHNpLWktUExoS0EwY3dYRDY5Yk1RZEZWbkxpMl82UlcxcFhWdmh6MWFvVElPY0FoZWU?oc=5",
+   "title": "Michigan towns push back on endless tax breaks for data centers",
+   "at": "2026-07-13T22:32:05+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Statewide trend piece about tax breaks without a specific new decision, filing, or vote to anchor it."
   }
  ],
  "auto_published": [
@@ -852,6 +866,12 @@
    "title": "Lyon Township delays data center vote, leaving residents waiting on power and noise impacts",
    "judge_score": 6,
    "at": "2026-07-13T21:07:55Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOY2VjcEQteVJwZWxzRGVVNjRHZXc5NlRnanNjWXBCakd3Q093NDVmbXRyQTcySndZeThJRkcxWEdnb2R6b1d0ZUIwZU1HV2FTTGxZQjFvNHpjQWI4a1JSRWdCTjhrbk5IM1FJNHIxNEJaaTVlaFNMczEyWTczY05NWWJBYnV3aGZjcnlaMDMwTUN6NllPcGc3ZnlWZDg0S05GSzh5dHFyb0lnWF9YR2l1SDh5RjBGTmJiVXlTTTJ4SF9TbkZualZ5QQ?oc=5",
+   "title": "Lowell Township residents face first data-center vote tonight",
+   "judge_score": 8,
+   "at": "2026-07-13T22:32:05Z"
   }
  ]
 }

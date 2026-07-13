@@ -1,64 +1,10 @@
 {
- "updated_at": "2026-07-13T21:26:09+00:00",
+ "updated_at": "2026-07-13T22:32:05Z",
  "generator": "grok-wire-agent",
  "items": [
   {
-   "title": "Lansing sets public hearing on 182-day data center moratorium after Deep Green withdrawal",
-   "dek": "Residents 30 minutes from downtown Lansing face questions over power demand, water use and local tax base as the City Council opens comment tonight on a proposed pause. The 182-day moratorium would apply while zoning gaps are reviewed, following the April withdrawal of a 24 MW, $120M downtown proposal by U.K. firm Deep Green that had sought Board of Water & Light heat-reuse ties. Similar 6-month pauses already enacted in East Lansing and Meridian Township highlight regional concerns over large-load impacts.",
-   "url": "https://www.lansingmi.gov/AgendaCenter",
-   "source": "Lansing City Council agenda",
-   "region": "Mid-Michigan",
-   "county": "Ingham",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-13T21:26:09+00:00",
-   "kind": "agenda",
-   "id": "2449f97af8dd",
-   "filed_at": "2026-07-13T21:26:09+00:00",
-   "accuracy": "thin — needs human background",
-   "findings": "Agenda packet remains unavailable online as of July 13 | Council voted June 22, 2026 to schedule this public hearing on the 182-day moratorium (WILX, WLNS, Lansing State Journal) | Deep Green 24 MW downtown proposal withdrawn April 6, 2026 hours before expected vote amid resident opposition (Lansing City Pulse, multiple outlets) | No prior final votes approving or denying data centers in Lansing records | Comparable East Lansing 6-month moratorium enacted March 2026 over zoning gaps (East Lansing Info)",
-   "perspective": "Lansing City Council has held hearings and presentations on the Deep Green rezoning but no final approvals or denials to date. Tonight's public hearing is the direct next step after the June 22 vote; any moratorium adoption would follow standard readings and connect to ongoing regional debates over data-center power thresholds, such as the MPSC-approved 100 MW Consumers Energy tariff.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://www.lansingmi.gov/AgendaCenter"
-    }
-   ],
-   "depth_score": 0,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "Lansing eyes 182-day data center pause after $120M Deep Green bid collapse",
-   "dek": "The Lansing City Council Development and Planning committee holds a 7 p.m. public hearing July 13 on an ordinance that would block all new data center building permits and zoning applications for 182 days. The measure cites heavy energy and water demands plus noise and emissions as reasons the city needs time to study zoning changes. The move follows months of public opposition that killed a 24-megawatt, $120 million proposal on downtown parking lots in the Stadium District.",
-   "url": "https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/",
-   "source": "Lansing City Council — Development & Planning agenda",
-   "region": "Mid-Michigan",
-   "county": "Ingham",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-13T21:26:09+00:00",
-   "kind": "agenda",
-   "id": "077507ba11a3",
-   "filed_at": "2026-07-13T21:26:09+00:00",
-   "accuracy": "document-based",
-   "findings": "Draft ordinance adds Chapter 878 to impose 182-day moratorium on permits and zoning for data centers as primary or accessory use | per the packet, moratorium begins 14 days after enactment and expires after 182 days to allow study of energy, water, noise and infrastructure impacts | Deep Green's withdrawn project would have paid city $1.4 million for the site and generated nearly $1 million in annual property taxes plus $1 million in BWL return-on-investment payments | Heat reuse from servers was planned to support downtown hot-water heating transition, avoiding $5 million BWL heating station | Two residents at a prior meeting raised air quality, noise vibration, energy consumption, water usage and call for independent review",
-   "perspective": "The city and BWL had negotiated financial terms with Deep Green before public pressure led to the proposal's April 6 withdrawal just before a conditional rezoning vote that city leaders believed would not achieve the required six-vote supermajority. Tonight's hearing is the required next step before full council consideration of the ordinance.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/"
-    },
-    {
-     "label": "agendaitem",
-     "url": "https://www.wlns.com/wp-content/uploads/sites/50/2026/06/agendaitem.pdf"
-    }
-   ],
-   "depth_score": 8,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "Saline Township board to weigh tax exemption for data center project",
-   "dek": "The Saline Township Board meets July 8 to address an Industrial Facilities Tax Exemption application tied to the Related Digital data center project. Residents 30 minutes away stand to see shifts in local tax revenue and farmland conversion as the project advances.",
+   "title": "Concrete trucks to raise traffic on US-12 near Saline data center for 2-3 weeks",
+   "dek": "Related Digital project pours building foundations with off-site trucks until an on-site batch plant starts; Saline Township warns drivers of added construction traffic beginning February 9.",
    "url": "https://salinetownship.org/",
    "source": "Saline Township Board of Trustees agenda",
    "region": "Southeast Michigan",
@@ -69,7 +15,7 @@
    "kind": "agenda",
    "id": "e2de8791f1f8",
    "filed_at": "2026-07-13T21:26:09+00:00",
-   "accuracy": "document-based",
+   "accuracy": "checked-rewritten",
    "findings": "July 8 regular board meeting will include Industrial Facilities Tax Exemption application | per July 8 meeting notice on township website | no public hearing scheduled for the item | additional construction traffic on US-12 from concrete trucks for foundations beginning week of February 9th | concrete trucks in use to pour data center building foundations until on-site temporary concrete batch plant operational | traffic increase expected to last at least 2 to 3 weeks | per township announcements",
    "perspective": "The July 8 meeting notice placed the IFEC application on the regular board agenda without a public hearing. The township has informed residents of increased concrete truck traffic on US-12/Michigan Avenue associated with the Related Digital Data Center project to pour building foundations. Questions about the tax exemption application can be directed to Clerk Kelly Marion at 734-216-6462.",
    "documents": [
@@ -91,7 +37,10 @@
     }
    ],
    "depth_score": 10,
-   "extraction_method": "plain"
+   "extraction_method": "plain",
+   "headline_rewritten": true,
+   "judge_score": 6,
+   "judge_note": "Document-based construction logistics update with specific dates and traffic impact—incremental but real operational detail."
   },
   {
    "title": "Lansing sets July hearing on data center moratorium ordinance",
@@ -122,5 +71,5 @@
    "judge_note": "Document-based agenda preview for a specific July 13 hearing, though the hearing itself was already mentioned in the live story about the $120M withdrawal."
   }
  ],
- "accuracy_checked_at": "2026-07-13T21:07:51+00:00"
+ "accuracy_checked_at": "2026-07-13T22:31:59+00:00"
 }
