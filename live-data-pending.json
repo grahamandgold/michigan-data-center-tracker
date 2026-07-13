@@ -1,7 +1,98 @@
 {
- "updated_at": "2026-07-13T10:41:32Z",
+ "updated_at": "2026-07-13T12:23:36+00:00",
  "generator": "grok-wire-agent",
  "items": [
+  {
+   "title": "Pere Marquette Township board meets tonight",
+   "dek": "Pere Marquette Charter Township Board meets tonight. The agenda has not been published with specific items. Residents within a short drive may want to monitor township agendas for land use, zoning, or infrastructure matters.",
+   "url": "https://www.pmtwp.org/how_do_i/find/meeting_agendas___minutes.php",
+   "source": "Pere Marquette Charter Township Board agenda",
+   "region": "West Michigan",
+   "county": "Mason",
+   "cat": "Meetings",
+   "tag": "Agenda watch",
+   "iso": "2026-07-13T12:23:36+00:00",
+   "kind": "agenda",
+   "id": "b530003c6f07",
+   "filed_at": "2026-07-13T12:23:36+00:00",
+   "accuracy": "thin — needs human background",
+   "findings": "Township website lists meeting agendas and minutes pages but no current agenda is available in the documents provided | No meeting packet, ordinance number, or specific project details appear in the documents | No data center moratorium, Ordinance No. 162, or related measures are mentioned in the available materials | Township minutes and agendas are listed as available on the website but specific content is not provided in the documents",
+   "perspective": "Township board meetings follow a regular schedule. Agendas are noted as subject to change on the township website. Public can sign up for E-Notify at www.pmtwp.org/enotify for meeting updates.",
+   "documents": [
+    {
+     "label": "Agenda page",
+     "url": "https://www.pmtwp.org/how_do_i/find/meeting_agendas___minutes.php"
+    }
+   ],
+   "depth_score": 1,
+   "extraction_method": "playwright"
+  },
+  {
+   "title": "Lansing sets hearing on six-month data center moratorium after $120M proposal withdrawn",
+   "dek": "The Lansing City Council Development & Planning Committee holds a 7 p.m. public hearing July 13 on an ordinance imposing a 182-day moratorium on building permits and zoning applications for data centers. The measure cites high energy and water use, noise, emissions and infrastructure strain as reasons to pause while the city studies zoning changes. The pause follows the April withdrawal of a 24-megawatt downtown project that would have sold city land for $1.4 million and supplied heat to replace a planned $5 million downtown heating station.",
+   "url": "https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/",
+   "source": "Lansing City Council — Development & Planning agenda",
+   "region": "Mid-Michigan",
+   "county": "Ingham",
+   "cat": "Meetings",
+   "tag": "Agenda watch",
+   "iso": "2026-07-13T12:23:36+00:00",
+   "kind": "agenda",
+   "id": "077507ba11a3",
+   "filed_at": "2026-07-13T12:23:36+00:00",
+   "accuracy": "document-based",
+   "findings": "The draft ordinance adds Chapter 878 to the Lansing Codified Ordinances and bars new data center permits or zoning changes for 182 days after it takes effect | Legislative findings state data centers are high-intensity uses with significant energy and water consumption, noise and infrastructure demands that may conflict with zoning districts | The ordinance notes operations including backup generators could cause environmental and public health impacts from noise and pollutant emissions | A prior 24-megawatt, $120 million Deep Green proposal on re-zoned parking lots in the Stadium District at Kalamazoo, Cedar and Larch streets would have paid the city $1.4 million for the space and generated nearly $1 million in property taxes and delivered at least $1 million in BWL return-on-investment p",
+   "perspective": "The Deep Green project was withdrawn April 6 before a conditional rezoning vote after public pushback and city leaders indicated the vote was not likely to get the six-vote supermajority required to pass. The ordinance was referred to the Development & Planning Committee for the July 13 hearing at Monday's meeting. A vote on the moratorium could follow the hearing, giving the city time to draft zo",
+   "documents": [
+    {
+     "label": "Agenda page",
+     "url": "https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/"
+    },
+    {
+     "label": "agendaitem",
+     "url": "https://www.wlns.com/wp-content/uploads/sites/50/2026/06/agendaitem.pdf"
+    }
+   ],
+   "depth_score": 8,
+   "extraction_method": "plain"
+  },
+  {
+   "title": "Saline Township to consider tax exemption for data center project",
+   "dek": "The Saline Township Board meets July 8 to consider an Industrial Facilities Tax Exemption application for the Related Digital data center project now under construction, which could shift tax burden to other property owners if approved.",
+   "url": "https://salinetownship.org/",
+   "source": "Saline Township Board of Trustees agenda",
+   "region": "Southeast Michigan",
+   "county": "Washtenaw",
+   "cat": "Meetings",
+   "tag": "Agenda watch",
+   "iso": "2026-07-13T12:23:36+00:00",
+   "kind": "agenda",
+   "id": "e2de8791f1f8",
+   "filed_at": "2026-07-13T12:23:36+00:00",
+   "accuracy": "document-based",
+   "findings": "The July 8 meeting notice confirms the IFEC application will be on the regular board agenda without a public hearing | Announcement notes concrete truck traffic on US-12 for foundation work on the Related Digital Data Center project, expected to last 2 to 3 weeks starting February 9 | The Saline Area Fire Authority Articles of Incorporation were adopted April 28, 2026, creating a joint fire authority for the City of Saline, Lodi Township, Saline Township, and York Charter Township",
+   "perspective": "The board will consider the tax exemption application at its regular meeting with public comment allowed. The data center project is already under construction with foundation work underway.",
+   "documents": [
+    {
+     "label": "Agenda page",
+     "url": "https://salinetownship.org/"
+    },
+    {
+     "label": "Community Needs Assessment",
+     "url": "https://salinetownship.org/uploads/notices/Washtenaw County Community Needs Assessment (2).pdf"
+    },
+    {
+     "label": "July 8 Meeting Notice",
+     "url": "https://salinetownship.org/uploads/notices/IFEC Application .pdf"
+    },
+    {
+     "label": "View Articles of Incorporation",
+     "url": "https://salinetownship.org/uploads/notices/Articles of Incorporation.pdf"
+    }
+   ],
+   "depth_score": 10,
+   "extraction_method": "plain"
+  },
   {
    "title": "Lansing sets July hearing on data center moratorium ordinance",
    "dek": "A public hearing on an ordinance for a temporary moratorium on new data centers is scheduled for July 13 at Lansing City Hall.",

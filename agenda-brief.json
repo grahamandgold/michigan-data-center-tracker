@@ -1,23 +1,30 @@
 {
- "generated_at": "2026-07-12T21:12:32+00:00",
+ "generated_at": "2026-07-13T12:23:36+00:00",
  "for_dates": [
-  "2026-07-12",
-  "2026-07-13"
+  "2026-07-13",
+  "2026-07-14"
  ],
  "items": [
   {
    "iso": "2026-07-13",
-   "time": "7:00 PM",
-   "meeting": "Lansing City Council",
-   "bullet": "Lansing holds July 13 hearing on proposed data center moratorium.",
-   "link": "https://lansingcitypulse.com/city-of-lansing-notice-of-public-hearing-7-13-26-ordinance-to-impose-temporary-moratorium-on-new-data-centers/"
+   "time": "6:00 PM",
+   "meeting": "Pere Marquette Charter Township Board",
+   "bullet": "Pere Marquette Board meets tonight; agenda not available in provided documents.",
+   "link": "https://www.pmtwp.org/how_do_i/find/meeting_agendas___minutes.php"
   },
   {
    "iso": "2026-07-13",
    "time": "7:00 PM",
    "meeting": "Lansing City Council — Development & Planning",
-   "bullet": "Lansing Development & Planning holds July 13 hearing on 182-day data center moratorium tied to withdrawn 24 MW $120M Deep Green project.",
+   "bullet": "Lansing council sets hearing on six-month data center moratorium after $120M Deep Green project withdrew amid public pushback over energy, water and noise.",
    "link": "https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/"
+  },
+  {
+   "iso": "2026-07-14",
+   "time": "7:00 PM",
+   "meeting": "Saline Township Board of Trustees",
+   "bullet": "Saline Township board to consider Industrial Facilities Tax Exemption for Related Digital data center at July 8 meeting.",
+   "link": "https://salinetownship.org/"
   }
  ]
 }
