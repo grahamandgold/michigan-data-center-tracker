@@ -1,7 +1,22 @@
 {
- "updated_at": "2026-07-12T23:03:05+00:00",
+ "updated_at": "2026-07-13T00:03:40Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "iso": "2026-07-12T23:00:00Z",
+   "region": "west",
+   "cat": "Mason Co.",
+   "tag": "Local Government",
+   "title": "Pere Marquette Township Board to Consider One-Year Data Center Pause",
+   "dek": "Trustees will review a proposed moratorium citing energy, water and noise impacts before any projects arrive, alongside a $1.36 million park entrance contract.",
+   "source": "Shoreline Media Group",
+   "url": "https://www.shorelinemedia.net/ludington_daily_news/news/pm-board-to-consider-data-center-moratorium-1-36m-park-project/article_5d888ea2-ac45-4305-97d9-0f582dcec845.html",
+   "breaking": false,
+   "lead": true,
+   "id": "f3f9af82fe83",
+   "accuracy": "checked-rewritten",
+   "judge_score": 7
+  },
   {
    "title": "Rural push kills Consumers 1.4 GW plant before it reaches grid",
    "dek": "Residents in western Michigan blocked a major new gas plant that would have supplied power to data centers and other large users. The utility has now withdrawn the proposal entirely. Without the plant, ratepayers face tighter supply and possible higher costs as AI facilities keep demanding more electricity.",
@@ -169,23 +184,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPTmlBc0xBRmFITHYxcm5YZFpNcExRY0RDZkUxUGpCeHd1ajZHUUFRU0swMGxfNHRxb2dRTlpzWTlsYlUzdTdNR2VHcGZkLWdxVEMzMUE3ZW83V3Nic0dGd3pZeVI0bWlFTVM4dUFpcmJTeXJBdkFUMDJEUlFrWFREZWctTi1wSV9jUElhb1FYUGFiQVdqa194eG5LS3FqSFFQTE8yQ2NjcU4yXzBiXzNYdy1DVDVyR1pfODlmczFmLVh3SFNEN2J0QzlfNXNUZHlXVjhrbjdn?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 7
-  },
-  {
-   "title": "Haring Township set to halt all data center proposals for six months",
-   "dek": "Haring Township supervisors will vote on a six-month moratorium that would block new data center applications while the township writes permanent rules. Residents in this Wexford County community worry about sudden spikes in power demand and noise from hyperscale facilities. The pause gives local officials time to study water use and tax impacts before any project advances.",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaHZMQ0hWMU8zZU9TN1Y4Y3VMdFdRZnprQWE0YmdURlZLSkVxeFFnanprTGpxUWYzTzJtTkpsR0F4cHJMNUpiUGVuREh5bHE4Q2dCMXFFWUhzZjRIRmpxZ3BBNVBkbFJfd0lSdnVFeFg4RFRsbFJCajV6ei1MVEprMmJpdGpyd0tKS29IVldfX1NaWE1JQlVmaGJrY01xMDQ?oc=5",
-   "source": "9and10News.com",
-   "region": "north",
-   "cat": "STATEWIDE",
-   "county": "Wexford",
-   "tag": "Local Government",
-   "iso": "2026-07-10T22:44:39Z",
-   "id": "7ab4f14f67f1",
-   "origin": "google-news",
-   "source_title": "Haring Township to vote on six-month data center moratorium - 9and10News.com",
-   "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaHZMQ0hWMU8zZU9TN1Y4Y3VMdFdRZnprQWE0YmdURlZLSkVxeFFnanprTGpxUWYzTzJtTkpsR0F4cHJMNUpiUGVuREh5bHE4Q2dCMXFFWUhzZjRIRmpxZ3BBNVBkbFJfd0lSdnVFeFg4RFRsbFJCajV6ei1MVEprMmJpdGpyd0tKS29IVldfX1NaWE1JQlVmaGJrY01xMDQ?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
   }
  ],
  "national": {
@@ -205,17 +203,30 @@
  "meetings": [
   {
    "iso": "2026-07-13",
+   "body": "Pere Marquette Charter Township Board",
+   "topic": "One-year moratorium on new data center development and $1.36M park project",
+   "region": "West Michigan",
+   "regionKey": "west",
+   "county": "Mason",
+   "time": "6:00 PM",
+   "status": "Board meeting",
+   "urgent": true,
+   "link": "https://www.pmtwp.org/how_do_i/find/meeting_agendas___minutes.php",
+   "linkLabel": "Agenda",
+   "stream": "https://www.pmtwp.org/calendar.php"
+  },
+  {
+   "iso": "2026-07-13",
    "body": "Lansing City Council",
-   "topic": "Public hearing on proposed six-month moratorium on new data center permits and zoning applications",
+   "topic": "Public hearing on temporary moratorium on new data center proposals",
    "region": "Mid-Michigan",
    "regionKey": "mid",
    "county": "Ingham",
    "time": "7:00 PM",
    "status": "Public hearing",
    "urgent": true,
-   "link": "https://www.lansingmi.gov/",
-   "linkLabel": "Agenda",
-   "stream": "https://www.wilx.com/"
+   "link": "https://www.lansingmi.gov/AgendaCenter",
+   "linkLabel": "Agenda"
   },
   {
    "iso": "2026-07-13",
