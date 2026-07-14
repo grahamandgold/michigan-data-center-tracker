@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-14T21:08:45+00:00",
+ "updated_at": "2026-07-14T22:34:28Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Wixom residents get say on new data center rules tonight",
+   "dek": "Wixom city council meets to hear public input on a proposed ordinance governing data centers. Residents near potential sites worry about noise, traffic and strain on local power. The vote could set the ground rules for any future projects in this Oakland County suburb.",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNZFlmY3VXRDFZZFhCM2JxNE1uV2g1Qjd3aEw4MlN0UTdtd3BxaUZhM2FJMTI2LWdjTm5OVkNQRFRnWGthUnhqV05IRGZQS1ZfMlBBSnhXUjJRSENBOHlqWDlYUmVPRUR0UmxDVTNSY0Z1UHpJcEVnUHdPenViUGxnOE00X0JuanFfaDFmUXFQOUUwc21vVjRQdnhIRm5qT0hnVHNRd0hPandUMHJMSm9XQUwxWVdzMHZyR1J0NXJUbkxjbk01a0E?oc=5",
+   "source": "WXYZ 7 News Detroit",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Oakland",
+   "tag": "Local Government",
+   "iso": "2026-07-14T22:14:29Z",
+   "id": "b93357ec369b",
+   "origin": "google-news",
+   "source_title": "Wixom residents to weigh in on data center ordinance as city council meets Tuesday night - WXYZ 7 News Detroit",
+   "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNZFlmY3VXRDFZZFhCM2JxNE1uV2g1Qjd3aEw4MlN0UTdtd3BxaUZhM2FJMTI2LWdjTm5OVkNQRFRnWGthUnhqV05IRGZQS1ZfMlBBSnhXUjJRSENBOHlqWDlYUmVPRUR0UmxDVTNSY0Z1UHpJcEVnUHdPenViUGxnOE00X0JuanFfaDFmUXFQOUUwc21vVjRQdnhIRm5qT0hnVHNRd0hPandUMHJMSm9XQUwxWVdzMHZyR1J0NXJUbkxjbk01a0E?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "iso": "2026-07-14T17:38:00+00:00",
    "region": "metro",
@@ -169,23 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPc3V4alpTLU5mTDlQdHpHSXBNZHhoSVUwaTVtZ0c5SkpoNjRsU1I2NEhfXzZmVzdLbkhjelpERnNxUGpjazllVUMwQ0c4QnZBM0otWEpyUXpGWjQ0dDY5THZSSmo2cllKNHpJUzdjN3RTVjFCZ1BKVFlKZFpwaERZWFVUdmh3SHlkU21CSWhvWGtTT2pFendMN2pRZDRhRVVK?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 6
-  },
-  {
-   "title": "Warren may pause new data centers as grid strain concerns rise",
-   "dek": "City council is set to discuss a temporary moratorium. Macomb County residents could see limits on future projects that pull heavy power loads. The move would protect local infrastructure while rules are reviewed.",
-   "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNbmtQdFEyTW45Mk1NYTRfRFlhc2VUdV9xU0dxYkNXYTBwYkNxV3FPRmllTGRZRjlBaXlBTTMwMUdEWnFuRjA1VHJGRWNMb1ctQzBrMTRjZ0NocWlkbUc2V3RvSDdyN0h2dmJJblE0Wno0VGZmMXZVU2xYSHNYYVpla3JPTExFV1JMTm8tZUc1MDFIVmJXZW9rdVNyTUtYd3ZaWXBXWnFSMlFJZk1kUENLSXlBby1GdzZHM1c5M3lTdmphbGN2NUtZZGY0WngxeWVnazRIVXdkdzZHV3I4d1c3aXQxQUJZWU0?oc=5",
-   "source": "The Detroit News",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Macomb",
-   "tag": "Local Government",
-   "iso": "2026-07-13T20:29:00Z",
-   "id": "9884b165d3c1",
-   "origin": "google-news",
-   "source_title": "Warren City Council could consider a temporary data center moratorium - The Detroit News",
-   "source_url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNbmtQdFEyTW45Mk1NYTRfRFlhc2VUdV9xU0dxYkNXYTBwYkNxV3FPRmllTGRZRjlBaXlBTTMwMUdEWnFuRjA1VHJGRWNMb1ctQzBrMTRjZ0NocWlkbUc2V3RvSDdyN0h2dmJJblE0Wno0VGZmMXZVU2xYSHNYYVpla3JPTExFV1JMTm8tZUc1MDFIVmJXZW9rdVNyTUtYd3ZaWXBXWnFSMlFJZk1kUENLSXlBby1GdzZHM1c5M3lTdmphbGN2NUtZZGY0WngxeWVnazRIVXdkdzZHV3I4d1c3aXQxQUJZWU0?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 7
   }
  ],
  "national": {
