@@ -1,10 +1,10 @@
 {
- "title": "Mornings with Graham & Emmy",
- "teaser": "Democratic bills hit data center energy and water rules while more towns hit pause.",
+ "title": "Evenings with Graham & Emmy",
+ "teaser": "Storms expose Warren's aging grid as towns across Michigan hit pause on data centers.",
  "lines": [
   {
    "host": "Graham",
-   "text": "Good morning, and welcome to Mornings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
+   "text": "Good evening, and welcome to Evenings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
   },
   {
    "host": "Emmy",
@@ -12,186 +12,278 @@
   },
   {
    "host": "Graham",
-   "text": "Today we're digging into new state bills aimed at data center power and water use, plus the wave of local pushback that's picking up speed."
+   "text": "Tonight we're digging into a power outage that has Warren officials pushing for an immediate moratorium on new data centers."
   },
   {
    "host": "Emmy",
-   "text": "That sounds like the story everyone's talking about right now."
+   "text": "That sounds like the latest flashpoint in a statewide wave of pushback."
   },
   {
    "host": "Graham",
-   "text": "Exactly. Yesterday Democratic senators introduced regulations focused on energy costs and water consumption for these big projects."
+   "text": "Exactly. Council Secretary Mindy Moore called for a July 14 vote after storms knocked down dozens of power lines in Warren."
   },
   {
    "host": "Emmy",
-   "text": "What exactly are they proposing, Graham?"
+   "text": "So the city's aging grid couldn't handle the storm, and now they're linking that directly to data center concerns?"
   },
   {
    "host": "Graham",
-   "text": "The bills would set rules around how much power these facilities can pull and how they handle water use, especially in areas already feeling the strain."
+   "text": "Yes. If the moratorium passes, Warren would join a growing list of Michigan communities hitting the brakes while they draft zoning rules."
   },
   {
    "host": "Emmy",
-   "text": "And this comes right as local fights are heating up too?"
+   "text": "How many towns are we talking about now? It feels like this has been building for weeks."
   },
   {
    "host": "Graham",
-   "text": "Yes. In Kent County there's a recall petition drive targeting officials over a Microsoft proposal, and in Dowagiac a facility is shifting away from Bitcoin mining after noise complaints from neighbors."
+   "text": "Today alone Jackson approved a full halt on new proposals to study power and water impacts first."
   },
   {
    "host": "Emmy",
-   "text": "Why do you think these bills are landing now?"
+   "text": "And Lansing did the same yesterday with a six-month freeze."
   },
   {
    "host": "Graham",
-   "text": "It's the latest in a string of local actions. We've seen townships and cities across the state pausing or banning new projects to buy time for better rules."
+   "text": "Right. Haring Township saw hundreds turn out demanding an outright ban, and Lowell Township has its first vote tonight."
   },
   {
    "host": "Emmy",
-   "text": "How many places have done that already?"
+   "text": "What's really at stake for residents in places like Warren? Higher bills? Noise? Traffic?"
   },
   {
    "host": "Graham",
-   "text": "Quite a few. Lansing just approved a six-month freeze today. Haring Township residents turned out in big numbers yesterday pushing for an outright ban."
+   "text": "All of the above. Neighbors worry about round-the-clock power draw straining an already fragile grid, plus noise, heavy truck traffic, and potential spikes in utility costs."
   },
   {
    "host": "Emmy",
-   "text": "What are the main concerns driving all this?"
+   "text": "I keep hearing about farmland and water too. How does that fit into the Warren situation?"
   },
   {
    "host": "Graham",
-   "text": "Power demand that could raise electric bills for everyone, heavy water use that affects wells and ponds, noise that disrupts quiet neighborhoods, and land taken out of farmland or residential areas."
+   "text": "Warren is more suburban, but the same concerns echo across the state. Data centers need massive water for cooling and can consume land that might otherwise stay agricultural or residential."
   },
   {
    "host": "Emmy",
-   "text": "The water piece feels especially personal. We had that story about the pond draining during excavation on the Oracle and OpenAI campus."
+   "text": "Has Warren had data center proposals already, or is this preemptive?"
   },
   {
    "host": "Graham",
-   "text": "Right. The water table bounced back after they finished digging, but it showed how quickly these projects can impact nearby homes and wetlands."
+   "text": "The push is preemptive in the sense that they're writing rules before projects lock in sites, but the storm damage made the timing urgent."
   },
   {
    "host": "Emmy",
-   "text": "So the bills are trying to get ahead of that kind of issue statewide?"
+   "text": "What happens if the moratorium passes tonight?"
   },
   {
    "host": "Graham",
-   "text": "That's the idea. They want clearer standards on power and water before more projects lock in."
+   "text": "It would pause new applications while the city studies impacts and crafts zoning. Similar to what Jackson and Lansing are doing."
   },
   {
    "host": "Emmy",
-   "text": "Who are the key players here?"
+   "text": "And if it fails?"
   },
   {
    "host": "Graham",
-   "text": "Democratic senators are leading the legislative push. Locally you've got township boards, city councils, and citizen groups filing recalls or showing up at meetings."
+   "text": "Projects could move forward under current rules, which many residents say don't adequately protect against noise, traffic, or rate hikes."
   },
   {
    "host": "Emmy",
-   "text": "What happens next with these bills?"
+   "text": "This feels like a pattern repeating across Oakland, Macomb, Washtenaw, and beyond."
   },
   {
    "host": "Graham",
-   "text": "They'll go through committee and hearings. In the meantime more local votes are coming up, like in Lowell Township tonight and Warren discussing a pause."
+   "text": "It is. Wixom residents are getting their say on new rules at tonight's city council meeting too."
   },
   {
    "host": "Emmy",
-   "text": "And places like Lyon Township already delayed their decision yesterday to give residents more time."
+   "text": "What are they most worried about there?"
   },
   {
    "host": "Graham",
-   "text": "Exactly. The delay lets neighbors organize and ask questions about noise, traffic, and how much tax revenue actually stays local."
+   "text": "Noise, traffic, and strain on local power near potential sites in that Oakland County suburb."
   },
   {
    "host": "Emmy",
-   "text": "Speaking of taxes, there's the big Saline project."
+   "text": "Benton Harbor had a meeting today where a hyperscale developer faced residents over those exact issues."
   },
   {
    "host": "Graham",
-   "text": "The campus there is now valued at sixteen billion after financing closed. The township is deciding today on a one-hundred-forty-seven-million-dollar annual tax break."
+   "text": "Yes. Neighbors questioned whether local roads and the electric system can handle constant heavy traffic and nonstop power demand."
   },
   {
    "host": "Emmy",
-   "text": "Critics like the Attorney General are questioning why extra breaks are needed on top of state exemptions."
+   "text": "Monroe voters rejected a plan outright over energy and noise fears."
   },
   {
    "host": "Graham",
-   "text": "And the project is expected to create four hundred fifty permanent jobs, so supporters point to that economic upside."
+   "text": "They did. The Monroe Times reported opposition prevailed, keeping zoning rules unchanged for now."
   },
   {
    "host": "Emmy",
-   "text": "How does that balance out for residents?"
+   "text": "Salem Township in Washtenaw County is hearing a revised plan that promises lower noise and less visible equipment."
   },
   {
    "host": "Graham",
-   "text": "Bigger tax revenue potential but also bigger demands on power, roads, and services. Negotiations over abatements and upgrades are still happening."
+   "text": "Neighbors there remain skeptical the improvements will hold once construction starts."
   },
   {
    "host": "Emmy",
-   "text": "Shifting to some of the other quick developments from yesterday."
+   "text": "Meanwhile, there's political money in the mix too."
   },
   {
    "host": "Graham",
-   "text": "Lowell Township residents are heading into their first data center vote tonight in Kent County, focused on noise, traffic, and what tax benefits they'll actually see."
+   "text": "Michigan official Benson is under fire for accepting donations from Big Tech companies racing to build these facilities."
   },
   {
    "host": "Emmy",
-   "text": "And in Oakland County, Lyon Township postponed action again, leaving uncertainty over electricity demand and noise."
+   "text": "Critics say that undercuts efforts to protect residents from higher costs and land conflicts."
   },
   {
    "host": "Graham",
-   "text": "Warren's council is set to discuss its own temporary moratorium because of grid strain concerns in Macomb County."
+   "text": "It's highlighting how quickly these projects are turning into a political issue statewide."
   },
   {
    "host": "Emmy",
-   "text": "Dowagiac residents got their first public look at plans on Monday, with questions about noise, water, and the electric grid."
+   "text": "So pulling back, what's the bigger picture for electric bills if multiple data centers land in one area?"
   },
   {
    "host": "Graham",
-   "text": "And that facility there is already moving away from Bitcoin mining after complaints."
+   "text": "Residents in Jackson and elsewhere fear that concentrated demand could drive up rates without delivering meaningful local tax relief."
   },
   {
    "host": "Emmy",
-   "text": "Today we also had the Lansing six-month freeze and the strong turnout in Haring Township for a full ban."
+   "text": "And water use? These facilities need a lot for cooling, right?"
   },
   {
    "host": "Graham",
-   "text": "Hundreds showed up in Haring, signaling how deep the worry runs over losing rural character and facing higher utility bills."
+   "text": "They do. That's why Jackson specifically cited water impacts in their pause decision."
   },
   {
    "host": "Emmy",
-   "text": "It really feels like a pattern across the state now."
+   "text": "Farmland conversion is another flashpoint we've seen in rural townships."
   },
   {
    "host": "Graham",
-   "text": "It does. More communities are hitting the brakes to figure out rules that protect residents while still allowing some development."
+   "text": "Haring Township residents explicitly want to keep their area off-limits to preserve rural character."
   },
   {
    "host": "Emmy",
-   "text": "Let's look ahead to the meetings people can actually attend."
+   "text": "What happens next in Warren if the vote goes through?"
   },
   {
    "host": "Graham",
-   "text": "Today Saline Township has two special meetings on the property tax reduction and the industrial facilities tax exemption for the Oracle-linked project."
+   "text": "Officials would have time to study the grid, write rules, and decide where — if anywhere — data centers fit."
   },
   {
    "host": "Emmy",
-   "text": "Tomorrow Ypsilanti Township has an informational session on the University of Michigan and Los Alamos proposal, including opposition updates and resource concerns."
+   "text": "Similar to the six-month freeze Lansing approved yesterday."
   },
   {
    "host": "Graham",
-   "text": "That's a good chance for residents to ask questions before anything advances."
+   "text": "Exactly. It buys breathing room for communities feeling overwhelmed by the pace of proposals."
   },
   {
    "host": "Emmy",
+   "text": "Do we know how many gigawatts these projects typically demand?"
+  },
+  {
+   "host": "Graham",
+   "text": "Individual hyperscale sites can require hundreds of megawatts, sometimes approaching a gigawatt, which is why utilities and towns are scrambling."
+  },
+  {
+   "host": "Emmy",
+   "text": "That puts real pressure on aging infrastructure like Warren's."
+  },
+  {
+   "host": "Graham",
+   "text": "It does. The storm just made the vulnerability impossible to ignore."
+  },
+  {
+   "host": "Emmy",
+   "text": "Any sense of how long these moratoriums usually last?"
+  },
+  {
+   "host": "Graham",
+   "text": "Varies. Lansing went six months. Jackson didn't set an end date but wants rules in place first."
+  },
+  {
+   "host": "Emmy",
+   "text": "And for Warren specifically, the request is for a moratorium vote tonight."
+  },
+  {
+   "host": "Graham",
+   "text": "Yes. We'll know soon whether Macomb County's second-largest city joins the pause trend."
+  },
+  {
+   "host": "Emmy",
+   "text": "Moving to quick hits, let's start with Wixom's meeting tonight."
+  },
+  {
+   "host": "Graham",
+   "text": "Residents near potential sites will voice concerns about noise, traffic, and power strain as the council hears input on a proposed ordinance."
+  },
+  {
+   "host": "Emmy",
+   "text": "That vote could set the template for future projects in that suburb."
+  },
+  {
+   "host": "Graham",
+   "text": "Jackson's pause today gives the city time to study cumulative impacts before any sites are locked in."
+  },
+  {
+   "host": "Emmy",
+   "text": "Benton Harbor residents grilled a developer on noise and traffic at their council session."
+  },
+  {
+   "host": "Graham",
+   "text": "Monroe voters blocked a project outright after energy and noise worries won out."
+  },
+  {
+   "host": "Emmy",
+   "text": "Salem Township is reviewing a revised design meant to address visibility and sound concerns."
+  },
+  {
+   "host": "Graham",
+   "text": "And political donations to state official Benson from data center companies are drawing scrutiny."
+  },
+  {
+   "host": "Emmy",
+   "text": "Yesterday's stories include Lansing's six-month freeze and strong turnout in Haring Township for a potential ban."
+  },
+  {
+   "host": "Graham",
+   "text": "Lowell Township in Kent County also faces its first data center vote tonight."
+  },
+  {
+   "host": "Emmy",
+   "text": "Now for on deck — what meetings can listeners actually attend?"
+  },
+  {
+   "host": "Graham",
+   "text": "Tonight in Saline Township the board will vote on a 12-year tax abatement request tied to an Oracle-OpenAI hyperscale project."
+  },
+  {
+   "host": "Emmy",
+   "text": "There's also a special meeting there considering a 50 percent property tax reduction for 12 years on that same project."
+  },
+  {
+   "host": "Graham",
+   "text": "Tomorrow in Ypsilanti Township there's an informational session on the University of Michigan/Los Alamos data center project updates."
+  },
+  {
+   "host": "Emmy",
+   "text": "That includes history, legislative developments, opposition, and resource concerns, with time for Q&A."
+  },
+  {
+   "host": "Graham",
    "text": "Full sources and the live map at the Michigan Data Center Tracker."
   },
   {
-   "host": "Graham",
+   "host": "Emmy",
    "text": "We're back tomorrow."
   }
  ],
- "episode_title": "Senators Target Data Center Power and Water Use as Recalls and Noise Fights Escalate",
- "show": "Mornings with Graham & Emmy",
- "daypart": "Mornings"
+ "episode_title": "Warren Grid Failures Spark Fresh Data Center Moratorium Push",
+ "show": "Evenings with Graham & Emmy",
+ "daypart": "Evenings"
 }
