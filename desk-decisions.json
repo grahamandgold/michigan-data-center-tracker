@@ -594,6 +594,20 @@
    "at": "2026-07-13T22:32:05+00:00",
    "by": "news_judge",
    "note": "score 4/10: Statewide trend piece about tax breaks without a specific new decision, filing, or vote to anchor it."
+  },
+  {
+   "url": "https://www.govtech.com/artificial-intelligence/data-center-tax-breaks-cost-michigan-13m-in-revenue",
+   "title": "Michigan Data Centers Skipped $13M in Taxes on $212M Purchases",
+   "at": "2026-07-14T00:56:51+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Thin rehash of the 2015 tax break story already killed twice ('Michigan Data Center Tax Breaks Wipe Out at Least $13 Million' and 'Big Tech Lobbying Pays Off as"
+  },
+  {
+   "url": "https://apnews.com/article/data-centers-power-demand-ai-2026",
+   "title": "U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure",
+   "at": "2026-07-14T00:56:51+00:00",
+   "by": "news_judge",
+   "note": "score 3/10, duplicate: National trend piece already killed twice under identical headline ('U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure' and with "
   }
  ],
  "auto_published": [
@@ -872,6 +886,12 @@
    "title": "Lowell Township residents face first data-center vote tonight",
    "judge_score": 8,
    "at": "2026-07-13T22:32:05Z"
+  },
+  {
+   "url": "https://bridgemi.com/business-watch/as-data-centers-grow-in-michigan-officials-ask-how-many-tax-breaks-are-enough/",
+   "title": "Saline Township to Decide on $147 Million Annual Tax Break for Oracle-OpenAI Data Center",
+   "judge_score": 8,
+   "at": "2026-07-14T00:56:51Z"
   }
  ]
 }

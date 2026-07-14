@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-13T23:29:39+00:00",
+ "updated_at": "2026-07-14T00:56:51Z",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -88,6 +88,21 @@
    "judge_score": 9
   },
   {
+   "iso": "2026-07-13T13:00:00+00:00",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "tag": "Money",
+   "title": "Saline Township to Decide on $147 Million Annual Tax Break for Oracle-OpenAI Data Center",
+   "dek": "Critics including Attorney General Dana Nessel question the need for property tax cuts on top of existing state exemptions, while the project is expected to create 450 permanent jobs.",
+   "source": "Bridge Michigan",
+   "url": "https://bridgemi.com/business-watch/as-data-centers-grow-in-michigan-officials-ask-how-many-tax-breaks-are-enough/",
+   "breaking": false,
+   "lead": false,
+   "id": "fcad0173e066",
+   "accuracy": "checked-rewritten",
+   "judge_score": 8
+  },
+  {
    "iso": "2026-07-13T10:00:00Z",
    "region": "statewide",
    "cat": "STATEWIDE",
@@ -167,23 +182,6 @@
    "id": "f3f9af82fe83",
    "accuracy": "checked-rewritten",
    "judge_score": 7
-  },
-  {
-   "title": "Rural push kills Consumers 1.4 GW plant before it reaches grid",
-   "dek": "Residents in western Michigan blocked a major new gas plant that would have supplied power to data centers and other large users. The utility has now withdrawn the proposal entirely. Without the plant, ratepayers face tighter supply and possible higher costs as AI facilities keep demanding more electricity.",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObDduNnFaRk8tMFpBSC0yYS02WkJMV0JrLWhmQXlsYlZfR3JXTW9jZTduTUR1U1N1X3FPVEI4bnBXcFE2V3ItaUg3ZEVacHg4ekJFclQ5SFRzOTh0LTI3cWlRRUJnNUt6Q0hxa1dKemhPN2ZWZHdyTDl2bklWMm5rSTBYQWkyb0E?oc=5",
-   "source": "The Cool Down",
-   "region": "mid",
-   "cat": "STATEWIDE",
-   "county": "",
-   "tag": "Power & Grid",
-   "iso": "2026-07-12T20:31:00Z",
-   "id": "c7fcc8ab5b62",
-   "origin": "google-news",
-   "source_title": "Rural Michigan residents force Consumers Energy to drop 1.4GW power plant proposal - The Cool Down",
-   "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObDduNnFaRk8tMFpBSC0yYS02WkJMV0JrLWhmQXlsYlZfR3JXTW9jZTduTUR1U1N1X3FPVEI4bnBXcFE2V3ItaUg3ZEVacHg4ekJFclQ5SFRzOTh0LTI3cWlRRUJnNUt6Q0hxa1dKemhPN2ZWZHdyTDl2bklWMm5rSTBYQWkyb0E?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9
   }
  ],
  "national": {
@@ -201,74 +199,6 @@
   "accuracy": "checked"
  },
  "meetings": [
-  {
-   "iso": "2026-07-13",
-   "body": "Lenox Township Board of Trustees",
-   "topic": "Board to consider public input on proposed data center development amid resident opposition over farmland and community impacts",
-   "region": "SE Michigan",
-   "regionKey": "metro",
-   "county": "Macomb",
-   "time": "6:30 PM",
-   "status": "Board meeting",
-   "urgent": true,
-   "link": "https://www.lenox-mi.gov/agendacenter",
-   "linkLabel": "Agenda",
-   "stream": "https://www.youtube.com/playlist?list=PL60F4C049F57EF5DE"
-  },
-  {
-   "iso": "2026-07-13",
-   "body": "Pere Marquette Charter Township Board",
-   "topic": "One-year moratorium on new data center development and $1.36M park project",
-   "region": "West Michigan",
-   "regionKey": "west",
-   "county": "Mason",
-   "time": "6:00 PM",
-   "status": "Board meeting",
-   "urgent": true,
-   "link": "https://www.pmtwp.org/how_do_i/find/meeting_agendas___minutes.php",
-   "linkLabel": "Agenda",
-   "stream": "https://www.pmtwp.org/calendar.php"
-  },
-  {
-   "iso": "2026-07-13",
-   "body": "Lansing City Council",
-   "topic": "Public hearing on temporary moratorium on new data center proposals",
-   "region": "Mid-Michigan",
-   "regionKey": "mid",
-   "county": "Ingham",
-   "time": "7:00 PM",
-   "status": "Public hearing",
-   "urgent": true,
-   "link": "https://www.lansingmi.gov/AgendaCenter",
-   "linkLabel": "Agenda"
-  },
-  {
-   "iso": "2026-07-13",
-   "body": "Solon Township Board",
-   "topic": "Extension of data center moratorium and related ordinances",
-   "region": "West Michigan",
-   "regionKey": "west",
-   "county": "Kent",
-   "time": "7:00 PM",
-   "status": "Board meeting",
-   "urgent": true,
-   "link": "https://www.solontwp.org/township-calendar/",
-   "linkLabel": "Agenda",
-   "stream": null
-  },
-  {
-   "iso": "2026-07-13",
-   "body": "Lansing City Council — Development & Planning",
-   "topic": "Public hearing: 182-day data center moratorium",
-   "region": "Mid-Michigan",
-   "regionKey": "mid",
-   "county": "Ingham",
-   "time": "7:00 PM",
-   "status": "Public hearing",
-   "urgent": true,
-   "link": "https://www.wlns.com/lansing/lansing-city-council-to-discuss-temporary-data-center-ban/amp/",
-   "linkLabel": "Details"
-  },
   {
    "iso": "2026-07-14",
    "body": "Saline Township Board of Trustees",
