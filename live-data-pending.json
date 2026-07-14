@@ -1,117 +1,10 @@
 {
- "updated_at": "2026-07-14T11:12:38+00:00",
+ "updated_at": "2026-07-14T12:51:29+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
-   "title": "Saline Township board weighs tax break application at special meeting",
-   "dek": "Saline Township Board meets July 14 at 7 PM to consider an IFEC application. The agenda does not specify the applicant or project details, though the township has previously discussed data center proposals.",
-   "url": "https://salinetownship.org/meeting-agendas.php",
-   "source": "Saline Township Board agenda",
-   "region": "Southeast Michigan",
-   "county": "Washtenaw",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-14T11:12:38+00:00",
-   "kind": "agenda",
-   "id": "1ea67af9b9bb",
-   "filed_at": "2026-07-14T11:12:38+00:00",
-   "accuracy": "document-based",
-   "findings": "The July 14, 2026 special meeting agenda lists IFEC Application as the sole substantive item | The July 8, 2026 regular meeting agenda also included IFEC Application and listed Data Center Update as a separate item | No project details, applicant name, capacity figures, acreage, or financial terms appear in the posted agendas",
-   "perspective": "The July 14 special meeting focuses solely on the IFEC application. The July 8 regular meeting agenda shows IFEC Application and Data Center Update as separate items, suggesting ongoing township consideration of industrial development. A July 16 special joint meeting with the Planning Commission is scheduled to discuss Washtenaw Solar, K & S, and Noise Ordinance.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://salinetownship.org/meeting-agendas.php"
-    },
-    {
-     "label": "July 16, 2026 Special Meeting PC & Board",
-     "url": "https://salinetownship.org/uploads/agendas/1783945496_Special Meeting July 16 2026 Agenda.pdf"
-    },
-    {
-     "label": "July 14, 2026 Special Meeting",
-     "url": "https://salinetownship.org/uploads/agendas/1783945428_Special Meeting July 14 2026 Agenda.pdf"
-    },
-    {
-     "label": "July 8, 2026",
-     "url": "https://salinetownship.org/uploads/agendas/1783357877_July Agenda 2026.pdf"
-    }
-   ],
-   "depth_score": 8,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "Saline Township weighs tax exemption for data center project",
-   "dek": "Saline Township trustees meet July 8 to consider an Industrial Facilities Tax Exemption application on the regular board agenda. Residents 30 minutes away may see impacts to property-tax revenue as the township manages construction traffic and infrastructure demands from the Related Digital data center project.",
-   "url": "https://salinetownship.org/",
-   "source": "Saline Township Board of Trustees agenda",
-   "region": "Southeast Michigan",
-   "county": "Washtenaw",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-14T11:12:38+00:00",
-   "kind": "agenda",
-   "id": "e2de8791f1f8",
-   "filed_at": "2026-07-14T11:12:38+00:00",
-   "accuracy": "document-based",
-   "findings": "July 8 notice states the exemption application will be on the regular board meeting agenda without a separate public hearing | Township announcement confirms additional concrete truck traffic on US-12/Michigan Avenue beginning February 9th for data center building foundations | Traffic associated with Related Digital Data Center project expected to last at least 2 to 3 weeks | Saline Area Fire Authority Articles of Incorporation adopted April 28, 2026, creating authority among City of Saline, Lodi Township, Saline Township, and York Charter Township",
-   "perspective": "The July 8 board meeting will address the Industrial Facilities Tax Exemption application for the Related Digital project. The township has been managing increased construction vehicle traffic on US-12 for foundation work, with concrete trucks in use until an on-site batch plant becomes operational. Questions about the exemption application can be directed to Clerk Kelly Marion at 734-216-6462.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://salinetownship.org/"
-    },
-    {
-     "label": "Community Needs Assessment",
-     "url": "https://salinetownship.org/uploads/notices/Washtenaw County Community Needs Assessment (2).pdf"
-    },
-    {
-     "label": "July 8 Meeting Notice",
-     "url": "https://salinetownship.org/uploads/notices/IFEC Application .pdf"
-    },
-    {
-     "label": "View Articles of Incorporation",
-     "url": "https://salinetownship.org/uploads/notices/Articles of Incorporation.pdf"
-    }
-   ],
-   "depth_score": 10,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "Ypsilanti Township pushes 12-month water ban on U-M/Los Alamos 144-acre computing site",
-   "dek": "The Ypsilanti Township Board of Trustees meets July 15 at 6 p.m. for a public informational session on the proposed high-performance computing facility at Textile and Bridge roads. University of Michigan and Los Alamos National Laboratory control approximately 144 acres there after $6.7 million in purchases. Residents 30 minutes away face risks to local water and sewer capacity plus tax revenue from a tax-exempt project the township has labeled a potential tier-one security target.",
-   "url": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
-   "source": "Ypsilanti Township Board of Trustees agenda",
-   "region": "Southeast Michigan",
-   "county": "Washtenaw",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-14T11:12:38+00:00",
-   "kind": "agenda",
-   "id": "85dd19853e1f",
-   "filed_at": "2026-07-14T11:12:38+00:00",
-   "accuracy": "document-based",
-   "findings": "Township Resolution 2026-08 requests YCUA impose a 12-month moratorium on water and sewer services to hyperscale and AI facilities pending comprehensive due diligence investigations consistent with industry best practices including AWWA and WEF recommendations | the resolution states data centers may consume up to 5 million gallons of water per day with matching wastewater loads | U-M controls approximately 144 acres after buying 20 acres for $1.5 million in 2024 and 100+ acres for $5.2 million in 2026 | YCUA voted in favor of a 12-month moratorium on April 22 | township owns adjacent South Hydro Park parcel at 10499 Textile Road",
-   "perspective": "The board unanimously adopted Resolution 2026-05 in March opposing any Los Alamos nuclear research facility in the township and Resolution 2026-08 in April requesting the YCUA moratorium that the authority approved for 12 months on April 22. The July 15 session is the next public forum after multiple letters from Congresswoman Debbie Dingell and resident concerns over infrastructure and security. ",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php"
-    },
-    {
-     "label": "Resolution 2026-08",
-     "url": "https://files.ypsitownship.org/Documents/Departments/Clerks-Office/Ordinances-Resolutions/2026/2026-Resolutions/Resolution-No.-2026-08-Data-Center-YCUA-Moratorium.pdf?t=202604161122310&t=202604161122310"
-    },
-    {
-     "label": "Letter from U of M President Dominico Grasso and LANL Director Thom Ma",
-     "url": "https://debbiedingell.house.gov/uploadedfiles/7.10.26_um_response.pdf"
-    }
-   ],
-   "depth_score": 10,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "U-M/Los Alamos facility on 144 Ypsilanti acres raises water, security stakes",
-   "dek": "Ypsilanti Township residents could see a high-performance computing site consume up to 5 million gallons of water daily and strain local utilities. The 144-acre Textile Road parcels, bought for $6.7 million, sit under a township-requested 12-month water and sewer moratorium for such facilities. An informational session July 15th limits seating as officials weigh environmental, wildlife and national-security impacts.",
+   "title": "Ypsilanti flags water and attack risks for proposed U-M/Los Alamos data center",
+   "dek": "Township officials cite unknown effects on local water supplies and wildlife plus national-security exposure from the Los Alamos partnership as top worries over the planned facility.",
    "url": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
    "source": "Ypsilanti Township agenda",
    "region": "Southeast Michigan",
@@ -122,7 +15,7 @@
    "kind": "agenda",
    "id": "85dd19853e1f",
    "filed_at": "2026-07-14T11:12:38+00:00",
-   "accuracy": "document-based",
+   "accuracy": "checked-rewritten",
    "findings": "144 acres at Textile/Bridge roads purchased by U-M for $6.7 million from EV Industrial Park and Norfolk and Western Railway | up to 5 million gallons water per day for cooling cited in Resolution 2026-08 | tax-exempt as state university with no property taxes paid | Resolution 2026-08 requests YCUA 12-month moratorium on water/sewer commitments pending studies | YCUA voted April 22nd in favor of 12-month moratorium on water and sewer services to data centers and AI computing facilities",
    "perspective": "The Ypsilanti Township Board unanimously passed Resolution 2026-05 in March opposing any Los Alamos nuclear research facility in the township and Resolution 2026-08 in April urging the water moratorium. YCUA voted in favor of the 12-month moratorium on April 22nd. An informational session July 15th at the Civic Center follows months of resident questions on infrastructure and quality of life, with",
    "documents": [
@@ -140,8 +33,11 @@
     }
    ],
    "depth_score": 10,
-   "extraction_method": "plain"
+   "extraction_method": "plain",
+   "headline_rewritten": true,
+   "judge_score": 7,
+   "judge_note": "New development: Ypsilanti Township raising specific concerns (water, wildlife, national security) about a U-M/Los Alamos facility not previously covered."
   }
  ],
- "accuracy_checked_at": "2026-07-14T11:10:41+00:00"
+ "accuracy_checked_at": "2026-07-14T12:51:25+00:00"
 }

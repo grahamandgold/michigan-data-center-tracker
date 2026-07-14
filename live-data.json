@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-14T11:10:40+00:00",
+ "updated_at": "2026-07-14T12:51:01+00:00",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -230,6 +230,20 @@
   },
   {
    "iso": "2026-07-15",
+   "body": "Ypsilanti Township",
+   "topic": "Informational session on University of Michigan/Los Alamos data center project updates, including history, legislative developments, and Q&A",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Washtenaw",
+   "time": "6:00 PM",
+   "status": "Public hearing",
+   "urgent": false,
+   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
+   "linkLabel": "Agenda & Details",
+   "stream": null
+  },
+  {
+   "iso": "2026-07-15",
    "body": "Ypsilanti Township Board of Trustees",
    "topic": "Informational session on University of Michigan/Los Alamos proposed data center project, including updates on opposition and resource concerns",
    "region": "SE Michigan",
@@ -238,20 +252,6 @@
    "time": "6:00 PM",
    "status": "Public hearing",
    "urgent": true,
-   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
-   "linkLabel": "Agenda",
-   "stream": ""
-  },
-  {
-   "iso": "2026-07-15",
-   "body": "Ypsilanti Township",
-   "topic": "Informational session on proposed data center project",
-   "region": "SE Michigan",
-   "regionKey": "metro",
-   "county": "Washtenaw",
-   "time": "TBD",
-   "status": "Public hearing",
-   "urgent": false,
    "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
    "linkLabel": "Agenda",
    "stream": ""
