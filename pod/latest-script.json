@@ -1,10 +1,10 @@
 {
- "title": "Evenings with Graham & Emmy",
- "teaser": "Senators target data center power and water use as towns weigh pauses amid noise fights.",
+ "title": "Mornings with Graham & Emmy",
+ "teaser": "Democratic bills hit data center energy and water rules while more towns hit pause.",
  "lines": [
   {
    "host": "Graham",
-   "text": "Good evening, and welcome to Evenings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
+   "text": "Good morning, and welcome to Mornings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
   },
   {
    "host": "Emmy",
@@ -12,274 +12,186 @@
   },
   {
    "host": "Graham",
-   "text": "Tonight we're digging into new bills that would regulate how much power and water these facilities can pull, right as several communities push back with recalls and noise complaints."
+   "text": "Today we're digging into new state bills aimed at data center power and water use, plus the wave of local pushback that's picking up speed."
   },
   {
    "host": "Emmy",
-   "text": "That sounds like the biggest development we've seen in a while. What's the core of these bills, Graham?"
+   "text": "That sounds like the story everyone's talking about right now."
   },
   {
    "host": "Graham",
-   "text": "Democratic senators introduced measures aimed at energy costs and water consumption for data centers. They're responding to the rapid growth and the strain it's putting on local systems."
+   "text": "Exactly. Yesterday Democratic senators introduced regulations focused on energy costs and water consumption for these big projects."
   },
   {
    "host": "Emmy",
-   "text": "Why now? Have we seen this kind of push before?"
+   "text": "What exactly are they proposing, Graham?"
   },
   {
    "host": "Graham",
-   "text": "This builds on earlier local fights. We've had townships debating zoning and moratoriums for months, but state-level rules on power and water are newer."
+   "text": "The bills would set rules around how much power these facilities can pull and how they handle water use, especially in areas already feeling the strain."
   },
   {
    "host": "Emmy",
-   "text": "What exactly would these bills change for a typical project?"
+   "text": "And this comes right as local fights are heating up too?"
   },
   {
    "host": "Graham",
-   "text": "They'd set limits or reporting requirements on how much electricity and water a facility can use, which could affect everything from site selection to how much locals pay on their utility bills."
+   "text": "Yes. In Kent County there's a recall petition drive targeting officials over a Microsoft proposal, and in Dowagiac a facility is shifting away from Bitcoin mining after noise complaints from neighbors."
   },
   {
    "host": "Emmy",
-   "text": "That ties right into the electric bills issue. How much more could residents see if these centers keep expanding unchecked?"
+   "text": "Why do you think these bills are landing now?"
   },
   {
    "host": "Graham",
-   "text": "The concern is that heavy power demand could drive up rates for everyone on the grid. These facilities are huge consumers, and without rules, the costs get spread around."
+   "text": "It's the latest in a string of local actions. We've seen townships and cities across the state pausing or banning new projects to buy time for better rules."
   },
   {
    "host": "Emmy",
-   "text": "And water? We've heard stories about ponds dropping during construction."
+   "text": "How many places have done that already?"
   },
   {
    "host": "Graham",
-   "text": "Exactly. One recent case showed a neighborhood pond recovering after excavation work, but it highlighted how quickly aquifers can be affected. The bills would try to get ahead of that."
+   "text": "Quite a few. Lansing just approved a six-month freeze today. Haring Township residents turned out in big numbers yesterday pushing for an outright ban."
   },
   {
    "host": "Emmy",
-   "text": "Who are the main players here? The senators, or are local officials and companies weighing in too?"
+   "text": "What are the main concerns driving all this?"
   },
   {
    "host": "Graham",
-   "text": "It's a mix. The Democratic sponsors are leading at the state level, while towns like those in Kent County are dealing with recall petitions over a Microsoft proposal and noise issues in places like Dowagiac."
+   "text": "Power demand that could raise electric bills for everyone, heavy water use that affects wells and ponds, noise that disrupts quiet neighborhoods, and land taken out of farmland or residential areas."
   },
   {
    "host": "Emmy",
-   "text": "The Dowagiac shift from Bitcoin mining after complaints — does that show these rules might actually change how projects operate?"
+   "text": "The water piece feels especially personal. We had that story about the pond draining during excavation on the Oracle and OpenAI campus."
   },
   {
    "host": "Graham",
-   "text": "It does suggest communities can force adjustments. That facility moved away from mining after noise problems, which is the kind of outcome the new bills aim to make more predictable."
+   "text": "Right. The water table bounced back after they finished digging, but it showed how quickly these projects can impact nearby homes and wetlands."
   },
   {
    "host": "Emmy",
-   "text": "What about farmland and towns? These centers take up land and could change the character of rural areas."
+   "text": "So the bills are trying to get ahead of that kind of issue statewide?"
   },
   {
    "host": "Graham",
-   "text": "That's a big part of the conversation. Projects need large parcels, which often means converting farmland, and then there's traffic, noise, and tax revenue questions that hit local budgets differently."
+   "text": "That's the idea. They want clearer standards on power and water before more projects lock in."
   },
   {
    "host": "Emmy",
-   "text": "Do the bills address tax breaks or abatements at all?"
+   "text": "Who are the key players here?"
   },
   {
    "host": "Graham",
-   "text": "Not directly from what we've seen, but the larger conversation around them includes how much revenue actually stays local versus what gets negotiated away."
+   "text": "Democratic senators are leading the legislative push. Locally you've got township boards, city councils, and citizen groups filing recalls or showing up at meetings."
   },
   {
    "host": "Emmy",
-   "text": "What's the timeline? When could these bills move?"
+   "text": "What happens next with these bills?"
   },
   {
    "host": "Graham",
-   "text": "They're just introduced, so committee hearings and debates are next. Nothing is final yet, but the sponsors are framing it as urgent given the pace of proposals."
+   "text": "They'll go through committee and hearings. In the meantime more local votes are coming up, like in Lowell Township tonight and Warren discussing a pause."
   },
   {
    "host": "Emmy",
-   "text": "And on the local side, how many townships have already paused projects while waiting for clearer rules?"
+   "text": "And places like Lyon Township already delayed their decision yesterday to give residents more time."
   },
   {
    "host": "Graham",
-   "text": "We've seen several this week alone, like Lyon Township delaying a vote and Warren considering a moratorium. It's becoming a pattern as residents organize."
+   "text": "Exactly. The delay lets neighbors organize and ask questions about noise, traffic, and how much tax revenue actually stays local."
   },
   {
    "host": "Emmy",
-   "text": "Does this state push make those local pauses more or less likely to stick?"
+   "text": "Speaking of taxes, there's the big Saline project."
   },
   {
    "host": "Graham",
-   "text": "It could give them cover. If Lansing sets baselines on power and water, towns might feel more confident setting their own zoning on top of that."
+   "text": "The campus there is now valued at sixteen billion after financing closed. The township is deciding today on a one-hundred-forty-seven-million-dollar annual tax break."
   },
   {
    "host": "Emmy",
-   "text": "What happens next if the bills pass — do we expect more projects to adjust or fewer to come forward?"
+   "text": "Critics like the Attorney General are questioning why extra breaks are needed on top of state exemptions."
   },
   {
    "host": "Graham",
-   "text": "Probably both. Developers might redesign for lower impact, but some could look elsewhere if Michigan's rules get stricter than neighboring states."
+   "text": "And the project is expected to create four hundred fifty permanent jobs, so supporters point to that economic upside."
   },
   {
    "host": "Emmy",
-   "text": "That brings us to the bigger picture. How does this fit into the national data center boom?"
+   "text": "How does that balance out for residents?"
   },
   {
    "host": "Graham",
-   "text": "Michigan is one of many states seeing this surge because of AI demand. The bills are an attempt to manage it locally instead of reacting after the fact."
+   "text": "Bigger tax revenue potential but also bigger demands on power, roads, and services. Negotiations over abatements and upgrades are still happening."
   },
   {
    "host": "Emmy",
-   "text": "Any sense of how residents are responding so far?"
+   "text": "Shifting to some of the other quick developments from yesterday."
   },
   {
    "host": "Graham",
-   "text": "Mixed but vocal. Some welcome the jobs and tax base, others worry about the hidden costs to infrastructure and quality of life."
+   "text": "Lowell Township residents are heading into their first data center vote tonight in Kent County, focused on noise, traffic, and what tax benefits they'll actually see."
   },
   {
    "host": "Emmy",
-   "text": "The recall petitions in Kent County — how unusual is that level of pushback?"
+   "text": "And in Oakland County, Lyon Township postponed action again, leaving uncertainty over electricity demand and noise."
   },
   {
    "host": "Graham",
-   "text": "It's notable. Usually these debates stay at planning meetings, but recalls show it's reaching a point where voters want to change who makes the decisions."
+   "text": "Warren's council is set to discuss its own temporary moratorium because of grid strain concerns in Macomb County."
   },
   {
    "host": "Emmy",
-   "text": "And the noise fights mentioned — is that the main complaint driving the bills?"
+   "text": "Dowagiac residents got their first public look at plans on Monday, with questions about noise, water, and the electric grid."
   },
   {
    "host": "Graham",
-   "text": "It's one of the loudest, along with power and water. The Dowagiac case and the federal lawsuit over nonstop hum show how persistent those issues can be."
+   "text": "And that facility there is already moving away from Bitcoin mining after complaints."
   },
   {
    "host": "Emmy",
-   "text": "So the bills are trying to tackle multiple fronts at once."
+   "text": "Today we also had the Lansing six-month freeze and the strong turnout in Haring Township for a full ban."
   },
   {
    "host": "Graham",
-   "text": "That's the idea. Regulating use could indirectly limit the worst impacts without banning projects outright."
+   "text": "Hundreds showed up in Haring, signaling how deep the worry runs over losing rural character and facing higher utility bills."
   },
   {
    "host": "Emmy",
-   "text": "What should listeners watch for in the coming weeks?"
+   "text": "It really feels like a pattern across the state now."
   },
   {
    "host": "Graham",
-   "text": "Committee action on the bills, plus how towns like Lowell and Green Oak handle their own votes tonight and in the days ahead."
+   "text": "It does. More communities are hitting the brakes to figure out rules that protect residents while still allowing some development."
   },
   {
    "host": "Emmy",
-   "text": "Thanks for laying that out. It really shows why this isn't just about one project."
+   "text": "Let's look ahead to the meetings people can actually attend."
   },
   {
    "host": "Graham",
-   "text": "Exactly. Now let's move to some quick hits from across the state today."
+   "text": "Today Saline Township has two special meetings on the property tax reduction and the industrial facilities tax exemption for the Oracle-linked project."
   },
   {
    "host": "Emmy",
-   "text": "Lowell Township residents are voting tonight on a data center project in Kent County. Neighbors want details on noise, traffic, and how much tax revenue actually stays local."
+   "text": "Tomorrow Ypsilanti Township has an informational session on the University of Michigan and Los Alamos proposal, including opposition updates and resource concerns."
   },
   {
    "host": "Graham",
-   "text": "That vote could open the door or set strict limits. It's the first of several decisions this week."
+   "text": "That's a good chance for residents to ask questions before anything advances."
   },
   {
    "host": "Emmy",
-   "text": "Lyon Township in Oakland County postponed its vote, giving residents more time to review power demand and noise concerns."
+   "text": "Full sources and the live map at the Michigan Data Center Tracker."
   },
   {
    "host": "Graham",
-   "text": "The delay means uncertainty lingers, but it also lets locals organize before any final call."
-  },
-  {
-   "host": "Emmy",
-   "text": "Warren city council is discussing a temporary moratorium on new data centers because of grid strain worries in Macomb County."
-  },
-  {
-   "host": "Graham",
-   "text": "That would pause heavy power users while the city reviews its rules."
-  },
-  {
-   "host": "Emmy",
-   "text": "A local pond near the Oracle and OpenAI campus recovered after dropping during excavation. It shows how fast large digs can affect nearby wells and wetlands."
-  },
-  {
-   "host": "Graham",
-   "text": "Residents downstream had been concerned, and the quick rebound is a data point for future projects."
-  },
-  {
-   "host": "Emmy",
-   "text": "Saline Township's data center campus just closed financing at a $16 billion valuation. That's higher than earlier estimates, which means bigger potential tax revenue but also heavier infrastructure demands."
-  },
-  {
-   "host": "Graham",
-   "text": "Neighbors are watching how that affects talks over abatements and road upgrades."
-  },
-  {
-   "host": "Emmy",
-   "text": "Dowagiac is holding a public forum tonight on data center plans. Concerns center on noise, water, and the electric grid."
-  },
-  {
-   "host": "Graham",
-   "text": "It's the first formal chance for residents to ask questions before proposals advance."
-  },
-  {
-   "host": "Emmy",
-   "text": "Green Oak Township approved new zoning rules and an overlay district for high-resource data centers. Livingston County now has clearer limits on where they can go."
-  },
-  {
-   "host": "Graham",
-   "text": "That gives the board more control over electricity and water use going forward."
-  },
-  {
-   "host": "Emmy",
-   "text": "Yesterday a Michigan town took a data center operator to federal court over nonstop noise. Residents say complaints went nowhere locally and want court relief."
-  },
-  {
-   "host": "Graham",
-   "text": "A win there could influence how other communities handle similar hum issues."
-  },
-  {
-   "host": "Emmy",
-   "text": "And in Mason County, Pere Marquette Township trustees are set to consider a one-year moratorium on new data centers, citing energy, water, and noise impacts."
-  },
-  {
-   "host": "Graham",
-   "text": "They're also looking at a $1.36 million park entrance contract at the same meeting."
-  },
-  {
-   "host": "Emmy",
-   "text": "Now for what's on deck tonight and tomorrow."
-  },
-  {
-   "host": "Graham",
-   "text": "Lenox Township Board meets tonight for the first reading of an I-94 Development District ordinance and data center zoning changes amid resident opposition."
-  },
-  {
-   "host": "Emmy",
-   "text": "Pere Marquette Charter Township is also meeting tonight on that one-year moratorium and the park project."
-  },
-  {
-   "host": "Graham",
-   "text": "Lansing City Council has a public hearing on a temporary moratorium for new data center proposals."
-  },
-  {
-   "host": "Emmy",
-   "text": "Solon Township Board will consider extending its data center moratorium and related ordinances."
-  },
-  {
-   "host": "Graham",
-   "text": "And Lansing City Council's Development & Planning committee is holding a public hearing on a 182-day data center moratorium."
-  },
-  {
-   "host": "Emmy",
-   "text": "Plenty for residents to weigh in on if they're following these issues locally."
-  },
-  {
-   "host": "Graham",
-   "text": "Full sources and the live map at the Michigan Data Center Tracker. We're back tomorrow."
+   "text": "We're back tomorrow."
   }
  ],
- "episode_title": "Michigan Data Wire: July 13, 2026",
- "show": "Evenings with Graham & Emmy",
- "daypart": "Evenings"
+ "episode_title": "Senators Target Data Center Power and Water Use as Recalls and Noise Fights Escalate",
+ "show": "Mornings with Graham & Emmy",
+ "daypart": "Mornings"
 }
