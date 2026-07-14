@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-14T09:12:18+00:00",
+ "updated_at": "2026-07-14T11:10:49+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -41,35 +41,7 @@
    "headline_rewritten": true,
    "judge_score": 6,
    "judge_note": "Document-based construction logistics update with specific dates and traffic impact—incremental but real operational detail."
-  },
-  {
-   "title": "Lansing sets July hearing on data center moratorium ordinance",
-   "dek": "A public hearing on an ordinance for a temporary moratorium on new data centers is scheduled for July 13 at Lansing City Hall.",
-   "url": "https://lansingcitypulse.com/city-of-lansing-notice-of-public-hearing-7-13-26-ordinance-to-impose-temporary-moratorium-on-new-data-centers/",
-   "source": "Lansing City Council agenda",
-   "region": "Mid-Michigan",
-   "county": "Ingham",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-12T21:12:32+00:00",
-   "kind": "agenda",
-   "id": "3d05eec527ca",
-   "filed_at": "2026-07-12T21:12:32+00:00",
-   "accuracy": "checked-rewritten",
-   "findings": "The ordinance would add Chapter 878, Sections 878.01-878.03 to the Lansing Codified Ordinances to impose a temporary moratorium on new data centers, per the July 2 public notice | The hearing is scheduled for July 13, 2026 at 7:00 p.m. in the Tony Benavides Lansing City Council Chambers, 10th Floor, Lansing City Hall | Written comments accepted at City Clerk's Office or city.clerk@lansingmi.gov until 5 p.m. day of hearing | Full ordinance text and exact terms remain unavailable in the public notice",
-   "perspective": "The hearing opens public comment on the ordinance; any further readings or votes would follow standard Council process and could affect utility loads and land use in the region.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://lansingcitypulse.com/city-of-lansing-notice-of-public-hearing-7-13-26-ordinance-to-impose-temporary-moratorium-on-new-data-centers/"
-    }
-   ],
-   "depth_score": 3,
-   "extraction_method": "plain",
-   "headline_rewritten": true,
-   "judge_score": 6,
-   "judge_note": "Document-based agenda preview for a specific July 13 hearing, though the hearing itself was already mentioned in the live story about the $120M withdrawal."
   }
  ],
- "accuracy_checked_at": "2026-07-14T09:12:22+00:00"
+ "accuracy_checked_at": "2026-07-14T11:10:41+00:00"
 }
