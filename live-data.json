@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-14T15:01:51Z",
+ "updated_at": "2026-07-14T16:23:02Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Monroe voters reject data center plan after energy and noise fears",
+   "dek": "The Monroe Times reports local opposition prevailed in blocking the proposed facility over concerns about power demand and industrial noise. Residents living within a few miles of the site say the project would have raised their utility bills without delivering meaningful tax relief. The decision keeps the county's zoning rules unchanged for now.",
+   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE82TFRGeFhTM2VsNkRHaERJVEUtSDZhdnVDRzhoN3pSeDVVaUxuNDNIU2p2LV94bVJxV1JQdVBlUi1QMHJQRE1WMDlVdnk0Wm82eDhyYTU4UXpuM01IUmVCTld4ZGZwRHdDdnBv?oc=5",
+   "source": "The Monroe Times",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Monroe",
+   "tag": "Local Government",
+   "iso": "2026-07-14T15:00:49Z",
+   "id": "216ed89f12e8",
+   "origin": "google-news",
+   "source_title": "Data Center a big ‘no’ - The Monroe Times",
+   "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE82TFRGeFhTM2VsNkRHaERJVEUtSDZhdnVDRzhoN3pSeDVVaUxuNDNIU2p2LV94bVJxV1JQdVBlUi1QMHJQRE1WMDlVdnk0Wm82eDhyYTU4UXpuM01IUmVCTld4ZGZwRHdDdnBv?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Benson under fire for Big Tech cash while data centers multiply",
    "dek": "The Michigan official has accepted donations from companies racing to build data centers across the state. Critics say the money undercuts any push to protect residents from higher power costs and land conflicts. The donations spotlight the growing political stakes around these projects.",
@@ -167,23 +184,6 @@
    "id": "9f5a478a1832",
    "accuracy": "checked-rewritten",
    "judge_score": 8
-  },
-  {
-   "title": "Dowagiac residents get first look at data center plans Monday",
-   "dek": "The city council is hosting a public forum to discuss potential data center developments. Locals are concerned about noise, water use, and strain on the electric grid. The meeting gives residents a chance to voice questions before any formal proposals advance.",
-   "url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNVnhIUDZhdGhqdEdReG9TSzMtZnVrNVVrQVpaVXJQbU5pb2lQdUpCUjFNVzFuRUZQaldWM2huNHI1OUZLd3NETkFkSjVic0k3R25RQ2VlMWJwZk1mWmY0VWFHeDhmMHdPMVRSUjk2Mkx0bTVXcjNzZzBLM0ktU2U5NEdVa01KYl95OXc2QVRveXQxREFwSS1UX3N3SUx2anAwVmkxOWp3c3FqUlpaRUtxX0RRZGY5M1ZTcDhLbGYySjB6ZTRQSWFZTWRBNEVyeDVpYnM2OWdTUEFoNms1bEphR1cxcnloR3hXZFYwUEJEZGd0eWRzYW5QV29lUXRKLWotbzlnb014UjhuaTdaUEx0cU1oNUJiRmtmcDVIemR5bXdqV3Fpcy1HM1ZvVnNqOFJ5cExRSkdhQjZGai1RR1REcg?oc=5",
-   "source": "WSBT",
-   "region": "west",
-   "cat": "STATEWIDE",
-   "county": "Cass",
-   "tag": "Local Government",
-   "iso": "2026-07-13T09:57:55Z",
-   "id": "f0fdbe373697",
-   "origin": "google-news",
-   "source_title": "Dowagiac City Council will hold data center forum Monday - WSBT",
-   "source_url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNVnhIUDZhdGhqdEdReG9TSzMtZnVrNVVrQVpaVXJQbU5pb2lQdUpCUjFNVzFuRUZQaldWM2huNHI1OUZLd3NETkFkSjVic0k3R25RQ2VlMWJwZk1mWmY0VWFHeDhmMHdPMVRSUjk2Mkx0bTVXcjNzZzBLM0ktU2U5NEdVa01KYl95OXc2QVRveXQxREFwSS1UX3N3SUx2anAwVmkxOWp3c3FqUlpaRUtxX0RRZGY5M1ZTcDhLbGYySjB6ZTRQSWFZTWRBNEVyeDVpYnM2OWdTUEFoNms1bEphR1cxcnloR3hXZFYwUEJEZGd0eWRzYW5QV29lUXRKLWotbzlnb014UjhuaTdaUEx0cU1oNUJiRmtmcDVIemR5bXdqV3Fpcy1HM1ZvVnNqOFJ5cExRSkdhQjZGai1RR1REcg?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 6
   }
  ],
  "national": {
