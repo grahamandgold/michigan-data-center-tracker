@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-11T09:19:47Z",
+ "updated_at": "2026-07-14T12:07:59+00:00",
  "map_points": [
   {
    "name": "Saline Township campus (Stargate)",
@@ -1312,6 +1312,22 @@
    "verified_date": "2026-07-05",
    "confidence": "Confirmed",
    "note": "12-month moratorium effective July 5, 2026 (approximate centroid)."
+  },
+  {
+   "name": "City of Lansing moratorium",
+   "municipality": "City of Lansing",
+   "county": "Ingham",
+   "status": "Moratorium",
+   "layer": "moratoria",
+   "developer": "",
+   "power_mw": "",
+   "latitude": 42.7325,
+   "longitude": -84.5555,
+   "source_url": "https://www.wilx.com/2026/07/14/lansing-city-council-approves-182-day-moratorium-new-data-centers/",
+   "source_name": "WILX News 10",
+   "verified_date": "2026-07-14",
+   "confidence": "Confirmed",
+   "note": "182-day moratorium approved by council 7-1 on July 13; approximate city center coordinates."
   }
  ],
  "map_meta": {
