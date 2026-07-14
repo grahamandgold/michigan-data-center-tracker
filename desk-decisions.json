@@ -664,6 +664,13 @@
    "at": "2026-07-14T12:51:29+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: This is the same Lansing six-month freeze already live, just reworded with 'bans' instead of 'votes freeze.'"
+  },
+  {
+   "url": "https://www.detroitnews.com/story/tech/2026/07/14/new-york-state-data-center-moratorium/90911807007/",
+   "title": "New York Becomes First State to Impose Data Center Moratorium",
+   "at": "2026-07-14T15:01:51+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: National trend piece about New York with only tangential Michigan relevance; no Michigan decision reported."
   }
  ],
  "auto_published": [
@@ -960,6 +967,12 @@
    "title": "Lansing council votes six-month freeze on data centers",
    "judge_score": 9,
    "at": "2026-07-14T04:11:31Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4ycEZOOU1oY2ZiUjdZYjJyM0pJWGpPTGo0bTlCeGJzR0dKdGpMYW9saUFJd2xqTDlNRl83TG4xMWYxM3NRSVBrU3BtYmRickpqTXZuRTlfSHJnZzFmVEkycGNnWjk0LVN1UlE?oc=5",
+   "title": "Benson under fire for Big Tech cash while data centers multiply",
+   "judge_score": 6,
+   "at": "2026-07-14T15:01:51Z"
   }
  ]
 }

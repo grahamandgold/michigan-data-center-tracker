@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-14T12:51:01+00:00",
+ "updated_at": "2026-07-14T15:01:51Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Benson under fire for Big Tech cash while data centers multiply",
+   "dek": "The Michigan official has accepted donations from companies racing to build data centers across the state. Critics say the money undercuts any push to protect residents from higher power costs and land conflicts. The donations spotlight the growing political stakes around these projects.",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4ycEZOOU1oY2ZiUjdZYjJyM0pJWGpPTGo0bTlCeGJzR0dKdGpMYW9saUFJd2xqTDlNRl83TG4xMWYxM3NRSVBrU3BtYmRickpqTXZuRTlfSHJnZzFmVEkycGNnWjk0LVN1UlE?oc=5",
+   "source": "Michigan Enjoyer",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "county": "",
+   "tag": "Money",
+   "iso": "2026-07-14T12:52:33Z",
+   "id": "a25c0ac5a13a",
+   "origin": "google-news",
+   "source_title": "How Can Benson Stand Up to Big Tech When She Takes Their Money? - Michigan Enjoyer",
+   "source_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4ycEZOOU1oY2ZiUjdZYjJyM0pJWGpPTGo0bTlCeGJzR0dKdGpMYW9saUFJd2xqTDlNRl83TG4xMWYxM3NRSVBrU3BtYmRickpqTXZuRTlfSHJnZzFmVEkycGNnWjk0LVN1UlE?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 6
+  },
   {
    "title": "Lansing council votes six-month freeze on data centers",
    "dek": "Lansing leaders approved a half-year pause on new data-center proposals to buy time for rules that protect residents. The move halts projects in the capital while officials weigh power, noise and tax impacts. It marks the latest city to hit the brakes on rapid expansion.",
@@ -167,23 +184,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNVnhIUDZhdGhqdEdReG9TSzMtZnVrNVVrQVpaVXJQbU5pb2lQdUpCUjFNVzFuRUZQaldWM2huNHI1OUZLd3NETkFkSjVic0k3R25RQ2VlMWJwZk1mWmY0VWFHeDhmMHdPMVRSUjk2Mkx0bTVXcjNzZzBLM0ktU2U5NEdVa01KYl95OXc2QVRveXQxREFwSS1UX3N3SUx2anAwVmkxOWp3c3FqUlpaRUtxX0RRZGY5M1ZTcDhLbGYySjB6ZTRQSWFZTWRBNEVyeDVpYnM2OWdTUEFoNms1bEphR1cxcnloR3hXZFYwUEJEZGd0eWRzYW5QV29lUXRKLWotbzlnb014UjhuaTdaUEx0cU1oNUJiRmtmcDVIemR5bXdqV3Fpcy1HM1ZvVnNqOFJ5cExRSkdhQjZGai1RR1REcg?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 6
-  },
-  {
-   "title": "Green Oak Township creates new zoning rules for power-hungry data centers",
-   "dek": "The board approved an overlay district to regulate facilities that demand high resources like electricity and water. This gives the township tools to control where large data centers can locate. Residents in Livingston County now have clearer guardrails on future projects.",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9ybUhCQnFTRkVFcEg1dVZFNjQ1dUpMTFM1d3NZc3dQZkE1UTV1UFpUa3VvUy1LdHNYemNOLTFXSUhBdktnZm9hSTVMMzJnOTU3?oc=5",
-   "source": "WHMI",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Livingston",
-   "tag": "Local Government",
-   "iso": "2026-07-13T08:39:23Z",
-   "id": "dfd32d863754",
-   "origin": "google-news",
-   "source_title": "Green Oak Township Board Approves “High Resource Demand Facilities Overlay District” - WHMI",
-   "source_url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9ybUhCQnFTRkVFcEg1dVZFNjQ1dUpMTFM1d3NZc3dQZkE1UTV1UFpUa3VvUy1LdHNYemNOLTFXSUhBdktnZm9hSTVMMzJnOTU3?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
   }
  ],
  "national": {
@@ -203,6 +203,20 @@
  "meetings": [
   {
    "iso": "2026-07-14",
+   "body": "Saline Township Board of Trustees",
+   "topic": "Vote on 12-year, 50% tax abatement for Oracle-OpenAI $43 billion hyperscale data center project",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Washtenaw",
+   "time": "7:00 PM",
+   "status": "Special meeting",
+   "urgent": true,
+   "link": "https://salinetownship.org/meeting-agendas.php",
+   "linkLabel": "Agenda",
+   "stream": null
+  },
+  {
+   "iso": "2026-07-14",
    "body": "Saline Township Board",
    "topic": "Special meeting to consider 50% property tax reduction for 12 years on Oracle-linked data center project",
    "region": "SE Michigan",
@@ -214,19 +228,6 @@
    "link": "https://salinetownship.org/meeting-agendas.php",
    "linkLabel": "Agenda",
    "stream": ""
-  },
-  {
-   "iso": "2026-07-14",
-   "body": "Saline Township Board of Trustees",
-   "topic": "Special meeting to consider Industrial Facilities Tax Exemption Certificate for Oracle's $43 billion data center project",
-   "region": "SE Michigan",
-   "regionKey": "metro",
-   "county": "Washtenaw",
-   "time": "7:00 PM",
-   "status": "Board meeting",
-   "urgent": true,
-   "link": "https://salinetownship.org/",
-   "linkLabel": "Agenda"
   },
   {
    "iso": "2026-07-15",
