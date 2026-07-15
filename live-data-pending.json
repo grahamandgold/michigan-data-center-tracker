@@ -1,7 +1,26 @@
 {
- "updated_at": "2026-07-15T18:15:12Z",
+ "updated_at": "2026-07-15T19:48:22+00:00",
  "generator": "grok-wire-agent",
  "items": [
+  {
+   "iso": "2026-07-14T18:00:00+00:00",
+   "region": "metro",
+   "cat": "Macomb Co.",
+   "tag": "Local Government",
+   "title": "Storms Knock Out Warren Power Lines, Fueling Data Center Ban Push",
+   "dek": "Council may impose a temporary moratorium after July outages exposed strain on the aging grid with no zoning rules in place for the power-hungry facilities.",
+   "source": "Planet Detroit",
+   "url": "https://planetdetroit.org/2026/07/warren-data-center-moratorium-power-outages/",
+   "breaking": false,
+   "lead": false,
+   "id": "9b797782546f",
+   "kind": "story",
+   "filed_at": "2026-07-15T19:48:05+00:00",
+   "accuracy": "checked-rewritten",
+   "headline_rewritten": true,
+   "judge_score": 7,
+   "judge_note": "New development in Warren—council considering moratorium triggered by specific July outage events, distinct from other municipalities' actions."
+  },
   {
    "title": "Augusta data center rules would bar water use and limit sites to industrial zones",
    "dek": "Draft rules set 10-acre minimums and 400-foot buffers, require closed-loop cooling with zero discharge, and confine large facilities to the General Industrial district, affecting tax base, farmland, and aquifers.",
@@ -50,5 +69,5 @@
    "judge_note": "New development in Lenox with concrete action (recall push) and document evidence (revealed emails) — different township, specific new event."
   }
  ],
- "accuracy_checked_at": "2026-07-15T18:15:07+00:00"
+ "accuracy_checked_at": "2026-07-15T19:48:17+00:00"
 }
