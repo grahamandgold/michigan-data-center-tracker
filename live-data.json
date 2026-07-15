@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-15T04:12:36Z",
+ "updated_at": "2026-07-15T06:38:46Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Marysville eyes one-year freeze on new data centers",
+   "dek": "City leaders want to pause proposals while they study power and water demands. Residents 30 minutes away could see higher utility bills if large projects move in unchecked. The move would give local officials time to write zoning rules before any deals are signed.",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORVc3VGlDeEJsbWVZQjNQWTh2Y20wV0w1RDdIQnZiTkp2WVFnZ3BHWDFjbklKRmJVNTVIZWJrVWxSOVFxM2VISWkyTE01VENZUEFObXJQOGNGUzFWZ3hCblZEczl5d3VzMm1LZGRodGpLVFd4enNtcmwtd0NPNHR5LTluaGdzRXZpQ09yZkk5Mm1fVTRMUEgxamZJNmhJNmdrVU1UXzlzQ292RldzWFdTZndUX3Z0NnNYNVQ3VjdB?oc=5",
+   "source": "The Marysville Advocate",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "St. Clair",
+   "tag": "Local Government",
+   "iso": "2026-07-15T06:00:00Z",
+   "id": "30be85a6e1df",
+   "origin": "google-news",
+   "source_title": "City wants data center moratorium - The Marysville Advocate",
+   "source_url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORVc3VGlDeEJsbWVZQjNQWTh2Y20wV0w1RDdIQnZiTkp2WVFnZ3BHWDFjbklKRmJVNTVIZWJrVWxSOVFxM2VISWkyTE01VENZUEFObXJQOGNGUzFWZ3hCblZEczl5d3VzMm1LZGRodGpLVFd4enNtcmwtd0NPNHR5LTluaGdzRXZpQ09yZkk5Mm1fVTRMUEgxamZJNmhJNmdrVU1UXzlzQ292RldzWFdTZndUX3Z0NnNYNVQ3VjdB?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "Saline Township caps Oracle tax break at $4.8B after rejecting bigger cut",
    "dek": "Trustees approved a limited tax abatement for the Oracle campus but refused a deeper 50% break that would have cost local schools and services far more. The $4.8 billion cap keeps the original project size in play while protecting township revenue. Residents 30 minutes away will feel the difference in property-tax bills and future power rates.",
@@ -169,23 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPS2RBRHM5bVB0b19aN2paWmpiYTgtVXNIdTlDUU1VcXRHOFpHVEhlTlBDckgxV3dFbzZsaVpVWHlKSktabEd3cThQV2NIMnNHTVQ5RDY0QUJPVnRFallFczgyOW1WT2h4TUVQVHNtRy04TU1xM1U4dkhreDBaVEFuTWJLSE1ZSzZvREhj?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 9
-  },
-  {
-   "title": "Haring Township crowd backs outright ban on data centers",
-   "dek": "Hundreds showed up in Haring Township to demand a full prohibition on data centers, fearing loss of rural quiet and higher utility bills. The strong turnout signals deep community concern over industrial-scale projects. Wexford County residents want to keep the area off-limits.",
-   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNT0g2eU1EV241b3hkUzlfQ2l3R3czMFJsU1VsbkZzMzFHV0k0NjhfVTNHcThBY21qVDlKbzdIWnZraVBnOHdvOWlJUTBmck4tZjFYTlo0YXh4ZWxvZUJqVkxCMGpsc1M5TkVzLUJFbGRjcUtjaFJ0YUxadWpzVkhQRGFuVE96Z0RaTFNWVExrS1F0QnhWVTVxd3hHNldvX2hVUnZROEdRdU1Ba3lIbEd5Uy1DMGU2cEl6WDZldVF5S1B1NkphQ1FvTXBKUGlxaEFJdXhIQ25FckxjWDJ6R3Jsc0dtNUpjcHZ4?oc=5",
-   "source": "Cadillac News",
-   "region": "north",
-   "cat": "STATEWIDE",
-   "county": "Wexford",
-   "tag": "Local Government",
-   "iso": "2026-07-14T01:01:39Z",
-   "id": "023610b22d4f",
-   "origin": "google-news",
-   "source_title": "Crowd comes out in support of banning data centers in Haring Township - Cadillac News",
-   "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNT0g2eU1EV241b3hkUzlfQ2l3R3czMFJsU1VsbkZzMzFHV0k0NjhfVTNHcThBY21qVDlKbzdIWnZraVBnOHdvOWlJUTBmck4tZjFYTlo0YXh4ZWxvZUJqVkxCMGpsc1M5TkVzLUJFbGRjcUtjaFJ0YUxadWpzVkhQRGFuVE96Z0RaTFNWVExrS1F0QnhWVTVxd3hHNldvX2hVUnZROEdRdU1Ba3lIbEd5Uy1DMGU2cEl6WDZldVF5S1B1NkphQ1FvTXBKUGlxaEFJdXhIQ25FckxjWDJ6R3Jsc0dtNUpjcHZ4?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 7
   }
  ],
  "national": {
@@ -206,13 +206,13 @@
   {
    "iso": "2026-07-15",
    "body": "Ypsilanti Township Board of Trustees",
-   "topic": "Informational session on updates to the proposed University of Michigan/Los Alamos computational data center project at Bridge Road and Textile Road, including township opposition and resident concerns over water, power and environmental impacts.",
+   "topic": "Data center informational session on University of Michigan proposed project",
    "region": "SE Michigan",
    "regionKey": "metro",
    "county": "Washtenaw",
-   "time": "6:00 PM",
-   "status": "Informational session",
-   "urgent": true,
+   "time": "7:00 PM",
+   "status": "Public hearing",
+   "urgent": false,
    "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
    "linkLabel": "Agenda",
    "stream": ""
