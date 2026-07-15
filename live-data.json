@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-15T19:48:05+00:00",
+ "updated_at": "2026-07-15T21:10:32Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Freedom Township residents block billion-dollar data center push",
+   "dek": "Locals in the Washtenaw County township organized to stop a massive project that would have consumed huge amounts of power and water. Their successful push shows how small communities can alter the trajectory of AI-driven builds. Property values and township services stay protected for now.",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRkhmLXRwTExuNWZCMmgyLTk2Y1lZV3Qwb3UzTmJwNDk5VTJPSkowZmdqNGw1cEtrcVNXRW1hcnlnbDNrOFVTOG5KQzJmOUZ2UEJncFk4bVZBelFUbDVtU2cyTmVwOXpsakdGSFJGbnZLYUhnazRIQlZfbXphaGQwcTVuVmVvZTFjaXB3MmNvZHY3R1Ayc0VyM29kZE9qTExWOEZB?oc=5",
+   "source": "The Sun Times News",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Washtenaw",
+   "tag": "Local Government",
+   "iso": "2026-07-15T19:55:56Z",
+   "id": "f988efac7b84",
+   "origin": "google-news",
+   "source_title": "Fortitude: How Freedom Township Found Its Voice in a Billion-Dollar Fight - The Sun Times News",
+   "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRkhmLXRwTExuNWZCMmgyLTk2Y1lZV3Qwb3UzTmJwNDk5VTJPSkowZmdqNGw1cEtrcVNXRW1hcnlnbDNrOFVTOG5KQzJmOUZ2UEJncFk4bVZBelFUbDVtU2cyTmVwOXpsakdGSFJGbnZLYUhnazRIQlZfbXphaGQwcTVuVmVvZTFjaXB3MmNvZHY3R1Ayc0VyM29kZE9qTExWOEZB?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "Whitmer urges data centers to sign pledge shielding ratepayers",
    "dek": "The governor called on developers to commit to protecting Michigan residents from higher utility bills and strained water supplies. The voluntary plan comes as multiple townships weigh their own restrictions on new projects. Statewide adoption could shape how billions in new investment affect local communities.",
@@ -169,23 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPb2lya0otVjcwT1hoZkNnTDh5b1M5OS1mLUFGRkFBcWpyWjFJYWUwX2pZaWY2Z0YwUE9XUkJvRDhfUGp2dlppcmNZdkhzLVlFSTc0UzE5ZzFSd1hLWUs4cTNMLTI5WXl3dHFjWkYxYWdYR2dTQWVBTmxYZXJLWjZMWi1PS2VzYnVQQUFUV0JhTTNVc0VDS2JadWtTMDRmTWx5d2hpbmJPN25HVldLcU1lRjEzVEJvZW51SlJRanJqaEREVE5VNGc?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 8
-  },
-  {
-   "title": "Pere Marquette eyes year-long data center freeze",
-   "dek": "Township leaders are debating a moratorium that would block new proposals while residents weigh impacts on local power supply and roads. A pause would give officials time to study water use and tax effects before any large project moves forward. Mason County families could see decisions that shape growth for years.",
-   "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNNHdlOUdSeDRSX3k3RDVCdDZRSWNBOTYxaHliV245YS1mTThqM1FObHVTeVJnem1kb1VkNUVUc2pneDcxYWlVWHlFcGswa0pSVFBOdERQdEJua0FYekRkUXZ5RGlPSWRUd0tIUXNzQTVTOGxEWmFmdlhIMWZueHlPNUJFd0pjUmxBYV8tT0MyY0N6bFY1dEdZSEw3WjlMamt3ejVsYllKeDFzX1U5aFFYU0hnUHpRVGZWQkNjUWVhbE1ONFZONkU2MjVkeEw3N3JsbnBUZUpYeWVuLVhSTEQyZWFSZnE5ZGVyWmRxR0g4aGtnUQ?oc=5",
-   "source": "Shoreline Media Group",
-   "region": "west",
-   "cat": "STATEWIDE",
-   "county": "Mason",
-   "tag": "Local Government",
-   "iso": "2026-07-15T00:15:00Z",
-   "id": "d23a9dfe814c",
-   "origin": "google-news",
-   "source_title": "Pere Marquette Township weighs data center moratorium - Shoreline Media Group",
-   "source_url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNNHdlOUdSeDRSX3k3RDVCdDZRSWNBOTYxaHliV245YS1mTThqM1FObHVTeVJnem1kb1VkNUVUc2pneDcxYWlVWHlFcGswa0pSVFBOdERQdEJua0FYekRkUXZ5RGlPSWRUd0tIUXNzQTVTOGxEWmFmdlhIMWZueHlPNUJFd0pjUmxBYV8tT0MyY0N6bFY1dEdZSEw3WjlMamt3ejVsYllKeDFzX1U5aFFYU0hnUHpRVGZWQkNjUWVhbE1ONFZONkU2MjVkeEw3N3JsbnBUZUpYeWVuLVhSTEQyZWFSZnE5ZGVyWmRxR0g4aGtnUQ?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 7
   }
  ],
  "national": {
@@ -258,6 +258,19 @@
    "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
    "linkLabel": "Agenda & Details",
    "stream": null
+  },
+  {
+   "iso": "2026-07-16",
+   "body": "Michigan Public Service Commission",
+   "topic": "Data center power contracts and rate impacts",
+   "region": "Mid-Michigan",
+   "regionKey": "mid",
+   "county": "Ingham",
+   "time": "1:00 PM",
+   "status": "State hearing",
+   "urgent": true,
+   "link": "https://www.michigan.gov/mpsc",
+   "linkLabel": "Agenda"
   }
  ],
  "accuracy_checked_at": "2026-07-08T08:45:16+00:00"

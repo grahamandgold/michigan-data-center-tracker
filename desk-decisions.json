@@ -881,6 +881,27 @@
    "at": "2026-07-15T19:48:22+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: Duplicate of already-live 'Whitmer urges data centers to sign pledge shielding ratepayers'—same governor's voluntary pledge announcement."
+  },
+  {
+   "url": "https://www.mlive.com/politics/2026/07/whitmer-calls-on-data-centers-to-sign-pledge-they-wont-increase-utility-bills.html",
+   "title": "Whitmer Urges Data Center Operators to Pledge No Rate Hikes for Residents",
+   "at": "2026-07-15T21:10:31+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Duplicate of already-live 'Whitmer urges data centers to sign pledge shielding ratepayers' — same pledge announcement."
+  },
+  {
+   "url": "https://www.govtech.com/products/michigan-city-rejects-data-center-waiver-request",
+   "title": "Wixom Keeps Data Center Moratorium After Health and Noise Warnings",
+   "at": "2026-07-15T21:10:31+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Duplicate of already-live 'Wixom keeps data center moratorium after rejecting waiver request' — same council decision and moratorium continuation."
+  },
+  {
+   "url": "https://www.freep.com/story/news/politics/2026/07/15/whitmer-data-center-pledge-safeguarding-water-energy/90929332007/",
+   "title": "Tech Giants Accelerate Hyperscale Builds as Power Demand Spikes Nationwide",
+   "at": "2026-07-15T21:10:31+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece about power demand and hyperscale builds with no Michigan-specific development or decision."
   }
  ],
  "auto_published": [
@@ -1285,6 +1306,12 @@
    "title": "Solon Township shelves rules aimed at limiting data centers",
    "judge_score": 7,
    "at": "2026-07-15T18:15:12Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRkhmLXRwTExuNWZCMmgyLTk2Y1lZV3Qwb3UzTmJwNDk5VTJPSkowZmdqNGw1cEtrcVNXRW1hcnlnbDNrOFVTOG5KQzJmOUZ2UEJncFk4bVZBelFUbDVtU2cyTmVwOXpsakdGSFJGbnZLYUhnazRIQlZfbXphaGQwcTVuVmVvZTFjaXB3MmNvZHY3R1Ayc0VyM29kZE9qTExWOEZB?oc=5",
+   "title": "Freedom Township residents block billion-dollar data center push",
+   "judge_score": 8,
+   "at": "2026-07-15T21:10:32Z"
   }
  ]
 }
