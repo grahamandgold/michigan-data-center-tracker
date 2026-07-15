@@ -902,6 +902,20 @@
    "at": "2026-07-15T21:10:31+00:00",
    "by": "news_judge",
    "note": "score 3/10: National trend piece about power demand and hyperscale builds with no Michigan-specific development or decision."
+  },
+  {
+   "url": "https://www.reuters.com/legal/litigation/where-authorities-are-restricting-data-centres-amid-ai-boom-2026-07-14/",
+   "title": "New York Governor Imposes First Statewide Moratorium on Hyperscale Data Centers",
+   "at": "2026-07-15T22:33:47+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: New York moratorium already killed twice; not Michigan-relevant."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPbzI0MS1DdGpSZlBPZlNQODNneF9KcDV2aEFUZ3FCNFcxTThXUzJnUWx5cUdNWWRIRjZNZWhwZFA3NEVhUWx0RllGUzN6TmhIMzdEOUxNR3RZX3FwSkpaUjRCNk9GcklKdUFfSUV0M25lUlpWZDJoZFNmWEdSV0hhVnJJbHVxbzFhT3o5Ym5JS3AzRGxYQ3B0ZllBeVZxejhXUzNfN2ItSVNMZGtTOHRIbkp3?oc=5",
+   "title": "Oracle gets 1/9th the tax break it wanted in Saline Twp",
+   "at": "2026-07-15T22:33:47+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Saline Township Oracle tax break already live in two versions covering this same approval."
   }
  ],
  "auto_published": [
@@ -1312,6 +1326,18 @@
    "title": "Freedom Township residents block billion-dollar data center push",
    "judge_score": 8,
    "at": "2026-07-15T21:10:32Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOMDNISEJLTzY0NU41aHR6d2M2NHFVRUkydU11Ujh4OXFaMkJvSHRIWFVVbUE3c3M5UWlaNjVOMl9ta1ZDRkFBRlprRXhDZHJIVnZJSmVRWnhGbFRKV2FzYkF6VXJ2bHRISktldmFpUVVVaXIzNG1RblZCUmZ2R2xmU0xoREl1dW1kWTNRcXQzZmJZUDVQWEFqMGpXQmdXOVZIellrQWVWOFdiWUNYNTRsZ0hwVW85eUJEbVE?oc=5",
+   "title": "Michigan bills aim to shield residents from subsidizing data center utility costs",
+   "judge_score": 8,
+   "at": "2026-07-15T22:33:47Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMTdNZjB0YUlIRzdjY3RTV1BsQnQ4N0dGV28tZVhxdmhhRmt2dVl2alVZanFHRENLYWZsWEFOaURMN0RaUU1ybE5FUVRVeGpBcXYtVUpYSnZpNXZLdUZIMTJmcWlSZTluN3NORF90NHUtNGpkMm9EbThvbmNPQ0JvVGRTUWs2Vi1Kb2pUYWc2XzVZZXcwdGVn?oc=5",
+   "title": "Warren council pushes one-year halt on new data centers",
+   "judge_score": 9,
+   "at": "2026-07-15T22:33:47Z"
   }
  ]
 }

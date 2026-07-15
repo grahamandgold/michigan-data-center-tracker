@@ -1,127 +1,7 @@
 {
- "updated_at": "2026-07-15T21:27:25+00:00",
+ "updated_at": "2026-07-15T22:33:47Z",
  "generator": "grok-wire-agent",
  "items": [
-  {
-   "title": "Ypsilanti Township confronts U-M computing site on 144 acres amid water moratorium",
-   "dek": "The Ypsilanti Township Board of Trustees meets tonight to discuss a proposed high-performance computing facility backed by the University of Michigan and Los Alamos National Laboratory on roughly 144 acres near Textile and Bridge roads. The project faces questions over cooling water use after the township secured a 12-month YCUA moratorium on services for such facilities. Residents 30 minutes away stand to lose tax revenue on university-owned land while bearing infrastructure strain from what township officials describe as a tier-one security target.",
-   "url": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
-   "source": "Ypsilanti Township Board of Trustees agenda",
-   "region": "Southeast Michigan",
-   "county": "Washtenaw",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-15T21:27:25+00:00",
-   "kind": "agenda",
-   "id": "85dd19853e1f",
-   "filed_at": "2026-07-15T21:27:25+00:00",
-   "accuracy": "document-based",
-   "findings": "U-M controls approximately 144 acres after buying 124 acres on Textile Road in March 2026 plus prior parcels totaling $6.7 million | Township Resolution 2026-08 requested and YCUA approved a 12-month moratorium on water and sewer commitments for data centers and AI facilities citing up to 5 million gallons daily demand | The site is described by township officials as a potential tier-one high-value target for attacks due to Los Alamos partnership | University land remains tax-exempt with no property taxes paid to the township or schools",
-   "perspective": "The board has unanimously adopted prior resolutions including 2026-05 opposing any Los Alamos nuclear research facility in the township and 2026-08 seeking the YCUA moratorium. Tonight's informational session follows public comment periods on the project with no vote scheduled; the township continues pressing for direct community meetings.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php"
-    },
-    {
-     "label": "Resolution 2026-08",
-     "url": "https://files.ypsitownship.org/Documents/Departments/Clerks-Office/Ordinances-Resolutions/2026/2026-Resolutions/Resolution-No.-2026-08-Data-Center-YCUA-Moratorium.pdf?t=202604161122310&t=202604161122310"
-    },
-    {
-     "label": "Letter from U of M President Dominico Grasso and LANL Director Thom Ma",
-     "url": "https://debbiedingell.house.gov/uploadedfiles/7.10.26_um_response.pdf"
-    }
-   ],
-   "depth_score": 10,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "Augusta Township planning commission to discuss draft data center rules with 10 MW and 100 gpm thresholds",
-   "dek": "The draft ordinance would require 10-acre minimum lots, 400-foot residential setbacks, and mandatory neighborhood meetings for facilities exceeding electric or water thresholds, restricting them to industrial zones only.",
-   "url": "https://augustatownship.org/wp-content/uploads/2026/07/July-15-2026-PC-Meeting-Agenda-Website.pdf",
-   "source": "Augusta Township Planning Commission agenda",
-   "region": "Southeast Michigan",
-   "county": "Washtenaw",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-15T21:27:25+00:00",
-   "kind": "agenda",
-   "id": "8ca4b7a8976c",
-   "filed_at": "2026-07-15T21:27:25+00:00",
-   "accuracy": "document-based",
-   "findings": "Draft defines High Resource Demand Facility by >10 MW electric demand or >100 gpm average daily water use, plus operational characteristics like 24-hour operations or emergency generation exceeding 2 MW | Large-scale data centers permitted only in GI General Industrial District; small-scale allowed in GI and LI Limited Industrial; accessory allowed in GI, LI, GC General Commercial and O Office as special land use | Minimum lot area 10 acres for large-scale, 400-foot setbacks from residential/schools/parks/day-care/hospitals required | Mandatory pre-application conference and neighborhood meeting within 500 feet at least 21 days before first public hearing | Maximum building height 45 feet, maximum lot coverage 60% | per the draft ordinance text in the July 15, 2026 meeting packet",
-   "perspective": "The June 17, 2026 minutes show the commission voted unanimously to recommend approval of a temporary moratorium ordinance to the Township Board, with planner Joe Pezzotti stating he would bring back different versions of data center and high demand facility ordinances. Tonight's discussion is the follow-through on that commitment.",
-   "documents": [
-    {
-     "label": "Agenda (PDF)",
-     "url": "https://augustatownship.org/wp-content/uploads/2026/07/July-15-2026-PC-Meeting-Agenda-Website.pdf"
-    }
-   ],
-   "depth_score": 6,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "Wixom data center plan for three buildings over 500k sq ft sparks water and power worries",
-   "dek": "Wixom Industrial One and Sansone want to build three data center structures exceeding 500,000 square feet at 30625 Wixom Road, wedged between businesses and near homes. City Manager Steven Brown said the draft ordinance will address noise, residential proximity, water and electricity demands.",
-   "url": "https://www.wxyz.com/news/data-centers/wixom-residents-to-weigh-in-on-data-center-ordinance-as-city-council-meets-tuesday-night",
-   "source": "Wixom City Council agenda",
-   "region": "Southeast Michigan",
-   "county": "Oakland",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-15T21:27:25+00:00",
-   "kind": "agenda",
-   "id": "5f715f62be68",
-   "filed_at": "2026-07-15T21:27:25+00:00",
-   "accuracy": "document-based",
-   "findings": "Project calls for three buildings totaling more than 500,000 square feet at 30625 Wixom Road (WXYZ reporting) | City Manager Steven Brown confirmed ordinance will address noise, residential setbacks, water and electricity use (WXYZ) | Six-month moratorium on data centers was put in place in March while planning commission worked to draft ordinance (WXYZ) | Residents including Abigail Saliba and Steve Murphy cited waste of water, electricity and resources plus low employment and tax-break requests (WXYZ interviews) | Wixom Industrial One partnered with Sansone on the site currently covered in trees (WXYZ)",
-   "perspective": "The city put the moratorium in place in March while the planning commission worked to draft an ordinance specifically regulating data centers. Tuesday's meeting at 7 p.m. opens public comment on the ordinance amendment and a possible moratorium lift as the six-month moratorium period nears expiration.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://www.wxyz.com/news/data-centers/wixom-residents-to-weigh-in-on-data-center-ordinance-as-city-council-meets-tuesday-night"
-    },
-    {
-     "label": "Journalism Ethics Guidelines",
-     "url": "https://assets.scrippsdigital.com/docs/journalism-ethics-guidelines.pdf"
-    }
-   ],
-   "depth_score": 8,
-   "extraction_method": "plain"
-  },
-  {
-   "title": "UMich-Los Alamos facility targets 144 acres in Ypsilanti amid water and tax concerns",
-   "dek": "University of Michigan and Los Alamos National Laboratory control approximately 144 acres at Textile and Bridge roads for a high-performance computing site. The township has sought a 12-month moratorium on utility hookups for such projects and passed formal opposition to any nuclear research component. Residents 30 minutes away stand to lose tax revenue while the university remains exempt from local property taxes.",
-   "url": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
-   "source": "Ypsilanti Township agenda",
-   "region": "Southeast Michigan",
-   "county": "Washtenaw",
-   "cat": "Meetings",
-   "tag": "Agenda watch",
-   "iso": "2026-07-15T21:27:25+00:00",
-   "kind": "agenda",
-   "id": "85dd19853e1f",
-   "filed_at": "2026-07-15T21:27:25+00:00",
-   "accuracy": "document-based",
-   "findings": "The packet shows University of Michigan bought 20 acres at 10221 Textile Rd for $1.5 million in 2024 and over 100 acres at 10455 and 10635 Textile Rd for $5.2 million in 2026, bringing total control to approximately 144 acres | Resolution 2026-08 requests YCUA impose a moratorium on water and sewer services for hyperscale and AI facilities citing demands up to 5 million gallons per day and wastewater treatment needs | Township Resolution 2026-05 unanimously opposes Los Alamos siting any nuclear research facility in Ypsilanti Township | YCUA voted in favor of a 12-month moratorium on April 22nd | Supervisor Stumbo received a text message on March 18 at 2:55pm from Chris Kolb, UM Vice President of Government Relations, that the University had closed on the purchase of the 124 acre parcel on ",
-   "perspective": "Ypsilanti Township Board unanimously backed Resolution 2026-05 opposing nuclear research siting and Resolution 2026-08 urging the water moratorium after earlier outreach to state and federal officials. UM and LANL continue site evaluations at Textile Road with no final decision announced.",
-   "documents": [
-    {
-     "label": "Agenda page",
-     "url": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php"
-    },
-    {
-     "label": "Resolution 2026-08",
-     "url": "https://files.ypsitownship.org/Documents/Departments/Clerks-Office/Ordinances-Resolutions/2026/2026-Resolutions/Resolution-No.-2026-08-Data-Center-YCUA-Moratorium.pdf?t=202604161122310&t=202604161122310"
-    },
-    {
-     "label": "Letter from U of M President Dominico Grasso and LANL Director Thom Ma",
-     "url": "https://debbiedingell.house.gov/uploadedfiles/7.10.26_um_response.pdf"
-    }
-   ],
-   "depth_score": 10,
-   "extraction_method": "plain"
-  },
   {
    "iso": "2026-07-14T18:00:00+00:00",
    "region": "metro",
@@ -161,5 +41,5 @@
    "judge_note": "New development in Lenox with concrete action (recall push) and document evidence (revealed emails) — different township, specific new event."
   }
  ],
- "accuracy_checked_at": "2026-07-15T21:10:26+00:00"
+ "accuracy_checked_at": "2026-07-15T22:33:41+00:00"
 }
