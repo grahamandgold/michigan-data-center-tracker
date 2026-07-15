@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-15T06:38:46Z",
+ "updated_at": "2026-07-15T09:18:32+00:00",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -206,14 +206,28 @@
   {
    "iso": "2026-07-15",
    "body": "Ypsilanti Township Board of Trustees",
-   "topic": "Data center informational session on University of Michigan proposed project",
+   "topic": "Informational session on proposed University of Michigan/Los Alamos computational data center project",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Washtenaw",
+   "time": "6:00 PM",
+   "status": "Public hearing",
+   "urgent": true,
+   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
+   "linkLabel": "Agenda",
+   "stream": ""
+  },
+  {
+   "iso": "2026-07-15",
+   "body": "Augusta Township Planning Commission",
+   "topic": "Review of zoning ordinance including data center definitions and regulations",
    "region": "SE Michigan",
    "regionKey": "metro",
    "county": "Washtenaw",
    "time": "7:00 PM",
-   "status": "Public hearing",
+   "status": "Planning commission",
    "urgent": false,
-   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
+   "link": "https://augustatownship.org/wp-content/uploads/2026/07/July-15-2026-PC-Meeting-Agenda-Website.pdf",
    "linkLabel": "Agenda",
    "stream": ""
   },
