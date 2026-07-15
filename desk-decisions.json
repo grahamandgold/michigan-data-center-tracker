@@ -776,6 +776,13 @@
    "at": "2026-07-15T00:54:53+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: Duplicate of already-live 'Wixom residents get say on new data center rules tonight' — same zoning decision and resident meeting."
+  },
+  {
+   "url": "https://www.reuters.com/world/new-york-becomes-first-state-impose-data-center-moratorium-2026-07-14/",
+   "title": "New York Governor Hochul Signs First Statewide Moratorium on Large New Data Centers",
+   "at": "2026-07-15T04:12:36+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Already killed twice as 'New York Becomes First State to Impose Data Center Moratorium' and 'New York Governor Signs One-Year Moratorium on New Data Center Perm"
   }
  ],
  "auto_published": [
@@ -1120,6 +1127,12 @@
    "title": "Pere Marquette eyes year-long data center freeze",
    "judge_score": 7,
    "at": "2026-07-15T00:54:53Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPb2lya0otVjcwT1hoZkNnTDh5b1M5OS1mLUFGRkFBcWpyWjFJYWUwX2pZaWY2Z0YwUE9XUkJvRDhfUGp2dlppcmNZdkhzLVlFSTc0UzE5ZzFSd1hLWUs4cTNMLTI5WXl3dHFjWkYxYWdYR2dTQWVBTmxYZXJLWjZMWi1PS2VzYnVQQUFUV0JhTTNVc0VDS2JadWtTMDRmTWx5d2hpbmJPN25HVldLcU1lRjEzVEJvZW51SlJRanJqaEREVE5VNGc?oc=5",
+   "title": "Saline Township caps Oracle tax break at $4.8B after rejecting bigger cut",
+   "judge_score": 8,
+   "at": "2026-07-15T04:12:36Z"
   }
  ]
 }

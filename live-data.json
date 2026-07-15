@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-15T00:54:53Z",
+ "updated_at": "2026-07-15T04:12:36Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Saline Township caps Oracle tax break at $4.8B after rejecting bigger cut",
+   "dek": "Trustees approved a limited tax abatement for the Oracle campus but refused a deeper 50% break that would have cost local schools and services far more. The $4.8 billion cap keeps the original project size in play while protecting township revenue. Residents 30 minutes away will feel the difference in property-tax bills and future power rates.",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPb2lya0otVjcwT1hoZkNnTDh5b1M5OS1mLUFGRkFBcWpyWjFJYWUwX2pZaWY2Z0YwUE9XUkJvRDhfUGp2dlppcmNZdkhzLVlFSTc0UzE5ZzFSd1hLWUs4cTNMLTI5WXl3dHFjWkYxYWdYR2dTQWVBTmxYZXJLWjZMWi1PS2VzYnVQQUFUV0JhTTNVc0VDS2JadWtTMDRmTWx5d2hpbmJPN25HVldLcU1lRjEzVEJvZW51SlJRanJqaEREVE5VNGc?oc=5",
+   "source": "WXYZ 7 News Detroit",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Washtenaw",
+   "tag": "Money",
+   "iso": "2026-07-15T03:04:06Z",
+   "id": "73319a9e5dd2",
+   "origin": "google-news",
+   "source_title": "Saline Township board approves Oracle tax abatement, cap it at original $4.8B project cost - WXYZ 7 News Detroit",
+   "source_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPb2lya0otVjcwT1hoZkNnTDh5b1M5OS1mLUFGRkFBcWpyWjFJYWUwX2pZaWY2Z0YwUE9XUkJvRDhfUGp2dlppcmNZdkhzLVlFSTc0UzE5ZzFSd1hLWUs4cTNMLTI5WXl3dHFjWkYxYWdYR2dTQWVBTmxYZXJLWjZMWi1PS2VzYnVQQUFUV0JhTTNVc0VDS2JadWtTMDRmTWx5d2hpbmJPN25HVldLcU1lRjEzVEJvZW51SlJRanJqaEREVE5VNGc?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "Pere Marquette eyes year-long data center freeze",
    "dek": "Township leaders are debating a moratorium that would block new proposals while residents weigh impacts on local power supply and roads. A pause would give officials time to study water use and tax effects before any large project moves forward. Mason County families could see decisions that shape growth for years.",
@@ -169,23 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNT0g2eU1EV241b3hkUzlfQ2l3R3czMFJsU1VsbkZzMzFHV0k0NjhfVTNHcThBY21qVDlKbzdIWnZraVBnOHdvOWlJUTBmck4tZjFYTlo0YXh4ZWxvZUJqVkxCMGpsc1M5TkVzLUJFbGRjcUtjaFJ0YUxadWpzVkhQRGFuVE96Z0RaTFNWVExrS1F0QnhWVTVxd3hHNldvX2hVUnZROEdRdU1Ba3lIbEd5Uy1DMGU2cEl6WDZldVF5S1B1NkphQ1FvTXBKUGlxaEFJdXhIQ25FckxjWDJ6R3Jsc0dtNUpjcHZ4?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 7
-  },
-  {
-   "title": "Lowell Township residents face first data-center vote tonight",
-   "dek": "A project could arrive in Kent County with major power and land-use impacts. Neighbors want to know how much noise, traffic and tax revenue will actually reach them. The meeting decides whether the township opens the door or sets limits.",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOY2VjcEQteVJwZWxzRGVVNjRHZXc5NlRnanNjWXBCakd3Q093NDVmbXRyQTcySndZeThJRkcxWEdnb2R6b1d0ZUIwZU1HV2FTTGxZQjFvNHpjQWI4a1JSRWdCTjhrbk5IM1FJNHIxNEJaaTVlaFNMczEyWTczY05NWWJBYnV3aGZjcnlaMDMwTUN6NllPcGc3ZnlWZDg0S05GSzh5dHFyb0lnWF9YR2l1SDh5RjBGTmJiVXlTTTJ4SF9TbkZualZ5QQ?oc=5",
-   "source": "WZZM13.com",
-   "region": "west",
-   "cat": "STATEWIDE",
-   "county": "Kent",
-   "tag": "Local Government",
-   "iso": "2026-07-13T21:14:00Z",
-   "id": "727002d1ee24",
-   "origin": "google-news",
-   "source_title": "Data center discussion in Lowell Township tonight - WZZM13.com",
-   "source_url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOY2VjcEQteVJwZWxzRGVVNjRHZXc5NlRnanNjWXBCakd3Q093NDVmbXRyQTcySndZeThJRkcxWEdnb2R6b1d0ZUIwZU1HV2FTTGxZQjFvNHpjQWI4a1JSRWdCTjhrbk5IM1FJNHIxNEJaaTVlaFNMczEyWTczY05NWWJBYnV3aGZjcnlaMDMwTUN6NllPcGc3ZnlWZDg0S05GSzh5dHFyb0lnWF9YR2l1SDh5RjBGTmJiVXlTTTJ4SF9TbkZualZ5QQ?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
   }
  ],
  "national": {
@@ -203,6 +203,20 @@
   "accuracy": "checked"
  },
  "meetings": [
+  {
+   "iso": "2026-07-15",
+   "body": "Ypsilanti Township Board of Trustees",
+   "topic": "Informational session on updates to the proposed University of Michigan/Los Alamos computational data center project at Bridge Road and Textile Road, including township opposition and resident concerns over water, power and environmental impacts.",
+   "region": "SE Michigan",
+   "regionKey": "metro",
+   "county": "Washtenaw",
+   "time": "6:00 PM",
+   "status": "Informational session",
+   "urgent": true,
+   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
+   "linkLabel": "Agenda",
+   "stream": ""
+  },
   {
    "iso": "2026-07-15",
    "body": "Wixom City Council",
@@ -230,20 +244,6 @@
    "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
    "linkLabel": "Agenda & Details",
    "stream": null
-  },
-  {
-   "iso": "2026-07-15",
-   "body": "Ypsilanti Township Board of Trustees",
-   "topic": "Informational session on University of Michigan/Los Alamos proposed data center project, including updates on opposition and resource concerns",
-   "region": "SE Michigan",
-   "regionKey": "metro",
-   "county": "Washtenaw",
-   "time": "6:00 PM",
-   "status": "Public hearing",
-   "urgent": true,
-   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php",
-   "linkLabel": "Agenda",
-   "stream": ""
   }
  ],
  "accuracy_checked_at": "2026-07-08T08:45:16+00:00"
