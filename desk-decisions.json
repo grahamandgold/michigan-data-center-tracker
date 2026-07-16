@@ -1056,6 +1056,20 @@
    "at": "2026-07-16T21:12:50+00:00",
    "by": "news_judge",
    "note": "score 3/10: National trend piece with no Michigan-specific development or decision."
+  },
+  {
+   "url": "https://www.reuters.com/world/us/americans-are-angry-about-data-centers-politicians-are-feeling-pressure-2026-07-16/",
+   "title": "Nationwide backlash grows as politicians face pressure over data center expansion",
+   "at": "2026-07-16T22:32:32+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece with Michigan examples, no specific new decision or development reported."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5HN0kxRTIwcnVwcUwwWDNnOHlWajJnSmFBVUEzX2VkVDhRdUM2VHR6NnVBbGpEOVA3MTJVejRMNnBUOTVNN2NjSV95dTBfeHY3b0pLZGlWQkVLb3RubjBQRGxsT3Y5SzZ1OXFEdkE5RTNqeHFJMnc?oc=5",
+   "title": "Farmland protection debate erupts over new Michigan AI data center site",
+   "at": "2026-07-16T22:32:32+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Vague story lacking specifics—no location, company, vote, or filing identified; reads like generic farmland concern rehash."
   }
  ],
  "auto_published": [
@@ -1532,6 +1546,12 @@
    "title": "Lyon Township neighbors blast Project Flex noise and traffic ahead of final vote",
    "judge_score": 7,
    "at": "2026-07-16T21:12:50Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQcmk5dF9jMFNhNG1RSVVjU3JXcUlNUW00LVliRzQ1em82ZmROcHBJN0RiQkhaeTc2NkIybWdOZHFkMjktMERQeFNwcFB5dkY3V0o4S1lDQnMzOF9oRWY0bmZucVlYY3hYRk1fZHBkVmd6T3YxN3B6ZTgwVHNDNC0yN2hhWjNkcWV5dmJ5eG90YUFVNllCWmxlVDZma3ozLUZwRkV3NUgxNlZlUXByYmRwUWVHYjVrRXIwVGMyMlRfWDR3eUlBdF9maEJlVXMwbHdFQjQtQWU4OVdhTXFiSmp0Y3NEMDJoY2FITTZCU016RERKcXhxTk50MVdSeVJrcDhDVU1Fc29DaXlIQXc?oc=5",
+   "title": "Six data center firms pledge to cover their own power costs under Whitmer plan",
+   "judge_score": 8,
+   "at": "2026-07-16T22:32:32Z"
   }
  ]
 }

@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-16T21:12:50Z",
+ "updated_at": "2026-07-16T22:32:32Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Six data center firms pledge to cover their own power costs under Whitmer plan",
+   "dek": "Governor Whitmer released a voluntary agreement asking data center operators to pay for grid upgrades they trigger. Six companies have already signed on, shifting some of the cost burden away from Michigan ratepayers. The move comes as multiple large projects seek approvals across the state.",
+   "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQcmk5dF9jMFNhNG1RSVVjU3JXcUlNUW00LVliRzQ1em82ZmROcHBJN0RiQkhaeTc2NkIybWdOZHFkMjktMERQeFNwcFB5dkY3V0o4S1lDQnMzOF9oRWY0bmZucVlYY3hYRk1fZHBkVmd6T3YxN3B6ZTgwVHNDNC0yN2hhWjNkcWV5dmJ5eG90YUFVNllCWmxlVDZma3ozLUZwRkV3NUgxNlZlUXByYmRwUWVHYjVrRXIwVGMyMlRfWDR3eUlBdF9maEJlVXMwbHdFQjQtQWU4OVdhTXFiSmp0Y3NEMDJoY2FITTZCU016RERKcXhxTk50MVdSeVJrcDhDVU1Fc29DaXlIQXc?oc=5",
+   "source": "WZZM13.com",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "county": "",
+   "tag": "Policy",
+   "iso": "2026-07-16T21:15:00Z",
+   "id": "0e80c3214021",
+   "origin": "google-news",
+   "source_title": "6 data center companies sign new pledge after Gov. Whitmer releases plan calling for them to cover their own costs - WZZM13.com",
+   "source_url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQcmk5dF9jMFNhNG1RSVVjU3JXcUlNUW00LVliRzQ1em82ZmROcHBJN0RiQkhaeTc2NkIybWdOZHFkMjktMERQeFNwcFB5dkY3V0o4S1lDQnMzOF9oRWY0bmZucVlYY3hYRk1fZHBkVmd6T3YxN3B6ZTgwVHNDNC0yN2hhWjNkcWV5dmJ5eG90YUFVNllCWmxlVDZma3ozLUZwRkV3NUgxNlZlUXByYmRwUWVHYjVrRXIwVGMyMlRfWDR3eUlBdF9maEJlVXMwbHdFQjQtQWU4OVdhTXFiSmp0Y3NEMDJoY2FITTZCU016RERKcXhxTk50MVdSeVJrcDhDVU1Fc29DaXlIQXc?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "Lyon Township neighbors blast Project Flex noise and traffic ahead of final vote",
    "dek": "Residents near the proposed Lyon Township site say the constant hum and truck traffic will wreck their quality of life. The township board is set to decide whether the data center can move forward. Oakland County families 30 minutes away will feel the power and water strain if it is approved.",
@@ -167,23 +184,6 @@
    "id": "2a991df56f8b",
    "accuracy": "checked",
    "judge_score": 8
-  },
-  {
-   "title": "Warren council pushes one-year halt on new data centers",
-   "dek": "Warren's city council voted to seek a moratorium on data center proposals amid worries over power demand and noise. The move would give local officials time to write zoning rules before any projects advance. Macomb County residents now watch to see if neighboring communities follow.",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMTdNZjB0YUlIRzdjY3RTV1BsQnQ4N0dGV28tZVhxdmhhRmt2dVl2alVZanFHRENLYWZsWEFOaURMN0RaUU1ybE5FUVRVeGpBcXYtVUpYSnZpNXZLdUZIMTJmcWlSZTluN3NORF90NHUtNGpkMm9EbThvbmNPQ0JvVGRTUWs2Vi1Kb2pUYWc2XzVZZXcwdGVn?oc=5",
-   "source": "Macomb Daily",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Macomb",
-   "tag": "Local Government",
-   "iso": "2026-07-15T20:37:55Z",
-   "id": "a6c6bf57b750",
-   "origin": "google-news",
-   "source_title": "Warren city council calls for data center moratorium - Macomb Daily",
-   "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMTdNZjB0YUlIRzdjY3RTV1BsQnQ4N0dGV28tZVhxdmhhRmt2dVl2alVZanFHRENLYWZsWEFOaURMN0RaUU1ybE5FUVRVeGpBcXYtVUpYSnZpNXZLdUZIMTJmcWlSZTluN3NORF90NHUtNGpkMm9EbThvbmNPQ0JvVGRTUWs2Vi1Kb2pUYWc2XzVZZXcwdGVn?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9
   }
  ],
  "national": {
