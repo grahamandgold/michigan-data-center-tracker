@@ -965,6 +965,34 @@
    "at": "2026-07-16T13:05:41+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: New York moratorium already killed twice; not Michigan-relevant and adds no new development beyond what was previously rejected."
+  },
+  {
+   "url": "https://www.mlive.com/news/detroit/2026/07/wixom-city-council-rejects-data-center-waiver-moratorium-stays-in-place.html",
+   "title": "Wixom Council Rejects Waiver Request, Keeps Data Center Moratorium in Place",
+   "at": "2026-07-16T15:11:30+00:00",
+   "by": "news_judge",
+   "note": "score 4/10, duplicate: Duplicate of already-killed 'Wixom keeps moratorium after rejecting data-center waiver' and 'Wixom keeps its data center moratorium after rejecting a developer'"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNa2piaGE0V2Jxc192bVYxcGk0YkpRSnBzTlJBUHRMSHN6NldIMnFrTHlhUXMzSTZ6RWV2NWhkY3cxX0toWVc3eXhlTm9ETHU3enpVaHpZeTA5QWxWVkVVWVVhVGFfbkdqNGtOSmxBQ19aOUN0b1RuMUZtNnhBdTF6T2ZnYW1FLUc0V3VOdzNyLWY3YjV2a3VvMVU1S19aLTk0MlFFZGhmd0FpVzZIWVJnZi1mMFNlQdIBuwFBVV95cUxQU0xyNUNFVTlxbHV6dDlMMVFaRGV2UnFJWW9yanNQaDV4b0Jtc2JYYXhqcnl0WDJiM2tjZzRuNVFnUlVXS05DRVJGWXZoWVJtUTFYRHM4OHZfdy15YXhLTmt0MnNhMEduRDlpRXBNYW1PNFoxT2NKUzBCc1pZY2lIZll6eW1xeHk0WFRIM1Y5U09FM3JkYkFyQlc1SEVRWUdPeG9zU1U2R3JGczZVNTZzdldPbDVOU292dk9B?oc=5",
+   "title": "Michigan farmland towns battle new AI data center projects",
+   "at": "2026-07-16T15:11:30+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Generic trend piece aggregating multiple fights without naming specific new developments or decisions; lacks concrete news pegs."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPUUx0OTgwRnJvMXFiak01dXBUTUhGcWJpTVk2dTdOdElFQXVleTNjQkthMnh2OFpfd3R5UUhoNEtncXNSdWVlMlBsWkFwd3NuemhpZjBNQnNKdy1Gc1g2aU9mbGwtYjJ5RUxLSm5vS0FlR3Q3VEJLQno5WFM2SVBMSnN1VGFoU0tIWWo4VkJiLVJQSlBlM0pmYUpqUGY0UTN4ZFlMNFd1eEhWc2ZqVHNFdjlSeUZmVzZUQjc4Nk53bUdVVk1uTTV3OGRyWTlkMGtYS0tNeS00WQ?oc=5",
+   "title": "Whitmer data center pledge promises to shield Michigan ratepayers and water",
+   "at": "2026-07-16T15:11:30+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Duplicate of already-live 'Whitmer urges data centers to sign pledge shielding ratepayers' — same voluntary pledge announcement, just reworded with water added."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNMWhRbUVyb0tUQzFzcHltUjJiSFFQeUZtdTg2OHhkYXZkQ1o2ejROUzJ1NnA2YlZTd3BJZmxIeUUtSXJnT0Vub1hPa3dFN0RlSy1NYmVkdDMyZXNoa0xXZ1JST0txYW1pdzlEZzZISGh6aGhPXzJzQVNfOW1haTlwUlRDdm5rTVVwMERwdHZXcFFJMTA?oc=5",
+   "title": "Michigan utility blocks water hookup for giant Google data center",
+   "at": "2026-07-16T15:11:30+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Duplicate of already-live 'Utility denies water to Google-scale Michigan data center' — same utility water denial, same project."
   }
  ],
  "auto_published": [
