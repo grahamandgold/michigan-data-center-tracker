@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-16T16:51:38+00:00",
+ "updated_at": "2026-07-16T18:14:53Z",
  "generator": "grok-wire-agent",
  "stories": [
   {
@@ -34,6 +34,21 @@
    "source_title": "Constant noise from Dowagiac data center prompts class-action lawsuit - Detroit Free Press",
    "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNSWlqOWNHTm1nbEFLNzVheEhQWDlKdHpqUEUtanhESDZDMGxfdFMwdFc2MWNVc253bjdUVlRhc3NlX2FfVFoyWndXWW9pSjFHQXF4c0JlaHJTNDNfYkIyNWxOWEk3czZ1b1g2S21UUWcxMTc4QVpVa2o0NmQ1TnYxdS1VZXZuX2FqZ3pCMmtmaHlaT0U3aUp5Uzd3eW05aEs3R0x4WmpSalB3aVJlcWpLT3A2N3prQVY5Rzk0Z3cxQ3ZBdTQtdHo4X2NiUWpMRHZKWEJHdVhlcWs?oc=5",
    "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
+  {
+   "iso": "2026-07-16T08:00:00+00:00",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "tag": "Policy",
+   "title": "Michigan Bills Would Require Data Centers to Fund Local Benefits and Cover Their Own Power Costs",
+   "dek": "Democrats' package mandates community agreements and long-term energy contracts so residents avoid higher utility bills and water strain from new facilities.",
+   "source": "Multistate",
+   "url": "https://www.multistate.us/insider/2026/7/15/michigan-data-center-legislation-targets-energy-use-and-community-benefits",
+   "breaking": false,
+   "lead": false,
+   "id": "2799cfd22143",
+   "accuracy": "checked-rewritten",
    "judge_score": 8
   },
   {
@@ -167,23 +182,6 @@
    "origin": "google-news",
    "source_title": "Fortitude: How Freedom Township Found Its Voice in a Billion-Dollar Fight - The Sun Times News",
    "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRkhmLXRwTExuNWZCMmgyLTk2Y1lZV3Qwb3UzTmJwNDk5VTJPSkowZmdqNGw1cEtrcVNXRW1hcnlnbDNrOFVTOG5KQzJmOUZ2UEJncFk4bVZBelFUbDVtU2cyTmVwOXpsakdGSFJGbnZLYUhnazRIQlZfbXphaGQwcTVuVmVvZTFjaXB3MmNvZHY3R1Ayc0VyM29kZE9qTExWOEZB?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
-  },
-  {
-   "title": "Whitmer urges data centers to sign pledge shielding ratepayers",
-   "dek": "The governor called on developers to commit to protecting Michigan residents from higher utility bills and strained water supplies. The voluntary plan comes as multiple townships weigh their own restrictions on new projects. Statewide adoption could shape how billions in new investment affect local communities.",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNeHlDa1VNNkxBeU5oR20xUWlaRTZYeVFQYlc0S1BxOEtlZGlqZnZCSEpuYVI2Ql9aNFI2M2hmZVdYMnVaMVpIRWZZYmc4U01nRTMxN1UzQ3Q1RWxUMmtSal82bjk5UGxOeU42b0Nmdl9ldFBjRTI2a3VLUlhNM3JPQ0ZGMk00aXBQX24ycHBfU1VqVHVFakJVNGtJVWpZRm9kMzR2dl9Hb2luT1d3VWRvOUZtNk1fNldXd3c?oc=5",
-   "source": "Detroit Free Press",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "county": "",
-   "tag": "Policy",
-   "iso": "2026-07-15T17:58:00Z",
-   "id": "9be5d0f53593",
-   "origin": "google-news",
-   "source_title": "Whitmer calls on data centers to protect residents, resources - Detroit Free Press",
-   "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNeHlDa1VNNkxBeU5oR20xUWlaRTZYeVFQYlc0S1BxOEtlZGlqZnZCSEpuYVI2Ql9aNFI2M2hmZVdYMnVaMVpIRWZZYmc4U01nRTMxN1UzQ3Q1RWxUMmtSal82bjk5UGxOeU42b0Nmdl9ldFBjRTI2a3VLUlhNM3JPQ0ZGMk00aXBQX24ycHBfU1VqVHVFakJVNGtJVWpZRm9kMzR2dl9Hb2luT1d3VWRvOUZtNk1fNldXd3c?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 8
   }

@@ -1007,6 +1007,34 @@
    "at": "2026-07-16T16:51:43+00:00",
    "by": "news_judge",
    "note": "score 5/10: MLive tally/roundup provides incremental value by documenting the scope of proposals statewide, but no specific new decision or vote."
+  },
+  {
+   "url": "https://civicmedia.us/news/2026/07/16/massive-data-center-wins-local-tax-break-but-9-times-smaller-than-requested",
+   "title": "Saline Township Slashes Data Center Tax Break to Under $20M a Year",
+   "at": "2026-07-16T18:14:53+00:00",
+   "by": "news_judge",
+   "note": "score 9/10, duplicate: Same Saline Township tax-break decision already covered in killed story 'Saline Township OKs $4.8B-based tax break for $43B Oracle-OpenAI data center' and 'Orac"
+  },
+  {
+   "url": "https://michiganadvance.com/2026/07/15/whitmer-rolls-out-data-center-plan-calls-on-lawmakers-to-pass-laws-protecting-energy-customers/",
+   "title": "Whitmer Asks Data Centers to Pledge No Rate Hikes for Michigan Families",
+   "at": "2026-07-16T18:14:53+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Identical to already-live 'Whitmer urges data centers to sign pledge shielding ratepayers' and killed stories about the same pledge announcement."
+  },
+  {
+   "url": "https://www.baltimoresun.com/2026/07/16/trump-blasts-hochul-new-york-over-moratorium-on-data-center-construction/",
+   "title": "Trump: Hochul's Data Center Pause Sends Jobs and Tax Revenue to Other States",
+   "at": "2026-07-16T18:14:53+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National political commentary on New York's moratorium, not a Michigan development; thin relevance despite mentioning competing states."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxON09oMXczZHFDaGVzN082T3ZtM3p0ejdXLUdOdzZlYzR5YWlxY3JsR1RQa1RSYzk4Z0RZR3J5bVRvS3hNcGg5dmJxaktLejc5U1NIbnA2dGVWMXJjcDZGenpPUlgxaDhCMFN2T1JzRHpNTnpvMEJwTzFXYndPYkV2MkpDS0VjaG9Ya1R0MVp5SGoyek9CV0NRZUs0ci1qMURNOWhHWjRVWURfa0E2SXU3cnpBYjk3ZnVJaFZiZVE2U3d4QQ?oc=5",
+   "title": "Dowagiac neighbors sue over nonstop data center noise",
+   "at": "2026-07-16T18:14:53+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Same lawsuit already covered in live story 'Dowagiac residents sue over nonstop noise from Hyperscale data center.'"
   }
  ],
  "auto_published": [
@@ -1471,6 +1499,12 @@
    "title": "Utility denies water to Google-scale Michigan data center",
    "judge_score": 8,
    "at": "2026-07-16T13:05:41Z"
+  },
+  {
+   "url": "https://www.multistate.us/insider/2026/7/15/michigan-data-center-legislation-targets-energy-use-and-community-benefits",
+   "title": "Michigan Bills Would Require Data Centers to Fund Local Benefits and Cover Their Own Power Costs",
+   "judge_score": 8,
+   "at": "2026-07-16T18:14:53Z"
   }
  ]
 }
