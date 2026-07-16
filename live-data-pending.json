@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-16T01:04:11+00:00",
+ "updated_at": "2026-07-16T04:19:43Z",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -41,5 +41,5 @@
    "judge_note": "New development in Lenox with concrete action (recall push) and document evidence (revealed emails) — different township, specific new event."
   }
  ],
- "accuracy_checked_at": "2026-07-16T01:04:08+00:00"
+ "accuracy_checked_at": "2026-07-16T04:19:35+00:00"
 }

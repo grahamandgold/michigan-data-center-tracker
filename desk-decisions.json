@@ -923,6 +923,20 @@
    "at": "2026-07-16T01:04:11+00:00",
    "by": "news_judge",
    "note": "score 4/10, duplicate: This is the same Saline Township tax break decision already covered in the LIVE story 'OpenAI lands smaller tax break from Saline on data center campus' and mul"
+  },
+  {
+   "url": "https://www.facebook.com/wwmtnews/posts/the-governor-whose-administration-has-welcomed-data-centers-and-who-broke-ground/1474906784675006/",
+   "title": "Data Center Electricity Demand Projected to Drive Major Share of Michigan Grid Growth by 2030",
+   "at": "2026-07-16T04:19:43+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: State-level trend analysis about grid growth projections lacks a specific decision, filing, or action."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNQzZpUHQ0alFPUTVFZUU1cWNzeEctMkp6alVTRFZHMkxnVk9BLTFhMGcxdkMtQk12emdQeHJsRnZIZWFuMHhiaThSQ253b3NhZUZoWlc2SV93cGFOakRCV1JqUHRITHVNcE9pQmtMWHJlWnlTU0VvYzRtZ1BtdldhTU42ZVZLQktWZzZwbnFrTVlHMThFdmYtLU9MOHUtSzFic3p6V1V3UzM3aHIwTzBOUmJsRXQxSW9lNXpWZGln?oc=5",
+   "title": "U-M's $1.25B data center plan draws fire from nearby residents",
+   "at": "2026-07-16T04:19:43+00:00",
+   "by": "news_judge",
+   "note": "score 8/10, duplicate: Same U-M $1.25B data center opposition story as candidate [0], just reworded."
   }
  ],
  "auto_published": [
@@ -1351,6 +1365,30 @@
    "title": "OpenAI lands smaller tax break from Saline on data center campus",
    "judge_score": 9,
    "at": "2026-07-15T23:35:03Z"
+  },
+  {
+   "url": "https://www.wxyz.com/news/data-centers/residents-and-officials-push-back-on-1-25b-university-of-michigan-data-center-plan",
+   "title": "Residents and Officials Push Back on Proposed $1.25 Billion University of Michigan Data Center",
+   "judge_score": 8,
+   "at": "2026-07-16T04:19:43Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPNzRmb0JCQWRjSmhSczJIeXg1WExwcnc4aVhUaDZ3YzJvbmVLSWdlek5LOW5vTk5zdHFyZXBSRTE0VG91bkpuZGwwNkdBSGpxRzdjM0IxWG1Ud3Q0bkIxQmNGZGpFRDk5YzcyandXSzlYM01uaDAtRWxTMXlIeXNROFhZU1R4TlFsR1VXSnZoV0RaVmNvbXpmSnBsUy0tQm5mWDRXN3J1SFVRZ0tXbDdaX0pBckw5OFlHcTdteUh4YmJBVFpSZDI0eDNTaUw3NGFrQzJEWjMwZjlhd1dRRlkxXy04YnZUOVE?oc=5",
+   "title": "Whitmer's data-center pledge plan splits local leaders",
+   "judge_score": 6,
+   "at": "2026-07-16T04:19:43Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxOdTdQdGY4ZDkxM1NhcEJwcWU4Zm1oY3VzRDFzMEVEeTdsNjU0d3M2WE1kQ1J1QVBUVktCRjdya1loLUctUndsaFM1bmtBQW1hdU4tZzFIWGlWaVFvVndxMmZManpBQmlfWjdSZWlidDR2SFFaWi1EYkIzeTM4Zm9vdHJiNGxQYzVIbzBsQmViOXBtS2o5bnlLdlA2a1JtWjV4dklHalg0RzR2STlpSzNHTWhRdmkwZlVnY3FZVVFCeEcwcU5KYk5odmVIQk43SC1mdDZXWk5Zd2hMQ2Zlc1owYm9WTXZGWnBDalQwbnFFaFV2SHJBLUROdHZVSQ?oc=5",
+   "title": "Pere Marquette Township moves to block new data centers",
+   "judge_score": 8,
+   "at": "2026-07-16T04:19:43Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGVxNnhqTHR2Q1ZPRW1aRlhTbzl1dE5SdW02cUt1bk5sZHBPbFRxa1puazZGM2lpb2hSMC01WXJQYW1icTJxZXJibzRaLWh6bEpSWHM0OXNnT2lFSkwwUU8yTGxiaHVEQ0ExQ3ZlakdLQjN1UlBEYjdXWGV3c2VNakN6T3dJNlJLWEpIMXhRaw?oc=5",
+   "title": "Taylor neighbors fight rezoning that would open door to data centers",
+   "judge_score": 7,
+   "at": "2026-07-16T04:19:43Z"
   }
  ]
 }
