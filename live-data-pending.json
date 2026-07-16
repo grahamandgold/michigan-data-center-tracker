@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-16T22:32:32Z",
+ "updated_at": "2026-07-16T23:30:27+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -22,5 +22,5 @@
    "judge_note": "New municipal action: Lansing Council voted for a moratorium with specific timeline and scope—distinct from Warren, Pere Marquette, and Wixom actions already li"
   }
  ],
- "accuracy_checked_at": "2026-07-16T22:32:27+00:00"
+ "accuracy_checked_at": "2026-07-16T23:30:24+00:00"
 }
