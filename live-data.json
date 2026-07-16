@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-16T19:43:58+00:00",
+ "updated_at": "2026-07-16T21:12:50Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Lyon Township neighbors blast Project Flex noise and traffic ahead of final vote",
+   "dek": "Residents near the proposed Lyon Township site say the constant hum and truck traffic will wreck their quality of life. The township board is set to decide whether the data center can move forward. Oakland County families 30 minutes away will feel the power and water strain if it is approved.",
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPNjNPejlXeHJiUGFZQjlWN1Uwc2ZudUtreXdEd1lfYzgtMDVZVlhuaEd2V0dXZjJnRXV1T1J5LXhjUFpXS2loZ2RSdEJ2bi10d0IwaTNmTWVBV1ZhdzNOYkxVN01pTU5jTXoyRFFFSk1vNUdaeDRSQkx1QjVyYkFFbEdZenZNVC14enJRSmk5Q01HZnVhTWRxbTh6aVk3WE5TNU5uc1dqcHhZXy1VejRaSDFKcE0tTEVtbTNZN2hmSXZXTk9DY2s2QlY2ZUNGWFJYTVc2QzJyTkI2dw?oc=5",
+   "source": "WXYZ Channel 7",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Oakland",
+   "tag": "Local Government",
+   "iso": "2026-07-16T21:06:34Z",
+   "id": "86814ce6f66d",
+   "origin": "google-news",
+   "source_title": "Project Flex data center eyes final Lyon Township approval amid pushback from nearby residents - WXYZ Channel 7",
+   "source_url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPNjNPejlXeHJiUGFZQjlWN1Uwc2ZudUtreXdEd1lfYzgtMDVZVlhuaEd2V0dXZjJnRXV1T1J5LXhjUFpXS2loZ2RSdEJ2bi10d0IwaTNmTWVBV1ZhdzNOYkxVN01pTU5jTXoyRFFFSk1vNUdaeDRSQkx1QjVyYkFFbEdZenZNVC14enJRSmk5Q01HZnVhTWRxbTh6aVk3WE5TNU5uc1dqcHhZXy1VejRaSDFKcE0tTEVtbTNZN2hmSXZXTk9DY2s2QlY2ZUNGWFJYTVc2QzJyTkI2dw?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Utility denies water to Google-scale Michigan data center",
    "dek": "A Michigan utility rejected a request that would have supplied a hyperscale campus needing power for two million homes. The denial highlights growing conflicts between data-center demand and local resource limits. Ratepayers could face higher bills if the company appeals or seeks alternative sites.",
@@ -167,23 +184,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPMTdNZjB0YUlIRzdjY3RTV1BsQnQ4N0dGV28tZVhxdmhhRmt2dVl2alVZanFHRENLYWZsWEFOaURMN0RaUU1ybE5FUVRVeGpBcXYtVUpYSnZpNXZLdUZIMTJmcWlSZTluN3NORF90NHUtNGpkMm9EbThvbmNPQ0JvVGRTUWs2Vi1Kb2pUYWc2XzVZZXcwdGVn?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 9
-  },
-  {
-   "title": "Freedom Township residents block billion-dollar data center push",
-   "dek": "Locals in the Washtenaw County township organized to stop a massive project that would have consumed huge amounts of power and water. Their successful push shows how small communities can alter the trajectory of AI-driven builds. Property values and township services stay protected for now.",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRkhmLXRwTExuNWZCMmgyLTk2Y1lZV3Qwb3UzTmJwNDk5VTJPSkowZmdqNGw1cEtrcVNXRW1hcnlnbDNrOFVTOG5KQzJmOUZ2UEJncFk4bVZBelFUbDVtU2cyTmVwOXpsakdGSFJGbnZLYUhnazRIQlZfbXphaGQwcTVuVmVvZTFjaXB3MmNvZHY3R1Ayc0VyM29kZE9qTExWOEZB?oc=5",
-   "source": "The Sun Times News",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Washtenaw",
-   "tag": "Local Government",
-   "iso": "2026-07-15T19:55:56Z",
-   "id": "f988efac7b84",
-   "origin": "google-news",
-   "source_title": "Fortitude: How Freedom Township Found Its Voice in a Billion-Dollar Fight - The Sun Times News",
-   "source_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQRkhmLXRwTExuNWZCMmgyLTk2Y1lZV3Qwb3UzTmJwNDk5VTJPSkowZmdqNGw1cEtrcVNXRW1hcnlnbDNrOFVTOG5KQzJmOUZ2UEJncFk4bVZBelFUbDVtU2cyTmVwOXpsakdGSFJGbnZLYUhnazRIQlZfbXphaGQwcTVuVmVvZTFjaXB3MmNvZHY3R1Ayc0VyM29kZE9qTExWOEZB?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
   }
  ],
  "national": {

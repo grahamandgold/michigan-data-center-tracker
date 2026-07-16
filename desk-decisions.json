@@ -1042,6 +1042,20 @@
    "at": "2026-07-16T19:44:14+00:00",
    "by": "news_judge",
    "note": "score 3/10: The story is a national trend piece with a focus on general concerns rather than specific new developments or decisions."
+  },
+  {
+   "url": "https://www.michiganpublic.org/environment-climate-change/2026-07-15/saline-township-approves-smaller-than-planned-tax-breaks-for-open-ai-data-center",
+   "title": "Saline Township Cuts Tax Break for AI Data Center to Keep More Revenue",
+   "at": "2026-07-16T21:12:50+00:00",
+   "by": "news_judge",
+   "note": "score 3/10, duplicate: Same Saline Township tax break decision already covered in killed stories about Oracle getting smaller abatement."
+  },
+  {
+   "url": "https://www.detroitnews.com/story/news/politics/2026/07/15/michigan-gretchen-whitmer-data-center-pledge-moratorium-oracle-openai-chatgpt/90931035007/",
+   "title": "U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure Buildout",
+   "at": "2026-07-16T21:12:50+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece with no Michigan-specific development or decision."
   }
  ],
  "auto_published": [
@@ -1512,6 +1526,12 @@
    "title": "Michigan Bills Would Require Data Centers to Fund Local Benefits and Cover Their Own Power Costs",
    "judge_score": 8,
    "at": "2026-07-16T18:14:53Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPNjNPejlXeHJiUGFZQjlWN1Uwc2ZudUtreXdEd1lfYzgtMDVZVlhuaEd2V0dXZjJnRXV1T1J5LXhjUFpXS2loZ2RSdEJ2bi10d0IwaTNmTWVBV1ZhdzNOYkxVN01pTU5jTXoyRFFFSk1vNUdaeDRSQkx1QjVyYkFFbEdZenZNVC14enJRSmk5Q01HZnVhTWRxbTh6aVk3WE5TNU5uc1dqcHhZXy1VejRaSDFKcE0tTEVtbTNZN2hmSXZXTk9DY2s2QlY2ZUNGWFJYTVc2QzJyTkI2dw?oc=5",
+   "title": "Lyon Township neighbors blast Project Flex noise and traffic ahead of final vote",
+   "judge_score": 7,
+   "at": "2026-07-16T21:12:50Z"
   }
  ]
 }

@@ -1,6 +1,26 @@
 {
- "updated_at": "2026-07-16T19:44:14+00:00",
+ "updated_at": "2026-07-16T21:12:50Z",
  "generator": "grok-wire-agent",
- "items": [],
- "accuracy_checked_at": "2026-07-16T19:44:08+00:00"
+ "items": [
+  {
+   "iso": "2026-07-15T18:00:00+00:00",
+   "region": "mid",
+   "cat": "Ingham Co.",
+   "tag": "Local Government",
+   "title": "Lansing Council Pauses Data Centers 182 Days After Developer Backs Out",
+   "dek": "The 7-1 vote blocks new proposals through January 2027 while officials write rules on water use, noise and emissions that residents say could bring jobs or protect resources.",
+   "source": "Michigan Public",
+   "url": "https://www.michiganpublic.org/2026-07-15/lansing-passes-6-month-data-center-moratorium",
+   "breaking": false,
+   "lead": false,
+   "id": "b14f6d1bde09",
+   "kind": "story",
+   "filed_at": "2026-07-16T21:12:28+00:00",
+   "accuracy": "checked-rewritten",
+   "headline_rewritten": true,
+   "judge_score": 9,
+   "judge_note": "New municipal action: Lansing Council voted for a moratorium with specific timeline and scope—distinct from Warren, Pere Marquette, and Wixom actions already li"
+  }
+ ],
+ "accuracy_checked_at": "2026-07-16T21:12:44+00:00"
 }
