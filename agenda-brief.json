@@ -1,37 +1,8 @@
 {
- "generated_at": "2026-07-15T21:27:25+00:00",
+ "generated_at": "2026-07-16T11:22:19+00:00",
  "for_dates": [
-  "2026-07-15",
-  "2026-07-16"
+  "2026-07-16",
+  "2026-07-17"
  ],
- "items": [
-  {
-   "iso": "2026-07-15",
-   "time": "6:00 PM",
-   "meeting": "Ypsilanti Township Board of Trustees",
-   "bullet": "U-M/LANL facility on 144 tax-exempt acres faces township opposition while 12-month water moratorium remains in effect after prior unanimous votes.",
-   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php"
-  },
-  {
-   "iso": "2026-07-15",
-   "time": "7:00 PM",
-   "meeting": "Augusta Township Planning Commission",
-   "bullet": "Augusta Planning Commission discusses draft rules requiring 10-acre lots and 400-ft setbacks for data centers over 10 MW or 100 gpm water use.",
-   "link": "https://augustatownship.org/wp-content/uploads/2026/07/July-15-2026-PC-Meeting-Agenda-Website.pdf"
-  },
-  {
-   "iso": "2026-07-15",
-   "time": "7:00 PM",
-   "meeting": "Wixom City Council",
-   "bullet": "Wixom Industrial One proposes three data center buildings over 500,000 square feet at 30625 Wixom Road as council weighs ordinance and moratorium lift.",
-   "link": "https://www.wxyz.com/news/data-centers/wixom-residents-to-weigh-in-on-data-center-ordinance-as-city-council-meets-tuesday-night"
-  },
-  {
-   "iso": "2026-07-15",
-   "time": "6:00 PM",
-   "meeting": "Ypsilanti Township",
-   "bullet": "Ypsilanti Township sought 12-month water moratorium for data centers citing up to 5M gallons daily demand on 144-acre UMich-Los Alamos site.",
-   "link": "https://ypsitownship.org/government/boards___commissions/board_of_trustees/data_center_information.php"
-  }
- ]
+ "items": []
 }
