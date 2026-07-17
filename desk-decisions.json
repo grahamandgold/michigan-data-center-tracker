@@ -1224,6 +1224,13 @@
    "at": "2026-07-17T22:27:14+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: Same Lake Township six-month moratorium already live in the queue."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPaGdlMnBaVGZhR0tHZkR6Z1RvbTBIX3NhMGk2VlY2UHp1TjZVZXN2ZTlOUUlPejdTVTUwQUYxaWgyQ1hJQVY4R3FVV0xfVGJUNmdxSkdCYTBMLXUxVnBPd2xfNlpzajlDMm1McU1VZm9qQm5Zbnp3UWE1LTF1ZndkTUdaclVRdWRwM25ZaGpfUTJUYUxHTllHVi1Za1Awd1A2ajRXSFdMVQ?oc=5",
+   "title": "Governor candidates clash on who pays for data-center power",
+   "at": "2026-07-17T23:29:21+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Campaign debate framing of an already-covered policy issue (Whitmer's cost-coverage push) without a new concrete development or filing."
   }
  ],
  "auto_published": [
@@ -1736,6 +1743,12 @@
    "title": "Monroe County halts new data centers for now",
    "judge_score": 9,
    "at": "2026-07-17T19:23:32Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQNUNOajR0NnpJcVA5bTFiSWZwR3hYd3NLVFdiRVktcTlGQktTT09Kdmh1THRaclhaVl9IU1BOeTE3aXNnWFJFMXd4V09lQW42X3d5SF9UdU0yRUNJWWE3S2h2d19sR2NFVE9oa3l3UGFnVXB3QWo3eW9QYjFiX0ZEWmFTc29kV05FZnROZEtOQnY5SkFmLUZ3SE0wSUFzVVpwWWlzOVZGNjRXMmpXdFE?oc=5",
+   "title": "State senator pushes data-center guardrails after earlier defeats",
+   "judge_score": 7,
+   "at": "2026-07-17T23:29:21Z"
   }
  ]
 }

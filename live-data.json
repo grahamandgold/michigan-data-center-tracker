@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-17T22:27:05+00:00",
+ "updated_at": "2026-07-17T23:29:21Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "State senator pushes data-center guardrails after earlier defeats",
+   "dek": "Sen. Andrews is reviving legislation that would force operators to pay for grid upgrades and disclose water use. The bill would apply statewide and limit local tax breaks. Ratepayers in every county would see the cost protections if it passes.",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQNUNOajR0NnpJcVA5bTFiSWZwR3hYd3NLVFdiRVktcTlGQktTT09Kdmh1THRaclhaVl9IU1BOeTE3aXNnWFJFMXd4V09lQW42X3d5SF9UdU0yRUNJWWE3S2h2d19sR2NFVE9oa3l3UGFnVXB3QWo3eW9QYjFiX0ZEWmFTc29kV05FZnROZEtOQnY5SkFmLUZ3SE0wSUFzVVpwWWlzOVZGNjRXMmpXdFE?oc=5",
+   "source": "News/Talk/Sports 94.9 WSJM",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "county": "",
+   "tag": "Policy",
+   "iso": "2026-07-17T23:04:33Z",
+   "id": "9465c42b69d7",
+   "origin": "google-news",
+   "source_title": "Andrews hopes data center guardrail legislation can advance, despite setbacks - News/Talk/Sports 94.9 WSJM",
+   "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQNUNOajR0NnpJcVA5bTFiSWZwR3hYd3NLVFdiRVktcTlGQktTT09Kdmh1THRaclhaVl9IU1BOeTE3aXNnWFJFMXd4V09lQW42X3d5SF9UdU0yRUNJWWE3S2h2d19sR2NFVE9oa3l3UGFnVXB3QWo3eW9QYjFiX0ZEWmFTc29kV05FZnROZEtOQnY5SkFmLUZ3SE0wSUFzVVpwWWlzOVZGNjRXMmpXdFE?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Monroe County halts new data centers for now",
    "dek": "Monroe County commissioners voted to pause all data-center proposals. Residents near potential sites worry about sudden spikes in power bills and water use. The temporary ban gives local officials time to study impacts before any projects advance.",
@@ -169,23 +186,6 @@
    "id": "2799cfd22143",
    "accuracy": "checked-rewritten",
    "judge_score": 8
-  },
-  {
-   "title": "Taylor neighbors fight rezoning that would open door to data centers",
-   "dek": "Residents in Taylor are organizing against a rezoning request they fear will bring large-scale data centers into their neighborhoods. The proposal would change land use rules near homes, raising concerns over noise, traffic and power demand. Local pushback could force the city to reconsider or add stricter conditions.",
-   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGVxNnhqTHR2Q1ZPRW1aRlhTbzl1dE5SdW02cUt1bk5sZHBPbFRxa1puazZGM2lpb2hSMC01WXJQYW1icTJxZXJibzRaLWh6bEpSWHM0OXNnT2lFSkwwUU8yTGxiaHVEQ0ExQ3ZlakdLQjN1UlBEYjdXWGV3c2VNakN6T3dJNlJLWEpIMXhRaw?oc=5",
-   "source": "CBS News",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Wayne",
-   "tag": "Local Government",
-   "iso": "2026-07-16T03:52:00Z",
-   "id": "5f219066262c",
-   "origin": "google-news",
-   "source_title": "Taylor residents push to stop rezoning proposal - CBS News",
-   "source_url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGVxNnhqTHR2Q1ZPRW1aRlhTbzl1dE5SdW02cUt1bk5sZHBPbFRxa1puazZGM2lpb2hSMC01WXJQYW1icTJxZXJibzRaLWh6bEpSWHM0OXNnT2lFSkwwUU8yTGxiaHVEQ0ExQ3ZlakdLQjN1UlBEYjdXWGV3c2VNakN6T3dJNlJLWEpIMXhRaw?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 7
   }
  ],
  "national": {
