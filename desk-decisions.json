@@ -1147,6 +1147,13 @@
    "at": "2026-07-17T12:45:26+00:00",
    "by": "news_judge",
    "note": "score 3/10: National trend piece with no Michigan-specific development, decision, or new information; already killed multiple times in similar forms."
+  },
+  {
+   "url": "https://www.usnews.com/news/politics/articles/2026-07-16/americans-are-angry-about-data-centers-politicians-are-feeling-the-pressure",
+   "title": "Americans' Anger Over Data Center Expansion Puts Pressure on Politicians Nationwide",
+   "at": "2026-07-17T14:50:38+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece with only a passing mention of Michigan's 13 projects; no specific Michigan decision or development."
   }
  ],
  "auto_published": [
@@ -1629,6 +1636,18 @@
    "title": "Six data center firms pledge to cover their own power costs under Whitmer plan",
    "judge_score": 8,
    "at": "2026-07-16T22:32:32Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMWswM2dPU19iV3RNSEhPdm1uMkcxRHl2T3k5R21NRHlhdVlpQjRUYUVUUVgwcHpuS0lfWFJxRmVOaTlMTkF3RXpzNlZiWlF4alhEN0h2Qmk5d0RCdGZZUGg1cS1qc0J6SmdpY2x0dHpqMW5PMkh2ODdnYklBUlBwSDlSMVpvNGVl?oc=5",
+   "title": "Solon Township shelves rules that would have capped data centers",
+   "judge_score": 7,
+   "at": "2026-07-17T14:50:38Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE54YWF6ejh6eXpQZUpDQUpoV1dtV0pFYl9pYmpOWnFuZGxZR1IyVlZ1QXRQZnRzeVJiR1hRR0N2M3cwUjQxRkxBZTFJdVdQTHRqdXBkSzlndUNtVEU1QU02V1JFV3VKZ0hiQUx4ZzViTEdUSm56aHhOYjdwbDIyUQ?oc=5",
+   "title": "Lansing blocks new data centers for now, leaving developers in limbo",
+   "judge_score": 9,
+   "at": "2026-07-17T14:50:38Z"
   }
  ]
 }

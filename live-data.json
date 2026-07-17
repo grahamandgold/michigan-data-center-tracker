@@ -1,7 +1,41 @@
 {
- "updated_at": "2026-07-17T12:45:23+00:00",
+ "updated_at": "2026-07-17T14:50:38Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Lansing blocks new data centers for now, leaving developers in limbo",
+   "dek": "Lansing City Council approved a moratorium on data center proposals. Residents near potential sites avoid immediate construction impacts on power and noise. The pause gives the city time to draft permanent rules before any large projects advance.",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE54YWF6ejh6eXpQZUpDQUpoV1dtV0pFYl9pYmpOWnFuZGxZR1IyVlZ1QXRQZnRzeVJiR1hRR0N2M3cwUjQxRkxBZTFJdVdQTHRqdXBkSzlndUNtVEU1QU02V1JFV3VKZ0hiQUx4ZzViTEdUSm56aHhOYjdwbDIyUQ?oc=5",
+   "source": "AOL.com",
+   "region": "mid",
+   "cat": "STATEWIDE",
+   "county": "Ingham",
+   "tag": "Local Government",
+   "iso": "2026-07-17T13:21:42Z",
+   "id": "5fdc783f683a",
+   "origin": "google-news",
+   "source_title": "Lansing City Council OKs data center moratorium. What's next? - AOL.com",
+   "source_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE54YWF6ejh6eXpQZUpDQUpoV1dtV0pFYl9pYmpOWnFuZGxZR1IyVlZ1QXRQZnRzeVJiR1hRR0N2M3cwUjQxRkxBZTFJdVdQTHRqdXBkSzlndUNtVEU1QU02V1JFV3VKZ0hiQUx4ZzViTEdUSm56aHhOYjdwbDIyUQ?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 9
+  },
+  {
+   "title": "Solon Township shelves rules that would have capped data centers",
+   "dek": "The board delayed an ordinance limiting data center size and location. Nearby homeowners gain more time to organize against projects that could strain local roads and wells. Final rules remain months away.",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMWswM2dPU19iV3RNSEhPdm1uMkcxRHl2T3k5R21NRHlhdVlpQjRUYUVUUVgwcHpuS0lfWFJxRmVOaTlMTkF3RXpzNlZiWlF4alhEN0h2Qmk5d0RCdGZZUGg1cS1qc0J6SmdpY2x0dHpqMW5PMkh2ODdnYklBUlBwSDlSMVpvNGVl?oc=5",
+   "source": "AOL.com",
+   "region": "north",
+   "cat": "STATEWIDE",
+   "county": "Leelanau",
+   "tag": "Local Government",
+   "iso": "2026-07-17T04:52:08Z",
+   "id": "3e3d087e3eac",
+   "origin": "google-news",
+   "source_title": "Solon Township board tables ordinance proposal to limit data centers - AOL.com",
+   "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMWswM2dPU19iV3RNSEhPdm1uMkcxRHl2T3k5R21NRHlhdVlpQjRUYUVUUVgwcHpuS0lfWFJxRmVOaTlMTkF3RXpzNlZiWlF4alhEN0h2Qmk5d0RCdGZZUGg1cS1qc0J6SmdpY2x0dHpqMW5PMkh2ODdnYklBUlBwSDlSMVpvNGVl?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Six data center firms pledge to cover their own power costs under Whitmer plan",
    "dek": "Governor Whitmer released a voluntary agreement asking data center operators to pay for grid upgrades they trigger. Six companies have already signed on, shifting some of the cost burden away from Michigan ratepayers. The move comes as multiple large projects seek approvals across the state.",
@@ -152,38 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQUnZwckhhMGkycXVCMGZxQW1mUFl5dkxFTXBnNGl6Um5oYkJHeW5iQmRrLXpQaGprUmhpVHZ3T05SbUxuNzl3cVJKemNMbFdybVNnUW1CZmlJd05kc3BaWWQ5eE1YblVZMUs5dWJONWtVay1SRFE4aUlFTXE2NjRKMjNYbWtSYk03NXFWblU5T2Nzd0otbnY5SVhzNmRnbkR4SHFDUFRXN3hINnZmdy1xQlZmSnE5VHVoTk1MVm9nWmxqbTNoaUpTWmJrS1MwYzJOUkgyMmJ2UUl4cUhzamdUUjZXTQ?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 9
-  },
-  {
-   "title": "Michigan bills aim to shield residents from subsidizing data center utility costs",
-   "dek": "Lawmakers introduced legislation requiring data centers to meet standards on power use, water consumption and workforce practices. The package aims to prevent residents from subsidizing the industry's growth through higher utility bills. Passage would reshape how future campuses are sited across the state.",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOMDNISEJLTzY0NU41aHR6d2M2NHFVRUkydU11Ujh4OXFaMkJvSHRIWFVVbUE3c3M5UWlaNjVOMl9ta1ZDRkFBRlprRXhDZHJIVnZJSmVRWnhGbFRKV2FzYkF6VXJ2bHRISktldmFpUVVVaXIzNG1RblZCUmZ2R2xmU0xoREl1dW1kWTNRcXQzZmJZUDVQWEFqMGpXQmdXOVZIellrQWVWOFdiWUNYNTRsZ0hwVW85eUJEbVE?oc=5",
-   "source": "MultiState",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "county": "",
-   "tag": "Policy",
-   "iso": "2026-07-15T22:21:44Z",
-   "id": "de8d57c69320",
-   "origin": "google-news",
-   "source_title": "Michigan Data Center Legislation: Energy, Water & Labor Rules - MultiState",
-   "source_url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOMDNISEJLTzY0NU41aHR6d2M2NHFVRUkydU11Ujh4OXFaMkJvSHRIWFVVbUE3c3M5UWlaNjVOMl9ta1ZDRkFBRlprRXhDZHJIVnZJSmVRWnhGbFRKV2FzYkF6VXJ2bHRISktldmFpUVVVaXIzNG1RblZCUmZ2R2xmU0xoREl1dW1kWTNRcXQzZmJZUDVQWEFqMGpXQmdXOVZIellrQWVWOFdiWUNYNTRsZ0hwVW85eUJEbVE?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
-  },
-  {
-   "iso": "2026-07-15T21:00:00+00:00",
-   "region": "metro",
-   "cat": "Washtenaw Co.",
-   "tag": "Power & Grid",
-   "title": "Residents and Officials Push Back on Proposed $1.25 Billion University of Michigan Data Center",
-   "dek": "Local concerns over the massive project are mounting as details emerge about its scale and potential impacts.",
-   "source": "WXYZ",
-   "url": "https://www.wxyz.com/news/data-centers/residents-and-officials-push-back-on-1-25b-university-of-michigan-data-center-plan",
-   "breaking": false,
-   "lead": false,
-   "id": "2a991df56f8b",
-   "accuracy": "checked",
-   "judge_score": 8
   }
  ],
  "national": {

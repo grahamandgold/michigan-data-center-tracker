@@ -1,7 +1,28 @@
 {
- "updated_at": "2026-07-17T12:45:26+00:00",
+ "updated_at": "2026-07-17T14:50:38Z",
  "generator": "grok-wire-agent",
  "items": [
+  {
+   "title": "Oracle data center in Saline Township now valued at $16 billion",
+   "dek": "Developers locked in financing for the much larger campus. Washtenaw County could lose years of property tax revenue if the incentive package is approved. The project would also draw hundreds of megawatts from the regional grid.",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNzIwV3ZDdGc2akh3QU1XQV83ODhsS1BndkU5RHdGTGlTZTh1azI1T1NJZmYxbUhMXzdWMkNjVXIzOWRXRGxIQnJ4QTVYMFFxa2lfamdTOUVzVzlTN2tWWjN2WVNTMGRxNFlXeDN3RkFDLXRXQXdTamZhd0lobHZWdmQtVQ?oc=5",
+   "source": "AOL.com",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Washtenaw",
+   "tag": "Money",
+   "iso": "2026-07-16T20:47:27Z",
+   "kind": "story",
+   "id": "29b4bbbe986d",
+   "filed_at": "2026-07-17T14:49:22Z",
+   "origin": "google-news",
+   "headline_rewritten": true,
+   "source_title": "Saline Township data center price tag balloons to $16B as developers lock in financing - AOL.com",
+   "source_url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNzIwV3ZDdGc2akh3QU1XQV83ODhsS1BndkU5RHdGTGlTZTh1azI1T1NJZmYxbUhMXzdWMkNjVXIzOWRXRGxIQnJ4QTVYMFFxa2lfamdTOUVzVzlTN2tWWjN2WVNTMGRxNFlXeDN3RkFDLXRXQXdTamZhd0lobHZWdmQtVQ?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8,
+   "judge_note": "Concrete new development: financing locked in and new $16B valuation for Oracle-Saline project represents material progress beyond the earlier tax break stories"
+  },
   {
    "iso": "2026-07-17T05:00:00Z",
    "region": "statewide",
@@ -22,5 +43,5 @@
    "judge_note": "New development: township lost rezoning lawsuit allowing project to proceed with $14M benefits package, a concrete legal/procedural outcome not previously repor"
   }
  ],
- "accuracy_checked_at": "2026-07-17T12:45:24+00:00"
+ "accuracy_checked_at": "2026-07-17T14:50:31+00:00"
 }
