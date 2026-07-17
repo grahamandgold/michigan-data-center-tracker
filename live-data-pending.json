@@ -1,6 +1,26 @@
 {
- "updated_at": "2026-07-17T06:42:10+00:00",
+ "updated_at": "2026-07-17T09:17:36+00:00",
  "generator": "grok-wire-agent",
- "items": [],
- "accuracy_checked_at": "2026-07-17T06:41:57+00:00"
+ "items": [
+  {
+   "iso": "2026-07-17T05:00:00Z",
+   "region": "statewide",
+   "cat": "NATIONAL",
+   "tag": "Policy",
+   "title": "Saline Fights $16B Data Center Over Water and Farmland",
+   "dek": "Township lost rezoning lawsuit, allowing Oracle-OpenAI project to break ground with $14M in benefits; residents say big tech steamrolls locals on utilities and land.",
+   "source": "Insurance Journal",
+   "url": "https://www.insurancejournal.com/news/national/2026/07/17/877959.htm",
+   "breaking": false,
+   "lead": false,
+   "id": "0ada9eb0c461",
+   "kind": "national",
+   "filed_at": "2026-07-17T09:17:14+00:00",
+   "accuracy": "checked-rewritten",
+   "headline_rewritten": true,
+   "judge_score": 7,
+   "judge_note": "New development: township lost rezoning lawsuit allowing project to proceed with $14M benefits package, a concrete legal/procedural outcome not previously repor"
+  }
+ ],
+ "accuracy_checked_at": "2026-07-17T09:17:32+00:00"
 }
