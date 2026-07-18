@@ -1364,6 +1364,27 @@
    "at": "2026-07-18T21:58:19+00:00",
    "by": "news_judge",
    "note": "score 1/10, duplicate: This is the same Dowagiac noise complaint story already killed twice by the News Director."
+  },
+  {
+   "url": "https://planetdetroit.org/2026/07/augusta-data-center-battle-ballot/",
+   "title": "Augusta Township Voters to Decide Data Center Rezoning on Aug. 4 Ballot Amid Recall Push",
+   "at": "2026-07-18T22:58:31+00:00",
+   "by": "news_judge",
+   "note": "score 4/10, duplicate: Duplicate of already-live 'Augusta Twp voters face data center referendum after heated campaign' — same August 4 ballot, just adds recall detail which is increm"
+  },
+  {
+   "url": "https://www.al.com/news/2026/07/pinson-could-join-growing-list-of-alabama-cities-pausing-data-centers.html",
+   "title": "Pinson, Alabama, Could Become Latest City to Pause New Data Center Proposals",
+   "at": "2026-07-18T22:58:31+00:00",
+   "by": "news_judge",
+   "note": "score 2/10: Alabama moratorium consideration is out-of-state noise with only a thin Michigan comparison; no Michigan development reported."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQNUNOajR0NnpJcVA5bTFiSWZwR3hYd3NLVFdiRVktcTlGQktTT09Kdmh1THRaclhaVl9IU1BOeTE3aXNnWFJFMXd4V09lQW42X3d5SF9UdU0yRUNJWWE3S2h2d19sR2NFVE9oa3l3UGFnVXB3QWo3eW9QYjFiX0ZEWmFTc29kV05FZnROZEtOQnY5SkFmLUZ3SE0wSUFzVVpwWWlzOVZGNjRXMmpXdFE?oc=5",
+   "title": "State data-center guardrail bill still stalled in House",
+   "at": "2026-07-18T22:58:31+00:00",
+   "by": "news_judge",
+   "note": "score 4/10, duplicate: Duplicate of already-live 'House Speaker stalls Andrews data-center guardrail bill' — same stalled legislation, just adds a quote from Andrews but reports no ne"
   }
  ],
  "auto_published": [
