@@ -1231,6 +1231,34 @@
    "at": "2026-07-17T23:29:21+00:00",
    "by": "news_judge",
    "note": "score 4/10: Campaign debate framing of an already-covered policy issue (Whitmer's cost-coverage push) without a new concrete development or filing."
+  },
+  {
+   "url": "https://www.michigansthumb.com/news/article/lake-township-moratorium-22349310.php",
+   "title": "Lake Township Enacts Six-Month Pause on New Data Center Approvals",
+   "at": "2026-07-18T01:00:51+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Same Lake Township six-month moratorium already live and killed multiple times."
+  },
+  {
+   "url": "https://www.michamber.com/news/governors-data-center-proposal-reflects-key-recommendations-from-independent-analysis/",
+   "title": "Whitmer Plan Seeks to Protect Ratepayers and Resources from Data Center Growth",
+   "at": "2026-07-18T01:00:51+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Rehashes the Whitmer plan already covered in multiple live and killed stories about pledges and cost coverage."
+  },
+  {
+   "url": "https://www.hawaiitribune-herald.com/2026/07/17/nation-world-news/americans-are-angry-about-data-centers-politicians-are-feeling-the-pressure/",
+   "title": "Nationwide Backlash Grows as Data Center Plans Spark Political Pressure",
+   "at": "2026-07-18T01:00:51+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: National trend piece already killed as 'Nationwide backlash grows' and 'Americans' Anger Over Data Center Expansion.'"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNbTJuejgtajVHU08tc3M4cXdPZHoxVkk4NUgxQlZrVHdKa1dENk45MG1VTXUyWFZYakZmNjQ1T01wYnloS2xEOFloOFFmNGoxN0VyNnZBWUVwMlQ1Qm1PcXk1eEp6WDdZMjVLNmpWSmVBaEkxOVpvdWVOSVB2M3QtWGFxSQ?oc=5",
+   "title": "Lake Township enacts six-month freeze on data centers",
+   "at": "2026-07-18T01:00:51+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Identical Lake Township moratorium, just reworded from candidate [0]."
   }
  ],
  "auto_published": [
@@ -1749,6 +1777,12 @@
    "title": "State senator pushes data-center guardrails after earlier defeats",
    "judge_score": 7,
    "at": "2026-07-17T23:29:21Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQYXZ4NmxtQXp5bzdScmhUWkNiX0tUZFVLTE9MeUdULThlQW5nYjNOdE1KUjEyOHBrV0lRX0FYVTI3dmxSOTBzY3ctcXVRMjFfSzZ4V3VCcTlFUDE1dXhUeWlwV053OFIydWc1eWc2c1lqNzhwbm40bFhybVoybHBZY3FBWDhFZ0FHNUVB?oc=5",
+   "title": "Warren eyes 6-month data center ban to study grid strain",
+   "judge_score": 7,
+   "at": "2026-07-18T01:00:51Z"
   }
  ]
 }

@@ -1,7 +1,25 @@
 {
- "updated_at": "2026-07-17T23:29:21Z",
+ "updated_at": "2026-07-18T01:00:51Z",
  "generator": "grok-wire-agent",
  "items": [
+  {
+   "iso": "2026-07-17T11:00:00+00:00",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "tag": "Power & Grid",
+   "title": "Consumer Advocates Question Whitmer's Voluntary Data Center Pledges",
+   "dek": "Groups say the governor's approach falls short without binding rules to ensure tech companies cover full electricity and grid upgrade costs.",
+   "source": "MiTech News",
+   "url": "https://mitechnews.com/news/powering-michigans-future-whitmer-wants-ai-data-centers-to-protect-ratepayers-consumer-advocates-say-voluntary-promises-arent-enough/",
+   "breaking": false,
+   "lead": false,
+   "id": "86e2872bf35c",
+   "kind": "story",
+   "filed_at": "2026-07-18T01:00:17+00:00",
+   "accuracy": "checked",
+   "judge_score": 6,
+   "judge_note": "New angle: consumer advocates criticizing the voluntary nature of Whitmer's pledges adds substantive pushback not yet covered."
+  },
   {
    "title": "Saline Township rejects 50% tax break for big data center",
    "dek": "Trustees turned down the abatement request tied to a major campus plan. Local taxpayers avoid subsidizing the project for years. The vote keeps full property-tax revenue flowing to schools and services.",
@@ -64,5 +82,5 @@
    "judge_note": "New development: township lost rezoning lawsuit allowing project to proceed with $14M benefits package, a concrete legal/procedural outcome not previously repor"
   }
  ],
- "accuracy_checked_at": "2026-07-17T23:29:17+00:00"
+ "accuracy_checked_at": "2026-07-18T01:00:44+00:00"
 }

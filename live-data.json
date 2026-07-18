@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-17T23:29:21Z",
+ "updated_at": "2026-07-18T01:00:51Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Warren eyes 6-month data center ban to study grid strain",
+   "dek": "Macomb County officials are weighing a temporary halt on new data centers while they assess power and water demands. Residents could face higher utility bills if large facilities come online without new safeguards. The council discussion signals growing local pushback against rapid buildouts.",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQYXZ4NmxtQXp5bzdScmhUWkNiX0tUZFVLTE9MeUdULThlQW5nYjNOdE1KUjEyOHBrV0lRX0FYVTI3dmxSOTBzY3ctcXVRMjFfSzZ4V3VCcTlFUDE1dXhUeWlwV053OFIydWc1eWc2c1lqNzhwbm40bFhybVoybHBZY3FBWDhFZ0FHNUVB?oc=5",
+   "source": "AOL.com",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Macomb",
+   "tag": "Local Government",
+   "iso": "2026-07-17T23:29:11Z",
+   "id": "2ca7dd48d498",
+   "origin": "google-news",
+   "source_title": "Warren council could consider a temporary data center moratorium - AOL.com",
+   "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQYXZ4NmxtQXp5bzdScmhUWkNiX0tUZFVLTE9MeUdULThlQW5nYjNOdE1KUjEyOHBrV0lRX0FYVTI3dmxSOTBzY3ctcXVRMjFfSzZ4V3VCcTlFUDE1dXhUeWlwV053OFIydWc1eWc2c1lqNzhwbm40bFhybVoybHBZY3FBWDhFZ0FHNUVB?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "State senator pushes data-center guardrails after earlier defeats",
    "dek": "Sen. Andrews is reviving legislation that would force operators to pay for grid upgrades and disclose water use. The bill would apply statewide and limit local tax breaks. Ratepayers in every county would see the cost protections if it passes.",
@@ -170,21 +187,6 @@
    "source_title": "Constant noise from Dowagiac data center prompts class-action lawsuit - Detroit Free Press",
    "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNSWlqOWNHTm1nbEFLNzVheEhQWDlKdHpqUEUtanhESDZDMGxfdFMwdFc2MWNVc253bjdUVlRhc3NlX2FfVFoyWndXWW9pSjFHQXF4c0JlaHJTNDNfYkIyNWxOWEk3czZ1b1g2S21UUWcxMTc4QVpVa2o0NmQ1TnYxdS1VZXZuX2FqZ3pCMmtmaHlaT0U3aUp5Uzd3eW05aEs3R0x4WmpSalB3aVJlcWpLT3A2N3prQVY5Rzk0Z3cxQ3ZBdTQtdHo4X2NiUWpMRHZKWEJHdVhlcWs?oc=5",
    "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
-  },
-  {
-   "iso": "2026-07-16T08:00:00+00:00",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "tag": "Policy",
-   "title": "Michigan Bills Would Require Data Centers to Fund Local Benefits and Cover Their Own Power Costs",
-   "dek": "Democrats' package mandates community agreements and long-term energy contracts so residents avoid higher utility bills and water strain from new facilities.",
-   "source": "Multistate",
-   "url": "https://www.multistate.us/insider/2026/7/15/michigan-data-center-legislation-targets-energy-use-and-community-benefits",
-   "breaking": false,
-   "lead": false,
-   "id": "2799cfd22143",
-   "accuracy": "checked-rewritten",
    "judge_score": 8
   }
  ],
