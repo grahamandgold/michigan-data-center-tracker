@@ -1266,6 +1266,13 @@
    "at": "2026-07-18T04:08:01+00:00",
    "by": "news_judge",
    "note": "score 4/10: Thin development—robotics installation at existing facility is operational detail, not a concrete approval, filing, or decision affecting Michigan communities."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOci1HYkdqbkhTaU91ci1BRzFRakZMbndSRmRMMnVhcXV6NEZzTzhKcDFSWUlxc1VPT0l6YmctMlBwTjNuWjQwZTBvZjJRUTZJbm1sb05GN0xza2JlR3dGdlAwbUZXSzZES2hWNXZlZEZIaXhnUk41bXZyOE5wX1FmdUtWM3lGZ2pFTHpsU0NyYWFIc3FLNTR3Y19mYUdfWVhGWjNwOWRKWkkwbDY5Zk9JalFkajFKUy16QkRtdG9BSzJTbWJpSk1KUXZWUEkyOVpS?oc=5",
+   "title": "Hyperscale Data starts robot installation at Michigan site",
+   "at": "2026-07-18T06:31:35+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: This is the same robot deployment event already killed as 'Hyperscale Data starts robot work at its Michigan site,' just reworded."
   }
  ],
  "auto_published": [
@@ -1808,6 +1815,12 @@
    "title": "Township removes cap on Oracle property tax exemption, risking school and road funding",
    "judge_score": 9,
    "at": "2026-07-18T04:08:01Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOcUdQVEhwWHIyVkF2MzJKNmlMSGY4N25nekxNNFBSQ3BCSG5GM1BfZWJZRnM0Yi1zRmpzVjMwQ19fTnBSN1o3Ylp5VG9PemhKTGhwa19mMUFJZERuclhydWx0YXBFbGxKT2NsYkN6bldfUFNsVkpIWU4wUGZMVnF0cTFabUVZQ09hOWxkNEZsVG9GRGpEYlZ6RGlCYzB3YUxERDY4WjFxTWRuTXVLSjBZV2NjOUZNcmcxMldMVTZFdzVOaE9ZakNSUFJDUDRDUDBrejJCWXoxU3ZEUUlpa2I3WtIB9AFBVV95cUxNYm4xazBYWnFUbERMMnVQM2pGMllhS2RXU3VZRXU3OGMyOGZxSUlybGF2TWZCOVN2aHBBN1F6a2xUUkNHa1l5TGNXZ1A0UzNCV2ZOeGpfcWFIbEFCM0JvdXRiVzNMbU52QnZlMjU4dUNhYWJyaW5QeU92X0Y3VVhNVkpsMFZrVVdudGpkY3lQZ3NSSUhKTTRJQWxCUXJMQUtEWFZWN0F0bk1ubjRPak1XYXBqTlNhc0ZzS2hhVlFqMzBpVGxOaEJzcTZqdUZnTGh0MXhUelYzRmYySVhiRWU3SzZnZDBCOFZaZEVxZEpEcEtFQlF1?oc=5",
+   "title": "Oracle wins unlimited tax break on $43B Ann Arbor-area campus",
+   "judge_score": 9,
+   "at": "2026-07-18T06:31:35Z"
   }
  ]
 }

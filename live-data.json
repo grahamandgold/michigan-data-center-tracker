@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-18T04:08:01Z",
+ "updated_at": "2026-07-18T06:31:35Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Oracle wins unlimited tax break on $43B Ann Arbor-area campus",
+   "dek": "Saline Township dropped its $4.8B cap on incentives for the Oracle-OpenAI project. Residents now face decades of lost property-tax revenue with no upper limit on the deal. The reversal hands the company a blank check paid for by local taxpayers.",
+   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOcUdQVEhwWHIyVkF2MzJKNmlMSGY4N25nekxNNFBSQ3BCSG5GM1BfZWJZRnM0Yi1zRmpzVjMwQ19fTnBSN1o3Ylp5VG9PemhKTGhwa19mMUFJZERuclhydWx0YXBFbGxKT2NsYkN6bldfUFNsVkpIWU4wUGZMVnF0cTFabUVZQ09hOWxkNEZsVG9GRGpEYlZ6RGlCYzB3YUxERDY4WjFxTWRuTXVLSjBZV2NjOUZNcmcxMldMVTZFdzVOaE9ZakNSUFJDUDRDUDBrejJCWXoxU3ZEUUlpa2I3WtIB9AFBVV95cUxNYm4xazBYWnFUbERMMnVQM2pGMllhS2RXU3VZRXU3OGMyOGZxSUlybGF2TWZCOVN2aHBBN1F6a2xUUkNHa1l5TGNXZ1A0UzNCV2ZOeGpfcWFIbEFCM0JvdXRiVzNMbU52QnZlMjU4dUNhYWJyaW5QeU92X0Y3VVhNVkpsMFZrVVdudGpkY3lQZ3NSSUhKTTRJQWxCUXJMQUtEWFZWN0F0bk1ubjRPak1XYXBqTlNhc0ZzS2hhVlFqMzBpVGxOaEJzcTZqdUZnTGh0MXhUelYzRmYySVhiRWU3SzZnZDBCOFZaZEVxZEpEcEtFQlF1?oc=5",
+   "source": "MLive.com",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Washtenaw",
+   "tag": "Money",
+   "iso": "2026-07-18T04:51:00Z",
+   "id": "8a2190d57858",
+   "origin": "google-news",
+   "source_title": "Township changes course, nixing cap on tax break for $43B Oracle, OpenAI data center near Ann Arbor - MLive.com",
+   "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOcUdQVEhwWHIyVkF2MzJKNmlMSGY4N25nekxNNFBSQ3BCSG5GM1BfZWJZRnM0Yi1zRmpzVjMwQ19fTnBSN1o3Ylp5VG9PemhKTGhwa19mMUFJZERuclhydWx0YXBFbGxKT2NsYkN6bldfUFNsVkpIWU4wUGZMVnF0cTFabUVZQ09hOWxkNEZsVG9GRGpEYlZ6RGlCYzB3YUxERDY4WjFxTWRuTXVLSjBZV2NjOUZNcmcxMldMVTZFdzVOaE9ZakNSUFJDUDRDUDBrejJCWXoxU3ZEUUlpa2I3WtIB9AFBVV95cUxNYm4xazBYWnFUbERMMnVQM2pGMllhS2RXU3VZRXU3OGMyOGZxSUlybGF2TWZCOVN2aHBBN1F6a2xUUkNHa1l5TGNXZ1A0UzNCV2ZOeGpfcWFIbEFCM0JvdXRiVzNMbU52QnZlMjU4dUNhYWJyaW5QeU92X0Y3VVhNVkpsMFZrVVdudGpkY3lQZ3NSSUhKTTRJQWxCUXJMQUtEWFZWN0F0bk1ubjRPak1XYXBqTlNhc0ZzS2hhVlFqMzBpVGxOaEJzcTZqdUZnTGh0MXhUelYzRmYySVhiRWU3SzZnZDBCOFZaZEVxZEpEcEtFQlF1?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 9
+  },
   {
    "title": "Township removes cap on Oracle property tax exemption, risking school and road funding",
    "dek": "Saline Township lifted the dollar cap on a proposed tax abatement for Oracle's massive data-center project. Residents could see decades of lost property-tax revenue that would otherwise fund schools and roads. The change shifts the financial stakes for Washtenaw County taxpayers.",
@@ -171,23 +188,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMWswM2dPU19iV3RNSEhPdm1uMkcxRHl2T3k5R21NRHlhdVlpQjRUYUVUUVgwcHpuS0lfWFJxRmVOaTlMTkF3RXpzNlZiWlF4alhEN0h2Qmk5d0RCdGZZUGg1cS1qc0J6SmdpY2x0dHpqMW5PMkh2ODdnYklBUlBwSDlSMVpvNGVl?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 7
-  },
-  {
-   "title": "Six data center firms pledge to cover their own power costs under Whitmer plan",
-   "dek": "Governor Whitmer released a voluntary agreement asking data center operators to pay for grid upgrades they trigger. Six companies have already signed on, shifting some of the cost burden away from Michigan ratepayers. The move comes as multiple large projects seek approvals across the state.",
-   "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQcmk5dF9jMFNhNG1RSVVjU3JXcUlNUW00LVliRzQ1em82ZmROcHBJN0RiQkhaeTc2NkIybWdOZHFkMjktMERQeFNwcFB5dkY3V0o4S1lDQnMzOF9oRWY0bmZucVlYY3hYRk1fZHBkVmd6T3YxN3B6ZTgwVHNDNC0yN2hhWjNkcWV5dmJ5eG90YUFVNllCWmxlVDZma3ozLUZwRkV3NUgxNlZlUXByYmRwUWVHYjVrRXIwVGMyMlRfWDR3eUlBdF9maEJlVXMwbHdFQjQtQWU4OVdhTXFiSmp0Y3NEMDJoY2FITTZCU016RERKcXhxTk50MVdSeVJrcDhDVU1Fc29DaXlIQXc?oc=5",
-   "source": "WZZM13.com",
-   "region": "statewide",
-   "cat": "STATEWIDE",
-   "county": "",
-   "tag": "Policy",
-   "iso": "2026-07-16T21:15:00Z",
-   "id": "0e80c3214021",
-   "origin": "google-news",
-   "source_title": "6 data center companies sign new pledge after Gov. Whitmer releases plan calling for them to cover their own costs - WZZM13.com",
-   "source_url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQcmk5dF9jMFNhNG1RSVVjU3JXcUlNUW00LVliRzQ1em82ZmROcHBJN0RiQkhaeTc2NkIybWdOZHFkMjktMERQeFNwcFB5dkY3V0o4S1lDQnMzOF9oRWY0bmZucVlYY3hYRk1fZHBkVmd6T3YxN3B6ZTgwVHNDNC0yN2hhWjNkcWV5dmJ5eG90YUFVNllCWmxlVDZma3ozLUZwRkV3NUgxNlZlUXByYmRwUWVHYjVrRXIwVGMyMlRfWDR3eUlBdF9maEJlVXMwbHdFQjQtQWU4OVdhTXFiSmp0Y3NEMDJoY2FITTZCU016RERKcXhxTk50MVdSeVJrcDhDVU1Fc29DaXlIQXc?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
   }
  ],
  "national": {
