@@ -1259,6 +1259,13 @@
    "at": "2026-07-18T01:00:51+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: Identical Lake Township moratorium, just reworded from candidate [0]."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOT2pscU14ZktkRVNlU0QwR2hIMHo0eEJxYkhOMlQwWDJDRERSUjBmdktaQXpxZ3VMX2xZRU9KUVdrbnQwUDFWdXFLbGFFcHV6c2JPV1NSNkYyek9ZTjU2X3p4aWlxX3JmMm1aeWtheWdBTEJCU3RsVEt2TDFIU3dtVnFxM3I1OURCb1FBUW1rS1FpWEhlWFBtLTU4VVdiX2prQkRuZElBNHNtT1ZOX3JLN2RRYzBIakkxYzE2eUtwMVVKUnJQRDMxM0J4WG1aUFRV?oc=5",
+   "title": "Hyperscale Data starts robot work at its Michigan site",
+   "at": "2026-07-18T04:08:01+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Thin development—robotics installation at existing facility is operational detail, not a concrete approval, filing, or decision affecting Michigan communities."
   }
  ],
  "auto_published": [
@@ -1783,6 +1790,24 @@
    "title": "Warren eyes 6-month data center ban to study grid strain",
    "judge_score": 7,
    "at": "2026-07-18T01:00:51Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPTWZYYUlFWUdNT2NxZi1FZmNNbC10YVBaS09uU3pSZDVhc2dOQU5xeGxVbFdRVkdJcG1Tc2N6UDBjZkZVcW4zRGdtakNXS3d4SW5KbU5UVzJ4bC1sZXh6QThLNUV0Y2N5MWJJcjN6Wl9Pd0NVcVVjU0hodnl1d1g0Wm5EeVpCdw?oc=5",
+   "title": "Hagar Township bans new data centers for at least a year",
+   "judge_score": 9,
+   "at": "2026-07-18T04:08:01Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQTnpZSVlZREx3aHZxZEp5dDU2VzBXRlFJdkZRWW9EMnNMT3BvWkl3Y3lVMi11MkQzUlRtc1pRaUotWFk4ckRBeF9lMWFkekttMERQWnJzSTVTTkVxamhPN1VlQXNXYnZKeFVfRkpLT2RZZ21UT1loaEQ2aEFqMUotOElqRWNTQQ?oc=5",
+   "title": "NY moratorium threatens Genesee County's STAMP data-center plans",
+   "judge_score": 6,
+   "at": "2026-07-18T04:08:01Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNZF9IdmVfNzZRWEgyV0VKU3JUb0VYbS1kUmxlUlFnSmFHOVE5N0FSY19YWFZPd0EtaWNRd19WZndFNjBON1lZR21iN1NvRUFaYjdvbDNmX2JQY1V2SGVVSDBlZE5ISnBMZDVibkNiRm9oX3MzOVVGVEUwOHNmdWVIa2pvVk1CcWVPWHBYRkM2TlFYUGdTZ2c?oc=5",
+   "title": "Township removes cap on Oracle property tax exemption, risking school and road funding",
+   "judge_score": 9,
+   "at": "2026-07-18T04:08:01Z"
   }
  ]
 }
