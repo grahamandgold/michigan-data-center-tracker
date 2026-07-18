@@ -1,7 +1,22 @@
 {
- "updated_at": "2026-07-18T14:00:02+00:00",
+ "updated_at": "2026-07-18T15:04:27Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "iso": "2026-07-18T10:00:00Z",
+   "region": "metro",
+   "cat": "Macomb Co.",
+   "tag": "Local Government",
+   "title": "Warren Freezes New Data Centers After Storms Down 60+ Power Lines",
+   "dek": "Council approved the temporary moratorium after July storms exposed the strain on Warren's aging grid. City attorneys will now draft the pause while zoning rules are revised.",
+   "source": "The Cooldown",
+   "url": "https://www.thecooldown.com/green-tech/warren-city-council-data-center-pause/",
+   "breaking": false,
+   "lead": true,
+   "id": "63e5553b343d",
+   "accuracy": "checked-rewritten",
+   "judge_score": 6
+  },
   {
    "iso": "2026-07-18T05:00:00+00:00",
    "region": "metro",
@@ -167,23 +182,6 @@
    "origin": "google-news",
    "source_title": "Lake Township passes six-month moratorium on data centers - Huron Daily Tribune",
    "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPa3lGU01IM0pWQkpxeFF0THVwbnM5SUtacmxuempaeHhkRlJpOHVlYTgyUVp4eTlRMGg1UkctMUdZc01ENHhPb3JFUlc3S0VNZkJrOTgzOGtiVmkwUHYyT2t5c3RJcVg3dW8tMlNJOTJJekVsVnBMbGI1NHdXd2otQkNUWjJYWTc5?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9
-  },
-  {
-   "title": "Lansing blocks new data centers for now, leaving developers in limbo",
-   "dek": "Lansing City Council approved a moratorium on data center proposals. Residents near potential sites avoid immediate construction impacts on power and noise. The pause gives the city time to draft permanent rules before any large projects advance.",
-   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE54YWF6ejh6eXpQZUpDQUpoV1dtV0pFYl9pYmpOWnFuZGxZR1IyVlZ1QXRQZnRzeVJiR1hRR0N2M3cwUjQxRkxBZTFJdVdQTHRqdXBkSzlndUNtVEU1QU02V1JFV3VKZ0hiQUx4ZzViTEdUSm56aHhOYjdwbDIyUQ?oc=5",
-   "source": "AOL.com",
-   "region": "mid",
-   "cat": "STATEWIDE",
-   "county": "Ingham",
-   "tag": "Local Government",
-   "iso": "2026-07-17T13:21:42Z",
-   "id": "5fdc783f683a",
-   "origin": "google-news",
-   "source_title": "Lansing City Council OKs data center moratorium. What's next? - AOL.com",
-   "source_url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE54YWF6ejh6eXpQZUpDQUpoV1dtV0pFYl9pYmpOWnFuZGxZR1IyVlZ1QXRQZnRzeVJiR1hRR0N2M3cwUjQxRkxBZTFJdVdQTHRqdXBkSzlndUNtVEU1QU02V1JFV3VKZ0hiQUx4ZzViTEdUSm56aHhOYjdwbDIyUQ?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 9
   }
