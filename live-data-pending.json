@@ -1,6 +1,26 @@
 {
- "updated_at": "2026-07-19T18:33:47+00:00",
+ "updated_at": "2026-07-19T19:47:36+00:00",
  "generator": "grok-wire-agent",
- "items": [],
- "accuracy_checked_at": "2026-07-19T18:33:43+00:00"
+ "items": [
+  {
+   "iso": "2026-07-19T12:00:00+00:00",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "tag": "Policy",
+   "title": "Michigan Farmers and Lawmakers Rally Against Saline Data Center Traffic and Land Use",
+   "dek": "State Sen. Ruth Johnson joined protesters outside the Capitol as the Saline Barn project rises on township farmland, with residents posting 'No Data Center Traffic' signs along Michigan Avenue.",
+   "source": "Elko Daily Free Press",
+   "url": "https://elkodaily.com/news/nation-world/government-politics/article_0f0ed8a3-2cb3-5c9e-96c6-31c87ce64316.html",
+   "breaking": false,
+   "lead": true,
+   "id": "60ba16bda21c",
+   "kind": "national",
+   "filed_at": "2026-07-19T19:47:36+00:00",
+   "accuracy": "checked-rewritten",
+   "headline_rewritten": true,
+   "judge_score": 6,
+   "judge_note": "New development (state senator joining protest, physical signs posted) but incremental follow-up to already-covered Saline opposition rather than a concrete dec"
+  }
+ ],
+ "accuracy_checked_at": "2026-07-19T19:47:40+00:00"
 }
