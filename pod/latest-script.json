@@ -1,10 +1,10 @@
 {
- "title": "Mornings with Graham & Emmy",
- "teaser": "Warren pauses data centers post-storms; Saline pushes back on massive Oracle-OpenAI campus.",
+ "title": "Evenings with Graham & Emmy",
+ "teaser": "Local grid strains and farmland fights collide with the governor's new data center standards.",
  "lines": [
   {
    "host": "Graham",
-   "text": "Good morning and welcome to Mornings with Graham & Emmy, the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
+   "text": "Good evening, and welcome to Evenings with Graham & Emmy — the Michigan Data Wire, your podcast on Michigan's data center buildout. I'm Graham."
   },
   {
    "host": "Emmy",
@@ -12,194 +12,162 @@
   },
   {
    "host": "Graham",
-   "text": "It's Sunday, July 19, and we're digging into two big developments from yesterday that show how communities are pushing back on rapid data center growth."
+   "text": "Tonight we're looking at how storms and local resistance are forcing new pauses on data centers, right as Governor Whitmer rolled out statewide rules today."
   },
   {
    "host": "Emmy",
-   "text": "Exactly, Graham. Warren just approved a temporary moratorium after storms knocked out more than 60 power lines, and over in Saline Township residents are fighting a $16 billion Stargate project already under construction."
+   "text": "That Warren decision after Saturday's storms really highlights the pressure on aging infrastructure."
   },
   {
    "host": "Graham",
-   "text": "Let's start with Warren in Macomb County. The city council voted yesterday to freeze new data centers while they rewrite zoning rules."
+   "text": "Exactly. Warren's city council approved a temporary moratorium on new data centers after July storms knocked down more than sixty power lines. City attorneys are now drafting the pause while they revise zoning rules."
   },
   {
    "host": "Emmy",
-   "text": "What triggered it so suddenly?"
+   "text": "What does that tell us about the grid's capacity in places like Macomb County?"
   },
   {
    "host": "Graham",
-   "text": "Those July storms exposed just how fragile the aging grid is there. City attorneys are now drafting the pause to give everyone time to figure out better protections."
+   "text": "It shows that even one bad storm can expose how quickly these large projects add strain. Officials are hitting pause so they can figure out stronger rules before approving more."
   },
   {
    "host": "Emmy",
-   "text": "Makes sense. How does this fit into the bigger pattern we've seen across the state?"
+   "text": "And over in Washtenaw County, Saline Township residents are pushing back hard against that sixteen-billion-dollar Stargate project."
   },
   {
    "host": "Graham",
-   "text": "It's the latest in a wave of local pauses. Townships are realizing approvals happened without strong rules on noise, power, or water use."
+   "text": "Yes, folks in that small farming community of about twenty-four hundred people say the facility already under construction will drain water supplies, raise utility costs, and change the rural character of the area."
   },
   {
    "host": "Emmy",
-   "text": "And what about the impact on residents' electric bills?"
+   "text": "How does this fit with the governor's announcement today?"
   },
   {
    "host": "Graham",
-   "text": "That's the big unknown right now. Data centers can pull enormous amounts of power, and utilities have to plan upgrades that eventually show up on everyone's monthly statement."
+   "text": "Whitmer unveiled the Michigan Affordable and Responsible Growth Action Plan, which sets new siting, power, and water standards for future data centers. Companies that skip the rules could lose state incentives."
   },
   {
    "host": "Emmy",
-   "text": "Water is another piece, right? Especially in farming areas."
+   "text": "So the state is trying to get ahead of the local backlash we've seen building."
   },
   {
    "host": "Graham",
-   "text": "Absolutely. These facilities need massive cooling systems. In places like Saline Township, locals worry it will drain aquifers that farms and homes rely on."
+   "text": "That's the idea. The plan comes as pushback grows over electric bills, water use, and lost farmland across multiple townships."
   },
   {
    "host": "Emmy",
-   "text": "Tell me more about the Saline situation. It's a 2,400-person farming community, and this $16 billion project is already moving forward?"
+   "text": "What kind of history are we looking at here with these approvals?"
   },
   {
    "host": "Graham",
-   "text": "Yes. Residents say it will raise utility costs, erase rural character, and they've been vocal about it for weeks."
+   "text": "Many townships approved large projects without strong noise or utility protections in place. Now residents are seeing the daily impacts and filing lawsuits or holding rallies."
   },
   {
    "host": "Emmy",
-   "text": "What's the Oracle-OpenAI angle here?"
+   "text": "Like the Dowagiac case that dropped yesterday."
   },
   {
    "host": "Graham",
-   "text": "The project is tied to that big campus, and yesterday Saline Township lifted the $4.8 billion cap on tax incentives, handing the company what some are calling a blank check."
+   "text": "Right. Residents there sued the hyperscale facility in Cass County, claiming nonstop noise is disrupting homes and daily life in the small southwest Michigan community."
   },
   {
    "host": "Emmy",
-   "text": "That sounds like a huge shift for local taxpayers. How did that happen?"
+   "text": "And the Vicksburg protest also happened yesterday."
   },
   {
    "host": "Graham",
-   "text": "The township board reversed its earlier limit. Now there's no upper bound on the property tax exemption, which could mean decades of lost revenue for schools and roads."
+   "text": "Dozens showed up in Kalamazoo County to highlight noise, traffic, and utility strain concerns. Organizers say more actions are coming if proposals move forward."
   },
   {
    "host": "Emmy",
-   "text": "Who are the main players pushing back?"
+   "text": "Meanwhile the House Speaker is holding up a bill that would create statewide guardrails."
   },
   {
    "host": "Graham",
-   "text": "Local residents and some township officials who want stronger guardrails. They've highlighted traffic, noise, and the strain on the grid near Ann Arbor."
+   "text": "Legislation on siting, power use, and tax breaks remains stalled. Sponsors say the delay leaves townships without tools to manage the growth."
   },
   {
    "host": "Emmy",
-   "text": "And on the other side?"
+   "text": "That leaves places like Augusta Township to handle it themselves with a referendum next month."
   },
   {
    "host": "Graham",
-   "text": "The companies and some economic development folks argue it brings jobs and tax base growth, though the tax break changes the math for the community."
+   "text": "Voters there will decide whether to allow a large project after weeks of protests over traffic, noise, and power strain near Ann Arbor."
   },
   {
    "host": "Emmy",
-   "text": "What happens next in Warren?"
+   "text": "And then there's the Oracle news from Saturday."
   },
   {
    "host": "Graham",
-   "text": "Attorneys draft the moratorium language, then the council will likely vote on permanent zoning updates. It's a temporary pause to buy time."
+   "text": "Saline Township lifted the four-point-eight-billion-dollar cap on incentives for the Oracle-OpenAI campus. Now the company has an unlimited tax break on a forty-three-billion-dollar project."
   },
   {
    "host": "Emmy",
-   "text": "And in Saline?"
+   "text": "What does removing that cap actually mean for local taxpayers?"
   },
   {
    "host": "Graham",
-   "text": "Residents are continuing to organize, and there's a referendum coming up next month on whether to allow the project at all."
+   "text": "It risks decades of lost property-tax revenue that would have gone to schools and roads. Residents could be on the hook for the difference."
   },
   {
    "host": "Emmy",
-   "text": "How common are these moratoriums becoming?"
+   "text": "How does the new state plan address these incentive issues?"
   },
   {
    "host": "Graham",
-   "text": "We're seeing more of them statewide as the pace of proposals picks up. Local governments are trying to catch up with rules that weren't written for hyperscale facilities."
+   "text": "The plan ties incentives to compliance with the new siting, power, and water standards. Non-compliant projects lose access to state support."
   },
   {
    "host": "Emmy",
-   "text": "What about the bigger picture for Michigan's grid?"
+   "text": "So companies have a choice: follow the rules or go it alone without the carrots."
   },
   {
    "host": "Graham",
-   "text": "Utilities are fielding questions on how they'll serve these loads without affecting reliability for everyone else. A public hearing is scheduled this week on the Microsoft AI campus in Kent County, for example."
+   "text": "That's the leverage the governor is using. It also shines a light on west Michigan's first major AI campus in Kent County."
   },
   {
    "host": "Emmy",
-   "text": "That one is west Michigan's first major AI campus, right?"
+   "text": "The utility has a public hearing this week to explain how it will serve that Microsoft project."
   },
   {
    "host": "Graham",
-   "text": "Correct. Neighbors there are already asking about added strain on power and water."
+   "text": "Neighbors are already asking about added strain on the local grid and water supply."
   },
   {
    "host": "Emmy",
-   "text": "Shifting to quick hits, yesterday dozens rallied in Vicksburg against planned projects in Kalamazoo County."
+   "text": "What happens next if more communities follow Warren's lead?"
   },
   {
    "host": "Graham",
-   "text": "Yes, concerns centered on noise, traffic, and utility strain. Organizers say more actions are planned if proposals move forward."
+   "text": "We could see additional moratoriums while towns rewrite zoning and wait for clearer state guidance. Lawsuits like the one in Dowagiac may also multiply."
   },
   {
    "host": "Emmy",
-   "text": "And in Dowagiac, residents filed a lawsuit today claiming nonstop noise from an existing data center is harming homes."
+   "text": "And what about the stalled House bill?"
   },
   {
    "host": "Graham",
-   "text": "The case in Cass County highlights how some approvals lacked strong noise protections from the start."
+   "text": "Sponsors are hoping the governor's plan creates momentum to move it forward with bipartisan support."
   },
   {
    "host": "Emmy",
-   "text": "House Speaker is holding up a bill that would set statewide siting rules and tax break limits."
+   "text": "For listeners wondering about attending meetings, what's on deck this week?"
   },
   {
    "host": "Graham",
-   "text": "Sponsors say the delay leaves townships without tools. It had bipartisan support before the stall."
+   "text": "The utility hearing on the Kent County Microsoft campus is happening soon, and Augusta Township's referendum vote is scheduled for next month."
   },
   {
    "host": "Emmy",
-   "text": "Augusta Township voters will decide next month on a data center referendum after weeks of protests near Ann Arbor."
+   "text": "Those are the ones where people can actually show up and speak."
   },
   {
    "host": "Graham",
-   "text": "Traffic, noise, and power are the main worries there too."
-  },
-  {
-   "host": "Emmy",
-   "text": "Oracle won an unlimited tax break on its $43 billion Ann Arbor-area campus after the cap was removed."
-  },
-  {
-   "host": "Graham",
-   "text": "That reversal means potentially decades of lost property tax revenue for local services."
-  },
-  {
-   "host": "Emmy",
-   "text": "New York's moratorium could affect Genesee County's STAMP project plans."
-  },
-  {
-   "host": "Graham",
-   "text": "Local officials are watching to see if it loses its edge for jobs and tax base."
-  },
-  {
-   "host": "Emmy",
-   "text": "On deck this week, there's a public hearing on power and water plans for the Kent County Microsoft campus."
-  },
-  {
-   "host": "Graham",
-   "text": "And the Saline referendum is coming up next month, so residents there will have their say at the ballot box."
-  },
-  {
-   "host": "Emmy",
-   "text": "Full sources and the live map at the Michigan Data Center Tracker."
-  },
-  {
-   "host": "Graham",
-   "text": "We're back tomorrow."
+   "text": "Full sources and the live map at the Michigan Data Center Tracker. We're back tomorrow."
   }
  ],
- "episode_title": "Warren Freezes New Data Centers After Storms; Saline Residents Fight $16B Project",
- "show": "Mornings with Graham & Emmy",
- "daypart": "Mornings"
+ "episode_title": "Warren Freezes New Data Centers After Storms; Whitmer Unveils Statewide Growth Rules",
+ "show": "Evenings with Graham & Emmy",
+ "daypart": "Evenings"
 }
