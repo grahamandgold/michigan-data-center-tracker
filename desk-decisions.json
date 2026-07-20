@@ -1,20 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9UakhubXR5c2l4aUhuQnRHWmR2YjlXUHJDTnMxNVJRWUtYRkdsSmt3UTQ3dVpsSnlJMlhTY1VKa3NNZzRsblY1OEZoWnF4QQ?oc=5",
-   "title": "Coldwater planners begin writing permanent data-center zoning rules",
-   "at": "2026-07-08T22:18:38+00:00",
-   "by": "news_judge",
-   "note": "score 6/10, duplicate: Coldwater drafting permanent rules was already covered in the live story 'Girard Twp green-lights data center rules while Coldwater drafts its own.'"
-  },
-  {
-   "url": "https://example.com/national-data-center-power",
-   "title": "U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure Buildout",
-   "at": "2026-07-09T00:22:23+00:00",
-   "by": "news_judge",
-   "note": "score 3/10, duplicate: National trend piece with no Michigan-specific development; effectively identical to the already-killed 'U.S. Data Center Power Demand Surges as Tech Giants Acc"
-  },
-  {
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQQXg5MGdzbWUwT292VTFON0hwOHNJejc5c09XTHFKRDJhUlhiMlNRZDMtSkp0VmJQRzRkekFEVWQyYjZ0aWdObnhUWGkydWd0b0lKVW1CZVhMUlNibDRPcllCM0pDeGtha3FpRERHaVFyTU91U1JFWnJYOFdLYlJtdTlHZFB1OVR6Y3l4UVVaTWp2djhJaGdfWFNKd9IBoAFBVV95cUxNRWVZQjNHTHpLcDBtc1gxNTdNSjFaby1TbXdyVUY0M2kxb0tXUGVaSnlqM3ctQk5IaFRWendablo2TFdqNWsxR2FZN3g4czBqWTRRQjN6M3V2akZOTnpoQVNDdVduMUlLTWE0RHZSQW5hSlY3aXY4bktUaVlNSzY5NkVTSzFYd0UwNk5SMVJWTnpIVHNubWxBbzVjdTRTRnFu?oc=5",
    "title": "Fresh polling shows Michigan opposition to data centers rising fast",
    "at": "2026-07-09T02:18:33+00:00",
@@ -1397,6 +1383,20 @@
    "at": "2026-07-19T23:02:29+00:00",
    "by": "news_judge",
    "note": "score 3/10: National trend piece about environmental groups and data centers with no Michigan-specific development, filing, or action."
+  },
+  {
+   "url": "https://fortune.com/2026/07/19/data-center-eminent-domain-public-use/",
+   "title": "Michigan Landowners Face Forced Sales for AI Data Center Power Lines",
+   "at": "2026-07-20T06:57:27+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece about eminent domain in other states (Georgia, Pennsylvania) with only generic Michigan framing; no Michigan-specific decision or developme"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiggNBVV95cUxNdnhNbGJEaklrcWt0TUlFN2l3LXpaWS1iWU1pSjFmNWZCWm9vNERmdXZZemR6dHJuUXQ1bkJOMzJndy1fX3RVbEk2V2hvNXNYY0tBSkh3VTFOdTEybGc3c3JwM1R4amJfMGJsWGpTcUQ4MjU1U19YQzVvbmNJNTZHYmpBeHp6b21PNW9fWXVHdFpJVmNFSnNaRnRsalJfZW0yVXpsQ2JxX3RlT2RHSXp1RTk2U3dBLTVSNkc1Vm05WEVJN0dNb3dvYnplcmNqOGtYRlU0cFBwRm9VdWVXZVZ4VjBQRXE0alRhX1JKWWtOOEN1ZjZFS3Z3bU93dERoNllIbU1mSVhDVUdScTZvY3BHRS12RXU2aGdIMzBueDVGbGpHclZPVmExcEp2dGQxb1hOclNOS0Nqa1ZJYzZkX0xnbXU0UjhWLWlGUkJ0SXpFcnF0QVBkQW5ZUzhjdkVsTld1RmxadjZEYUFMcS1wU2RPbWhqSkVPdEY3eTJfT2JHMlpsQQ?oc=5",
+   "title": "Warren weighs one-year freeze on new data centers after outages",
+   "at": "2026-07-20T06:57:27+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: Same Warren freeze story already live ('Warren Freezes New Data Centers After Storms Down 60+ Power Lines') and previously killed twice with different framings."
   }
  ],
  "auto_published": [
