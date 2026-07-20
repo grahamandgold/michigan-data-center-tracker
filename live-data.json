@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-20T19:01:27+00:00",
+ "updated_at": "2026-07-20T20:27:23Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Utility allies slam Michigan data center critic",
+   "dek": "Groups linked to Consumers Energy are going after a vocal opponent of large data center projects. The attacks come as utilities face scrutiny over rising power costs tied to new server farms. Michigan residents could see higher electric bills if the projects move forward unchecked.",
+   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQMHZ5NzRQQVBUTjB3c2l1NVRsUzhMZ00xaFB5Rmw4WHQwd3Y2aDA2d3BhWkZlQkR3ZC1iZVZlQVhFeFFkUDhkMzJUSGtDekJNdXB5OHRBNy1rbzZXN2JiaFdTOE5jRHJmRGl2aWlaWnRaTEltNS0xS2h1SVd0cFU3cjdvOXlCSU9RdWh1TTNLYWJBZFlJZ3NhTUItT0M2bEFWdXkwMmFlaDRKTm5pYlpCMkhBYk1rSmJjcWU2QjI1S2tISGdKT3BNX0FaUUwwclR5elpJRUNBMmw0T3dGUEo0?oc=5",
+   "source": "The Detroit News",
+   "region": "statewide",
+   "cat": "STATEWIDE",
+   "county": "",
+   "tag": "Power & Grid",
+   "iso": "2026-07-20T19:58:00Z",
+   "id": "3f06ccd4f359",
+   "origin": "google-news",
+   "source_title": "Groups tied to Consumers Energy target Michigan data center critic - The Detroit News",
+   "source_url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQMHZ5NzRQQVBUTjB3c2l1NVRsUzhMZ00xaFB5Rmw4WHQwd3Y2aDA2d3BhWkZlQkR3ZC1iZVZlQVhFeFFkUDhkMzJUSGtDekJNdXB5OHRBNy1rbzZXN2JiaFdTOE5jRHJmRGl2aWlaWnRaTEltNS0xS2h1SVd0cFU3cjdvOXlCSU9RdWh1TTNLYWJBZFlJZ3NhTUItT0M2bEFWdXkwMmFlaDRKTm5pYlpCMkhBYk1rSmJjcWU2QjI1S2tISGdKT3BNX0FaUUwwclR5elpJRUNBMmw0T3dGUEo0?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 6
+  },
   {
    "title": "Negaunee sets Aug 13 hearing on data center zoning rules",
    "dek": "Marquette County residents will weigh in next month on proposed rules that could shape where and how large data centers locate. The ordinance directly affects land use, power demand and local tax base in Negaunee. A clear policy now could limit or invite projects that alter the township's character and bills.",
@@ -169,21 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBkcjN3Q0lSMEFWQ19zWlVQUHJsbzNUQmF4T2w1R0pXY1B3LXp3Zk90WEF1SnMweXB1NkZlRFZESkRQUWpmMmdaLVRYT3BKZXNITndtMFdaM2Q0d2dFRXFGaDV6S1hhcTRSa3NyQzcyZFR1bE9jQlE0?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 8
-  },
-  {
-   "iso": "2026-07-18T10:00:00Z",
-   "region": "metro",
-   "cat": "Macomb Co.",
-   "tag": "Local Government",
-   "title": "Warren Freezes New Data Centers After Storms Down 60+ Power Lines",
-   "dek": "Council approved the temporary moratorium after July storms exposed the strain on Warren's aging grid. City attorneys will now draft the pause while zoning rules are revised.",
-   "source": "The Cooldown",
-   "url": "https://www.thecooldown.com/green-tech/warren-city-council-data-center-pause/",
-   "breaking": false,
-   "lead": true,
-   "id": "63e5553b343d",
-   "accuracy": "checked-rewritten",
-   "judge_score": 6
   }
  ],
  "national": {

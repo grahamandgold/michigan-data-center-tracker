@@ -1,39 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOM0s3bGJkb0tVc3cwSjVCTEw0eGRNUEhNNi04ck1abm02bVRWVVYyczBva1Q5RzFHQzNORlBqdEJJVEFhY2FGNnpVNDBhYVIxR2k1SGlmSnVtMm5seHk3dHp3ZWk2VnhRelFFc1lZblI1alZ4cDdGY01BMTRCODlnYldhTzJaRENhTDV5SkFCTS1WcjJhZEdxZWRXWDMxYkwyTUtiTkR0OERUY0VC?oc=5",
-   "title": "Saline residents pack meeting to fight Oracle tax break",
-   "at": "2026-07-09T05:06:49+00:00",
-   "by": "news_judge",
-   "note": "score 2/10, duplicate: Oracle Saline tax break and public opposition already covered in 'Oracle asks Saline Twp to skip 12 years of taxes' story."
-  },
-  {
-   "url": "https://www.bridgedetroit.com/detroit-begins-drafting-data-center-regulations/",
-   "title": "Detroit Planners Begin Crafting Rules to Govern Future Data Center Growth",
-   "at": "2026-07-09T05:50:55Z"
-  },
-  {
-   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNVnZFRWZ3M1RRLXJDMXlySVlydzMtazJXOXFKOVFfNGNzUE54c2hla3VEek5NY3M1ZkdUaGtEVTFadlh3SDRMcDRaOTcyTFN3bzdyMlZFMHlUUjRZNG1PdkpLMGRqbHBzX2tGNHFhVTI1NEItRDhaTHE4UTQ5SllOT3BmZzR2ckh1dV91Y1BsRTNLM0JqZUM1T2tLV0xvZXZOMkNfdlJKLXN2V1lNdmdpcDZJcHBlYWtGNlhibUdpWFZ3Skk1bW1jM09rUjY1MHhzTUc1azRWQdIB6wFBVV95cUxNMnBTOXNvcTVkOVBRVktjYXIyQjY2ZEFKTXhvN0xXZ0o0aU54SG9ZOHQtQzRxa1pNeThLS1VBSjZ0b1BNeXhNRFhUVl9TdXQzTW1sckF1MDZhZ2xRX0NIdWZvNzBnY08xdVRuMjM2X3djS3FnS3dHX3Z4Y3oxQ0JITFJDaTlKa2ZfdVQ2d0cwWkFVWHpPMjNXblZuZVAwQWR5R0RjNzVzeGZScy1KU3VDY3h5TzVfelpERDJYLVczd3RqZi1vUF8tR3hvdjhsVGsxZW9XRllrbU4xYWpqMTlvUlJGblBvc0JPZ0lV?oc=5",
-   "title": "Oracle pushes Saline Twp to waive 12 years of taxes on $43B campus",
-   "at": "2026-07-09T08:45:52+00:00",
-   "by": "news_judge",
-   "note": "score 3/10, duplicate: This is the same Oracle/Saline Township tax break story already live ('Oracle asks Saline Twp to skip 12 years of taxes on $43B campus') and also matches the ki"
-  },
-  {
-   "url": "https://www.cbsnews.com/detroit/video/tense-meeting-over-possible-tax-break-for-saline-township-data-center/",
-   "title": "Saline Township Board Faces Heated Debate Over Potential Tax Break for Massive Oracle Data Center",
-   "at": "2026-07-09T12:23:32+00:00",
-   "by": "news_judge",
-   "note": "score 3/10, duplicate: Duplicate of already-live 'Oracle asks Saline Twp to skip 12 years of taxes on $43B campus' and killed 'Saline residents pack meeting to fight Oracle tax break'"
-  },
-  {
-   "url": "https://www.newsfromthestates.com/article/researchers-stress-case-case-approach-when-evaluating-michigan-data-center-deals",
-   "title": "U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure Buildout",
-   "at": "2026-07-09T12:23:32+00:00",
-   "by": "news_judge",
-   "note": "score 2/10, duplicate: Exact duplicate of already-killed national trend piece 'U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure Buildout' — generic nat"
-  },
-  {
    "url": "https://michiganadvance.com/2026/07/08/researchers-stress-case-by-case-approach-when-evaluating-michigan-data-center-deals/",
    "title": "Experts Urge Case-by-Case Review of Michigan Data Center Deals to Balance Growth and Local Burdens",
    "at": "2026-07-09T16:12:32+00:00",
@@ -1397,6 +1364,41 @@
    "at": "2026-07-20T16:41:17+00:00",
    "by": "news_judge",
    "note": "score 4/10: Vague speculation about a future debate in an unnamed Michigan city; no concrete action, filing, or scheduled hearing reported."
+  },
+  {
+   "url": "https://themanchestermirror.com/2026/07/20/massive-data-center-wins-local-tax-break-but-9-times-smaller-than-requested/",
+   "title": "Saline Township Slashes Oracle Data Center Tax Break to Under $20M a Year",
+   "at": "2026-07-20T20:27:23+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: This is the same Oracle/Saline tax break decision already covered in multiple KILLED stories with identical details (12-year, $4.8B valuation, clawback)."
+  },
+  {
+   "url": "https://www.pbs.org/newshour/science/when-can-a-power-company-take-your-land-for-data-center-infrastructure",
+   "title": "Power Companies Seek Eminent Domain Authority for Data Center Infrastructure Amid AI Boom",
+   "at": "2026-07-20T20:27:23+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece on eminent domain broadly, not a specific Michigan decision or filing despite vague reference to state Supreme Court."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdzdtbU9PRkxLRldsSGxMUnBhZmFTeTNqUUxCcTNvUTBqdGxaYnUwLVhtOUVDd1RpZUwzd2YtOU02cjZyOXJ3MlFnYUw3UmhkLW93Q2E1ZEs1RTE5OUlfSkVHTWtrQzdJcHF0c0ZaWWJwSElURXpSazFvZ3pDOEtNQi1DYlN2VHA2eWQtM0hidkVQZjNXcFFEREFoLWdmMzJmUTQ2Z1pRUzZLNnhmVHZZdVdMdUdQQVE?oc=5",
+   "title": "Michigan city keeps data center moratorium in place after denial",
+   "at": "2026-07-20T20:27:23+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Too vague—no city named, no specific vote date or details provided; reads like thin rehash without concrete reporting."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORlNSblFJblU1Z2dTMVhXdWl1alhRZ2VZUVZ6YW5KN3VDN2UzTDhmM1owaUtrR2pqT3VoODZ4bm5XbTRwX3NZdmFwNXo3SWdzNVdXOERhYmdoNDhLS0phUmpJSDlIOHJOLXIyNGtITnNydlFBbTluM3RKSHhaS2ZWbDZRTzQtNlNMWWJtYndqajViNWVrWUE?oc=5",
+   "title": "Wortz blocks eminent domain for data centers and renewables",
+   "at": "2026-07-20T20:27:23+00:00",
+   "by": "news_judge",
+   "note": "score 5/10: Named legislator taking a policy stance on eminent domain, but unclear if this is a bill filing, floor speech, or just a statement—needs more specificity."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOd205YzBwSXZSLVladWtQd1pCUFpSR0dIWjlIdVpmVThsN0lOdkpPSnlSdU5EbmRkak1LSG5vcFVFcmo1d0FGWFpXVW5uOG1BeUkzV1ktNm9ZengwUmV4NlRnbjgzcFktUnNVUWM3TFA2c3hOV3JPZUdFMzIxWi1hWENVelhWcWp3WkNUcUdwc2xsSW80ZnY0RTJtel93eWM3cUJRbEh6dw?oc=5",
+   "title": "GOP governor hopeful backs statewide data center freeze",
+   "at": "2026-07-20T20:27:23+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Campaign position from unnamed candidate lacks concrete news value; speculative political angle without a specific policy proposal or event."
   }
  ],
  "auto_published": [
@@ -2017,6 +2019,12 @@
    "title": "Negaunee sets Aug 13 hearing on data center zoning rules",
    "judge_score": 7,
    "at": "2026-07-20T16:41:17Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQMHZ5NzRQQVBUTjB3c2l1NVRsUzhMZ00xaFB5Rmw4WHQwd3Y2aDA2d3BhWkZlQkR3ZC1iZVZlQVhFeFFkUDhkMzJUSGtDekJNdXB5OHRBNy1rbzZXN2JiaFdTOE5jRHJmRGl2aWlaWnRaTEltNS0xS2h1SVd0cFU3cjdvOXlCSU9RdWh1TTNLYWJBZFlJZ3NhTUItT0M2bEFWdXkwMmFlaDRKTm5pYlpCMkhBYk1rSmJjcWU2QjI1S2tISGdKT3BNX0FaUUwwclR5elpJRUNBMmw0T3dGUEo0?oc=5",
+   "title": "Utility allies slam Michigan data center critic",
+   "judge_score": 6,
+   "at": "2026-07-20T20:27:23Z"
   }
  ]
 }
