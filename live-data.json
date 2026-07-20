@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-20T14:53:23Z",
+ "updated_at": "2026-07-20T16:41:17Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Negaunee sets Aug 13 hearing on data center zoning rules",
+   "dek": "Marquette County residents will weigh in next month on proposed rules that could shape where and how large data centers locate. The ordinance directly affects land use, power demand and local tax base in Negaunee. A clear policy now could limit or invite projects that alter the township's character and bills.",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOMFAwN2JFd2Z6emE1OFBUd1hpcDJ2WTZsaUd5RE5EdVdGQmtGLUFPbkdzVW81a3dJYzBwWmctbWNma05rYUo1UWJ2bGhYdGhLaUE4UlhFSWM4aExNSC1VSXhYM0hWRVo4NFRNYXhaRW85cF9XV3RXUXFObV9wTmh2YVdGWHUxTDFuT3BjdVJ0TmQ1c2lFSlNVeUd2OENtdlZjOUJvOWhZbDJqZk9ac3hFT1E2SHBJUDdNcjJIWXBsdVpXWVFVUkNGb3F3?oc=5",
+   "source": "The Mining Journal -",
+   "region": "north",
+   "cat": "STATEWIDE",
+   "county": "Marquette",
+   "tag": "Local Government",
+   "iso": "2026-07-20T15:21:19Z",
+   "id": "96428e4b0a8a",
+   "origin": "google-news",
+   "source_title": "Public hearing for Negaunee data center ordinance to be held on Aug. 13 - The Mining Journal -",
+   "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOMFAwN2JFd2Z6emE1OFBUd1hpcDJ2WTZsaUd5RE5EdVdGQmtGLUFPbkdzVW81a3dJYzBwWmctbWNma05rYUo1UWJ2bGhYdGhLaUE4UlhFSWM4aExNSC1VSXhYM0hWRVo4NFRNYXhaRW85cF9XV3RXUXFObV9wTmh2YVdGWHUxTDFuT3BjdVJ0TmQ1c2lFSlNVeUd2OENtdlZjOUJvOWhZbDJqZk9ac3hFT1E2SHBJUDdNcjJIWXBsdVpXWVFVUkNGb3F3?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Manchester grants data center tax break after slashing request by 89%",
    "dek": "The project will still receive local tax relief despite being scaled back sharply from the original ask. Residents in Manchester and surrounding Washtenaw County will see less revenue than developers first sought. The decision locks in long-term fiscal impacts for schools and township services.",
@@ -17,6 +34,21 @@
    "source_title": "Massive data center wins local tax break — but 9 times smaller than requested - The Manchester Mirror",
    "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNnVpNkpEUGpwZXNQUWh6UjNOUjBINWk3UnlQTXdvMS03aFRTZWVSVGVXVjZiMnl6QVJGcm1laWlORnd2Q1d4UXcxdFBXUWtsV3pENUtHZG9wZzROX2g4amFvN2U0aU9ObnEwRmVIRFJCY0xHdzlMZUVwdFJ4dGdPVTN4VXlZUG1MR000d2FMX2lCZTRrdUdpVHpEYVFUbXpsLV9OejVvUGg5UW16X0RwTDhXbW5kV3hoM2Nr?oc=5",
    "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
+  {
+   "iso": "2026-07-20T10:00:00Z",
+   "region": "mid",
+   "cat": "Ingham Co.",
+   "tag": "Local Government",
+   "title": "Lansing City Council Enacts 182-Day Moratorium on New Data Center Proposals",
+   "dek": "The measure blocks consideration of any new projects until January 2027, giving officials time to develop permanent regulations amid growing local concerns.",
+   "source": "Michigan Advance",
+   "url": "https://michiganadvance.com/2026/07/20/michigan-data-centers-the-weekly-download-3-2-2-2-2/",
+   "breaking": false,
+   "lead": true,
+   "id": "db387e61ddae",
+   "accuracy": "checked",
    "judge_score": 8
   },
   {
@@ -152,38 +184,6 @@
    "id": "63e5553b343d",
    "accuracy": "checked-rewritten",
    "judge_score": 6
-  },
-  {
-   "iso": "2026-07-18T05:00:00+00:00",
-   "region": "metro",
-   "cat": "Washtenaw Co.",
-   "tag": "Local Government",
-   "title": "Saline Township Locals Resist $16B Stargate Data Center Over Water and Farmland",
-   "dek": "Residents of the 2,400-person farming community say the project already under construction will drain water supplies, raise utility costs and erase rural character.",
-   "source": "Calcalistech",
-   "url": "https://www.calcalistech.com/ctechnews/article/r1yve0pvfl",
-   "breaking": false,
-   "lead": true,
-   "id": "f408d22471e2",
-   "accuracy": "checked-rewritten",
-   "judge_score": 6
-  },
-  {
-   "title": "Oracle wins unlimited tax break on $43B Ann Arbor-area campus",
-   "dek": "Saline Township dropped its $4.8B cap on incentives for the Oracle-OpenAI project. Residents now face decades of lost property-tax revenue with no upper limit on the deal. The reversal hands the company a blank check paid for by local taxpayers.",
-   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOcUdQVEhwWHIyVkF2MzJKNmlMSGY4N25nekxNNFBSQ3BCSG5GM1BfZWJZRnM0Yi1zRmpzVjMwQ19fTnBSN1o3Ylp5VG9PemhKTGhwa19mMUFJZERuclhydWx0YXBFbGxKT2NsYkN6bldfUFNsVkpIWU4wUGZMVnF0cTFabUVZQ09hOWxkNEZsVG9GRGpEYlZ6RGlCYzB3YUxERDY4WjFxTWRuTXVLSjBZV2NjOUZNcmcxMldMVTZFdzVOaE9ZakNSUFJDUDRDUDBrejJCWXoxU3ZEUUlpa2I3WtIB9AFBVV95cUxNYm4xazBYWnFUbERMMnVQM2pGMllhS2RXU3VZRXU3OGMyOGZxSUlybGF2TWZCOVN2aHBBN1F6a2xUUkNHa1l5TGNXZ1A0UzNCV2ZOeGpfcWFIbEFCM0JvdXRiVzNMbU52QnZlMjU4dUNhYWJyaW5QeU92X0Y3VVhNVkpsMFZrVVdudGpkY3lQZ3NSSUhKTTRJQWxCUXJMQUtEWFZWN0F0bk1ubjRPak1XYXBqTlNhc0ZzS2hhVlFqMzBpVGxOaEJzcTZqdUZnTGh0MXhUelYzRmYySVhiRWU3SzZnZDBCOFZaZEVxZEpEcEtFQlF1?oc=5",
-   "source": "MLive.com",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Washtenaw",
-   "tag": "Money",
-   "iso": "2026-07-18T04:51:00Z",
-   "id": "8a2190d57858",
-   "origin": "google-news",
-   "source_title": "Township changes course, nixing cap on tax break for $43B Oracle, OpenAI data center near Ann Arbor - MLive.com",
-   "source_url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOcUdQVEhwWHIyVkF2MzJKNmlMSGY4N25nekxNNFBSQ3BCSG5GM1BfZWJZRnM0Yi1zRmpzVjMwQ19fTnBSN1o3Ylp5VG9PemhKTGhwa19mMUFJZERuclhydWx0YXBFbGxKT2NsYkN6bldfUFNsVkpIWU4wUGZMVnF0cTFabUVZQ09hOWxkNEZsVG9GRGpEYlZ6RGlCYzB3YUxERDY4WjFxTWRuTXVLSjBZV2NjOUZNcmcxMldMVTZFdzVOaE9ZakNSUFJDUDRDUDBrejJCWXoxU3ZEUUlpa2I3WtIB9AFBVV95cUxNYm4xazBYWnFUbERMMnVQM2pGMllhS2RXU3VZRXU3OGMyOGZxSUlybGF2TWZCOVN2aHBBN1F6a2xUUkNHa1l5TGNXZ1A0UzNCV2ZOeGpfcWFIbEFCM0JvdXRiVzNMbU52QnZlMjU4dUNhYWJyaW5QeU92X0Y3VVhNVkpsMFZrVVdudGpkY3lQZ3NSSUhKTTRJQWxCUXJMQUtEWFZWN0F0bk1ubjRPak1XYXBqTlNhc0ZzS2hhVlFqMzBpVGxOaEJzcTZqdUZnTGh0MXhUelYzRmYySVhiRWU3SzZnZDBCOFZaZEVxZEpEcEtFQlF1?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9
   }
  ],
  "national": {
