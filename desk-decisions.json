@@ -1,13 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPRExxYnFsX29tcndXM2dXeGZXUHdXSlM0MW5pemVWaHY5ZkhES1o4YWI5Z21WVWRRUGxacGlidkZoS3lvcTR0cGlHanowUEZXSVViU3hOcllfdXJlLWtxcW1OZ3pOWjJBeDh2cFFnbXdFSDVFNVNtdmlMWnFsUXhsaUdBYkgxS3hwanVLR1pYOV9IQXdfVmZXVURnc3ZUS1QtRTdKVklvM1Jhakg5WjBjTmFUbGdVbW5PcEM5aXBROUhad3BDMjdkTFJ1WnduYS1xcEhiSGdwanRoODgzcmN5TDljWWRVNXVQcWhTU1JhMXhZRk8tZ0N2X1l2bDVNT2cxZExiRFFJZ2dzT09t?oc=5",
-   "title": "SE Michigan communities weigh data-center moratoriums",
-   "at": "2026-07-09T20:54:06+00:00",
-   "by": "news_judge",
-   "note": "score 4/10: Regional roundup of multiple moratoriums lacks a specific new decision or filing; too vague about which towns are doing what when."
-  },
-  {
    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPMmszUDZCSk5lV3RpdnkzdW9KS204Y3pQUXBsQmhDUjFvS2h4QnU3SFpxbjg1U0gydzR5blozYlBDNU9EU2Z3YlpBQjRDb0tQcVFpTFVKWHVnOWFEWnlCQ3RtT0lfeGwyd2c3Qmo1el9DYXU5c3ZKd3lRNnQ2X0ZFbnZPS2hyQU9UUmZJOGZIMGtVc3kzTXF4V2VmcmM?oc=5",
    "title": "Portage drafts zoning rules to block new data centers",
    "at": "2026-07-09T20:54:06+00:00",
@@ -1399,6 +1392,13 @@
    "at": "2026-07-21T16:05:49+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: This is the same Lowell billboard vandalism incident already killed twice by the News Director under different headlines."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPV3Y4aEVOMnkzS0d2T254YVowbzJRdVpMRlp4a2hubDJTc0NVTTRnQjc3aGEwUWM2eTRLTzJjeEp1Yk1ob09yX3owamZKazM1X01fb3JWM3g4VmdkVG9vRkE0MGs3VGUwWUJYUHJlbXFXN29tTzlteUpVd1JuVnNQVWF3enlvaFljSnF6aVptUE4zRFF2Y3ZHbHNsSG5jcldQVGY4WnB5MkgycWRQRm04azN0OGhRLVR4?oc=5",
+   "title": "Oracle locks in full tax break for Saline data center after legal threat",
+   "at": "2026-07-21T21:20:47+00:00",
+   "by": "news_judge",
+   "note": "score 2/10, duplicate: This is the same Saline/Oracle tax break story already covered in the KILLED item 'Saline flips, hands Oracle full 12-year tax break on $43B campus' — just a di"
   }
  ],
  "auto_published": [
