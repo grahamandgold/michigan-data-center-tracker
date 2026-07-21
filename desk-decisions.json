@@ -1,13 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNdzR4WVZkVEkwazNFWXBKRGNkVzRVQTB6eW9WN290MXg4U3BaSmFIZjhGc1VmRVZEdTJUc05zMklfRlRtb1YxOGQ5ejA3VWV4LWNLLVROMDI5cEhncmx0S0FWRmlLYjRnVEc2NndxMG1QQ1ZYQ2JzcHVRNkJCZkpvNVZmQld2UnlSR2FuaXQ3S1Rwdw?oc=5",
-   "title": "Oracle asks Saline to skip 12 years of taxes on $43B data center",
-   "at": "2026-07-09T17:34:46+00:00",
-   "by": "news_judge",
-   "note": "score 3/10, duplicate: Duplicate of already-live 'Oracle asks Saline Twp to skip 12 years of taxes on $43B campus' — same tax break request."
-  },
-  {
    "url": "https://www.facebook.com/NorthernNewsNow/posts/the-carlton-county-board-of-commissioners-voted-tuesday-to-advance-an-interim-us/1663039089160201/",
    "title": "Carlton County Votes to Pause New Data Centers During Impact Study",
    "at": "2026-07-09T18:56:08+00:00",
@@ -1399,6 +1392,13 @@
    "at": "2026-07-21T01:02:51+00:00",
    "by": "news_judge",
    "note": "score 2/10, duplicate: Already killed: 'Lowell billboard attacking data center gets vandalized' — same incident, just reversed perspective."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMikgJBVV95cUxPcXJYZW5nN1dIM0NMVWRBdmIycTlqaDNCM2w2SG4xZ2ZlWmNScHI2OVZoSll5VFNBTGphOWNqSmd3WXdTOWN6eVhqU2FHZ2VuTHpZamt3a0tvQVcxNTVDQWgxV1Ita0NpOGVsRUpkWXRZUVRuNHVJMkw1U0FKLWU3SFhPVHRSUDEzclltTms1N3ZNM2llekV5TVZtRy1KamdZOHVXYzRlQ2VBX3lqdjJQZTVULWlEY2M1YTR2UkRKWjJxVHVxUno4czBXcFRaLVJOTm1uODBFR3RweHpTQjd3X3drTTVSUEZURDFTVEN2ckFpNmNJeXpOZEZjT1hMLTU3WWpjd3JOOFRKRENOekNGWndB?oc=5",
+   "title": "Michigan township rebels against Whitmer data center law",
+   "at": "2026-07-21T11:58:08+00:00",
+   "by": "news_judge",
+   "note": "score 4/10, duplicate: This is a thin rehash of the already-live story 'Michigan township battles state data center law as Whitmer rolls out new pledge' — same township rebellion agai"
   }
  ],
  "auto_published": [
