@@ -1,6 +1,25 @@
 {
- "updated_at": "2026-07-21T04:23:52+00:00",
+ "updated_at": "2026-07-21T07:14:45+00:00",
  "generator": "grok-wire-agent",
- "items": [],
- "accuracy_checked_at": "2026-07-21T04:23:52+00:00"
+ "items": [
+  {
+   "iso": "2026-07-20T17:00:00+00:00",
+   "region": "metro",
+   "cat": "Washtenaw Co.",
+   "tag": "Money",
+   "title": "Oracle Data Center Tax Abatement Approved at Full Valuation After Saline Board Reconsiders",
+   "dek": "Trustees backtracked from a July 14 decision that would have limited the 50% break to $4.8 billion, now extending it to the project's full $43 billion projected value.",
+   "source": "Crain's Detroit Business",
+   "url": "https://www.facebook.com/CrainsDetroit/posts/saline-townships-gambit-to-appease-angry-residents-over-the-massive-artificial-i/1637247301733843/",
+   "breaking": false,
+   "lead": false,
+   "id": "6d86f475a023",
+   "kind": "story",
+   "filed_at": "2026-07-21T07:14:45+00:00",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 9,
+   "judge_note": "A concrete reversal and new decision—the board voted to restore the full tax break after previously slashing it, a significant development beyond the earlier Ju"
+  }
+ ],
+ "accuracy_checked_at": "2026-07-21T07:14:45+00:00"
 }
