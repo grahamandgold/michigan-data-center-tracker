@@ -1,6 +1,36 @@
 {
- "updated_at": "2026-07-22T10:04:00Z",
+ "updated_at": "2026-07-22T11:31:18+00:00",
  "generator": "grok-wire-agent",
- "items": [],
+ "items": [
+  {
+   "title": "Oxford Township to review draft data center zoning rules July 23",
+   "dek": "Oxford planners will review a draft ordinance July 23 to regulate data centers that have not yet been proposed in the township. The rules come after a 1-year moratorium approved in February to study the issue.",
+   "url": "https://oxfordtwpmi.gov/",
+   "source": "Charter Township of Oxford Planning Commission agenda",
+   "region": "Southeast Michigan",
+   "county": "Oakland",
+   "cat": "Meetings",
+   "tag": "Agenda watch",
+   "iso": "2026-07-22T11:31:18+00:00",
+   "kind": "agenda",
+   "id": "74bebb9ff8af",
+   "filed_at": "2026-07-22T11:31:18+00:00",
+   "accuracy": "document-based",
+   "findings": "As of July 20, 2026, no data center plans have been proposed, submitted or approved and the township has not been approached by any parties (township Facebook post) | Township Board voted 7-0 Feb. 11, 2026, to impose a one-year moratorium on data center establishment, permitting and construction (township Facebook post) | Draft ordinance is a starting point for discussion only; no action will be taken at the July 23 meeting (township Facebook post) | Michigan Zoning Enabling Act requires that zoning not totally prohibit lawful uses like data centers unless no suitable location exists (township Facebook post)",
+   "perspective": "The Oxford Township Board enacted the moratorium to give time to research and draft regulations. The planning commission meeting is for public questions and input on the draft; any ordinance changes would require further board action under state law.",
+   "documents": [
+    {
+     "label": "Agenda page",
+     "url": "https://oxfordtwpmi.gov/"
+    },
+    {
+     "label": "Social Media Policy",
+     "url": "https://oxfordtwpmi.gov/wp-content/uploads/2025/11/Oxford-Township-Social-Media-Usage-Policy-for-Guests.pdf"
+    }
+   ],
+   "depth_score": 8,
+   "extraction_method": "plain"
+  }
+ ],
  "accuracy_checked_at": "2026-07-22T10:03:55+00:00"
 }

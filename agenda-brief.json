@@ -1,8 +1,16 @@
 {
- "generated_at": "2026-07-16T21:29:49+00:00",
+ "generated_at": "2026-07-22T11:31:18+00:00",
  "for_dates": [
-  "2026-07-16",
-  "2026-07-17"
+  "2026-07-22",
+  "2026-07-23"
  ],
- "items": []
+ "items": [
+  {
+   "iso": "2026-07-23",
+   "time": "6:30 PM",
+   "meeting": "Charter Township of Oxford Planning Commission",
+   "bullet": "Oxford Township has a 1-year data center moratorium and will discuss draft zoning rules July 23 with no projects proposed yet.",
+   "link": "https://oxfordtwpmi.gov/"
+  }
+ ]
 }
