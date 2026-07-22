@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-22T10:04:00Z",
+ "updated_at": "2026-07-22T11:59:53Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Court overturns local veto of massive AI campus, raising power and water worries",
+   "dek": "After a township turned down the massive AI campus, a court ruling reopened the door for the $16 billion project. Neighbors now face renewed questions about who pays for new power lines and whether their wells and roads can handle the load. The decision shifts the fight from local zoning to the courtroom.",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOR3lGMWVQclhHdkdOT0RXdnI4ckNKTFJ6TTdhOWFsZXEwU0c3cld6amVZcEszRW1tLUFnNWw0LUVfdkx3ajI1eWU4ZWNuc0ZadGI1bVpsUVY4Uy1DUXhwZHVISzdoTlg5akstUklTM2ZHbFVBNEpnNTNEWnZqSjZOMDVDLVpvZlFuVFBuYWhoVXA5d0NrNnc?oc=5",
+   "source": "Yahoo",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Washtenaw",
+   "tag": "Policy",
+   "iso": "2026-07-22T07:13:00Z",
+   "id": "a7bb07ba328d",
+   "origin": "google-news",
+   "source_title": "Michigan township rejected a $16 billion AI data center, then a lawsuit cleared the way - Yahoo",
+   "source_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOR3lGMWVQclhHdkdOT0RXdnI4ckNKTFJ6TTdhOWFsZXEwU0c3cld6amVZcEszRW1tLUFnNWw0LUVfdkx3ajI1eWU4ZWNuc0ZadGI1bVpsUVY4Uy1DUXhwZHVISzdoTlg5akstUklTM2ZHbFVBNEpnNTNEWnZqSjZOMDVDLVpvZlFuVFBuYWhoVXA5d0NrNnc?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 8
+  },
   {
    "title": "West Michigan residents sue hyperscale data center over constant noise",
    "dek": "Homeowners near a large data center in West Michigan filed suit claiming the facility produces unreasonable and excessive noise that disrupts daily life. The lawsuit puts the operator on notice that neighbors will not quietly accept the side effects of massive server farms. Michigan ratepayers and nearby towns will watch closely to see if courts force changes or compensation.",
@@ -169,23 +186,6 @@
    "id": "db387e61ddae",
    "accuracy": "checked",
    "judge_score": 8
-  },
-  {
-   "title": "Mason residents raise cash to fight proposed data center",
-   "dek": "A local group in Ingham County is hosting a fundraiser to push back against a data center project. Residents worry about noise, power strain and lost farmland near their homes. The effort shows growing organized opposition in mid-Michigan communities facing similar proposals.",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNWHNNVFRCYkdxUnhlWm1uSWJIY0R4VXBtdm5xTUN6ejUtOWw4amdaSUhpbHhZYzNPQnVjRTBQdjFkZDlvbUNTUkdRZDJlbjZqSmdNTkYyZTN0RUNvalllZmRXT01QeWtCNDdqTlVlLTVLdk5xb2UtX2NLWmdhbjA1WkZzTlNMajZlQ2dSZUp3aktKZkszdFF0NTZuYnE1cjFoYXBSVnVPSVhLR2fSAasBQVVfeXFMTVhzTVRUQmJHcVJ4ZVptbkliSGNEeFVwbXZucU1Deno1LTlsOGpnWklIaWx4WWMzT0J1Y0UwUHYxZGQ5b21DU1JHUWQyZW42akpnTU5GMmUzdEVDb2pZZWZkV09NUHlrQjQ3ak5VZS01S3ZOcW9lLV9jS1pnYW4wNVpGc05TTGo2ZUNnUmVKd2pLSmZLM3RRdDU2bmJxNXIxaGFwUlZ1T0lYS0dn?oc=5",
-   "source": "WILX",
-   "region": "mid",
-   "cat": "STATEWIDE",
-   "county": "Ingham",
-   "tag": "Local Government",
-   "iso": "2026-07-20T01:20:00Z",
-   "id": "8ee68448d57e",
-   "origin": "google-news",
-   "source_title": "Mason group holds fundraiser to oppose data center development - WILX",
-   "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNWHNNVFRCYkdxUnhlWm1uSWJIY0R4VXBtdm5xTUN6ejUtOWw4amdaSUhpbHhZYzNPQnVjRTBQdjFkZDlvbUNTUkdRZDJlbjZqSmdNTkYyZTN0RUNvalllZmRXT01QeWtCNDdqTlVlLTVLdk5xb2UtX2NLWmdhbjA1WkZzTlNMajZlQ2dSZUp3aktKZkszdFF0NTZuYnE1cjFoYXBSVnVPSVhLR2fSAasBQVVfeXFMTVhzTVRUQmJHcVJ4ZVptbkliSGNEeFVwbXZucU1Deno1LTlsOGpnWklIaWx4WWMzT0J1Y0UwUHYxZGQ5b21DU1JHUWQyZW42akpnTU5GMmUzdEVDb2pZZWZkV09NUHlrQjQ3ak5VZS01S3ZOcW9lLV9jS1pnYW4wNVpGc05TTGo2ZUNnUmVKd2pLSmZLM3RRdDU2bmJxNXIxaGFwUlZ1T0lYS0dn?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 6
   }
  ],
  "national": {

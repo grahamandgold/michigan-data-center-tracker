@@ -1,27 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://www.lenox-mi.gov/agendacenter",
-   "title": "Lenox Township sets public hearing on proposed I-94 Development District",
-   "at": "2026-07-09T22:40:39+00:00",
-   "by": "news_judge",
-   "note": "score 5/10: New hearing scheduled in different township on development district that may affect data-center siting — incremental but document-based and actionable."
-  },
-  {
-   "url": "https://thelivingstonpost.com/researchers-stress-case-by-case-approach-when-evaluating-michigan-data-center-deals/",
-   "title": "Report: Michigan Data Centers Deliver Few Jobs or New Businesses After Build",
-   "at": "2026-07-10T00:14:28+00:00",
-   "by": "news_judge",
-   "note": "score 4/10: Analysis/report piece on economic impact trends rather than a specific Michigan decision, filing, or development; lacks concrete event hook."
-  },
-  {
-   "url": "https://www.aol.com/articles/report-shows-data-center-opposition-221906000.html",
-   "title": "Report: Michigan Data Center Opposition Often Overlooks Size Differences",
-   "at": "2026-07-10T04:37:14+00:00",
-   "by": "news_judge",
-   "note": "score 3/10: Thin analysis piece from Citizens Research Council rehashing statewide sentiment without a specific decision or filing."
-  },
-  {
    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOc2Z6bkNoNHRUc0p2N2JJMi1NS3RqTDIxSXJ4ZkRpLU9JUUtOUEZFT3RyVG5tRHFYTVc1dWoyd3R5ck55UXN5MjFHdmU1OUZ0bzVrSmpsR3JNdFk3NGxNNHhtdVpUR2NwbnE1RXl4cE9KbUhfbVJJYzlUMktBSjVyc2tEZ2t3VGdBOGk5NG9lbDZqUQ?oc=5",
    "title": "Washtenaw residents gain new tracker for every local data-center vote",
    "at": "2026-07-10T04:37:14+00:00",
@@ -1399,6 +1378,27 @@
    "at": "2026-07-22T10:04:00+00:00",
    "by": "news_judge",
    "note": "score 4/10: Vague delay with no specifics about what caused it, when it was announced, or what the new timeline is—reads like thin speculation."
+  },
+  {
+   "url": "https://techinformed.com/michigan-secures-big-tech-pledge-on-data-center-grid-costs/",
+   "title": "Six Major Tech Firms Pledge to Cover Data Center Grid Costs in Michigan",
+   "at": "2026-07-22T11:59:53+00:00",
+   "by": "news_judge",
+   "note": "score 3/10, duplicate: Same pledge announcement as the already-live 'Tech giants agree to pay for power infrastructure as Michigan shields ratepayers.'"
+  },
+  {
+   "url": "https://bridgemi.com/michigan-government/fact-check-is-john-james-backed-by-data-center-developers/",
+   "title": "James Took $113K+ From Data Center Builders and Utilities",
+   "at": "2026-07-22T11:59:53+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Thin campaign-finance rehash that fact-checks a claim but adds little substance beyond what was already killed in similar attack-ad stories."
+  },
+  {
+   "url": "https://time.com/article/2026/07/22/community-backlash-ai-data-centers/",
+   "title": "Community Backlash to AI Data Centers Intensifies Across the U.S.",
+   "at": "2026-07-22T11:59:53+00:00",
+   "by": "news_judge",
+   "note": "score 3/10: National trend piece with poll data but no Michigan-specific decision or development."
   }
  ],
  "auto_published": [
@@ -2061,6 +2061,12 @@
    "title": "West Michigan residents sue hyperscale data center over constant noise",
    "judge_score": 7,
    "at": "2026-07-22T10:04:00Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOR3lGMWVQclhHdkdOT0RXdnI4ckNKTFJ6TTdhOWFsZXEwU0c3cld6amVZcEszRW1tLUFnNWw0LUVfdkx3ajI1eWU4ZWNuc0ZadGI1bVpsUVY4Uy1DUXhwZHVISzdoTlg5akstUklTM2ZHbFVBNEpnNTNEWnZqSjZOMDVDLVpvZlFuVFBuYWhoVXA5d0NrNnc?oc=5",
+   "title": "Court overturns local veto of massive AI campus, raising power and water worries",
+   "judge_score": 8,
+   "at": "2026-07-22T11:59:53Z"
   }
  ]
 }
