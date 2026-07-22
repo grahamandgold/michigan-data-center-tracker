@@ -1,13 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://www.detroitnews.com/story/news/local/michigan/2026/07/09/data-center-proposal-mason-area-may-be-decided-by-state-officials/90859687007/",
-   "title": "U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure",
-   "at": "2026-07-09T22:40:39+00:00",
-   "by": "news_judge",
-   "note": "score 2/10, duplicate: Duplicate of killed story 'U.S. Data Center Power Demand Surges as Tech Giants Accelerate AI Infrastructure Buildout' — identical national trend piece."
-  },
-  {
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYVU3MkwxNzlDZUwtcjRGc2g1RHpNV3FVYUpBcGVCODJTZUhmdllwQWViWWpqcW51Qk5jNUxGVlNpNnhoSUs2STNJYmN2MFZzdFNhZkJVajc5d0dFUjI2V1ZhUDJRcEZTdFF1eVFqTXAzZTRudjJkZjlqRzdyalpGWEFGS3czblhadUV5YXRCYjZxclVyZWkzWXdsQnFUY0NndmlXS3F0RW1TU194d0EwWm9oaHk?oc=5",
    "title": "Livingston researchers warn tax deals need case-by-case scrutiny",
    "at": "2026-07-09T22:40:39+00:00",
@@ -1399,6 +1392,13 @@
    "at": "2026-07-22T01:01:47+00:00",
    "by": "news_judge",
    "note": "score 3/10: Generic explainer on potential impacts lacks a specific news event, decision, or development; reads like educational background material rather than reporting o"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZC1UQnZJbzhJZEV0LTlUTE1XYXdEczUtVWc4S20tZ2tCSkpVTUljNU81XzVKNHJNY0FtZDI1Zzd5LW5WQlFiT0tRM29POVo2WXRuN3Q5WjVBcFdvajFURV96Mk1WRG9qbzVNaUNZLUt1SkszVVliUm9kcXJwRk1EVGg0bHZXT19UejdJaXRMbUs2WmV1VkJwb0lwTdIBrwFBVV95cUxQU2RPU0VlVXpyeHVidFZjZjhQa3QxWGhqWE9JclFHSEJDVEZyTUNheW9WNjRRdHdkUktZNVA3bmxQTE5tR2oyQU9pRmNIRVF2SEFJMXFLZF84M3BoY19SanBGMmRUelRLYkxBdjFNamk1Rk5OU1JlMUpNWi1XREVpdWFFSjBKZFMzOEhGNzFENFdZMTg3VXRsSXp6eTFQNGdmRWpWMFNKOFN2VXlVNVNn?oc=5",
+   "title": "Michigan landowners learn what data centers can do to their property rights",
+   "at": "2026-07-22T04:25:12+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Explainer/educational piece on general risks rather than a specific decision, filing, or development."
   }
  ],
  "auto_published": [
@@ -2049,6 +2049,12 @@
    "title": "GOP chair floats ban on utility deals that shield data centers from rate hikes",
    "judge_score": 7,
    "at": "2026-07-21T19:44:37Z"
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOdUJWS1dYYUJvdDNUWGpuTk8wa0hKZmlGcWhJZW51YXBZaWhUSTZZVjhFR3pjNUNqVU8wcjFMd2VxMjNaLWhrbjhvS09vcHlXN3QzVG9HQ1U3NXFZY01mbWtyenRodXJULTFOY2NHT0JONV9ta1hiYUNVb2NPWTN6VFg1cGtOX1RkUHJZUXRSZmVCOFRUS1NPZ0xBend2c1Fkak4zeTd4T3RlbWI3eXQ2WFV6T25pTVp3Mk1fLVZabWVlWXQ0RW5XaXRMYkEyYU5TUzNIdy1FNHNmNlZHclR4RE9sOVRvdEhwZzJkeWZIcGkxanVpdHAtZ1YxX2w0UEhnUExWMDNnUUNjQlRiU1k3Uk56MG5CZw?oc=5",
+   "title": "Monroe County halts all new data center and battery permits for 18 months",
+   "judge_score": 9,
+   "at": "2026-07-22T04:25:12Z"
   }
  ]
 }

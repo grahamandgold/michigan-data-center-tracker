@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-22T01:01:43+00:00",
+ "updated_at": "2026-07-22T04:25:12Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Monroe County halts all new data center and battery permits for 18 months",
+   "dek": "The board voted to freeze applications, shielding local roads, wells and the grid from sudden large-scale builds. Residents gain time to weigh how much power and water these projects would pull from the county. The pause applies equally to data centers and battery storage, two uses that often arrive together.",
+   "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOdUJWS1dYYUJvdDNUWGpuTk8wa0hKZmlGcWhJZW51YXBZaWhUSTZZVjhFR3pjNUNqVU8wcjFMd2VxMjNaLWhrbjhvS09vcHlXN3QzVG9HQ1U3NXFZY01mbWtyenRodXJULTFOY2NHT0JONV9ta1hiYUNVb2NPWTN6VFg1cGtOX1RkUHJZUXRSZmVCOFRUS1NPZ0xBend2c1Fkak4zeTd4T3RlbWI3eXQ2WFV6T25pTVp3Mk1fLVZabWVlWXQ0RW5XaXRMYkEyYU5TUzNIdy1FNHNmNlZHclR4RE9sOVRvdEhwZzJkeWZIcGkxanVpdHAtZ1YxX2w0UEhnUExWMDNnUUNjQlRiU1k3Uk56MG5CZw?oc=5",
+   "source": "news8000.com",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Monroe",
+   "tag": "Local Government",
+   "iso": "2026-07-22T03:47:00Z",
+   "id": "518d296c68ec",
+   "origin": "google-news",
+   "source_title": "Monroe County board passes 18-month moratorium on data center and battery storage permits - news8000.com",
+   "source_url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOdUJWS1dYYUJvdDNUWGpuTk8wa0hKZmlGcWhJZW51YXBZaWhUSTZZVjhFR3pjNUNqVU8wcjFMd2VxMjNaLWhrbjhvS09vcHlXN3QzVG9HQ1U3NXFZY01mbWtyenRodXJULTFOY2NHT0JONV9ta1hiYUNVb2NPWTN6VFg1cGtOX1RkUHJZUXRSZmVCOFRUS1NPZ0xBend2c1Fkak4zeTd4T3RlbWI3eXQ2WFV6T25pTVp3Mk1fLVZabWVlWXQ0RW5XaXRMYkEyYU5TUzNIdy1FNHNmNlZHclR4RE9sOVRvdEhwZzJkeWZIcGkxanVpdHAtZ1YxX2w0UEhnUExWMDNnUUNjQlRiU1k3Uk56MG5CZw?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 9
+  },
   {
    "title": "GOP chair floats ban on utility deals that shield data centers from rate hikes",
    "dek": "Michigan Republican Party chair says he may back legislation stopping DTE and Consumers Energy from shifting data-center power costs onto households. The move would affect how billions in new grid upgrades get paid for across the state. Ratepayers in both utility territories would see the biggest difference if the ban passes.",
@@ -169,23 +186,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE13a1VwSlhxRGFOb09odk0xSUZoOFpBbkdGcGg4QzJ0bnFjemhKUUxYSFlwX3hBVFpUQmFkam5sVXF5UnF0LWRRcmtpMGRmSklyOGUwcTlyeXFhYlVQX3YwRw?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 9
-  },
-  {
-   "title": "Dowagiac residents sue hyperscale data center over nonstop noise",
-   "dek": "A lawsuit filed in Cass County claims the Dowagiac data center is generating constant, disruptive noise that is harming nearby homes. Residents say the facility has already altered daily life in the small southwest Michigan community. The case puts a spotlight on how local governments approve large projects without strong noise protections.",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9jY3VpRHk5UEVwV3MzVVEyWXBIbldmRndLTlpWYnN2QnBTNXMzTXJpZ25HUkM4NGRhMFNTZ3Nra1VyeWFmVW93dlhFOEVnWlBrV2RFS0ItZWl4Zw?oc=5",
-   "source": "Detroit Free Press",
-   "region": "west",
-   "cat": "STATEWIDE",
-   "county": "Cass",
-   "tag": "Local Government",
-   "iso": "2026-07-19T01:14:18Z",
-   "id": "f9008f0ddf07",
-   "origin": "google-news",
-   "source_title": "Dowagiac data center noise sparks lawsuit - Detroit Free Press",
-   "source_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9jY3VpRHk5UEVwV3MzVVEyWXBIbldmRndLTlpWYnN2QnBTNXMzTXJpZ25HUkM4NGRhMFNTZ3Nra1VyeWFmVW93dlhFOEVnWlBrV2RFS0ItZWl4Zw?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 8
   }
  ],
  "national": {
