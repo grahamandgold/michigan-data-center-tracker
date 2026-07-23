@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-22T22:37:40+00:00",
+ "updated_at": "2026-07-23T00:10:14+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -54,5 +54,5 @@
    "judge_note": "Document-based agenda preview for Oxford's July 23 planning meeting on draft zoning rules following their moratorium."
   }
  ],
- "accuracy_checked_at": "2026-07-22T22:37:38+00:00"
+ "accuracy_checked_at": "2026-07-23T00:10:11+00:00"
 }

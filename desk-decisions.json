@@ -1,13 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://www.cnbc.com/2026/07/10/ai-data-center-fears-michigan-democratic-senate-primary.html",
-   "title": "Michigan Senate hopefuls flag data center power strain",
-   "at": "2026-07-10T11:28:40+00:00",
-   "by": "news_judge",
-   "note": "score 3/10: Campaign trail commentary on data centers lacks concrete policy action or new development beyond candidate positioning."
-  },
-  {
    "url": "https://www.aol.com/news/report-shows-data-center-opposition-221906268.html",
    "title": "Report: Michigan data center backlash often ignores project size differences",
    "at": "2026-07-10T11:28:40+00:00",
@@ -1399,6 +1392,13 @@
    "at": "2026-07-22T22:37:40+00:00",
    "by": "news_judge",
    "note": "score 2/10: Texas political candidate statement with no Michigan relevance; national trend piece that doesn't advance Michigan data center tracking."
+  },
+  {
+   "url": "https://www.nist.gov/news-events/events/2026/07/securing-ai-data-center-architecture-security-posture-and-emerging",
+   "title": "NIST Plans July 2026 Virtual Workshop on AI Data Center Security",
+   "at": "2026-07-23T00:10:14+00:00",
+   "by": "news_judge",
+   "note": "score 2/10: National federal agency workshop announcement with no Michigan angle, no decisions made, just a future feedback-gathering event."
   }
  ],
  "auto_published": [
