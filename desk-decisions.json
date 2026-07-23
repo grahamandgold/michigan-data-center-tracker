@@ -1,13 +1,6 @@
 {
  "killed": [
   {
-   "url": "https://www.mlive.com/news/ann-arbor/2026/07/vote-on-oracles-request-for-tax-break-postponed-amid-community-pushback-south-of-ann-arbor.html",
-   "title": "Saline Township Board Delays Action on Oracle's $43 Billion Data Center Tax Incentives",
-   "at": "2026-07-10T19:46:19+00:00",
-   "by": "news_judge",
-   "note": "score 2/10, duplicate: This is the same Saline Township Oracle tax break postponement as candidate [0], just reworded."
-  },
-  {
    "url": "https://www.mlive.com/environment/2026/07/northern-michigan-township-moves-toward-data-center-development-pause.html",
    "title": "Northern Michigan Township Advances Toward Year-Long Data Center Development Freeze",
    "at": "2026-07-10T19:46:19+00:00",
@@ -1399,6 +1392,13 @@
    "at": "2026-07-23T18:21:00+00:00",
    "by": "news_judge",
    "note": "score 3/10: National trend piece with aggregate statistics rather than a specific Michigan decision, filing, or development; lacks concrete local news value."
+  },
+  {
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPVF9FODZsY0l4RDFtTjNpdzc2UjRucnFmUW0tVUN0NHZPYk1qbTBLN0V6bTcyNjk4YTBzSVVxeW45UHpBYnZjOGpaYUdPUTV3bE9oaVdxSEF3Q2Z6NzZNWkFTTUR0cVRxZjB2RUZSNUtKOWJuMzJQakV6OFdkeHpfUm9ZRXZKT1o3Nkk0SzZZN3ZyUkRfSU53Q09tWS1IOEZwR3F3Rm04eEoxX2ZmVUhpLQ?oc=5",
+   "title": "24/7 noise from data center keeps Michigan neighbors awake",
+   "at": "2026-07-23T21:16:01+00:00",
+   "by": "news_judge",
+   "note": "score 4/10: Anecdotal quality-of-life complaints without identifying a specific facility, decision, or actionable development; reads like a general feature rather than news"
   }
  ],
  "auto_published": [
