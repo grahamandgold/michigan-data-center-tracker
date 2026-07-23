@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-07-23T21:32:22+00:00",
+ "updated_at": "2026-07-23T22:33:33+00:00",
  "generator": "grok-wire-agent",
  "items": [
   {
@@ -15,7 +15,7 @@
    "kind": "agenda",
    "id": "e3fbd2406576",
    "filed_at": "2026-07-23T21:32:22+00:00",
-   "accuracy": "thin — needs human background",
+   "accuracy": "unverified-source-unfetchable",
    "findings": "No meeting packet or draft ordinance text is publicly extractable | Township Board voted 7-0 on Feb. 11, 2026 to enact one-year data center moratorium (Charter Township of Oxford Facebook post, July 20, 2026) | Township statements confirm no plans submitted or discussions with any parties (same Oxford Facebook post) | No prior Oxford Planning Commission votes on data-center or large-development items found | Comparable Michigan townships including Wixom (6 months) and Zeeland (12 months) enacted moratoriums while drafting regulations (Michigan Public, Wixomgov.org, Oxford Free Press)",
    "perspective": "The Township Board passed the moratorium 7-0 in February after no prior Planning Commission action on similar items. The commission discusses the draft ordinance tonight with public comment expected, potentially advancing recommendations to the board as dozens of Michigan communities regulate data centers amid land-use and infrastructure concerns.",
    "documents": [
@@ -25,7 +25,9 @@
     }
    ],
    "depth_score": 0,
-   "extraction_method": "vision-screenshot"
+   "extraction_method": "vision-screenshot",
+   "judge_score": 7,
+   "judge_note": "Concrete new development: Planning Commission meeting tonight on draft ordinance following February moratorium, a clear next step in Oxford's regulatory process"
   },
   {
    "iso": "2026-07-22T14:27:00+00:00",
@@ -78,5 +80,5 @@
    "judge_note": "Document-based agenda preview for Oxford's July 23 planning meeting on draft zoning rules following their moratorium."
   }
  ],
- "accuracy_checked_at": "2026-07-23T21:15:57+00:00"
+ "accuracy_checked_at": "2026-07-23T22:33:33+00:00"
 }
