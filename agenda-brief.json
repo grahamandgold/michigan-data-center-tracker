@@ -1,8 +1,16 @@
 {
- "generated_at": "2026-07-22T21:33:30+00:00",
+ "generated_at": "2026-07-23T11:34:08+00:00",
  "for_dates": [
-  "2026-07-22",
-  "2026-07-23"
+  "2026-07-23",
+  "2026-07-24"
  ],
- "items": []
+ "items": [
+  {
+   "iso": "2026-07-23",
+   "time": "6:30 PM",
+   "meeting": "Charter Township of Oxford Planning Commission",
+   "bullet": "Oxford Planning Commission discusses draft data center ordinance tonight after Feb. 7-0 moratorium vote; no projects proposed.",
+   "link": "https://www.facebook.com/CharterTwpofOxford/posts/regarding-the-proposed-draft-data-center-ordinance-that-will-be-discussed-at-the/"
+  }
+ ]
 }

@@ -1,7 +1,32 @@
 {
- "updated_at": "2026-07-23T11:27:23Z",
+ "updated_at": "2026-07-23T11:34:08+00:00",
  "generator": "grok-wire-agent",
  "items": [
+  {
+   "title": "Oxford planners debate rules that could open or close data centers on local land",
+   "dek": "Charter Township of Oxford Planning Commission meets tonight to discuss a proposed draft data center ordinance. The township board imposed a one-year moratorium on such projects in February with a 7-0 vote. No specific projects have been proposed or submitted, leaving residents 30 minutes away without details on potential impacts to land, power demand or tax base.",
+   "url": "https://www.facebook.com/CharterTwpofOxford/posts/regarding-the-proposed-draft-data-center-ordinance-that-will-be-discussed-at-the/",
+   "source": "Charter Township of Oxford Planning Commission agenda",
+   "region": "Southeast Michigan",
+   "county": "Oakland",
+   "cat": "Meetings",
+   "tag": "Agenda watch",
+   "iso": "2026-07-23T11:34:08+00:00",
+   "kind": "agenda",
+   "id": "e3fbd2406576",
+   "filed_at": "2026-07-23T11:34:08+00:00",
+   "accuracy": "thin — needs human background",
+   "findings": "Draft data center ordinance listed for discussion on commission agenda per township Facebook post | One-year moratorium on data centers approved 7-0 by Township Board on Feb. 11, 2026 | No data center plans proposed, submitted or approved as of July 20, 2026 | No parcels, acreage, megawatts or abatement terms detailed in available public materials | Packet and full ordinance text not extractable from public sources | Comparable Lenox Township commission voted 4-2 to pause similar draft rules after resident pushback",
+   "perspective": "Oxford Township Board previously enacted the moratorium with no prior Planning Commission votes on data centers found. The commission discusses the draft ordinance at 6:30 PM tonight; public comment is expected, with any next steps dependent on further readings or board action.",
+   "documents": [
+    {
+     "label": "Agenda page",
+     "url": "https://www.facebook.com/CharterTwpofOxford/posts/regarding-the-proposed-draft-data-center-ordinance-that-will-be-discussed-at-the/"
+    }
+   ],
+   "depth_score": 0,
+   "extraction_method": "vision-screenshot"
+  },
   {
    "title": "Oxford posts draft data center rules for July 23 discussion",
    "dek": "Township officials will present a starting-point draft at the planning commission meeting after enacting a one-year moratorium in February. No data center proposals have been submitted.",
