@@ -1,7 +1,24 @@
 {
- "updated_at": "2026-07-24T04:22:29+00:00",
+ "updated_at": "2026-07-24T07:12:23Z",
  "generator": "grok-wire-agent",
  "stories": [
+  {
+   "title": "Augusta Township nears vote on Oracle-scale data center rules",
+   "dek": "Augusta officials are set to decide on zoning and tax terms for a large data-center proposal that would pull power from the same DTE territory as Saline. The outcome determines how much new load hits ratepayers and whether the township collects meaningful revenue. A yes vote would add to the string of projects reshaping Washtenaw County's tax base and electricity demand.",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOR1RFSDRCWWNjYjl1VXdwaXQ4aDllY3loZlZTSkVQNFRucFdwYTdQcS02c2VscUVVY2hULXI2OEZXbnh1ZTRoTmlrT3J0Y0J4VXRuQnFWaEkzZVVOcjRCenhha0JEZHpvMFJtWktHSDg4TnRuSnREenZzM1ZaZVJSNV9RS2V1MFpiRllxTW5tVjZjZ1lTdXE2bXVqbVZjdUNGeENIZ1NzTDFCQmc?oc=5",
+   "source": "The Sun Times News",
+   "region": "metro",
+   "cat": "STATEWIDE",
+   "county": "Washtenaw",
+   "tag": "Local Government",
+   "iso": "2026-07-24T01:48:39Z",
+   "id": "1652f7509680",
+   "origin": "google-news",
+   "source_title": "Weekly Data Center Watch: Saline Reverses Tax Break Limit as Augusta Vote Nears - The Sun Times News",
+   "source_url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOR1RFSDRCWWNjYjl1VXdwaXQ4aDllY3loZlZTSkVQNFRucFdwYTdQcS02c2VscUVVY2hULXI2OEZXbnh1ZTRoTmlrT3J0Y0J4VXRuQnFWaEkzZVVOcjRCenhha0JEZHpvMFJtWktHSDg4TnRuSnREenZzM1ZaZVJSNV9RS2V1MFpiRllxTW5tVjZjZ1lTdXE2bXVqbVZjdUNGeENIZ1NzTDFCQmc?oc=5",
+   "accuracy": "unverified-source-unfetchable",
+   "judge_score": 7
+  },
   {
    "title": "Saline Township flips, restoring Oracle's shot at big tax break",
    "dek": "The board reversed its earlier limit on incentives for the proposed Oracle campus. Residents now face the prospect of forgoing years of property-tax revenue on a multibillion-dollar project that would draw heavy power and water. The change came after lobbying from the company and supporters who argue the facility would bring jobs.",
@@ -167,23 +184,6 @@
    "source_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWVFLREc3UElJdWF1MnEwVE1ZdWtUYkk3d0I4SzQwNTZpUXRrd0E0MWhHME9nUllQQThlb19GeFNEWEdaNndreG53VGFWLUZEWFZZOGdiM1lsVFZOTlVYQ2FscE1MWXdKNTN1TW5pQ0w2SWFSdFQ4TU44cDRmNTNXbzVLbi1tTkVucWFDVTdYNHRxS0VfekRWSVR0bXVDb2xPWF9EeG9FZ29MQQ?oc=5",
    "accuracy": "unverified-source-unfetchable",
    "judge_score": 7
-  },
-  {
-   "title": "Chelsea blocks data centers and big rentals for a full year",
-   "dek": "Chelsea city council voted to freeze all new data-center and large rental-housing proposals for 12 months. Residents near potential sites avoid sudden spikes in power demand and traffic while the city studies infrastructure limits. The pause gives neighbors time to weigh how much extra electricity and water these projects would pull from local supplies.",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOS05wdTRhdlM4bnNFLTNkRDRsT29YbmRBVGRuQWZYY1dVWDRzNHNJbEdwUm01OUJTWFc1bzF2WjJ1dFpvalFfRmY4TjhyaDhRWmRCTjRJUzgzQlNaWEF6aGN2amZQVXpRbWUwMjJnTkhDM1ljV2dGMC1tRExyWFFUSlQtbzNtdFRzX1BqUU83Z2tNUnlxTl9j?oc=5",
-   "source": "WBMA",
-   "region": "metro",
-   "cat": "STATEWIDE",
-   "county": "Washtenaw",
-   "tag": "Local Government",
-   "iso": "2026-07-22T13:32:01Z",
-   "id": "e61f87cc75ee",
-   "origin": "google-news",
-   "source_title": "Chelsea approves one-year moratoriums on data centers, rental communities - WBMA",
-   "source_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOS05wdTRhdlM4bnNFLTNkRDRsT29YbmRBVGRuQWZYY1dVWDRzNHNJbEdwUm01OUJTWFc1bzF2WjJ1dFpvalFfRmY4TjhyaDhRWmRCTjRJUzgzQlNaWEF6aGN2amZQVXpRbWUwMjJnTkhDM1ljV2dGMC1tRExyWFFUSlQtbzNtdFRzX1BqUU83Z2tNUnlxTl9j?oc=5",
-   "accuracy": "unverified-source-unfetchable",
-   "judge_score": 9
   }
  ],
  "national": {
